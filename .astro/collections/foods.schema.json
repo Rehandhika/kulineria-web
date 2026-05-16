@@ -1,0 +1,324 @@
+{
+  "$ref": "#/definitions/foods",
+  "definitions": {
+    "foods": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string",
+          "enum": [
+            "sumatera",
+            "jawa",
+            "kalimantan",
+            "sulawesi",
+            "bali-ntt",
+            "maluku-papua"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "taste": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "manis",
+              "pedas",
+              "gurih",
+              "asam",
+              "asin"
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "berkuah",
+            "digoreng",
+            "dibakar",
+            "mentah",
+            "minuman"
+          ]
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "hero": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "type": "string"
+            },
+            "alt": {
+              "type": "string"
+            },
+            "credit": {
+              "type": "string"
+            },
+            "dominantColor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image",
+            "alt",
+            "dominantColor"
+          ],
+          "additionalProperties": false
+        },
+        "story": {
+          "type": "object",
+          "properties": {
+            "headline": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            },
+            "pullQuote": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "headline",
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "qty": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "essential": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "image",
+              "essential"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "recipe": {
+          "type": "object",
+          "properties": {
+            "servings": {
+              "type": "number"
+            },
+            "prepTime": {
+              "type": "number"
+            },
+            "cookTime": {
+              "type": "number"
+            },
+            "difficulty": {
+              "type": "string",
+              "enum": [
+                "easy",
+                "medium",
+                "hard"
+              ]
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "order": {
+                    "type": "number"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "duration": {
+                    "type": "number"
+                  },
+                  "tip": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "order",
+                  "title",
+                  "text"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "servings",
+            "prepTime",
+            "cookTime",
+            "difficulty",
+            "steps"
+          ],
+          "additionalProperties": false
+        },
+        "tasteScore": {
+          "type": "object",
+          "properties": {
+            "manis": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "pedas": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "gurih": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "asam": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "asin": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "manis",
+            "pedas",
+            "gurih",
+            "asam",
+            "asin"
+          ],
+          "additionalProperties": false
+        },
+        "nutrition": {
+          "type": "object",
+          "properties": {
+            "calories": {
+              "type": "number"
+            },
+            "protein": {
+              "type": "number"
+            },
+            "carbs": {
+              "type": "number"
+            },
+            "fat": {
+              "type": "number"
+            },
+            "fiber": {
+              "type": "number"
+            },
+            "servingSize": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "calories",
+            "protein",
+            "carbs",
+            "fat",
+            "servingSize"
+          ],
+          "additionalProperties": false
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lng": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "priceRange": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "city",
+              "lat",
+              "lng",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "funFacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "region",
+        "description",
+        "taste",
+        "type",
+        "imageUrl"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

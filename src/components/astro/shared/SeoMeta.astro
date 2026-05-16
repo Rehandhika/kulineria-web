@@ -1,0 +1,74 @@
+---
+/**
+ * SeoMeta - Reusable SEO meta tags component
+ * Generates: title, description, OG, Twitter, canonical, JSON-LD
+ */
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article' | 'recipe';
+  keywords?: string[];
+  publishedTime?: string;
+}
+
+const {
+  title,
+  description = 'Kulineria - Indonesian Culinary Atlas. Discover 510+ traditional dishes across 6 regions of the Indonesian archipelago.',
+  image = 'https://kulineria.id/og-image.jpg',
+  url = Astro.url.toString(),
+  type = 'website',
+  keywords = [],
+  publishedTime,
+} = Astro.props;
+
+const siteName = 'Kulineria';
+const fullTitle = `${title} | ${siteName}`;
+const twitterHandle = '@kulineria';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': type === 'recipe' ? 'Recipe' : type === 'article' ? 'Article' : 'WebPage',
+  name: title,
+  description,
+  url,
+  image,
+  publisher: { '@type': 'Organization', name: siteName },
+  ...(publishedTime ? { datePublished: publishedTime } : {}),
+  ...(keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={url} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="id_ID" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={url} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+<meta name="twitter:site" content={twitterHandle} />
+
+<!-- Theme -->
+<meta name="theme-color" content="#D97706" />
+<meta name="color-scheme" content="light" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

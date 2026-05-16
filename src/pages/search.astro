@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchProvider from '../components/react/search/SearchProvider';
+import CommandPalette from '../components/react/search/CommandPalette';
+import Footer from '../components/astro/shared/Footer.astro';
+---
+
+<BaseLayout title="Search" description="Search Indonesian culinary dishes by region, taste, and type">
+  <div class="search-page-wrapper">
+    <SearchProvider client:only="react" />
+    <CommandPalette client:only="react" />
+  </div>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .search-page-wrapper {
+    min-height: 100vh;
+    padding-top: calc(var(--nav-mobile-h) + var(--sp-4));
+    padding-bottom: var(--sp-20);
+  }
+
+  @media (min-width: 1024px) {
+    .search-page-wrapper {
+      padding-top: calc(var(--nav-h) + var(--sp-8));
+    }
+  }
+</style>

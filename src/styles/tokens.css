@@ -1,0 +1,223 @@
+/* ============================================
+   KULINERIA DESIGN TOKENS v2
+   Cartoon Theme - Playful, Warm, Premium
+   ============================================ */
+
+:root {
+  /* COLORS - Neutrals (Warm, Creamy) */
+  --c-white:        #FFFFFF;
+  --c-cream:        #FFF8F0;
+  --c-bg:           #FFFBF5;
+  --c-surface:      #FFFFFF;
+  --c-surface-1:    #FFFFFF;
+  --c-surface-2:    #FFF5EB;
+  --c-surface-3:    #FFE8D6;
+  --c-border:       #F0E6D8;
+  --c-border-soft:  #F5EDE3;
+  --c-border-strong:#E0D0BC;
+  --c-text-1:       #2D1810;
+  --c-text-2:       #6B4E3D;
+  --c-text-3:       #A89080;
+  --c-ink:          #1A0F0A;
+  --c-ink-soft:     #2D1810;
+  --c-ink-mute:     #4A3528;
+
+  /* COLORS - Region Accents (Vibrant, Cartoon) */
+  --c-sumatera:     #FF6B35;
+  --c-jawa:         #22C55E;
+  --c-kalimantan:   #F59E0B;
+  --c-sulawesi:     #06B6D4;
+  --c-bali-ntt:     #EC4899;
+  --c-maluku-papua: #8B5CF6;
+
+  /* COLORS - Accent (Warm Orange) */
+  --c-accent:       #F97316;
+  --c-accent-light: #FFF0E5;
+  --c-accent-hover: #EA580C;
+  --c-accent-dark:  #C2410C;
+  --c-accent-alpha: rgba(249, 115, 22, 0.12);
+  --c-accent-soft:  #FED7AA;
+
+  /* COLORS - Semantic (Cartoon-friendly) */
+  --c-success:      #22C55E;
+  --c-success-alpha: rgba(34, 197, 94, 0.12);
+  --c-success-light: #DCFCE7;
+  --c-error:        #EF4444;
+  --c-danger:       #EF4444;
+  --c-danger-alpha: rgba(239, 68, 68, 0.12);
+  --c-danger-light: #FEE2E2;
+  --c-warning:      #F59E0B;
+  --c-warning-light: #FEF3C7;
+  --c-info:         #06B6D4;
+  --c-info-light:   #CFFAFE;
+
+  /* COLORS - Cartoon Palette */
+  --c-cartoon-yellow: #FDE68A;
+  --c-cartoon-pink:   #FBCFE8;
+  --c-cartoon-blue:   #BFDBFE;
+  --c-cartoon-green:  #BBF7D0;
+  --c-cartoon-purple: #E9D5FF;
+  --c-cartoon-orange: #FED7AA;
+
+  /* TYPOGRAPHY - Font Families */
+  --ff-display:     'Playfair Display', Georgia, 'Times New Roman', serif;
+  --ff-body:        'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ff-nara:        'Nunito', 'Segoe UI', Roboto, sans-serif;
+  --ff-mono:        'Geist Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* TYPOGRAPHY - Font Sizes (fluid via clamp) */
+  --fs-display:     clamp(3.5rem, 12vw, 11.25rem);
+  --fs-mega:        clamp(2.5rem, 9vw, 7.5rem);
+  --fs-hero:        clamp(2.5rem, 7vw, 4.5rem);
+  --fs-4xl:         clamp(2rem, 4vw, 3rem);
+  --fs-3xl:         clamp(1.875rem, 3.5vw, 2.5rem);
+  --fs-2xl:         clamp(1.5rem, 3vw, 2rem);
+  --fs-xl:          clamp(1.25rem, 2.5vw, 1.5rem);
+  --fs-lg:          clamp(1.125rem, 1.8vw, 1.25rem);
+  --fs-base:        clamp(0.938rem, 1.5vw, 1rem);
+  --fs-sm:          clamp(0.813rem, 1.2vw, 0.875rem);
+  --fs-xs:          clamp(0.688rem, 1vw, 0.75rem);
+  --fs-tiny:        clamp(0.625rem, 0.8vw, 0.688rem);
+
+  /* TYPOGRAPHY - Line Heights */
+  --lh-tight:       1.08;
+  --lh-snug:        1.2;
+  --lh-normal:      1.5;
+  --lh-relaxed:     1.6;
+  --lh-loose:       1.8;
+
+  /* TYPOGRAPHY - Letter Spacing */
+  --ls-tight:       -0.025em;
+  --ls-normal:      0;
+  --ls-wide:        0.05em;
+  --ls-wider:       0.08em;
+  --ls-widest:      0.12em;
+
+  /* SPACING (4px base unit) */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+  --sp-32:  128px;
+  --sp-05:  2px;
+
+  /* LAYOUT */
+  --container-max:  1280px;
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --grid-bleed:     clamp(16px, 4vw, 96px);
+  --grid-cols:      12;
+  --grid-gutter:    clamp(12px, 1.5vw, 24px);
+  --nav-h:          64px;
+  --nav-mobile-h:   60px;
+  --page-px:        16px;
+
+  /* RADII (Cartoon - More Rounded) */
+  --r-sm:    8px;
+  --r-md:    12px;
+  --r-lg:    16px;
+  --r-xl:    24px;
+  --r-2xl:   32px;
+  --r-3xl:   40px;
+  --r-full:  9999px;
+
+  /* SHADOWS (Soft, Cartoon-friendly) */
+  --sh-1:  0 1px 3px rgba(45, 24, 16, 0.04), 0 1px 2px rgba(45, 24, 16, 0.06);
+  --sh-2:  0 4px 8px rgba(45, 24, 16, 0.06), 0 2px 4px rgba(45, 24, 16, 0.04);
+  --sh-3:  0 12px 24px rgba(45, 24, 16, 0.08), 0 4px 8px rgba(45, 24, 16, 0.04);
+  --sh-4:  0 24px 48px rgba(45, 24, 16, 0.1), 0 8px 16px rgba(45, 24, 16, 0.06);
+  --sh-5:  0 16px 64px rgba(45, 24, 16, 0.16);
+  --sh-lg: var(--sh-3);
+  --sh-xl: var(--sh-4);
+  --sh-cartoon: 0 8px 0 rgba(45, 24, 16, 0.08);
+  --sh-cartoon-hover: 0 4px 0 rgba(45, 24, 16, 0.08);
+  --sh-inner: inset 0 2px 4px rgba(45, 24, 16, 0.06);
+
+  /* ANIMATION - Easing (Cartoon - Bouncy) */
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce:      cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-anticipate:  cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --ease-smooth:      cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-ui:          cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:         cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:          cubic-bezier(0.4, 0, 1, 1);
+  --ease-cartoon:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-elastic:     cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* ANIMATION - Durations */
+  --dur-instant:   100ms;
+  --dur-fast:      200ms;
+  --dur-base:      350ms;
+  --dur-slow:      650ms;
+  --dur-cinematic: 1200ms;
+  --dur-cartoon:   400ms;
+
+  /* Z-INDEX */
+  --z-base:     1;
+  --z-sticky:   100;
+  --z-nav:      200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-cursor:   9999;
+
+  /* CARTOON SPECIFIC */
+  --cartoon-stroke: 2px;
+  --cartoon-stroke-color: rgba(45, 24, 16, 0.15);
+}
+
+/* ============================================
+   DARK MODE TOKENS
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg:           #1A1210;
+    --c-surface:      #241C18;
+    --c-surface-1:    #241C18;
+    --c-surface-2:    #2D2220;
+    --c-surface-3:    #3D2E28;
+    --c-border:       #3D322E;
+    --c-border-soft:  #332824;
+    --c-border-strong:#4A3D38;
+    --c-text-1:       #FFF8F0;
+    --c-text-2:       #C4B5A8;
+    --c-text-3:       #8A7B6E;
+    --c-cream:        #241C18;
+    --c-accent-light: #3D2818;
+    --c-accent-alpha: rgba(249, 115, 22, 0.15);
+    --c-success-alpha: rgba(34, 197, 94, 0.15);
+    --c-danger-alpha: rgba(239, 68, 68, 0.15);
+    --c-cartoon-yellow: #4A3818;
+    --c-cartoon-pink:   #3D2030;
+    --c-cartoon-blue:   #1E2D3D;
+    --c-cartoon-green:  #1E3D28;
+    --c-cartoon-purple: #2E2040;
+    --c-cartoon-orange: #3D2818;
+  }
+}
+
+/* ============================================
+   FEATURE QUERIES
+   ============================================ */
+@supports (backdrop-filter: blur(1px)) {
+  .nav-glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .nav-glass {
+    background: rgba(255, 248, 240, 0.98);
+  }
+}

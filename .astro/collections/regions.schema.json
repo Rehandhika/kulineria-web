@@ -1,0 +1,51 @@
+{
+  "$ref": "#/definitions/regions",
+  "definitions": {
+    "regions": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "sumatera",
+            "jawa",
+            "kalimantan",
+            "sulawesi",
+            "bali-ntt",
+            "maluku-papua"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "naraExpression": {
+          "type": "string",
+          "enum": [
+            "idle",
+            "excited",
+            "thinking",
+            "sad"
+          ]
+        },
+        "naraDialog": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "color",
+        "naraExpression",
+        "naraDialog"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

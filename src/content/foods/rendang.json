@@ -1,0 +1,50 @@
+{
+  "id": "rendang-001",
+  "name": "Rendang",
+  "region": "sumatera",
+  "description": "Daging sapi yang dimasak dengan santan dan rempah-rempah hingga kering dan berwarna cokelat kehitaman. Hidangan khas Minangkabau yang terkenal di seluruh dunia.",
+  "taste": ["pedas", "gurih"],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/rendang.jpg",
+  "hero": {
+    "image": "/img/foods/rendang-hero.jpg",
+    "alt": "Rendang Minangkabau dengan bumbu rempah yang kaya",
+    "dominantColor": "#8B4513"
+  },
+  "story": {
+    "headline": "The King of Minang Cuisine",
+    "body": "Rendang bukan sekadar masakan, tapi warisan budaya yang telah diwariskan selama berabad-abad. Setiap keluarga di Minangkabau memiliki resep rahasia yang diturunkan dari generasi ke generasi. Proses memasak rendang yang memakan waktu berjam-jam mencerminkan kesabaran dan dedikasi masyarakat Minang dalam melestarikan kuliner mereka.",
+    "pullQuote": "Rendang adalah cinta yang dimasak perlahan",
+    "image": "/img/foods/rendang-story.jpg"
+  },
+  "ingredients": [
+    { "name": "Daging Sapi", "qty": "1kg", "image": "/img/ingredients/beef.svg", "essential": true },
+    { "name": "Santan", "qty": "500ml", "image": "/img/ingredients/coconut-milk.svg", "essential": true },
+    { "name": "Cabai Merah", "qty": "200g", "image": "/img/ingredients/red-chili.svg", "essential": true },
+    { "name": "Serai", "qty": "5 batang", "image": "/img/ingredients/lemongrass.svg", "essential": true },
+    { "name": "Lengkuas", "qty": "3cm", "image": "/img/ingredients/galangal.svg", "essential": true },
+    { "name": "Daun Kunyit", "qty": "3 lembar", "image": "/img/ingredients/turmeric-leaf.svg", "essential": false }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 30,
+    "cookTime": 240,
+    "difficulty": "hard",
+    "steps": [
+      { "order": 1, "title": "Haluskan Bumbu", "text": "Haluskan cabai, bawang merah, bawang putih, jahe, dan lengkuas hingga halus.", "duration": 600, "tip": "Gunakan cobek batu untuk hasil terbaik" },
+      { "order": 2, "title": "Tumis Bumbu", "text": "Tumis bumbu halus dengan minyak hingga harum dan matang.", "duration": 480 },
+      { "order": 3, "title": "Masukkan Daging", "text": "Masukkan daging sapi, aduk rata dengan bumbu.", "duration": 300 },
+      { "order": 4, "title": "Tuang Santan", "text": "Tuang santan perlahan, aduk terus agar tidak pecah.", "duration": 300 },
+      { "order": 5, "title": "Masak Perlahan", "text": "Masak dengan api kecil selama 3-4 jam hingga santan mengering dan berminyak.", "duration": 14400, "tip": "Aduk sesekali agar tidak gosong" }
+    ]
+  },
+  "tasteScore": { "manis": 15, "pedas": 75, "gurih": 90, "asam": 5, "asin": 30 },
+  "nutrition": { "calories": 320, "protein": 24, "carbs": 18, "fat": 22, "fiber": 3, "servingSize": "1 porsi (250g)" },
+  "locations": [
+    { "name": "RM Padang Sederhana", "city": "Jakarta Selatan", "lat": -6.2615, "lng": 106.8106, "description": "Rendang autentik dengan resep Minang asli", "priceRange": "Rp 35.000 - 55.000" },
+    { "name": "Rumah Makan Minang", "city": "Padang", "lat": -0.9471, "lng": 100.4172, "description": "Tempat makan legendaris di jantung Minangkabau" }
+  ],
+  "related": ["gulai-ikan-002", "sate-padang-003", "dendeng-balado-007"],
+  "funFacts": ["Rendang dinobatkan sebagai makanan terlezat di dunia oleh CNN International pada 2011 dan 2017", "Proses memasak rendang tradisional bisa memakan waktu hingga 8 jam"],
+  "tags": ["minang", "daging sapi", "santan", "pedas", "warisan budaya", "khas sumatera"]
+}

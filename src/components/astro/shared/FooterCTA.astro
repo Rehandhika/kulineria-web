@@ -1,0 +1,72 @@
+---
+/**
+ * FooterCTA - Static CTA section at bottom of food detail
+ */
+interface Props {
+  regionName: string;
+  regionId: string;
+}
+
+const { regionName, regionId } = Astro.props;
+---
+
+<section class="footer-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-nara">🍜</div>
+      <h2 class="cta-title">Explore more from {regionName}</h2>
+      <p class="cta-subtitle">Discover {regionName}'s culinary treasures</p>
+      <a href={`/search?region=${regionId}`} class="cta-btn">
+        Browse {regionName} Dishes
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .footer-cta {
+    background: var(--c-ink);
+    color: var(--c-white);
+    padding: var(--sp-20) 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-nara {
+    font-size: 64px;
+    margin-bottom: var(--sp-6);
+  }
+
+  .cta-title {
+    font-family: var(--ff-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    letter-spacing: var(--ls-tight);
+    margin-bottom: var(--sp-3);
+  }
+
+  .cta-subtitle {
+    font-size: var(--fs-lg);
+    color: var(--c-text-3);
+    margin-bottom: var(--sp-8);
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 14px 32px;
+    background: var(--c-accent);
+    color: var(--c-white);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    border-radius: var(--r-full);
+    transition: all var(--dur-base) var(--ease-ui);
+  }
+  .cta-btn:hover { background: var(--c-accent-hover); transform: translateY(-2px); box-shadow: var(--sh-3); }
+</style>

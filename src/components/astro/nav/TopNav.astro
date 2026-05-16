@@ -1,0 +1,190 @@
+---
+/**
+ * TopNav - Desktop navigation (visible >= 1024px)
+ * Cartoon theme with smooth animations
+ */
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/search', label: 'Explore', key: 'search' },
+  { href: '/quiz', label: 'Quiz', key: 'quiz' },
+  { href: '/about', label: 'About', key: 'about' },
+];
+
+function isActive(path: string) {
+  if (path === '/') return currentPath === '/';
+  return currentPath.startsWith(path);
+}
+---
+
+<nav class="top-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Kulineria Home">
+      <span class="logo-text">Kulineria</span>
+      <span class="logo-dot">.</span>
+    </a>
+
+    <ul class="nav-links">
+      {navItems.map(item => (
+        <li>
+          <a
+            href={item.href}
+            class:list={['nav-link', { active: isActive(item.href) }]}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            <span class="nav-link-text">{item.label}</span>
+            <span class="nav-link-bg"></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button class="nav-search-btn" aria-label="Open search" data-cmd-k>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span class="search-shortcut">⌘K</span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-nav);
+    display: none;
+    transition: transform 0.3s var(--ease-smooth);
+  }
+
+  @media (min-width: 1024px) {
+    .top-nav { display: block; }
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-h);
+    padding: 0 var(--sp-12);
+    background: rgba(255, 248, 240, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--c-border-soft);
+    transition: all 0.3s var(--ease-smooth);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: baseline;
+    font-family: var(--ff-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--c-text-1);
+    letter-spacing: var(--ls-tight);
+    transition: transform 0.3s var(--ease-bounce);
+  }
+
+  .nav-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-dot {
+    color: var(--c-accent);
+    font-size: 1.2em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    list-style: none;
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sp-2) var(--sp-4);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--c-text-2);
+    border-radius: var(--r-full);
+    transition: all var(--dur-fast) var(--ease-smooth);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .nav-link-text {
+    position: relative;
+    z-index: 2;
+    transition: color var(--dur-fast) var(--ease-smooth);
+  }
+
+  .nav-link-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--c-accent);
+    border-radius: var(--r-full);
+    transform: scale(0);
+    transition: transform var(--dur-base) var(--ease-bounce);
+    z-index: 1;
+  }
+
+  .nav-link:hover {
+    color: var(--c-text-1);
+  }
+
+  .nav-link:hover .nav-link-bg {
+    transform: scale(1);
+  }
+
+  .nav-link:hover .nav-link-text {
+    color: var(--c-white);
+  }
+
+  .nav-link.active {
+    color: var(--c-white);
+  }
+
+  .nav-link.active .nav-link-bg {
+    transform: scale(1);
+    background: var(--c-accent);
+  }
+
+  .nav-link.active .nav-link-text {
+    color: var(--c-white);
+  }
+
+  .nav-search-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--r-full);
+    color: var(--c-text-2);
+    background: var(--c-surface-2);
+    border: 1px solid var(--c-border);
+    transition: all var(--dur-fast) var(--ease-smooth);
+  }
+
+  .nav-search-btn:hover {
+    background: var(--c-surface);
+    color: var(--c-text-1);
+    border-color: var(--c-border-strong);
+    transform: translateY(-1px);
+    box-shadow: var(--sh-2);
+  }
+
+  .search-shortcut {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    padding: 2px 6px;
+    background: var(--c-surface);
+    border-radius: var(--r-sm);
+    border: 1px solid var(--c-border);
+    color: var(--c-text-3);
+  }
+</style>

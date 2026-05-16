@@ -1,0 +1,47 @@
+{
+  "id": "gudeg-101",
+  "name": "Gudeg",
+  "region": "jawa",
+  "description": "Makanan khas Yogyakarta dari nangka muda yang dimasak dengan santan dan gula merah hingga berwarna cokelat kemerahan.",
+  "taste": ["manis", "gurih"],
+  "type": "berkuah",
+  "imageUrl": "/img/foods/gudeg.jpg",
+  "hero": {
+    "image": "/img/foods/gudeg-hero.jpg",
+    "alt": "Gudeg Yogyakarta dengan warna cokelat kemerahan khas",
+    "dominantColor": "#8B6914"
+  },
+  "story": {
+    "headline": "Manisnya Warisan Yogyakarta",
+    "body": "Gudeg adalah ikon kuliner Yogyakarta yang telah ada sejak zaman Kerajaan Mataram. Proses memasak gudeg yang tradisional menggunakan kayu bakar dan memerlukan waktu berjam-jam untuk mencapai cita rasa yang sempurna.",
+    "pullQuote": "Gudeg adalah simbol kesabaran dan kehalusan rasa Jawa",
+    "image": "/img/foods/gudeg-story.jpg"
+  },
+  "ingredients": [
+    { "name": "Nangka Muda", "qty": "1kg", "image": "/img/ingredients/young-jackfruit.svg", "essential": true },
+    { "name": "Santan", "qty": "400ml", "image": "/img/ingredients/coconut-milk.svg", "essential": true },
+    { "name": "Gula Merah", "qty": "150g", "image": "/img/ingredients/palm-sugar.svg", "essential": true },
+    { "name": "Daun Salam", "qty": "5 lembar", "image": "/img/ingredients/bay-leaf.svg", "essential": true },
+    { "name": "Telur", "qty": "4 butir", "image": "/img/ingredients/egg.svg", "essential": false }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 20,
+    "cookTime": 180,
+    "difficulty": "medium",
+    "steps": [
+      { "order": 1, "title": "Siapkan Nangka", "text": "Potong nangka muda, rebus hingga empuk.", "duration": 1800 },
+      { "order": 2, "title": "Masak Santan", "text": "Masak santan dengan gula merah, daun salam, dan lengkuas.", "duration": 600 },
+      { "order": 3, "title": "Masukkan Nangka", "text": "Masukkan nangka muda ke dalam kuah santan.", "duration": 300 },
+      { "order": 4, "title": "Masak Perlahan", "text": "Masak dengan api kecil hingga nangka berwarna cokelat kemerahan.", "duration": 7200, "tip": "Aduk sesekali agar tidak gosong di bagian bawah" }
+    ]
+  },
+  "tasteScore": { "manis": 80, "pedas": 5, "gurih": 60, "asam": 5, "asin": 15 },
+  "nutrition": { "calories": 250, "protein": 8, "carbs": 35, "fat": 12, "fiber": 5, "servingSize": "1 porsi (200g)" },
+  "locations": [
+    { "name": "Gudeg Yu Djum", "city": "Yogyakarta", "lat": -7.7972, "lng": 110.3688, "description": "Gudeg legendaris sejak 1950", "priceRange": "Rp 25.000 - 40.000" }
+  ],
+  "related": ["nasi-gudeg-102", "sate-klathak-103"],
+  "funFacts": ["Gudeg Wijilan di Yogyakarta memiliki gang khusus yang penuh dengan penjual gudeg"],
+  "tags": ["yogyakarta", "nangka muda", "manis", "khas jawa", "sarapan"]
+}

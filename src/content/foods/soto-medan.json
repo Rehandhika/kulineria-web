@@ -1,0 +1,49 @@
+{
+  "id": "soto-medan-032",
+  "name": "Soto Medan",
+  "region": "sumatera",
+  "description": "Soto dengan kuah santan kuning dan daging sapi, khas Medan.",
+  "taste": ["gurih", "pedas"],
+  "type": "berkuah",
+  "imageUrl": "/img/foods/soto-medan.jpg",
+  "hero": {
+    "image": "/img/foods/soto-medan-hero.jpg",
+    "alt": "Soto Medan dengan kuah santan kuning yang kaya",
+    "dominantColor": "#D4A017"
+  },
+  "story": {
+    "headline": "Kuah Kuning Legendaris Medan",
+    "body": "Soto Medan adalah kebanggaan kuliner kota Medan. Dengan kuah santan kuning yang kaya rempah, soto ini berbeda dari soto-soto lainnya di Indonesia. Perpaduan antara pengaruh Melayu, Tionghoa, dan India menciptakan cita rasa yang unik.",
+    "pullQuote": "Setiap mangkuk Soto Medan adalah perjalanan rasa ke jantung Sumatera",
+    "image": "/img/foods/soto-medan-story.jpg"
+  },
+  "ingredients": [
+    { "name": "Daging Sapi", "qty": "500g", "image": "/img/ingredients/beef.svg", "essential": true },
+    { "name": "Santan", "qty": "200ml", "image": "/img/ingredients/coconut-milk.svg", "essential": true },
+    { "name": "Kunyit", "qty": "3cm", "image": "/img/ingredients/turmeric.svg", "essential": true },
+    { "name": "Serai", "qty": "3 batang", "image": "/img/ingredients/lemongrass.svg", "essential": true },
+    { "name": "Kentang", "qty": "2 buah", "image": "/img/ingredients/potato.svg", "essential": false },
+    { "name": "Telur Rebus", "qty": "2 butir", "image": "/img/ingredients/egg.svg", "essential": false }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 90,
+    "difficulty": "medium",
+    "steps": [
+      { "order": 1, "title": "Rebus Daging", "text": "Rebus daging sapi hingga empuk, potong dadu.", "duration": 3600 },
+      { "order": 2, "title": "Haluskan Bumbu", "text": "Haluskan kunyit, jahe, bawang merah, bawang putih.", "duration": 300 },
+      { "order": 3, "title": "Tumis Bumbu", "text": "Tumis bumbu halus hingga harum.", "duration": 300 },
+      { "order": 4, "title": "Masak Kuah", "text": "Masukkan kaldu dan santan, masak hingga mendidih.", "duration": 900 },
+      { "order": 5, "title": "Sajikan", "text": "Tuang kuah ke mangkuk, tambahkan daging, kentang, telur, dan bawang goreng.", "duration": 120 }
+    ]
+  },
+  "tasteScore": { "manis": 10, "pedas": 40, "gurih": 85, "asam": 15, "asin": 35 },
+  "nutrition": { "calories": 280, "protein": 18, "carbs": 22, "fat": 16, "fiber": 2, "servingSize": "1 mangkuk (350ml)" },
+  "locations": [
+    { "name": "Soto Medan Asli", "city": "Medan", "lat": 3.5952, "lng": 98.6722, "description": "Soto Medan legendaris sejak 1960", "priceRange": "Rp 20.000 - 30.000" }
+  ],
+  "related": ["mie-aceh-033", "nasi-padang-004"],
+  "funFacts": ["Soto Medan menggunakan kunyit segar yang memberikan warna kuning khas"],
+  "tags": ["medan", "soto", "kuah santan", "daging sapi", "khas sumatera"]
+}

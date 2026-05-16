@@ -1,0 +1,46 @@
+﻿---
+/**
+ * Footer - Shared footer component
+ */
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">Kulineria<span class="logo-dot">.</span></span>
+      <p class="footer-copy">&copy; {new Date().getFullYear()} Kulineria — Indonesian Culinary Atlas</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--c-surface);
+    border-top: 1px solid var(--c-border);
+    padding: var(--sp-8) 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+
+  .footer-logo {
+    font-family: var(--ff-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--c-text-1);
+  }
+
+  .logo-dot {
+    color: var(--c-accent);
+  }
+
+  .footer-copy {
+    font-size: var(--fs-xs);
+    color: var(--c-text-3);
+  }
+</style>

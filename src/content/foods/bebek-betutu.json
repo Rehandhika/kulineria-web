@@ -1,0 +1,49 @@
+{
+  "id": "bebek-betutu-301",
+  "name": "Bebek Betutu",
+  "region": "bali-ntt",
+  "description": "Bebek yang dimasak dengan bumbu Bali khas dan dibungkus daun pisang, dipanggang hingga empuk dan harum.",
+  "taste": ["pedas", "gurih"],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/bebek-betutu.jpg",
+  "hero": {
+    "image": "/img/foods/bebek-betutu-hero.jpg",
+    "alt": "Bebek Betutu Bali dengan bumbu rempah yang kaya",
+    "dominantColor": "#5C3A1E"
+  },
+  "story": {
+    "headline": "Hidangan Sakral Pulau Dewata",
+    "body": "Bebek Betutu adalah hidangan tradisional Bali yang awalnya digunakan dalam upacara keagamaan. Proses pembuatannya yang rumit dan memakan waktu menjadikannya hidangan istimewa yang disajikan pada acara-acara penting.",
+    "pullQuote": "Betutu adalah seni memasak yang membutuhkan kesabaran dan cinta",
+    "image": "/img/foods/bebek-betutu-story.jpg"
+  },
+  "ingredients": [
+    { "name": "Bebek Utuh", "qty": "1 ekor", "image": "/img/ingredients/duck.svg", "essential": true },
+    { "name": "Base Genep", "qty": "200g", "image": "/img/ingredients/bali-spice.svg", "essential": true },
+    { "name": "Daun Pisang", "qty": "4 lembar", "image": "/img/ingredients/banana-leaf.svg", "essential": true },
+    { "name": "Cabai Rawit", "qty": "30g", "image": "/img/ingredients/bird-chili.svg", "essential": true },
+    { "name": "Kencur", "qty": "2cm", "image": "/img/ingredients/aromatic-ginger.svg", "essential": true },
+    { "name": "Terasi", "qty": "1 sdm", "image": "/img/ingredients/shrimp-paste.svg", "essential": true }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 60,
+    "cookTime": 360,
+    "difficulty": "hard",
+    "steps": [
+      { "order": 1, "title": "Bersihkan Bebek", "text": "Bersihkan bebek, lumuri dengan air jeruk nipis dan garam.", "duration": 600 },
+      { "order": 2, "title": "Haluskan Bumbu", "text": "Haluskan base genep (bumbu Bali) hingga halus.", "duration": 900, "tip": "Base genep terdiri dari 12+ jenis rempah" },
+      { "order": 3, "title": "Isi Bebek", "text": "Isi rongga bebek dengan bumbu, balurkan sisa bumbu ke seluruh permukaan.", "duration": 600 },
+      { "order": 4, "title": "Bungkus", "text": "Bungkus bebek dengan daun pisang, ikat rapat.", "duration": 300 },
+      { "order": 5, "title": "Panggang", "text": "Panggang dalam oven atau bara api selama 6 jam hingga empuk.", "duration": 21600, "tip": "Tradisional menggunakan sekam padi" }
+    ]
+  },
+  "tasteScore": { "manis": 10, "pedas": 65, "gurih": 80, "asam": 10, "asin": 25 },
+  "nutrition": { "calories": 380, "protein": 28, "carbs": 12, "fat": 26, "fiber": 2, "servingSize": "1 porsi (200g)" },
+  "locations": [
+    { "name": "Bebek Betutu Khas Bali", "city": "Gianyar", "lat": -8.5426, "lng": 115.3275, "description": "Bebek betutu autentik dengan resep turun-temurun", "priceRange": "Rp 80.000 - 150.000" }
+  ],
+  "related": ["sate-lilit-302", "lawar-303"],
+  "funFacts": ["Bebek betutu tradisional dimasak selama 12 jam menggunakan sekam padi", "Awalnya hanya disajikan dalam upacara adat dan keagamaan Bali"],
+  "tags": ["bali", "bebek", "betutu", "bumbu bali", "upacara", "khas bali"]
+}

@@ -1,0 +1,46 @@
+{
+  "regions": [
+    {
+      "id": "sumatera",
+      "name": "Sumatera",
+      "color": "#FF8C42",
+      "naraExpression": "excited",
+      "naraDialog": "Sumatera punya rendang yang terkenal di seluruh dunia!"
+    },
+    {
+      "id": "jawa",
+      "name": "Jawa",
+      "color": "#06A77D",
+      "naraExpression": "thinking",
+      "naraDialog": "Jawa memiliki beragam kuliner dari timur hingga barat!"
+    },
+    {
+      "id": "kalimantan",
+      "name": "Kalimantan",
+      "color": "#E9C46A",
+      "naraExpression": "excited",
+      "naraDialog": "Kalimantan terkenal dengan masakan khas Dayak-nya!"
+    },
+    {
+      "id": "sulawesi",
+      "name": "Sulawesi",
+      "color": "#4ECDC4",
+      "naraExpression": "thinking",
+      "naraDialog": "Sulawesi punya coto makassar yang lezat!"
+    },
+    {
+      "id": "bali-ntt",
+      "name": "Bali & Nusa Tenggara",
+      "color": "#FF6B6B",
+      "naraExpression": "excited",
+      "naraDialog": "Bali terkenal dengan bebek betutu dan sate lilit-nya!"
+    },
+    {
+      "id": "maluku-papua",
+      "name": "Maluku & Papua",
+      "color": "#84A98C",
+      "naraExpression": "thinking",
+      "naraDialog": "Maluku dan Papua punya papeda dan ikan kuah kuning!"
+    }
+  ]
+}

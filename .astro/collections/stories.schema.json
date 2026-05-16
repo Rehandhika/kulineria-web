@@ -1,0 +1,46 @@
+{
+  "$ref": "#/definitions/stories",
+  "definitions": {
+    "stories": {
+      "type": "object",
+      "properties": {
+        "section": {
+          "type": "string",
+          "enum": [
+            "hero-manifesto",
+            "mission",
+            "nara-origin",
+            "process-step",
+            "value"
+          ]
+        },
+        "order": {
+          "type": "number"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "section",
+        "order",
+        "headline",
+        "body"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

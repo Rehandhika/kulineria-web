@@ -1,0 +1,218 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import TopNav from '../components/astro/nav/TopNav.astro';
+import BottomNav from '../components/astro/nav/BottomNav.astro';
+import SeoMeta from '../components/astro/shared/SeoMeta.astro';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Font Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <SeoMeta title={title} description={description} />
+    <ViewTransitions />
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[500] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-md">
+      Skip to main content
+    </a>
+
+    <TopNav />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <BottomNav />
+
+    <!-- Micro Interactions -->
+    <script>
+      import { gsap } from 'gsap';
+
+      // Magnetic buttons effect
+      function initMagneticButtons() {
+        const buttons = document.querySelectorAll('[data-magnetic]');
+        buttons.forEach((btn) => {
+          const el = btn as HTMLElement;
+          
+          el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const strength = 0.15;
+
+            gsap.to(el, {
+              x: x * strength,
+              y: y * strength,
+              duration: 0.3,
+              ease: 'power2.out',
+            });
+          });
+
+          el.addEventListener('mouseleave', () => {
+            gsap.to(el, {
+              x: 0,
+              y: 0,
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)',
+            });
+          });
+        });
+      }
+
+      // Ripple effect on click
+      function initRippleEffect() {
+        document.addEventListener('click', (e) => {
+          const target = (e.target as HTMLElement).closest('[data-ripple]');
+          if (!target) return;
+
+          const rect = target.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const ripple = document.createElement('span');
+          ripple.style.cssText = `
+            position: absolute;
+            left: ${x}px;
+            top: ${y}px;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+          `;
+
+          (target as HTMLElement).style.position = 'relative';
+          (target as HTMLElement).style.overflow = 'hidden';
+          target.appendChild(ripple);
+
+          gsap.to(ripple, {
+            width: 200,
+            height: 200,
+            opacity: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            onComplete: () => ripple.remove(),
+          });
+        });
+      }
+
+      // Initialize on load
+      document.addEventListener('DOMContentLoaded', () => {
+        initMagneticButtons();
+        initRippleEffect();
+      });
+
+      // Re-init after view transition
+      document.addEventListener('astro:after-swap', () => {
+        setTimeout(() => {
+          initMagneticButtons();
+        }, 100);
+      });
+    </script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script>
+      import Lenis from 'lenis';
+
+      // Initialize Lenis
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      // Add lenis class
+      document.documentElement.classList.add('lenis');
+
+      // Animation frame loop
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Cleanup on page transition
+      document.addEventListener('astro:after-swap', () => {
+        lenis.destroy();
+        document.documentElement.classList.remove('lenis');
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .sr-only.focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Lenis required styles */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  html.lenis {
+    overflow: hidden;
+  }
+
+  html.lenis body {
+    overflow: visible;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+</style>

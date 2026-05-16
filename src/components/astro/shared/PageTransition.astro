@@ -1,0 +1,56 @@
+---
+/**
+ * PageTransition - GSAP page transition wrapper
+ * Add to pages for smooth enter/exit animations
+ */
+---
+
+<script>
+import { gsap } from 'gsap';
+
+// Page enter animation
+function animatePageEnter() {
+  const elements = document.querySelectorAll('.page-enter');
+  
+  if (elements.length === 0) {
+    // Fallback: animate common elements
+    gsap.fromTo('main > section', 
+      { opacity: 0, y: 30 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.8, 
+        stagger: 0.1, 
+        ease: 'expo.out' 
+      }
+    );
+    return;
+  }
+
+  gsap.fromTo(elements,
+    { opacity: 0, y: 30 },
+    { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8, 
+      stagger: 0.08, 
+      ease: 'expo.out' 
+    }
+  );
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', animatePageEnter);
+
+// Run on Astro view transition
+document.addEventListener('astro:after-swap', () => {
+  // Reset elements for re-animation
+  const elements = document.querySelectorAll('.page-enter');
+  gsap.set(elements, { opacity: 0, y: 30 });
+  
+  // Small delay to ensure DOM is ready
+  setTimeout(animatePageEnter, 50);
+});
+</script>
+
+<slot />

@@ -1,0 +1,47 @@
+{
+  "id": "sambal-royal-401",
+  "name": "Sambal Royal",
+  "region": "kalimantan",
+  "description": "Sambal khas Dayak dengan campuran terasi dan cabai rawit, disajikan dengan ikan bakar sungai.",
+  "taste": ["pedas", "gurih", "asam"],
+  "type": "mentah",
+  "imageUrl": "/img/foods/sambal-royal.jpg",
+  "hero": {
+    "image": "/img/foods/sambal-royal-hero.jpg",
+    "alt": "Sambal Royal khas Dayak dengan warna merah menyala",
+    "dominantColor": "#B22222"
+  },
+  "story": {
+    "headline": "Pedasnya Hutan Kalimantan",
+    "body": "Sambal Royal adalah sambal khas suku Dayak yang menggunakan bahan-bahan dari hutan Kalimantan. Rasanya yang pedas dan asam berasal dari buah-buahan hutan yang unik.",
+    "pullQuote": "Sambal Royal adalah jiwa dari setiap masakan Dayak",
+    "image": "/img/foods/sambal-royal-story.jpg"
+  },
+  "ingredients": [
+    { "name": "Cabai Rawit", "qty": "100g", "image": "/img/ingredients/bird-chili.svg", "essential": true },
+    { "name": "Terasi", "qty": "1 sdm", "image": "/img/ingredients/shrimp-paste.svg", "essential": true },
+    { "name": "Tomat", "qty": "2 buah", "image": "/img/ingredients/tomato.svg", "essential": true },
+    { "name": "Buah Tarap", "qty": "50g", "image": "/img/ingredients/tarap.svg", "essential": false },
+    { "name": "Jeruk Limau", "qty": "2 buah", "image": "/img/ingredients/limau.svg", "essential": true }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 15,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "steps": [
+      { "order": 1, "title": "Bakar Bahan", "text": "Bakar cabai, tomat, dan terasi di atas api hingga layu.", "duration": 300 },
+      { "order": 2, "title": "Ulek", "text": "Ulek semua bahan hingga halus atau kasar sesuai selera.", "duration": 180 },
+      { "order": 3, "title": "Tambahkan Jeruk", "text": "Peras jeruk limau, aduk rata.", "duration": 60 },
+      { "order": 4, "title": "Sajikan", "text": "Sajikan dengan ikan bakar sungai.", "duration": 60 }
+    ]
+  },
+  "tasteScore": { "manis": 5, "pedas": 90, "gurih": 50, "asam": 45, "asin": 20 },
+  "nutrition": { "calories": 45, "protein": 2, "carbs": 8, "fat": 1, "fiber": 2, "servingSize": "2 sdm (30g)" },
+  "locations": [
+    { "name": "Rumah Makan Dayak", "city": "Pontianak", "lat": -0.0263, "lng": 109.3425, "description": "Masakan Dayak autentik", "priceRange": "Rp 15.000 - 30.000" }
+  ],
+  "related": ["ikan-bakar-sungai-402", "tempoyak-062"],
+  "funFacts": ["Sambal Royal menggunakan buah Tarap yang hanya tumbuh di hutan Kalimantan"],
+  "tags": ["kalimantan", "dayak", "sambal", "pedas", "teras", "khas kalimantan"]
+}
