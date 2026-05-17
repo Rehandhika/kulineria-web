@@ -13,7 +13,7 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "type": "commonjs",
+    "type": "module",
     "dependencies": {
         "@astrojs/react": "^5.0.5",
         "@hookform/resolvers": "^5.2.2",
@@ -44,6 +44,10 @@
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "playwright": "^1.60.0",
+        "puppeteer": "^25.0.2",
         "vitest": "^4.1.6"
+    },
+    "overrides": {
+        "vite": "^6.4.2"
     }
 }

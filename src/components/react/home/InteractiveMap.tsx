@@ -162,9 +162,9 @@ export default function InteractiveMap() {
 
   return (
     <div className="interactive-map" ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onClick={handleMapClick}>
-      <div className="map-container">
+      <div className="map-container relative w-full aspect-[16/10] md:aspect-[2/1] overflow-hidden rounded-2xl bg-[var(--c-surface)] border-2 border-[var(--cartoon-stroke-color)] shadow-[var(--sh-cartoon)]">
         {/* Ocean background */}
-        <div className="map-ocean-bg" />
+        <div className="map-ocean-bg absolute inset-0 z-0" />
 
         {/* Region Images with hit detection */}
         {REGION_ASSETS.map(region => {
@@ -177,7 +177,7 @@ export default function InteractiveMap() {
             <div
               key={region.id}
               id={`region-wrap-${region.id}`}
-              className="map-region-path"
+              className="map-region-path absolute"
               style={{
                 zIndex: region.zIndex,
                 width: region.layout.width,

@@ -2,7 +2,10 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { FoodItemFull } from '@/types/food';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   food: FoodItemFull;
@@ -13,6 +16,7 @@ interface Props {
 export default function HeroCinematic({ food, onFavorite, onShare }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
@@ -53,7 +57,37 @@ export default function HeroCinematic({ food, onFavorite, onShare }: Props) {
     // Actions fade
     tl.fromTo('.hero-actions', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.3');
 
-    return () => { tl.kill(); };
+    // SCROLL PARALLAX EFFECT
+    if (!prefersReducedMotion && imgRef.current) {
+      gsap.to(imgRef.current, {
+        y: '30%',
+        scale: 1.15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+      
+      gsap.to('.hero-content', {
+        y: '-20%',
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+    }
+
+    return () => { 
+      tl.kill(); 
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   // Split title into chars for animation
@@ -66,15 +100,15 @@ export default function HeroCinematic({ food, onFavorite, onShare }: Props) {
   const regionColor = `var(--c-${food.region})`;
 
   return (
-    <section ref={containerRef} className="hero" aria-label={`${food.name} hero`}>
-      <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)' }}>
+    <section ref={containerRef} className="hero" aria-label={`${food.name} hero`} style={{ overflow: 'hidden', position: 'relative' }}>
+      <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)', position: 'absolute', inset: 0 }}>
         {food.hero?.image && (
-          <img src={food.hero.image} alt={food.hero.alt || food.name} className="hero-img" loading="eager" />
+          <img ref={imgRef} src={food.hero.image} alt={food.hero.alt || food.name} className="hero-img" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', transformOrigin: 'center bottom' }} />
         )}
         <div className="hero-overlay" />
       </div>
 
-      <div className="hero-content">
+      <div className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
         <span className="hero-badge" style={{ backgroundColor: regionColor }}>
           {food.region.replace('-', ' & ')}
         </span>

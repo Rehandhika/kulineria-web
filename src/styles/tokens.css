@@ -60,7 +60,7 @@
   --c-cartoon-orange: #FED7AA;
 
   /* TYPOGRAPHY - Font Families */
-  --ff-display:     'Playfair Display', Georgia, 'Times New Roman', serif;
+  --ff-display:     'Fraunces', Georgia, 'Times New Roman', serif;
   --ff-body:        'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --ff-nara:        'Nunito', 'Segoe UI', Roboto, sans-serif;
   --ff-mono:        'Geist Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;

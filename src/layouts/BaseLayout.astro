@@ -23,9 +23,9 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
     <!-- Font Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
     </noscript>
 
     <SeoMeta title={title} description={description} />
@@ -44,13 +44,86 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
 
     <BottomNav />
 
-    <!-- Micro Interactions -->
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor hidden md:flex" id="custom-cursor">
+      <span class="cursor-text"></span>
+    </div>
+
+    <!-- Micro Interactions & Cursor -->
     <script>
       import { gsap } from 'gsap';
 
+      function initCustomCursor() {
+        const cursor = document.getElementById('custom-cursor');
+        const cursorText = cursor?.querySelector('.cursor-text');
+        if (!cursor || !cursorText) return;
+
+        // Cek apakah perangkat mendukung hover
+        const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+        if (!isFinePointer) {
+          cursor.style.display = 'none';
+          return;
+        }
+
+        // Posisi kursor dan mouse
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+        let hasMoved = false;
+
+        gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+
+        // Mengatur pergerakan halus (lerping)
+        gsap.ticker.add(() => {
+          if (!hasMoved) return;
+          cursorX += (mouseX - cursorX) * 0.2;
+          cursorY += (mouseY - cursorY) * 0.2;
+          gsap.set(cursor, { x: cursorX, y: cursorY });
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          
+          if (!hasMoved) {
+            hasMoved = true;
+            // Langsung set posisi ke kursor saat pertama kali bergerak agar tidak meluncur dari tengah
+            cursorX = mouseX;
+            cursorY = mouseY;
+            gsap.set(cursor, { x: cursorX, y: cursorY });
+            gsap.to(cursor, { opacity: 1, duration: 0.3 });
+          }
+        });
+
+        // Hover Effect untuk Link dan Tombol biasa
+        const hoverElements = document.querySelectorAll('a, button, .cartoon-card');
+        hoverElements.forEach((el) => {
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-hover');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-hover');
+          });
+        });
+
+        // Hover Effect spesifik untuk Peta (Food/Region)
+        const mapRegions = document.querySelectorAll('.map-region-path, .region-card, .food-card');
+        mapRegions.forEach((el) => {
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-explore');
+            cursorText.textContent = 'LIHAT';
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-explore');
+            cursorText.textContent = '';
+          });
+        });
+      }
+
       // Magnetic buttons effect
       function initMagneticButtons() {
-        const buttons = document.querySelectorAll('[data-magnetic]');
+        const buttons = document.querySelectorAll('[data-magnetic], .cartoon-btn, .cartoon-btn-secondary');
         buttons.forEach((btn) => {
           const el = btn as HTMLElement;
           
@@ -58,7 +131,7 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            const strength = 0.15;
+            const strength = 0.3;
 
             gsap.to(el, {
               x: x * strength,
@@ -119,6 +192,7 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
 
       // Initialize on load
       document.addEventListener('DOMContentLoaded', () => {
+        initCustomCursor();
         initMagneticButtons();
         initRippleEffect();
       });
@@ -126,6 +200,7 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
       // Re-init after view transition
       document.addEventListener('astro:after-swap', () => {
         setTimeout(() => {
+          initCustomCursor();
           initMagneticButtons();
         }, 100);
       });
@@ -165,6 +240,53 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
 </html>
 
 <style is:global>
+  /* Custom Cursor Styles */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--c-accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+    mix-blend-mode: difference;
+  }
+
+  .custom-cursor .cursor-text {
+    color: var(--c-white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: normal;
+  }
+
+  .custom-cursor.cursor-hover {
+    width: 40px;
+    height: 40px;
+    background-color: var(--c-cartoon-yellow);
+    mix-blend-mode: exclusion;
+  }
+
+  .custom-cursor.cursor-explore {
+    width: 80px;
+    height: 80px;
+    background-color: var(--c-accent);
+    mix-blend-mode: normal;
+  }
+
+  .custom-cursor.cursor-explore .cursor-text {
+    opacity: 1;
+  }
+
   .sr-only {
     position: absolute;
     width: 1px;
