@@ -102,8 +102,8 @@ export default function HeroCinematic({ food, onFavorite, onShare }: Props) {
   return (
     <section ref={containerRef} className="hero" aria-label={`${food.name} hero`} style={{ overflow: 'hidden', position: 'relative' }}>
       <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)', position: 'absolute', inset: 0 }}>
-        {food.hero?.image && (
-          <img ref={imgRef} src={food.hero.image} alt={food.hero.alt || food.name} className="hero-img" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', transformOrigin: 'center bottom' }} />
+        {(food.hero?.image || food.imageUrl) && (
+          <img ref={imgRef} src={food.hero?.image || food.imageUrl} alt={food.hero?.alt || food.name} className="hero-img" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', transformOrigin: 'center bottom' }} />
         )}
         <div className="hero-overlay" />
       </div>

@@ -17,8 +17,8 @@ export default function NoResultsView() {
         </div>
       </div>
 
-      <h2>No dishes found</h2>
-      <p>Try adjusting your search or filters, or explore these popular dishes:</p>
+      <h2>Hidangan tidak ditemukan</h2>
+      <p>Coba ubah pencarian atau filter, atau jelajahi hidangan populer ini:</p>
 
       <div className="no-results-suggestions">
         {SUGGESTIONS.map(s => (
@@ -36,7 +36,7 @@ export default function NoResultsView() {
         onClick={() => $searchQuery.set('')}
         className="clear-search-btn"
       >
-        Clear search
+        Hapus pencarian
       </button>
     </div>
   );

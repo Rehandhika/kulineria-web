@@ -5,22 +5,48 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 let lenisInstance: Lenis | null = null;
+let isInitialized = false;
 
-export function initSmoothScroll(): Lenis | null {
+interface SmoothScrollOptions {
+  duration?: number;
+  easing?: (t: number) => number;
+  wheelMultiplier?: number;
+  touchMultiplier?: number;
+  lerp?: number;
+}
+
+const DEFAULT_OPTIONS: SmoothScrollOptions = {
+  duration: 1.5,
+  easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  wheelMultiplier: 1,
+  touchMultiplier: 1.5,
+};
+
+function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return true;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+export function initSmoothScroll(options: SmoothScrollOptions = {}): Lenis | null {
   if (typeof window === 'undefined') return null;
-
-  const prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
-
-  if (prefersReducedMotion) return null;
+  if (prefersReducedMotion()) return null;
   if (lenisInstance) return lenisInstance;
 
+  const opts = { ...DEFAULT_OPTIONS, ...options };
+
   lenisInstance = new Lenis({
-    lerp: 0.1,
+    duration: opts.duration,
+    easing: opts.easing,
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
     smoothWheel: true,
-    syncTouch: false,
+    wheelMultiplier: opts.wheelMultiplier,
+    touchMultiplier: opts.touchMultiplier,
+    infinite: false,
+    autoResize: true,
   });
+
+  document.documentElement.classList.add('lenis');
 
   lenisInstance.on('scroll', ScrollTrigger.update);
 
@@ -30,16 +56,34 @@ export function initSmoothScroll(): Lenis | null {
 
   gsap.ticker.lagSmoothing(0);
 
+  isInitialized = true;
+
   return lenisInstance;
 }
 
 export function destroySmoothScroll() {
   if (lenisInstance) {
+    gsap.ticker.remove(lenisInstance.raf);
     lenisInstance.destroy();
     lenisInstance = null;
+    isInitialized = false;
+    document.documentElement.classList.remove('lenis');
   }
+}
+
+export function refreshSmoothScroll() {
+  ScrollTrigger.refresh();
+  lenisInstance?.resize();
 }
 
 export function getSmoothScroll(): Lenis | null {
   return lenisInstance;
+}
+
+export function isSmoothScrollActive(): boolean {
+  return isInitialized && lenisInstance !== null;
+}
+
+export function scrollTo(target: string | HTMLElement | number, options?: { offset?: number; immediate?: boolean; duration?: number }) {
+  lenisInstance?.scrollTo(target, options);
 }

@@ -2,6 +2,8 @@ import type { APIRoute } from 'astro';
 import { getAllFoods } from '../lib/data/loaders';
 
 const SITE_URL = 'https://kulineria.id';
+// Use a fixed date for build consistency — update manually on content changes
+const BUILD_DATE = '2026-05-17';
 
 const routes = [
   { path: '/', priority: '1.0', changefreq: 'daily' },
@@ -18,13 +20,12 @@ const foodRoutes = foods.map(food => ({
 }));
 
 const allRoutes = [...routes, ...foodRoutes];
-const lastmod = new Date().toISOString().split('T')[0];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allRoutes.map(r => `  <url>
     <loc>${SITE_URL}${r.path}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <lastmod>${BUILD_DATE}</lastmod>
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
   </url>`).join('\n')}

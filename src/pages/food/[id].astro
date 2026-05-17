@@ -32,11 +32,27 @@ const regionColor = `var(--c-${food.region})`;
 
 const relatedFoods = (fullFood?.related || [])
   .map(id => getAllFoods().find(f => f.id === id))
-  .filter(Boolean)
+  .filter((f): f is NonNullable<typeof f> => f !== undefined)
   .slice(0, 8);
 ---
 
-<BaseLayout title={food.name} description={food.description}>
+<BaseLayout title={food.name} description={food.description}
+  seoProps={{
+    type: 'recipe',
+    keywords: fullFood?.tags || [food.region, ...food.taste],
+    recipe: fullFood?.recipe ? {
+      name: food.name,
+      description: food.description,
+      prepTime: fullFood.recipe.prepTime,
+      cookTime: fullFood.recipe.cookTime,
+      servings: fullFood.recipe.servings,
+      category: food.type,
+      cuisine: 'Indonesian',
+      ingredients: (fullFood.ingredients || []).map(i => `${i.qty || ''} ${i.name}`.trim()),
+      image: fullFood.hero?.image,
+    } : undefined,
+  }}
+>
   <StickyNav client:visible foodName={food.name} regionColor={regionColor} />
 
   <HeroCinematic client:visible food={fullFood || food} />
@@ -851,10 +867,17 @@ const relatedFoods = (fullFood?.related || [])
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: var(--nav-h);
-    padding: 0 var(--sp-8);
+    height: var(--nav-mobile-h);
+    padding: 0 var(--sp-4);
     max-width: var(--container-max);
     margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .sticky-nav-inner {
+      height: var(--nav-h);
+      padding: 0 var(--sp-8);
+    }
   }
 
   .sticky-nav-back {
@@ -899,15 +922,21 @@ const relatedFoods = (fullFood?.related || [])
 
   .hero {
     position: relative;
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
   }
 
+  @media (min-width: 768px) {
+    .hero {
+      min-height: 75vh;
+    }
+  }
+
   @media (min-width: 1024px) {
     .hero {
-      min-height: 90vh;
+      min-height: 85vh;
       align-items: center;
     }
   }

@@ -1,306 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHeader from '../components/astro/shared/SectionHeader.astro';
 import Divider from '../components/astro/shared/Divider.astro';
 import Footer from '../components/astro/shared/Footer.astro';
-import InteractiveMap from '../components/react/home/InteractiveMap.tsx';
-import { getAllFoods, getRegions } from '../lib/data/loaders';
-
-const foods = getAllFoods();
-const regions = getRegions();
+import HeroSection from '../components/astro/home/HeroSection.astro';
+import RegionsSection from '../components/astro/home/RegionsSection.astro';
+import FeaturedFoodsSection from '../components/astro/home/FeaturedFoodsSection.astro';
+import InteractiveMap from '../components/react/home/InteractiveMap';
+import SectionHeader from '../components/astro/shared/SectionHeader.astro';
 ---
 
 <BaseLayout title="Home" description="Discover the rich flavors of Indonesian cuisine through an interactive exploration of regional specialties">
-  <!-- HERO -->
-  <section class="hero" id="hero-section">
-    <div class="hero-bg">
-      <div class="hero-bg-circle hero-bg-circle-1" data-parallax="0.05"></div>
-      <div class="hero-bg-circle hero-bg-circle-2" data-parallax="-0.03"></div>
-      <div class="hero-bg-circle hero-bg-circle-3" data-parallax="0.08"></div>
-    </div>
-    <div class="container hero-container">
-      <div class="hero-content">
-        <p class="hero-overline anim-enter">Indonesian Culinary Atlas</p>
-        <h1 class="hero-title">
-          <span class="hero-title-line anim-enter">Explore the</span>
-          <span class="hero-title-line accent anim-enter">Flavors</span>
-          <span class="hero-title-line anim-enter">of Nusantara</span>
-        </h1>
-        <p class="hero-subtitle anim-enter">
-          Discover {foods.length}+ traditional dishes across {regions.length} regions of the Indonesian archipelago
-        </p>
-        <div class="hero-actions anim-enter">
-          <a href="/search" class="cartoon-btn" data-magnetic>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            Start Exploring
-          </a>
-          <a href="/quiz" class="cartoon-btn-secondary" data-magnetic>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-            Take the Quiz
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    import { gsap } from 'gsap';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Parallax effect on mouse move for hero circles
-      const heroSection = document.getElementById('hero-section');
-      const parallaxElements = document.querySelectorAll('[data-parallax]');
-
-      if (heroSection && window.matchMedia('(pointer: fine)').matches) {
-        heroSection.addEventListener('mousemove', (e) => {
-          const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-          const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
-
-          parallaxElements.forEach((el) => {
-            const speed = parseFloat(el.getAttribute('data-parallax') || '0.05');
-            gsap.to(el, {
-              x: x * 100 * speed * 10,
-              y: y * 100 * speed * 10,
-              duration: 1,
-              ease: 'power2.out',
-            });
-          });
-        });
-
-        heroSection.addEventListener('mouseleave', () => {
-          gsap.to(parallaxElements, {
-            x: 0,
-            y: 0,
-            duration: 1.5,
-            ease: 'elastic.out(1, 0.3)',
-          });
-        });
-      }
-    });
-  </script>
+  <HeroSection />
 
   <Divider />
 
   <!-- INTERACTIVE MAP -->
   <section class="section-py map-section" id="map-section">
     <div class="container">
-      <SectionHeader overline="Interactive" title="Explore the Archipelago" />
+      <SectionHeader overline="🗺️ Interaktif" title="Jelajahi Nusantara" />
       <InteractiveMap client:visible />
     </div>
   </section>
 
   <Divider />
 
-  <!-- REGIONS -->
-  <section class="section-py" id="regions">
-    <div class="container">
-      <SectionHeader overline="Regions" title="Explore by Region" />
-      <div class="region-grid stagger-children">
-        {regions.map((region) => (
-          <a href={`/search?region=${region.id}`} class="region-card" style={{ '--region-color': region.color } as any}>
-            <span class="region-dot"></span>
-            <h3 class="region-name">{region.name}</h3>
-            <p class="region-count">{foods.filter(f => f.region === region.id).length} dishes</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <RegionsSection />
 
   <Divider />
 
-  <!-- FEATURED FOODS -->
-  <section class="section-py" id="featured">
-    <div class="container">
-      <SectionHeader overline="Collection" title="Featured Dishes" />
-      <div class="food-grid stagger-children">
-        {foods.slice(0, 8).map((food) => (
-          <a href={`/food/${food.id}`} class="food-card">
-            <div class="food-image" style={{ backgroundImage: `url(${food.imageUrl})` }}>
-              <span class="food-region" style={{ backgroundColor: `var(--c-${food.region})` }}>
-                {regions.find(r => r.id === food.region)?.name || food.region}
-              </span>
-            </div>
-            <div class="food-info">
-              <h3 class="food-name">{food.name}</h3>
-              <p class="food-desc">{food.description.slice(0, 80)}...</p>
-              <div class="food-tags">
-                {food.taste.map(t => (
-                  <span class="tag">{t}</span>
-                ))}
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <FeaturedFoodsSection />
 
   <Footer />
 </BaseLayout>
 
 <style is:global>
-  /* ===== HERO ===== */
-  .hero {
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    padding: calc(var(--nav-mobile-h) + var(--sp-12)) 0 var(--sp-12);
-    background: linear-gradient(135deg, var(--c-cream) 0%, var(--c-bg) 50%, var(--c-surface-2) 100%);
-    overflow: hidden;
-  }
-
-  @media (min-width: 1024px) {
-    .hero {
-      min-height: 100vh;
-      padding: calc(var(--nav-h) + var(--sp-16)) 0 var(--sp-16);
-    }
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .hero-bg-circle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.5;
-  }
-
-  .hero-bg-circle-1 {
-    width: 400px;
-    height: 400px;
-    background: var(--c-cartoon-yellow);
-    top: -100px;
-    right: -100px;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .hero-bg-circle-2 {
-    width: 300px;
-    height: 300px;
-    background: var(--c-cartoon-pink);
-    bottom: -50px;
-    left: -50px;
-    animation: float 8s ease-in-out infinite 1s;
-  }
-
-  .hero-bg-circle-3 {
-    width: 200px;
-    height: 200px;
-    background: var(--c-cartoon-blue);
-    top: 50%;
-    left: 50%;
-    animation: float 7s ease-in-out infinite 2s;
-  }
-
-  @media (min-width: 768px) {
-    .hero-bg-circle-1 { width: 600px; height: 600px; }
-    .hero-bg-circle-2 { width: 400px; height: 400px; }
-    .hero-bg-circle-3 { width: 300px; height: 300px; }
-  }
-
-  .hero-container {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    .hero-content {
-      max-width: 800px;
-    }
-  }
-
-  .hero-overline {
-    display: inline-block;
-    padding: 6px 16px;
-    background: var(--c-accent-light);
-    color: var(--c-accent);
-    font-size: var(--fs-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: var(--r-full);
-    border: 1px solid var(--c-accent-soft);
-    margin-bottom: var(--sp-4);
-  }
-
-  @media (min-width: 768px) {
-    .hero-overline { margin-bottom: var(--sp-6); }
-  }
-
-  .hero-title {
-    font-family: var(--ff-display);
-    font-size: clamp(2.5rem, 10vw, 5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: var(--ls-tight);
-    color: var(--c-text-1);
-    margin-bottom: var(--sp-4);
-  }
-
-  @media (min-width: 768px) {
-    .hero-title { margin-bottom: var(--sp-6); }
-  }
-
-  .hero-title-line {
-    display: block;
-  }
-
-  .accent {
-    color: var(--c-accent);
-    position: relative;
-  }
-
-  .accent::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: var(--c-accent-soft);
-    border-radius: var(--r-full);
-    z-index: -1;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, var(--fs-lg));
-    color: var(--c-text-2);
-    line-height: var(--lh-relaxed);
-    margin-bottom: var(--sp-6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (min-width: 768px) {
-    .hero-subtitle { margin-bottom: var(--sp-8); }
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--sp-3);
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  @media (min-width: 768px) {
-    .hero-actions { gap: var(--sp-4); }
-  }
-
-  /* ===== MAP SECTION ===== */
   .map-section {
     padding-top: var(--sp-12);
     padding-bottom: var(--sp-12);
@@ -320,7 +53,6 @@ const regions = getRegions();
     }
   }
 
-  /* ===== INTERACTIVE MAP ===== */
   .interactive-map {
     display: flex;
     flex-direction: column;
@@ -339,12 +71,18 @@ const regions = getRegions();
     position: relative;
     background: var(--c-surface);
     border-radius: var(--r-2xl);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
+    border: var(--duo-stroke) solid var(--duo-stroke-color);
     overflow: hidden;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
     cursor: pointer;
-    box-shadow: var(--sh-cartoon);
+    box-shadow: 0 5px 0 var(--c-duo-shadow);
+  }
+
+  @media (min-width: 640px) {
+    .map-container {
+      aspect-ratio: 16 / 10;
+    }
   }
 
   @media (min-width: 768px) {
@@ -366,9 +104,9 @@ const regions = getRegions();
 
   .map-region-path {
     position: absolute;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transition: transform 0.4s var(--ease-bounce),
                 filter 0.4s ease, opacity 0.4s ease;
-    pointer-events: none;
+    pointer-events: auto;
   }
 
   .map-region-img {
@@ -385,55 +123,47 @@ const regions = getRegions();
     transform: translate(-50%, -100%);
     background: var(--c-text-1);
     color: #fff;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: var(--r-full);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: var(--fs-sm);
+    font-weight: 700;
     letter-spacing: 0.02em;
     pointer-events: none;
     white-space: nowrap;
-    box-shadow: var(--sh-3);
+    box-shadow: 0 3px 0 rgba(0,0,0,0.15);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     z-index: 50;
     animation: fadeIn 0.15s ease;
   }
 
-  @media (min-width: 768px) {
-    .map-tooltip {
-      padding: 6px 14px;
-      font-size: var(--fs-xs);
-      gap: 8px;
-    }
-  }
-
   .map-tooltip-dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  @media (min-width: 768px) {
-    .map-tooltip-dot {
-      width: 7px;
-      height: 7px;
-    }
-  }
-
   .map-tooltip-count {
-    font-weight: 400;
+    font-weight: 600;
     opacity: 0.7;
     font-size: 0.85em;
   }
 
-  /* Info Panel */
   .map-info-panel {
     display: flex;
     flex-direction: column;
     gap: var(--sp-4);
     width: 100%;
+  }
+
+  @media (max-width: 1023px) {
+    .map-info-panel {
+      max-height: 400px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -470,24 +200,18 @@ const regions = getRegions();
   .map-region-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border-radius: var(--r-md);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--r-lg);
+    border: 3px solid var(--duo-stroke-color);
     background: var(--c-surface);
     color: var(--c-text-2);
     font-size: var(--fs-sm);
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.25s var(--ease-bounce);
     text-align: left;
-    box-shadow: var(--sh-1);
-  }
-
-  @media (min-width: 768px) {
-    .map-region-btn {
-      padding: 10px 14px;
-    }
+    box-shadow: 0 3px 0 var(--c-duo-shadow);
   }
 
   .map-region-btn:hover {
@@ -495,26 +219,28 @@ const regions = getRegions();
     background: color-mix(in srgb, var(--region-color) 8%, transparent);
     color: var(--c-text-1);
     transform: translateY(-2px);
-    box-shadow: var(--sh-2);
+    box-shadow: 0 5px 0 var(--c-duo-shadow);
   }
 
   .map-region-btn.active {
     border-color: var(--region-color);
     background: var(--region-color);
     color: var(--c-white);
-    box-shadow: var(--sh-cartoon);
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--region-color) 70%, #000);
   }
 
   .map-region-btn-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: var(--region-color);
+    border: 2px solid var(--duo-stroke-color);
     flex-shrink: 0;
   }
 
   .map-region-btn.active .map-region-btn-dot {
     background: var(--c-white);
+    border-color: var(--c-white);
   }
 
   .map-region-btn-name {
@@ -528,9 +254,9 @@ const regions = getRegions();
     font-size: var(--fs-xs);
     color: var(--c-text-3);
     background: var(--c-surface-2);
-    padding: 2px 7px;
+    padding: 2px 8px;
     border-radius: var(--r-full);
-    font-weight: 700;
+    font-weight: 800;
   }
 
   .map-region-btn.active .map-region-btn-count {
@@ -538,20 +264,12 @@ const regions = getRegions();
     color: var(--c-white);
   }
 
-  /* Detail Card */
   .map-detail-card {
     background: var(--c-surface);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    border-radius: var(--r-xl);
+    border: 3px solid var(--duo-stroke-color);
+    border-radius: var(--r-2xl);
     padding: var(--sp-5);
-    border-left: 4px solid var(--accent, var(--c-accent));
-    box-shadow: var(--sh-cartoon);
-  }
-
-  @media (min-width: 768px) {
-    .map-detail-card {
-      padding: var(--sp-6);
-    }
+    box-shadow: 0 5px 0 var(--c-duo-shadow);
   }
 
   .map-detail-header {
@@ -561,71 +279,37 @@ const regions = getRegions();
     margin-bottom: var(--sp-3);
   }
 
-  @media (min-width: 768px) {
-    .map-detail-header {
-      gap: 14px;
-      margin-bottom: var(--sp-4);
-    }
-  }
-
   .map-detail-icon {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 2px solid var(--accent, var(--c-accent));
+    border: 3px solid var(--duo-stroke-color);
     flex-shrink: 0;
-  }
-
-  @media (min-width: 768px) {
-    .map-detail-icon {
-      width: 40px;
-      height: 40px;
-    }
   }
 
   .map-detail-title {
     font-family: var(--ff-display);
     font-size: var(--fs-lg);
-    font-weight: 700;
+    font-weight: 900;
     color: var(--c-text-1);
     line-height: 1.2;
-  }
-
-  @media (min-width: 768px) {
-    .map-detail-title {
-      font-size: var(--fs-xl);
-    }
   }
 
   .map-detail-desc {
     font-size: var(--fs-sm);
     color: var(--c-text-2);
+    font-weight: 600;
     line-height: 1.65;
     margin-bottom: var(--sp-4);
-  }
-
-  @media (min-width: 768px) {
-    .map-detail-desc {
-      font-size: var(--fs-base);
-      margin-bottom: var(--sp-5);
-    }
   }
 
   .map-detail-stats {
     display: flex;
     gap: var(--sp-5);
     padding: var(--sp-3) 0;
-    border-top: 1px solid var(--c-border);
-    border-bottom: 1px solid var(--c-border);
+    border-top: 3px solid var(--c-border);
+    border-bottom: 3px solid var(--c-border);
     margin-bottom: var(--sp-4);
-  }
-
-  @media (min-width: 768px) {
-    .map-detail-stats {
-      gap: var(--sp-6);
-      padding: var(--sp-4) 0;
-      margin-bottom: var(--sp-5);
-    }
   }
 
   .map-detail-stat {
@@ -637,357 +321,64 @@ const regions = getRegions();
   .map-detail-stat-val {
     font-family: var(--ff-display);
     font-size: var(--fs-xl);
-    font-weight: 700;
+    font-weight: 900;
     color: var(--c-text-1);
     line-height: 1;
   }
 
-  @media (min-width: 768px) {
-    .map-detail-stat-val {
-      font-size: var(--fs-2xl);
-    }
-  }
-
   .map-detail-stat-label {
-    font-size: 0.7rem;
+    font-size: var(--fs-xs);
     color: var(--c-text-3);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-weight: 700;
-  }
-
-  @media (min-width: 768px) {
-    .map-detail-stat-label {
-      font-size: var(--fs-xs);
-    }
+    font-weight: 800;
   }
 
   .map-explore-btn {
     display: block;
     width: 100%;
-    padding: 10px 18px;
+    padding: 12px 18px;
     border-radius: var(--r-full);
     color: #fff;
     font-size: var(--fs-sm);
-    font-weight: 700;
-    letter-spacing: 0.01em;
+    font-weight: 800;
+    letter-spacing: 0.02em;
     text-align: center;
     cursor: pointer;
-    border: var(--cartoon-stroke) solid var(--c-accent-dark);
+    border: 3px solid var(--duo-stroke-color);
     transition: all 0.25s var(--ease-bounce);
-    box-shadow: var(--sh-cartoon);
-  }
-
-  @media (min-width: 768px) {
-    .map-explore-btn {
-      padding: 12px 20px;
-    }
+    box-shadow: 0 5px 0 var(--c-duo-shadow);
   }
 
   .map-explore-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 0 rgba(45, 24, 16, 0.08);
-    filter: brightness(1.05);
+    filter: brightness(1.08);
   }
 
   .map-explore-btn:active {
     transform: translateY(2px);
-    box-shadow: 0 4px 0 rgba(45, 24, 16, 0.08);
+    box-shadow: 0 2px 0 var(--c-duo-shadow);
   }
 
-  /* Empty State */
   .map-empty-card {
     padding: var(--sp-8) var(--sp-5);
-    border: 2px dashed var(--c-border-strong);
-    border-radius: var(--r-xl);
+    border: 3px dashed var(--c-border-strong);
+    border-radius: var(--r-2xl);
     text-align: center;
     background: var(--c-surface-2);
   }
 
-  @media (min-width: 768px) {
-    .map-empty-card {
-      padding: var(--sp-10) var(--sp-6);
-    }
-  }
-
   .map-empty-icon {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: var(--sp-3);
-  }
-
-  @media (min-width: 768px) {
-    .map-empty-icon {
-      font-size: 32px;
-    }
   }
 
   .map-empty-card p {
     font-size: var(--fs-sm);
+    font-weight: 600;
     color: var(--c-text-3);
     line-height: 1.6;
     max-width: 240px;
     margin: 0 auto;
-  }
-
-  /* ===== REGION GRID ===== */
-  .region-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--sp-4);
-  }
-
-  @media (min-width: 640px) {
-    .region-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-5);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .region-grid {
-      grid-template-columns: repeat(6, 1fr);
-      gap: var(--sp-5);
-    }
-    
-    /* Asymmetrical Offset */
-    .region-card:nth-child(even) {
-      transform: translateY(24px);
-    }
-    .region-card:hover {
-      transform: translateY(-8px) scale(1.05);
-    }
-    .region-card:nth-child(even):hover {
-      transform: translateY(16px) scale(1.05);
-    }
-  }
-
-  .region-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--sp-5);
-    background: var(--c-surface);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    border-radius: var(--r-xl);
-    transition: all var(--dur-cartoon) var(--ease-bounce);
-    text-align: center;
-    box-shadow: var(--sh-1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  @media (min-width: 768px) {
-    .region-card {
-      padding: var(--sp-6);
-    }
-  }
-
-  .region-card:hover {
-    border-color: var(--region-color);
-    box-shadow: var(--sh-cartoon);
-  }
-
-  .region-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--region-color);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-  }
-
-  .region-card:hover::before {
-    opacity: 0.05;
-  }
-
-  .region-dot, .region-name, .region-count {
-    position: relative;
-    z-index: 1;
-  }
-
-  .region-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--region-color);
-    margin-bottom: var(--sp-2);
-    box-shadow: 0 0 12px var(--region-color);
-  }
-
-  @media (min-width: 768px) {
-    .region-dot {
-      width: 12px;
-      height: 12px;
-      margin-bottom: var(--sp-3);
-    }
-  }
-
-  .region-name {
-    font-family: var(--ff-display);
-    font-size: var(--fs-base);
-    font-weight: 700;
-    color: var(--c-text-1);
-    margin-bottom: var(--sp-1);
-  }
-
-  @media (min-width: 768px) {
-    .region-name {
-      font-size: var(--fs-lg);
-    }
-  }
-
-  .region-count {
-    font-size: 0.7rem;
-    color: var(--c-text-3);
-    font-weight: 600;
-  }
-
-  @media (min-width: 768px) {
-    .region-count {
-      font-size: var(--fs-xs);
-    }
-  }
-
-  /* ===== FOOD GRID (Asymmetrical Masonry feel) ===== */
-  .food-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--sp-6);
-    align-items: start;
-  }
-
-  @media (min-width: 480px) {
-    .food-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--sp-6);
-    }
-  }
-
-  @media (min-width: 768px) {
-    .food-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--sp-8);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .food-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--sp-6);
-    }
-  }
-
-  .food-card {
-    background: var(--c-surface);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    border-radius: var(--r-xl);
-    overflow: hidden;
-    transition: all var(--dur-cartoon) var(--ease-bounce);
-    box-shadow: var(--sh-1);
-    transform-origin: center center;
-  }
-
-  .food-card:hover {
-    box-shadow: var(--sh-cartoon);
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--c-text-1);
-  }
-
-  .food-image {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--c-surface-2);
-    position: relative;
-  }
-
-  @media (min-width: 768px) {
-    .food-image {
-      height: 200px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .food-image {
-      height: 220px;
-    }
-  }
-
-  .food-region {
-    position: absolute;
-    top: var(--sp-3);
-    left: var(--sp-3);
-    padding: 4px 10px;
-    border-radius: var(--r-full);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  @media (min-width: 768px) {
-    .food-region {
-      font-size: var(--fs-xs);
-    }
-  }
-
-  .food-info {
-    padding: var(--sp-3);
-  }
-
-  @media (min-width: 768px) {
-    .food-info {
-      padding: var(--sp-4);
-    }
-  }
-
-  .food-name {
-    font-family: var(--ff-display);
-    font-size: var(--fs-base);
-    font-weight: 700;
-    color: var(--c-text-1);
-    margin-bottom: var(--sp-2);
-  }
-
-  @media (min-width: 768px) {
-    .food-name {
-      font-size: var(--fs-lg);
-    }
-  }
-
-  .food-desc {
-    font-size: 0.8rem;
-    color: var(--c-text-2);
-    line-height: var(--lh-relaxed);
-    margin-bottom: var(--sp-3);
-  }
-
-  @media (min-width: 768px) {
-    .food-desc {
-      font-size: var(--fs-sm);
-    }
-  }
-
-  .food-tags {
-    display: flex;
-    gap: var(--sp-2);
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    padding: 2px 8px;
-    border-radius: var(--r-full);
-    font-size: 0.7rem;
-    font-weight: 600;
-    background: var(--c-surface-2);
-    color: var(--c-text-2);
-    border: 1px solid var(--c-border-soft);
-  }
-
-  @media (min-width: 768px) {
-    .tag {
-      font-size: var(--fs-xs);
-    }
   }
 </style>

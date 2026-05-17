@@ -1,0 +1,147 @@
+---
+import { getRegions, getAllFoods } from '../../../lib/data/loaders';
+const regions = getRegions();
+const foods = getAllFoods();
+const REGION_EMOJI: Record<string, string> = {
+  sumatera: '🌶️', jawa: '🍚', kalimantan: '🌴', sulawesi: '🐟', 'bali-ntt': '🌺', 'maluku-papua': '🐚',
+};
+---
+
+<section class="section-py duo-regions" id="regions">
+  <div class="container">
+    <div class="duo-section-header">
+      <div class="duo-section-overline">
+        <span class="duo-badge duo-badge-blue">🗺️ Regions</span>
+      </div>
+      <h2 class="duo-section-title">Jelajahi per Wilayah</h2>
+      <p class="duo-section-subtitle">Pilih wilayah dan mulai petualangan kulinermu!</p>
+    </div>
+    <div class="duo-regions-grid">
+      {regions.map((region) => {
+        const count = foods.filter(f => f.region === region.id).length;
+        return (
+          <a
+            href={`/search?region=${region.id}`}
+            class="duo-card duo-region-card"
+            style={{ '--card-accent': region.color } as any}
+          >
+            <span class="duo-region-emoji">{REGION_EMOJI[region.id] || '🍽️'}</span>
+            <h3 class="duo-region-name">{region.name}</h3>
+            <span class="duo-region-count">{count} hidangan</span>
+            <span class="duo-region-arrow">→</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+function initRegionReveal() {
+  const cards = document.querySelectorAll('.duo-region-card');
+  if (cards.length === 0) return;
+
+  // Kill any existing triggers for these elements
+  ScrollTrigger.getAll().forEach(st => {
+    if (st.trigger === document.querySelector('.duo-regions-grid')) st.kill();
+  });
+
+  // Set initial state
+  gsap.set(cards, { y: 50, opacity: 0, scale: 0.92 });
+
+  ScrollTrigger.create({
+    trigger: '.duo-regions-grid',
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      gsap.to(cards, {
+        y: 0, opacity: 1, scale: 1, duration: 0.7,
+        stagger: 0.08, ease: 'back.out(1.7)',
+      });
+    },
+  });
+
+  // Safety fallback: if not triggered within 4s after load, show anyway
+  setTimeout(() => {
+    cards.forEach(card => {
+      if (window.getComputedStyle(card).opacity === '0') {
+        gsap.to(card, { y: 0, opacity: 1, scale: 1, duration: 0.4 });
+      }
+    });
+  }, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(initRegionReveal, 200));
+document.addEventListener('astro:after-swap', () => setTimeout(initRegionReveal, 300));
+</script>
+
+<style>
+  .duo-regions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-4);
+  }
+  @media (min-width: 640px) {
+    .duo-regions-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  }
+  @media (min-width: 1024px) {
+    .duo-regions-grid { grid-template-columns: repeat(6, 1fr); gap: var(--sp-5); }
+    .duo-region-card:nth-child(even) { transform: translateY(20px); }
+    .duo-region-card:nth-child(even):hover { transform: translateY(12px) scale(1.04); }
+  }
+
+  .duo-region-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--sp-6) var(--sp-4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .duo-region-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--card-accent, var(--c-duo-green));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 0;
+  }
+  .duo-region-card:hover::before { opacity: 0.06; }
+  .duo-region-card:hover { border-color: var(--card-accent, var(--c-duo-green)); }
+
+  .duo-region-emoji { font-size: 36px; margin-bottom: var(--sp-2); position: relative; z-index: 1; }
+  .duo-region-name {
+    font-family: var(--ff-display);
+    font-size: var(--fs-sm);
+    font-weight: 900;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-1);
+    position: relative; z-index: 1;
+  }
+  .duo-region-count {
+    font-size: var(--fs-xs);
+    color: var(--c-text-3);
+    font-weight: 800;
+    position: relative; z-index: 1;
+  }
+  .duo-region-arrow {
+    position: absolute;
+    top: var(--sp-3);
+    right: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--c-text-3);
+    transition: transform 0.2s var(--ease-bounce);
+    z-index: 1;
+  }
+  .duo-region-card:hover .duo-region-arrow {
+    transform: translateX(4px);
+    color: var(--card-accent, var(--c-duo-green));
+  }
+</style>

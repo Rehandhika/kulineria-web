@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useStore } from '@nanostores/react';
 import { $regionFilters, $tasteFilters, $typeFilter, clearFilters } from '@/lib/stores/search';
 import type { RegionId, Taste, FoodType } from '@/types/food';
@@ -45,6 +46,21 @@ export default function FilterPanel() {
   const regions = useStore($regionFilters);
   const tastes = useStore($tasteFilters);
   const type = useStore($typeFilter);
+  const [collapsed, setCollapsed] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+      if (!e.matches) setCollapsed(false);
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  const activeCount = regions.size + tastes.size + (type ? 1 : 0);
 
   function toggleRegion(id: RegionId) {
     const next = new Set(regions);
@@ -62,39 +78,56 @@ export default function FilterPanel() {
     $typeFilter.set(type === id ? null : id);
   }
 
+  const showSections = !isMobile || !collapsed;
+
   return (
     <aside className="filter-panel">
       <div className="filter-header">
-        <h3>Filters</h3>
-        <button onClick={clearFilters} className="filter-clear">Clear all</button>
+        {isMobile ? (
+          <button
+            className="filter-toggle"
+            onClick={() => setCollapsed(!collapsed)}
+            aria-expanded={!collapsed}
+          >
+            Filter{activeCount > 0 ? ` (${activeCount})` : ''}
+            <span className={`filter-toggle-icon ${!collapsed ? 'open' : ''}`}>▼</span>
+          </button>
+        ) : (
+          <h3>Filter</h3>
+        )}
+        <button onClick={clearFilters} className="filter-clear">Hapus semua</button>
       </div>
 
-      <section className="filter-section">
-        <h4>Region</h4>
-        <div className="filter-chips">
-          {REGIONS.map(r => (
-            <ToggleChip key={r.id} label={r.label} active={regions.has(r.id)} onClick={() => toggleRegion(r.id)} />
-          ))}
-        </div>
-      </section>
+      {showSections && (
+        <div className="filter-sections">
+          <section className="filter-section">
+            <h4>Wilayah</h4>
+            <div className="filter-chips">
+              {REGIONS.map(r => (
+                <ToggleChip key={r.id} label={r.label} active={regions.has(r.id)} onClick={() => toggleRegion(r.id)} />
+              ))}
+            </div>
+          </section>
 
-      <section className="filter-section">
-        <h4>Taste</h4>
-        <div className="filter-chips">
-          {TASTES.map(t => (
-            <ToggleChip key={t.id} label={t.label} active={tastes.has(t.id)} onClick={() => toggleTaste(t.id)} />
-          ))}
-        </div>
-      </section>
+          <section className="filter-section">
+            <h4>Rasa</h4>
+            <div className="filter-chips">
+              {TASTES.map(t => (
+                <ToggleChip key={t.id} label={t.label} active={tastes.has(t.id)} onClick={() => toggleTaste(t.id)} />
+              ))}
+            </div>
+          </section>
 
-      <section className="filter-section">
-        <h4>Type</h4>
-        <div className="filter-chips">
-          {TYPES.map(t => (
-            <ToggleChip key={t.id} label={t.label} active={type === t.id} onClick={() => setType(t.id)} />
-          ))}
+          <section className="filter-section">
+            <h4>Jenis</h4>
+            <div className="filter-chips">
+              {TYPES.map(t => (
+                <ToggleChip key={t.id} label={t.label} active={type === t.id} onClick={() => setType(t.id)} />
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
+      )}
     </aside>
   );
 }

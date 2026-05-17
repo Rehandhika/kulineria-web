@@ -16,7 +16,7 @@ export default function TimerBar() {
         className="timer-fill"
         style={{ width: `${percentage}%`, backgroundColor: color, transition: 'width 1s linear, background-color 0.3s ease' }}
       />
-      <span className="timer-text">{timeRemaining}s</span>
+      <span className="timer-text" aria-live="polite" aria-atomic="true">{timeRemaining}s</span>
     </div>
   );
 }

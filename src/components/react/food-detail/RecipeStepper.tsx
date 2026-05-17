@@ -47,11 +47,29 @@ export default function RecipeStepper({ steps, servings }: Props) {
     });
 
     if (!prefersReducedMotion) {
-      // Reveal items
-      gsap.fromTo('.step-item', { opacity: 0, x: 30 }, {
-        opacity: 1, x: 0, stagger: 0.1, duration: 0.8, ease: 'expo.out',
-        scrollTrigger: { trigger: containerRef.current, start: 'top 80%' },
+      // Reveal items - use set + ScrollTrigger.create for safety
+      const stepItems = containerRef.current!.querySelectorAll('.step-item');
+      gsap.set(stepItems, { opacity: 0, x: 30 });
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          gsap.to(stepItems, {
+            opacity: 1, x: 0, stagger: 0.1, duration: 0.8, ease: 'expo.out',
+          });
+        },
       });
+
+      // Safety fallback for step items
+      setTimeout(() => {
+        stepItems.forEach(item => {
+          if (window.getComputedStyle(item).opacity === '0') {
+            gsap.to(item, { opacity: 1, x: 0, duration: 0.3 });
+          }
+        });
+      }, 4000);
 
       // SVG Line Draw Animation (Scrollytelling)
       if (pathRef.current) {

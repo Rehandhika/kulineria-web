@@ -1,42 +1,24 @@
 ﻿---
-/**
- * SectionHeader - Reusable section header with overline and title
- */
 interface Props {
   overline?: string;
   title: string;
+  subtitle?: string;
   level?: 'h1' | 'h2' | 'h3';
+  color?: 'green' | 'blue' | 'yellow' | 'red' | 'purple' | 'orange';
 }
-
-const { overline, title, level = 'h2' } = Astro.props;
+const { overline, title, subtitle, level = 'h2', color = 'green' } = Astro.props;
 const Tag = level;
+const emojiMap: Record<string, string> = {
+  green: '🟢', blue: '🔵', yellow: '🟡', red: '🔴', purple: '🟣', orange: '🟠',
+};
 ---
 
-<div class="section-header">
-  {overline && <p class="overline">{overline}</p>}
-  <Tag class="title">{title}</Tag>
+<div class="duo-section-header">
+  {overline && (
+    <div class="duo-section-overline">
+      <span class:list={[`duo-badge`, `duo-badge-${color}`]}>{emojiMap[color]} {overline}</span>
+    </div>
+  )}
+  <Tag class="duo-section-title">{title}</Tag>
+  {subtitle && <p class="duo-section-subtitle">{subtitle}</p>}
 </div>
-
-<style>
-  .section-header {
-    margin-bottom: var(--sp-10);
-  }
-
-  .overline {
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--c-text-3);
-    margin-bottom: var(--sp-2);
-  }
-
-  .title {
-    font-family: var(--ff-display);
-    font-size: var(--fs-3xl);
-    font-weight: 600;
-    letter-spacing: var(--ls-tight);
-    color: var(--c-text-1);
-    line-height: var(--lh-snug);
-  }
-</style>

@@ -8,9 +8,24 @@ import '../styles/globals.css';
 interface Props {
   title: string;
   description?: string;
+  seoProps?: {
+    type?: 'website' | 'article' | 'recipe';
+    keywords?: string[];
+    recipe?: {
+      name: string;
+      description: string;
+      prepTime: number;
+      cookTime: number;
+      servings: number;
+      category: string;
+      cuisine: string;
+      ingredients: string[];
+      image?: string;
+    };
+  };
 }
 
-const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.props;
+const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {} } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,19 +35,20 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Font Preload -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
     </noscript>
 
-    <SeoMeta title={title} description={description} />
+    <SeoMeta title={title} description={description} type={seoProps.type} keywords={seoProps.keywords} recipe={seoProps.recipe} />
     <ViewTransitions />
   </head>
   <body>
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[500] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-md">
+    <a href="#main-content" class="skip-link">
       Skip to main content
     </a>
 
@@ -44,250 +60,111 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
 
     <BottomNav />
 
-    <!-- Custom Cursor (Desktop Only) -->
-    <div class="custom-cursor hidden md:flex" id="custom-cursor">
-      <span class="cursor-text"></span>
-    </div>
-
-    <!-- Micro Interactions & Cursor -->
     <script>
+      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
       import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-      function initCustomCursor() {
-        const cursor = document.getElementById('custom-cursor');
-        const cursorText = cursor?.querySelector('.cursor-text');
-        if (!cursor || !cursorText) return;
+      gsap.registerPlugin(ScrollTrigger);
 
-        // Cek apakah perangkat mendukung hover
-        const isFinePointer = window.matchMedia('(pointer: fine)').matches;
-        if (!isFinePointer) {
-          cursor.style.display = 'none';
-          return;
-        }
-
-        // Posisi kursor dan mouse
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let cursorX = mouseX;
-        let cursorY = mouseY;
-        let hasMoved = false;
-
-        gsap.set(cursor, { xPercent: -50, yPercent: -50 });
-
-        // Mengatur pergerakan halus (lerping)
-        gsap.ticker.add(() => {
-          if (!hasMoved) return;
-          cursorX += (mouseX - cursorX) * 0.2;
-          cursorY += (mouseY - cursorY) * 0.2;
-          gsap.set(cursor, { x: cursorX, y: cursorY });
+      function initGlobalSmoothScroll() {
+        initSmoothScroll({
+          duration: 1.5,
+          wheelMultiplier: 1,
+          touchMultiplier: 1.5,
         });
 
-        window.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          
-          if (!hasMoved) {
-            hasMoved = true;
-            // Langsung set posisi ke kursor saat pertama kali bergerak agar tidak meluncur dari tengah
-            cursorX = mouseX;
-            cursorY = mouseY;
-            gsap.set(cursor, { x: cursorX, y: cursorY });
-            gsap.to(cursor, { opacity: 1, duration: 0.3 });
-          }
-        });
-
-        // Hover Effect untuk Link dan Tombol biasa
-        const hoverElements = document.querySelectorAll('a, button, .cartoon-card');
-        hoverElements.forEach((el) => {
-          el.addEventListener('mouseenter', () => {
-            cursor.classList.add('cursor-hover');
-          });
-          el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-hover');
-          });
-        });
-
-        // Hover Effect spesifik untuk Peta (Food/Region)
-        const mapRegions = document.querySelectorAll('.map-region-path, .region-card, .food-card');
-        mapRegions.forEach((el) => {
-          el.addEventListener('mouseenter', () => {
-            cursor.classList.add('cursor-explore');
-            cursorText.textContent = 'LIHAT';
-          });
-          el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-explore');
-            cursorText.textContent = '';
-          });
+        // Refresh ScrollTrigger after Lenis is ready to recalculate positions
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
         });
       }
 
-      // Magnetic buttons effect
-      function initMagneticButtons() {
-        const buttons = document.querySelectorAll('[data-magnetic], .cartoon-btn, .cartoon-btn-secondary');
-        buttons.forEach((btn) => {
-          const el = btn as HTMLElement;
-          
-          el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            const strength = 0.3;
+      document.addEventListener('DOMContentLoaded', initGlobalSmoothScroll);
 
-            gsap.to(el, {
-              x: x * strength,
-              y: y * strength,
-              duration: 0.3,
-              ease: 'power2.out',
-            });
-          });
-
-          el.addEventListener('mouseleave', () => {
-            gsap.to(el, {
-              x: 0,
-              y: 0,
-              duration: 0.5,
-              ease: 'elastic.out(1, 0.3)',
-            });
-          });
-        });
-      }
-
-      // Ripple effect on click
-      function initRippleEffect() {
-        document.addEventListener('click', (e) => {
-          const target = (e.target as HTMLElement).closest('[data-ripple]');
-          if (!target) return;
-
-          const rect = target.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const ripple = document.createElement('span');
-          ripple.style.cssText = `
-            position: absolute;
-            left: ${x}px;
-            top: ${y}px;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-          `;
-
-          (target as HTMLElement).style.position = 'relative';
-          (target as HTMLElement).style.overflow = 'hidden';
-          target.appendChild(ripple);
-
-          gsap.to(ripple, {
-            width: 200,
-            height: 200,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            onComplete: () => ripple.remove(),
-          });
-        });
-      }
-
-      // Initialize on load
-      document.addEventListener('DOMContentLoaded', () => {
-        initCustomCursor();
-        initMagneticButtons();
-        initRippleEffect();
-      });
-
-      // Re-init after view transition
       document.addEventListener('astro:after-swap', () => {
+        destroySmoothScroll();
         setTimeout(() => {
-          initCustomCursor();
-          initMagneticButtons();
-        }, 100);
+          initGlobalSmoothScroll();
+          refreshSmoothScroll();
+        }, 150);
       });
     </script>
 
-    <!-- Lenis Smooth Scroll -->
     <script>
-      import Lenis from 'lenis';
+      import { gsap } from 'gsap';
 
-      // Initialize Lenis
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
+      let magneticCleanups: (() => void)[] = [];
+
+      function initMagneticButtons() {
+        // Cleanup previous listeners
+        magneticCleanups.forEach(fn => fn());
+        magneticCleanups = [];
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const buttons = document.querySelectorAll('[data-magnetic], .duo-btn, .duo-card');
+        buttons.forEach((btn) => {
+          const el = btn as HTMLElement;
+          const onMove = (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(el, {
+              x: x * 0.2, y: y * 0.2,
+              duration: 0.3, ease: 'power2.out', overwrite: 'auto',
+            });
+          };
+          const onLeave = () => {
+            gsap.to(el, {
+              x: 0, y: 0,
+              duration: 0.5, ease: 'elastic.out(1, 0.4)', overwrite: 'auto',
+            });
+          };
+          el.addEventListener('mousemove', onMove);
+          el.addEventListener('mouseleave', onLeave);
+          magneticCleanups.push(() => {
+            el.removeEventListener('mousemove', onMove);
+            el.removeEventListener('mouseleave', onLeave);
+          });
+        });
+      }
+
+      // Single delegated ripple listener (attached once)
+      document.addEventListener('click', (e) => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const target = (e.target as HTMLElement).closest('[data-ripple]');
+        if (!target) return;
+        const rect = target.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const ripple = document.createElement('span');
+        (target as HTMLElement).style.position = 'relative';
+        (target as HTMLElement).style.overflow = 'hidden';
+        ripple.style.cssText = `position:absolute;left:${x}px;top:${y}px;width:0;height:0;border-radius:50%;background:rgba(255,255,255,0.4);transform:translate(-50%,-50%);pointer-events:none;`;
+        target.appendChild(ripple);
+        gsap.to(ripple, { width: 200, height: 200, opacity: 0, duration: 0.6, ease: 'power2.out', onComplete: () => ripple.remove() });
       });
 
-      // Add lenis class
-      document.documentElement.classList.add('lenis');
-
-      // Animation frame loop
-      function raf(time: number) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
+      function initAll() {
+        initMagneticButtons();
       }
-      requestAnimationFrame(raf);
 
-      // Cleanup on page transition
-      document.addEventListener('astro:after-swap', () => {
-        lenis.destroy();
-        document.documentElement.classList.remove('lenis');
+      document.addEventListener('DOMContentLoaded', initAll);
+      document.addEventListener('astro:after-swap', () => setTimeout(initAll, 100));
+      document.addEventListener('astro:before-swap', () => {
+        magneticCleanups.forEach(fn => fn());
+        magneticCleanups = [];
       });
     </script>
   </body>
 </html>
 
 <style is:global>
-  /* Custom Cursor Styles */
-  .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: var(--c-accent);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
-    mix-blend-mode: difference;
-  }
-
-  .custom-cursor .cursor-text {
-    color: var(--c-white);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    mix-blend-mode: normal;
-  }
-
-  .custom-cursor.cursor-hover {
-    width: 40px;
-    height: 40px;
-    background-color: var(--c-cartoon-yellow);
-    mix-blend-mode: exclusion;
-  }
-
-  .custom-cursor.cursor-explore {
-    width: 80px;
-    height: 80px;
-    background-color: var(--c-accent);
-    mix-blend-mode: normal;
-  }
-
-  .custom-cursor.cursor-explore .cursor-text {
-    opacity: 1;
-  }
-
-  .sr-only {
+  .skip-link {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -298,43 +175,30 @@ const { title, description = 'Kulineria - Indonesian Culinary Atlas' } = Astro.p
     white-space: nowrap;
     border-width: 0;
   }
-  .sr-only.focus\:not-sr-only:focus {
-    position: static;
+  .skip-link:focus {
+    position: absolute;
     width: auto;
     height: auto;
-    padding: inherit;
-    margin: inherit;
+    padding: 0.5rem 1rem;
+    margin: 0;
     overflow: visible;
     clip: auto;
     white-space: normal;
+    top: 1rem;
+    left: 1rem;
+    z-index: 500;
+    background: #fff;
+    color: #000;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
 
-  /* Lenis required styles */
-  html.lenis, html.lenis body {
-    height: auto;
-  }
-
-  html.lenis {
-    overflow: hidden;
-  }
-
-  html.lenis body {
-    overflow: visible;
-  }
-
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
-  .lenis.lenis-scrolling iframe {
-    pointer-events: none;
-  }
+  html.lenis, html.lenis body { height: auto; }
+  html.lenis { overflow: hidden; }
+  html.lenis body { overflow: visible; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  .lenis.lenis-scrolling iframe { pointer-events: none; }
 </style>

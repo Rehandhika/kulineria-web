@@ -18,7 +18,7 @@ interface Props {
   currentId: string;
 }
 
-export default function RelatedCarousel({ foods, currentId }: Props) {
+export default function RelatedCarousel({ foods }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,10 +26,30 @@ export default function RelatedCarousel({ foods, currentId }: Props) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    gsap.fromTo('.related-card', { opacity: 0, x: 40 }, {
-      opacity: 1, x: 0, stagger: 0.08, duration: 0.8, ease: 'expo.out',
-      scrollTrigger: { trigger: containerRef.current, start: 'top 85%' },
+    const cards = containerRef.current.querySelectorAll('.related-card');
+    gsap.set(cards, { opacity: 0, x: 40 });
+
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(cards, {
+          opacity: 1, x: 0, stagger: 0.08, duration: 0.8, ease: 'expo.out',
+        });
+      },
     });
+
+    // Safety fallback
+    const fallback = setTimeout(() => {
+      cards.forEach(card => {
+        if (window.getComputedStyle(card).opacity === '0') {
+          gsap.to(card, { opacity: 1, x: 0, duration: 0.3 });
+        }
+      });
+    }, 4000);
+
+    return () => clearTimeout(fallback);
   }, []);
 
   if (foods.length === 0) return null;

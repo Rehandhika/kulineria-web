@@ -1,10 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { Flip } from 'gsap/Flip';
-
-gsap.registerPlugin(Flip);
 
 interface FoodItem {
   id: string;
@@ -20,13 +16,7 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
   const [displayCount, setDisplayCount] = useState(12);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-    const state = Flip.getState(containerRef.current.children);
     setDisplayCount(12);
-
-    requestAnimationFrame(() => {
-      Flip.from(state, { duration: 0.4, ease: 'power2.inOut' });
-    });
   }, [results]);
 
   const visibleResults = results.slice(0, displayCount);
@@ -40,8 +30,13 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
       </div>
 
       <div ref={containerRef} className="results-grid-inner">
-        {visibleResults.map((food) => (
-          <a key={food.id} href={`/food/${food.id}`} className="result-card">
+        {visibleResults.map((food, index) => (
+          <a
+            key={food.id}
+            href={`/food/${food.id}`}
+            className="result-card result-card-enter"
+            style={{ animationDelay: `${index * 0.04}s` }}
+          >
             <div className="result-card-image">
               <img src={food.imageUrl} alt={food.name} loading="lazy" />
             </div>

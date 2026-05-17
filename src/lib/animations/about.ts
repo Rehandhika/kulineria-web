@@ -32,7 +32,7 @@ export function initHeroAnimation() {
 export function initMissionAnimation() {
   const steps = document.querySelectorAll('.mission-step');
 
-  steps.forEach((step, i) => {
+  steps.forEach((step) => {
     const text = step.querySelector('.mission-text');
     const image = step.querySelector('.mission-image');
 
@@ -116,7 +116,8 @@ export function initTeamAnimation() {
   });
 
   cards.forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
+    card.addEventListener('mousemove', (ev) => {
+      const e = ev as MouseEvent;
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;

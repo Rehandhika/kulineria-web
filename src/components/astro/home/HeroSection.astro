@@ -1,0 +1,265 @@
+---
+import { getAllFoods, getRegions } from '../../../lib/data/loaders';
+const foods = getAllFoods();
+const regions = getRegions();
+---
+
+<section class="duo-hero" id="hero-section">
+  <div class="duo-hero-bg">
+    <div class="duo-hero-shape duo-hero-shape-1"></div>
+    <div class="duo-hero-shape duo-hero-shape-2"></div>
+    <div class="duo-hero-shape duo-hero-shape-3"></div>
+  </div>
+  <div class="container duo-hero-container">
+    <div class="duo-hero-content">
+      <div class="duo-hero-badge" data-anim="fade-up" data-delay="0.1">
+        <span>🐱</span>
+        <span>Indonesian Culinary Atlas</span>
+      </div>
+      <h1 class="duo-hero-title">
+        <span class="duo-hero-line" data-anim="text-reveal" data-delay="0.3">Jelajahi</span>
+        <span class="duo-hero-line duo-hero-accent" data-anim="text-reveal" data-delay="0.5">Cita Rasa</span>
+        <span class="duo-hero-line" data-anim="text-reveal" data-delay="0.7">Nusantara</span>
+      </h1>
+      <p class="duo-hero-subtitle" data-anim="fade-up" data-delay="0.9">
+        Temukan {foods.length}+ hidangan tradisional dari {regions.length} wilayah Indonesia
+      </p>
+      <div class="duo-hero-actions">
+        <a href="/search" class="duo-btn duo-btn-primary duo-btn-lg">
+          🔍 Mulai Jelajahi
+        </a>
+        <a href="/quiz" class="duo-btn duo-btn-secondary duo-btn-lg">
+          🧠 Ikuti Kuis
+        </a>
+      </div>
+      <div class="duo-hero-stats">
+        <div class="duo-hero-stat">
+          <span class="duo-hero-stat-num">{foods.length}+</span>
+          <span class="duo-hero-stat-label">Hidangan</span>
+        </div>
+        <div class="duo-hero-stat">
+          <span class="duo-hero-stat-num">{regions.length}</span>
+          <span class="duo-hero-stat-label">Wilayah</span>
+        </div>
+        <div class="duo-hero-stat">
+          <span class="duo-hero-stat-num">🐱</span>
+          <span class="duo-hero-stat-label">Pemandu</span>
+        </div>
+      </div>
+    </div>
+    <div class="duo-hero-mascot">
+      <div class="duo-hero-mascot-body anim-duo-float">
+        <div class="duo-hero-mascot-face">🐱</div>
+        <div class="duo-hero-mascot-speech">
+          <span>Ayo makan!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+import { gsap } from 'gsap';
+
+function initHeroEntrance() {
+  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  tl.from('.duo-hero-badge', { y: 30, opacity: 0, scale: 0.9, duration: 0.8 })
+    .from('.duo-hero-line', { y: 80, opacity: 0, duration: 1.2, stagger: 0.15, ease: 'power4.out' }, '-=0.4')
+    .from('.duo-hero-subtitle', { y: 30, opacity: 0, duration: 0.8 }, '-=0.6')
+    .from('.duo-hero-actions > *', { y: 20, opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.6 }, '-=0.3')
+    .from('.duo-hero-stat', { y: 20, opacity: 0, stagger: 0.08, duration: 0.5 }, '-=0.2')
+    .from('.duo-hero-mascot-body', { x: 60, opacity: 0, scale: 0.8, duration: 0.8, ease: 'back.out(2)' }, '-=0.5');
+}
+
+document.addEventListener('DOMContentLoaded', initHeroEntrance);
+document.addEventListener('astro:after-swap', () => setTimeout(initHeroEntrance, 50));
+</script>
+
+<style>
+  .duo-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--nav-mobile-h) + var(--sp-12)) 0 var(--sp-12);
+    background: linear-gradient(160deg, var(--c-duo-green-bg) 0%, var(--c-bg) 40%, var(--c-duo-yellow-bg) 100%);
+    overflow: hidden;
+  }
+  @media (min-width: 1024px) {
+    .duo-hero { min-height: 100vh; padding: calc(var(--nav-h) + var(--sp-16)) 0 var(--sp-16); }
+  }
+
+  .duo-hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .duo-hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .duo-hero-shape-1 {
+    width: 500px; height: 500px;
+    background: var(--c-duo-green);
+    top: -150px; right: -100px;
+    opacity: 0.1;
+  }
+  .duo-hero-shape-2 {
+    width: 350px; height: 350px;
+    background: var(--c-duo-yellow);
+    bottom: -80px; left: -80px;
+    opacity: 0.12;
+  }
+  .duo-hero-shape-3 {
+    width: 200px; height: 200px;
+    background: var(--c-duo-blue);
+    top: 40%; left: 60%;
+    opacity: 0.08;
+  }
+
+  .duo-hero-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .duo-hero-container {
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-16);
+    }
+  }
+
+  .duo-hero-content { max-width: 700px; }
+
+  .duo-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--c-surface);
+    border: 3px solid var(--duo-stroke-color);
+    border-radius: var(--r-full);
+    font-size: var(--fs-sm);
+    font-weight: 800;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-5);
+    box-shadow: 0 3px 0 var(--c-duo-shadow);
+  }
+
+  .duo-hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-4);
+  }
+  .duo-hero-line { display: block; }
+  .duo-hero-accent {
+    color: var(--c-duo-green);
+    position: relative;
+    display: inline-block;
+  }
+  .duo-hero-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: var(--c-accent-light);
+    border-radius: var(--r-full);
+    z-index: -1;
+  }
+
+  .duo-hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, var(--fs-lg));
+    color: var(--c-text-2);
+    font-weight: 700;
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-6);
+    max-width: 540px;
+  }
+
+  .duo-hero-actions {
+    display: flex;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--sp-8);
+  }
+
+  .duo-hero-stats {
+    display: flex;
+    gap: var(--sp-6);
+  }
+  .duo-hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .duo-hero-stat-num {
+    font-family: var(--ff-display);
+    font-size: var(--fs-2xl);
+    font-weight: 900;
+    color: var(--c-text-1);
+    line-height: 1;
+  }
+  .duo-hero-stat-label {
+    font-size: var(--fs-xs);
+    color: var(--c-text-3);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Mascot */
+  .duo-hero-mascot {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .duo-hero-mascot { display: block; }
+  }
+  .duo-hero-mascot-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .duo-hero-mascot-face {
+    font-size: 120px;
+    line-height: 1;
+    filter: drop-shadow(0 8px 0 rgba(60,60,60,0.15));
+  }
+  .duo-hero-mascot-speech {
+    margin-top: var(--sp-3);
+    padding: 12px 24px;
+    background: var(--c-surface);
+    border: 3px solid var(--duo-stroke-color);
+    border-radius: var(--r-2xl);
+    font-weight: 800;
+    font-size: var(--fs-lg);
+    color: var(--c-text-1);
+    position: relative;
+    box-shadow: 0 4px 0 var(--c-duo-shadow);
+    white-space: nowrap;
+  }
+  .duo-hero-mascot-speech::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--c-surface);
+    border-top: 3px solid var(--duo-stroke-color);
+    border-left: 3px solid var(--duo-stroke-color);
+    transform: translate(-50%, 0) rotate(45deg);
+    z-index: -1;
+  }
+</style>

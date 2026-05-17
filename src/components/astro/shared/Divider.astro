@@ -1,10 +1,32 @@
 ﻿---
 /**
- * Divider - Simple horizontal divider
+ * Divider - Playful Duolingo-style divider
  */
 ---
-<div class="divider"></div>
+
+<div class="duo-divider">
+  <span class="duo-divider-icon" aria-hidden="true">🍜</span>
+</div>
 
 <style>
-  .divider { height: 1px; background: var(--c-border); }
+  .duo-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sp-2) 0;
+    position: relative;
+  }
+  .duo-divider::before,
+  .duo-divider::after {
+    content: '';
+    flex: 1;
+    height: 3px;
+    background: var(--c-border);
+    border-radius: var(--r-full);
+  }
+  .duo-divider-icon {
+    margin: 0 var(--sp-4);
+    font-size: 20px;
+    animation: duoFloat 3s ease-in-out infinite;
+  }
 </style>

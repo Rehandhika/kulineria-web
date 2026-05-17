@@ -24,20 +24,31 @@ export default function MapMoment() {
 
     const ctx = gsap.context(() => {
       const markers = containerRef.current!.querySelectorAll('.map-marker');
-      markers.forEach((marker, i) => {
-        gsap.from(marker, {
-          scale: 0,
-          opacity: 0,
-          duration: 0.5,
-          delay: i * 0.15,
-          ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 60%',
-            toggleActions: 'play none none none',
-          },
-        });
+
+      gsap.set(markers, { scale: 0, opacity: 0 });
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top 60%',
+        once: true,
+        onEnter: () => {
+          gsap.to(markers, {
+            scale: 1, opacity: 1,
+            duration: 0.5,
+            stagger: 0.15,
+            ease: 'back.out(1.7)',
+          });
+        },
       });
+
+      // Safety fallback
+      setTimeout(() => {
+        markers.forEach(marker => {
+          if (window.getComputedStyle(marker).opacity === '0') {
+            gsap.to(marker, { scale: 1, opacity: 1, duration: 0.3 });
+          }
+        });
+      }, 4000);
     });
 
     return () => ctx.revert();

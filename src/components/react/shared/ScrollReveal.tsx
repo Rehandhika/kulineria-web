@@ -12,7 +12,6 @@ interface ScrollRevealProps {
   animation?: 'fadeUp' | 'fadeDown' | 'scaleIn' | 'slideLeft' | 'slideRight';
   delay?: number;
   duration?: number;
-  threshold?: number;
 }
 
 export default function ScrollReveal({
@@ -21,14 +20,20 @@ export default function ScrollReveal({
   animation = 'fadeUp',
   delay = 0,
   duration = 0.8,
-  threshold = 0.1,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!ref.current) return;
 
-    const animations = {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      // Ensure content is visible
+      gsap.set(ref.current, { opacity: 1, y: 0, x: 0, scale: 1 });
+      return;
+    }
+
+    const animations: Record<string, { y?: number; x?: number; scale?: number; opacity: number }> = {
       fadeUp: { y: 40, opacity: 0 },
       fadeDown: { y: -30, opacity: 0 },
       scaleIn: { scale: 0.92, opacity: 0 },
@@ -37,26 +42,38 @@ export default function ScrollReveal({
     };
 
     const from = animations[animation];
+    const el = ref.current;
+
+    // Set initial hidden state
+    gsap.set(el, from);
 
     const ctx = gsap.context(() => {
-      gsap.from(ref.current!, {
-        ...from,
-        y: from.y ?? 0,
-        x: from.x ?? 0,
-        opacity: from.opacity ?? 0,
-        scale: from.scale ?? 1,
-        duration,
-        delay,
-        ease: 'expo.out',
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(el, {
+            opacity: 1, y: 0, x: 0, scale: 1,
+            duration,
+            delay,
+            ease: 'expo.out',
+          });
         },
       });
     });
 
-    return () => ctx.revert();
+    // Safety fallback: show content after 5s if still hidden
+    const fallbackTimer = setTimeout(() => {
+      if (el && window.getComputedStyle(el).opacity === '0') {
+        gsap.to(el, { opacity: 1, y: 0, x: 0, scale: 1, duration: 0.4 });
+      }
+    }, 5000);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(fallbackTimer);
+    };
   }, [animation, delay, duration]);
 
   return (

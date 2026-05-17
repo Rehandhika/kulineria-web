@@ -4,11 +4,16 @@ import { useEffect, useRef, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { $searchQuery } from '@/lib/stores/search';
 import { getSearchIndex } from '@/lib/data/search-index';
-import type { SearchDocument } from '@/lib/data/search-index';
+
+interface Suggestion {
+  id: string;
+  name: string;
+  region: string;
+}
 
 export default function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
-  const [suggestions, setSuggestions] = useState<SearchDocument[]>([]);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -50,8 +55,8 @@ export default function CommandPalette() {
 
     if (val.length > 0) {
       const index = getSearchIndex();
-      const results = index.search(val, { limit: 8 });
-      setSuggestions(results);
+      const results = index.search(val).slice(0, 8);
+      setSuggestions(results.map(r => ({ id: r.id as string, name: r.name as string, region: r.region as string })));
     } else {
       setSuggestions([]);
     }

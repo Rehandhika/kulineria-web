@@ -1,99 +1,153 @@
-/* ============================================
-   KULINERIA DESIGN TOKENS v2
-   Cartoon Theme - Playful, Warm, Premium
-   ============================================ */
-
 :root {
-  /* COLORS - Neutrals (Warm, Creamy) */
+  /* === BROWN PALETTE (Warm & Playful) - DARK MODE DEFAULT === */
+
+  /* SIENNA - Primary brand */
+  --c-duo-sienna:        #A0522D;
+  --c-duo-sienna-dark:   #6B3A2A;
+  --c-duo-sienna-bg:     #F0E6D8;
+
+  --c-duo-green:         #A0522D;
+  --c-duo-green-dark:    #6B3A2A;
+  --c-duo-green-hover:   #8B4513;
+
+  /* OCHRE - Secondary / interactive */
+  --c-duo-ochre:         #D4A017;
+  --c-duo-ochre-dark:    #8B7020;
+  --c-duo-ochre-bg:      #F5E6C8;
+
+  --c-duo-blue:          #D4A017;
+  --c-duo-blue-dark:     #8B7020;
+  --c-duo-blue-bg:       #F5E6C8;
+
+  /* GOLD - Highlight / accent */
+  --c-duo-gold:          #E8B830;
+  --c-duo-gold-dark:     #B8860B;
+  --c-duo-gold-bg:       #FFF4D6;
+
+  --c-duo-yellow:        #E8B830;
+  --c-duo-yellow-dark:   #B8860B;
+  --c-duo-yellow-bg:     #FFF4D6;
+
+  /* TERRACOTTA - Active / danger / emphasis */
+  --c-duo-terracotta:    #C06040;
+  --c-duo-terracotta-dark: #9A3E20;
+  --c-duo-terracotta-bg: #F5DCC8;
+
+  --c-duo-red:           #C06040;
+  --c-duo-red-dark:      #9A3E20;
+  --c-duo-red-bg:        #F5DCC8;
+
+  /* AMBER - Warning / accent */
+  --c-duo-amber:         #CD853F;
+  --c-duo-amber-dark:    #9A6530;
+  --c-duo-amber-bg:      #F5E6C8;
+
+  --c-duo-orange:        #CD853F;
+  --c-duo-orange-dark:   #9A6530;
+  --c-duo-orange-bg:     #F5E6C8;
+
+  /* PLUM - Subtle accent */
+  --c-duo-plum:          #A07070;
+  --c-duo-plum-dark:     #7A5050;
+  --c-duo-plum-bg:       #F0E0D8;
+
+  --c-duo-purple:        #A07070;
+  --c-duo-purple-dark:   #7A5050;
+  --c-duo-purple-bg:     #F0E0D8;
+
+  /* CLAY / TEAL - Extra accents */
+  --c-duo-clay:          #C0806A;
+  --c-duo-teal:          #6B8E7A;
+
+  --c-duo-pink:          #C0806A;
+  --c-duo-cyan:          #6B8E7A;
+
+  /* Surfaces (Light default) */
+  --c-duo-snow:          #FFF9F0;
+  --c-duo-bg:            #F5EDE0;
+  --c-duo-surface:       #FFF9F0;
+  --c-duo-text:          #3C2A1E;
+  --c-duo-text-light:    #7A6A5C;
+  --c-duo-border:        #DCCFC4;
+  --c-duo-shadow:        rgba(60, 42, 30, 0.12);
+
+  /* REGION COLORS */
+  --c-sumatera:     #A0522D;
+  --c-jawa:         #8B6914;
+  --c-kalimantan:   #8B5E3C;
+  --c-sulawesi:     #B8860B;
+  --c-bali-ntt:     #CD853F;
+  --c-maluku-papua: #6B3A2A;
+
+  /* COLORS - Neutrals (Light default) */
   --c-white:        #FFFFFF;
-  --c-cream:        #FFF8F0;
-  --c-bg:           #FFFBF5;
-  --c-surface:      #FFFFFF;
-  --c-surface-1:    #FFFFFF;
-  --c-surface-2:    #FFF5EB;
-  --c-surface-3:    #FFE8D6;
-  --c-border:       #F0E6D8;
-  --c-border-soft:  #F5EDE3;
-  --c-border-strong:#E0D0BC;
-  --c-text-1:       #2D1810;
-  --c-text-2:       #6B4E3D;
-  --c-text-3:       #A89080;
-  --c-ink:          #1A0F0A;
-  --c-ink-soft:     #2D1810;
-  --c-ink-mute:     #4A3528;
+  --c-cream:        #F5EDE0;
+  --c-bg:           #F5EDE0;
+  --c-surface:      #FFF9F0;
+  --c-surface-1:    #FFF9F0;
+  --c-surface-2:    #ECE3D5;
+  --c-surface-3:    #E0D6C8;
+  --c-border:       #DCCFC4;
+  --c-border-soft:  #E8DED2;
+  --c-border-strong:#C8B8A8;
+  --c-text-1:       #3C2A1E;
+  --c-text-2:       #7A6A5C;
+  --c-text-3:       #A09080;
+  --c-ink:          #2B1E14;
+  --c-ink-soft:     #3C2A1E;
+  --c-ink-mute:     #5C4A3C;
 
-  /* COLORS - Region Accents (Vibrant, Cartoon) */
-  --c-sumatera:     #FF6B35;
-  --c-jawa:         #22C55E;
-  --c-kalimantan:   #F59E0B;
-  --c-sulawesi:     #06B6D4;
-  --c-bali-ntt:     #EC4899;
-  --c-maluku-papua: #8B5CF6;
-
-  /* COLORS - Accent (Warm Orange) */
-  --c-accent:       #F97316;
-  --c-accent-light: #FFF0E5;
-  --c-accent-hover: #EA580C;
-  --c-accent-dark:  #C2410C;
-  --c-accent-alpha: rgba(249, 115, 22, 0.12);
-  --c-accent-soft:  #FED7AA;
-
-  /* COLORS - Semantic (Cartoon-friendly) */
-  --c-success:      #22C55E;
-  --c-success-alpha: rgba(34, 197, 94, 0.12);
-  --c-success-light: #DCFCE7;
-  --c-error:        #EF4444;
-  --c-danger:       #EF4444;
-  --c-danger-alpha: rgba(239, 68, 68, 0.12);
-  --c-danger-light: #FEE2E2;
-  --c-warning:      #F59E0B;
-  --c-warning-light: #FEF3C7;
-  --c-info:         #06B6D4;
-  --c-info-light:   #CFFAFE;
+  /* COLORS - Accent */
+  --c-accent:       #A0522D;
+  --c-accent-light: #F0E6D8;
+  --c-accent-hover: #8B4513;
+  --c-accent-dark:  #6B3A2A;
+  --c-accent-alpha: rgba(160, 82, 45, 0.12);
+  --c-accent-soft:  #D2B48C;
+  --c-accent-bg:    #F0E6D8;
 
   /* COLORS - Cartoon Palette */
-  --c-cartoon-yellow: #FDE68A;
-  --c-cartoon-pink:   #FBCFE8;
-  --c-cartoon-blue:   #BFDBFE;
-  --c-cartoon-green:  #BBF7D0;
-  --c-cartoon-purple: #E9D5FF;
-  --c-cartoon-orange: #FED7AA;
+  --c-cartoon-yellow: #E8B830;
+  --c-cartoon-pink:   #C0806A;
+  --c-cartoon-blue:   #D4A017;
+  --c-cartoon-green:  #A0522D;
+  --c-cartoon-purple: #8B5A5A;
+  --c-cartoon-orange: #CD853F;
+  --c-cartoon-red:    #C06040;
+  --c-cartoon-cyan:   #6B8E7A;
 
-  /* TYPOGRAPHY - Font Families */
-  --ff-display:     'Fraunces', Georgia, 'Times New Roman', serif;
-  --ff-body:        'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* TYPOGRAPHY */
+  --ff-display:     'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ff-body:        'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --ff-nara:        'Nunito', 'Segoe UI', Roboto, sans-serif;
-  --ff-mono:        'Geist Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --ff-mono:        'Geist Mono', 'SF Mono', 'Fira Code', monospace;
 
-  /* TYPOGRAPHY - Font Sizes (fluid via clamp) */
-  --fs-display:     clamp(3.5rem, 12vw, 11.25rem);
-  --fs-mega:        clamp(2.5rem, 9vw, 7.5rem);
-  --fs-hero:        clamp(2.5rem, 7vw, 4.5rem);
-  --fs-4xl:         clamp(2rem, 4vw, 3rem);
-  --fs-3xl:         clamp(1.875rem, 3.5vw, 2.5rem);
-  --fs-2xl:         clamp(1.5rem, 3vw, 2rem);
-  --fs-xl:          clamp(1.25rem, 2.5vw, 1.5rem);
-  --fs-lg:          clamp(1.125rem, 1.8vw, 1.25rem);
-  --fs-base:        clamp(0.938rem, 1.5vw, 1rem);
-  --fs-sm:          clamp(0.813rem, 1.2vw, 0.875rem);
-  --fs-xs:          clamp(0.688rem, 1vw, 0.75rem);
-  --fs-tiny:        clamp(0.625rem, 0.8vw, 0.688rem);
+  --fs-display:     clamp(3rem, 10vw, 7rem);
+  --fs-mega:        clamp(2.2rem, 7vw, 5rem);
+  --fs-hero:        clamp(2.2rem, 6vw, 4rem);
+  --fs-4xl:         clamp(1.8rem, 3.5vw, 2.8rem);
+  --fs-3xl:         clamp(1.6rem, 3vw, 2.2rem);
+  --fs-2xl:         clamp(1.4rem, 2.5vw, 1.8rem);
+  --fs-xl:          clamp(1.2rem, 2vw, 1.5rem);
+  --fs-lg:          clamp(1.1rem, 1.5vw, 1.25rem);
+  --fs-base:        clamp(0.938rem, 1.3vw, 1rem);
+  --fs-sm:          clamp(0.85rem, 1.1vw, 0.9rem);
+  --fs-xs:          clamp(0.75rem, 0.9vw, 0.8rem);
+  --fs-tiny:        clamp(0.65rem, 0.7vw, 0.7rem);
 
-  /* TYPOGRAPHY - Line Heights */
   --lh-tight:       1.08;
   --lh-snug:        1.2;
   --lh-normal:      1.5;
   --lh-relaxed:     1.6;
   --lh-loose:       1.8;
 
-  /* TYPOGRAPHY - Letter Spacing */
-  --ls-tight:       -0.025em;
+  --ls-tight:       -0.02em;
   --ls-normal:      0;
-  --ls-wide:        0.05em;
-  --ls-wider:       0.08em;
-  --ls-widest:      0.12em;
+  --ls-wide:        0.03em;
+  --ls-wider:       0.05em;
+  --ls-widest:      0.08em;
 
-  /* SPACING (4px base unit) */
+  --sp-05:  2px;
   --sp-1:   4px;
   --sp-2:   8px;
   --sp-3:   12px;
@@ -107,60 +161,66 @@
   --sp-20:  80px;
   --sp-24:  96px;
   --sp-32:  128px;
-  --sp-05:  2px;
 
   /* LAYOUT */
-  --container-max:  1280px;
+  --container-max:  1100px;
   --container-sm:   640px;
   --container-md:   768px;
   --container-lg:   1024px;
-  --grid-bleed:     clamp(16px, 4vw, 96px);
+  --grid-bleed:     clamp(16px, 4vw, 64px);
   --grid-cols:      12;
   --grid-gutter:    clamp(12px, 1.5vw, 24px);
-  --nav-h:          64px;
-  --nav-mobile-h:   60px;
-  --page-px:        16px;
+  --nav-h:          72px;
+  --nav-mobile-h:   64px;
+  --page-px:        20px;
 
-  /* RADII (Cartoon - More Rounded) */
-  --r-sm:    8px;
-  --r-md:    12px;
-  --r-lg:    16px;
+  /* RADII - Chunky & Rounded */
+  --r-sm:    10px;
+  --r-md:    14px;
+  --r-lg:    18px;
   --r-xl:    24px;
   --r-2xl:   32px;
   --r-3xl:   40px;
   --r-full:  9999px;
 
-  /* SHADOWS (Soft, Cartoon-friendly) */
-  --sh-1:  0 1px 3px rgba(45, 24, 16, 0.04), 0 1px 2px rgba(45, 24, 16, 0.06);
-  --sh-2:  0 4px 8px rgba(45, 24, 16, 0.06), 0 2px 4px rgba(45, 24, 16, 0.04);
-  --sh-3:  0 12px 24px rgba(45, 24, 16, 0.08), 0 4px 8px rgba(45, 24, 16, 0.04);
-  --sh-4:  0 24px 48px rgba(45, 24, 16, 0.1), 0 8px 16px rgba(45, 24, 16, 0.06);
-  --sh-5:  0 16px 64px rgba(45, 24, 16, 0.16);
-  --sh-lg: var(--sh-3);
-  --sh-xl: var(--sh-4);
-  --sh-cartoon: 0 8px 0 rgba(45, 24, 16, 0.08);
-  --sh-cartoon-hover: 0 4px 0 rgba(45, 24, 16, 0.08);
-  --sh-inner: inset 0 2px 4px rgba(45, 24, 16, 0.06);
+  /* SHADOWS - Thick & Playful (Light default) */
+  --sh-1:  0 2px 0 rgba(60, 42, 30, 0.08);
+  --sh-2:  0 4px 0 rgba(60, 42, 30, 0.10);
+  --sh-3:  0 6px 0 rgba(60, 42, 30, 0.12);
+  --sh-4:  0 8px 0 rgba(60, 42, 30, 0.14);
+  --sh-5:  0 12px 0 rgba(60, 42, 30, 0.16);
+  --sh-lg: 0 16px 0 rgba(60, 42, 30, 0.12);
+  --sh-xl: 0 20px 0 rgba(60, 42, 30, 0.14);
+  --sh-cartoon:       0 6px 0 var(--c-duo-shadow);
+  --sh-cartoon-hover: 0 3px 0 var(--c-duo-shadow);
+  --sh-btn:           0 5px 0 var(--c-duo-sienna-dark);
+  --sh-btn-hover:     0 2px 0 var(--c-duo-sienna-dark);
+  --sh-card:          0 4px 0 rgba(60, 42, 30, 0.10);
+  --sh-card-hover:    0 8px 0 rgba(60, 42, 30, 0.12);
+  --sh-inner:         inset 0 2px 4px rgba(60, 42, 30, 0.08);
 
-  /* ANIMATION - Easing (Cartoon - Bouncy) */
-  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-bounce:      cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* BORDERS - Chunky (Light default) */
+  --duo-stroke:        3px;
+  --duo-stroke-color:  #3C2A1E;
+  --duo-stroke-soft:   rgba(60, 42, 30, 0.15);
+
+  /* EASING - Bouncy & Playful */
+  --ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring:      cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --ease-anticipate:  cubic-bezier(0.68, -0.55, 0.27, 1.55);
   --ease-smooth:      cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-ui:          cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out:         cubic-bezier(0, 0, 0.2, 1);
   --ease-in:          cubic-bezier(0.4, 0, 1, 1);
-  --ease-cartoon:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-elastic:     cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
-  /* ANIMATION - Durations */
-  --dur-instant:   100ms;
-  --dur-fast:      200ms;
-  --dur-base:      350ms;
-  --dur-slow:      650ms;
-  --dur-cinematic: 1200ms;
-  --dur-cartoon:   400ms;
+  /* DURATIONS */
+  --dur-instant:   80ms;
+  --dur-fast:      150ms;
+  --dur-base:      300ms;
+  --dur-slow:      500ms;
+  --dur-cinematic: 1000ms;
+  --dur-cartoon:   350ms;
 
   /* Z-INDEX */
   --z-base:     1;
@@ -171,53 +231,116 @@
   --z-toast:    500;
   --z-cursor:   9999;
 
-  /* CARTOON SPECIFIC */
-  --cartoon-stroke: 2px;
-  --cartoon-stroke-color: rgba(45, 24, 16, 0.15);
+  /* ============================================
+     ALIASES (compat with component CSS)
+     ============================================ */
+  --font-display:  var(--ff-display);
+  --font-body:     var(--ff-body);
+
+  --cartoon-stroke:       var(--duo-stroke);
+  --cartoon-stroke-color: var(--duo-stroke-color);
+
+  /* Semantic colors */
+  --c-success:       #10B981;
+  --c-success-light: #D1FAE5;
+  --c-danger:        #EF4444;
+  --c-danger-light:  #FEE2E2;
+  --c-warning:       #F59E0B;
+  --c-warning-light: #FEF3C7;
+  --c-info:          #3B82F6;
+  --c-info-light:    #DBEAFE;
+
+  /* Font weight aliases */
+  --fw-normal:    400;
+  --fw-medium:    600;
+  --fw-semibold:  700;
+  --fw-bold:      800;
+  --fw-extrabold: 900;
+
+  /* Duo green bg (used in hero gradient) */
+  --c-duo-green-bg: var(--c-duo-sienna-bg);
 }
 
-/* ============================================
-   DARK MODE TOKENS
-   ============================================ */
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-bg:           #1A1210;
-    --c-surface:      #241C18;
-    --c-surface-1:    #241C18;
-    --c-surface-2:    #2D2220;
-    --c-surface-3:    #3D2E28;
-    --c-border:       #3D322E;
-    --c-border-soft:  #332824;
-    --c-border-strong:#4A3D38;
-    --c-text-1:       #FFF8F0;
-    --c-text-2:       #C4B5A8;
-    --c-text-3:       #8A7B6E;
-    --c-cream:        #241C18;
-    --c-accent-light: #3D2818;
-    --c-accent-alpha: rgba(249, 115, 22, 0.15);
-    --c-success-alpha: rgba(34, 197, 94, 0.15);
-    --c-danger-alpha: rgba(239, 68, 68, 0.15);
-    --c-cartoon-yellow: #4A3818;
-    --c-cartoon-pink:   #3D2030;
-    --c-cartoon-blue:   #1E2D3D;
-    --c-cartoon-green:  #1E3D28;
-    --c-cartoon-purple: #2E2040;
-    --c-cartoon-orange: #3D2818;
-  }
-}
+    --c-duo-sienna-bg:     #3A2818;
+    --c-duo-ochre-bg:      #3A2E18;
+    --c-duo-blue-bg:       #3A2E18;
+    --c-duo-gold-bg:       #3A2E18;
+    --c-duo-yellow-bg:     #3A2E18;
+    --c-duo-terracotta-bg: #3A2218;
+    --c-duo-red-bg:        #3A2218;
+    --c-duo-amber-bg:      #3A2818;
+    --c-duo-orange-bg:     #3A2818;
+    --c-duo-plum-bg:       #2E2020;
+    --c-duo-purple-bg:     #2E2020;
 
-/* ============================================
-   FEATURE QUERIES
-   ============================================ */
-@supports (backdrop-filter: blur(1px)) {
-  .nav-glass {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-}
+    --c-duo-snow:          #2B1E14;
+    --c-duo-bg:            #1E1610;
+    --c-duo-surface:       #2B1E14;
+    --c-duo-text:          #F5EDE0;
+    --c-duo-text-light:    #C8B8A8;
+    --c-duo-border:        #4A3828;
+    --c-duo-shadow:        rgba(0, 0, 0, 0.25);
 
-@supports not (backdrop-filter: blur(1px)) {
-  .nav-glass {
-    background: rgba(255, 248, 240, 0.98);
+    --c-sumatera:     #B86530;
+    --c-jawa:         #A08020;
+    --c-kalimantan:   #9A6A40;
+    --c-sulawesi:     #C89818;
+    --c-bali-ntt:     #D49048;
+    --c-maluku-papua: #7A4430;
+
+    --c-white:        #FFFFFF;
+    --c-cream:        #2B1E14;
+    --c-bg:           #1E1610;
+    --c-surface:      #2B1E14;
+    --c-surface-1:    #2B1E14;
+    --c-surface-2:    #36281C;
+    --c-surface-3:    #403020;
+    --c-border:       #4A3828;
+    --c-border-soft:  #3A2818;
+    --c-border-strong:#5A4838;
+    --c-text-1:       #F5EDE0;
+    --c-text-2:       #C8B8A8;
+    --c-text-3:       #908070;
+    --c-ink:          #F5EDE0;
+    --c-ink-soft:     #DCCFC4;
+    --c-ink-mute:     #A09080;
+
+    --c-accent:       #C07040;
+    --c-accent-light: #3A2818;
+    --c-accent-hover: #D08050;
+    --c-accent-dark:  #8B5E3C;
+    --c-accent-alpha: rgba(160, 82, 45, 0.15);
+    --c-accent-soft:  #A08060;
+    --c-accent-bg:    #3A2818;
+
+    --c-cartoon-yellow: #5A4420;
+    --c-cartoon-pink:   #5A3028;
+    --c-cartoon-blue:   #4A3828;
+    --c-cartoon-green:  #3A2818;
+    --c-cartoon-purple: #3A2028;
+    --c-cartoon-orange: #4A2818;
+    --c-cartoon-red:    #5A2020;
+    --c-cartoon-cyan:   #2A3E30;
+
+    --duo-stroke-color:  #6A5A4C;
+    --duo-stroke-soft:   rgba(255, 245, 240, 0.08);
+
+    --sh-1:  0 2px 0 rgba(0, 0, 0, 0.2);
+    --sh-2:  0 4px 0 rgba(0, 0, 0, 0.22);
+    --sh-3:  0 6px 0 rgba(0, 0, 0, 0.24);
+    --sh-4:  0 8px 0 rgba(0, 0, 0, 0.26);
+    --sh-5:  0 12px 0 rgba(0, 0, 0, 0.28);
+    --sh-lg: 0 16px 0 rgba(0, 0, 0, 0.25);
+    --sh-xl: 0 20px 0 rgba(0, 0, 0, 0.28);
+    --sh-card:      0 4px 0 rgba(0, 0, 0, 0.22);
+    --sh-card-hover:0 8px 0 rgba(0, 0, 0, 0.25);
+    --sh-inner:     inset 0 2px 4px rgba(0, 0, 0, 0.15);
+
+    --c-success:       #34D399;
+    --c-danger:        #F87171;
+    --c-warning:       #FBBF24;
+    --c-info:          #60A5FA;
   }
 }

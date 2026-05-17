@@ -1,17 +1,25 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import { useState, useCallback, useRef } from 'react';
 import type { RegionId } from '@/types/food';
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
 
 const REGION_HEX: Record<string, string> = {
-  sumatera: '#F97316',
-  jawa: '#16A34A',
-  kalimantan: '#CA8A04',
-  sulawesi: '#0891B2',
-  'bali-ntt': '#DB2777',
-  'maluku-papua': '#7C3AED',
+  sumatera: '#A0522D',
+  jawa: '#D2691E',
+  kalimantan: '#8B6914',
+  sulawesi: '#B8860B',
+  'bali-ntt': '#CD853F',
+  'maluku-papua': '#8B4513',
+};
+
+const REGION_EMOJI: Record<string, string> = {
+  sumatera: '🌶️',
+  jawa: '🍚',
+  kalimantan: '🌴',
+  sulawesi: '🐟',
+  'bali-ntt': '🌺',
+  'maluku-papua': '🐚',
 };
 
 const regions = getRegions();
@@ -38,135 +46,41 @@ const REGION_ASSETS: RegionAsset[] = [
 ];
 
 export default function InteractiveMap() {
-  const [hovered, setHovered] = useState<RegionId | null>(null);
-  const [selected, setSelected] = useState<RegionId | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
-  const [mounted, setMounted] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasesRef = useRef<Record<string, HTMLCanvasElement>>({});
-  const svgRef = useRef<SVGSVGElement>(null);
-
-  // Pre-load images to hidden canvases for pixel-perfect hit detection
-  useEffect(() => {
-    setMounted(true);
-
-    REGION_ASSETS.forEach(r => {
-      const img = new window.Image();
-      img.src = r.src;
-      img.crossOrigin = 'Anonymous';
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = 1536;
-        canvas.height = 1024;
-        const ctx = canvas.getContext('2d', { willReadFrequently: true });
-        if (ctx) {
-          ctx.drawImage(img, 0, 0, 1536, 1024);
-          canvasesRef.current[r.id] = canvas;
-        }
-      };
-    });
-  }, []);
-
-  // GSAP entrance animation
-  useEffect(() => {
-    if (!svgRef.current) return;
-    const paths = svgRef.current.querySelectorAll('.map-region-path');
-    gsap.from(paths, {
-      opacity: 0,
-      scale: 0.95,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: 'expo.out',
-      scrollTrigger: {
-        trigger: svgRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-      },
-    });
-  }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!containerRef.current) return;
-    const containerRect = containerRef.current.getBoundingClientRect();
-
+    const rect = containerRef.current.getBoundingClientRect();
     setTooltipPos({
-      x: e.clientX - containerRect.left,
-      y: e.clientY - containerRect.top - 12,
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top - 12,
     });
-
-    let foundHover: RegionId | null = null;
-
-    // Check hit detection based on z-index (highest first)
-    const sortedRegions = [...REGION_ASSETS].sort((a, b) => b.zIndex - a.zIndex);
-
-    for (const r of sortedRegions) {
-      const imgElement = document.getElementById(`region-wrap-${r.id}`);
-      if (!imgElement) continue;
-
-      const rect = imgElement.getBoundingClientRect();
-
-      // Check if mouse is within this image's bounding box
-      if (
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
-      ) {
-        // Map relative mouse position to original 1536x1024 canvas coordinates
-        const scaleX = 1536 / rect.width;
-        const scaleY = 1024 / rect.height;
-        const canvasX = Math.round((e.clientX - rect.left) * scaleX);
-        const canvasY = Math.round((e.clientY - rect.top) * scaleY);
-
-        const canvas = canvasesRef.current[r.id];
-        if (canvas) {
-          const ctx = canvas.getContext('2d');
-          if (ctx) {
-            try {
-              const pixel = ctx.getImageData(canvasX, canvasY, 1, 1).data;
-              // If alpha channel > 10, it's not transparent!
-              if (pixel[3] > 10) {
-                foundHover = r.id;
-                break;
-              }
-            } catch {
-              // Ignore cross-origin canvas errors
-            }
-          }
-        }
-      }
-    }
-
-    setHovered(foundHover);
   }, []);
 
-  const handleMouseLeave = useCallback(() => {
+  const handleRegionEnter = useCallback((id: string) => {
+    setHovered(id);
+  }, []);
+
+  const handleRegionLeave = useCallback(() => {
     setHovered(null);
   }, []);
 
-  const handleRegionClick = useCallback((id: RegionId) => {
+  const handleRegionClick = useCallback((id: string) => {
     setSelected(prev => (prev === id ? null : id));
   }, []);
-
-  const handleMapClick = useCallback(() => {
-    if (hovered) {
-      handleRegionClick(hovered);
-    } else {
-      setSelected(null);
-    }
-  }, [hovered, handleRegionClick]);
 
   const selectedRegion = selected ? regions.find(r => r.id === selected) : null;
   const selectedCount = selected ? getFoodCount(selected) : 0;
 
   return (
-    <div className="interactive-map" ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onClick={handleMapClick}>
-      <div className="map-container relative w-full aspect-[16/10] md:aspect-[2/1] overflow-hidden rounded-2xl bg-[var(--c-surface)] border-2 border-[var(--cartoon-stroke-color)] shadow-[var(--sh-cartoon)]">
-        {/* Ocean background */}
+    <div className="interactive-map" ref={containerRef} onMouseMove={handleMouseMove}>
+      <div className="map-container relative w-full aspect-[16/10] md:aspect-[2/1] overflow-hidden rounded-2xl bg-[var(--c-surface)] border-[3px] border-[var(--duo-stroke-color)] shadow-[0_5px_0_var(--c-duo-shadow)]">
         <div className="map-ocean-bg absolute inset-0 z-0" />
 
-        {/* Region Images with hit detection */}
         {REGION_ASSETS.map(region => {
           const isActive = selected === region.id;
           const isHovered = hovered === region.id;
@@ -174,10 +88,12 @@ export default function InteractiveMap() {
           const color = REGION_HEX[region.id];
 
           return (
-            <div
+            <button
               key={region.id}
               id={`region-wrap-${region.id}`}
               className="map-region-path absolute"
+              type="button"
+              aria-label={regions.find(r => r.id === region.id)?.name || region.id}
               style={{
                 zIndex: region.zIndex,
                 width: region.layout.width,
@@ -185,19 +101,32 @@ export default function InteractiveMap() {
                 top: region.layout.top,
                 opacity: dimmed ? 0.3 : 1,
                 filter: isActive || isHovered
-                  ? `drop-shadow(0 0 12px ${color}80) brightness(1.15)`
+                  ? `drop-shadow(0 0 16px ${color}99) brightness(1.2) saturate(1.1)`
                   : 'none',
-                transform: isActive || isHovered ? 'scale(1.02)' : 'scale(1)',
+                transform: isActive || isHovered ? 'scale(1.03)' : 'scale(1)',
+                cursor: 'pointer',
+                padding: 0,
+                border: 'none',
+                background: 'none',
+                outline: 'none',
               }}
+              onClick={() => handleRegionClick(region.id)}
+              onMouseEnter={() => handleRegionEnter(region.id)}
+              onMouseLeave={handleRegionLeave}
             >
-              <img src={region.src} alt={regions.find(r => r.id === region.id)?.name || region.id} className="map-region-img" />
-            </div>
+              <img
+                src={region.src}
+                alt=""
+                className="map-region-img"
+                draggable={false}
+                style={{ pointerEvents: 'none', width: '100%', height: 'auto' }}
+              />
+            </button>
           );
         })}
 
-        {/* Floating tooltip */}
-        {hovered && mounted && (
-          <div className="map-tooltip" style={{ left: tooltipPos.x, top: tooltipPos.y }}>
+        {hovered && (
+          <div className="map-tooltip" style={{ left: tooltipPos.x, top: tooltipPos.y, pointerEvents: 'none' }}>
             <span className="map-tooltip-dot" style={{ background: REGION_HEX[hovered] }} />
             {regions.find(r => r.id === hovered)?.name}
             <span className="map-tooltip-count">{getFoodCount(hovered)} hidangan</span>
@@ -205,7 +134,6 @@ export default function InteractiveMap() {
         )}
       </div>
 
-      {/* Info Panel */}
       <div className="map-info-panel">
         <div className="map-region-buttons">
           {regions.map(region => {
@@ -219,7 +147,7 @@ export default function InteractiveMap() {
                 style={{ '--region-color': REGION_HEX[region.id] } as React.CSSProperties}
               >
                 <span className="map-region-btn-dot" />
-                <span className="map-region-btn-name">{region.name}</span>
+                <span className="map-region-btn-name">{REGION_EMOJI[region.id]} {region.name}</span>
                 <span className="map-region-btn-count">{count}</span>
               </button>
             );

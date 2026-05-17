@@ -4,11 +4,16 @@ import { useRef, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { $searchQuery } from '@/lib/stores/search';
 import { getSearchIndex } from '@/lib/data/search-index';
-import type { SearchDocument } from '@/lib/data/search-index';
+
+interface Suggestion {
+  id: string;
+  name: string;
+  region: string;
+}
 
 export default function SearchBar() {
   const query = useStore($searchQuery);
-  const [suggestions, setSuggestions] = useState<SearchDocument[]>([]);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -20,8 +25,8 @@ export default function SearchBar() {
 
     if (val.length > 0) {
       const index = getSearchIndex();
-      const results = index.search(val, { limit: 5 });
-      setSuggestions(results);
+      const results = index.search(val).slice(0, 5);
+      setSuggestions(results.map(r => ({ id: r.id as string, name: r.name as string, region: r.region as string })));
       setShowSuggestions(true);
     } else {
       setSuggestions([]);
@@ -70,9 +75,9 @@ export default function SearchBar() {
           onKeyDown={handleKeyDown}
           onFocus={() => query.length > 0 && setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-          placeholder="Search dishes, ingredients, regions..."
+          placeholder="Cari hidangan, bahan, wilayah..."
           className="search-input"
-          aria-label="Search dishes"
+          aria-label="Cari hidangan"
         />
         {query && (
           <button onClick={() => $searchQuery.set('')} className="search-clear" aria-label="Clear search">

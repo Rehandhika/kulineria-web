@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useStore } from '@nanostores/react';
 import './SearchProvider.css';
 import {
@@ -25,6 +25,9 @@ import NoResultsView from './NoResultsView';
 
 export default function SearchProvider() {
   const query = useStore($searchQuery);
+  const regionFilters = useStore($regionFilters);
+  const tasteFilters = useStore($tasteFilters);
+  const typeFilter = useStore($typeFilter);
   const results = useStore($searchResults);
   const isSearching = useStore($isSearching);
   const recentSearches = useStore($recentSearches);
@@ -46,7 +49,7 @@ export default function SearchProvider() {
   useEffect(() => {
     performSearch();
     syncToUrl();
-  }, [$regionFilters.get(), $tasteFilters.get(), $typeFilter.get()]);
+  }, [regionFilters, tasteFilters, typeFilter]);
 
   return (
     <div className="search-page">

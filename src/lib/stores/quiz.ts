@@ -88,7 +88,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
   },
 
   answerQuestion: (optionId: string) => {
-    const { questions, currentIndex, streak, score, timeRemaining, stats } = get();
+    const { questions, currentIndex, streak, score, timeRemaining } = get();
     const question = questions[currentIndex];
     if (!question) return;
 

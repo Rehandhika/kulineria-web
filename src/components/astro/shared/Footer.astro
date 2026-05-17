@@ -1,46 +1,147 @@
 ﻿---
-/**
- * Footer - Shared footer component
- */
+import { getRegions } from '../../../lib/data/loaders';
+const regions = getRegions();
+const year = new Date().getFullYear();
 ---
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-logo">Kulineria<span class="logo-dot">.</span></span>
-      <p class="footer-copy">&copy; {new Date().getFullYear()} Kulineria — Indonesian Culinary Atlas</p>
+<footer class="duo-footer">
+  <div class="duo-footer-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,40 C240,100 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--c-duo-green)"/>
+    </svg>
+  </div>
+  <div class="duo-footer-content">
+    <div class="container">
+      <div class="duo-footer-grid">
+        <div class="duo-footer-brand">
+          <a href="/" class="duo-footer-logo">
+            Kulineria<span class="duo-footer-dot">.</span>
+          </a>
+          <p class="duo-footer-tagline">Indonesian Culinary Atlas — explore the flavors of Nusantara!</p>
+          <div class="duo-footer-nara">
+            <span class="duo-footer-nara-icon" aria-hidden="true">🐱</span>
+            <span class="duo-footer-nara-text">"Makan enak, hidup senang!" — Nara</span>
+          </div>
+        </div>
+        <div class="duo-footer-links">
+          <h4 class="duo-footer-heading">Jelajahi</h4>
+          <a href="/search" class="duo-footer-link">Semua Hidangan</a>
+          <a href="/quiz" class="duo-footer-link">Kuis Kuliner</a>
+          <a href="/about" class="duo-footer-link">Tentang Kulineria</a>
+        </div>
+        <div class="duo-footer-regions">
+          <h4 class="duo-footer-heading">Wilayah</h4>
+          {regions.slice(0, 6).map(r => (
+            <a href={`/search?region=${r.id}`} class="duo-footer-link">{r.name}</a>
+          ))}
+        </div>
+      </div>
+      <div class="duo-footer-bottom">
+        <p>&copy; {year} Kulineria — dibuat dengan <span class="duo-footer-heart" aria-hidden="true">❤</span> dan banyak sambal</p>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer {
-    background: var(--c-surface);
-    border-top: 1px solid var(--c-border);
-    padding: var(--sp-8) 0;
+  .duo-footer {
+    position: relative;
+    margin-top: var(--sp-12);
   }
-
-  .footer-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--sp-3);
+  .duo-footer-wave {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    line-height: 0;
   }
-
-  .footer-logo {
+  .duo-footer-wave svg {
+    width: 100%;
+    height: 100%;
+  }
+  @media (min-width: 768px) {
+    .duo-footer-wave { height: 80px; }
+  }
+  .duo-footer-content {
+    background: var(--c-duo-green);
+    padding: var(--sp-10) 0 var(--sp-6);
+  }
+  .duo-footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+  @media (min-width: 640px) {
+    .duo-footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--sp-10);
+    }
+  }
+  .duo-footer-logo {
     font-family: var(--ff-display);
-    font-size: var(--fs-lg);
-    font-weight: 600;
-    color: var(--c-text-1);
+    font-size: var(--fs-2xl);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.02em;
   }
-
-  .logo-dot {
-    color: var(--c-accent);
+  .duo-footer-dot { color: var(--c-duo-yellow); }
+  .duo-footer-tagline {
+    color: rgba(255,255,255,0.85);
+    font-weight: 700;
+    margin-top: var(--sp-2);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-relaxed);
   }
-
-  .footer-copy {
+  .duo-footer-nara {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    background: rgba(255,255,255,0.15);
+    border-radius: var(--r-lg);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .duo-footer-nara-icon { font-size: 24px; }
+  .duo-footer-nara-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+  }
+  .duo-footer-heading {
+    font-family: var(--ff-display);
+    color: #fff;
+    font-size: var(--fs-sm);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--sp-4);
+  }
+  .duo-footer-link {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    padding: 4px 0;
+    transition: all 0.15s var(--ease-bounce);
+  }
+  .duo-footer-link:hover {
+    color: #fff;
+    transform: translateX(4px);
+  }
+  .duo-footer-bottom {
+    margin-top: var(--sp-8);
+    padding-top: var(--sp-4);
+    border-top: 2px solid rgba(255,255,255,0.2);
+    text-align: center;
+  }
+  .duo-footer-bottom p {
+    color: rgba(255,255,255,0.7);
+    font-weight: 700;
     font-size: var(--fs-xs);
-    color: var(--c-text-3);
+  }
+  .duo-footer-heart {
+    color: var(--c-duo-red);
+    display: inline-block;
+    animation: duoPulse 1.5s ease-in-out infinite;
   }
 </style>

@@ -12,15 +12,19 @@ export default function NaraOrigin() {
     if (!naraRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(naraRef.current!, {
-        scale: 0,
-        opacity: 0,
-        duration: 1,
-        ease: 'back.out(1.7)',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none none',
+      // Set initial state
+      gsap.set(naraRef.current!, { scale: 0, opacity: 0 });
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top 70%',
+        once: true,
+        onEnter: () => {
+          gsap.to(naraRef.current!, {
+            scale: 1, opacity: 1,
+            duration: 1,
+            ease: 'back.out(1.7)',
+          });
         },
       });
 
@@ -33,7 +37,17 @@ export default function NaraOrigin() {
       });
     });
 
-    return () => ctx.revert();
+    // Safety fallback
+    const fallback = setTimeout(() => {
+      if (naraRef.current && window.getComputedStyle(naraRef.current).opacity === '0') {
+        gsap.to(naraRef.current, { scale: 1, opacity: 1, duration: 0.4 });
+      }
+    }, 4000);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(fallback);
+    };
   }, []);
 
   const expressions = {

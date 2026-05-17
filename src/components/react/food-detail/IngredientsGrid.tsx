@@ -25,31 +25,36 @@ export default function IngredientsGrid({ ingredients }: Props) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // Entrance animation
-    gsap.fromTo('.ingredient-card', { opacity: 0, scale: 0.85, y: 30 }, {
-      opacity: 1, scale: 1, y: 0, stagger: 0.05, duration: 0.8, ease: 'back.out(1.2)',
-      scrollTrigger: { trigger: containerRef.current, start: 'top 85%' },
+    const cards = containerRef.current.querySelectorAll('.ingredient-card');
+
+    // Set initial state explicitly
+    gsap.set(cards, { opacity: 0, scale: 0.85, y: 30 });
+
+    // Entrance animation via ScrollTrigger
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(cards, {
+          opacity: 1, scale: 1, y: 0, stagger: 0.05, duration: 0.8, ease: 'back.out(1.2)',
+        });
+      },
     });
 
-    // Parallax floating effect on scroll
-    const cards = containerRef.current.querySelectorAll('.ingredient-card');
-    cards.forEach((card, index) => {
-      // Create a pseudo-random speed based on index
-      const speed = 1 + (index % 3) * 0.5; // speeds: 1, 1.5, 2
-      
-      gsap.to(card, {
-        y: () => -30 * speed, // Moves up at different speeds
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
+    // Safety fallback
+    const fallback = setTimeout(() => {
+      cards.forEach(card => {
+        if (window.getComputedStyle(card as Element).opacity === '0') {
+          gsap.to(card, { opacity: 1, scale: 1, y: 0, duration: 0.3 });
         }
       });
-    });
+    }, 4000);
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => {
+      clearTimeout(fallback);
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   return (

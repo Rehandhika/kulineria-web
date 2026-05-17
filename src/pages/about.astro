@@ -6,9 +6,9 @@ import MissionSection from '../components/astro/about/MissionSection.astro';
 import ValuesSection from '../components/astro/about/ValuesSection.astro';
 import TeamSection from '../components/astro/about/TeamSection.astro';
 import CTASection from '../components/astro/about/CTASection.astro';
-import NaraOrigin from '../components/react/about/NaraOrigin.tsx';
-import MapMoment from '../components/react/about/MapMoment.tsx';
-import ScrollReveal from '../components/react/shared/ScrollReveal.tsx';
+import NaraOrigin from '../components/react/about/NaraOrigin';
+import MapMoment from '../components/react/about/MapMoment';
+import ScrollReveal from '../components/react/shared/ScrollReveal';
 ---
 
 <BaseLayout title="About" description="About Kulineria - Indonesian Culinary Atlas">
@@ -16,27 +16,27 @@ import ScrollReveal from '../components/react/shared/ScrollReveal.tsx';
     <div class="about-wrapper">
       <HeroManifesto />
 
-      <ScrollReveal client:only="react" animation="fadeUp" delay="0.2">
+      <ScrollReveal client:only="react" animation="fadeUp" delay={0.2}>
         <MissionSection />
       </ScrollReveal>
 
-      <ScrollReveal client:only="react" animation="scaleIn" delay="0.1">
+      <ScrollReveal client:only="react" animation="scaleIn" delay={0.1}>
         <NaraOrigin client:only="react" />
       </ScrollReveal>
 
-      <ScrollReveal client:only="react" animation="fadeUp" delay="0.15">
+      <ScrollReveal client:only="react" animation="fadeUp" delay={0.15}>
         <MapMoment client:only="react" />
       </ScrollReveal>
 
-      <ScrollReveal client:only="react" animation="fadeUp" delay="0.1">
+      <ScrollReveal client:only="react" animation="fadeUp" delay={0.1}>
         <ValuesSection />
       </ScrollReveal>
 
-      <ScrollReveal client:only="react" animation="fadeUp" delay="0.1">
+      <ScrollReveal client:only="react" animation="fadeUp" delay={0.1}>
         <TeamSection />
       </ScrollReveal>
 
-      <ScrollReveal client:only="react" animation="scaleIn" delay="0.15">
+      <ScrollReveal client:only="react" animation="scaleIn" delay={0.15}>
         <CTASection />
       </ScrollReveal>
     </div>

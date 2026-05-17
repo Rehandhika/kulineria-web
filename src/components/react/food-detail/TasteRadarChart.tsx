@@ -20,7 +20,7 @@ interface Props {
 const tastes = ['manis', 'pedas', 'gurih', 'asam', 'asin'] as const;
 const labels = ['Manis', 'Pedas', 'Gurih', 'Asam', 'Asin'];
 
-export default function TasteRadarChart({ scores, regionColor }: Props) {
+export default function TasteRadarChart({ scores }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
 
@@ -80,13 +80,13 @@ export default function TasteRadarChart({ scores, regionColor }: Props) {
         <path ref={pathRef} d={dataPath} className="radar-data" fill="none" />
 
         {/* Data points */}
-        {tastes.map((t, i) => {
-          const p = getPoint(i, scores[t]);
+        {tastes.map((_, i) => {
+          const p = getPoint(i, scores[tastes[i]]);
           return <circle key={i} cx={p.x} cy={p.y} r="4" className="radar-dot" />;
         })}
 
         {/* Labels */}
-        {tastes.map((t, i) => {
+        {tastes.map((_, i) => {
           const p = getPoint(i, 115);
           return (
             <text key={i} x={p.x} y={p.y} textAnchor="middle" dominantBaseline="middle" className="radar-label">

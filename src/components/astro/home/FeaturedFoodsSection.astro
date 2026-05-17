@@ -1,0 +1,199 @@
+---
+import { getAllFoods, getRegions } from '../../../lib/data/loaders';
+const foods = getAllFoods();
+const regions = getRegions();
+
+const TASTE_EMOJI: Record<string, string> = { manis: '🍬', pedas: '🌶️', gurih: '🧂', asam: '🍋', asin: '🧀' };
+function getRegionEmoji(id: string): string {
+  const map: Record<string, string> = { sumatera: '🌶️', jawa: '🍚', kalimantan: '🌴', sulawesi: '🐟', 'bali-ntt': '🌺', 'maluku-papua': '🐚' };
+  return map[id] || '🍽️';
+}
+---
+
+<section class="section-py duo-featured" id="featured">
+  <div class="container">
+    <div class="duo-section-header">
+      <div class="duo-section-overline">
+        <span class="duo-badge duo-badge-green">🍽️ Collection</span>
+      </div>
+      <h2 class="duo-section-title">Hidangan Pilihan</h2>
+      <p class="duo-section-subtitle">Favorit pilihan dari seluruh Nusantara!</p>
+    </div>
+    <div class="duo-food-grid">
+      {foods.slice(0, 8).map((food) => {
+        const region = regions.find(r => r.id === food.region);
+        return (
+          <a href={`/food/${food.id}`} class="duo-card duo-food-card">
+            <div class="duo-food-img" style={{ backgroundColor: `var(--c-${food.region})` }}>
+              <div class="duo-food-placeholder">
+                <div class="duo-food-initials">
+                  {food.name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase()}
+                </div>
+              </div>
+              <span class="duo-food-badge">
+                {getRegionEmoji(food.region)} {region?.name || food.region}
+              </span>
+            </div>
+            <div class="duo-food-info">
+              <h3 class="duo-food-name">{food.name}</h3>
+              <p class="duo-food-desc">{food.description.slice(0, 70)}...</p>
+              <div class="duo-food-tags">
+                {food.taste.map(t => (
+                  <span class="duo-food-tag">{TASTE_EMOJI[t] || ''} {t}</span>
+                ))}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+function initFoodReveal() {
+  const cards = document.querySelectorAll('.duo-food-card');
+  if (cards.length === 0) return;
+
+  // Kill any existing triggers for these elements
+  ScrollTrigger.getAll().forEach(st => {
+    if (st.trigger === document.querySelector('.duo-food-grid')) st.kill();
+  });
+
+  // Set initial state
+  gsap.set(cards, { y: 60, opacity: 0, scale: 0.93 });
+
+  ScrollTrigger.create({
+    trigger: '.duo-food-grid',
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      gsap.to(cards, {
+        y: 0, opacity: 1, scale: 1, duration: 0.8,
+        stagger: 0.07, ease: 'back.out(1.7)',
+      });
+    },
+  });
+
+  // Safety fallback
+  setTimeout(() => {
+    cards.forEach(card => {
+      if (window.getComputedStyle(card).opacity === '0') {
+        gsap.to(card, { y: 0, opacity: 1, scale: 1, duration: 0.4 });
+      }
+    });
+  }, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(initFoodReveal, 200));
+document.addEventListener('astro:after-swap', () => setTimeout(initFoodReveal, 300));
+</script>
+
+<style>
+  .duo-food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+  }
+  @media (min-width: 480px) {
+    .duo-food-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  }
+  @media (min-width: 768px) {
+    .duo-food-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); }
+  }
+  @media (min-width: 1024px) {
+    .duo-food-grid { grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
+  }
+
+  .duo-food-card {
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .duo-food-card:hover {
+    border-color: var(--c-duo-green-dark);
+    box-shadow: 0 7px 0 var(--c-duo-green-dark);
+  }
+
+  .duo-food-img {
+    position: relative;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) { .duo-food-img { height: 200px; } }
+  @media (min-width: 1024px) { .duo-food-img { height: 200px; } }
+
+  .duo-food-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s var(--ease-bounce);
+  }
+  .duo-food-card:hover .duo-food-placeholder { transform: scale(1.08); }
+
+  .duo-food-initials {
+    font-family: var(--ff-display);
+    font-size: 56px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 6px;
+  }
+
+  .duo-food-badge {
+    position: absolute;
+    top: var(--sp-3);
+    left: var(--sp-3);
+    padding: 4px 12px;
+    border-radius: var(--r-full);
+    font-size: var(--fs-tiny);
+    font-weight: 800;
+    color: #fff;
+    background: rgba(60,60,60,0.6);
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+  }
+
+  .duo-food-info { padding: var(--sp-4); }
+
+  .duo-food-name {
+    font-family: var(--ff-display);
+    font-size: var(--fs-base);
+    font-weight: 900;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-2);
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 768px) { .duo-food-name { font-size: var(--fs-lg); } }
+
+  .duo-food-desc {
+    font-size: var(--fs-sm);
+    color: var(--c-text-2);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-3);
+    font-weight: 600;
+  }
+
+  .duo-food-tags {
+    display: flex;
+    gap: var(--sp-2);
+    flex-wrap: wrap;
+  }
+  .duo-food-tag {
+    padding: 3px 10px;
+    border-radius: var(--r-full);
+    font-size: var(--fs-tiny);
+    font-weight: 800;
+    background: var(--c-surface-2);
+    color: var(--c-text-2);
+    border: 2px solid var(--c-border);
+    text-transform: lowercase;
+  }
+</style>

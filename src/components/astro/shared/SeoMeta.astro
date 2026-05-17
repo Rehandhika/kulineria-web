@@ -11,25 +11,58 @@ interface Props {
   type?: 'website' | 'article' | 'recipe';
   keywords?: string[];
   publishedTime?: string;
+  recipe?: {
+    name: string;
+    description: string;
+    prepTime: number;
+    cookTime: number;
+    servings: number;
+    category: string;
+    cuisine: string;
+    ingredients: string[];
+    image?: string;
+  };
 }
 
 const {
   title,
-  description = 'Kulineria - Indonesian Culinary Atlas. Discover 510+ traditional dishes across 6 regions of the Indonesian archipelago.',
+  description = 'Kulineria - Atlas Kuliner Indonesia. Temukan 510+ hidangan tradisional dari 6 wilayah Nusantara.',
   image = 'https://kulineria.id/og-image.jpg',
   url = Astro.url.toString(),
   type = 'website',
   keywords = [],
   publishedTime,
+  recipe,
 } = Astro.props;
 
 const siteName = 'Kulineria';
 const fullTitle = `${title} | ${siteName}`;
 const twitterHandle = '@kulineria';
 
-const jsonLd = {
+function formatDuration(minutes: number): string {
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return `PT${h > 0 ? h + 'H' : ''}${m > 0 ? m + 'M' : ''}`;
+}
+
+const jsonLd = recipe ? {
   '@context': 'https://schema.org',
-  '@type': type === 'recipe' ? 'Recipe' : type === 'article' ? 'Article' : 'WebPage',
+  '@type': 'Recipe',
+  name: recipe.name,
+  description: recipe.description,
+  image: recipe.image || image,
+  prepTime: formatDuration(recipe.prepTime),
+  cookTime: formatDuration(recipe.cookTime),
+  totalTime: formatDuration(recipe.prepTime + recipe.cookTime),
+  recipeYield: `${recipe.servings} porsi`,
+  recipeCategory: recipe.category,
+  recipeCuisine: recipe.cuisine,
+  recipeIngredient: recipe.ingredients,
+  publisher: { '@type': 'Organization', name: siteName, url: 'https://kulineria.id' },
+  ...(keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
+} : {
+  '@context': 'https://schema.org',
+  '@type': type === 'article' ? 'Article' : 'WebPage',
   name: title,
   description,
   url,
@@ -67,8 +100,8 @@ const jsonLd = {
 <meta name="twitter:site" content={twitterHandle} />
 
 <!-- Theme -->
-<meta name="theme-color" content="#D97706" />
-<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#A0522D" />
+<meta name="color-scheme" content="light dark" />
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
