@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef } from 'react';
 import type { RegionId } from '@/types/food';
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
+import { $selectedRegion, setSelectedRegion } from '@/lib/stores/selectedRegion';
 
 const REGION_HEX: Record<string, string> = {
   sumatera: '#A0522D',
@@ -61,11 +62,12 @@ export default function InteractiveMap() {
   }, []);
 
   const handleRegionClick = useCallback((id: string) => {
-    setSelected(prev => (prev === id ? null : id));
+    setSelected(prev => {
+      const next = prev === id ? null : id;
+      setSelectedRegion(next);
+      return next;
+    });
   }, []);
-
-  const selectedRegion = selected ? regions.find(r => r.id === selected) : null;
-  const selectedCount = selected ? getFoodCount(selected) : 0;
 
   return (
     <div className="interactive-map" ref={containerRef} onMouseMove={handleMouseMove}>
@@ -121,39 +123,6 @@ export default function InteractiveMap() {
             <span className="map-tooltip-dot" style={{ background: REGION_HEX[hovered] }} />
             {regions.find(r => r.id === hovered)?.name}
             <span className="map-tooltip-count">{getFoodCount(hovered)} hidangan</span>
-          </div>
-        )}
-      </div>
-
-      <div className="map-info-panel">
-        {selectedRegion ? (
-          <div className="map-detail-card">
-            <div className="map-detail-header">
-              <div className="map-detail-icon" style={{ background: `${REGION_HEX[selectedRegion.id]}20`, borderColor: REGION_HEX[selectedRegion.id] }} />
-              <div>
-                <p className="label-overline">Wilayah Terpilih</p>
-                <h3 className="map-detail-title">{selectedRegion.name}</h3>
-              </div>
-            </div>
-            <p className="map-detail-desc">{selectedRegion.naraDialog}</p>
-            <div className="map-detail-stats">
-              <div className="map-detail-stat">
-                <span className="map-detail-stat-val">{selectedCount}</span>
-                <span className="map-detail-stat-label">Hidangan</span>
-              </div>
-              <div className="map-detail-stat">
-                <span className="map-detail-stat-val">{new Set(allFoods.filter(f => f.region === selectedRegion.id).flatMap(f => f.taste)).size}</span>
-                <span className="map-detail-stat-label">Rasa</span>
-              </div>
-            </div>
-            <a href={`/search?region=${selectedRegion.id}`} className="map-explore-btn" style={{ background: REGION_HEX[selectedRegion.id] }}>
-              Lihat Semua Hidangan →
-            </a>
-          </div>
-        ) : (
-          <div className="map-empty-card">
-            <div className="map-empty-icon">🗺️</div>
-            <p>Klik pulau atau pilih wilayah untuk melihat kuliner khas daerah</p>
           </div>
         )}
       </div>

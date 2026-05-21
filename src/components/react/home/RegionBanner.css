@@ -1,0 +1,156 @@
+.region-banner {
+  position: relative;
+  border-radius: var(--r-2xl);
+  border: 2px solid;
+  overflow: hidden;
+  margin-top: var(--sp-6);
+}
+
+.region-banner-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.region-banner-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-5) var(--sp-6);
+}
+
+@media (max-width: 767px) {
+  .region-banner-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--sp-5);
+  }
+}
+
+.region-banner-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 24px;
+}
+
+.region-banner-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.region-banner-overline {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  color: var(--c-text-3);
+  margin-bottom: var(--sp-1);
+}
+
+.region-banner-title {
+  font-family: var(--ff-display);
+  font-size: var(--fs-2xl);
+  font-weight: 900;
+  color: var(--c-text-1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.region-banner-desc {
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  font-weight: 600;
+  margin-top: var(--sp-1);
+}
+
+.region-banner-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .region-banner-meta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.region-banner-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.region-banner-stat-val {
+  font-family: var(--ff-display);
+  font-size: var(--fs-2xl);
+  font-weight: 900;
+  color: var(--c-text-1);
+  line-height: 1;
+}
+
+.region-banner-stat-label {
+  font-size: var(--fs-tiny);
+  color: var(--c-text-3);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  font-weight: 800;
+}
+
+.region-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.region-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--r-full);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s var(--ease-bounce);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.region-banner-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.region-banner-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--c-border);
+  background: var(--c-surface);
+  color: var(--c-text-3);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-bounce);
+}
+
+.region-banner-reset:hover {
+  border-color: var(--c-text-2);
+  color: var(--c-text-1);
+  transform: rotate(90deg);
+}

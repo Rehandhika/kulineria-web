@@ -1,30 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Divider from '../components/astro/shared/Divider.astro';
 import Footer from '../components/astro/shared/Footer.astro';
 import HeroSection from '../components/astro/home/HeroSection.astro';
-import FeaturedFoodsSection from '../components/astro/home/FeaturedFoodsSection.astro';
 import InteractiveMap from '../components/react/home/InteractiveMap';
+import RegionBanner from '../components/react/home/RegionBanner';
+import FeaturedFoodsGrid from '../components/react/home/FeaturedFoodsGrid';
 import SectionHeader from '../components/astro/shared/SectionHeader.astro';
 ---
 
 <BaseLayout title="Home" description="Discover the rich flavors of Indonesian cuisine through an interactive exploration of regional specialties">
   <HeroSection />
 
-  <Divider />
-
   <!-- INTERACTIVE MAP -->
   <section class="section-py map-section" id="map-section">
     <div class="container">
       <SectionHeader overline="🗺️ Interaktif" title="Jelajahi Nusantara" />
       <InteractiveMap client:visible />
+      <RegionBanner client:idle />
     </div>
   </section>
 
-  <Divider />
-
-  <FeaturedFoodsSection />
-
+  <FeaturedFoodsGrid client:visible />
   <Footer />
 </BaseLayout>
 
@@ -49,17 +45,7 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
   }
 
   .interactive-map {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-5);
-  }
-
-  @media (min-width: 1024px) {
-    .interactive-map {
-      flex-direction: row;
-      gap: var(--sp-6);
-      align-items: flex-start;
-    }
+    width: 100%;
   }
 
   .map-container {
@@ -144,151 +130,5 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     font-weight: 600;
     opacity: 0.7;
     font-size: 0.85em;
-  }
-
-  .map-info-panel {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-4);
-    width: 100%;
-  }
-
-  @media (max-width: 1023px) {
-    .map-info-panel {
-      max-height: 400px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .map-info-panel {
-      width: 320px;
-      flex-shrink: 0;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .map-info-panel {
-      width: 340px;
-    }
-  }
-
-  .map-detail-card {
-    background: var(--c-surface);
-    border: 3px solid var(--duo-stroke-color);
-    border-radius: var(--r-2xl);
-    padding: var(--sp-5);
-    box-shadow: 0 5px 0 var(--c-duo-shadow);
-  }
-
-  .map-detail-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: var(--sp-3);
-  }
-
-  .map-detail-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 3px solid var(--duo-stroke-color);
-    flex-shrink: 0;
-  }
-
-  .map-detail-title {
-    font-family: var(--ff-display);
-    font-size: var(--fs-lg);
-    font-weight: 900;
-    color: var(--c-text-1);
-    line-height: 1.2;
-  }
-
-  .map-detail-desc {
-    font-size: var(--fs-sm);
-    color: var(--c-text-2);
-    font-weight: 600;
-    line-height: 1.65;
-    margin-bottom: var(--sp-4);
-  }
-
-  .map-detail-stats {
-    display: flex;
-    gap: var(--sp-5);
-    padding: var(--sp-3) 0;
-    border-top: 3px solid var(--c-border);
-    border-bottom: 3px solid var(--c-border);
-    margin-bottom: var(--sp-4);
-  }
-
-  .map-detail-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .map-detail-stat-val {
-    font-family: var(--ff-display);
-    font-size: var(--fs-xl);
-    font-weight: 900;
-    color: var(--c-text-1);
-    line-height: 1;
-  }
-
-  .map-detail-stat-label {
-    font-size: var(--fs-xs);
-    color: var(--c-text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 800;
-  }
-
-  .map-explore-btn {
-    display: block;
-    width: 100%;
-    padding: 12px 18px;
-    border-radius: var(--r-full);
-    color: #fff;
-    font-size: var(--fs-sm);
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-align: center;
-    cursor: pointer;
-    border: 3px solid var(--duo-stroke-color);
-    transition: all 0.25s var(--ease-bounce);
-    box-shadow: 0 5px 0 var(--c-duo-shadow);
-  }
-
-  .map-explore-btn:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.08);
-  }
-
-  .map-explore-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 var(--c-duo-shadow);
-  }
-
-  .map-empty-card {
-    padding: var(--sp-8) var(--sp-5);
-    border: 3px dashed var(--c-border-strong);
-    border-radius: var(--r-2xl);
-    text-align: center;
-    background: var(--c-surface-2);
-  }
-
-  .map-empty-icon {
-    font-size: 32px;
-    margin-bottom: var(--sp-3);
-  }
-
-  .map-empty-card p {
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    color: var(--c-text-3);
-    line-height: 1.6;
-    max-width: 240px;
-    margin: 0 auto;
   }
 </style>
