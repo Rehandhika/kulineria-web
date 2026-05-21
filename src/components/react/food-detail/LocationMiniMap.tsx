@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import type { Map as LeafletMap } from 'leaflet';
 
 interface Location {
   name: string;
@@ -18,56 +19,53 @@ interface Props {
 
 export default function LocationMiniMap({ locations, center }: Props) {
   const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<LeafletMap | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!mapRef.current || locations.length === 0) return;
+    if (!mapRef.current || locations.length === 0 || mapInstance.current) return;
 
     let cancelled = false;
 
     async function loadMap() {
       try {
-        // Lazy-load maplibre CSS
         const cssLink = document.createElement('link');
         cssLink.rel = 'stylesheet';
-        cssLink.href = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
+        cssLink.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
         document.head.appendChild(cssLink);
 
-        const maplibregl = await import('maplibre-gl');
+        const L = await import('leaflet');
         if (cancelled) return;
 
         const defaultCenter: [number, number] = center || [-2.5, 118.0];
 
-        const map = new maplibregl.Map({
-          container: mapRef.current!,
-          style: 'https://demotiles.maplibre.org/style.json',
+        const map = L.map(mapRef.current!, {
           center: defaultCenter,
           zoom: 4,
           attributionControl: false,
         });
 
-        map.addControl(new maplibregl.NavigationControl(), 'top-right');
-        map.addControl(new maplibregl.AttributionControl({ compact: true }));
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
 
         locations.forEach((loc) => {
-          const el = document.createElement('div');
-          el.className = 'map-marker';
-          el.setAttribute('role', 'img');
-          el.setAttribute('aria-label', `${loc.name}, ${loc.city}`);
-          el.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="var(--c-accent)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>';
-
-          new maplibregl.Marker({ element: el })
-            .setLngLat([loc.lng, loc.lat])
-            .setPopup(
-              new maplibregl.Popup({ offset: 25 }).setHTML(
-                `<strong>${loc.name}</strong><br/><em>${loc.city}</em><br/>${loc.description}${loc.priceRange ? `<br/><strong>${loc.priceRange}</strong>` : ''}`
-              )
-            )
-            .addTo(map);
+          const marker = L.marker([loc.lat, loc.lng]).addTo(map);
+          marker.bindPopup(`
+            <strong>${loc.name}</strong><br/>
+            <em>${loc.city}</em><br/>
+            ${loc.description}${loc.priceRange ? `<br/><strong>${loc.priceRange}</strong>` : ''}
+          `);
         });
 
-        setLoaded(true);
+        if (locations.length > 0) {
+          const bounds = L.latLngBounds(locations.map(l => [l.lat, l.lng] as [number, number]));
+          map.fitBounds(bounds, { padding: [30, 30] });
+        }
+
+        mapInstance.current = map;
+        if (!cancelled) setLoaded(true);
       } catch {
         if (!cancelled) setError('Gagal memuat peta');
       }
@@ -75,7 +73,13 @@ export default function LocationMiniMap({ locations, center }: Props) {
 
     loadMap();
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
+      }
+    };
   }, [locations, center]);
 
   if (locations.length === 0) return null;
@@ -87,9 +91,8 @@ export default function LocationMiniMap({ locations, center }: Props) {
         <div className="map-container">
           {!loaded && !error && <div className="map-loading" aria-live="polite">Memuat peta...</div>}
           {error && <div className="map-error" role="alert">{error}</div>}
-          <div ref={mapRef} className="maplibre-map" style={{ opacity: loaded ? 1 : 0 }} />
+          <div ref={mapRef} className="leaflet-map" style={{ opacity: loaded ? 1 : 0 }} />
         </div>
-
         <div className="location-list" role="list" aria-label="Daftar lokasi">
           {locations.map((loc, i) => (
             <div key={i} className="location-card" role="listitem">

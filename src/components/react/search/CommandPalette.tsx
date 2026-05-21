@@ -89,10 +89,10 @@ export default function CommandPalette() {
             value={query}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            placeholder="Search dishes..."
-            aria-label="Search dishes"
+            placeholder="Cari hidangan..."
+            aria-label="Cari hidangan"
           />
-          <span className="shortcut-hint">ESC to close</span>
+          <span className="shortcut-hint">ESC tutup</span>
         </div>
 
         {suggestions.length > 0 && (

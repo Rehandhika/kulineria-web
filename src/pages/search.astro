@@ -3,12 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchProvider from '../components/react/search/SearchProvider';
 import CommandPalette from '../components/react/search/CommandPalette';
 import Footer from '../components/astro/shared/Footer.astro';
+import { getAllFoods } from '../lib/data/loaders';
+const allFoods = getAllFoods();
 ---
 
-<BaseLayout title="Search" description="Search Indonesian culinary dishes by region, taste, and type">
+<BaseLayout title="Cari" description="Cari hidangan Nusantara berdasarkan wilayah, rasa, dan jenis">
   <div class="search-page-wrapper">
-    <SearchProvider client:only="react" />
-    <CommandPalette client:only="react" />
+    <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 8))} />
+    <CommandPalette client:load />
   </div>
   <Footer />
 </BaseLayout>

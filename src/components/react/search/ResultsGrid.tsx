@@ -25,8 +25,8 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
   return (
     <div className="results-grid">
       <div className="results-header">
-        <span className="results-count">{results.length} results</span>
-        {query && <span className="results-query">for "{query}"</span>}
+        <span className="results-count">{results.length} hasil</span>
+        {query && <span className="results-query">untuk "{query}"</span>}
       </div>
 
       <div ref={containerRef} className="results-grid-inner">
@@ -36,6 +36,7 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
             href={`/food/${food.id}`}
             className="result-card result-card-enter"
             style={{ animationDelay: `${index * 0.04}s` }}
+            onClick={() => sessionStorage.setItem('kulineria-return', '/search')}
           >
             <div className="result-card-image">
               <img src={food.imageUrl} alt={food.name} loading="lazy" />
@@ -59,7 +60,7 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
           onClick={() => setDisplayCount((prev) => prev + 12)}
           className="load-more"
         >
-          Load more ({results.length - displayCount} remaining)
+          Muat lagi ({results.length - displayCount} tersisa)
         </button>
       )}
     </div>

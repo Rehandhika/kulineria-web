@@ -35,6 +35,7 @@ interface QuizStore {
   timeRemaining: number;
   stats: QuizStats;
   countdownValue: number;
+  selectedOptionId: string | null;
 
   startQuiz: (mode: QuizMode) => void;
   answerQuestion: (optionId: string) => void;
@@ -42,9 +43,42 @@ interface QuizStore {
   finishQuiz: () => void;
   resetQuiz: () => void;
   tick: () => void;
-  getCountdown: () => number;
   getCurrentQuestion: () => Question | null;
   getProgress: () => number;
+}
+
+let timerId: ReturnType<typeof setInterval> | null = null;
+
+function stopTimer() {
+  if (timerId !== null) {
+    clearInterval(timerId);
+    timerId = null;
+  }
+}
+
+function startTimer() {
+  stopTimer();
+  timerId = setInterval(() => {
+    useQuizStore.getState().tick();
+  }, 1000);
+}
+
+export function cleanupQuizTimer() {
+  stopTimer();
+}
+
+function finishQuizInternal(score: number, maxStreak: number, answers: Answer[]) {
+  stopTimer();
+  const stats = useQuizStore.getState().stats;
+  const correctCount = answers.filter(a => a.isCorrect).length;
+  const newStats: QuizStats = {
+    highScore: Math.max(stats.highScore, score),
+    totalGamesPlayed: stats.totalGamesPlayed + 1,
+    totalCorrectAnswers: stats.totalCorrectAnswers + correctCount,
+    bestStreak: Math.max(stats.bestStreak, maxStreak),
+  };
+  saveStats(newStats);
+  useQuizStore.setState({ status: 'finished', stats: newStats });
 }
 
 export const useQuizStore = create<QuizStore>((set, get) => ({
@@ -59,6 +93,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
   timeRemaining: 15,
   stats: loadStats(),
   countdownValue: 3,
+  selectedOptionId: null,
 
   startQuiz: (mode: QuizMode) => {
     const questions = generateQuestions(mode, 10);
@@ -73,29 +108,32 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
       maxStreak: 0,
       timeRemaining: questions[0]?.timeLimit ?? 15,
       countdownValue: 3,
+      selectedOptionId: null,
     });
 
     let count = 3;
-    const interval = setInterval(() => {
+    const countdownId = setInterval(() => {
       count--;
       set({ countdownValue: count });
       if (count <= 0) {
-        clearInterval(interval);
+        clearInterval(countdownId);
         set({ status: 'playing', countdownValue: 0 });
         startTimer();
       }
-    }, 800);
+    }, 1000);
   },
 
   answerQuestion: (optionId: string) => {
-    const { questions, currentIndex, streak, score, timeRemaining } = get();
+    const { questions, currentIndex, streak, score, timeRemaining, status } = get();
+    if (status !== 'playing') return;
     const question = questions[currentIndex];
     if (!question) return;
+    stopTimer();
 
     const isCorrect = question.correctAnswer === optionId ||
       (Array.isArray(question.correctAnswer) && question.correctAnswer.includes(optionId));
 
-    const pointsEarned = calculateScore(isCorrect, timeRemaining, question.timeLimit ?? 15, streak);
+    const pointsEarned = calculateScore(isCorrect, timeRemaining, streak);
     const newStreak = isCorrect ? streak + 1 : 0;
     const newMaxStreak = Math.max(streak, newStreak);
     const newScore = score + pointsEarned;
@@ -114,21 +152,8 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
       streak: newStreak,
       maxStreak: newMaxStreak,
       status: 'reviewing',
+      selectedOptionId: optionId,
     });
-
-    setTimeout(() => {
-      const nextIndex = currentIndex + 1;
-      if (nextIndex >= questions.length) {
-        finishQuizInternal(newScore, newMaxStreak, get().answers);
-      } else {
-        set({
-          currentIndex: nextIndex,
-          timeRemaining: questions[nextIndex].timeLimit ?? 15,
-          status: 'playing',
-        });
-        startTimer();
-      }
-    }, 1200);
   },
 
   nextQuestion: () => {
@@ -141,6 +166,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
         currentIndex: nextIndex,
         timeRemaining: questions[nextIndex].timeLimit ?? 15,
         status: 'playing',
+        selectedOptionId: null,
       });
       startTimer();
     }
@@ -151,6 +177,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
   },
 
   resetQuiz: () => {
+    stopTimer();
     set({
       mode: null,
       status: 'idle',
@@ -162,6 +189,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
       maxStreak: 0,
       timeRemaining: 15,
       countdownValue: 3,
+      selectedOptionId: null,
     });
   },
 
@@ -171,62 +199,39 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
 
     const newTime = timeRemaining - 1;
     if (newTime <= 0) {
-      set({ timeRemaining: 0, status: 'reviewing' });
-      setTimeout(() => {
-        const { currentIndex, questions } = get();
-        const nextIndex = currentIndex + 1;
-        if (nextIndex >= questions.length) {
-          finishQuizInternal(get().score, get().maxStreak, get().answers);
-        } else {
-          set({
-            currentIndex: nextIndex,
-            timeRemaining: questions[nextIndex].timeLimit ?? 15,
-            status: 'playing',
-          });
-          startTimer();
-        }
-      }, 1200);
+      stopTimer();
+      const { questions, currentIndex } = get();
+      const question = questions[currentIndex];
+      if (!question) return;
+
+      const answer: Answer = {
+        questionId: question.id,
+        selectedOption: '',
+        isCorrect: false,
+        timeSpent: question.timeLimit ?? 15,
+        pointsEarned: 0,
+      };
+
+      set({
+        timeRemaining: 0,
+        answers: [...get().answers, answer],
+        status: 'reviewing',
+        selectedOptionId: null,
+      });
     } else {
       set({ timeRemaining: newTime });
     }
   },
 
-  getCountdown: () => get().countdownValue,
   getCurrentQuestion: () => {
     const { questions, currentIndex } = get();
     return questions[currentIndex] ?? null;
   },
+
   getProgress: () => {
-    const { currentIndex, questions } = get();
-    return questions.length > 0 ? (currentIndex + 1) / questions.length : 0;
+    const { currentIndex, questions, status } = get();
+    if (questions.length === 0) return 0;
+    if (status === 'finished') return 1;
+    return currentIndex / questions.length;
   },
 }));
-
-let timerInterval: ReturnType<typeof setInterval> | null = null;
-
-function startTimer() {
-  if (timerInterval) clearInterval(timerInterval);
-  timerInterval = setInterval(() => {
-    useQuizStore.getState().tick();
-  }, 1000);
-}
-
-function finishQuizInternal(score: number, maxStreak: number, answers: Answer[]) {
-  if (timerInterval) clearInterval(timerInterval);
-  timerInterval = null;
-
-  const stats = useQuizStore.getState().stats;
-  const correctCount = answers.filter(a => a.isCorrect).length;
-  const newStats: QuizStats = {
-    highScore: Math.max(stats.highScore, score),
-    totalGamesPlayed: stats.totalGamesPlayed + 1,
-    totalCorrectAnswers: stats.totalCorrectAnswers + correctCount,
-    bestStreak: Math.max(stats.bestStreak, maxStreak),
-  };
-  saveStats(newStats);
-
-  useQuizStore.setState({
-    status: 'finished',
-    stats: newStats,
-  });
-}

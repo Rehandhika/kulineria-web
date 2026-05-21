@@ -2,13 +2,30 @@
 
 import { useQuizStore } from '@/lib/stores/quiz';
 import type { QuizMode } from '@/types/quiz';
+import './QuizMenu.css';
 
-const MODES: { id: QuizMode; title: string; description: string; icon: string; time: string; questions: number }[] = [
-  { id: 'tebak-gambar', title: 'Tebak Gambar', description: 'Identify the dish from its image', icon: '🍽️', time: '15s', questions: 10 },
-  { id: 'tebak-region', title: 'Tebak Region', description: 'Guess which region a dish is from', icon: '🗺️', time: '10s', questions: 10 },
-  { id: 'tebak-bahan', title: 'Tebak Bahan', description: 'Guess the key ingredient', icon: '🥘', time: '12s', questions: 10 },
-  { id: 'taste-match', title: 'Taste Match', description: 'Match the primary taste profile', icon: '👅', time: '15s', questions: 10 },
-  { id: 'speed-round', title: 'Speed Round', description: 'Rapid fire, all types mixed', icon: '⚡', time: '5s', questions: 10 },
+const MODES: { id: QuizMode; title: string; description: string; icon: string; time: string }[] = [
+  {
+    id: 'tebak-makanan',
+    title: 'Tebak Makanan',
+    description: 'Cocokkan gambar dengan nama masakannya',
+    icon: '🍽️',
+    time: '15 detik/soal',
+  },
+  {
+    id: 'tebak-asal',
+    title: 'Tebak Asal',
+    description: 'Tebak daerah asal masakan Nusantara',
+    icon: '🗺️',
+    time: '12 detik/soal',
+  },
+  {
+    id: 'campuran',
+    title: 'Campuran',
+    description: 'Soal Tebak Makanan + Tebak Asal campur aduk',
+    icon: '⚡',
+    time: '15 detik/soal',
+  },
 ];
 
 export default function QuizMenu() {
@@ -18,22 +35,23 @@ export default function QuizMenu() {
   return (
     <div className="quiz-menu">
       <div className="quiz-header">
-        <h1>Test Your Culinary IQ</h1>
-        <p>How well do you know Indonesian cuisine?</p>
+        <span className="quiz-header-icon">🧠</span>
+        <h1>Uji Pengetahuan Kuliner</h1>
+        <p>Seberapa kenal kamu dengan masakan Nusantara?</p>
       </div>
 
       <div className="quiz-stats">
         <div className="stat-card">
           <span className="stat-value">{stats.highScore}</span>
-          <span className="stat-label">High Score</span>
+          <span className="stat-label">Skor Tertinggi</span>
         </div>
         <div className="stat-card">
           <span className="stat-value">{stats.totalGamesPlayed}</span>
-          <span className="stat-label">Games Played</span>
+          <span className="stat-label">Dimainkan</span>
         </div>
         <div className="stat-card">
           <span className="stat-value">{stats.bestStreak}</span>
-          <span className="stat-label">Best Streak</span>
+          <span className="stat-label">Streak Terbaik</span>
         </div>
       </div>
 
@@ -41,20 +59,16 @@ export default function QuizMenu() {
         {MODES.map((mode) => (
           <button
             key={mode.id}
-            className={`mode-card ${mode.id === 'tebak-gambar' ? 'available' : 'coming-soon'}`}
-            onClick={() => mode.id === 'tebak-gambar' && startQuiz(mode.id)}
-            disabled={mode.id !== 'tebak-gambar'}
+            className="mode-card"
+            onClick={() => startQuiz(mode.id)}
           >
             <span className="mode-icon">{mode.icon}</span>
             <div className="mode-info">
               <h3>{mode.title}</h3>
               <p>{mode.description}</p>
-              <div className="mode-meta">
-                <span>{mode.questions} questions</span>
-                <span>{mode.time} per question</span>
-              </div>
+              <span className="mode-time">10 soal · {mode.time}</span>
             </div>
-            {mode.id !== 'tebak-gambar' && <span className="coming-soon-badge">Coming Soon</span>}
+            <span className="mode-arrow">→</span>
           </button>
         ))}
       </div>

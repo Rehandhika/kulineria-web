@@ -5,7 +5,7 @@ import Footer from '../components/astro/shared/Footer.astro';
 const statusCode = 404;
 ---
 
-<BaseLayout title="Halaman Tidak Ditemukan" description="The page you're looking for doesn't exist">
+<BaseLayout title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak ditemukan">
   <section class="not-found-page">
     <div class="not-found-content">
       <div class="not-found-nara">
@@ -21,18 +21,18 @@ const statusCode = 404;
 
       <span class="status-code">{statusCode}</span>
       <h1>Halaman Tidak Ditemukan</h1>
-      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <p>Halaman yang Anda cari tidak ditemukan atau telah dipindahkan.</p>
 
       <form class="search-redirect" action="/search" method="GET">
-        <input type="text" name="q" placeholder="Search for dishes..." aria-label="Search for dishes" />
-        <button type="submit">Search</button>
+        <input type="text" name="q" placeholder="Cari hidangan..." aria-label="Cari hidangan" />
+        <button type="submit">Cari</button>
       </form>
 
       <div class="quick-links">
-        <a href="/" class="quick-link">Home</a>
-        <a href="/search" class="quick-link">Explore</a>
-        <a href="/quiz" class="quick-link">Quiz</a>
-        <a href="/about" class="quick-link">About</a>
+        <a href="/" class="quick-link">Beranda</a>
+        <a href="/search" class="quick-link">Jelajahi</a>
+        <a href="/quiz" class="quick-link">Kuis</a>
+        <a href="/about" class="quick-link">Tentang</a>
       </div>
     </div>
     <div class="confetti">

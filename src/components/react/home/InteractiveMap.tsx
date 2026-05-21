@@ -170,7 +170,7 @@ export default function InteractiveMap() {
                 <span className="map-detail-stat-label">Hidangan</span>
               </div>
               <div className="map-detail-stat">
-                <span className="map-detail-stat-val">5</span>
+                <span className="map-detail-stat-val">{new Set(allFoods.filter(f => f.region === selectedRegion.id).flatMap(f => f.taste)).size}</span>
                 <span className="map-detail-stat-label">Rasa</span>
               </div>
             </div>

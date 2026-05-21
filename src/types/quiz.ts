@@ -1,9 +1,7 @@
 ﻿export type QuizMode =
-  | 'tebak-gambar'
-  | 'tebak-region'
-  | 'tebak-bahan'
-  | 'taste-match'
-  | 'speed-round';
+  | 'tebak-makanan'
+  | 'tebak-asal'
+  | 'campuran';
 
 export type QuizStatus = 'idle' | 'countdown' | 'playing' | 'reviewing' | 'finished';
 
@@ -19,6 +17,7 @@ export interface Question {
   mode: QuizMode;
   prompt: string;
   media?: string;
+  description?: string;
   options: QuizOption[];
   correctAnswer: string | string[];
   timeLimit?: number;

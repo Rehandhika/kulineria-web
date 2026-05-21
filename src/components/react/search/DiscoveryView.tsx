@@ -66,10 +66,17 @@ export default function DiscoveryView({ recentSearches }: DiscoveryViewProps) {
       <section className="discovery-section">
         <h3>Jelajahi per Wilayah</h3>
         <div className="discovery-regions">
-          {['Sumatera', 'Jawa', 'Kalimantan', 'Sulawesi', 'Bali & NTT', 'Maluku & Papua'].map(r => (
-            <div key={r} className="discovery-region-item">
-              {r}
-            </div>
+          {[
+            { name: 'Sumatera', id: 'sumatera' },
+            { name: 'Jawa', id: 'jawa' },
+            { name: 'Kalimantan', id: 'kalimantan' },
+            { name: 'Sulawesi', id: 'sulawesi' },
+            { name: 'Bali & NTT', id: 'bali-ntt' },
+            { name: 'Maluku & Papua', id: 'maluku-papua' },
+          ].map(r => (
+            <a key={r.id} href={`/search?region=${r.id}`} className="discovery-region-item">
+              {r.name}
+            </a>
           ))}
         </div>
       </section>

@@ -23,40 +23,17 @@ export default function RelatedCarousel({ foods }: Props) {
 
   useEffect(() => {
     if (!containerRef.current) return;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const cards = containerRef.current.querySelectorAll('.related-card');
-    gsap.set(cards, { opacity: 0, x: 40 });
-
-    ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: 'top 85%',
-      once: true,
-      onEnter: () => {
-        gsap.to(cards, {
-          opacity: 1, x: 0, stagger: 0.08, duration: 0.8, ease: 'expo.out',
-        });
-      },
+    gsap.fromTo(containerRef.current, { opacity: 0, y: 20 }, {
+      opacity: 1, y: 0, duration: 0.8, ease: 'expo.out',
+      scrollTrigger: { trigger: containerRef.current, start: 'top 85%', once: true },
     });
-
-    // Safety fallback
-    const fallback = setTimeout(() => {
-      cards.forEach(card => {
-        if (window.getComputedStyle(card).opacity === '0') {
-          gsap.to(card, { opacity: 1, x: 0, duration: 0.3 });
-        }
-      });
-    }, 4000);
-
-    return () => clearTimeout(fallback);
   }, []);
 
   if (foods.length === 0) return null;
 
   return (
-    <section ref={containerRef} className="related-section" aria-label="Related dishes">
-      <h2 className="section-title">You Might Also Like</h2>
+    <section ref={containerRef} className="related-section" aria-label="Jelajahi kuliner lainnya">
+      <h2 className="section-title">Jelajahi Kuliner Lainnya</h2>
       <div className="related-carousel">
         {foods.map((food) => (
           <a key={food.id} href={`/food/${food.id}`} className="related-card">

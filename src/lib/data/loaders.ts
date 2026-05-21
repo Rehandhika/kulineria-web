@@ -1,4 +1,4 @@
-﻿import type { FoodItem, FoodItemFull, RegionId } from '@/types/food';
+﻿import type { FoodItem, FoodItemFull, RegionId, Taste } from '@/types/food';
 import { generateFoodPlaceholder } from '@/lib/utils/placeholders';
 
 import sumateraFoods from '@/data/foods/sumatera.json';
@@ -25,6 +25,36 @@ const TASTE_NAMES: Record<string, string> = {
   asam: 'Sour',
   asin: 'Salty',
 };
+
+const TASTE_LABELS_ID: Record<Taste, string> = {
+  manis: 'Manis',
+  pedas: 'Pedas',
+  gurih: 'Gurih',
+  asam: 'Asam',
+  asin: 'Asin',
+};
+
+export function tasteLevel(score: number): string {
+  if (score <= 0) return '';
+  if (score <= 33) return 'Ringan';
+  if (score <= 66) return 'Sedang';
+  return 'Kuat';
+}
+
+export function isRealContent(fullFood: FoodItemFull): boolean {
+  return !fullFood.story?.body?.includes('beloved Indonesian dish');
+}
+
+export function getTasteChips(tasteScore: FoodItemFull['tasteScore']): { taste: Taste; label: string; level: string }[] {
+  if (!tasteScore) return [];
+  return (Object.entries(tasteScore) as [Taste, number][])
+    .filter(([, score]) => score > 0)
+    .map(([taste, score]) => ({
+      taste,
+      label: TASTE_LABELS_ID[taste],
+      level: tasteLevel(score),
+    }));
+}
 
 function resolveImageUrl(food: { name: string; region: string }): string {
   return generateFoodPlaceholder(food.name, food.region as RegionId);

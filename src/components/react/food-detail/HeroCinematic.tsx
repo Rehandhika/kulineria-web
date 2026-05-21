@@ -1,139 +1,178 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import type { FoodItemFull } from '@/types/food';
-
-gsap.registerPlugin(ScrollTrigger);
+import type { FoodItemFull, Taste } from '@/types/food';
 
 interface Props {
   food: FoodItemFull;
-  onFavorite?: () => void;
-  onShare?: () => void;
+  regionName: string;
 }
 
-export default function HeroCinematic({ food, onFavorite, onShare }: Props) {
+const typeLabels: Record<string, string> = {
+  berkuah: 'Berkuah',
+  digoreng: 'Digoreng',
+  dibakar: 'Dibakar',
+  mentah: 'Mentah',
+  minuman: 'Minuman',
+};
+
+const tasteIcons: Record<Taste, string> = {
+  manis: '🍯',
+  pedas: '🌶️',
+  gurih: '🧂',
+  asam: '🍋',
+  asin: '🧄',
+};
+
+const tasteLabels: Record<Taste, string> = {
+  manis: 'Manis',
+  pedas: 'Pedas',
+  gurih: 'Gurih',
+  asam: 'Asam',
+  asin: 'Asin',
+};
+
+function tasteLevel(score: number): string {
+  if (score <= 0) return '';
+  if (score <= 33) return 'Ringan';
+  if (score <= 66) return 'Sedang';
+  return 'Kuat';
+}
+
+function getTasteChips(tasteScore: FoodItemFull['tasteScore']): { taste: Taste; label: string; level: string }[] {
+  if (!tasteScore) return [];
+  return (Object.entries(tasteScore) as [Taste, number][])
+    .filter(([, score]) => score > 0)
+    .map(([taste, score]) => ({
+      taste,
+      label: tasteLabels[taste],
+      level: tasteLevel(score),
+    }));
+}
+
+export default function HeroCinematic({ food, regionName }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
   const [revealed, setRevealed] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  useEffect(() => {
+    setIsFavorited(getFavorites().includes(food.id));
+  }, [food.id]);
 
   useEffect(() => {
     if (!containerRef.current) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const tl = gsap.timeline({
-      onComplete: () => setRevealed(true),
-    });
-
-    // Hero image clipPath reveal
-    tl.fromTo(
-      '.hero-image',
-      { clipPath: 'inset(100% 0 0 0)' },
-      { clipPath: 'inset(0% 0 0 0)', duration: 1.2, ease: 'expo.out' }
-    );
-
-    // Title animation - manual char split (free alternative to SplitText)
-    if (titleRef.current && !prefersReducedMotion) {
-      const chars = titleRef.current.querySelectorAll('.char');
-      tl.fromTo(
-        chars,
-        { yPercent: 100, opacity: 0 },
-        { yPercent: 0, opacity: 1, stagger: 0.02, duration: 1, ease: 'expo.out' },
-        '-=0.6'
-      );
-    } else if (titleRef.current) {
-      tl.fromTo(titleRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.6');
-    }
-
-    // Subtitle fade
-    tl.fromTo('.hero-subtitle', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
-
-    // Badge scale
-    tl.fromTo('.hero-badge', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.8');
-
-    // Actions fade
-    tl.fromTo('.hero-actions', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.3');
-
-    // SCROLL PARALLAX EFFECT
-    if (!prefersReducedMotion && imgRef.current) {
-      gsap.to(imgRef.current, {
-        y: '30%',
-        scale: 1.15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        }
-      });
-      
-      gsap.to('.hero-content', {
-        y: '-20%',
-        opacity: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        }
-      });
-    }
-
-    return () => { 
-      tl.kill(); 
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
+    const tl = gsap.timeline({ onComplete: () => setRevealed(true) });
+    tl.fromTo('.hero-image', { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1, ease: 'expo.out' })
+      .fromTo('.hero-content-inner', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.5');
+    return () => tl.kill();
   }, []);
 
-  // Split title into chars for animation
-  const titleChars = food.name.split('').map((char, i) => (
-    <span key={i} className="char" style={{ display: 'inline-block' }}>
-      {char === ' ' ? '\u00A0' : char}
-    </span>
-  ));
+  const handleFavorite = useCallback(() => {
+    const favs = getFavorites();
+    if (favs.includes(food.id)) {
+      saveFavorites(favs.filter(id => id !== food.id));
+      setIsFavorited(false);
+    } else {
+      saveFavorites([...favs, food.id]);
+      setIsFavorited(true);
+    }
+  }, [food.id]);
+
+  const handleShare = useCallback(async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try { await navigator.share({ title: food.name, text: `Lihat ${food.name} di Kulineria!`, url }); } catch {}
+    } else {
+      try { await navigator.clipboard.writeText(url); } catch {}
+    }
+  }, [food.name]);
 
   const regionColor = `var(--c-${food.region})`;
+  const heroImgSrc = food.hero?.image || food.imageUrl;
+  const tasteChips = getTasteChips(food.tasteScore);
 
   return (
-    <section ref={containerRef} className="hero" aria-label={`${food.name} hero`} style={{ overflow: 'hidden', position: 'relative' }}>
-      <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)', position: 'absolute', inset: 0 }}>
-        {(food.hero?.image || food.imageUrl) && (
-          <img ref={imgRef} src={food.hero?.image || food.imageUrl} alt={food.hero?.alt || food.name} className="hero-img" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', transformOrigin: 'center bottom' }} />
+    <section ref={containerRef} className="hero" aria-label={`Hero ${food.name}`}>
+      <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)' }}>
+        {heroImgSrc && (
+          <>
+            {!imgLoaded && <div className="hero-img-skeleton" />}
+            <img
+              src={heroImgSrc} alt={food.hero?.alt || food.name}
+              className="hero-img" loading="eager"
+              onLoad={() => setImgLoaded(true)}
+              style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.4s ease' }}
+            />
+          </>
         )}
         <div className="hero-overlay" />
       </div>
 
-      <div className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
-        <span className="hero-badge" style={{ backgroundColor: regionColor }}>
-          {food.region.replace('-', ' & ')}
-        </span>
+      <div className="hero-content">
+        <nav className="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Beranda</a>
+          <span className="hero-breadcrumb-sep">›</span>
+          <a href={`/search?region=${food.region}`}>{regionName}</a>
+          <span className="hero-breadcrumb-sep">›</span>
+          <span className="hero-breadcrumb-current">{food.name}</span>
+        </nav>
 
-        <h1 ref={titleRef} className="hero-title">
-          {titleChars}
-        </h1>
+        <div className="hero-content-inner">
+          <span className="hero-badge" style={{ backgroundColor: regionColor }}>
+            {regionName}
+          </span>
+          <h1 className="hero-title">{food.name}</h1>
+          <p className="hero-subtitle">{food.description}</p>
 
-        <p className="hero-subtitle">{food.description}</p>
-
-        <div className="hero-actions">
-          {onFavorite && (
-            <button onClick={onFavorite} className="btn-icon" aria-label="Add to favorites">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <div className="hero-actions">
+            <button onClick={handleFavorite} className="btn-icon" aria-label={isFavorited ? 'Hapus dari favorit' : 'Tambah ke favorit'}>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill={isFavorited ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></svg>
             </button>
-          )}
-          {onShare && (
-            <button onClick={onShare} className="btn-icon" aria-label="Share this dish">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+            <button onClick={handleShare} className="btn-icon" aria-label="Bagikan">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
             </button>
+          </div>
+        </div>
+
+        <div className="hero-quickfacts">
+          <div className="hero-quickfact" style={{ borderColor: regionColor }}>
+            <span className="hero-qf-dot" style={{ backgroundColor: regionColor }} />
+            {regionName}
+          </div>
+          <div className="hero-quickfact">
+            🍽️ {typeLabels[food.type] || food.type}
+          </div>
+          {food.recipe?.difficulty && (
+            <div className="hero-quickfact">📊 {food.recipe.difficulty}</div>
           )}
+          {food.recipe?.prepTime && (
+            <div className="hero-quickfact">⏱️ {food.recipe.prepTime} menit</div>
+          )}
+          {tasteChips.map(({ taste, label, level }) => (
+            <div key={taste} className="hero-quickfact hero-taste-chip">
+              {tasteIcons[taste]} {label}
+              {level && <span className="hero-taste-level">{level}</span>}
+            </div>
+          ))}
         </div>
       </div>
 
       {!revealed && <div className="hero-skeleton" />}
+
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+      `}</style>
     </section>
   );
 }
+
+function getFavorites(): string[] {
+  try { return JSON.parse(localStorage.getItem('kulineria-favorites') || '[]'); } catch { return []; }
+}
+function saveFavorites(ids: string[]) {
+  try { localStorage.setItem('kulineria-favorites', JSON.stringify(ids)); } catch {} }

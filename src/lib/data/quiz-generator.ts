@@ -1,4 +1,3 @@
-import type { FoodItem } from '@/types/food';
 import { getAllFoods } from './loaders';
 import type { Question, QuizMode } from '@/types/quiz';
 
@@ -11,30 +10,37 @@ function shuffle<T>(array: T[]): T[] {
   return arr;
 }
 
-function generateWrongOptions(correctFood: FoodItem, count: number, field: 'name'): string[] {
-  const allFoods = getAllFoods();
-  const wrongFoods = allFoods.filter(f => f.id !== correctFood.id);
-  const shuffled = shuffle(wrongFoods);
-  return shuffled.slice(0, count).map(f => f[field]);
+function pickWrong<T>(correct: T, all: T[], count: number): T[] {
+  return shuffle(all.filter(item => item !== correct)).slice(0, count);
 }
 
-export function generateQuestions(mode: QuizMode, count: number = 10): Question[] {
-  const foods = shuffle(getAllFoods());
-  const selected = foods.slice(0, Math.min(count, foods.length));
+const REGION_OPTIONS = [
+  { id: 'sumatera', label: 'Sumatera', color: '#FF8C42' },
+  { id: 'jawa', label: 'Jawa', color: '#06A77D' },
+  { id: 'kalimantan', label: 'Kalimantan', color: '#E9C46A' },
+  { id: 'sulawesi', label: 'Sulawesi', color: '#4ECDC4' },
+  { id: 'bali-ntt', label: 'Bali & NTT', color: '#FF6B6B' },
+  { id: 'maluku-papua', label: 'Maluku & Papua', color: '#84A98C' },
+] as const;
 
-  return selected.map((food, index) => {
-    const wrongNames = generateWrongOptions(food, 3, 'name');
+const REGION_IDS = REGION_OPTIONS.map(r => r.id);
+
+export function generateTebakMakananQuestions(count: number = 10): Question[] {
+  const foods = shuffle(getAllFoods()).slice(0, Math.min(count, getAllFoods().length));
+
+  return foods.map((food, index) => {
+    const wrongNames = pickWrong(food.name, getAllFoods().map(f => f.name), 3);
+    const wrongFoods = wrongNames.map(name => getAllFoods().find(f => f.name === name)!).filter(Boolean);
     const options = shuffle([
-      { id: food.id, label: food.name, image: food.imageUrl, sublabel: food.region },
-      ...wrongNames.map((name, i) => {
-        const wrongFood = getAllFoods().find(f => f.name === name)!;
-        return { id: `wrong-${i}`, label: name, image: wrongFood.imageUrl, sublabel: wrongFood.region };
-      }),
+      { id: food.id, label: food.name, sublabel: food.region },
+      ...wrongFoods.map((wf, i) => ({
+        id: `wrong-${index}-${i}`, label: wf.name, sublabel: wf.region,
+      })),
     ]);
 
     return {
-      id: `quiz-${mode}-${index}-${food.id}`,
-      mode,
+      id: `tebak-makanan-${index}-${food.id}`,
+      mode: 'tebak-makanan' as QuizMode,
       prompt: 'Makanan apakah ini?',
       media: food.imageUrl,
       options,
@@ -44,16 +50,61 @@ export function generateQuestions(mode: QuizMode, count: number = 10): Question[
   });
 }
 
+export function generateTebakAsalQuestions(count: number = 10): Question[] {
+  const foods = shuffle(getAllFoods()).slice(0, Math.min(count, getAllFoods().length));
+
+  return foods.map((food, index) => {
+    const wrongRegions = pickWrong(food.region, REGION_IDS, 3);
+    const options = shuffle([
+      { id: food.region, label: REGION_OPTIONS.find(r => r.id === food.region)!.label },
+      ...wrongRegions.map(rid => ({
+        id: rid, label: REGION_OPTIONS.find(r => r.id === rid)!.label,
+      })),
+    ]);
+
+    return {
+      id: `tebak-asal-${index}-${food.id}`,
+      mode: 'tebak-asal' as QuizMode,
+      prompt: 'Dari daerah mana masakan ini berasal?',
+      media: food.name,
+      description: food.description,
+      options,
+      correctAnswer: food.region,
+      timeLimit: 12,
+    };
+  });
+}
+
+export function generateCampuranQuestions(count: number = 10): Question[] {
+  const half = Math.ceil(count / 2);
+  const gambar = generateTebakMakananQuestions(half);
+  const asal = generateTebakAsalQuestions(count - half);
+  return shuffle([...gambar, ...asal]).map((q, i) => ({
+    ...q,
+    id: `campuran-${i}-${q.id}`,
+    mode: 'campuran' as QuizMode,
+  }));
+}
+
+export function generateQuestions(mode: QuizMode, count: number = 10): Question[] {
+  switch (mode) {
+    case 'tebak-makanan': return generateTebakMakananQuestions(count);
+    case 'tebak-asal': return generateTebakAsalQuestions(count);
+    case 'campuran': return generateCampuranQuestions(count);
+  }
+}
+
 export function calculateScore(
   isCorrect: boolean,
   timeRemaining: number,
-  timeLimit: number,
   streak: number
 ): number {
   if (!isCorrect) return 0;
   const base = 100;
-  const timeBonus = Math.floor((timeRemaining / timeLimit) * 50);
-  const streakBonus = streak * 10;
-  const multiplier = streak >= 7 ? 5 : streak >= 5 ? 3 : streak >= 3 ? 2 : 1;
-  return (base + timeBonus + streakBonus) * multiplier;
+  const speedBonus = Math.floor(timeRemaining * 5);
+  const streakBonus =
+    streak >= 7 ? 200 :
+    streak >= 5 ? 100 :
+    streak >= 3 ? 50 : 0;
+  return base + speedBonus + streakBonus;
 }
