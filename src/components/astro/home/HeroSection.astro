@@ -1,125 +1,47 @@
 ---
-import { getAllFoods, getRegions } from '../../../lib/data/loaders';
-const foods = getAllFoods();
-const regions = getRegions();
+import { getAllFoods } from '../../../lib/data/loaders';
 
-const floatingFoods = ['🍜', '🍛', '🌶️', '🥟', '🍢', '🥥'];
+const foods = getAllFoods();
+const regionCount = [...new Set(foods.map(f => f.region))].length;
 ---
 
 <section class="hero" id="hero-section">
-  <!-- Decorative background -->
-  <div class="hero-bg">
-    <div class="hero-bg-gradient"></div>
-    <div class="hero-blob hero-blob-1"></div>
-    <div class="hero-blob hero-blob-2"></div>
-    <div class="hero-blob hero-blob-3"></div>
-    <div class="hero-dots"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <svg class="hero-noise-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="hero-noise-fx">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+    </defs>
+    <rect width="100" height="100" filter="url(#hero-noise-fx)" opacity="0.04" style="mix-blend-mode: overlay"/>
+  </svg>
+
+  <div class="hero-inner">
+    <span class="hero-label">Atlas Kuliner Nusantara</span>
+
+    <h1 class="hero-title">
+      <span class="hero-line hero-line-1">
+        <span class="hero-word">Cita</span>
+        <span class="hero-word">Rasa</span>
+      </span>
+      <span class="hero-line hero-line-2">
+        <span class="hero-word">Nusantara</span>
+      </span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Temukan <strong class="hero-strong">{foods.length}+</strong> hidangan tradisional dari
+      <strong class="hero-strong">{regionCount}</strong> wilayah Indonesia
+    </p>
+
+    <a href="/search" class="hero-cta">
+      <span>Mulai Jelajahi</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
   </div>
 
-  <div class="container hero-container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-badge-icon">🐱</span>
-        <span>Atlas Kuliner Nusantara</span>
-      </div>
-
-      <h1 class="hero-title">
-        <span class="hero-line hero-line-1">Jelajahi</span>
-        <span class="hero-line hero-line-2 gradient-text-warm">Cita Rasa</span>
-        <span class="hero-line hero-line-3">Nusantara</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Temukan <strong>{foods.length}+</strong> hidangan tradisional dari <strong>{regions.length}</strong> wilayah Indonesia
-      </p>
-
-      <div class="hero-actions">
-        <a href="/search" class="duo-btn duo-btn-primary duo-btn-lg hero-cta">
-          <span>Mulai Jelajahi</span>
-          <svg class="hero-cta-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-        <a href="/quiz" class="duo-btn duo-btn-gold duo-btn-lg">
-          <span>🎯</span>
-          <span>Ikuti Kuis</span>
-        </a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num">{foods.length}+</span>
-          <span class="hero-stat-label">Hidangan</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">{regions.length}</span>
-          <span class="hero-stat-label">Wilayah</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-icon">🐱</span>
-          <span class="hero-stat-label">Pemandu</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-mascot">
-      <!-- Floating foods around mascot -->
-      {floatingFoods.map((food, i) => (
-        <span class="hero-floating-food" style={`--i:${i};--tx:${[-60,50,-40,70,-80,30][i]}px;--ty:${[-30,-50,40,-20,50,-40][i]}px`} aria-hidden="true">{food}</span>
-      ))}
-      <!-- Nara -->
-      <div class="hero-mascot-body">
-        <svg viewBox="0 0 120 140" class="hero-mascot-svg" aria-hidden="true">
-          <!-- Tail -->
-          <path class="nara-tail" d="M 96 100 Q 120 90 114 68 Q 108 46 96 60" fill="none" stroke="#E8A87C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Ears -->
-          <polygon points="30,30 20,10 45,28" fill="#E8A87C" stroke="#3C2A1E" stroke-width="2.5" stroke-linejoin="round"/>
-          <polygon points="90,30 100,10 75,28" fill="#E8A87C" stroke="#3C2A1E" stroke-width="2.5" stroke-linejoin="round"/>
-          <polygon points="30,30 20,10 45,28" fill="#F5C4A8" stroke="none" transform="scale(0.7) translate(5,2)"/>
-          <polygon points="90,30 100,10 75,28" fill="#F5C4A8" stroke="none" transform="scale(0.7) translate(-5,2)"/>
-          <!-- Head -->
-          <ellipse cx="60" cy="48" rx="38" ry="36" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="2.5"/>
-          <!-- Eyes -->
-          <ellipse cx="44" cy="42" rx="9" ry="11" fill="white" stroke="#3C2A1E" stroke-width="2"/>
-          <ellipse cx="44" cy="42" rx="4.5" ry="5.5" fill="#3C2A1E"/>
-          <circle cx="41.5" cy="38.5" r="2" fill="white"/>
-          <ellipse cx="76" cy="42" rx="9" ry="11" fill="white" stroke="#3C2A1E" stroke-width="2"/>
-          <ellipse cx="76" cy="42" rx="4.5" ry="5.5" fill="#3C2A1E"/>
-          <circle cx="73.5" cy="38.5" r="2" fill="white"/>
-          <!-- Blush -->
-          <ellipse cx="34" cy="52" rx="8" ry="5" fill="#F4C4B0" opacity="0.5"/>
-          <ellipse cx="86" cy="52" rx="8" ry="5" fill="#F4C4B0" opacity="0.5"/>
-          <!-- Nose -->
-          <ellipse cx="60" cy="50" rx="4" ry="3" fill="#E8A87C" stroke="#3C2A1E" stroke-width="1.5"/>
-          <!-- Mouth -->
-          <path d="M 50 56 Q 60 64 70 56" fill="none" stroke="#3C2A1E" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Whiskers -->
-          <line x1="18" y1="48" x2="38" y2="50" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="18" y1="54" x2="38" y2="52" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="102" y1="48" x2="82" y2="50" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="102" y1="54" x2="82" y2="52" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Body -->
-          <ellipse cx="60" cy="98" rx="36" ry="30" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="2.5"/>
-          <!-- Belly -->
-          <ellipse cx="60" cy="100" rx="22" ry="18" fill="#FFFDF7" stroke="#3C2A1E" stroke-width="1.5"/>
-          <!-- Batik motif on belly -->
-          <path d="M 40 92 Q 48 88 56 92 Q 64 96 72 92 Q 80 88 80 92" fill="none" stroke="#C49A6E" stroke-width="1.5" opacity="0.6"/>
-          <path d="M 40 102 Q 48 98 56 102 Q 64 106 72 102 Q 80 98 80 102" fill="none" stroke="#C49A6E" stroke-width="1.5" opacity="0.6"/>
-          <path d="M 44 97 Q 48 95 52 97" fill="none" stroke="#C49A6E" stroke-width="1" opacity="0.4"/>
-          <path d="M 68 97 Q 72 95 76 97" fill="none" stroke="#C49A6E" stroke-width="1" opacity="0.4"/>
-          <!-- Arms -->
-          <path d="M 28 90 Q 14 100 18 114" fill="none" stroke="#3C2A1E" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M 92 90 Q 106 100 102 114" fill="none" stroke="#3C2A1E" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Feet -->
-          <ellipse cx="44" cy="126" rx="14" ry="6" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="2.5"/>
-          <ellipse cx="76" cy="126" rx="14" ry="6" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="2.5"/>
-        </svg>
-        <div class="hero-mascot-speech">
-          <span>Ayo makan!</span>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <script>
@@ -129,59 +51,19 @@ function initHero() {
   const hero = document.getElementById('hero-section');
   if (!hero) return;
 
-  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  tl.from(hero.querySelector('.hero-badge'), { y: -20, opacity: 0, scale: 0.8, duration: 0.8, ease: 'back.out(2)' })
-    .from(hero.querySelector('.hero-line-1'), { y: 80, opacity: 0, duration: 1.2 }, '-=0.4')
-    .from(hero.querySelector('.hero-line-2'), { y: 80, opacity: 0, duration: 1.2 }, '-=0.6')
-    .from(hero.querySelector('.hero-line-3'), { y: 80, opacity: 0, duration: 1.2 }, '-=0.6')
-    .from(hero.querySelector('.hero-subtitle'), { y: 40, opacity: 0, duration: 0.8 }, '-=0.8')
-    .from(hero.querySelectorAll('.hero-actions > *'), { y: 30, opacity: 0, scale: 0.9, stagger: 0.12, duration: 0.6, ease: 'back.out(2)' }, '-=0.4')
-    .from(hero.querySelectorAll('.hero-stat'), { y: 20, opacity: 0, stagger: 0.08, duration: 0.5 }, '-=0.2')
-    .from(hero.querySelector('.hero-mascot-body'), { x: 100, opacity: 0, scale: 0.6, duration: 1, ease: 'back.out(2.5)' }, '-=0.6')
-    .from(hero.querySelectorAll('.hero-floating-food'), { scale: 0, opacity: 0, stagger: 0.08, duration: 0.6, ease: 'back.out(3)' }, '-=0.4');
-
-  const mascotBody = hero.querySelector('.hero-mascot-body');
-  if (mascotBody) {
-    gsap.to(mascotBody, {
-      y: -8,
-      duration: 2.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 1.5,
-    });
-  }
-
-  hero.querySelectorAll('.hero-floating-food').forEach((el, i) => {
-    gsap.to(el, {
-      y: `+=${[6, -8, 10, -6, 8, -10][i] || 6}`,
-      x: `+=${[4, -6, -4, 8, -6, 4][i] || 4}`,
-      rotation: i % 2 === 0 ? 8 : -8,
-      duration: 2 + (i * 0.3),
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: i * 0.2 + 1.8,
-    });
-  });
-
-  const tail = hero.querySelector('.nara-tail');
-  if (tail) {
-    gsap.to(tail, {
-      rotation: -15,
-      transformOrigin: '96px 100px',
-      duration: 0.6,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 2,
-    });
-  }
-
-  hero.querySelectorAll('.hero-mascot-svg ellipse[opacity="0.5"]').forEach(el => {
-    gsap.to(el, { attr: { opacity: 0.3 }, duration: 1, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.5 });
-  });
+  tl.from(hero.querySelector('.hero-label'), { y: -12, opacity: 0, duration: 0.8 })
+    .from(hero.querySelectorAll('.hero-word'), {
+      y: 64,
+      opacity: 0,
+      filter: 'blur(10px)',
+      stagger: 0.08,
+      duration: 1.2,
+    }, '-=0.4')
+    .from(hero.querySelector('.hero-subtitle'), { y: 20, opacity: 0, duration: 0.8 }, '-=0.6')
+    .from(hero.querySelector('.hero-cta'), { y: 20, opacity: 0, scale: 0.95, duration: 0.6 }, '-=0.3')
+    .from(hero.querySelector('.hero-bg'), { opacity: 0, duration: 0.6 }, '-=1.2');
 }
 
 document.addEventListener('astro:page-load', () => requestAnimationFrame(initHero));
@@ -190,254 +72,132 @@ document.addEventListener('astro:page-load', () => requestAnimationFrame(initHer
 <style>
   .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: calc(var(--nav-mobile-h) + var(--sp-12)) 0 var(--sp-12);
+    justify-content: center;
     overflow: hidden;
+    padding: calc(var(--nav-mobile-h) + var(--sp-8)) var(--page-px) var(--sp-8);
   }
-  @media (min-width: 1024px) {
-    .hero { min-height: 100vh; padding: calc(var(--nav-h) + var(--sp-16)) 0 var(--sp-16); }
+  @media (min-width: 768px) {
+    .hero { padding: calc(var(--nav-h) + var(--sp-12)) var(--page-px) var(--sp-12); }
   }
 
-  /* Cartoon background */
   .hero-bg {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .hero-bg-gradient {
-    position: absolute;
-    inset: 0;
     background: linear-gradient(
-      160deg,
-      #FFF8F0 0%,
-      #FAF0E6 30%,
-      #F5EDE3 60%,
-      #F0E2D6 100%
+      155deg,
+      var(--c-brand-mocha-dark) 0%,
+      var(--c-brand-mocha) 40%,
+      #6B4A2E 70%,
+      var(--c-brand-caramel-dark) 100%
     );
   }
-  .hero-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.35;
-  }
-  .hero-blob-1 {
-    width: 600px;
-    height: 600px;
-    background: var(--c-brand-caramel);
-    top: -200px;
-    right: -150px;
-    opacity: 0.15;
-  }
-  .hero-blob-2 {
-    width: 400px;
-    height: 400px;
-    background: var(--c-brand-cinnamon);
-    bottom: -100px;
-    left: -100px;
-    opacity: 0.12;
-  }
-  .hero-blob-3 {
-    width: 300px;
-    height: 300px;
-    background: var(--c-brand-gold);
-    top: 40%;
-    left: 50%;
-    opacity: 0.08;
-  }
-  .hero-dots {
+
+  .hero-noise-svg {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, var(--c-brand-caramel) 1.5px, transparent 1.5px);
-    background-size: 40px 40px;
-    opacity: 0.06;
-  }
-
-  .hero-container {
-    position: relative;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--sp-8);
-    align-items: center;
-  }
-  @media (min-width: 1024px) {
-    .hero-container {
-      grid-template-columns: 1.2fr 1fr;
-      gap: var(--sp-10);
-    }
+    opacity: 0.8;
   }
 
-  .hero-content { max-width: 700px; }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 780px;
+  }
 
-  /* Badge */
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    background: rgba(255, 253, 247, 0.85);
-    backdrop-filter: blur(8px);
-    border: 2px solid var(--c-brand-cinnamon);
-    border-radius: var(--r-full);
+  .hero-label {
+    display: inline-block;
+    font-family: var(--ff-body);
     font-size: var(--fs-sm);
-    font-weight: 800;
-    color: var(--c-brand-cinnamon-dark);
-    margin-bottom: var(--sp-5);
-    box-shadow: 0 3px 0 rgba(180, 115, 74, 0.2);
+    font-weight: 700;
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--c-brand-caramel);
+    margin-bottom: var(--sp-6);
+    opacity: 0.85;
   }
-  .hero-badge-icon { font-size: 16px; }
 
-  /* Title */
   .hero-title {
     font-family: var(--ff-display);
-    font-size: clamp(2.8rem, 10vw, 5rem);
     font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--c-text-1);
-    margin-bottom: var(--sp-4);
+    line-height: 1.04;
+    letter-spacing: var(--ls-tight);
+    margin-bottom: var(--sp-5);
   }
   .hero-line { display: block; }
+  .hero-line-1 {
+    font-size: clamp(2.8rem, 10vw, 6rem);
+    margin-bottom: -0.08em;
+  }
   .hero-line-2 {
-    font-size: clamp(3.2rem, 12vw, 5.8rem);
+    font-size: clamp(3.2rem, 12vw, 7rem);
+  }
+  .hero-line-2 .hero-word {
+    background: var(--grad-warm);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
-  /* Subtitle */
+  .hero-word {
+    display: inline-block;
+    will-change: transform, opacity, filter;
+  }
+
   .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, var(--fs-lg));
-    color: var(--c-text-2);
-    font-weight: 700;
+    font-family: var(--ff-body);
+    font-size: clamp(var(--fs-base), 2vw, var(--fs-lg));
+    color: rgba(255, 248, 240, 0.75);
+    font-weight: 400;
     line-height: var(--lh-relaxed);
-    margin-bottom: var(--sp-6);
-    max-width: 540px;
-  }
-  .hero-subtitle strong { color: var(--c-brand-cinnamon); }
-
-  /* Actions */
-  .hero-actions {
-    display: flex;
-    gap: var(--sp-3);
-    flex-wrap: wrap;
     margin-bottom: var(--sp-8);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-strong {
+    font-weight: 700;
+    color: var(--c-brand-caramel);
   }
 
   .hero-cta {
-    position: relative;
-    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 14px 36px;
+    border-radius: var(--r-full);
+    border: 1.5px solid var(--c-brand-caramel);
+    color: var(--c-brand-cream);
+    font-family: var(--ff-body);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.35s var(--ease-smooth);
+    cursor: pointer;
+    will-change: transform;
   }
-  .hero-cta-arrow {
-    transition: transform 0.25s var(--ease-bounce);
+  .hero-cta svg {
+    transition: transform 0.3s var(--ease-smooth);
   }
-  .hero-cta:hover .hero-cta-arrow {
+  .hero-cta:hover {
+    background: var(--c-brand-caramel);
+    color: var(--c-brand-mocha-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196, 154, 110, 0.25);
+  }
+  .hero-cta:hover svg {
     transform: translateX(4px);
   }
 
-  /* Stats */
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-4);
-  }
-  .hero-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .hero-stat-icon {
-    font-size: 22px;
-    line-height: 1;
-    margin-bottom: 2px;
-  }
-  .hero-stat-num {
-    font-family: var(--ff-display);
-    font-size: var(--fs-2xl);
-    font-weight: 900;
-    color: var(--c-text-1);
-    line-height: 1;
-  }
-  .hero-stat-label {
-    font-size: var(--fs-xs);
-    color: var(--c-text-3);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .hero-stat-divider {
-    width: 2px;
-    height: 32px;
-    background: var(--c-brand-caramel-bg);
-    border-radius: var(--r-full);
-  }
-
-  /* Mascot section */
-  .hero-mascot {
-    display: none;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-  }
-  @media (min-width: 1024px) {
-    .hero-mascot {
-      display: flex;
-    }
-  }
-
-  /* Floating food items */
-  .hero-floating-food {
-    position: absolute;
-    font-size: 32px;
-    z-index: 2;
-    pointer-events: none;
-    filter: drop-shadow(0 4px 8px rgba(60, 42, 30, 0.12));
-  }
-  .hero-floating-food:nth-child(1) { top: 5%; left: 10%; }
-  .hero-floating-food:nth-child(2) { top: 15%; right: 5%; }
-  .hero-floating-food:nth-child(3) { bottom: 25%; left: 5%; }
-  .hero-floating-food:nth-child(4) { top: 0; right: 20%; }
-  .hero-floating-food:nth-child(5) { bottom: 10%; right: 10%; }
-  .hero-floating-food:nth-child(6) { bottom: 40%; left: 0; }
-
-  /* Nara */
-  .hero-mascot-body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-  }
-  .hero-mascot-svg {
-    width: 220px;
-    height: auto;
-    filter: drop-shadow(0 12px 20px rgba(60, 42, 30, 0.18));
-  }
-
-  .hero-mascot-speech {
-    margin-top: var(--sp-2);
-    padding: 10px 24px;
-    background: var(--c-surface);
-    border: 2.5px solid var(--c-brand-cinnamon);
-    border-radius: var(--r-2xl);
-    font-weight: 800;
-    font-size: var(--fs-base);
-    color: var(--c-brand-cinnamon-dark);
-    position: relative;
-    box-shadow: 0 4px 0 var(--c-brand-caramel-bg), 0 6px 12px rgba(60, 42, 30, 0.1);
-    white-space: nowrap;
-  }
-  .hero-mascot-speech::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%;
-    width: 16px;
-    height: 16px;
-    background: var(--c-surface);
-    border-top: 2.5px solid var(--c-brand-cinnamon);
-    border-left: 2.5px solid var(--c-brand-cinnamon);
-    transform: translate(-50%, 0) rotate(45deg);
+  @media (max-width: 767px) {
+    .hero-label { font-size: var(--fs-xs); }
   }
 </style>

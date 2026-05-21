@@ -13,15 +13,6 @@ const REGION_HEX: Record<string, string> = {
   'maluku-papua': '#8B4513',
 };
 
-const REGION_EMOJI: Record<string, string> = {
-  sumatera: '🌶️',
-  jawa: '🍚',
-  kalimantan: '🌴',
-  sulawesi: '🐟',
-  'bali-ntt': '🌺',
-  'maluku-papua': '🐚',
-};
-
 const regions = getRegions();
 const allFoods = getAllFoods();
 
@@ -135,25 +126,6 @@ export default function InteractiveMap() {
       </div>
 
       <div className="map-info-panel">
-        <div className="map-region-buttons">
-          {regions.map(region => {
-            const isActive = selected === region.id;
-            const count = getFoodCount(region.id);
-            return (
-              <button
-                key={region.id}
-                onClick={() => handleRegionClick(region.id)}
-                className={`map-region-btn ${isActive ? 'active' : ''}`}
-                style={{ '--region-color': REGION_HEX[region.id] } as React.CSSProperties}
-              >
-                <span className="map-region-btn-dot" />
-                <span className="map-region-btn-name">{REGION_EMOJI[region.id]} {region.name}</span>
-                <span className="map-region-btn-count">{count}</span>
-              </button>
-            );
-          })}
-        </div>
-
         {selectedRegion ? (
           <div className="map-detail-card">
             <div className="map-detail-header">

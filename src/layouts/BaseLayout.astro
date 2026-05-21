@@ -53,7 +53,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
     <TopNav />
 
-    <main id="main-content">
+    <main id="main-content" transition:animate="none">
       <slot />
     </main>
 
@@ -94,7 +94,6 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       let magneticCleanups: (() => void)[] = [];
 
       function initMagneticButtons() {
-        // Cleanup previous listeners
         magneticCleanups.forEach(fn => fn());
         magneticCleanups = [];
 
@@ -128,7 +127,6 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
         });
       }
 
-      // Single delegated ripple listener (attached once)
       document.addEventListener('click', (e) => {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion) return;
@@ -146,15 +144,103 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
         gsap.to(ripple, { width: 200, height: 200, opacity: 0, duration: 0.6, ease: 'power2.out', onComplete: () => ripple.remove() });
       });
 
-      function initAll() {
+      function initMagneticAndTransition() {
         initMagneticButtons();
       }
 
-      document.addEventListener('DOMContentLoaded', initAll);
-      document.addEventListener('astro:after-swap', () => setTimeout(initAll, 100));
+      document.addEventListener('DOMContentLoaded', initMagneticAndTransition);
+      document.addEventListener('astro:after-swap', () => setTimeout(initMagneticAndTransition, 100));
       document.addEventListener('astro:before-swap', () => {
         magneticCleanups.forEach(fn => fn());
         magneticCleanups = [];
+      });
+    </script>
+
+    <script>
+      import { gsap } from 'gsap';
+
+      const TRANSITION_DURATION = 0.35;
+      const TRANSITION_EASE = 'power2.inOut';
+
+      function prefersReducedMotion(): boolean {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
+
+      let transitionOverlay: HTMLDivElement | null = null;
+
+      function ensureOverlay() {
+        if (!transitionOverlay || !document.body.contains(transitionOverlay)) {
+          transitionOverlay = document.createElement('div');
+          transitionOverlay.id = 'page-transition-overlay';
+          transitionOverlay.style.cssText = [
+            'position: fixed; inset: 0; z-index: 9999;',
+            'pointer-events: none;',
+            'background: var(--c-bg, #F8F2EA);',
+            'opacity: 0;',
+            'will-change: opacity, transform;',
+          ].join('');
+          document.body.appendChild(transitionOverlay);
+        }
+      }
+
+      function animatePageOut(): Promise<void> {
+        if (prefersReducedMotion()) return Promise.resolve();
+        ensureOverlay();
+        const main = document.querySelector('#main-content') as HTMLElement;
+        return new Promise((resolve) => {
+          const tl = gsap.timeline({
+            onComplete: resolve,
+          });
+          if (main) {
+            tl.to(main, {
+              opacity: 0,
+              y: -24,
+              duration: TRANSITION_DURATION * 0.7,
+              ease: 'power2.in',
+            }, 0);
+          }
+          tl.to(transitionOverlay!, {
+            opacity: 1,
+            duration: TRANSITION_DURATION * 0.5,
+            ease: 'power1.in',
+          }, TRANSITION_DURATION * 0.3);
+        });
+      }
+
+      function animatePageIn(): Promise<void> {
+        if (prefersReducedMotion()) {
+          if (transitionOverlay) transitionOverlay.style.opacity = '0';
+          return Promise.resolve();
+        }
+        ensureOverlay();
+        const main = document.querySelector('#main-content') as HTMLElement;
+        return new Promise((resolve) => {
+          if (main) {
+            gsap.set(main, { opacity: 0, y: 32 });
+          }
+          const tl = gsap.timeline({ onComplete: resolve });
+          tl.to(transitionOverlay!, {
+            opacity: 0,
+            duration: TRANSITION_DURATION * 0.5,
+            ease: 'power1.out',
+          }, 0);
+          if (main) {
+            tl.to(main, {
+              opacity: 1,
+              y: 0,
+              duration: TRANSITION_DURATION * 0.8,
+              ease: 'power3.out',
+            }, TRANSITION_DURATION * 0.15);
+          }
+        });
+      }
+
+      document.addEventListener('astro:before-swap', () => {
+        animatePageOut();
+      });
+
+      document.addEventListener('astro:after-swap', () => {
+        animatePageIn();
       });
     </script>
   </body>
@@ -189,6 +275,16 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     border-radius: 0.375rem;
     font-weight: 700;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  #page-transition-overlay {
+    pointer-events: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+    mix-blend-mode: normal;
   }
 
   html.lenis, html.lenis body { height: auto; }

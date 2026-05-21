@@ -10,44 +10,19 @@ function isActive(path: string) {
   if (path === '/') return currentPath === '/';
   return currentPath.startsWith(path);
 }
-const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="none">
-  <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.15"/>
-  <path d="M12 10C12 10 14 8 16 8C18 8 20 10 20 10C20 10 22 12 22 14C22 18 18 22 16 24C14 22 10 18 10 14C10 12 12 10 12 10Z" fill="currentColor" opacity="0.3"/>
-  <path d="M14 14L16 18L18 14L16 12L14 14Z" fill="currentColor"/>
-  <circle cx="14" cy="13" r="1.5" fill="currentColor" opacity="0.5"/>
-  <circle cx="18" cy="13" r="1.5" fill="currentColor" opacity="0.5"/>
-</svg>`;
 
 const navIcons: Record<string, string> = {
-  home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-  search: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
-  quiz: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>',
-  about: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>',
+  home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+  search: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
+  quiz: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>',
+  about: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>',
 };
-
-const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:80px;height:80px;">
-  <ellipse cx="40" cy="34" rx="22" ry="20" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="2"/>
-  <polygon points="26,16 20,8 32,14" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="1.5"/>
-  <polygon points="54,16 60,8 48,14" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="1.5"/>
-  <ellipse cx="32" cy="30" rx="5" ry="6" fill="white" stroke="#3C2A1E" stroke-width="1.5"/>
-  <ellipse cx="32" cy="30" rx="2.5" ry="3" fill="#3C2A1E"/>
-  <ellipse cx="48" cy="30" rx="5" ry="6" fill="white" stroke="#3C2A1E" stroke-width="1.5"/>
-  <ellipse cx="48" cy="30" rx="2.5" ry="3" fill="#3C2A1E"/>
-  <ellipse cx="40" cy="36" rx="2.5" ry="1.5" fill="#E8A87C"/>
-  <path d="M 34 40 Q 40 46 46 40" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-  <ellipse cx="40" cy="66" rx="18" ry="14" fill="#F5C4A8" stroke="#3C2A1E" stroke-width="2"/>
-  <ellipse cx="40" cy="66" rx="12" ry="10" fill="#FFFDF7"/>
-  <path d="M 30 62 Q 40 58 50 62" fill="none" stroke="#C49A6E" stroke-width="1" opacity="0.6"/>
-  <path d="M 30 70 Q 40 66 50 70" fill="none" stroke="#C49A6E" stroke-width="1" opacity="0.6"/>
-  <path d="M 58 56 Q 68 52 66 42" fill="none" stroke="#E8A87C" stroke-width="2" stroke-linecap="round"/>
-</svg>`;
 ---
 
-<header class="top-nav" role="banner">
+<header class="top-nav" id="top-nav" role="banner">
   <div class="top-nav-bar">
     <div class="top-nav-inner">
       <a href="/" class="top-nav-logo" aria-label="Kulineria Home">
-        <span class="top-nav-logo-icon" aria-hidden="true" set:html={logoSvg}></span>
         <span class="top-nav-logo-text">Kulineria</span>
       </a>
 
@@ -58,32 +33,23 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
             class:list={['top-nav-link', { active: isActive(item.href) }]}
             aria-current={isActive(item.href) ? 'page' : undefined}
           >
-            <span class="top-nav-link-icon" aria-hidden="true" set:html={navIcons[item.key]}></span>
             <span>{item.label}</span>
           </a>
         ))}
       </nav>
 
-      <div class="top-nav-actions">
-        <button class="top-nav-hamburger" aria-label="Buka menu" aria-expanded="false" data-menu-toggle>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-      </div>
+      <button class="top-nav-hamburger" aria-label="Buka menu" aria-expanded="false" data-menu-toggle>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </div>
 
-  <!-- Mobile overlay -->
+  <!-- Overlay -->
   <div class="top-nav-overlay" data-menu-overlay inert>
+    <div class="overlay-bg"></div>
     <div class="overlay-scroll">
-      <div class="overlay-header">
-        <span class="overlay-nara" aria-hidden="true" set:html={naraMini}></span>
-        <button class="overlay-close" aria-label="Tutup menu" data-menu-close>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-
       <nav class="overlay-nav">
         {navItems.map((item, idx) => (
           <a
@@ -99,63 +65,63 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
       </nav>
 
       <div class="overlay-footer">
-        <p class="overlay-tagline">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-          <span>dibuat dengan <span class="overlay-heart">&hearts;</span> dan banyak sambal</span>
-        </p>
+        <span class="overlay-tagline">dibuat dengan ❤ dan sambal</span>
       </div>
     </div>
   </div>
 </header>
 
 <script>
-  function initNav() {
-    const header = document.querySelector('.top-nav');
-    const overlay = document.querySelector('.top-nav-overlay');
-    const toggle = document.querySelector('[data-menu-toggle]');
-    const close = document.querySelector('[data-menu-close]');
-    const body = document.body;
-    if (!header || !overlay || !toggle || !close) return;
+import { gsap } from 'gsap';
 
-    function closeMenu() {
-      overlay.classList.remove('open');
-      overlay.setAttribute('inert', '');
-      toggle.setAttribute('aria-expanded', 'false');
-      body.style.overflow = '';
-    }
+function initNav() {
+  const header = document.getElementById('top-nav');
+  const overlay = document.querySelector('[data-menu-overlay]');
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const body = document.body;
+  if (!header || !overlay || !toggle) return;
 
-    function openMenu() {
-      overlay.classList.add('open');
-      overlay.removeAttribute('inert');
-      toggle.setAttribute('aria-expanded', 'true');
-      body.style.overflow = 'hidden';
-    }
+  let tl;
 
-    toggle.addEventListener('click', () => {
-      const isOpen = overlay.classList.contains('open');
-      isOpen ? closeMenu() : openMenu();
-    });
-
-    close.addEventListener('click', closeMenu);
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeMenu();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
-    });
-
-    // Scroll effect
-    const onScroll = () => {
-      header.classList.toggle('top-nav-scrolled', window.scrollY > 20);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  function closeMenu() {
+    if (tl) tl.kill();
+    overlay.classList.remove('open');
+    overlay.setAttribute('inert', '');
+    toggle.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
   }
 
-  document.addEventListener('DOMContentLoaded', initNav);
-  document.addEventListener('astro:after-swap', () => setTimeout(initNav, 50));
+  function openMenu() {
+    overlay.classList.add('open');
+    overlay.removeAttribute('inert');
+    toggle.setAttribute('aria-expanded', 'true');
+    body.style.overflow = 'hidden';
+
+    tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.set(overlay, { clearProps: 'opacity' })
+      .fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.35 })
+      .from(overlay.querySelectorAll('.overlay-link'), { y: 40, opacity: 0, filter: 'blur(6px)', stagger: 0.06, duration: 0.55 }, '-=0.2')
+      .from(overlay.querySelector('.overlay-footer'), { y: 16, opacity: 0, duration: 0.4 }, '-=0.15');
+  }
+
+  toggle.addEventListener('click', () => {
+    overlay.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeMenu(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+  });
+
+  // Scroll effect: hero mode vs scrolled
+  function onScroll() {
+    const scrolled = window.scrollY > 30;
+    header.classList.toggle('top-nav-scrolled', scrolled);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+document.addEventListener('astro:page-load', () => requestAnimationFrame(initNav));
 </script>
 
 <style>
@@ -166,12 +132,14 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
     right: 0;
     z-index: var(--z-nav);
     padding-top: env(safe-area-inset-top, 0);
+    font-family: var(--ff-body);
+    color: rgba(255, 248, 240, 0.85);
   }
 
   .top-nav-bar {
     position: relative;
     z-index: 2;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
     background: transparent;
   }
   .top-nav-bar::after {
@@ -180,19 +148,20 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
     bottom: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: var(--grad-warm);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-brand-caramel), transparent);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.35s ease;
   }
   .top-nav-scrolled .top-nav-bar {
-    background: rgba(250, 244, 236, 0.93);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(60, 42, 30, 0.06);
+    background: rgba(250, 244, 236, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 8px rgba(60, 42, 30, 0.06);
+    color: var(--c-text-2);
   }
   .top-nav-scrolled .top-nav-bar::after {
-    opacity: 0.3;
+    opacity: 0.25;
   }
 
   .top-nav-inner {
@@ -212,18 +181,15 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
   .top-nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: transform 0.15s var(--ease-bounce);
-    flex-shrink: 0;
     text-decoration: none;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
   }
-  .top-nav-logo:hover { transform: scale(1.04); }
-  .top-nav-logo-icon { color: var(--c-brand-cinnamon); display: flex; }
+  .top-nav-logo:hover { opacity: 0.8; }
   .top-nav-logo-text {
     font-family: var(--ff-display);
     font-size: var(--fs-lg);
     font-weight: 900;
-    color: var(--c-text-1);
     letter-spacing: -0.02em;
     background: var(--grad-warm);
     -webkit-background-clip: text;
@@ -242,50 +208,35 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
   }
 
   .top-nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    font-weight: 800;
-    font-size: var(--fs-sm);
-    color: var(--c-text-2);
-    border-radius: var(--r-lg);
-    border: 2px solid transparent;
-    transition: all 0.15s var(--ease-bounce);
     position: relative;
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    color: inherit;
     text-decoration: none;
+    transition: color 0.2s ease;
   }
-  .top-nav-link-icon { display: flex; opacity: 0.6; }
-  .top-nav-link:hover {
-    background: var(--c-brand-caramel-bg);
-    color: var(--c-brand-caramel-dark);
-    transform: translateY(-1px);
-  }
-  .top-nav-link:hover .top-nav-link-icon { opacity: 1; }
-  .top-nav-link.active {
-    color: var(--c-brand-cinnamon-dark);
-    background: var(--c-brand-cinnamon-bg);
-    border-color: var(--c-brand-cinnamon);
-  }
-  .top-nav-link.active .top-nav-link-icon { opacity: 1; color: var(--c-brand-cinnamon); }
-  .top-nav-link.active::after {
+  .top-nav-link::after {
     content: '';
     position: absolute;
     bottom: -2px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 24px;
-    height: 3px;
+    transform: translateX(-50%) scaleX(0);
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
     background: var(--grad-warm);
-    border-radius: var(--r-full);
+    transition: transform 0.25s var(--ease-smooth);
   }
+  .top-nav-link:hover { color: #FFF8F0; }
+  .top-nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
+  .top-nav-link.active { color: var(--c-brand-caramel); }
+  .top-nav-link.active::after { transform: translateX(-50%) scaleX(1); }
 
-  /* Actions */
-  .top-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-2);
-  }
+  .top-nav-scrolled .top-nav-link { color: var(--c-text-2); }
+  .top-nav-scrolled .top-nav-link:hover { color: var(--c-text-1); }
+  .top-nav-scrolled .top-nav-link.active { color: var(--c-brand-cinnamon-dark); }
+  .top-nav-scrolled .top-nav-link::after { background: var(--grad-warm); }
 
   /* Hamburger */
   .top-nav-hamburger {
@@ -297,17 +248,23 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
     width: 40px;
     height: 40px;
     padding: 0;
-    border: 2px solid var(--c-brand-caramel-bg);
-    border-radius: var(--r-lg);
-    background: var(--c-brand-caramel-bg);
+    border: 1.5px solid rgba(255, 248, 240, 0.3);
+    border-radius: 50%;
+    background: transparent;
     cursor: pointer;
-    transition: all 0.12s var(--ease-bounce);
-    position: relative;
-    z-index: 5;
+    transition: all 0.2s ease;
+    color: inherit;
   }
   .top-nav-hamburger:hover {
+    border-color: rgba(255, 248, 240, 0.6);
+  }
+  .top-nav-scrolled .top-nav-hamburger {
+    border-color: var(--c-border);
+    color: var(--c-text-2);
+  }
+  .top-nav-scrolled .top-nav-hamburger:hover {
     border-color: var(--c-brand-caramel);
-    background: var(--c-surface);
+    color: var(--c-brand-caramel-dark);
   }
   @media (min-width: 1024px) {
     .top-nav-hamburger { display: none; }
@@ -315,29 +272,22 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
 
   .hamburger-line {
     display: block;
-    width: 18px;
-    height: 2.5px;
-    background: var(--c-text-2);
+    width: 16px;
+    height: 1.5px;
+    background: currentColor;
     border-radius: 2px;
-    transition: all 0.25s var(--ease-bounce);
+    transition: all 0.25s ease;
     transform-origin: center;
   }
   .top-nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
+    transform: translateY(6.5px) rotate(45deg);
   }
   .top-nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
   }
   .top-nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-  }
-  .top-nav-hamburger[aria-expanded="true"] {
-    border-color: var(--c-accent);
-    background: var(--c-accent-light);
-  }
-  .top-nav-hamburger[aria-expanded="true"] .hamburger-line {
-    background: var(--c-accent);
+    transform: translateY(-6.5px) rotate(-45deg);
   }
 
   /* ---- OVERLAY ---- */
@@ -345,139 +295,94 @@ const naraMini = `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/
     position: fixed;
     inset: 0;
     z-index: 1;
-    background: var(--c-surface);
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 0.4s, opacity 0.35s ease;
+    transition: visibility 0s 0.4s;
     overflow: hidden;
+    background: linear-gradient(155deg, var(--c-brand-mocha-dark) 0%, var(--c-brand-mocha) 50%, #6B4A2E 100%);
+    color: rgba(255, 248, 240, 0.9);
   }
   .top-nav-overlay.open {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s 0s, opacity 0.35s ease;
+    transition: visibility 0s 0s;
   }
 
   .overlay-scroll {
+    position: relative;
+    z-index: 2;
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: calc(var(--nav-mobile-h) + env(safe-area-inset-top, 0) + var(--sp-4)) var(--sp-6) var(--sp-8);
     display: flex;
     flex-direction: column;
-  }
-
-  .overlay-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: var(--sp-8);
-  }
-  .overlay-nara {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: all 0.4s 0.1s var(--ease-bounce);
-  }
-  .open .overlay-nara {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .overlay-close {
-    display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 2px solid var(--c-border);
-    border-radius: var(--r-full);
-    background: var(--c-surface-2);
-    color: var(--c-text-2);
-    cursor: pointer;
-    transition: all 0.12s var(--ease-bounce);
-    flex-shrink: 0;
-  }
-  .overlay-close:hover {
-    border-color: var(--c-accent);
-    color: var(--c-accent);
-    transform: rotate(90deg);
+    padding: calc(var(--nav-mobile-h) + env(safe-area-inset-top, 0) + var(--sp-8)) var(--sp-6) var(--sp-8);
+    text-align: center;
   }
 
   .overlay-nav {
     display: flex;
     flex-direction: column;
     gap: var(--sp-2);
-    flex: 1;
+    width: 100%;
+    max-width: 320px;
   }
 
   .overlay-link {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 18px 20px;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 20px;
     border-radius: var(--r-xl);
-    background: var(--c-surface-2);
-    color: var(--c-text-2);
-    font-weight: 800;
+    color: rgba(255, 248, 240, 0.7);
+    font-weight: 700;
     font-size: var(--fs-lg);
     text-decoration: none;
-    transition: all 0.2s var(--ease-bounce);
+    transition: color 0.2s ease, background 0.2s ease;
     opacity: 0;
-    transform: translateY(20px);
   }
   .open .overlay-link {
     opacity: 1;
-    transform: translateY(0);
-    transition: all 0.35s calc(0.08s * var(--idx, 0) + 0.15s) var(--ease-bounce);
   }
   .overlay-link:hover {
-    background: var(--c-surface-2);
-    transform: translateX(4px);
-  }
-  .open .overlay-link:hover {
-    transform: translateY(-2px) translateX(4px);
-    box-shadow: 0 4px 12px rgba(60, 42, 30, 0.1);
+    color: #FFF8F0;
+    background: rgba(255, 255, 255, 0.06);
   }
   .overlay-link.active {
-    color: var(--c-brand-cinnamon-dark);
-    background: var(--c-brand-cinnamon-bg);
-    border: 2px solid var(--c-brand-cinnamon);
+    color: var(--c-brand-caramel);
+    background: rgba(196, 154, 110, 0.1);
   }
   .overlay-link-icon {
     display: flex;
-    width: 40px;
-    height: 40px;
     align-items: center;
     justify-content: center;
-    border-radius: var(--r-lg);
-    background: var(--c-surface);
-    color: var(--c-text-3);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
     flex-shrink: 0;
-    transition: all 0.2s var(--ease-bounce);
+    color: inherit;
   }
   .overlay-link.active .overlay-link-icon {
-    background: var(--c-brand-cinnamon);
-    color: white;
+    background: rgba(196, 154, 110, 0.2);
+    color: var(--c-brand-caramel);
   }
   .overlay-link-label {
     font-family: var(--ff-display);
   }
 
   .overlay-footer {
-    margin-top: var(--sp-12);
-    text-align: center;
+    margin-top: var(--sp-10);
     opacity: 0;
-    transform: translateY(12px);
-    transition: all 0.4s 0.35s var(--ease-bounce);
   }
   .open .overlay-footer {
     opacity: 1;
-    transform: translateY(0);
   }
   .overlay-tagline {
     font-size: var(--fs-sm);
-    color: var(--c-text-3);
-  }
-  .overlay-heart {
-    color: var(--c-accent);
+    color: rgba(255, 248, 240, 0.4);
   }
 </style>
