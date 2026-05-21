@@ -5,30 +5,41 @@ const foods = getAllFoods();
 const REGION_EMOJI: Record<string, string> = {
   sumatera: '🌶️', jawa: '🍚', kalimantan: '🌴', sulawesi: '🐟', 'bali-ntt': '🌺', 'maluku-papua': '🐚',
 };
+const regionImages: Record<string, string> = {
+  sumatera: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=400&q=80',
+  jawa: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=80',
+  kalimantan: 'https://images.unsplash.com/photo-1556388158-32c3b2c5b1c8?w=400&q=80',
+  sulawesi: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&q=80',
+  'bali-ntt': 'https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?w=400&q=80',
+  'maluku-papua': 'https://images.unsplash.com/photo-1559301760-7b1c9f655c15?w=400&q=80',
+};
 ---
 
-<section class="section-py duo-regions" id="regions">
+<section class="section-py regions" id="regions">
   <div class="container">
-    <div class="duo-section-header">
-      <div class="duo-section-overline">
-        <span class="duo-badge duo-badge-blue">🗺️ Wilayah</span>
-      </div>
-      <h2 class="duo-section-title">Jelajahi per Wilayah</h2>
-      <p class="duo-section-subtitle">Pilih wilayah dan mulai petualangan kulinermu!</p>
+    <div class="regions-header">
+      <span class="duo-badge duo-badge-gold">🗺️ Wilayah</span>
+      <h2 class="regions-title">Jelajahi per Wilayah</h2>
+      <p class="regions-subtitle">Pilih wilayah dan mulai petualangan kulinermu</p>
     </div>
-    <div class="duo-regions-grid">
+    <div class="regions-grid">
       {regions.map((region) => {
         const count = foods.filter(f => f.region === region.id).length;
         return (
           <a
             href={`/search?region=${region.id}`}
-            class="duo-card duo-region-card"
-            style={{ '--card-accent': region.color } as any}
+            class="region-card"
+            style={{ '--card-color': region.color } as any}
           >
-            <span class="duo-region-emoji">{REGION_EMOJI[region.id] || '🍽️'}</span>
-            <h3 class="duo-region-name">{region.name}</h3>
-            <span class="duo-region-count">{count} hidangan</span>
-            <span class="duo-region-arrow">→</span>
+            <div class="region-card-bg">
+              <img src={regionImages[region.id] || ''} alt="" loading="lazy" />
+              <div class="region-card-overlay"></div>
+            </div>
+            <div class="region-card-content">
+              <span class="region-card-emoji">{REGION_EMOJI[region.id] || '🍽️'}</span>
+              <h3 class="region-card-name">{region.name}</h3>
+              <span class="region-card-count">{count} hidangan</span>
+            </div>
           </a>
         );
       })}
@@ -42,30 +53,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 function initRegionReveal() {
-  const cards = document.querySelectorAll('.duo-region-card');
+  const cards = document.querySelectorAll('.region-card');
   if (cards.length === 0) return;
 
-  // Kill any existing triggers for these elements
   ScrollTrigger.getAll().forEach(st => {
-    if (st.trigger === document.querySelector('.duo-regions-grid')) st.kill();
+    if (st.trigger === document.querySelector('.regions-grid')) st.kill();
   });
 
-  // Set initial state
-  gsap.set(cards, { y: 50, opacity: 0, scale: 0.92 });
+  gsap.set(cards, { y: 40, opacity: 0, scale: 0.95 });
 
   ScrollTrigger.create({
-    trigger: '.duo-regions-grid',
+    trigger: '.regions-grid',
     start: 'top 85%',
     once: true,
     onEnter: () => {
       gsap.to(cards, {
-        y: 0, opacity: 1, scale: 1, duration: 0.7,
-        stagger: 0.08, ease: 'back.out(1.7)',
+        y: 0, opacity: 1, scale: 1, duration: 0.6,
+        stagger: 0.08, ease: 'back.out(1.6)',
       });
     },
   });
 
-  // Safety fallback: if not triggered within 4s after load, show anyway
   setTimeout(() => {
     cards.forEach(card => {
       if (window.getComputedStyle(card).opacity === '0') {
@@ -80,68 +88,110 @@ document.addEventListener('astro:after-swap', () => setTimeout(initRegionReveal,
 </script>
 
 <style>
-  .duo-regions-grid {
+  .regions-header {
+    text-align: center;
+    margin-bottom: var(--sp-10);
+  }
+  .regions-title {
+    font-family: var(--ff-display);
+    font-size: var(--fs-3xl);
+    font-weight: 900;
+    color: var(--c-text-1);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-top: var(--sp-3);
+  }
+  .regions-subtitle {
+    font-size: var(--fs-base);
+    color: var(--c-text-2);
+    margin-top: var(--sp-2);
+    font-weight: 600;
+  }
+
+  .regions-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sp-4);
   }
   @media (min-width: 640px) {
-    .duo-regions-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+    .regions-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
   }
   @media (min-width: 1024px) {
-    .duo-regions-grid { grid-template-columns: repeat(6, 1fr); gap: var(--sp-5); }
-    .duo-region-card:nth-child(even) { transform: translateY(20px); }
-    .duo-region-card:nth-child(even):hover { transform: translateY(12px) scale(1.04); }
+    .regions-grid { grid-template-columns: repeat(6, 1fr); gap: var(--sp-4); }
   }
 
-  .duo-region-card {
+  .region-card {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-bounce);
+    border: var(--duo-stroke) solid var(--duo-stroke-color);
+    box-shadow: 0 4px 0 var(--c-brand-caramel-bg);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 640px) {
+    .region-card { aspect-ratio: auto; min-height: 200px; }
+  }
+  .region-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 0 var(--c-brand-caramel-bg);
+    border-color: var(--card-color);
+  }
+
+  .region-card-bg {
+    position: absolute;
+    inset: 0;
+  }
+  .region-card-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s var(--ease-bounce);
+  }
+  .region-card:hover .region-card-bg img {
+    transform: scale(1.08);
+  }
+  .region-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(60, 42, 30, 0.55), rgba(60, 42, 30, 0.30));
+    transition: opacity 0.2s ease;
+  }
+  .region-card:hover .region-card-overlay {
+    background: linear-gradient(135deg, rgba(60, 42, 30, 0.45), rgba(60, 42, 30, 0.20));
+  }
+
+  .region-card-content {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--sp-6) var(--sp-4);
+    gap: 4px;
+    padding: var(--sp-4);
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
   }
-  .duo-region-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--card-accent, var(--c-duo-green));
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    z-index: 0;
-  }
-  .duo-region-card:hover::before { opacity: 0.06; }
-  .duo-region-card:hover { border-color: var(--card-accent, var(--c-duo-green)); }
 
-  .duo-region-emoji { font-size: 36px; margin-bottom: var(--sp-2); position: relative; z-index: 1; }
-  .duo-region-name {
+  .region-card-emoji {
+    font-size: 40px;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+  .region-card-name {
     font-family: var(--ff-display);
     font-size: var(--fs-sm);
     font-weight: 900;
-    color: var(--c-text-1);
-    margin-bottom: var(--sp-1);
-    position: relative; z-index: 1;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
   }
-  .duo-region-count {
+  .region-card-count {
     font-size: var(--fs-xs);
-    color: var(--c-text-3);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 800;
-    position: relative; z-index: 1;
-  }
-  .duo-region-arrow {
-    position: absolute;
-    top: var(--sp-3);
-    right: var(--sp-3);
-    font-size: var(--fs-sm);
-    color: var(--c-text-3);
-    transition: transform 0.2s var(--ease-bounce);
-    z-index: 1;
-  }
-  .duo-region-card:hover .duo-region-arrow {
-    transform: translateX(4px);
-    color: var(--card-accent, var(--c-duo-green));
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
 </style>

@@ -44,17 +44,13 @@ input, select, textarea { font-family: var(--ff-body); }
   color: var(--c-accent-dark);
 }
 
-/* ============================================
-   LENIS
-   ============================================ */
+/* LENIS */
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 .lenis.lenis-scrolling iframe { pointer-events: none; }
 
-/* ============================================
-   LAYOUT
-   ============================================ */
+/* LAYOUT */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -76,9 +72,7 @@ input, select, textarea { font-family: var(--ff-body); }
 @media (min-width: 768px)  { .section-pb { padding-bottom: 64px; } }
 @media (min-width: 1024px) { .section-pb { padding-bottom: 80px; } }
 
-/* ============================================
-   DUOLINGO BUTTONS
-   ============================================ */
+/* BUTTONS */
 .duo-btn {
   display: inline-flex;
   align-items: center;
@@ -100,45 +94,49 @@ input, select, textarea { font-family: var(--ff-body); }
 }
 
 .duo-btn-primary {
-  background: var(--c-duo-green);
+  background: var(--c-accent);
   color: #fff;
-  box-shadow: 0 6px 0 var(--c-duo-green-dark);
-  border-color: var(--c-duo-green-dark);
+  box-shadow: 0 6px 0 var(--c-accent-dark);
+  border-color: var(--c-accent-dark);
 }
 .duo-btn-primary:hover {
-  background: var(--c-duo-green-hover, #8B4513);
+  background: var(--c-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 0 var(--c-duo-green-dark);
+  box-shadow: 0 8px 0 var(--c-accent-dark);
 }
 
 .duo-btn-secondary {
   background: var(--c-surface);
   color: var(--c-text-1);
-  box-shadow: 0 6px 0 var(--c-duo-shadow);
-  border-color: var(--c-duo-stroke-color);
+  box-shadow: 0 6px 0 var(--c-brand-caramel-bg);
+  border-color: var(--duo-stroke-color);
 }
 .duo-btn-secondary:hover {
   background: var(--c-surface-2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 0 var(--c-duo-shadow);
+  box-shadow: 0 8px 0 var(--c-brand-caramel-bg);
 }
 
-.duo-btn-blue {
-  background: var(--c-duo-blue);
+.duo-btn-gold {
+  background: var(--c-brand-gold);
   color: #fff;
-  box-shadow: 0 6px 0 var(--c-duo-blue-dark);
-  border-color: var(--c-duo-blue-dark);
+  box-shadow: 0 6px 0 var(--c-brand-gold-dark);
+  border-color: var(--c-brand-gold-dark);
 }
-.duo-btn-blue:hover {
-  background: var(--c-duo-ochre-dark);
+.duo-btn-gold:hover {
+  background: var(--c-brand-caramel);
   transform: translateY(-2px);
 }
 
-.duo-btn-red {
-  background: var(--c-duo-red);
-  color: #fff;
-  box-shadow: 0 6px 0 var(--c-duo-red-dark);
-  border-color: var(--c-duo-red-dark);
+.duo-btn-outline {
+  background: transparent;
+  color: var(--c-text-1);
+  border-color: var(--c-text-1);
+  box-shadow: none;
+}
+.duo-btn-outline:hover {
+  background: var(--c-surface-2);
+  transform: translateY(-2px);
 }
 
 .duo-btn-sm {
@@ -162,41 +160,32 @@ input, select, textarea { font-family: var(--ff-body); }
   }
 }
 
-/* ============================================
-   DUOLINGO CARDS
-   ============================================ */
+/* CARDS */
 .duo-card {
   background: var(--c-surface);
   border: var(--duo-stroke) solid var(--duo-stroke-color);
   border-radius: var(--r-xl);
-  box-shadow: 0 4px 0 var(--c-duo-shadow);
+  box-shadow: 0 4px 0 var(--c-brand-caramel-bg);
   transition: all 0.15s var(--ease-bounce);
 }
 .duo-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 7px 0 var(--c-duo-shadow);
+  box-shadow: 0 7px 0 var(--c-brand-caramel-bg);
 }
 .duo-card:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 0 var(--c-duo-shadow);
+  box-shadow: 0 2px 0 var(--c-brand-caramel-bg);
 }
 
-.duo-card-green {
-  border-color: var(--c-duo-green-dark);
-  box-shadow: 0 4px 0 var(--c-duo-green-dark);
+.duo-card-accent {
+  border-color: var(--c-accent-dark);
+  box-shadow: 0 4px 0 var(--c-accent-dark);
 }
-.duo-card-green:hover {
-  box-shadow: 0 7px 0 var(--c-duo-green-dark);
-}
-
-.duo-card-blue {
-  border-color: var(--c-duo-blue-dark);
-  box-shadow: 0 4px 0 var(--c-duo-blue-dark);
+.duo-card-accent:hover {
+  box-shadow: 0 7px 0 var(--c-accent-dark);
 }
 
-/* ============================================
-   DUOLINGO BADGES / CHIPS
-   ============================================ */
+/* BADGES */
 .duo-badge {
   display: inline-flex;
   align-items: center;
@@ -208,39 +197,37 @@ input, select, textarea { font-family: var(--ff-body); }
   border: 2px solid var(--duo-stroke-color);
   background: var(--c-surface);
   color: var(--c-text-1);
-  box-shadow: 0 2px 0 var(--c-duo-shadow);
+  box-shadow: 0 2px 0 var(--c-brand-caramel-bg);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-.duo-badge-green {
-  background: var(--c-duo-green);
+.duo-badge-accent {
+  background: var(--c-accent);
   color: #fff;
-  border-color: var(--c-duo-green-dark);
-  box-shadow: 0 2px 0 var(--c-duo-green-dark);
+  border-color: var(--c-accent-dark);
+  box-shadow: 0 2px 0 var(--c-accent-dark);
 }
-.duo-badge-blue {
-  background: var(--c-duo-blue);
+.duo-badge-gold {
+  background: var(--c-brand-gold);
   color: #fff;
-  border-color: var(--c-duo-blue-dark);
-  box-shadow: 0 2px 0 var(--c-duo-blue-dark);
+  border-color: var(--c-brand-gold-dark);
+  box-shadow: 0 2px 0 var(--c-brand-gold-dark);
 }
-.duo-badge-yellow {
-  background: var(--c-duo-yellow);
-  color: var(--c-text-1);
-  border-color: var(--c-duo-yellow-dark);
-  box-shadow: 0 2px 0 var(--c-duo-yellow-dark);
-}
-.duo-badge-red {
-  background: var(--c-duo-red);
+.duo-badge-warm {
+  background: var(--c-brand-caramel);
   color: #fff;
-  border-color: var(--c-duo-red-dark);
-  box-shadow: 0 2px 0 var(--c-duo-red-dark);
+  border-color: var(--c-brand-caramel-dark);
+  box-shadow: 0 2px 0 var(--c-brand-caramel-dark);
+}
+.duo-badge-terracotta {
+  background: var(--c-brand-terracotta);
+  color: #fff;
+  border-color: var(--c-brand-terracotta-dark);
+  box-shadow: 0 2px 0 var(--c-brand-terracotta-dark);
 }
 
-/* ============================================
-   DUOLINGO PROGRESS
-   ============================================ */
+/* PROGRESS */
 .duo-progress {
   width: 100%;
   height: 16px;
@@ -254,13 +241,11 @@ input, select, textarea { font-family: var(--ff-body); }
   height: 100%;
   border-radius: var(--r-full);
   transition: width 0.6s var(--ease-bounce);
-  background: var(--c-duo-green);
+  background: var(--c-accent);
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.3);
 }
 
-/* ============================================
-   DUOLINGO INPUT
-   ============================================ */
+/* INPUT */
 .duo-input {
   width: 100%;
   padding: 14px 18px;
@@ -283,9 +268,7 @@ input, select, textarea { font-family: var(--ff-body); }
   font-weight: 600;
 }
 
-/* ============================================
-   DUOLINGO SECTION HEADER
-   ============================================ */
+/* SECTION HEADER */
 .duo-section-header {
   text-align: center;
   margin-bottom: var(--sp-10);
@@ -311,43 +294,35 @@ input, select, textarea { font-family: var(--ff-body); }
   font-weight: 600;
 }
 
-/* ============================================
-   DUOLINGO NAV
-   ============================================ */
-.duo-nav-glass {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: var(--duo-stroke) solid var(--duo-stroke-color);
+/* GLASS */
+.glass {
+  background: rgba(255, 253, 247, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(60, 42, 30, 0.08);
 }
 
-/* ============================================
-   DUOLINGO AVATAR / MASCOT
-   ============================================ */
+/* AVATAR */
 .duo-avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   border: 3px solid var(--duo-stroke-color);
-  box-shadow: 0 3px 0 var(--c-duo-shadow);
+  box-shadow: 0 3px 0 var(--c-brand-caramel-bg);
   overflow: hidden;
   flex-shrink: 0;
 }
 
-/* ============================================
-   CUSTOM SCROLLBAR
-   ============================================ */
+/* SCROLLBAR */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--c-surface-2); }
-::-webkit-scrollbar-thumb { background: var(--c-duo-green); border-radius: var(--r-full); border: 2px solid var(--c-surface-2); }
-::-webkit-scrollbar-thumb:hover { background: var(--c-duo-green-dark); }
+::-webkit-scrollbar-thumb { background: var(--c-accent); border-radius: var(--r-full); border: 2px solid var(--c-surface-2); }
+::-webkit-scrollbar-thumb:hover { background: var(--c-accent-dark); }
 @supports (scrollbar-width: thin) {
-  * { scrollbar-width: thin; scrollbar-color: var(--c-duo-green) var(--c-surface-2); }
+  * { scrollbar-width: thin; scrollbar-color: var(--c-accent) var(--c-surface-2); }
 }
 
-/* ============================================
-   FOCUS
-   ============================================ */
+/* FOCUS */
 :focus-visible {
   outline: 4px solid var(--c-accent);
   outline-offset: 3px;
@@ -355,9 +330,27 @@ input, select, textarea { font-family: var(--ff-body); }
 }
 :focus:not(:focus-visible) { outline: none; }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
+/* GRADIENT TEXT */
+.gradient-text {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-warm {
+  background: var(--grad-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-sunset {
+  background: var(--grad-sunset);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ANIMATIONS */
 @keyframes duoPop {
   0% { transform: scale(0.8); opacity: 0; }
   50% { transform: scale(1.08); }
@@ -398,6 +391,10 @@ input, select, textarea { font-family: var(--ff-body); }
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes duoGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(122, 92, 58, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(122, 92, 58, 0.4); }
+}
 
 .anim-duo-pop { animation: duoPop 0.4s var(--ease-bounce) both; }
 .anim-duo-slide-up { animation: duoSlideUp 0.5s var(--ease-out-expo) both; }
@@ -408,6 +405,7 @@ input, select, textarea { font-family: var(--ff-body); }
 .anim-duo-wiggle { animation: duoWiggle 0.4s var(--ease-bounce); }
 .anim-duo-float { animation: duoFloat 3s ease-in-out infinite; }
 .anim-duo-pulse { animation: duoPulse 2s ease-in-out infinite; }
+.anim-duo-glow { animation: duoGlow 2s ease-in-out infinite; }
 
 .anim-d1 { animation-delay: 50ms; }
 .anim-d2 { animation-delay: 100ms; }
@@ -418,9 +416,7 @@ input, select, textarea { font-family: var(--ff-body); }
 .anim-d7 { animation-delay: 350ms; }
 .anim-d8 { animation-delay: 400ms; }
 
-/* ============================================
-   GSAP ANCHOR CLASSES
-   ============================================ */
+/* GSAP ANCHOR CLASSES */
 .reveal-up { opacity: 0; transform: translateY(40px); }
 .reveal-down { opacity: 0; transform: translateY(-40px); }
 .reveal-left { opacity: 0; transform: translateX(-40px); }
@@ -428,7 +424,6 @@ input, select, textarea { font-family: var(--ff-body); }
 .reveal-scale { opacity: 0; transform: scale(0.9); }
 .stagger-children > * { opacity: 0; transform: translateY(20px); }
 
-/* Fallback: if JS hasn't animated within 3s, show content */
 @keyframes revealFallback {
   to { opacity: 1; transform: none; }
 }
@@ -439,9 +434,7 @@ input, select, textarea { font-family: var(--ff-body); }
   animation: revealFallback 0s 3s forwards;
 }
 
-/* ============================================
-   REDUCED MOTION
-   ============================================ */
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -452,9 +445,7 @@ input, select, textarea { font-family: var(--ff-body); }
   .stagger-children > * { opacity: 1; transform: none; }
 }
 
-/* ============================================
-   CROSS-BROWSER
-   ============================================ */
+/* CROSS-BROWSER */
 * { -webkit-tap-highlight-color: transparent; }
 img, a, button { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 p, span, h1, h2, h3, h4, h5, h6, li { -webkit-user-select: text; user-select: text; }

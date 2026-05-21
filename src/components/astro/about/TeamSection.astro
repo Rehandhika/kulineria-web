@@ -1,32 +1,151 @@
 ---
 ---
 
-<section class="team-section">
-  <div class="team-header">
-    <h2>Tim Kami</h2>
-    <p>Orang-orang di balik Kulineria</p>
-  </div>
-
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-photo">👩‍💻</div>
-      <h3>Nara</h3>
-      <p class="team-role">Pemandu Kuliner</p>
-      <p class="team-bio">Teman digitalmu menjelajahi Nusantara. Nara tahu setiap hidangan, setiap cerita, dan setiap bahan rahasia.</p>
+<section class="team">
+  <div class="container">
+    <div class="team-header">
+      <span class="duo-badge duo-badge-warm">👥 Tim Kami</span>
+      <h2>Tim Kami</h2>
+      <p>Orang-orang di balik Kulineria</p>
     </div>
 
-    <div class="team-card">
-      <div class="team-photo">👨‍🍳</div>
-      <h3>Chef Arsip</h3>
-      <p class="team-role">Kurator Resep</p>
-      <p class="team-bio">Kumpulan resep tradisional yang dikumpulkan dari juru masak lokal, nenek-nenek, dan sejarawan kuliner di seluruh Indonesia.</p>
-    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="38" fill="#FFFDF7" stroke="#C49A6E" stroke-width="2"/>
+            <circle cx="40" cy="32" r="14" fill="#C49A6E"/>
+            <ellipse cx="40" cy="62" rx="20" ry="16" fill="#C49A6E"/>
+            <circle cx="34" cy="28" r="2.5" fill="#3C2A1E"/>
+            <circle cx="46" cy="28" r="2.5" fill="#3C2A1E"/>
+            <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="28" y="58" width="24" height="4" rx="2" fill="#3C2A1E" opacity="0.1"/>
+          </svg>
+        </div>
+        <h3>Nara</h3>
+        <p class="team-role">Pemandu Kuliner</p>
+        <p class="team-bio">Teman digitalmu menjelajahi Nusantara. Nara tahu setiap hidangan, setiap cerita, dan setiap bahan rahasia.</p>
+      </div>
 
-    <div class="team-card">
-      <div class="team-photo">🗺️</div>
-      <h3>Penjelajah Peta</h3>
-      <p class="team-role">Geografi & Data</p>
-      <p class="team-bio">Menghubungkan hidangan dengan asal-usulnya. Setiap penanda di peta menceritakan kisah tentang tempat, orang, dan rasa.</p>
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="38" fill="#FFFDF7" stroke="#D4A76A" stroke-width="2"/>
+            <circle cx="40" cy="32" r="14" fill="#D4A76A"/>
+            <ellipse cx="40" cy="62" rx="20" ry="16" fill="#D4A76A"/>
+            <circle cx="34" cy="28" r="2.5" fill="#3C2A1E"/>
+            <circle cx="46" cy="28" r="2.5" fill="#3C2A1E"/>
+            <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Chef Arsip</h3>
+        <p class="team-role">Kurator Resep</p>
+        <p class="team-bio">Kumpulan resep tradisional yang dikumpulkan dari juru masak lokal, nenek-nenek, dan sejarawan kuliner di seluruh Indonesia.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="38" fill="#FFFDF7" stroke="#C4815E" stroke-width="2"/>
+            <circle cx="40" cy="32" r="14" fill="#C4815E"/>
+            <ellipse cx="40" cy="62" rx="20" ry="16" fill="#C4815E"/>
+            <circle cx="34" cy="28" r="2.5" fill="#3C2A1E"/>
+            <circle cx="46" cy="28" r="2.5" fill="#3C2A1E"/>
+            <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Penjelajah Peta</h3>
+        <p class="team-role">Geografi & Data</p>
+        <p class="team-bio">Menghubungkan hidangan dengan asal-usulnya. Setiap penanda di peta menceritakan kisah tentang tempat, orang, dan rasa.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .team {
+    padding: var(--sp-12) 0;
+  }
+  @media (min-width: 768px) {
+    .team { padding: var(--sp-20) 0; }
+  }
+
+  .team-header {
+    text-align: center;
+    margin-bottom: var(--sp-10);
+  }
+  .team-header h2 {
+    font-family: var(--ff-display);
+    font-size: var(--fs-2xl);
+    font-weight: 900;
+    color: var(--c-text-1);
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-2);
+  }
+  .team-header p {
+    font-size: var(--fs-base);
+    color: var(--c-text-2);
+    font-weight: 600;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+  }
+  @media (min-width: 480px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .team-card {
+    padding: var(--sp-8);
+    background: var(--c-surface);
+    border: var(--duo-stroke) solid var(--duo-stroke-color);
+    border-radius: var(--r-2xl);
+    text-align: center;
+    transition: all 0.2s var(--ease-bounce);
+    box-shadow: 0 4px 0 var(--c-brand-caramel-bg);
+  }
+  .team-card:hover {
+    border-color: var(--c-accent-soft);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 0 var(--c-brand-caramel-bg);
+  }
+
+  .team-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--sp-4);
+  }
+  .team-avatar svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .team-card h3 {
+    font-family: var(--ff-display);
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-1);
+  }
+
+  .team-role {
+    font-size: var(--fs-xs);
+    color: var(--c-accent);
+    font-weight: 800;
+    margin-bottom: var(--sp-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .team-bio {
+    font-size: var(--fs-sm);
+    color: var(--c-text-2);
+    line-height: 1.6;
+    font-weight: 600;
+  }
+</style>

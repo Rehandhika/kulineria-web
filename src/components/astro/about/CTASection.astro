@@ -1,31 +1,135 @@
 ---
 ---
 
-<section class="cta-section">
-  <div class="cta-content">
-    <div class="cta-nara">
-      <svg viewBox="0 0 100 100" class="cta-nara-svg">
-        <circle cx="50" cy="50" r="45" fill="var(--c-accent)" opacity="0.1" />
-        <circle cx="50" cy="50" r="25" fill="var(--c-surface-1)" stroke="var(--c-accent)" stroke-width="2" />
-        <path d="M 30 30 Q 35 25 40 30 M 60 30 Q 65 25 70 30" fill="none" stroke="var(--c-text-1)" stroke-width="2" stroke-linecap="round" />
-        <path d="M 30 40 Q 50 58 70 40" fill="none" stroke="var(--c-text-1)" stroke-width="2" stroke-linecap="round" />
-        <circle cx="30" cy="40" r="3" fill="var(--c-accent)" opacity="0.3" />
-        <circle cx="70" cy="40" r="3" fill="var(--c-accent)" opacity="0.3" />
+<section class="cta">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1200&q=80" alt="" loading="lazy" />
+    <div class="cta-overlay"></div>
+  </div>
+  <div class="container cta-content">
+    <div class="cta-mascot">
+      <svg viewBox="0 0 100 100" class="cta-mascot-svg" aria-hidden="true">
+        <ellipse cx="50" cy="40" rx="28" ry="26" fill="#F5C4A8" stroke="rgba(60,42,30,0.3)" stroke-width="2"/>
+        <polygon points="32,18 25,8 40,16" fill="#F5C4A8" stroke="rgba(60,42,30,0.3)" stroke-width="1.5"/>
+        <polygon points="68,18 75,8 60,16" fill="#F5C4A8" stroke="rgba(60,42,30,0.3)" stroke-width="1.5"/>
+        <ellipse cx="38" cy="34" rx="6" ry="7" fill="white"/>
+        <ellipse cx="38" cy="34" rx="3" ry="3.5" fill="#3C2A1E"/>
+        <ellipse cx="62" cy="34" rx="6" ry="7" fill="white"/>
+        <ellipse cx="62" cy="34" rx="3" ry="3.5" fill="#3C2A1E"/>
+        <ellipse cx="50" cy="42" rx="3" ry="2" fill="#E8A87C" stroke="rgba(60,42,30,0.3)" stroke-width="1"/>
+        <path d="M 42 48 Q 50 54 58 48" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="20" y1="40" x2="32" y2="42" stroke="#3C2A1E" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+        <line x1="20" y1="46" x2="32" y2="44" stroke="#3C2A1E" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+        <line x1="80" y1="40" x2="68" y2="42" stroke="#3C2A1E" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+        <line x1="80" y1="46" x2="68" y2="44" stroke="#3C2A1E" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
       </svg>
     </div>
     <h2>Siap Menjelajah?</h2>
     <p>Temukan ragam cita rasa Nusantara atau uji pengetahuan kuliner kamu</p>
     <div class="cta-actions">
-      <a href="/search" class="btn btn-primary">Mulai Jelajahi</a>
-      <a href="/quiz" class="btn btn-secondary">Ikuti Kuis</a>
+      <a href="/search" class="duo-btn duo-btn-primary duo-btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        Mulai Jelajahi
+      </a>
+      <a href="/quiz" class="duo-btn duo-btn-outline duo-btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        Ikuti Kuis
+      </a>
     </div>
   </div>
-  <div class="cta-confetti">
-    <span class="confetti-piece" style="--delay: 0s; --x: 10%; --color: var(--c-accent);"></span>
-    <span class="confetti-piece" style="--delay: 0.5s; --x: 25%; --color: var(--c-warning);"></span>
-    <span class="confetti-piece" style="--delay: 1s; --x: 40%; --color: var(--c-success);"></span>
-    <span class="confetti-piece" style="--delay: 1.5s; --x: 55%; --color: var(--c-accent);"></span>
-    <span class="confetti-piece" style="--delay: 2s; --x: 70%; --color: var(--c-warning);"></span>
-    <span class="confetti-piece" style="--delay: 2.5s; --x: 85%; --color: var(--c-success);"></span>
-  </div>
 </section>
+
+<style>
+  .cta {
+    position: relative;
+    padding: var(--sp-16) 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .cta { padding: var(--sp-24) 0; }
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5) saturate(0.8);
+  }
+  .cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(122, 92, 58, 0.85), rgba(180, 115, 74, 0.80));
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-mascot {
+    margin-bottom: var(--sp-5);
+  }
+  .cta-mascot-svg {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    animation: duoFloat 3s ease-in-out infinite;
+  }
+
+  .cta h2 {
+    font-family: var(--ff-display);
+    font-size: var(--fs-2xl);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: var(--sp-2);
+  }
+  @media (min-width: 768px) {
+    .cta h2 { font-size: var(--fs-3xl); }
+  }
+
+  .cta p {
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    margin-bottom: var(--sp-6);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+  }
+
+  .duo-btn-primary {
+    background: #fff;
+    color: var(--c-text-1);
+    box-shadow: 0 6px 0 rgba(60, 42, 30, 0.3);
+    border-color: rgba(60, 42, 30, 0.2);
+  }
+  .duo-btn-primary:hover {
+    background: var(--c-surface-2);
+    box-shadow: 0 8px 0 rgba(60, 42, 30, 0.3);
+    transform: translateY(-2px);
+  }
+  .duo-btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+  }
+  .duo-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+  }
+</style>

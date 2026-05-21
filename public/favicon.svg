@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <circle cx="16" cy="16" r="14" fill="#D97706"/>
-  <text x="16" y="22" text-anchor="middle" fill="white" font-family="serif" font-size="18" font-weight="bold">K</text>
+  <circle cx="16" cy="16" r="14" fill="#7A5C3A"/>
+  <circle cx="16" cy="16" r="12" fill="#FFFDF7"/>
+  <path d="M12 10C12 10 14 7 16 7C18 7 20 10 20 10C20 10 22 12 22 14C22 18 18 22 16 24C14 22 10 18 10 14C10 12 12 10 12 10Z" fill="#7A5C3A" opacity="0.15"/>
+  <path d="M13 13L16 18L19 13L16 11L13 13Z" fill="#7A5C3A"/>
+  <circle cx="14" cy="12" r="1.5" fill="#C49A6E"/>
+  <circle cx="18" cy="12" r="1.5" fill="#C49A6E"/>
 </svg>

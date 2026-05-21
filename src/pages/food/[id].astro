@@ -9,7 +9,6 @@ import StorySection from '../../components/react/food-detail/StorySection';
 import IngredientsGrid from '../../components/react/food-detail/IngredientsGrid';
 import RecipeStepper from '../../components/react/food-detail/RecipeStepper';
 import NutritionBars from '../../components/react/food-detail/NutritionBars';
-import LocationMiniMap from '../../components/react/food-detail/LocationMiniMap';
 import RelatedCarousel from '../../components/react/food-detail/RelatedCarousel';
 
 export async function getStaticPaths() {
@@ -120,11 +119,22 @@ const relatedFoods = (fullFood?.related || [])
         </div>
 
         {fullFood?.locations && fullFood.locations.length > 0 && (
-          <LocationMiniMap
-            client:idle
-            locations={fullFood.locations}
-            center={[fullFood.locations[0].lng, fullFood.locations[0].lat]}
-          />
+          <div class="locations-list">
+            <h3 class="subsection-title">Tempat Mencoba</h3>
+            <div class="location-list" role="list" aria-label="Daftar lokasi">
+              {fullFood.locations.map((loc, i) => (
+                <div key={i} class="location-card" role="listitem">
+                  <div class="location-icon" aria-hidden="true">📍</div>
+                  <div class="location-info">
+                    <p class="location-name">{loc.name}</p>
+                    <p class="location-city">{loc.city}</p>
+                    <p class="location-desc">{loc.description}</p>
+                    {loc.priceRange && <span class="location-price">{loc.priceRange}</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </div>
@@ -276,10 +286,7 @@ const relatedFoods = (fullFood?.related || [])
 
   .jelajahi-section { background: var(--c-bg); }
   .jelajahi-grid {
-    display: grid; grid-template-columns: 1fr; gap: var(--sp-8);
-  }
-  @media (min-width: 1024px) {
-    .jelajahi-grid { grid-template-columns: 1fr 1fr; }
+    display: flex; flex-direction: column; gap: var(--sp-8);
   }
 
   .quiz-cta-card {

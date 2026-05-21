@@ -1,32 +1,32 @@
 ﻿---
-/**
- * Divider - Playful Duolingo-style divider
- */
 ---
 
-<div class="duo-divider">
-  <span class="duo-divider-icon" aria-hidden="true">🍜</span>
+<div class="divider">
+  <span class="divider-line"></span>
+  <span class="divider-icon" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-brand-caramel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+  </span>
+  <span class="divider-line"></span>
 </div>
 
 <style>
-  .duo-divider {
+  .divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--sp-2) 0;
+    padding: var(--sp-4) 0;
     position: relative;
   }
-  .duo-divider::before,
-  .duo-divider::after {
-    content: '';
+  .divider-line {
     flex: 1;
-    height: 3px;
-    background: var(--c-border);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--c-brand-caramel), transparent);
     border-radius: var(--r-full);
   }
-  .duo-divider-icon {
+  .divider-icon {
     margin: 0 var(--sp-4);
-    font-size: 20px;
+    display: flex;
     animation: duoFloat 3s ease-in-out infinite;
+    opacity: 0.6;
   }
 </style>

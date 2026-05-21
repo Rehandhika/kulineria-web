@@ -65,16 +65,19 @@ export default function SearchProvider({ initialFoods }: Props) {
     if (initialFoods) parsedInitial = JSON.parse(initialFoods);
   } catch {}
 
-  const showInitial = !hydrated && !hasActiveSearch && parsedInitial.length > 0;
-
   return (
     <div className="search-page">
       <SearchBar />
       <div className="search-layout">
         <FilterPanel />
         <div className="search-main">
-          {showInitial && (
-            <div className="search-initial">
+          {isSearching && <div className="search-loading">Mencari...</div>}
+
+          {hasActiveSearch && !isSearching && results.length === 0 && <NoResultsView />}
+
+          {!hasActiveSearch && (
+            <>
+              <DiscoveryView recentSearches={recentSearches} />
               <div className="results-header">
                 <span className="results-count">Jelajahi Nusantara</span>
               </div>
@@ -91,12 +94,10 @@ export default function SearchProvider({ initialFoods }: Props) {
                   </a>
                 ))}
               </div>
-            </div>
+            </>
           )}
-          {hydrated && isSearching && <div className="search-loading">Mencari...</div>}
-          {hydrated && !hasActiveSearch && <DiscoveryView recentSearches={recentSearches} />}
-          {hydrated && hasActiveSearch && !isSearching && results.length === 0 && <NoResultsView />}
-          {hydrated && hasActiveSearch && !isSearching && results.length > 0 && (
+
+          {hasActiveSearch && !isSearching && results.length > 0 && (
             <ResultsGrid results={results} query={query} />
           )}
         </div>

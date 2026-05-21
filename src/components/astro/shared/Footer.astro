@@ -4,110 +4,164 @@ const regions = getRegions();
 const year = new Date().getFullYear();
 ---
 
-<footer class="duo-footer">
-  <div class="duo-footer-wave">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <path d="M0,40 C240,100 480,0 720,40 C960,80 1200,0 1440,40 L1440,100 L0,100 Z" fill="var(--c-duo-green)"/>
+<footer class="footer">
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--c-brand-mocha)"/>
+          <stop offset="50%" stop-color="var(--c-brand-cinnamon)"/>
+          <stop offset="100%" stop-color="var(--c-brand-caramel)"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,80 C360,120 720,40 1080,80 C1260,100 1350,90 1440,80 L1440,120 L0,120 Z" fill="url(#waveGrad)" opacity="0.15"/>
+      <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="url(#waveGrad)" opacity="0.25"/>
+      <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,120 L0,120 Z" fill="url(#waveGrad)"/>
     </svg>
   </div>
-  <div class="duo-footer-content">
+
+  <div class="footer-content">
     <div class="container">
-      <div class="duo-footer-grid">
-        <div class="duo-footer-brand">
-          <a href="/" class="duo-footer-logo">
-            Kulineria<span class="duo-footer-dot">.</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="none" style="display:inline-block;vertical-align:middle;margin-right:8px;color:#fff;">
+              <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.2"/>
+              <path d="M12 10C12 10 14 8 16 8C18 8 20 10 20 10C20 10 22 12 22 14C22 18 18 22 16 24C14 22 10 18 10 14C10 12 12 10 12 10Z" fill="currentColor" opacity="0.4"/>
+              <path d="M14 14L16 18L18 14L16 12L14 14Z" fill="currentColor"/>
+            </svg>
+            <span>Kulineria</span>
           </a>
-          <p class="duo-footer-tagline">Atlas Kuliner Nusantara — jelajahi ragam cita rasa Indonesia!</p>
-          <div class="duo-footer-nara">
-            <span class="duo-footer-nara-icon" aria-hidden="true">🐱</span>
-            <span class="duo-footer-nara-text">"Makan enak, hidup senang!" — Nara</span>
+          <p class="footer-tagline">Atlas Kuliner Nusantara — jelajahi ragam cita rasa Indonesia!</p>
+          <div class="footer-mascot">
+            <svg viewBox="0 0 100 100" class="footer-mascot-svg" aria-hidden="true">
+              <ellipse cx="50" cy="40" rx="28" ry="26" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <polygon points="32,18 25,8 40,16" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+              <polygon points="68,18 75,8 60,16" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+              <ellipse cx="38" cy="36" rx="6" ry="7" fill="white"/>
+              <ellipse cx="38" cy="36" rx="3" ry="3.5" fill="#3C2A1E"/>
+              <ellipse cx="62" cy="36" rx="6" ry="7" fill="white"/>
+              <ellipse cx="62" cy="36" rx="3" ry="3.5" fill="#3C2A1E"/>
+              <ellipse cx="50" cy="42" rx="3" ry="2" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+              <path d="M 42 48 Q 50 54 58 48" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="footer-mascot-text">"Makan enak, hidup senang!" — Nara</span>
           </div>
         </div>
-        <div class="duo-footer-links">
-          <h4 class="duo-footer-heading">Jelajahi</h4>
-          <a href="/search" class="duo-footer-link">Semua Hidangan</a>
-          <a href="/quiz" class="duo-footer-link">Kuis Kuliner</a>
-          <a href="/about" class="duo-footer-link">Tentang Kulineria</a>
+
+        <div class="footer-links">
+          <h4 class="footer-heading">Jelajahi</h4>
+          <a href="/search" class="footer-link">Semua Hidangan</a>
+          <a href="/quiz" class="footer-link">Kuis Kuliner</a>
+          <a href="/about" class="footer-link">Tentang Kulineria</a>
         </div>
-        <div class="duo-footer-regions">
-          <h4 class="duo-footer-heading">Wilayah</h4>
+
+        <div class="footer-regions">
+          <h4 class="footer-heading">Wilayah</h4>
           {regions.slice(0, 6).map(r => (
-            <a href={`/search?region=${r.id}`} class="duo-footer-link">{r.name}</a>
+            <a href={`/search?region=${r.id}`} class="footer-link">
+              <span class="footer-region-dot" style={{ backgroundColor: `var(--c-${r.id})` }}></span>
+              {r.name}
+            </a>
           ))}
         </div>
       </div>
-      <div class="duo-footer-bottom">
-        <p>&copy; {year} Kulineria — dibuat dengan <span class="duo-footer-heart" aria-hidden="true">❤</span> dan banyak sambal</p>
+
+      <div class="footer-bottom">
+        <p>&copy; {year} Kulineria — dibuat dengan <span class="footer-heart" aria-hidden="true">❤</span> dan banyak sambal</p>
+        <div class="footer-social">
+          <span class="footer-social-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </span>
+          <span class="footer-social-icon" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 </footer>
 
 <style>
-  .duo-footer {
+  .footer {
     position: relative;
     margin-top: var(--sp-12);
   }
-  .duo-footer-wave {
+
+  .footer-wave {
     position: relative;
-    height: 60px;
+    height: 80px;
     overflow: hidden;
     line-height: 0;
   }
-  .duo-footer-wave svg {
+  .footer-wave svg {
     width: 100%;
     height: 100%;
   }
   @media (min-width: 768px) {
-    .duo-footer-wave { height: 80px; }
+    .footer-wave { height: 100px; }
   }
-  .duo-footer-content {
-    background: var(--c-duo-green);
-    padding: var(--sp-10) 0 var(--sp-6);
+
+  .footer-content {
+    background: linear-gradient(135deg, var(--c-brand-mocha-dark), var(--c-brand-mocha), var(--c-brand-cinnamon));
+    padding: var(--sp-12) 0 var(--sp-6);
   }
-  .duo-footer-grid {
+
+  .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--sp-8);
   }
   @media (min-width: 640px) {
-    .duo-footer-grid {
+    .footer-grid {
       grid-template-columns: 2fr 1fr 1fr;
       gap: var(--sp-10);
     }
   }
-  .duo-footer-logo {
+
+  .footer-logo {
     font-family: var(--ff-display);
     font-size: var(--fs-2xl);
     font-weight: 900;
     color: #fff;
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
   }
-  .duo-footer-dot { color: var(--c-duo-yellow); }
-  .duo-footer-tagline {
-    color: rgba(255,255,255,0.85);
+
+  .footer-tagline {
+    color: rgba(255, 255, 255, 0.80);
     font-weight: 700;
     margin-top: var(--sp-2);
     font-size: var(--fs-sm);
     line-height: var(--lh-relaxed);
+    max-width: 320px;
   }
-  .duo-footer-nara {
+
+  .footer-mascot {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-top: var(--sp-4);
     padding: var(--sp-3) var(--sp-4);
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.10);
     border-radius: var(--r-lg);
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 320px;
   }
-  .duo-footer-nara-icon { font-size: 24px; }
-  .duo-footer-nara-text {
-    color: #fff;
+  .footer-mascot-svg {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+  .footer-mascot-text {
+    color: rgba(255, 255, 255, 0.90);
     font-weight: 700;
     font-size: var(--fs-sm);
+    font-style: italic;
   }
-  .duo-footer-heading {
+
+  .footer-heading {
     font-family: var(--ff-display);
     color: #fff;
     font-size: var(--fs-sm);
@@ -116,32 +170,69 @@ const year = new Date().getFullYear();
     letter-spacing: 0.06em;
     margin-bottom: var(--sp-4);
   }
-  .duo-footer-link {
-    display: block;
-    color: rgba(255,255,255,0.85);
+
+  .footer-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.80);
     font-weight: 700;
     font-size: var(--fs-sm);
     padding: 4px 0;
     transition: all 0.15s var(--ease-bounce);
   }
-  .duo-footer-link:hover {
+  .footer-link:hover {
     color: #fff;
     transform: translateX(4px);
   }
-  .duo-footer-bottom {
+
+  .footer-region-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .footer-bottom {
     margin-top: var(--sp-8);
     padding-top: var(--sp-4);
-    border-top: 2px solid rgba(255,255,255,0.2);
-    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
   }
-  .duo-footer-bottom p {
-    color: rgba(255,255,255,0.7);
+  .footer-bottom p {
+    color: rgba(255, 255, 255, 0.70);
     font-weight: 700;
     font-size: var(--fs-xs);
   }
-  .duo-footer-heart {
-    color: var(--c-duo-red);
+  .footer-heart {
+    color: var(--c-brand-terracotta);
     display: inline-block;
     animation: duoPulse 1.5s ease-in-out infinite;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: var(--sp-2);
+  }
+  .footer-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.70);
+    transition: all 0.15s var(--ease-bounce);
+    cursor: pointer;
+  }
+  .footer-social-icon:hover {
+    background: rgba(255, 255, 255, 0.20);
+    color: #fff;
+    transform: translateY(-2px);
   }
 </style>

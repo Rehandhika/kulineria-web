@@ -1,24 +1,34 @@
 ---
-/**
- * FooterCTA - Static CTA section at bottom of food detail
- */
 interface Props {
   regionName: string;
   regionId: string;
 }
-
 const { regionName, regionId } = Astro.props;
 ---
 
 <section class="footer-cta">
+  <div class="footer-cta-bg">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80" alt="" loading="lazy" />
+    <div class="footer-cta-overlay"></div>
+  </div>
   <div class="container">
     <div class="cta-inner">
-      <div class="cta-nara">🍜</div>
+      <svg viewBox="0 0 100 100" class="cta-nara-svg" aria-hidden="true">
+        <ellipse cx="50" cy="38" rx="24" ry="22" fill="#F5C4A8" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <polygon points="34,18 28,10 40,16" fill="#F5C4A8" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+        <polygon points="66,18 72,10 60,16" fill="#F5C4A8" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+        <ellipse cx="40" cy="34" rx="5" ry="6" fill="white"/>
+        <ellipse cx="40" cy="34" rx="2.5" ry="3" fill="#3C2A1E"/>
+        <ellipse cx="60" cy="34" rx="5" ry="6" fill="white"/>
+        <ellipse cx="60" cy="34" rx="2.5" ry="3" fill="#3C2A1E"/>
+        <ellipse cx="50" cy="40" rx="2.5" ry="1.5" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <path d="M 44 46 Q 50 50 56 46" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
       <h2 class="cta-title">Jelajahi {regionName}</h2>
       <p class="cta-subtitle">Temukan lebih banyak kuliner khas {regionName}</p>
-      <a href={`/search?region=${regionId}`} class="cta-btn">
+      <a href={`/search?region=${regionId}`} class="duo-btn cta-btn">
         Lihat Semua Hidangan
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -26,47 +36,75 @@ const { regionName, regionId } = Astro.props;
 
 <style>
   .footer-cta {
-    background: var(--c-ink);
-    color: var(--c-white);
-    padding: var(--sp-20) 0;
+    position: relative;
+    padding: var(--sp-16) 0;
+    overflow: hidden;
+    color: #fff;
+  }
+  @media (min-width: 768px) {
+    .footer-cta { padding: var(--sp-20) 0; }
+  }
+
+  .footer-cta-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .footer-cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.45) saturate(0.8);
+  }
+  .footer-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(122, 92, 58, 0.88), rgba(180, 115, 74, 0.82));
   }
 
   .cta-inner {
+    position: relative;
+    z-index: 1;
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
   }
 
-  .cta-nara {
-    font-size: 64px;
-    margin-bottom: var(--sp-6);
+  .cta-nara-svg {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--sp-5);
+    animation: duoFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
   }
 
   .cta-title {
     font-family: var(--ff-display);
-    font-size: var(--fs-3xl);
-    font-weight: 700;
+    font-size: var(--fs-2xl);
+    font-weight: 900;
     letter-spacing: var(--ls-tight);
-    margin-bottom: var(--sp-3);
+    margin-bottom: var(--sp-2);
+  }
+  @media (min-width: 768px) {
+    .cta-title { font-size: var(--fs-3xl); }
   }
 
   .cta-subtitle {
-    font-size: var(--fs-lg);
-    color: var(--c-text-3);
-    margin-bottom: var(--sp-8);
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.80);
+    font-weight: 600;
+    margin-bottom: var(--sp-6);
   }
 
   .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    padding: 14px 32px;
-    background: var(--c-accent);
-    color: var(--c-white);
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    border-radius: var(--r-full);
-    transition: all var(--dur-base) var(--ease-ui);
+    background: #fff;
+    color: var(--c-text-1);
+    box-shadow: 0 6px 0 rgba(60, 42, 30, 0.25);
+    border-color: rgba(60, 42, 30, 0.15);
   }
-  .cta-btn:hover { background: var(--c-accent-hover); transform: translateY(-2px); box-shadow: var(--sh-3); }
+  .cta-btn:hover {
+    background: var(--c-surface-2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 rgba(60, 42, 30, 0.25);
+  }
 </style>

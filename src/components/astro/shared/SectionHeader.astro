@@ -4,19 +4,17 @@ interface Props {
   title: string;
   subtitle?: string;
   level?: 'h1' | 'h2' | 'h3';
-  color?: 'green' | 'blue' | 'yellow' | 'red' | 'purple' | 'orange';
+  color?: 'accent' | 'gold' | 'warm' | 'terracotta';
 }
-const { overline, title, subtitle, level = 'h2', color = 'green' } = Astro.props;
+const { overline, title, subtitle, level = 'h2', color = 'accent' } = Astro.props;
 const Tag = level;
-const emojiMap: Record<string, string> = {
-  green: '🟢', blue: '🔵', yellow: '🟡', red: '🔴', purple: '🟣', orange: '🟠',
-};
+const badgeClass = `duo-badge-${color}`;
 ---
 
 <div class="duo-section-header">
   {overline && (
     <div class="duo-section-overline">
-      <span class:list={[`duo-badge`, `duo-badge-${color}`]}>{emojiMap[color]} {overline}</span>
+      <span class:list={['duo-badge', badgeClass]}>{overline}</span>
     </div>
   )}
   <Tag class="duo-section-title">{title}</Tag>

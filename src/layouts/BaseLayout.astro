@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import TopNav from '../components/astro/nav/TopNav.astro';
-import BottomNav from '../components/astro/nav/BottomNav.astro';
 import SeoMeta from '../components/astro/shared/SeoMeta.astro';
 import '../styles/globals.css';
 
@@ -39,9 +38,9 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
     </noscript>
 
     <SeoMeta title={title} description={description} type={seoProps.type} keywords={seoProps.keywords} recipe={seoProps.recipe} />
@@ -57,8 +56,6 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     <main id="main-content">
       <slot />
     </main>
-
-    <BottomNav />
 
     <script>
       import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
