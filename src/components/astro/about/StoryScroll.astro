@@ -1,0 +1,178 @@
+<section class="story-scroll" id="cerita">
+  <div class="container">
+    <div class="story-scroll-inner">
+
+      <div class="story-scene">
+        <span class="scene-number" aria-hidden="true">01</span>
+        <p class="story-line">Indonesia, negeri yang dipersatukan oleh rasa.</p>
+        <p class="story-line">Dari Sumatera hingga Papua,</p>
+        <p class="story-line">ribuan hidangan menanti untuk diceritakan.</p>
+      </div>
+
+      <div class="story-scene">
+        <span class="scene-number" aria-hidden="true">02</span>
+        <p class="story-line">Tapi kekayaan ini tersebar,</p>
+        <p class="story-line">tersimpan dalam ingatan para sesepuh,</p>
+        <p class="story-line">resep warisan yang mulai pudar.</p>
+      </div>
+
+      <div class="story-scene">
+        <span class="scene-number" aria-hidden="true">03</span>
+        <p class="story-line">Maka lahirlah Kulineria —</p>
+        <p class="story-line">sebuah atlas digital</p>
+        <p class="story-line">untuk menghimpun warisan rasa Nusantara.</p>
+      </div>
+
+      <div class="story-scene">
+        <span class="scene-number" aria-hidden="true">04</span>
+        <p class="story-line">Bukan sekadar katalog.</p>
+        <p class="story-line">Tapi jendela menuju kekayaan rasa Indonesia.</p>
+        <p class="story-line">Agar setiap hidangan memiliki tempat,</p>
+        <p class="story-line">dan tak pernah dilupakan.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initStoryScroll() {
+    const scenes = document.querySelectorAll('.story-scene');
+    if (!scenes.length) return;
+
+    const mm = gsap.matchMedia();
+
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      scenes.forEach((scene) => {
+        const lines = scene.querySelectorAll('.story-line');
+        const num = scene.querySelector('.scene-number');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: scene,
+            start: 'top 75%',
+            end: 'top 35%',
+            scrub: 1,
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        tl.from(lines, {
+          y: 30,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 0.5,
+          ease: 'power2.out',
+        });
+
+        if (num) {
+          tl.from(num, { opacity: 0, x: -20, duration: 0.3 }, 0);
+        }
+      });
+    });
+
+    mm.add('(prefers-reduced-motion: reduce)', () => {
+      document.querySelectorAll('.story-line, .scene-number').forEach((el) => {
+        gsap.set(el, { opacity: 1, y: 0, x: 0 });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => requestAnimationFrame(initStoryScroll));
+</script>
+
+<style>
+  .story-scroll {
+    position: relative;
+    padding: var(--sp-16) 0;
+    background: var(--c-bg);
+  }
+  .story-scroll::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--grad-warm);
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .story-scroll { padding: var(--sp-24) 0; }
+  }
+
+  .story-scroll-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .story-scene {
+    position: relative;
+    margin-bottom: var(--sp-12);
+    padding-left: var(--sp-8);
+    border-left: 3px solid var(--c-brand-caramel);
+    border-radius: 0 0 0 var(--r-md);
+  }
+  @media (min-width: 768px) {
+    .story-scene {
+      margin-bottom: var(--sp-16);
+      padding-left: var(--sp-12);
+    }
+  }
+  .story-scene:last-child { margin-bottom: 0; }
+
+  .scene-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(calc(-100% - var(--sp-3)));
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--c-brand-caramel);
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+  }
+  @media (max-width: 767px) {
+    .scene-number {
+      position: static;
+      display: block;
+      transform: none;
+      margin-bottom: var(--sp-2);
+      font-size: var(--fs-tiny);
+    }
+  }
+
+  .story-line {
+    font-family: var(--ff-display);
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    font-weight: 800;
+    line-height: var(--lh-tight);
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-1);
+    will-change: transform, opacity;
+  }
+  @media (min-width: 768px) {
+    .story-line {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: var(--sp-2);
+    }
+  }
+  @media (min-width: 1024px) {
+    .story-line {
+      font-size: clamp(2rem, 2.8vw, 2.8rem);
+    }
+  }
+
+  .story-line:last-child {
+    margin-bottom: 0;
+  }
+
+  .story-line:first-of-type {
+    font-weight: 900;
+  }
+</style>

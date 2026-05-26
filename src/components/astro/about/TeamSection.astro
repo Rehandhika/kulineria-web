@@ -8,7 +8,7 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 
 <section class="team" id="about-team">
   <div class="container">
-    <SectionHeader overline="👥 Tim Kami" title="Orang di Balik Kulineria" subtitle="Bertemu dengan para pencinta kuliner yang mewujudkan atlas ini" />
+    <SectionHeader overline="Tim Kami" title="Orang di Balik Kulineria" subtitle="Bertemu dengan para pencinta kuliner yang mewujudkan atlas ini" />
 
     <div class="team-grid">
       {
@@ -51,16 +51,27 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 
   function initTeam() {
     const cards = document.querySelectorAll('.team-card');
+    if (!cards.length) return;
 
-    gsap.from(cards, {
-      y: 50,
-      opacity: 0,
-      scale: 0.95,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'expo.out',
-      scrollTrigger: { trigger: '.team-grid', start: 'top 80%', toggleActions: 'play none none none' },
+    gsap.set(cards, { y: 30, opacity: 0 });
+
+    ScrollTrigger.refresh();
+
+    const tl = gsap.to(cards, {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      stagger: 0.08,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.team-grid', start: 'top 85%' },
     });
+
+    // Fallback: ensure cards visible after 5s whether scroll-trigger fired or not
+    setTimeout(() => {
+      if (tl.progress() < 1) {
+        gsap.set(cards, { y: 0, opacity: 1, clearProps: 'y' });
+      }
+    }, 5000);
 
     // Tilt effect per card
     cards.forEach((card) => {
@@ -112,8 +123,21 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 
 <style>
   .team {
+    position: relative;
     padding: var(--sp-12) 0;
-    background: var(--c-surface);
+    background: var(--c-bg);
+  }
+  .team::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--grad-warm);
+    opacity: 0.04;
+    pointer-events: none;
+  }
+  .team .container {
+    position: relative;
+    z-index: 1;
   }
   @media (min-width: 768px) {
     .team { padding: var(--sp-20) 0; }
