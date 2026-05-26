@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /_astro/
-
-Sitemap: https://kulineria.id/sitemap.xml
