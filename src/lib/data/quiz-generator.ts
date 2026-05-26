@@ -75,22 +75,10 @@ export function generateTebakAsalQuestions(count: number = 10): Question[] {
   });
 }
 
-export function generateCampuranQuestions(count: number = 10): Question[] {
-  const half = Math.ceil(count / 2);
-  const gambar = generateTebakMakananQuestions(half);
-  const asal = generateTebakAsalQuestions(count - half);
-  return shuffle([...gambar, ...asal]).map((q, i) => ({
-    ...q,
-    id: `campuran-${i}-${q.id}`,
-    mode: 'campuran' as QuizMode,
-  }));
-}
-
 export function generateQuestions(mode: QuizMode, count: number = 10): Question[] {
   switch (mode) {
     case 'tebak-makanan': return generateTebakMakananQuestions(count);
     case 'tebak-asal': return generateTebakAsalQuestions(count);
-    case 'campuran': return generateCampuranQuestions(count);
   }
 }
 

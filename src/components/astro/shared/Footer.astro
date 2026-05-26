@@ -2,9 +2,10 @@
 import { getRegions } from '../../../lib/data/loaders';
 const regions = getRegions();
 const year = new Date().getFullYear();
+const { id } = Astro.props;
 ---
 
-<footer class="footer">
+<footer class="footer" id={id}>
   <div class="footer-wave">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <defs>

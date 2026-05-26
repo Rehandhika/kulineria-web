@@ -1,7 +1,6 @@
 ﻿export type QuizMode =
   | 'tebak-makanan'
-  | 'tebak-asal'
-  | 'campuran';
+  | 'tebak-asal';
 
 export type QuizStatus = 'idle' | 'countdown' | 'playing' | 'reviewing' | 'finished';
 

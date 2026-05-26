@@ -6,7 +6,6 @@ export interface SearchState {
   tasteFilters: Set<Taste>;
   results: FoodItem[];
   isSearching: boolean;
-  recentSearches: string[];
 }
 
 export interface SearchActions {
@@ -15,7 +14,5 @@ export interface SearchActions {
   toggleTasteFilter: (taste: Taste) => void;
   setResults: (results: FoodItem[]) => void;
   setSearching: (isSearching: boolean) => void;
-  addRecentSearch: (query: string) => void;
-  clearRecentSearches: () => void;
   clearFilters: () => void;
 }

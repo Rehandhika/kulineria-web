@@ -316,6 +316,18 @@
   text-align: center;
 }
 
+@media (max-width: 480px) {
+  .feedback-content {
+    min-width: unset;
+    width: calc(100vw - var(--sp-8));
+    padding: var(--sp-6) var(--sp-4);
+  }
+
+  .feedback-continue {
+    margin-top: var(--sp-4);
+  }
+}
+
 @media (min-width: 768px) {
   .feedback-content {
     padding: var(--sp-8) var(--sp-12);

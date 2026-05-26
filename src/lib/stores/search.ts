@@ -7,7 +7,6 @@ export const $regionFilters = atom<Set<RegionId>>(new Set());
 export const $tasteFilters = atom<Set<Taste>>(new Set());
 export const $searchResults = atom<FoodItem[]>([]);
 export const $isSearching = atom<boolean>(false);
-export const $recentSearches = atom<string[]>([]);
 
 export { getSearchIndexFromData as getSearchIndex };
 
@@ -58,36 +57,6 @@ export function performSearch() {
 
   $searchResults.set(foods);
   $isSearching.set(false);
-
-  if (query.length > 0) {
-    addRecentSearch(query);
-  }
-}
-
-export function addRecentSearch(query: string) {
-  const recent = $recentSearches.get();
-  const updated = [query, ...recent.filter(q => q !== query)].slice(0, 8);
-  $recentSearches.set(updated);
-
-  try {
-    localStorage.setItem('kulineria-recent', JSON.stringify(updated));
-  } catch {}
-}
-
-export function loadRecentSearches() {
-  try {
-    const stored = localStorage.getItem('kulineria-recent');
-    if (stored) {
-      $recentSearches.set(JSON.parse(stored));
-    }
-  } catch {}
-}
-
-export function clearRecentSearches() {
-  $recentSearches.set([]);
-  try {
-    localStorage.removeItem('kulineria-recent');
-  } catch {}
 }
 
 export function clearFilters() {

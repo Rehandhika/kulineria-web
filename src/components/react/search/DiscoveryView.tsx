@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { $searchQuery } from '@/lib/stores/search';
 import { getSearchDocuments } from '@/lib/data/search-index';
 
 const REGION_COLORS: Record<string, string> = {
@@ -22,7 +21,6 @@ interface FoodItem {
 }
 
 interface Props {
-  recentSearches: string[];
   initialFoods?: FoodItem[];
 }
 
@@ -35,7 +33,7 @@ function shuffleArr<T>(arr: T[]): T[] {
   return s;
 }
 
-export default function DiscoveryView({ recentSearches, initialFoods }: Props) {
+export default function DiscoveryView({ initialFoods }: Props) {
   const [featuredFoods, setFeaturedFoods] = useState<FoodItem[] | undefined>(
     initialFoods && initialFoods.length > 0 ? initialFoods : undefined
   );
@@ -65,32 +63,9 @@ export default function DiscoveryView({ recentSearches, initialFoods }: Props) {
 
   return (
     <div className="discovery-view">
-      {recentSearches.length > 0 && (
-        <section className="discovery-section discovery-recent">
-          <div className="discovery-header">
-            <span className="duo-badge duo-badge-warm">Terakhir Dicari</span>
-          </div>
-          <div className="discovery-chips">
-            {recentSearches.map((s) => (
-              <button
-                key={s}
-                className="discovery-item duo-badge"
-                onClick={() => $searchQuery.set(s)}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
-
       {featuredFoods && featuredFoods.length > 0 && (
         <section className="discovery-section discovery-featured">
           <div className="discovery-featured-header">
-            <div className="discovery-featured-title-group">
-              <h2 className="discovery-featured-title">Jelajahi Nusantara</h2>
-              <p className="discovery-featured-subtitle">Temukan hidangan dari berbagai daerah</p>
-            </div>
             <button onClick={handleShuffle} className="shuffle-btn" aria-label="Acak hidangan">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="16 3 21 3 21 8"/>

@@ -395,39 +395,6 @@
   }
 }
 
-.discovery-featured-title-group {
-  min-width: 0;
-}
-
-.discovery-featured-title {
-  font-family: var(--ff-display);
-  font-size: var(--fs-2xl);
-  font-weight: 900;
-  color: var(--c-text-1);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-@media (min-width: 768px) {
-  .discovery-featured-title {
-    font-size: var(--fs-3xl);
-  }
-}
-
-.discovery-featured-subtitle {
-  font-size: var(--fs-sm);
-  color: var(--c-text-3);
-  margin-top: var(--sp-1);
-  font-weight: 500;
-}
-
-@media (min-width: 768px) {
-  .discovery-featured-subtitle {
-    font-size: var(--fs-base);
-  }
-}
-
 /* Shuffle Button */
 .shuffle-btn {
   display: inline-flex;

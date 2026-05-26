@@ -10,6 +10,16 @@ export default function QuizProvider() {
   const status = useQuizStore((s) => s.status);
 
   useEffect(() => {
+    const el = document.getElementById('quiz-footer');
+    if (!el) return;
+    if (status === 'idle') {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
+  }, [status]);
+
+  useEffect(() => {
     return () => cleanupQuizTimer();
   }, []);
 

@@ -9,10 +9,8 @@ import {
   $tasteFilters,
   $searchResults,
   $isSearching,
-  $recentSearches,
   $hasActiveSearch,
   performSearch,
-  loadRecentSearches,
   syncFromUrl,
   syncToUrl,
 } from '@/lib/stores/search';
@@ -51,14 +49,12 @@ export default function SearchProvider({ initialFoods }: Props) {
   const tasteFilters = useStore($tasteFilters);
   const results = useStore($searchResults);
   const isSearching = useStore($isSearching);
-  const recentSearches = useStore($recentSearches);
   const hasActiveSearch = useStore($hasActiveSearch);
   const [hydrated, setHydrated] = useState(false);
   const [contentKey, setContentKey] = useState(0);
   const prevKey = useRef(0);
 
   useEffect(() => {
-    loadRecentSearches();
     syncFromUrl();
     setHydrated(true);
   }, []);
@@ -104,7 +100,7 @@ export default function SearchProvider({ initialFoods }: Props) {
 
           {!isSearching && !hasActiveSearch && (
             <div key={contentKey} className="search-content">
-              <DiscoveryView recentSearches={recentSearches} initialFoods={parsedInitial} />
+              <DiscoveryView initialFoods={parsedInitial} />
             </div>
           )}
 
