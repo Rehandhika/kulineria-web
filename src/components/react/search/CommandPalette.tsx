@@ -16,7 +16,6 @@ export default function CommandPalette() {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
   const query = useStore($searchQuery);
 
   useEffect(() => {
@@ -35,17 +34,6 @@ export default function CommandPalette() {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    function handleClick(e: MouseEvent) {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
   }, [isOpen]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -79,10 +67,13 @@ export default function CommandPalette() {
   if (!isOpen) return null;
 
   return (
-    <div className="command-palette-backdrop">
-      <div ref={modalRef} className="command-palette" role="dialog" aria-modal="true">
+    <div className="command-palette-backdrop" onClick={() => setIsOpen(false)}>
+      <div className="command-palette duo-card" role="dialog" aria-modal="true" onClick={e => e.stopPropagation()}>
         <div className="command-palette-input">
-          <svg className="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="search-icon">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
           <input
             ref={inputRef}
             type="text"
@@ -107,8 +98,8 @@ export default function CommandPalette() {
                   setIsOpen(false);
                 }}
               >
-                <span className="result-name">{s.name}</span>
-                <span className="result-region">{s.region}</span>
+                <span className="result-item-name">{s.name}</span>
+                <span className="result-item-region">{s.region}</span>
               </button>
             ))}
           </div>

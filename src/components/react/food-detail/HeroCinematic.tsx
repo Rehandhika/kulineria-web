@@ -2,53 +2,11 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
-import type { FoodItemFull, Taste } from '@/types/food';
+import type { FoodItemFull } from '@/types/food';
 
 interface Props {
   food: FoodItemFull;
   regionName: string;
-}
-
-const typeLabels: Record<string, string> = {
-  berkuah: 'Berkuah',
-  digoreng: 'Digoreng',
-  dibakar: 'Dibakar',
-  mentah: 'Mentah',
-  minuman: 'Minuman',
-};
-
-const tasteIcons: Record<Taste, string> = {
-  manis: '🍯',
-  pedas: '🌶️',
-  gurih: '🧂',
-  asam: '🍋',
-  asin: '🧄',
-};
-
-const tasteLabels: Record<Taste, string> = {
-  manis: 'Manis',
-  pedas: 'Pedas',
-  gurih: 'Gurih',
-  asam: 'Asam',
-  asin: 'Asin',
-};
-
-function tasteLevel(score: number): string {
-  if (score <= 0) return '';
-  if (score <= 33) return 'Ringan';
-  if (score <= 66) return 'Sedang';
-  return 'Kuat';
-}
-
-function getTasteChips(tasteScore: FoodItemFull['tasteScore']): { taste: Taste; label: string; level: string }[] {
-  if (!tasteScore) return [];
-  return (Object.entries(tasteScore) as [Taste, number][])
-    .filter(([, score]) => score > 0)
-    .map(([taste, score]) => ({
-      taste,
-      label: tasteLabels[taste],
-      level: tasteLevel(score),
-    }));
 }
 
 export default function HeroCinematic({ food, regionName }: Props) {
@@ -91,7 +49,6 @@ export default function HeroCinematic({ food, regionName }: Props) {
 
   const regionColor = `var(--c-${food.region})`;
   const heroImgSrc = food.hero?.image || food.imageUrl;
-  const tasteChips = getTasteChips(food.tasteScore);
 
   return (
     <section ref={containerRef} className="hero" aria-label={`Hero ${food.name}`}>
@@ -136,27 +93,6 @@ export default function HeroCinematic({ food, regionName }: Props) {
           </div>
         </div>
 
-        <div className="hero-quickfacts">
-          <div className="hero-quickfact" style={{ borderColor: regionColor }}>
-            <span className="hero-qf-dot" style={{ backgroundColor: regionColor }} />
-            {regionName}
-          </div>
-          <div className="hero-quickfact">
-            🍽️ {typeLabels[food.type] || food.type}
-          </div>
-          {food.recipe?.difficulty && (
-            <div className="hero-quickfact">📊 {food.recipe.difficulty}</div>
-          )}
-          {food.recipe?.prepTime && (
-            <div className="hero-quickfact">⏱️ {food.recipe.prepTime} menit</div>
-          )}
-          {tasteChips.map(({ taste, label, level }) => (
-            <div key={taste} className="hero-quickfact hero-taste-chip">
-              {tasteIcons[taste]} {label}
-              {level && <span className="hero-taste-level">{level}</span>}
-            </div>
-          ))}
-        </div>
       </div>
 
       {!revealed && <div className="hero-skeleton" />}

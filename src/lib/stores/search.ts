@@ -1,6 +1,6 @@
 import { atom, computed } from 'nanostores';
 import type { RegionId, Taste, FoodType, FoodItem } from '@/types/food';
-import { getSearchIndex as getSearchIndexFromData } from '@/lib/data/search-index';
+import { getSearchIndex as getSearchIndexFromData, getSearchDocuments } from '@/lib/data/search-index';
 
 export const $searchQuery = atom<string>('');
 export const $regionFilters = atom<Set<RegionId>>(new Set());
@@ -30,20 +30,25 @@ export function performSearch() {
 
   $isSearching.set(true);
 
-  const index = getSearchIndexFromData();
-  let results = index.search(query, {
-    filter: (doc) => {
-      if (regions.size > 0 && !regions.has(doc.region as RegionId)) return false;
-      if (tastes.size > 0) {
-        const docTastes = doc.taste.split(' ');
-        for (const t of tastes) {
-          if (!docTastes.includes(t)) return false;
-        }
+  function matchesFilters(doc: { region: string; taste: string; type: string }): boolean {
+    if (regions.size > 0 && !regions.has(doc.region as RegionId)) return false;
+    if (tastes.size > 0) {
+      const docTastes = doc.taste.split(' ');
+      for (const t of tastes) {
+        if (!docTastes.includes(t)) return false;
       }
-      if (type && doc.type !== type) return false;
-      return true;
-    },
-  });
+    }
+    if (type && doc.type !== type) return false;
+    return true;
+  }
+
+  let results;
+  if (query.length > 0) {
+    const index = getSearchIndexFromData();
+    results = index.search(query, { filter: matchesFilters });
+  } else {
+    results = getSearchDocuments().filter(matchesFilters);
+  }
 
   const foods = results.map(r => ({
     id: r.id,

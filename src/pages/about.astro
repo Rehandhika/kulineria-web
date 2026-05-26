@@ -1,38 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/astro/shared/Footer.astro';
-import HeroManifesto from '../components/astro/about/HeroManifesto.astro';
-import MissionSection from '../components/astro/about/MissionSection.astro';
-import ValuesSection from '../components/astro/about/ValuesSection.astro';
+import AboutHero from '../components/astro/about/AboutHero.astro';
+import AboutStory from '../components/astro/about/AboutStory.astro';
+import AboutWork from '../components/astro/about/AboutWork.astro';
 import TeamSection from '../components/astro/about/TeamSection.astro';
-import CTASection from '../components/astro/about/CTASection.astro';
-import Divider from '../components/astro/shared/Divider.astro';
-import ScrollReveal from '../components/react/shared/ScrollReveal';
 ---
 
 <BaseLayout title="Tentang" description="Tentang Kulineria — Atlas Kuliner Nusantara">
-  <HeroManifesto />
-  <Divider />
+  <div class="about-page">
+    <AboutHero />
 
-  <ScrollReveal client:only="react" animation="fadeUp" delay={0.2}>
-    <MissionSection />
-  </ScrollReveal>
+    <AboutStory />
 
-  <Divider />
+    <AboutWork />
 
-  <ScrollReveal client:only="react" animation="fadeUp" delay={0.1}>
-    <ValuesSection />
-  </ScrollReveal>
-
-  <Divider />
-
-  <ScrollReveal client:only="react" animation="fadeUp" delay={0.1}>
     <TeamSection />
-  </ScrollReveal>
 
-  <ScrollReveal client:only="react" animation="scaleIn" delay={0.15}>
-    <CTASection />
-  </ScrollReveal>
-
-  <Footer />
+    <Footer />
+  </div>
 </BaseLayout>
+
+<style is:global>
+  .about-page {
+    background: var(--c-bg);
+  }
+</style>

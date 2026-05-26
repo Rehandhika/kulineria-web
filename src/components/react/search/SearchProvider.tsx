@@ -17,11 +17,11 @@ import {
   syncFromUrl,
   syncToUrl,
 } from '@/lib/stores/search';
-import SearchBar from './SearchBar';
 import FilterPanel from './FilterPanel';
 import ResultsGrid from './ResultsGrid';
 import DiscoveryView from './DiscoveryView';
 import NoResultsView from './NoResultsView';
+import LoadingSpinner from '../shared/LoadingSpinner';
 import type { FoodItem } from '@/types/food';
 
 interface Props {
@@ -67,34 +67,19 @@ export default function SearchProvider({ initialFoods }: Props) {
 
   return (
     <div className="search-page">
-      <SearchBar />
       <div className="search-layout">
         <FilterPanel />
         <div className="search-main">
-          {isSearching && <div className="search-loading">Mencari...</div>}
+          {isSearching && (
+            <div className="flex justify-center py-12">
+              <LoadingSpinner size="lg" label="Mencari..." />
+            </div>
+          )}
 
           {hasActiveSearch && !isSearching && results.length === 0 && <NoResultsView />}
 
           {!hasActiveSearch && (
-            <>
-              <DiscoveryView recentSearches={recentSearches} />
-              <div className="results-header">
-                <span className="results-count">Jelajahi Nusantara</span>
-              </div>
-              <div className="results-grid-inner">
-                {parsedInitial.map((food) => (
-                  <a key={food.id} href={`/food/${food.id}`} className="result-card">
-                    <div className="result-card-image">
-                      <img src={food.imageUrl} alt={food.name} loading="lazy" />
-                    </div>
-                    <div className="result-card-content">
-                      <h3>{food.name}</h3>
-                      <span className="result-card-region">{food.region}</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </>
+            <DiscoveryView recentSearches={recentSearches} initialFoods={parsedInitial} />
           )}
 
           {hasActiveSearch && !isSearching && results.length > 0 && (

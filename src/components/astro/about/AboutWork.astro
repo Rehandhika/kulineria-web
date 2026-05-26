@@ -1,0 +1,146 @@
+---
+
+<section class="about-work" id="kerja">
+  <div class="container">
+    <div class="work-header">
+      <h2 class="work-heading">Yang Kami Kerjakan</h2>
+    </div>
+
+    <div class="work-list">
+      <div class="work-item">
+        <div class="work-divider">
+          <span class="work-divider-line"></span>
+          <span class="work-divider-label">━━ 01 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+          <span class="work-divider-line"></span>
+        </div>
+        <div class="work-content">
+          <h3 class="work-title">Menghimpun Resep Nusantara</h3>
+          <p class="work-desc">
+            Setiap hidangan tradisional yang tersebar di penjuru Indonesia memiliki keunikan tersendiri. Kulineria mengumpulkan, menata, dan menyajikan resep-resep tersebut secara lengkap — agar mudah ditemukan dan dikenali oleh siapa pun yang ingin menjelajahinya.
+          </p>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-divider">
+          <span class="work-divider-line"></span>
+          <span class="work-divider-label">━━ 02 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
+          <span class="work-divider-line"></span>
+        </div>
+        <div class="work-content">
+          <h3 class="work-title">Memetakan Kekayaan Nusantara</h3>
+          <p class="work-desc">
+            Kekayaan kuliner Indonesia begitu luas hingga sulit dipetakan dengan satu sudut pandang. Kulineria membangun atlas digital yang menempatkan setiap hidangan pada konteks geografisnya — agar keragaman rasa Nusantara dapat dipahami dan dijelajahi secara utuh.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initWork() {
+    const items = document.querySelectorAll('.work-item');
+    items.forEach((item, i) => {
+      gsap.from(item, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: i * 0.2,
+        ease: 'expo.out',
+        scrollTrigger: { trigger: item, start: 'top 85%', toggleActions: 'play none none none' },
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => requestAnimationFrame(initWork));
+</script>
+
+<style>
+  .about-work {
+    padding: var(--sp-12) 0;
+    background: var(--c-bg);
+  }
+  @media (min-width: 768px) {
+    .about-work { padding: var(--sp-20) 0; }
+  }
+
+  .work-header {
+    text-align: center;
+    margin-bottom: var(--sp-12);
+  }
+
+  .work-heading {
+    font-family: var(--ff-display);
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--c-text-1);
+  }
+  @media (min-width: 768px) {
+    .work-heading { font-size: var(--fs-3xl); }
+  }
+
+  .work-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-12);
+  }
+
+  .work-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .work-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+  .work-divider-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--c-accent-soft), var(--c-accent), var(--c-accent-soft));
+    border-radius: var(--r-full);
+    opacity: 0.3;
+  }
+  .work-divider-label {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-text-3);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .work-content {
+    padding-left: var(--sp-4);
+    border-left: 3px solid var(--c-accent);
+    border-radius: 0 0 0 var(--r-md);
+  }
+  @media (min-width: 768px) {
+    .work-content { padding-left: var(--sp-6); }
+  }
+
+  .work-title {
+    font-family: var(--ff-display);
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-3);
+  }
+
+  .work-desc {
+    font-size: var(--fs-base);
+    color: var(--c-text-2);
+    line-height: var(--lh-relaxed);
+    font-weight: 500;
+  }
+</style>

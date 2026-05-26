@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 interface FoodItem {
   id: string;
@@ -11,13 +11,17 @@ interface FoodItem {
   imageUrl: string;
 }
 
-export default function ResultsGrid({ results, query }: { results: FoodItem[]; query: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [displayCount, setDisplayCount] = useState(12);
+const REGION_COLORS: Record<string, string> = {
+  sumatera: 'var(--c-sumatera)',
+  jawa: 'var(--c-jawa)',
+  kalimantan: 'var(--c-kalimantan)',
+  sulawesi: 'var(--c-sulawesi)',
+  'bali-ntt': 'var(--c-bali-ntt)',
+  'maluku-papua': 'var(--c-maluku-papua)',
+};
 
-  useEffect(() => {
-    setDisplayCount(12);
-  }, [results]);
+export default function ResultsGrid({ results, query }: { results: FoodItem[]; query: string }) {
+  const [displayCount, setDisplayCount] = useState(12);
 
   const visibleResults = results.slice(0, displayCount);
   const hasMore = displayCount < results.length;
@@ -29,13 +33,13 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
         {query && <span className="results-query">untuk "{query}"</span>}
       </div>
 
-      <div ref={containerRef} className="results-grid-inner">
-        {visibleResults.map((food, index) => (
+      <div className="results-grid-inner">
+        {visibleResults.map((food) => (
           <a
             key={food.id}
             href={`/food/${food.id}`}
-            className="result-card result-card-enter"
-            style={{ animationDelay: `${index * 0.04}s` }}
+            className="result-card duo-card flex flex-col overflow-hidden"
+            style={{ borderTop: `4px solid ${REGION_COLORS[food.region] || 'var(--c-accent)'}` }}
             onClick={() => sessionStorage.setItem('kulineria-return', '/search')}
           >
             <div className="result-card-image">
@@ -46,9 +50,9 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
               <span className="result-card-region">{food.region}</span>
               <div className="result-card-tags">
                 {food.taste.map((t) => (
-                  <span key={t} className="tag">{t}</span>
+                  <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{t}</span>
                 ))}
-                <span className="tag type">{food.type}</span>
+                <span className="duo-badge duo-badge-accent" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{food.type}</span>
               </div>
             </div>
           </a>
@@ -56,12 +60,14 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
       </div>
 
       {hasMore && (
-        <button
-          onClick={() => setDisplayCount((prev) => prev + 12)}
-          className="load-more"
-        >
-          Muat lagi ({results.length - displayCount} tersisa)
-        </button>
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setDisplayCount((prev) => prev + 12)}
+            className="duo-btn duo-btn-secondary"
+          >
+            Muat lagi ({results.length - displayCount} tersisa)
+          </button>
+        </div>
       )}
     </div>
   );

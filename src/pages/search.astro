@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchHero from '../components/astro/search/SearchHero.astro';
 import SearchProvider from '../components/react/search/SearchProvider';
 import CommandPalette from '../components/react/search/CommandPalette';
 import Footer from '../components/astro/shared/Footer.astro';
@@ -7,25 +8,13 @@ import { getAllFoods } from '../lib/data/loaders';
 const allFoods = getAllFoods();
 ---
 
-<BaseLayout title="Cari" description="Cari hidangan Nusantara berdasarkan wilayah, rasa, dan jenis">
-  <div class="search-page-wrapper">
+<BaseLayout title="Jelajahi" description="Cari dan temukan hidangan Nusantara berdasarkan wilayah, rasa, dan jenis">
+  <SearchHero />
+
+  <main class="container section-py">
     <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 8))} />
-    <CommandPalette client:load />
-  </div>
+  </main>
+
+  <CommandPalette client:load />
   <Footer />
 </BaseLayout>
-
-<style is:global>
-  .search-page-wrapper {
-    min-height: 100vh;
-    padding-top: calc(var(--nav-mobile-h) + var(--sp-4));
-    padding-bottom: var(--sp-20);
-  }
-
-  @media (min-width: 1024px) {
-    .search-page-wrapper {
-      padding-top: calc(var(--nav-h) + var(--sp-8));
-      padding-bottom: var(--sp-20);
-    }
-  }
-</style>

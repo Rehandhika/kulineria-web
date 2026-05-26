@@ -1,128 +1,184 @@
 ---
+import { getCollection } from 'astro:content';
+import SectionHeader from '../shared/SectionHeader.astro';
+
+const teamMembers = await getCollection('team');
+const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order);
 ---
 
-<section class="team">
+<section class="team" id="about-team">
   <div class="container">
-    <div class="team-header">
-      <span class="duo-badge duo-badge-warm">👥 Tim Kami</span>
-      <h2>Tim Kami</h2>
-      <p>Orang-orang di balik Kulineria</p>
-    </div>
+    <SectionHeader overline="👥 Tim Kami" title="Orang di Balik Kulineria" subtitle="Bertemu dengan para pencinta kuliner yang mewujudkan atlas ini" />
 
     <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 80 80" aria-hidden="true">
-            <circle cx="40" cy="40" r="38" fill="#FFFDF7" stroke="#C49A6E" stroke-width="2"/>
-            <circle cx="40" cy="32" r="14" fill="#C49A6E"/>
-            <ellipse cx="40" cy="62" rx="20" ry="16" fill="#C49A6E"/>
-            <circle cx="34" cy="28" r="2.5" fill="#3C2A1E"/>
-            <circle cx="46" cy="28" r="2.5" fill="#3C2A1E"/>
-            <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-            <rect x="28" y="58" width="24" height="4" rx="2" fill="#3C2A1E" opacity="0.1"/>
-          </svg>
-        </div>
-        <h3>Nara</h3>
-        <p class="team-role">Pemandu Kuliner</p>
-        <p class="team-bio">Teman digitalmu menjelajahi Nusantara. Nara tahu setiap hidangan, setiap cerita, dan setiap bahan rahasia.</p>
-      </div>
+      {
+        sorted.map((member: any, i: number) => {
+          const gradients = ['var(--c-brand-caramel)', 'var(--c-brand-cinnamon)', 'var(--c-brand-gold)'];
+          const bgGradients = ['var(--c-brand-caramel-bg)', 'var(--c-brand-cinnamon-bg)', 'var(--c-brand-gold-bg)'];
+          const color = gradients[i % gradients.length];
+          const bg = bgGradients[i % bgGradients.length];
 
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 80 80" aria-hidden="true">
-            <circle cx="40" cy="40" r="38" fill="#FFFDF7" stroke="#D4A76A" stroke-width="2"/>
-            <circle cx="40" cy="32" r="14" fill="#D4A76A"/>
-            <ellipse cx="40" cy="62" rx="20" ry="16" fill="#D4A76A"/>
-            <circle cx="34" cy="28" r="2.5" fill="#3C2A1E"/>
-            <circle cx="46" cy="28" r="2.5" fill="#3C2A1E"/>
-            <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3>Chef Arsip</h3>
-        <p class="team-role">Kurator Resep</p>
-        <p class="team-bio">Kumpulan resep tradisional yang dikumpulkan dari juru masak lokal, nenek-nenek, dan sejarawan kuliner di seluruh Indonesia.</p>
-      </div>
-
-      <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 80 80" aria-hidden="true">
-            <circle cx="40" cy="40" r="38" fill="#FFFDF7" stroke="#C4815E" stroke-width="2"/>
-            <circle cx="40" cy="32" r="14" fill="#C4815E"/>
-            <ellipse cx="40" cy="62" rx="20" ry="16" fill="#C4815E"/>
-            <circle cx="34" cy="28" r="2.5" fill="#3C2A1E"/>
-            <circle cx="46" cy="28" r="2.5" fill="#3C2A1E"/>
-            <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="#3C2A1E" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3>Penjelajah Peta</h3>
-        <p class="team-role">Geografi & Data</p>
-        <p class="team-bio">Menghubungkan hidangan dengan asal-usulnya. Setiap penanda di peta menceritakan kisah tentang tempat, orang, dan rasa.</p>
-      </div>
+          return (
+            <div class="team-card duo-card" data-tilt>
+              <div class="team-avatar-wrap" style={{ background: bg }}>
+                <svg viewBox="0 0 80 80" class="team-avatar" aria-hidden="true">
+                  <circle cx="40" cy="32" r="14" fill={color} />
+                  <ellipse cx="40" cy="62" rx="20" ry="16" fill={color} />
+                  <circle cx="34" cy="28" r="2.5" fill="var(--c-text-1)" />
+                  <circle cx="46" cy="28" r="2.5" fill="var(--c-text-1)" />
+                  <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="var(--c-text-1)" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="team-card-body">
+                <span class="team-number">0{i + 1}</span>
+                <h3>{member.data.name}</h3>
+                <p class="team-role">{member.data.role}</p>
+                <p class="team-bio">{member.data.bio}</p>
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>
 
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initTeam() {
+    const cards = document.querySelectorAll('.team-card');
+
+    gsap.from(cards, {
+      y: 50,
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'expo.out',
+      scrollTrigger: { trigger: '.team-grid', start: 'top 80%', toggleActions: 'play none none none' },
+    });
+
+    // Tilt effect per card
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (ev: Event) => {
+        const e = ev as MouseEvent;
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(card, {
+          rotateY: x * 10,
+          rotateX: -y * 10,
+          duration: 0.3,
+          ease: 'power2.out',
+          transformPerspective: 1000,
+        });
+        const avatar = card.querySelector('.team-avatar-wrap');
+        if (avatar) {
+          gsap.to(avatar, {
+            y: -8,
+            scale: 1.08,
+            duration: 0.3,
+            ease: 'power2.out',
+          });
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateY: 0,
+          rotateX: 0,
+          duration: 0.5,
+          ease: 'elastic.out(1, 0.5)',
+        });
+        const avatar = card.querySelector('.team-avatar-wrap');
+        if (avatar) {
+          gsap.to(avatar, {
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'elastic.out(1, 0.5)',
+          });
+        }
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => requestAnimationFrame(initTeam));
+</script>
+
 <style>
   .team {
     padding: var(--sp-12) 0;
+    background: var(--c-surface);
   }
   @media (min-width: 768px) {
     .team { padding: var(--sp-20) 0; }
   }
 
-  .team-header {
-    text-align: center;
-    margin-bottom: var(--sp-10);
-  }
-  .team-header h2 {
-    font-family: var(--ff-display);
-    font-size: var(--fs-2xl);
-    font-weight: 900;
-    color: var(--c-text-1);
-    margin-top: var(--sp-3);
-    margin-bottom: var(--sp-2);
-  }
-  .team-header p {
-    font-size: var(--fs-base);
-    color: var(--c-text-2);
-    font-weight: 600;
-  }
-
   .team-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--sp-5);
+    gap: var(--sp-6);
   }
   @media (min-width: 480px) {
     .team-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (min-width: 1024px) {
-    .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .team-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-8); }
   }
 
   .team-card {
-    padding: var(--sp-8);
-    background: var(--c-surface);
-    border: var(--duo-stroke) solid var(--duo-stroke-color);
-    border-radius: var(--r-2xl);
-    text-align: center;
-    transition: all 0.2s var(--ease-bounce);
-    box-shadow: 0 4px 0 var(--c-brand-caramel-bg);
+    padding: var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-4);
+    cursor: default;
+    will-change: transform;
   }
-  .team-card:hover {
-    border-color: var(--c-accent-soft);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 0 var(--c-brand-caramel-bg);
+  @media (min-width: 768px) {
+    .team-card { padding: var(--sp-8) var(--sp-6); }
+  }
+
+  .team-avatar-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--c-brand-cream);
+    box-shadow: 0 4px 0 rgba(60, 42, 30, 0.12);
+    transition: box-shadow 0.3s var(--ease-bounce);
+    will-change: transform;
+  }
+  .team-card:hover .team-avatar-wrap {
+    box-shadow: 0 8px 0 rgba(60, 42, 30, 0.15);
   }
 
   .team-avatar {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--sp-4);
+    width: 60px;
+    height: 60px;
   }
-  .team-avatar svg {
-    width: 100%;
-    height: 100%;
+
+  .team-card-body {
+    text-align: center;
+    position: relative;
+  }
+
+  .team-number {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    font-family: var(--ff-display);
+    font-size: var(--fs-xs);
+    font-weight: 900;
+    color: var(--c-brand-caramel);
+    opacity: 0.3;
   }
 
   .team-card h3 {
@@ -147,5 +203,7 @@
     color: var(--c-text-2);
     line-height: 1.6;
     font-weight: 600;
+    max-width: 280px;
+    margin: 0 auto;
   }
 </style>

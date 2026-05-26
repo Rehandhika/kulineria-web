@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/astro/shared/Footer.astro';
-import FooterCTA from '../../components/astro/shared/FooterCTA.astro';
 import { getFoodByIdFull, getAllFoods, getRegions, isRealContent } from '../../lib/data/loaders';
 
 import HeroCinematic from '../../components/react/food-detail/HeroCinematic';
@@ -9,7 +8,6 @@ import StorySection from '../../components/react/food-detail/StorySection';
 import IngredientsGrid from '../../components/react/food-detail/IngredientsGrid';
 import RecipeStepper from '../../components/react/food-detail/RecipeStepper';
 import NutritionBars from '../../components/react/food-detail/NutritionBars';
-import RelatedCarousel from '../../components/react/food-detail/RelatedCarousel';
 
 export async function getStaticPaths() {
   const foods = getAllFoods();
@@ -25,11 +23,6 @@ const regions = getRegions();
 const region = regions.find(r => r.id === food.region);
 const regionName = region?.name || food.region;
 const showStory = fullFood ? isRealContent(fullFood) : false;
-
-const relatedFoods = (fullFood?.related || [])
-  .map(id => getAllFoods().find(f => f.id === id))
-  .filter((f): f is NonNullable<typeof f> => f !== undefined)
-  .slice(0, 8);
 ---
 
 <BaseLayout title={food.name} description={food.description}
@@ -50,17 +43,20 @@ const relatedFoods = (fullFood?.related || [])
   }}
 >
 
-  <!-- SECTION 1: HERO COMPACT (QuickFacts + Breadcrumb inside) -->
+  <!-- SECTION 1: HERO -->
   <HeroCinematic client:visible food={fullFood || food} regionName={regionName} />
 
-  <!-- SECTION 2: RASA & GIZI -->
-  {fullFood?.nutrition && (
-    <section class="section rasa-gizi-section">
+  <!-- SECTION 2: CERITA (hanya jika data real) -->
+  {showStory && fullFood?.story && (
+    <section class="section cerita-section">
       <div class="container">
-        <div class="rasa-gizi-card">
-          <h2 class="section-title">Informasi Gizi</h2>
-          <NutritionBars client:visible nutrition={fullFood.nutrition} />
-        </div>
+        <StorySection
+          client:visible
+          headline={fullFood.story.headline}
+          body={fullFood.story.body}
+          pullQuote={fullFood.story.pullQuote}
+          image={fullFood.story.image}
+        />
       </div>
     </section>
   )}
@@ -90,65 +86,17 @@ const relatedFoods = (fullFood?.related || [])
     </section>
   ) : null}
 
-  <!-- SECTION 4: CERITA (hanya jika data real) -->
-  {showStory && fullFood?.story && (
-    <section class="section cerita-section">
+  <!-- SECTION 4: INFORMASI GIZI -->
+  {fullFood?.nutrition && (
+    <section class="section gizi-section">
       <div class="container">
-        <StorySection
-          client:visible
-          headline={fullFood.story.headline}
-          body={fullFood.story.body}
-          pullQuote={fullFood.story.pullQuote}
-          image={fullFood.story.image}
-        />
-      </div>
-    </section>
-  )}
-
-  <!-- SECTION 5: JELAJAHI (Quiz + Lokasi + Terkait) -->
-  <section class="section jelajahi-section">
-    <div class="container">
-      <div class="jelajahi-grid">
-        <div class="quiz-cta-card">
-          <h2 class="quiz-cta-title">Uji Pengetahuanmu!</h2>
-          <p class="quiz-cta-subtitle">Tebak nama atau asal makanan berdasarkan gambar</p>
-          <a href="/quiz" class="quiz-cta-link">
-            Mulai Kuis
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+        <div class="gizi-card">
+          <h2 class="section-title">Informasi Gizi</h2>
+          <NutritionBars client:visible nutrition={fullFood.nutrition} />
         </div>
-
-        {fullFood?.locations && fullFood.locations.length > 0 && (
-          <div class="locations-list">
-            <h3 class="subsection-title">Tempat Mencoba</h3>
-            <div class="location-list" role="list" aria-label="Daftar lokasi">
-              {fullFood.locations.map((loc, i) => (
-                <div key={i} class="location-card" role="listitem">
-                  <div class="location-icon" aria-hidden="true">📍</div>
-                  <div class="location-info">
-                    <p class="location-name">{loc.name}</p>
-                    <p class="location-city">{loc.city}</p>
-                    <p class="location-desc">{loc.description}</p>
-                    {loc.priceRange && <span class="location-price">{loc.priceRange}</span>}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  </section>
-
-  {relatedFoods.length > 0 && (
-    <section class="section related-section-wrapper">
-      <div class="container">
-        <RelatedCarousel client:visible foods={relatedFoods} currentId={food.id} />
       </div>
     </section>
   )}
-
-  <FooterCTA regionName={regionName} regionId={food.region} />
 
   <Footer />
 </BaseLayout>
@@ -245,35 +193,13 @@ const relatedFoods = (fullFood?.related || [])
     background-size: 200% 100%; animation: shimmer 1.5s ease-in-out infinite; z-index: 0;
   }
 
-  .hero-quickfacts {
-    display: flex; flex-wrap: wrap; gap: var(--sp-2);
-    padding: var(--sp-3) var(--sp-4);
-    background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
-    border-radius: var(--r-lg);
-    margin-top: var(--sp-2);
-  }
-  .hero-quickfact {
-    display: inline-flex; align-items: center; gap: var(--sp-1);
-    padding: 4px 12px; border-radius: var(--r-full);
-    background: rgba(255,255,255,0.1);
-    font-size: var(--fs-xs); font-weight: 600;
-    color: rgba(255,255,255,0.9);
-    border: 1.5px solid rgba(255,255,255,0.2);
-  }
-  .hero-qf-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .hero-taste-chip { background: rgba(255,255,255,0.15); }
-  .hero-taste-level {
-    display: inline-block; padding: 1px 6px; border-radius: var(--r-full);
-    background: rgba(255,255,255,0.2); font-size: 10px; font-weight: 700;
-    margin-left: 2px;
-  }
   @keyframes shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
   }
 
-  .rasa-gizi-section { background: var(--c-surface); }
-  .rasa-gizi-card {
+  .gizi-section { background: var(--c-surface); }
+  .gizi-card {
     padding: var(--sp-6);
     background: var(--c-surface);
     border-radius: var(--r-xl);
@@ -283,40 +209,6 @@ const relatedFoods = (fullFood?.related || [])
 
   .bahan-section { background: var(--c-bg); }
   .cerita-section { background: var(--c-surface); }
-
-  .jelajahi-section { background: var(--c-bg); }
-  .jelajahi-grid {
-    display: flex; flex-direction: column; gap: var(--sp-8);
-  }
-
-  .quiz-cta-card {
-    padding: var(--sp-6);
-    background: var(--c-surface);
-    border-radius: var(--r-xl);
-    border: var(--cartoon-stroke) solid var(--c-accent-soft);
-    box-shadow: var(--sh-cartoon);
-    display: flex; flex-direction: column; align-items: flex-start;
-    gap: var(--sp-3);
-  }
-  .quiz-cta-title {
-    font-family: var(--ff-display);
-    font-size: var(--fs-xl); font-weight: 700;
-  }
-  .quiz-cta-subtitle { font-size: var(--fs-sm); color: var(--c-text-2); }
-  .quiz-cta-link {
-    display: inline-flex; align-items: center; gap: var(--sp-2);
-    padding: 10px 24px;
-    background: var(--c-accent); color: #fff; font-weight: 700;
-    border-radius: var(--r-full);
-    transition: all var(--dur-base) var(--ease-ui);
-  }
-  .quiz-cta-link:hover {
-    background: var(--c-accent-hover);
-    transform: translateY(-2px); box-shadow: var(--sh-3);
-  }
-
-  .related-section-wrapper { background: var(--c-surface); }
-
   .ingredients-list {
     display: flex; flex-direction: column; gap: var(--sp-2);
   }
@@ -427,68 +319,5 @@ const relatedFoods = (fullFood?.related || [])
     font-size: var(--fs-base); font-style: italic; color: var(--c-text-1);
   }
 
-  .map-layout {
-    display: grid; grid-template-columns: 1fr; gap: var(--sp-4);
-  }
-  @media (min-width: 1024px) {
-    .map-layout { grid-template-columns: 2fr 1fr; }
-  }
-  .map-container {
-    position: relative; height: 300px;
-    border-radius: var(--r-xl); overflow: hidden;
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    box-shadow: var(--sh-cartoon);
-    z-index: 1;
-  }
-  .leaflet-map { width: 100%; height: 100%; }
-  .map-loading {
-    position: absolute; inset: 0; display: flex;
-    align-items: center; justify-content: center;
-    background: var(--c-surface-2); font-size: var(--fs-lg); color: var(--c-text-3);
-  }
-  .location-list { display: flex; flex-direction: column; gap: var(--sp-3); }
-  .location-card {
-    display: flex; gap: var(--sp-3); padding: var(--sp-3);
-    background: var(--c-surface);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    border-radius: var(--r-lg); box-shadow: var(--sh-1);
-  }
-  .location-icon { font-size: 20px; flex-shrink: 0; }
-  .location-name { font-size: var(--fs-sm); font-weight: 700; margin-bottom: var(--sp-1); }
-  .location-city { font-size: var(--fs-xs); color: var(--c-text-3); margin-bottom: var(--sp-1); }
-  .location-desc { font-size: var(--fs-xs); color: var(--c-text-2); }
-  .location-price {
-    display: inline-block; margin-top: var(--sp-2); padding: 2px 8px;
-    background: var(--c-surface-2); border-radius: var(--r-full);
-    font-size: var(--fs-xs); font-weight: 700; border: 1px solid var(--c-border);
-  }
 
-  .related-carousel {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3);
-  }
-  @media (min-width: 640px) {
-    .related-carousel { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
-  }
-  @media (min-width: 1024px) {
-    .related-carousel { grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
-  }
-  .related-card {
-    display: block; background: var(--c-surface);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    border-radius: var(--r-lg); overflow: hidden;
-    transition: all var(--dur-base) var(--ease-bounce); box-shadow: var(--sh-1);
-  }
-  .related-card:hover {
-    transform: translateY(-4px); box-shadow: var(--sh-cartoon);
-  }
-  .related-image { height: 130px; overflow: hidden; }
-  @media (min-width: 768px) { .related-image { height: 150px; } }
-  .related-image img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform var(--dur-base) var(--ease-ui);
-  }
-  .related-card:hover .related-image img { transform: scale(1.05); }
-  .related-info { padding: var(--sp-3); }
-  .related-name { font-size: var(--fs-sm); font-weight: 700; margin-bottom: var(--sp-1); }
-  .related-region { font-size: var(--fs-xs); color: var(--c-text-3); }
 </style>

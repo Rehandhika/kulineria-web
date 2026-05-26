@@ -1,0 +1,101 @@
+---
+
+<section class="about-story" id="cerita">
+  <div class="container">
+    <div class="story-card">
+      <h2 class="story-heading">Cerita di Balik Kulineria</h2>
+      <div class="story-body">
+        <p>
+          Indonesia adalah negeri yang dipersatukan oleh banyak hal — bahasa, sejarah, dan terutama, rasa. Dari ujung Sumatera hingga pesisir Papua, terdapat lebih dari lima ratus hidangan tradisional yang menjadi penanda identitas setiap daerah. Masing-masing memiliki keunikan tersendiri, mulai dari pilihan bahan, racikan bumbu, hingga teknik memasak yang diwariskan lintas generasi.
+        </p>
+        <p>
+          Sayangnya, banyak di antara kekayaan tersebut yang sulit diakses dalam satu wadah. Resep-resep warisan tersebar di berbagai sumber — sebagian masih tersimpan dalam ingatan para sesepuh, sebagian lainnya berserak di catatan-catatan yang tak mudah ditemukan.
+        </p>
+        <p>
+          Kulineria hadir untuk menjawab kebutuhan tersebut. Kami menyusun atlas digital yang menghimpun ragam hidangan Nusantara secara sistematis — lengkap dengan nama, asal daerah, bahan-bahan, serta panduan penyajiannya, dalam tampilan yang rapi dan mudah dijelajahi.
+        </p>
+        <p>
+          Lebih dari sekadar katalog, Kulineria adalah jendela menuju kekayaan rasa Indonesia. Sebuah upaya kecil untuk memastikan bahwa setiap hidangan Nusantara memiliki tempat — tertata, terjangkau, dan siap dikenali oleh siapa saja.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initStory() {
+    const section = document.querySelector('.about-story');
+    if (!section) return;
+
+    gsap.from(section.querySelector('.story-card'), {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'expo.out',
+      scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => requestAnimationFrame(initStory));
+</script>
+
+<style>
+  .about-story {
+    padding: var(--sp-12) 0;
+    background: var(--c-surface);
+  }
+  @media (min-width: 768px) {
+    .about-story { padding: var(--sp-20) 0; }
+  }
+
+  .story-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--sp-8);
+    background: var(--c-surface);
+    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
+    border-radius: var(--r-xl);
+    box-shadow: var(--sh-cartoon);
+  }
+  @media (min-width: 768px) {
+    .story-card { padding: var(--sp-12); }
+  }
+
+  .story-heading {
+    font-family: var(--ff-display);
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-6);
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .story-heading { font-size: var(--fs-3xl); }
+  }
+
+  .story-body p {
+    font-size: var(--fs-base);
+    color: var(--c-text-2);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-4);
+    font-weight: 500;
+  }
+  .story-body p:last-child {
+    margin-bottom: 0;
+  }
+  .story-body p:first-of-type::first-letter {
+    font-family: var(--ff-display);
+    font-size: var(--fs-3xl);
+    font-weight: 900;
+    color: var(--c-accent);
+    float: left;
+    line-height: 0.8;
+    margin-right: var(--sp-2);
+    margin-top: 2px;
+  }
+</style>
