@@ -27,38 +27,49 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function isMobile(): boolean {
+  return typeof window !== 'undefined' && window.innerWidth < 1024;
+}
+
 export function initSmoothScroll(options: SmoothScrollOptions = {}): Lenis | null {
   if (typeof window === 'undefined') return null;
   if (prefersReducedMotion()) return null;
+  if (isMobile()) return null;
   if (lenisInstance) return lenisInstance;
 
   const opts = { ...DEFAULT_OPTIONS, ...options };
 
-  lenisInstance = new Lenis({
-    duration: opts.duration,
-    easing: opts.easing,
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: opts.wheelMultiplier,
-    touchMultiplier: opts.touchMultiplier,
-    infinite: false,
-    autoResize: true,
-  });
+  try {
+    lenisInstance = new Lenis({
+      duration: opts.duration,
+      easing: opts.easing,
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: opts.wheelMultiplier,
+      touchMultiplier: 0,
+      infinite: false,
+      autoResize: true,
+    });
 
-  document.documentElement.classList.add('lenis');
+    document.documentElement.classList.add('lenis');
 
-  lenisInstance.on('scroll', ScrollTrigger.update);
+    lenisInstance.on('scroll', ScrollTrigger.update);
 
-  gsap.ticker.add((time) => {
-    lenisInstance?.raf(time * 1000);
-  });
+    gsap.ticker.add((time) => {
+      lenisInstance?.raf(time * 1000);
+    });
 
-  gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(0);
 
-  isInitialized = true;
+    isInitialized = true;
 
-  return lenisInstance;
+    return lenisInstance;
+  } catch (err) {
+    console.warn('[smooth-scroll] Lenis init failed, falling back to native scroll', err);
+    document.documentElement.classList.remove('lenis');
+    return null;
+  }
 }
 
 export function destroySmoothScroll() {

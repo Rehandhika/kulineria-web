@@ -81,10 +81,10 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
       document.addEventListener('astro:after-swap', () => {
         destroySmoothScroll();
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           initGlobalSmoothScroll();
           refreshSmoothScroll();
-        }, 150);
+        });
       });
     </script>
 
@@ -219,11 +219,6 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     mix-blend-mode: normal;
   }
 
-  html.lenis, html.lenis body { height: auto; }
-  html.lenis { overflow: hidden; }
-  html.lenis body { overflow: visible; }
-  .lenis.lenis-smooth { scroll-behavior: auto !important; }
-  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-  .lenis.lenis-stopped { overflow: hidden; }
-  .lenis.lenis-scrolling iframe { pointer-events: none; }
+  html:not(.lenis) { overflow: auto; }
+  html:not(.lenis) body { overflow-x: hidden; overflow-y: auto; }
 </style>

@@ -10,10 +10,6 @@ html {
   text-size-adjust: 100%;
 }
 
-html.lenis, html.lenis body { height: auto; }
-html.lenis { overflow: hidden; }
-html.lenis body { overflow: visible; }
-
 body {
   background: var(--c-bg);
   color: var(--c-text-1);
@@ -45,6 +41,11 @@ input, select, textarea { font-family: var(--ff-body); }
 }
 
 /* LENIS */
+html.lenis, html.lenis body { height: auto; }
+html.lenis { overflow: hidden; }
+html.lenis body { overflow: visible; }
+html:not(.lenis) { overflow: auto; }
+html:not(.lenis) body { overflow-x: hidden; overflow-y: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
