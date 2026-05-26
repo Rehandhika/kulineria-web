@@ -16,15 +16,12 @@ export interface Region {
 
 export type Taste = 'manis' | 'pedas' | 'gurih' | 'asam' | 'asin';
 
-export type FoodType = 'berkuah' | 'digoreng' | 'dibakar' | 'mentah' | 'minuman';
-
 export interface FoodItem {
   id: string;
   name: string;
   region: RegionId;
   description: string;
   taste: Taste[];
-  type: FoodType;
   imageUrl: string;
 }
 

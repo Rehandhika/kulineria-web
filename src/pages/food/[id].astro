@@ -35,7 +35,6 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
       prepTime: fullFood.recipe.prepTime,
       cookTime: fullFood.recipe.cookTime,
       servings: fullFood.recipe.servings,
-      category: food.type,
       cuisine: 'Indonesian',
       ingredients: (fullFood.ingredients || []).map(i => `${i.qty || ''} ${i.name}`.trim()),
       image: fullFood.hero?.image,

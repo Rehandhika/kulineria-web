@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchHero from '../components/astro/search/SearchHero.astro';
 import SearchProvider from '../components/react/search/SearchProvider';
-import CommandPalette from '../components/react/search/CommandPalette';
 import Footer from '../components/astro/shared/Footer.astro';
 import { getAllFoods } from '../lib/data/loaders';
 const allFoods = getAllFoods();
@@ -12,9 +11,8 @@ const allFoods = getAllFoods();
   <SearchHero />
 
   <main class="container section-py">
-    <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 8))} />
+    <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 9))} />
   </main>
 
-  <CommandPalette client:load />
   <Footer />
 </BaseLayout>

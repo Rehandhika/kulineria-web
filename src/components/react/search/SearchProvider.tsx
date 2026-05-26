@@ -1,13 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useStore } from '@nanostores/react';
 import './SearchProvider.css';
 import {
   $searchQuery,
   $regionFilters,
   $tasteFilters,
-  $typeFilter,
   $searchResults,
   $isSearching,
   $recentSearches,
@@ -21,8 +20,26 @@ import FilterPanel from './FilterPanel';
 import ResultsGrid from './ResultsGrid';
 import DiscoveryView from './DiscoveryView';
 import NoResultsView from './NoResultsView';
-import LoadingSpinner from '../shared/LoadingSpinner';
 import type { FoodItem } from '@/types/food';
+
+function LoadingSkeleton() {
+  return (
+    <div className="results-grid">
+      <div className="results-grid-inner">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="result-card duo-card skeleton-card">
+            <div className="skeleton-img" />
+            <div className="skeleton-content">
+              <div className="skeleton-line skeleton-line-1" />
+              <div className="skeleton-line skeleton-line-2" />
+              <div className="skeleton-line skeleton-line-3" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 interface Props {
   initialFoods?: string;
@@ -32,12 +49,13 @@ export default function SearchProvider({ initialFoods }: Props) {
   const query = useStore($searchQuery);
   const regionFilters = useStore($regionFilters);
   const tasteFilters = useStore($tasteFilters);
-  const typeFilter = useStore($typeFilter);
   const results = useStore($searchResults);
   const isSearching = useStore($isSearching);
   const recentSearches = useStore($recentSearches);
   const hasActiveSearch = useStore($hasActiveSearch);
   const [hydrated, setHydrated] = useState(false);
+  const [contentKey, setContentKey] = useState(0);
+  const prevKey = useRef(0);
 
   useEffect(() => {
     loadRecentSearches();
@@ -58,7 +76,13 @@ export default function SearchProvider({ initialFoods }: Props) {
     if (!hydrated) return;
     performSearch();
     syncToUrl();
-  }, [regionFilters, tasteFilters, typeFilter, hydrated]);
+  }, [regionFilters, tasteFilters, hydrated]);
+
+  useEffect(() => {
+    if (!isSearching) {
+      setContentKey((k) => k + 1);
+    }
+  }, [isSearching, results, hasActiveSearch]);
 
   let parsedInitial: FoodItem[] = [];
   try {
@@ -69,21 +93,25 @@ export default function SearchProvider({ initialFoods }: Props) {
     <div className="search-page">
       <div className="search-layout">
         <FilterPanel />
-        <div className="search-main">
-          {isSearching && (
-            <div className="flex justify-center py-12">
-              <LoadingSpinner size="lg" label="Mencari..." />
+        <div className="search-main" id="search-main">
+          {isSearching && <LoadingSkeleton />}
+
+          {!isSearching && hasActiveSearch && results.length === 0 && (
+            <div key={contentKey} className="search-content">
+              <NoResultsView />
             </div>
           )}
 
-          {hasActiveSearch && !isSearching && results.length === 0 && <NoResultsView />}
-
-          {!hasActiveSearch && (
-            <DiscoveryView recentSearches={recentSearches} initialFoods={parsedInitial} />
+          {!isSearching && !hasActiveSearch && (
+            <div key={contentKey} className="search-content">
+              <DiscoveryView recentSearches={recentSearches} initialFoods={parsedInitial} />
+            </div>
           )}
 
-          {hasActiveSearch && !isSearching && results.length > 0 && (
-            <ResultsGrid results={results} query={query} />
+          {!isSearching && hasActiveSearch && results.length > 0 && (
+            <div key={contentKey} className="search-content">
+              <ResultsGrid results={results} query={query} />
+            </div>
           )}
         </div>
       </div>

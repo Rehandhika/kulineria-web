@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useStore } from '@nanostores/react';
-import { $regionFilters, $tasteFilters, $typeFilter, clearFilters } from '@/lib/stores/search';
-import type { RegionId, Taste, FoodType } from '@/types/food';
+import { $regionFilters, $tasteFilters, clearFilters } from '@/lib/stores/search';
+import type { RegionId, Taste } from '@/types/food';
 
 const REGIONS: { id: RegionId; label: string }[] = [
   { id: 'sumatera', label: 'Sumatera' },
@@ -20,14 +20,6 @@ const TASTES: { id: Taste; label: string }[] = [
   { id: 'gurih', label: 'Gurih' },
   { id: 'asam', label: 'Asam' },
   { id: 'asin', label: 'Asin' },
-];
-
-const TYPES: { id: FoodType; label: string }[] = [
-  { id: 'berkuah', label: 'Berkuah' },
-  { id: 'digoreng', label: 'Digoreng' },
-  { id: 'dibakar', label: 'Dibakar' },
-  { id: 'mentah', label: 'Mentah' },
-  { id: 'minuman', label: 'Minuman' },
 ];
 
 function ToggleChip({
@@ -53,7 +45,6 @@ function ToggleChip({
 export default function FilterPanel() {
   const regions = useStore($regionFilters);
   const tastes = useStore($tasteFilters);
-  const type = useStore($typeFilter);
   const [collapsed, setCollapsed] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const sectionsRef = useRef<HTMLDivElement>(null);
@@ -69,7 +60,7 @@ export default function FilterPanel() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const activeCount = regions.size + tastes.size + (type ? 1 : 0);
+  const activeCount = regions.size + tastes.size;
 
   function toggleRegion(id: RegionId) {
     const next = new Set(regions);
@@ -81,10 +72,6 @@ export default function FilterPanel() {
     const next = new Set(tastes);
     next.has(id) ? next.delete(id) : next.add(id);
     $tasteFilters.set(next);
-  }
-
-  function setType(id: FoodType | null) {
-    $typeFilter.set(type === id ? null : id);
   }
 
   return (
@@ -159,15 +146,6 @@ export default function FilterPanel() {
           <div className="filter-chips">
             {TASTES.map(t => (
               <ToggleChip key={t.id} label={t.label} active={tastes.has(t.id)} onClick={() => toggleTaste(t.id)} />
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <h4 className="filter-section-label">Jenis</h4>
-          <div className="filter-chips">
-            {TYPES.map(t => (
-              <ToggleChip key={t.id} label={t.label} active={type === t.id} onClick={() => setType(t.id)} />
             ))}
           </div>
         </section>

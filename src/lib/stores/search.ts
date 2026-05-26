@@ -1,11 +1,10 @@
 import { atom, computed } from 'nanostores';
-import type { RegionId, Taste, FoodType, FoodItem } from '@/types/food';
+import type { RegionId, Taste, FoodItem } from '@/types/food';
 import { getSearchIndex as getSearchIndexFromData, getSearchDocuments } from '@/lib/data/search-index';
 
 export const $searchQuery = atom<string>('');
 export const $regionFilters = atom<Set<RegionId>>(new Set());
 export const $tasteFilters = atom<Set<Taste>>(new Set());
-export const $typeFilter = atom<FoodType | null>(null);
 export const $searchResults = atom<FoodItem[]>([]);
 export const $isSearching = atom<boolean>(false);
 export const $recentSearches = atom<string[]>([]);
@@ -13,8 +12,8 @@ export const $recentSearches = atom<string[]>([]);
 export { getSearchIndexFromData as getSearchIndex };
 
 export const $activeFilterCount = computed(
-  [$regionFilters, $tasteFilters, $typeFilter],
-  (regions, tastes, type) => regions.size + tastes.size + (type ? 1 : 0)
+  [$regionFilters, $tasteFilters],
+  (regions, tastes) => regions.size + tastes.size
 );
 
 export const $hasActiveSearch = computed(
@@ -26,11 +25,10 @@ export function performSearch() {
   const query = $searchQuery.get();
   const regions = $regionFilters.get();
   const tastes = $tasteFilters.get();
-  const type = $typeFilter.get();
 
   $isSearching.set(true);
 
-  function matchesFilters(doc: { region: string; taste: string; type: string }): boolean {
+  function matchesFilters(doc: { region: string; taste: string }): boolean {
     if (regions.size > 0 && !regions.has(doc.region as RegionId)) return false;
     if (tastes.size > 0) {
       const docTastes = doc.taste.split(' ');
@@ -38,7 +36,6 @@ export function performSearch() {
         if (!docTastes.includes(t)) return false;
       }
     }
-    if (type && doc.type !== type) return false;
     return true;
   }
 
@@ -56,7 +53,6 @@ export function performSearch() {
     region: r.region as RegionId,
     description: '',
     taste: (r.taste as string).split(' ') as Taste[],
-    type: r.type as FoodType,
     imageUrl: r.imageUrl,
   }));
 
@@ -97,7 +93,6 @@ export function clearRecentSearches() {
 export function clearFilters() {
   $regionFilters.set(new Set());
   $tasteFilters.set(new Set());
-  $typeFilter.set(null);
 }
 
 export function syncFromUrl() {
@@ -106,12 +101,10 @@ export function syncFromUrl() {
   const q = params.get('q');
   const region = params.get('region');
   const taste = params.get('taste');
-  const type = params.get('type');
 
   if (q) $searchQuery.set(q);
   if (region) $regionFilters.set(new Set([region as RegionId]));
   if (taste) $tasteFilters.set(new Set(taste.split(',').filter(Boolean) as Taste[]));
-  if (type) $typeFilter.set(type as FoodType);
 }
 
 export function syncToUrl() {
@@ -120,12 +113,10 @@ export function syncToUrl() {
   const q = $searchQuery.get();
   const regions = $regionFilters.get();
   const tastes = $tasteFilters.get();
-  const type = $typeFilter.get();
 
   if (q) params.set('q', q);
   if (regions.size > 0) params.set('region', Array.from(regions).join(','));
   if (tastes.size > 0) params.set('taste', Array.from(tastes).join(','));
-  if (type) params.set('type', type);
 
   const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
   window.history.replaceState({}, '', newUrl);

@@ -1,89 +1,868 @@
-{
-  "foods": [
-    {"id": "coto-makassar-001", "name": "Coto Makassar", "region": "sulawesi", "description": "Sup daging sapi khas Makassar dengan bumbu kacang dan kelapa parut sangrai.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/coto-makassar.jpg"},
-    {"id": "konro-002", "name": "Konro", "region": "sulawesi", "description": "Sup iga sapi dengan bumbu kluwek, khas Makassar.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/konro.jpg"},
-    {"id": "pallubasa-003", "name": "Pallubasa", "region": "sulawesi", "description": "Hidangan daging sapi dengan kuah santan dan telur asin.", "taste": ["gurih", "asam"], "type": "berkuah", "imageUrl": "/images/foods/pallubasa.jpg"},
-    {"id": "kapurung-004", "name": "Kapurung", "region": "sulawesi", "description": "Hidangan tradisional dari sagu dengan ikan dan sayuran.", "taste": ["gurih", "asam"], "type": "berkuah", "imageUrl": "/images/foods/kapurung.jpg"},
-    {"id": "pisang-ijo-005", "name": "Pisang Ijo", "region": "sulawesi", "description": "Pisang dibalut adonan hijau dari tepung beras, disajikan dengan es dan sirup.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/pisang-ijo.jpg"},
-    {"id": "es-pisang-ijo-006", "name": "Es Pisang Ijo", "region": "sulawesi", "description": "Minuman es dengan pisang ijo dan santan.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-pisang-ijo.jpg"},
-    {"id": "sop-saudara-007", "name": "Sop Saudara", "region": "sulawesi", "description": "Sup daging dengan jeroan dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-saudara.jpg"},
-    {"id": "sop-kikil-008", "name": "Sop Kikil Makassar", "region": "sulawesi", "description": "Sup kikil sapi dengan kuah bening dan rempah.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-kikil.jpg"},
-    {"id": "sop-iga-009", "name": "Sop Iga Makassar", "region": "sulawesi", "description": "Sup iga sapi dengan kuah bening dan sayuran.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-iga.jpg"},
-    {"id": "sop-sumsum-010", "name": "Sop Sumsum Makassar", "region": "sulawesi", "description": "Sup dengan sumsum tulang dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-sumsum.jpg"},
-    {"id": "sop-buntut-011", "name": "Sop Buntut Makassar", "region": "sulawesi", "description": "Sup buntut sapi dengan kuah bening dan sayuran.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-buntut.jpg"},
-    {"id": "sop-tulang-012", "name": "Sop Tulang Makassar", "region": "sulawesi", "description": "Sup tulang sapi dengan sumsum dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-tulang.jpg"},
-    {"id": "sop-jeroan-013", "name": "Sop Jeroan Makassar", "region": "sulawesi", "description": "Sup dengan jeroan sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-jeroan.jpg"},
-    {"id": "sop-hati-014", "name": "Sop Hati Makassar", "region": "sulawesi", "description": "Sup dengan hati sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-hati.jpg"},
-    {"id": "sop-limpa-015", "name": "Sop Limpa Makassar", "region": "sulawesi", "description": "Sup dengan limpa sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-limpa.jpg"},
-    {"id": "sop-paru-016", "name": "Sop Paru Makassar", "region": "sulawesi", "description": "Sup dengan paru sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-paru.jpg"},
-    {"id": "sop-usus-017", "name": "Sop Usus Makassar", "region": "sulawesi", "description": "Sup dengan usus sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-usus.jpg"},
-    {"id": "sop-babat-018", "name": "Sop Babat Makassar", "region": "sulawesi", "description": "Sup dengan babat sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-babat.jpg"},
-    {"id": "sop-iso-019", "name": "Sop Iso Makassar", "region": "sulawesi", "description": "Sup dengan iso sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-iso.jpg"},
-    {"id": "sop-otak-020", "name": "Sop Otak Makassar", "region": "sulawesi", "description": "Sup dengan otak sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/sop-otak.jpg"},
-    {"id": "ayam-goreng-makassar-021", "name": "Ayam Goreng Makassar", "region": "sulawesi", "description": "Ayam goreng khas Makassar dengan bumbu rempah.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/ayam-goreng-makassar.jpg"},
-    {"id": "ayam-bakar-makassar-022", "name": "Ayam Bakar Makassar", "region": "sulawesi", "description": "Ayam bakar dengan bumbu khas Makassar.", "taste": ["gurih", "pedas"], "type": "dibakar", "imageUrl": "/images/foods/ayam-bakar-makassar.jpg"},
-    {"id": "ikan-bakar-makassar-023", "name": "Ikan Bakar Makassar", "region": "sulawesi", "description": "Ikan bakar dengan sambal dan bumbu khas.", "taste": ["gurih", "pedas"], "type": "dibakar", "imageUrl": "/images/foods/ikan-bakar-makassar.jpg"},
-    {"id": "ikan-goreng-makassar-024", "name": "Ikan Goreng Makassar", "region": "sulawesi", "description": "Ikan goreng dengan sambal dan lalapan.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/ikan-goreng-makassar.jpg"},
-    {"id": "sate-kambing-makassar-025", "name": "Sate Kambing Makassar", "region": "sulawesi", "description": "Sate kambing dengan bumbu kacang khas Makassar.", "taste": ["gurih", "pedas"], "type": "dibakar", "imageUrl": "/images/foods/sate-kambing-makassar.jpg"},
-    {"id": "sate-ayam-makassar-026", "name": "Sate Ayam Makassar", "region": "sulawesi", "description": "Sate ayam dengan bumbu kacang khas Makassar.", "taste": ["gurih", "pedas"], "type": "dibakar", "imageUrl": "/images/foods/sate-ayam-makassar.jpg"},
-    {"id": "sate-sapi-makassar-027", "name": "Sate Sapi Makassar", "region": "sulawesi", "description": "Sate sapi dengan bumbu kacang khas Makassar.", "taste": ["gurih", "pedas"], "type": "dibakar", "imageUrl": "/images/foods/sate-sapi-makassar.jpg"},
-    {"id": "nasi-kuning-makassar-028", "name": "Nasi Kuning Makassar", "region": "sulawesi", "description": "Nasi kuning dengan lauk khas Makassar.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-kuning-makassar.jpg"},
-    {"id": "nasi-putih-makassar-029", "name": "Nasi Putih Makassar", "region": "sulawesi", "description": "Nasi putih dengan lauk tradisional Makassar.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-putih-makassar.jpg"},
-    {"id": "nasi-goreng-makassar-030", "name": "Nasi Goreng Makassar", "region": "sulawesi", "description": "Nasi goreng dengan bumbu khas Makassar.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/nasi-goreng-makassar.jpg"},
-    {"id": "mie-goreng-makassar-031", "name": "Mie Goreng Makassar", "region": "sulawesi", "description": "Mie goreng dengan bumbu khas Makassar.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/mie-goreng-makassar.jpg"},
-    {"id": "mie-ayam-makassar-032", "name": "Mie Ayam Makassar", "region": "sulawesi", "description": "Mie ayam dengan kuah kaldu khas Makassar.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/mie-ayam-makassar.jpg"},
-    {"id": "mie-rebus-makassar-033", "name": "Mie Rebus Makassar", "region": "sulawesi", "description": "Mie rebus dengan kuah kaldu dan telur.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/mie-rebus-makassar.jpg"},
-    {"id": "bakso-makassar-034", "name": "Bakso Makassar", "region": "sulawesi", "description": "Bakso dengan kuah kaldu dan mi, khas Makassar.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/bakso-makassar.jpg"},
-    {"id": "soto-makassar-035", "name": "Soto Makassar", "region": "sulawesi", "description": "Soto dengan kuah bening dan daging sapi.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-makassar.jpg"},
-    {"id": "soto-ayam-makassar-036", "name": "Soto Ayam Makassar", "region": "sulawesi", "description": "Soto ayam dengan kuah kuning dan bihun.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-ayam-makassar.jpg"},
-    {"id": "soto-daging-makassar-037", "name": "Soto Daging Makassar", "region": "sulawesi", "description": "Soto daging dengan kuah bening dan sayuran.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-daging-makassar.jpg"},
-    {"id": "soto-kambing-makassar-038", "name": "Soto Kambing Makassar", "region": "sulawesi", "description": "Soto kambing dengan kuah bening dan tomat.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-kambing-makassar.jpg"},
-    {"id": "soto-jeroan-makassar-039", "name": "Soto Jeroan Makassar", "region": "sulawesi", "description": "Soto dengan jeroan sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-jeroan-makassar.jpg"},
-    {"id": "soto-buntut-makassar-040", "name": "Soto Buntut Makassar", "region": "sulawesi", "description": "Soto buntut dengan kuah bening dan sayuran.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-buntut-makassar.jpg"},
-    {"id": "soto-iga-makassar-041", "name": "Soto Iga Makassar", "region": "sulawesi", "description": "Soto iga dengan kuah bening dan tomat.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-iga-makassar.jpg"},
-    {"id": "soto-sumsum-makassar-042", "name": "Soto Sumsum Makassar", "region": "sulawesi", "description": "Soto dengan sumsum tulang dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-sumsum-makassar.jpg"},
-    {"id": "soto-tulang-makassar-043", "name": "Soto Tulang Makassar", "region": "sulawesi", "description": "Soto tulang dengan sumsum dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-tulang-makassar.jpg"},
-    {"id": "soto-hati-makassar-044", "name": "Soto Hati Makassar", "region": "sulawesi", "description": "Soto dengan hati sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-hati-makassar.jpg"},
-    {"id": "soto-limpa-makassar-045", "name": "Soto Limpa Makassar", "region": "sulawesi", "description": "Soto dengan limpa sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-limpa-makassar.jpg"},
-    {"id": "soto-paru-makassar-046", "name": "Soto Paru Makassar", "region": "sulawesi", "description": "Soto dengan paru sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-paru-makassar.jpg"},
-    {"id": "soto-usus-makassar-047", "name": "Soto Usus Makassar", "region": "sulawesi", "description": "Soto dengan usus sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-usus-makassar.jpg"},
-    {"id": "soto-babat-makassar-048", "name": "Soto Babat Makassar", "region": "sulawesi", "description": "Soto dengan babat sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-babat-makassar.jpg"},
-    {"id": "soto-iso-makassar-049", "name": "Soto Iso Makassar", "region": "sulawesi", "description": "Soto dengan iso sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-iso-makassar.jpg"},
-    {"id": "soto-otak-makassar-050", "name": "Soto Otak Makassar", "region": "sulawesi", "description": "Soto dengan otak sapi dan kuah bening.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-otak-makassar.jpg"},
-    {"id": "kue-bangkit-makassar-051", "name": "Kue Bangkit Makassar", "region": "sulawesi", "description": "Kue kering dari tepung sagu dan santan.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-bangkit-makassar.jpg"},
-    {"id": "kue-lapis-makassar-052", "name": "Kue Lapis Makassar", "region": "sulawesi", "description": "Kue lapis dari tepung beras dengan warna-warni.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-lapis-makassar.jpg"},
-    {"id": "kue-klepon-makassar-053", "name": "Klepon Makassar", "region": "sulawesi", "description": "Kue hijau dengan isian gula merah cair.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-klepon-makassar.jpg"},
-    {"id": "kue-onde-makassar-054", "name": "Onde-onde Makassar", "region": "sulawesi", "description": "Kue dari tepung beras dengan isian kacang hijau.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-onde-makassar.jpg"},
-    {"id": "kue-nagasari-makassar-055", "name": "Nagasari Makassar", "region": "sulawesi", "description": "Kue dari tepung beras dengan isian pisang.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-nagasari-makassar.jpg"},
-    {"id": "kue-putu-makassar-056", "name": "Kue Putu Makassar", "region": "sulawesi", "description": "Kue dari tepung beras dengan isian gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-putu-makassar.jpg"},
-    {"id": "kue-mendut-makassar-057", "name": "Kue Mendut Makassar", "region": "sulawesi", "description": "Kue dari tepung beras dengan isian gula merah dan kelapa.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-mendut-makassar.jpg"},
-    {"id": "kue-getuk-makassar-058", "name": "Getuk Makassar", "region": "sulawesi", "description": "Kue dari singkong dengan gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-getuk-makassar.jpg"},
-    {"id": "kue-lumpur-makassar-059", "name": "Kue Lumpur Makassar", "region": "sulawesi", "description": "Kue dari tepung terigu dengan isian pisang.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-lumpur-makassar.jpg"},
-    {"id": "kue-bika-makassar-060", "name": "Bika Makassar", "region": "sulawesi", "description": "Kue dengan tekstur berpori dan aroma pandan.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-bika-makassar.jpg"},
-    {"id": "kue-serabi-makassar-061", "name": "Serabi Makassar", "region": "sulawesi", "description": "Kue dari tepung beras dengan topping cokelat.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-serabi-makassar.jpg"},
-    {"id": "kue-ape-makassar-062", "name": "Kue Ape Makassar", "region": "sulawesi", "description": "Kue tipis dari tepung beras dengan kelapa.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-ape-makassar.jpg"},
-    {"id": "kue-cucur-makassar-063", "name": "Kue Cucur Makassar", "region": "sulawesi", "description": "Kue dari tepung beras dan gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-cucur-makassar.jpg"},
-    {"id": "es-buah-makassar-064", "name": "Es Buah Makassar", "region": "sulawesi", "description": "Minuman dengan potongan buah segar dan susu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-buah-makassar.jpg"},
-    {"id": "es-teler-makassar-065", "name": "Es Teler Makassar", "region": "sulawesi", "description": "Minuman dengan alpukat, kelapa muda, dan cincau.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-teler-makassar.jpg"},
-    {"id": "es-degan-makassar-066", "name": "Es Degan Makassar", "region": "sulawesi", "description": "Minuman dari kelapa muda dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-degan-makassar.jpg"},
-    {"id": "es-jeruk-makassar-067", "name": "Es Jeruk Makassar", "region": "sulawesi", "description": "Minuman jeruk segar dengan es batu.", "taste": ["asam", "manis"], "type": "minuman", "imageUrl": "/images/foods/es-jeruk-makassar.jpg"},
-    {"id": "es-teh-manis-makassar-068", "name": "Es Teh Manis Makassar", "region": "sulawesi", "description": "Teh manis dingin yang menyegarkan.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-teh-manis-makassar.jpg"},
-    {"id": "es-kopi-susu-makassar-069", "name": "Es Kopi Susu Makassar", "region": "sulawesi", "description": "Kopi susu gula aren yang populer.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-kopi-susu-makassar.jpg"},
-    {"id": "es-campur-makassar-070", "name": "Es Campur Makassar", "region": "sulawesi", "description": "Es campur dengan berbagai topping dan sirup.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-campur-makassar.jpg"},
-    {"id": "es-cendol-makassar-071", "name": "Es Cendol Makassar", "region": "sulawesi", "description": "Minuman dengan cendol, santan, dan gula merah.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-cendol-makassar.jpg"},
-    {"id": "es-dawet-makassar-072", "name": "Es Dawet Makassar", "region": "sulawesi", "description": "Minuman dengan dawet hijau dan gula merah.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-dawet-makassar.jpg"},
-    {"id": "es-cincau-makassar-073", "name": "Es Cincau Makassar", "region": "sulawesi", "description": "Minuman dengan cincau hitam dan santan.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-cincau-makassar.jpg"},
-    {"id": "es-kelapa-muda-makassar-074", "name": "Es Kelapa Muda Makassar", "region": "sulawesi", "description": "Minuman dari kelapa muda dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-kelapa-muda-makassar.jpg"},
-    {"id": "es-alpukat-makassar-075", "name": "Es Alpukat Makassar", "region": "sulawesi", "description": "Minuman alpukat dengan susu kental manis.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-alpukat-makassar.jpg"},
-    {"id": "es-avocado-makassar-076", "name": "Es Avocado Makassar", "region": "sulawesi", "description": "Minuman alpukat dengan susu kental manis dan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-avocado-makassar.jpg"},
-    {"id": "es-susu-makassar-077", "name": "Es Susu Makassar", "region": "sulawesi", "description": "Minuman susu dingin dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-susu-makassar.jpg"},
-    {"id": "es-soda-makassar-078", "name": "Es Soda Makassar", "region": "sulawesi", "description": "Minuman soda dengan es batu dan sirup.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-soda-makassar.jpg"},
-    {"id": "es-sirup-makassar-079", "name": "Es Sirup Makassar", "region": "sulawesi", "description": "Minuman sirup dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-sirup-makassar.jpg"},
-    {"id": "es-cream-makassar-080", "name": "Es Cream Makassar", "region": "sulawesi", "description": "Minuman es krim dengan susu dan sirup.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-cream-makassar.jpg"},
-    {"id": "es-milkshake-makassar-081", "name": "Es Milkshake Makassar", "region": "sulawesi", "description": "Minuman milkshake dengan berbagai rasa.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-milkshake-makassar.jpg"},
-    {"id": "es-smoothie-makassar-082", "name": "Es Smoothie Makassar", "region": "sulawesi", "description": "Minuman smoothie dengan buah segar.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-smoothie-makassar.jpg"},
-    {"id": "es-juice-makassar-083", "name": "Es Juice Makassar", "region": "sulawesi", "description": "Minuman jus buah segar dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-juice-makassar.jpg"},
-    {"id": "es-fruit-tea-makassar-084", "name": "Es Fruit Tea Makassar", "region": "sulawesi", "description": "Minuman teh buah dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-fruit-tea-makassar.jpg"},
-    {"id": "es-lemon-tea-makassar-085", "name": "Es Lemon Tea Makassar", "region": "sulawesi", "description": "Minuman teh lemon dengan es batu.", "taste": ["asam", "manis"], "type": "minuman", "imageUrl": "/images/foods/es-lemon-tea-makassar.jpg"}
-  ]
+﻿{
+    "foods":  [
+                  {
+                      "id":  "coto-makassar-001",
+                      "name":  "Coto Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup daging sapi khas Makassar dengan bumbu kacang dan kelapa parut sangrai.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/coto-makassar.jpg"
+                  },
+                  {
+                      "id":  "konro-002",
+                      "name":  "Konro",
+                      "region":  "sulawesi",
+                      "description":  "Sup iga sapi dengan bumbu kluwek, khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/konro.jpg"
+                  },
+                  {
+                      "id":  "pallubasa-003",
+                      "name":  "Pallubasa",
+                      "region":  "sulawesi",
+                      "description":  "Hidangan daging sapi dengan kuah santan dan telur asin.",
+                      "taste":  [
+                                    "gurih",
+                                    "asam"
+                                ],
+                      "imageUrl":  "/images/foods/pallubasa.jpg"
+                  },
+                  {
+                      "id":  "kapurung-004",
+                      "name":  "Kapurung",
+                      "region":  "sulawesi",
+                      "description":  "Hidangan tradisional dari sagu dengan ikan dan sayuran.",
+                      "taste":  [
+                                    "gurih",
+                                    "asam"
+                                ],
+                      "imageUrl":  "/images/foods/kapurung.jpg"
+                  },
+                  {
+                      "id":  "pisang-ijo-005",
+                      "name":  "Pisang Ijo",
+                      "region":  "sulawesi",
+                      "description":  "Pisang dibalut adonan hijau dari tepung beras, disajikan dengan es dan sirup.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/pisang-ijo.jpg"
+                  },
+                  {
+                      "id":  "es-pisang-ijo-006",
+                      "name":  "Es Pisang Ijo",
+                      "region":  "sulawesi",
+                      "description":  "Minuman es dengan pisang ijo dan santan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-pisang-ijo.jpg"
+                  },
+                  {
+                      "id":  "sop-saudara-007",
+                      "name":  "Sop Saudara",
+                      "region":  "sulawesi",
+                      "description":  "Sup daging dengan jeroan dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-saudara.jpg"
+                  },
+                  {
+                      "id":  "sop-kikil-008",
+                      "name":  "Sop Kikil Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup kikil sapi dengan kuah bening dan rempah.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-kikil.jpg"
+                  },
+                  {
+                      "id":  "sop-iga-009",
+                      "name":  "Sop Iga Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup iga sapi dengan kuah bening dan sayuran.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-iga.jpg"
+                  },
+                  {
+                      "id":  "sop-sumsum-010",
+                      "name":  "Sop Sumsum Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan sumsum tulang dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-sumsum.jpg"
+                  },
+                  {
+                      "id":  "sop-buntut-011",
+                      "name":  "Sop Buntut Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup buntut sapi dengan kuah bening dan sayuran.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-buntut.jpg"
+                  },
+                  {
+                      "id":  "sop-tulang-012",
+                      "name":  "Sop Tulang Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup tulang sapi dengan sumsum dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-tulang.jpg"
+                  },
+                  {
+                      "id":  "sop-jeroan-013",
+                      "name":  "Sop Jeroan Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan jeroan sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-jeroan.jpg"
+                  },
+                  {
+                      "id":  "sop-hati-014",
+                      "name":  "Sop Hati Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan hati sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-hati.jpg"
+                  },
+                  {
+                      "id":  "sop-limpa-015",
+                      "name":  "Sop Limpa Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan limpa sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-limpa.jpg"
+                  },
+                  {
+                      "id":  "sop-paru-016",
+                      "name":  "Sop Paru Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan paru sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-paru.jpg"
+                  },
+                  {
+                      "id":  "sop-usus-017",
+                      "name":  "Sop Usus Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan usus sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-usus.jpg"
+                  },
+                  {
+                      "id":  "sop-babat-018",
+                      "name":  "Sop Babat Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan babat sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-babat.jpg"
+                  },
+                  {
+                      "id":  "sop-iso-019",
+                      "name":  "Sop Iso Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan iso sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-iso.jpg"
+                  },
+                  {
+                      "id":  "sop-otak-020",
+                      "name":  "Sop Otak Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sup dengan otak sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/sop-otak.jpg"
+                  },
+                  {
+                      "id":  "ayam-goreng-makassar-021",
+                      "name":  "Ayam Goreng Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Ayam goreng khas Makassar dengan bumbu rempah.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/ayam-goreng-makassar.jpg"
+                  },
+                  {
+                      "id":  "ayam-bakar-makassar-022",
+                      "name":  "Ayam Bakar Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Ayam bakar dengan bumbu khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/ayam-bakar-makassar.jpg"
+                  },
+                  {
+                      "id":  "ikan-bakar-makassar-023",
+                      "name":  "Ikan Bakar Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Ikan bakar dengan sambal dan bumbu khas.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/ikan-bakar-makassar.jpg"
+                  },
+                  {
+                      "id":  "ikan-goreng-makassar-024",
+                      "name":  "Ikan Goreng Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Ikan goreng dengan sambal dan lalapan.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/ikan-goreng-makassar.jpg"
+                  },
+                  {
+                      "id":  "sate-kambing-makassar-025",
+                      "name":  "Sate Kambing Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sate kambing dengan bumbu kacang khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/sate-kambing-makassar.jpg"
+                  },
+                  {
+                      "id":  "sate-ayam-makassar-026",
+                      "name":  "Sate Ayam Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sate ayam dengan bumbu kacang khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/sate-ayam-makassar.jpg"
+                  },
+                  {
+                      "id":  "sate-sapi-makassar-027",
+                      "name":  "Sate Sapi Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Sate sapi dengan bumbu kacang khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/sate-sapi-makassar.jpg"
+                  },
+                  {
+                      "id":  "nasi-kuning-makassar-028",
+                      "name":  "Nasi Kuning Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Nasi kuning dengan lauk khas Makassar.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-kuning-makassar.jpg"
+                  },
+                  {
+                      "id":  "nasi-putih-makassar-029",
+                      "name":  "Nasi Putih Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Nasi putih dengan lauk tradisional Makassar.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-putih-makassar.jpg"
+                  },
+                  {
+                      "id":  "nasi-goreng-makassar-030",
+                      "name":  "Nasi Goreng Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Nasi goreng dengan bumbu khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-goreng-makassar.jpg"
+                  },
+                  {
+                      "id":  "mie-goreng-makassar-031",
+                      "name":  "Mie Goreng Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Mie goreng dengan bumbu khas Makassar.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/mie-goreng-makassar.jpg"
+                  },
+                  {
+                      "id":  "mie-ayam-makassar-032",
+                      "name":  "Mie Ayam Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Mie ayam dengan kuah kaldu khas Makassar.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/mie-ayam-makassar.jpg"
+                  },
+                  {
+                      "id":  "mie-rebus-makassar-033",
+                      "name":  "Mie Rebus Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Mie rebus dengan kuah kaldu dan telur.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/mie-rebus-makassar.jpg"
+                  },
+                  {
+                      "id":  "bakso-makassar-034",
+                      "name":  "Bakso Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Bakso dengan kuah kaldu dan mi, khas Makassar.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/bakso-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-makassar-035",
+                      "name":  "Soto Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan kuah bening dan daging sapi.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-ayam-makassar-036",
+                      "name":  "Soto Ayam Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto ayam dengan kuah kuning dan bihun.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-ayam-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-daging-makassar-037",
+                      "name":  "Soto Daging Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto daging dengan kuah bening dan sayuran.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-daging-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-kambing-makassar-038",
+                      "name":  "Soto Kambing Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto kambing dengan kuah bening dan tomat.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-kambing-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-jeroan-makassar-039",
+                      "name":  "Soto Jeroan Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan jeroan sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-jeroan-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-buntut-makassar-040",
+                      "name":  "Soto Buntut Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto buntut dengan kuah bening dan sayuran.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-buntut-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-iga-makassar-041",
+                      "name":  "Soto Iga Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto iga dengan kuah bening dan tomat.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-iga-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-sumsum-makassar-042",
+                      "name":  "Soto Sumsum Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan sumsum tulang dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-sumsum-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-tulang-makassar-043",
+                      "name":  "Soto Tulang Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto tulang dengan sumsum dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-tulang-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-hati-makassar-044",
+                      "name":  "Soto Hati Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan hati sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-hati-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-limpa-makassar-045",
+                      "name":  "Soto Limpa Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan limpa sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-limpa-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-paru-makassar-046",
+                      "name":  "Soto Paru Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan paru sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-paru-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-usus-makassar-047",
+                      "name":  "Soto Usus Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan usus sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-usus-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-babat-makassar-048",
+                      "name":  "Soto Babat Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan babat sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-babat-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-iso-makassar-049",
+                      "name":  "Soto Iso Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan iso sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-iso-makassar.jpg"
+                  },
+                  {
+                      "id":  "soto-otak-makassar-050",
+                      "name":  "Soto Otak Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Soto dengan otak sapi dan kuah bening.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-otak-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-bangkit-makassar-051",
+                      "name":  "Kue Bangkit Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue kering dari tepung sagu dan santan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-bangkit-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-lapis-makassar-052",
+                      "name":  "Kue Lapis Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue lapis dari tepung beras dengan warna-warni.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-lapis-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-klepon-makassar-053",
+                      "name":  "Klepon Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue hijau dengan isian gula merah cair.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-klepon-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-onde-makassar-054",
+                      "name":  "Onde-onde Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung beras dengan isian kacang hijau.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-onde-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-nagasari-makassar-055",
+                      "name":  "Nagasari Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung beras dengan isian pisang.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-nagasari-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-putu-makassar-056",
+                      "name":  "Kue Putu Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung beras dengan isian gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-putu-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-mendut-makassar-057",
+                      "name":  "Kue Mendut Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung beras dengan isian gula merah dan kelapa.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-mendut-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-getuk-makassar-058",
+                      "name":  "Getuk Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari singkong dengan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-getuk-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-lumpur-makassar-059",
+                      "name":  "Kue Lumpur Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung terigu dengan isian pisang.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-lumpur-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-bika-makassar-060",
+                      "name":  "Bika Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dengan tekstur berpori dan aroma pandan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-bika-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-serabi-makassar-061",
+                      "name":  "Serabi Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung beras dengan topping cokelat.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-serabi-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-ape-makassar-062",
+                      "name":  "Kue Ape Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue tipis dari tepung beras dengan kelapa.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-ape-makassar.jpg"
+                  },
+                  {
+                      "id":  "kue-cucur-makassar-063",
+                      "name":  "Kue Cucur Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kue dari tepung beras dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-cucur-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-buah-makassar-064",
+                      "name":  "Es Buah Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dengan potongan buah segar dan susu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-buah-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-teler-makassar-065",
+                      "name":  "Es Teler Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dengan alpukat, kelapa muda, dan cincau.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-teler-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-degan-makassar-066",
+                      "name":  "Es Degan Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dari kelapa muda dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-degan-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-jeruk-makassar-067",
+                      "name":  "Es Jeruk Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman jeruk segar dengan es batu.",
+                      "taste":  [
+                                    "asam",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-jeruk-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-teh-manis-makassar-068",
+                      "name":  "Es Teh Manis Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Teh manis dingin yang menyegarkan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-teh-manis-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-kopi-susu-makassar-069",
+                      "name":  "Es Kopi Susu Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Kopi susu gula aren yang populer.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-kopi-susu-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-campur-makassar-070",
+                      "name":  "Es Campur Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Es campur dengan berbagai topping dan sirup.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-campur-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-cendol-makassar-071",
+                      "name":  "Es Cendol Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dengan cendol, santan, dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-cendol-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-dawet-makassar-072",
+                      "name":  "Es Dawet Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dengan dawet hijau dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-dawet-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-cincau-makassar-073",
+                      "name":  "Es Cincau Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dengan cincau hitam dan santan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-cincau-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-kelapa-muda-makassar-074",
+                      "name":  "Es Kelapa Muda Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman dari kelapa muda dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-kelapa-muda-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-alpukat-makassar-075",
+                      "name":  "Es Alpukat Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman alpukat dengan susu kental manis.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-alpukat-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-avocado-makassar-076",
+                      "name":  "Es Avocado Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman alpukat dengan susu kental manis dan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-avocado-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-susu-makassar-077",
+                      "name":  "Es Susu Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman susu dingin dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-susu-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-soda-makassar-078",
+                      "name":  "Es Soda Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman soda dengan es batu dan sirup.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-soda-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-sirup-makassar-079",
+                      "name":  "Es Sirup Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman sirup dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-sirup-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-cream-makassar-080",
+                      "name":  "Es Cream Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman es krim dengan susu dan sirup.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-cream-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-milkshake-makassar-081",
+                      "name":  "Es Milkshake Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman milkshake dengan berbagai rasa.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-milkshake-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-smoothie-makassar-082",
+                      "name":  "Es Smoothie Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman smoothie dengan buah segar.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-smoothie-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-juice-makassar-083",
+                      "name":  "Es Juice Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman jus buah segar dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-juice-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-fruit-tea-makassar-084",
+                      "name":  "Es Fruit Tea Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman teh buah dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-fruit-tea-makassar.jpg"
+                  },
+                  {
+                      "id":  "es-lemon-tea-makassar-085",
+                      "name":  "Es Lemon Tea Makassar",
+                      "region":  "sulawesi",
+                      "description":  "Minuman teh lemon dengan es batu.",
+                      "taste":  [
+                                    "asam",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-lemon-tea-makassar.jpg"
+                  }
+              ]
 }

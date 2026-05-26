@@ -8,15 +8,14 @@ export interface SearchDocument {
   region: string;
   description: string;
   taste: string;
-  type: string;
   tags: string;
   imageUrl: string;
 }
 
 export function buildSearchIndex(foods: FoodItem[]): MiniSearch<SearchDocument> {
   const miniSearch = new MiniSearch<SearchDocument>({
-    fields: ['name', 'region', 'description', 'taste', 'type', 'tags'],
-    storeFields: ['id', 'name', 'region', 'taste', 'type', 'imageUrl'],
+    fields: ['name', 'region', 'description', 'taste', 'tags'],
+    storeFields: ['id', 'name', 'region', 'taste', 'imageUrl'],
     searchOptions: {
       boost: { name: 3, region: 2, taste: 1.5 },
       fuzzy: 0.2,
@@ -30,7 +29,6 @@ export function buildSearchIndex(foods: FoodItem[]): MiniSearch<SearchDocument> 
     region: f.region,
     description: f.description,
     taste: f.taste.join(' '),
-    type: f.type,
     tags: (f as any).tags?.join(' ') ?? '',
     imageUrl: f.imageUrl,
   }));
@@ -47,7 +45,6 @@ export function getSearchDocuments(): SearchDocument[] {
     region: f.region,
     description: f.description,
     taste: f.taste.join(' '),
-    type: f.type,
     tags: (f as any).tags?.join(' ') ?? '',
     imageUrl: f.imageUrl,
   }));

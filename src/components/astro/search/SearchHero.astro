@@ -1,7 +1,5 @@
 ---
 import SearchBar from '../../react/search/SearchBar';
-import { getAllFoods } from '../../../lib/data/loaders';
-const foods = getAllFoods();
 ---
 
 <section class="search-hero" id="search-hero">
@@ -13,12 +11,6 @@ const foods = getAllFoods();
     <h1 class="search-hero-title" id="search-hero-title">
       Cari &amp; Temukan Kuliner Nusantara
     </h1>
-
-    <p class="search-hero-subtitle">
-      <strong class="search-hero-strong">{foods.length}+</strong> hidangan dari
-      <strong class="search-hero-strong">6</strong> wilayah —
-      mulai dari Sabang sampai Merauke
-    </p>
 
     <div class="search-hero-bar">
       <SearchBar client:load />
@@ -35,8 +27,7 @@ const foods = getAllFoods();
 
     gsap.from(hero.querySelector('.search-hero-label'), { y: -12, opacity: 0, duration: 0.8, ease: 'power3.out' });
     gsap.from(hero.querySelector('.search-hero-title'), { y: 32, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
-    gsap.from(hero.querySelector('.search-hero-subtitle'), { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.35 });
-    gsap.from(hero.querySelector('.search-hero-bar'), { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5, scale: 0.95 });
+    gsap.from(hero.querySelector('.search-hero-bar'), { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.35, scale: 0.95 });
   }
 
   document.addEventListener('astro:page-load', () => requestAnimationFrame(initSearchHero));
@@ -98,22 +89,6 @@ const foods = getAllFoods();
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-  }
-
-  .search-hero-subtitle {
-    font-family: var(--ff-body);
-    font-size: clamp(var(--fs-base), 2vw, var(--fs-lg));
-    color: rgba(255, 248, 240, 0.75);
-    font-weight: 400;
-    line-height: var(--lh-relaxed);
-    margin-bottom: var(--sp-8);
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .search-hero-strong {
-    font-weight: 700;
-    color: var(--c-brand-caramel);
   }
 
   .search-hero-bar {

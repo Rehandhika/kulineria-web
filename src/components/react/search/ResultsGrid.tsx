@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 
+const ITEMS_PER_PAGE = 12;
+
 interface FoodItem {
   id: string;
   name: string;
   region: string;
   taste: string[];
-  type: string;
   imageUrl: string;
 }
 
@@ -20,11 +21,31 @@ const REGION_COLORS: Record<string, string> = {
   'maluku-papua': 'var(--c-maluku-papua)',
 };
 
-export default function ResultsGrid({ results, query }: { results: FoodItem[]; query: string }) {
-  const [displayCount, setDisplayCount] = useState(12);
+function getPageNumbers(current: number, total: number): (number | 'ellipsis')[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const pages: (number | 'ellipsis')[] = [1];
+  if (current > 3) pages.push('ellipsis');
+  const start = Math.max(2, current - 1);
+  const end = Math.min(total - 1, current + 1);
+  for (let i = start; i <= end; i++) pages.push(i);
+  if (current < total - 2) pages.push('ellipsis');
+  pages.push(total);
+  return pages;
+}
 
-  const visibleResults = results.slice(0, displayCount);
-  const hasMore = displayCount < results.length;
+export default function ResultsGrid({ results, query }: { results: FoodItem[]; query: string }) {
+  const [page, setPage] = useState(1);
+
+  const totalPages = Math.ceil(results.length / ITEMS_PER_PAGE);
+  const startIdx = (page - 1) * ITEMS_PER_PAGE;
+  const paginated = results.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+  const pageNumbers = getPageNumbers(page, totalPages);
+
+  function goToPage(p: number) {
+    if (p < 1 || p > totalPages) return;
+    setPage(p);
+    document.getElementById('search-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   return (
     <div className="results-grid">
@@ -34,7 +55,7 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
       </div>
 
       <div className="results-grid-inner">
-        {visibleResults.map((food) => (
+        {paginated.map((food) => (
           <a
             key={food.id}
             href={`/food/${food.id}`}
@@ -52,20 +73,46 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
                 {food.taste.map((t) => (
                   <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{t}</span>
                 ))}
-                <span className="duo-badge duo-badge-accent" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{food.type}</span>
               </div>
             </div>
           </a>
         ))}
       </div>
 
-      {hasMore && (
-        <div className="flex justify-center mt-8">
+      {totalPages > 1 && (
+        <div className="search-pagination">
           <button
-            onClick={() => setDisplayCount((prev) => prev + 12)}
-            className="duo-btn duo-btn-secondary"
+            className="page-nav"
+            disabled={page === 1}
+            onClick={() => goToPage(page - 1)}
+            aria-label="Halaman sebelumnya"
           >
-            Muat lagi ({results.length - displayCount} tersisa)
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+
+          {pageNumbers.map((p, i) =>
+            p === 'ellipsis' ? (
+              <span className="page-ellipsis" key={`e-${i}`}>⋯</span>
+            ) : (
+              <button
+                key={p}
+                className={`page-btn${p === page ? ' active' : ''}`}
+                onClick={() => goToPage(p)}
+                aria-label={`Halaman ${p}`}
+                aria-current={p === page ? 'page' : undefined}
+              >
+                {p}
+              </button>
+            )
+          )}
+
+          <button
+            className="page-nav"
+            disabled={page === totalPages}
+            onClick={() => goToPage(page + 1)}
+            aria-label="Halaman berikutnya"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
         </div>
       )}

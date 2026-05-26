@@ -1,89 +1,886 @@
-{
-  "foods": [
-    {"id": "gudeg-001", "name": "Gudeg", "region": "jawa", "description": "Hidangan khas Yogyakarta dari nangka muda yang dimasak dengan gula merah hingga manis dan lembut.", "taste": ["manis", "gurih"], "type": "berkuah", "imageUrl": "/images/foods/gudeg.jpg"},
-    {"id": "soto-ayam-002", "name": "Soto Ayam", "region": "jawa", "description": "Sup ayam kuning dengan bumbu kunyit, disajikan dengan nasi, tauge, dan telur.", "taste": ["gurih", "asam"], "type": "berkuah", "imageUrl": "/images/foods/soto-ayam.jpg"},
-    {"id": "nasi-goreng-003", "name": "Nasi Goreng", "region": "jawa", "description": "Nasi yang digoreng dengan bumbu kecap, telur, dan berbagai pilihan lauk.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/nasi-goreng.jpg"},
-    {"id": "rawon-004", "name": "Rawon", "region": "jawa", "description": "Sup daging berwarna hitam dari kluwek, khas Jawa Timur.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/rawon.jpg"},
-    {"id": "bakso-005", "name": "Bakso", "region": "jawa", "description": "Bakso daging sapi dengan kuah kaldu, mi, tahu, dan siomay.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/bakso.jpg"},
-    {"id": "sate-ayam-006", "name": "Sate Ayam", "region": "jawa", "description": "Sate ayam dengan bumbu kacang yang gurih dan manis.", "taste": ["gurih", "manis"], "type": "dibakar", "imageUrl": "/images/foods/sate-ayam.jpg"},
-    {"id": "gado-gado-007", "name": "Gado-gado", "region": "jawa", "description": "Sayuran rebus dengan bumbu kacang, tahu, tempe, dan telur.", "taste": ["gurih", "manis"], "type": "mentah", "imageUrl": "/images/foods/gado-gado.jpg"},
-    {"id": "pecel-008", "name": "Pecel", "region": "jawa", "description": "Sayuran dengan bumbu kacang pedas, khas Jawa Timur.", "taste": ["pedas", "gurih"], "type": "mentah", "imageUrl": "/images/foods/pecel.jpg"},
-    {"id": "rujak-009", "name": "Rujak", "region": "jawa", "description": "Buah-buahan segar dengan bumbu rujak pedas manis.", "taste": ["pedas", "manis", "asam"], "type": "mentah", "imageUrl": "/images/foods/rujak.jpg"},
-    {"id": "nasi-pecel-010", "name": "Nasi Pecel", "region": "jawa", "description": "Nasi dengan sayuran dan bumbu kacang khas Madiun.", "taste": ["pedas", "gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-pecel.jpg"},
-    {"id": "soto-lamongan-011", "name": "Soto Lamongan", "region": "jawa", "description": "Soto ayam kuning dengan koya dan suwiran ayam.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-lamongan.jpg"},
-    {"id": "soto-madura-012", "name": "Soto Madura", "region": "jawa", "description": "Soto daging sapi dengan kuah bening dan koya.", "taste": ["gurih", "asin"], "type": "berkuah", "imageUrl": "/images/foods/soto-madura.jpg"},
-    {"id": "soto-betawi-013", "name": "Soto Betawi", "region": "jawa", "description": "Soto dengan kuah santan dan daging sapi, khas Jakarta.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-betawi.jpg"},
-    {"id": "nasi-uduk-014", "name": "Nasi Uduk", "region": "jawa", "description": "Nasi dimasak dengan santan, disajikan dengan lauk pilihan.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-uduk.jpg"},
-    {"id": "ketoprak-015", "name": "Ketoprak", "region": "jawa", "description": "Tahu, bihun, dan tauge dengan bumbu kacang.", "taste": ["gurih", "manis"], "type": "mentah", "imageUrl": "/images/foods/ketoprak.jpg"},
-    {"id": "asinan-016", "name": "Asinan", "region": "jawa", "description": "Sayuran atau buah dengan kuah asam manis.", "taste": ["asam", "manis"], "type": "mentah", "imageUrl": "/images/foods/asinan.jpg"},
-    {"id": "es-cendol-017", "name": "Es Cendol", "region": "jawa", "description": "Minuman dengan cendol, santan, dan gula merah.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-cendol.jpg"},
-    {"id": "es-dawet-018", "name": "Es Dawet", "region": "jawa", "description": "Minuman dengan dawet hijau, santan, dan gula merah.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-dawet.jpg"},
-    {"id": "nasi-kuning-019", "name": "Nasi Kuning", "region": "jawa", "description": "Nasi kuning dengan santan dan kunyit, untuk perayaan.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-kuning.jpg"},
-    {"id": "tumpeng-020", "name": "Tumpeng", "region": "jawa", "description": "Nasi kuning berbentuk kerucut dengan lauk tradisional.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/tumpeng.jpg"},
-    {"id": "ayam-goreng-kalasan-021", "name": "Ayam Goreng Kalasan", "region": "jawa", "description": "Ayam goreng khas Yogyakarta yang empuk dan gurih.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/ayam-goreng-kalasan.jpg"},
-    {"id": "ayam-bakar-022", "name": "Ayam Bakar", "region": "jawa", "description": "Ayam bakar dengan bumbu kecap dan rempah.", "taste": ["gurih", "manis"], "type": "dibakar", "imageUrl": "/images/foods/ayam-bakar.jpg"},
-    {"id": "bebek-goreng-023", "name": "Bebek Goreng", "region": "jawa", "description": "Bebek goreng khas Jawa yang renyah dan gurih.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/bebek-goreng.jpg"},
-    {"id": "nasi-liwet-024", "name": "Nasi Liwet", "region": "jawa", "description": "Nasi gurih dengan kuah santan dan lauk tradisional.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-liwet.jpg"},
-    {"id": "nasi-gudeg-025", "name": "Nasi Gudeg", "region": "jawa", "description": "Nasi dengan gudeg dan lauk khas Yogyakarta.", "taste": ["manis", "gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-gudeg.jpg"},
-    {"id": "bakpia-026", "name": "Bakpia", "region": "jawa", "description": "Kue dari tepung terigu dengan isian kacang hijau.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/bakpia.jpg"},
-    {"id": "geplak-027", "name": "Geplak", "region": "jawa", "description": "Kue tradisional dari kelapa parut dan gula.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/geplak.jpg"},
-    {"id": "wingko-babat-028", "name": "Wingko Babat", "region": "jawa", "description": "Kue dari kelapa dan gula, khas Semarang.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/wingko-babat.jpg"},
-    {"id": "lumpia-029", "name": "Lumpia", "region": "jawa", "description": "Gorengan berisi rebung dan udang, khas Semarang.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/lumpia.jpg"},
-    {"id": "tahu-pong-030", "name": "Tahu Pong", "region": "jawa", "description": "Tahu goreng isi dengan isian kosong, khas Semarang.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/tahu-pong.jpg"},
-    {"id": "sate-kambing-031", "name": "Sate Kambing", "region": "jawa", "description": "Sate kambing dengan bumbu kecap dan bawang merah.", "taste": ["gurih", "manis"], "type": "dibakar", "imageUrl": "/images/foods/sate-kambing.jpg"},
-    {"id": "tongseng-032", "name": "Tongseng", "region": "jawa", "description": "Sup daging kambing dengan kuah santan dan kol.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/tongseng.jpg"},
-    {"id": "gulai-kambing-033", "name": "Gulai Kambing", "region": "jawa", "description": "Gulai daging kambing dengan kuah santan kuning.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/gulai-kambing.jpg"},
-    {"id": "opor-ayam-034", "name": "Opor Ayam", "region": "jawa", "description": "Ayam dimasak dengan kuah santan putih.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/opor-ayam.jpg"},
-    {"id": "rendang-jawa-035", "name": "Rendang Jawa", "region": "jawa", "description": "Rendang daging dengan bumbu khas Jawa.", "taste": ["pedas", "gurih"], "type": "dibakar", "imageUrl": "/images/foods/rendang-jawa.jpg"},
-    {"id": "empal-gentong-036", "name": "Empal Gentong", "region": "jawa", "description": "Sup daging sapi dengan kuah santan, khas Cirebon.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/empal-gentong.jpg"},
-    {"id": "nasi-jamblang-037", "name": "Nasi Jamblang", "region": "jawa", "description": "Nasi dibungkus daun jati dengan berbagai lauk.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-jamblang.jpg"},
-    {"id": "megono-038", "name": "Megono", "region": "jawa", "description": "Sayur nangka muda dengan kelapa parut, khas Cirebon.", "taste": ["gurih", "pedas"], "type": "mentah", "imageUrl": "/images/foods/megono.jpg"},
-    {"id": "docang-039", "name": "Docang", "region": "jawa", "description": "Sayur campuran dengan tahu dan tempe, khas Cirebon.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/docang.jpg"},
-    {"id": "tauge-goreng-040", "name": "Tauge Goreng", "region": "jawa", "description": "Tauge goreng dengan tahu dan tempe.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/tauge-goreng.jpg"},
-    {"id": "mie-ayam-041", "name": "Mie Ayam", "region": "jawa", "description": "Mie dengan ayam suwir dan kuah kaldu.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/mie-ayam.jpg"},
-    {"id": "bakmi-jawa-042", "name": "Bakmi Jawa", "region": "jawa", "description": "Mie tradisional Jawa dengan kuah kaldu ayam.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/bakmi-jawa.jpg"},
-    {"id": "soto-kudus-043", "name": "Soto Kudus", "region": "jawa", "description": "Soto dengan kuah bening dan kerupuk melinjo.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-kudus.jpg"},
-    {"id": "soto-pekalongan-044", "name": "Soto Pekalongan", "region": "jawa", "description": "Soto dengan kuah kuning dan tauge.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-pekalongan.jpg"},
-    {"id": "tahu-teg-045", "name": "Tahu Tek", "region": "jawa", "description": "Tahu goreng dengan bumbu petis dan kentang.", "taste": ["gurih", "asam"], "type": "mentah", "imageUrl": "/images/foods/tahu-teg.jpg"},
-    {"id": "rujak-cingur-046", "name": "Rujak Cingur", "region": "jawa", "description": "Rujak dengan cingur sapi dan bumbu petis.", "taste": ["gurih", "asam"], "type": "mentah", "imageUrl": "/images/foods/rujak-cingur.jpg"},
-    {"id": "lontong-balap-047", "name": "Lontong Balap", "region": "jawa", "description": "Lontong dengan tahu dan lentho, khas Surabaya.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/lontong-balap.jpg"},
-    {"id": "semanggi-048", "name": "Semanggi", "region": "jawa", "description": "Sayur semanggi dengan bumbu sambal petis.", "taste": ["gurih", "pedas"], "type": "mentah", "imageUrl": "/images/foods/semanggi.jpg"},
-    {"id": "tahu-campur-049", "name": "Tahu Campur", "region": "jawa", "description": "Tahu dengan mi dan kuah kaldu, khas Surabaya.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/tahu-campur.jpg"},
-    {"id": "nasi-rawon-050", "name": "Nasi Rawon", "region": "jawa", "description": "Nasi dengan rawon daging dan tauge.", "taste": ["gurih", "pedas"], "type": "berkuah", "imageUrl": "/images/foods/nasi-rawon.jpg"},
-    {"id": "pecel-lele-051", "name": "Pecel Lele", "region": "jawa", "description": "Lele goreng dengan sambal dan lalapan.", "taste": ["pedas", "gurih"], "type": "digoreng", "imageUrl": "/images/foods/pecel-lele.jpg"},
-    {"id": "ayam-pecak-052", "name": "Ayam Pecak", "region": "jawa", "description": "Ayam goreng dengan sambal bawang.", "taste": ["pedas", "gurih"], "type": "digoreng", "imageUrl": "/images/foods/ayam-pecak.jpg"},
-    {"id": "bandeng-pecak-053", "name": "Bandeng Pecak", "region": "jawa", "description": "Ikan bandeng goreng dengan sambal.", "taste": ["pedas", "gurih"], "type": "digoreng", "imageUrl": "/images/foods/bandeng-pecak.jpg"},
-    {"id": "nasi-kucing-054", "name": "Nasi Kucing", "region": "jawa", "description": "Nasi kecil dengan lauk sederhana, khas Jawa.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/nasi-kucing.jpg"},
-    {"id": "angsle-055", "name": "Angsle", "region": "jawa", "description": "Minuman hangat dengan kacang hijau dan santan.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/angsle.jpg"},
-    {"id": "es-ronde-056", "name": "Es Ronde", "region": "jawa", "description": "Minuman dengan bola-bola ketan dan jahe.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-ronde.jpg"},
-    {"id": "wedang-jahe-057", "name": "Wedang Jahe", "region": "jawa", "description": "Minuman hangat dari jahe dan gula merah.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/wedang-jahe.jpg"},
-    {"id": "wedang-uwuh-058", "name": "Wedang Uwuh", "region": "jawa", "description": "Minuman rempah dari daun cengkeh dan kayu manis.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/wedang-uwuh.jpg"},
-    {"id": "kopi-joss-059", "name": "Kopi Joss", "region": "jawa", "description": "Kopi dengan arang menyala, khas Yogyakarta.", "taste": ["asin"], "type": "minuman", "imageUrl": "/images/foods/kopi-joss.jpg"},
-    {"id": "es-gempol-060", "name": "Es Gempol", "region": "jawa", "description": "Minuman dengan gempol dan kuah santan gula merah.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-gempol.jpg"},
-    {"id": "cenil-061", "name": "Cenil", "region": "jawa", "description": "Kue dari tepung kanji dengan gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/cenil.jpg"},
-    {"id": "klepon-062", "name": "Klepon", "region": "jawa", "description": "Kue dari tepung beras dengan isian gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/klepon.jpg"},
-    {"id": "onde-onde-063", "name": "Onde-onde", "region": "jawa", "description": "Kue dari tepung beras dengan isian kacang hijau.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/onde-onde.jpg"},
-    {"id": "kue-lapis-064", "name": "Kue Lapis", "region": "jawa", "description": "Kue lapis dari tepung beras dengan warna-warni.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-lapis.jpg"},
-    {"id": "nagasari-065", "name": "Nagasari", "region": "jawa", "description": "Kue dari tepung beras dengan isian pisang.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/nagasari.jpg"},
-    {"id": "kue-putu-066", "name": "Kue Putu", "region": "jawa", "description": "Kue dari tepung beras dengan isian gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-putu.jpg"},
-    {"id": "kue-mendut-067", "name": "Kue Mendut", "region": "jawa", "description": "Kue dari tepung beras dengan isian gula merah dan kelapa.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-mendut.jpg"},
-    {"id": "getuk-068", "name": "Getuk", "region": "jawa", "description": "Kue dari singkong dengan gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/getuk.jpg"},
-    {"id": "kue-lumpur-069", "name": "Kue Lumpur", "region": "jawa", "description": "Kue dari tepung terigu dengan isian pisang.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-lumpur.jpg"},
-    {"id": "kue-bika-070", "name": "Bika Ambon", "region": "jawa", "description": "Kue dengan tekstur berpori dan aroma pandan.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-bika.jpg"},
-    {"id": "serabi-071", "name": "Serabi", "region": "jawa", "description": "Kue dari tepung beras dengan topping cokelat atau keju.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/serabi.jpg"},
-    {"id": "kue-ape-072", "name": "Kue Ape", "region": "jawa", "description": "Kue tipis dari tepung beras dengan kelapa.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-ape.jpg"},
-    {"id": "kue-cucur-073", "name": "Kue Cucur", "region": "jawa", "description": "Kue dari tepung beras dan gula merah.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-cucur.jpg"},
-    {"id": "kue-klepon-074", "name": "Klepon", "region": "jawa", "description": "Kue hijau dengan isian gula merah cair.", "taste": ["manis"], "type": "mentah", "imageUrl": "/images/foods/kue-klepon.jpg"},
-    {"id": "es-buah-075", "name": "Es Buah", "region": "jawa", "description": "Minuman dengan potongan buah segar dan susu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-buah.jpg"},
-    {"id": "es-teler-076", "name": "Es Teler", "region": "jawa", "description": "Minuman dengan alpukat, kelapa muda, dan cincau.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-teler.jpg"},
-    {"id": "es-degan-077", "name": "Es Degan", "region": "jawa", "description": "Minuman dari kelapa muda dengan es batu.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-degan.jpg"},
-    {"id": "jus-alpukat-078", "name": "Jus Alpukat", "region": "jawa", "description": "Jus alpukat dengan susu kental manis.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/jus-alpukat.jpg"},
-    {"id": "es-jeruk-079", "name": "Es Jeruk", "region": "jawa", "description": "Minuman jeruk segar dengan es batu.", "taste": ["asam", "manis"], "type": "minuman", "imageUrl": "/images/foods/es-jeruk.jpg"},
-    {"id": "es-teh-manis-080", "name": "Es Teh Manis", "region": "jawa", "description": "Teh manis dingin yang menyegarkan.", "taste": ["manis"], "type": "minuman", "imageUrl": "/images/foods/es-teh-manis.jpg"},
-    {"id": "nasi-goreng-jawa-081", "name": "Nasi Goreng Jawa", "region": "jawa", "description": "Nasi goreng dengan bumbu tradisional Jawa.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/nasi-goreng-jawa.jpg"},
-    {"id": "mie-goreng-082", "name": "Mie Goreng", "region": "jawa", "description": "Mie yang digoreng dengan bumbu kecap dan telur.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/mie-goreng.jpg"},
-    {"id": "kwetiau-083", "name": "Kwetiau", "region": "jawa", "description": "Mie lebar yang digoreng dengan bumbu khas.", "taste": ["gurih", "pedas"], "type": "digoreng", "imageUrl": "/images/foods/kwetiau.jpg"},
-    {"id": "bihun-goreng-084", "name": "Bihun Goreng", "region": "jawa", "description": "Bihun yang digoreng dengan telur dan sayuran.", "taste": ["gurih"], "type": "digoreng", "imageUrl": "/images/foods/bihun-goreng.jpg"},
-    {"id": "soto-ayam-bening-085", "name": "Soto Ayam Bening", "region": "jawa", "description": "Soto ayam dengan kuah bening dan sayuran.", "taste": ["gurih"], "type": "berkuah", "imageUrl": "/images/foods/soto-ayam-bening.jpg"}
-  ]
+﻿{
+    "foods":  [
+                  {
+                      "id":  "gudeg-001",
+                      "name":  "Gudeg",
+                      "region":  "jawa",
+                      "description":  "Hidangan khas Yogyakarta dari nangka muda yang dimasak dengan gula merah hingga manis dan lembut.",
+                      "taste":  [
+                                    "manis",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/gudeg.jpg"
+                  },
+                  {
+                      "id":  "soto-ayam-002",
+                      "name":  "Soto Ayam",
+                      "region":  "jawa",
+                      "description":  "Sup ayam kuning dengan bumbu kunyit, disajikan dengan nasi, tauge, dan telur.",
+                      "taste":  [
+                                    "gurih",
+                                    "asam"
+                                ],
+                      "imageUrl":  "/images/foods/soto-ayam.jpg"
+                  },
+                  {
+                      "id":  "nasi-goreng-003",
+                      "name":  "Nasi Goreng",
+                      "region":  "jawa",
+                      "description":  "Nasi yang digoreng dengan bumbu kecap, telur, dan berbagai pilihan lauk.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-goreng.jpg"
+                  },
+                  {
+                      "id":  "rawon-004",
+                      "name":  "Rawon",
+                      "region":  "jawa",
+                      "description":  "Sup daging berwarna hitam dari kluwek, khas Jawa Timur.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/rawon.jpg"
+                  },
+                  {
+                      "id":  "bakso-005",
+                      "name":  "Bakso",
+                      "region":  "jawa",
+                      "description":  "Bakso daging sapi dengan kuah kaldu, mi, tahu, dan siomay.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/bakso.jpg"
+                  },
+                  {
+                      "id":  "sate-ayam-006",
+                      "name":  "Sate Ayam",
+                      "region":  "jawa",
+                      "description":  "Sate ayam dengan bumbu kacang yang gurih dan manis.",
+                      "taste":  [
+                                    "gurih",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/sate-ayam.jpg"
+                  },
+                  {
+                      "id":  "gado-gado-007",
+                      "name":  "Gado-gado",
+                      "region":  "jawa",
+                      "description":  "Sayuran rebus dengan bumbu kacang, tahu, tempe, dan telur.",
+                      "taste":  [
+                                    "gurih",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/gado-gado.jpg"
+                  },
+                  {
+                      "id":  "pecel-008",
+                      "name":  "Pecel",
+                      "region":  "jawa",
+                      "description":  "Sayuran dengan bumbu kacang pedas, khas Jawa Timur.",
+                      "taste":  [
+                                    "pedas",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/pecel.jpg"
+                  },
+                  {
+                      "id":  "rujak-009",
+                      "name":  "Rujak",
+                      "region":  "jawa",
+                      "description":  "Buah-buahan segar dengan bumbu rujak pedas manis.",
+                      "taste":  [
+                                    "pedas",
+                                    "manis",
+                                    "asam"
+                                ],
+                      "imageUrl":  "/images/foods/rujak.jpg"
+                  },
+                  {
+                      "id":  "nasi-pecel-010",
+                      "name":  "Nasi Pecel",
+                      "region":  "jawa",
+                      "description":  "Nasi dengan sayuran dan bumbu kacang khas Madiun.",
+                      "taste":  [
+                                    "pedas",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-pecel.jpg"
+                  },
+                  {
+                      "id":  "soto-lamongan-011",
+                      "name":  "Soto Lamongan",
+                      "region":  "jawa",
+                      "description":  "Soto ayam kuning dengan koya dan suwiran ayam.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-lamongan.jpg"
+                  },
+                  {
+                      "id":  "soto-madura-012",
+                      "name":  "Soto Madura",
+                      "region":  "jawa",
+                      "description":  "Soto daging sapi dengan kuah bening dan koya.",
+                      "taste":  [
+                                    "gurih",
+                                    "asin"
+                                ],
+                      "imageUrl":  "/images/foods/soto-madura.jpg"
+                  },
+                  {
+                      "id":  "soto-betawi-013",
+                      "name":  "Soto Betawi",
+                      "region":  "jawa",
+                      "description":  "Soto dengan kuah santan dan daging sapi, khas Jakarta.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-betawi.jpg"
+                  },
+                  {
+                      "id":  "nasi-uduk-014",
+                      "name":  "Nasi Uduk",
+                      "region":  "jawa",
+                      "description":  "Nasi dimasak dengan santan, disajikan dengan lauk pilihan.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-uduk.jpg"
+                  },
+                  {
+                      "id":  "ketoprak-015",
+                      "name":  "Ketoprak",
+                      "region":  "jawa",
+                      "description":  "Tahu, bihun, dan tauge dengan bumbu kacang.",
+                      "taste":  [
+                                    "gurih",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/ketoprak.jpg"
+                  },
+                  {
+                      "id":  "asinan-016",
+                      "name":  "Asinan",
+                      "region":  "jawa",
+                      "description":  "Sayuran atau buah dengan kuah asam manis.",
+                      "taste":  [
+                                    "asam",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/asinan.jpg"
+                  },
+                  {
+                      "id":  "es-cendol-017",
+                      "name":  "Es Cendol",
+                      "region":  "jawa",
+                      "description":  "Minuman dengan cendol, santan, dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-cendol.jpg"
+                  },
+                  {
+                      "id":  "es-dawet-018",
+                      "name":  "Es Dawet",
+                      "region":  "jawa",
+                      "description":  "Minuman dengan dawet hijau, santan, dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-dawet.jpg"
+                  },
+                  {
+                      "id":  "nasi-kuning-019",
+                      "name":  "Nasi Kuning",
+                      "region":  "jawa",
+                      "description":  "Nasi kuning dengan santan dan kunyit, untuk perayaan.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-kuning.jpg"
+                  },
+                  {
+                      "id":  "tumpeng-020",
+                      "name":  "Tumpeng",
+                      "region":  "jawa",
+                      "description":  "Nasi kuning berbentuk kerucut dengan lauk tradisional.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/tumpeng.jpg"
+                  },
+                  {
+                      "id":  "ayam-goreng-kalasan-021",
+                      "name":  "Ayam Goreng Kalasan",
+                      "region":  "jawa",
+                      "description":  "Ayam goreng khas Yogyakarta yang empuk dan gurih.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/ayam-goreng-kalasan.jpg"
+                  },
+                  {
+                      "id":  "ayam-bakar-022",
+                      "name":  "Ayam Bakar",
+                      "region":  "jawa",
+                      "description":  "Ayam bakar dengan bumbu kecap dan rempah.",
+                      "taste":  [
+                                    "gurih",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/ayam-bakar.jpg"
+                  },
+                  {
+                      "id":  "bebek-goreng-023",
+                      "name":  "Bebek Goreng",
+                      "region":  "jawa",
+                      "description":  "Bebek goreng khas Jawa yang renyah dan gurih.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/bebek-goreng.jpg"
+                  },
+                  {
+                      "id":  "nasi-liwet-024",
+                      "name":  "Nasi Liwet",
+                      "region":  "jawa",
+                      "description":  "Nasi gurih dengan kuah santan dan lauk tradisional.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-liwet.jpg"
+                  },
+                  {
+                      "id":  "nasi-gudeg-025",
+                      "name":  "Nasi Gudeg",
+                      "region":  "jawa",
+                      "description":  "Nasi dengan gudeg dan lauk khas Yogyakarta.",
+                      "taste":  [
+                                    "manis",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-gudeg.jpg"
+                  },
+                  {
+                      "id":  "bakpia-026",
+                      "name":  "Bakpia",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung terigu dengan isian kacang hijau.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/bakpia.jpg"
+                  },
+                  {
+                      "id":  "geplak-027",
+                      "name":  "Geplak",
+                      "region":  "jawa",
+                      "description":  "Kue tradisional dari kelapa parut dan gula.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/geplak.jpg"
+                  },
+                  {
+                      "id":  "wingko-babat-028",
+                      "name":  "Wingko Babat",
+                      "region":  "jawa",
+                      "description":  "Kue dari kelapa dan gula, khas Semarang.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/wingko-babat.jpg"
+                  },
+                  {
+                      "id":  "lumpia-029",
+                      "name":  "Lumpia",
+                      "region":  "jawa",
+                      "description":  "Gorengan berisi rebung dan udang, khas Semarang.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/lumpia.jpg"
+                  },
+                  {
+                      "id":  "tahu-pong-030",
+                      "name":  "Tahu Pong",
+                      "region":  "jawa",
+                      "description":  "Tahu goreng isi dengan isian kosong, khas Semarang.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/tahu-pong.jpg"
+                  },
+                  {
+                      "id":  "sate-kambing-031",
+                      "name":  "Sate Kambing",
+                      "region":  "jawa",
+                      "description":  "Sate kambing dengan bumbu kecap dan bawang merah.",
+                      "taste":  [
+                                    "gurih",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/sate-kambing.jpg"
+                  },
+                  {
+                      "id":  "tongseng-032",
+                      "name":  "Tongseng",
+                      "region":  "jawa",
+                      "description":  "Sup daging kambing dengan kuah santan dan kol.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/tongseng.jpg"
+                  },
+                  {
+                      "id":  "gulai-kambing-033",
+                      "name":  "Gulai Kambing",
+                      "region":  "jawa",
+                      "description":  "Gulai daging kambing dengan kuah santan kuning.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/gulai-kambing.jpg"
+                  },
+                  {
+                      "id":  "opor-ayam-034",
+                      "name":  "Opor Ayam",
+                      "region":  "jawa",
+                      "description":  "Ayam dimasak dengan kuah santan putih.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/opor-ayam.jpg"
+                  },
+                  {
+                      "id":  "rendang-jawa-035",
+                      "name":  "Rendang Jawa",
+                      "region":  "jawa",
+                      "description":  "Rendang daging dengan bumbu khas Jawa.",
+                      "taste":  [
+                                    "pedas",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/rendang-jawa.jpg"
+                  },
+                  {
+                      "id":  "empal-gentong-036",
+                      "name":  "Empal Gentong",
+                      "region":  "jawa",
+                      "description":  "Sup daging sapi dengan kuah santan, khas Cirebon.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/empal-gentong.jpg"
+                  },
+                  {
+                      "id":  "nasi-jamblang-037",
+                      "name":  "Nasi Jamblang",
+                      "region":  "jawa",
+                      "description":  "Nasi dibungkus daun jati dengan berbagai lauk.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-jamblang.jpg"
+                  },
+                  {
+                      "id":  "megono-038",
+                      "name":  "Megono",
+                      "region":  "jawa",
+                      "description":  "Sayur nangka muda dengan kelapa parut, khas Cirebon.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/megono.jpg"
+                  },
+                  {
+                      "id":  "docang-039",
+                      "name":  "Docang",
+                      "region":  "jawa",
+                      "description":  "Sayur campuran dengan tahu dan tempe, khas Cirebon.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/docang.jpg"
+                  },
+                  {
+                      "id":  "tauge-goreng-040",
+                      "name":  "Tauge Goreng",
+                      "region":  "jawa",
+                      "description":  "Tauge goreng dengan tahu dan tempe.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/tauge-goreng.jpg"
+                  },
+                  {
+                      "id":  "mie-ayam-041",
+                      "name":  "Mie Ayam",
+                      "region":  "jawa",
+                      "description":  "Mie dengan ayam suwir dan kuah kaldu.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/mie-ayam.jpg"
+                  },
+                  {
+                      "id":  "bakmi-jawa-042",
+                      "name":  "Bakmi Jawa",
+                      "region":  "jawa",
+                      "description":  "Mie tradisional Jawa dengan kuah kaldu ayam.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/bakmi-jawa.jpg"
+                  },
+                  {
+                      "id":  "soto-kudus-043",
+                      "name":  "Soto Kudus",
+                      "region":  "jawa",
+                      "description":  "Soto dengan kuah bening dan kerupuk melinjo.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-kudus.jpg"
+                  },
+                  {
+                      "id":  "soto-pekalongan-044",
+                      "name":  "Soto Pekalongan",
+                      "region":  "jawa",
+                      "description":  "Soto dengan kuah kuning dan tauge.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-pekalongan.jpg"
+                  },
+                  {
+                      "id":  "tahu-teg-045",
+                      "name":  "Tahu Tek",
+                      "region":  "jawa",
+                      "description":  "Tahu goreng dengan bumbu petis dan kentang.",
+                      "taste":  [
+                                    "gurih",
+                                    "asam"
+                                ],
+                      "imageUrl":  "/images/foods/tahu-teg.jpg"
+                  },
+                  {
+                      "id":  "rujak-cingur-046",
+                      "name":  "Rujak Cingur",
+                      "region":  "jawa",
+                      "description":  "Rujak dengan cingur sapi dan bumbu petis.",
+                      "taste":  [
+                                    "gurih",
+                                    "asam"
+                                ],
+                      "imageUrl":  "/images/foods/rujak-cingur.jpg"
+                  },
+                  {
+                      "id":  "lontong-balap-047",
+                      "name":  "Lontong Balap",
+                      "region":  "jawa",
+                      "description":  "Lontong dengan tahu dan lentho, khas Surabaya.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/lontong-balap.jpg"
+                  },
+                  {
+                      "id":  "semanggi-048",
+                      "name":  "Semanggi",
+                      "region":  "jawa",
+                      "description":  "Sayur semanggi dengan bumbu sambal petis.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/semanggi.jpg"
+                  },
+                  {
+                      "id":  "tahu-campur-049",
+                      "name":  "Tahu Campur",
+                      "region":  "jawa",
+                      "description":  "Tahu dengan mi dan kuah kaldu, khas Surabaya.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/tahu-campur.jpg"
+                  },
+                  {
+                      "id":  "nasi-rawon-050",
+                      "name":  "Nasi Rawon",
+                      "region":  "jawa",
+                      "description":  "Nasi dengan rawon daging dan tauge.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-rawon.jpg"
+                  },
+                  {
+                      "id":  "pecel-lele-051",
+                      "name":  "Pecel Lele",
+                      "region":  "jawa",
+                      "description":  "Lele goreng dengan sambal dan lalapan.",
+                      "taste":  [
+                                    "pedas",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/pecel-lele.jpg"
+                  },
+                  {
+                      "id":  "ayam-pecak-052",
+                      "name":  "Ayam Pecak",
+                      "region":  "jawa",
+                      "description":  "Ayam goreng dengan sambal bawang.",
+                      "taste":  [
+                                    "pedas",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/ayam-pecak.jpg"
+                  },
+                  {
+                      "id":  "bandeng-pecak-053",
+                      "name":  "Bandeng Pecak",
+                      "region":  "jawa",
+                      "description":  "Ikan bandeng goreng dengan sambal.",
+                      "taste":  [
+                                    "pedas",
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/bandeng-pecak.jpg"
+                  },
+                  {
+                      "id":  "nasi-kucing-054",
+                      "name":  "Nasi Kucing",
+                      "region":  "jawa",
+                      "description":  "Nasi kecil dengan lauk sederhana, khas Jawa.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-kucing.jpg"
+                  },
+                  {
+                      "id":  "angsle-055",
+                      "name":  "Angsle",
+                      "region":  "jawa",
+                      "description":  "Minuman hangat dengan kacang hijau dan santan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/angsle.jpg"
+                  },
+                  {
+                      "id":  "es-ronde-056",
+                      "name":  "Es Ronde",
+                      "region":  "jawa",
+                      "description":  "Minuman dengan bola-bola ketan dan jahe.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-ronde.jpg"
+                  },
+                  {
+                      "id":  "wedang-jahe-057",
+                      "name":  "Wedang Jahe",
+                      "region":  "jawa",
+                      "description":  "Minuman hangat dari jahe dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/wedang-jahe.jpg"
+                  },
+                  {
+                      "id":  "wedang-uwuh-058",
+                      "name":  "Wedang Uwuh",
+                      "region":  "jawa",
+                      "description":  "Minuman rempah dari daun cengkeh dan kayu manis.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/wedang-uwuh.jpg"
+                  },
+                  {
+                      "id":  "kopi-joss-059",
+                      "name":  "Kopi Joss",
+                      "region":  "jawa",
+                      "description":  "Kopi dengan arang menyala, khas Yogyakarta.",
+                      "taste":  [
+                                    "asin"
+                                ],
+                      "imageUrl":  "/images/foods/kopi-joss.jpg"
+                  },
+                  {
+                      "id":  "es-gempol-060",
+                      "name":  "Es Gempol",
+                      "region":  "jawa",
+                      "description":  "Minuman dengan gempol dan kuah santan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-gempol.jpg"
+                  },
+                  {
+                      "id":  "cenil-061",
+                      "name":  "Cenil",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung kanji dengan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/cenil.jpg"
+                  },
+                  {
+                      "id":  "klepon-062",
+                      "name":  "Klepon",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dengan isian gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/klepon.jpg"
+                  },
+                  {
+                      "id":  "onde-onde-063",
+                      "name":  "Onde-onde",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dengan isian kacang hijau.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/onde-onde.jpg"
+                  },
+                  {
+                      "id":  "kue-lapis-064",
+                      "name":  "Kue Lapis",
+                      "region":  "jawa",
+                      "description":  "Kue lapis dari tepung beras dengan warna-warni.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-lapis.jpg"
+                  },
+                  {
+                      "id":  "nagasari-065",
+                      "name":  "Nagasari",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dengan isian pisang.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/nagasari.jpg"
+                  },
+                  {
+                      "id":  "kue-putu-066",
+                      "name":  "Kue Putu",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dengan isian gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-putu.jpg"
+                  },
+                  {
+                      "id":  "kue-mendut-067",
+                      "name":  "Kue Mendut",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dengan isian gula merah dan kelapa.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-mendut.jpg"
+                  },
+                  {
+                      "id":  "getuk-068",
+                      "name":  "Getuk",
+                      "region":  "jawa",
+                      "description":  "Kue dari singkong dengan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/getuk.jpg"
+                  },
+                  {
+                      "id":  "kue-lumpur-069",
+                      "name":  "Kue Lumpur",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung terigu dengan isian pisang.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-lumpur.jpg"
+                  },
+                  {
+                      "id":  "kue-bika-070",
+                      "name":  "Bika Ambon",
+                      "region":  "jawa",
+                      "description":  "Kue dengan tekstur berpori dan aroma pandan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-bika.jpg"
+                  },
+                  {
+                      "id":  "serabi-071",
+                      "name":  "Serabi",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dengan topping cokelat atau keju.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/serabi.jpg"
+                  },
+                  {
+                      "id":  "kue-ape-072",
+                      "name":  "Kue Ape",
+                      "region":  "jawa",
+                      "description":  "Kue tipis dari tepung beras dengan kelapa.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-ape.jpg"
+                  },
+                  {
+                      "id":  "kue-cucur-073",
+                      "name":  "Kue Cucur",
+                      "region":  "jawa",
+                      "description":  "Kue dari tepung beras dan gula merah.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-cucur.jpg"
+                  },
+                  {
+                      "id":  "kue-klepon-074",
+                      "name":  "Klepon",
+                      "region":  "jawa",
+                      "description":  "Kue hijau dengan isian gula merah cair.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/kue-klepon.jpg"
+                  },
+                  {
+                      "id":  "es-buah-075",
+                      "name":  "Es Buah",
+                      "region":  "jawa",
+                      "description":  "Minuman dengan potongan buah segar dan susu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-buah.jpg"
+                  },
+                  {
+                      "id":  "es-teler-076",
+                      "name":  "Es Teler",
+                      "region":  "jawa",
+                      "description":  "Minuman dengan alpukat, kelapa muda, dan cincau.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-teler.jpg"
+                  },
+                  {
+                      "id":  "es-degan-077",
+                      "name":  "Es Degan",
+                      "region":  "jawa",
+                      "description":  "Minuman dari kelapa muda dengan es batu.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-degan.jpg"
+                  },
+                  {
+                      "id":  "jus-alpukat-078",
+                      "name":  "Jus Alpukat",
+                      "region":  "jawa",
+                      "description":  "Jus alpukat dengan susu kental manis.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/jus-alpukat.jpg"
+                  },
+                  {
+                      "id":  "es-jeruk-079",
+                      "name":  "Es Jeruk",
+                      "region":  "jawa",
+                      "description":  "Minuman jeruk segar dengan es batu.",
+                      "taste":  [
+                                    "asam",
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-jeruk.jpg"
+                  },
+                  {
+                      "id":  "es-teh-manis-080",
+                      "name":  "Es Teh Manis",
+                      "region":  "jawa",
+                      "description":  "Teh manis dingin yang menyegarkan.",
+                      "taste":  [
+                                    "manis"
+                                ],
+                      "imageUrl":  "/images/foods/es-teh-manis.jpg"
+                  },
+                  {
+                      "id":  "nasi-goreng-jawa-081",
+                      "name":  "Nasi Goreng Jawa",
+                      "region":  "jawa",
+                      "description":  "Nasi goreng dengan bumbu tradisional Jawa.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/nasi-goreng-jawa.jpg"
+                  },
+                  {
+                      "id":  "mie-goreng-082",
+                      "name":  "Mie Goreng",
+                      "region":  "jawa",
+                      "description":  "Mie yang digoreng dengan bumbu kecap dan telur.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/mie-goreng.jpg"
+                  },
+                  {
+                      "id":  "kwetiau-083",
+                      "name":  "Kwetiau",
+                      "region":  "jawa",
+                      "description":  "Mie lebar yang digoreng dengan bumbu khas.",
+                      "taste":  [
+                                    "gurih",
+                                    "pedas"
+                                ],
+                      "imageUrl":  "/images/foods/kwetiau.jpg"
+                  },
+                  {
+                      "id":  "bihun-goreng-084",
+                      "name":  "Bihun Goreng",
+                      "region":  "jawa",
+                      "description":  "Bihun yang digoreng dengan telur dan sayuran.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/bihun-goreng.jpg"
+                  },
+                  {
+                      "id":  "soto-ayam-bening-085",
+                      "name":  "Soto Ayam Bening",
+                      "region":  "jawa",
+                      "description":  "Soto ayam dengan kuah bening dan sayuran.",
+                      "taste":  [
+                                    "gurih"
+                                ],
+                      "imageUrl":  "/images/foods/soto-ayam-bening.jpg"
+                  }
+              ]
 }
