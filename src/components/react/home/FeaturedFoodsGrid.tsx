@@ -124,7 +124,7 @@ export default function FeaturedFoodsGrid() {
             const foodRegion = regions.find(r => r.id === food.region);
             const imgUrl = food.imageUrl || foodImages[food.id] || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80';
             return (
-              <a href={`/food/${food.id}`} className="food-card" key={food.id}>
+              <a href={`/hidangan/${food.id}`} className="food-card" key={food.id}>
                 <div className="food-card-img">
                   <img src={imgUrl} alt={food.name} loading="lazy" />
                   <div className="food-card-img-overlay"></div>

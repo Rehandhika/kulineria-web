@@ -169,9 +169,9 @@ export default function QuizResults() {
                 </div>
                 {w.foodId && (
                   <a
-                    href={`/food/${w.foodId}`}
+                    href={`/hidangan/${w.foodId}`}
                     className="review-link"
-                    onClick={() => sessionStorage.setItem('kulineria-return', '/quiz')}
+                    onClick={() => sessionStorage.setItem('kulineria-return', '/kuis')}
                   >
                     Pelajari
                   </a>

@@ -55,7 +55,7 @@ export default function FeedbackOverlay() {
         )}
         {!lastAnswer.isCorrect && foodLink && (
           <a
-            href={`/food/${foodLink.id}`}
+            href={`/hidangan/${foodLink.id}`}
             className="feedback-fact-link"
             target="_blank"
             rel="noopener"

@@ -83,7 +83,7 @@ export default function RegionBanner() {
             <span className="region-banner-stat-label">Hidangan</span>
           </div>
           <div className="region-banner-actions">
-            <a href={`/search?region=${selectedId}`} className="region-banner-btn" style={{ background: color }}>
+            <a href={`/jelajahi?region=${selectedId}`} className="region-banner-btn" style={{ background: color }}>
               Lihat Semua
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>

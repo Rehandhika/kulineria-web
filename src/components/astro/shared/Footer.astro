@@ -52,15 +52,15 @@ const { id } = Astro.props;
 
         <div class="footer-links">
           <h4 class="footer-heading">Jelajahi</h4>
-          <a href="/search" class="footer-link">Semua Hidangan</a>
-          <a href="/quiz" class="footer-link">Kuis Kuliner</a>
-          <a href="/about" class="footer-link">Tentang Kulineria</a>
+          <a href="/jelajahi" class="footer-link">Semua Hidangan</a>
+          <a href="/kuis" class="footer-link">Kuis Kuliner</a>
+          <a href="/tentang" class="footer-link">Tentang Kulineria</a>
         </div>
 
         <div class="footer-regions">
           <h4 class="footer-heading">Wilayah</h4>
           {regions.slice(0, 6).map(r => (
-            <a href={`/search?region=${r.id}`} class="footer-link">
+            <a href={`/jelajahi?region=${r.id}`} class="footer-link">
               <span class="footer-region-dot" style={{ backgroundColor: `var(--c-${r.id})` }}></span>
               {r.name}
             </a>

@@ -81,10 +81,10 @@ export default function DiscoveryView({ initialFoods }: Props) {
             {featuredFoods.map((food) => (
               <a
                 key={food.id}
-                href={`/food/${food.id}`}
+                href={`/hidangan/${food.id}`}
                 className="result-card duo-card flex flex-col overflow-hidden"
                 style={{ borderTop: `4px solid ${REGION_COLORS[food.region] || 'var(--c-accent)'}` }}
-                onClick={() => sessionStorage.setItem('kulineria-return', '/search')}
+                onClick={() => sessionStorage.setItem('kulineria-return', '/jelajahi')}
               >
                 <div className="result-card-image">
                   <img src={food.imageUrl} alt={food.name} loading="lazy" />

@@ -71,7 +71,7 @@ export default function HeroCinematic({ food, regionName }: Props) {
         <nav className="hero-breadcrumb" aria-label="Breadcrumb">
           <a href="/">Beranda</a>
           <span className="hero-breadcrumb-sep">›</span>
-          <a href={`/search?region=${food.region}`}>{regionName}</a>
+          <a href={`/jelajahi?region=${food.region}`}>{regionName}</a>
           <span className="hero-breadcrumb-sep">›</span>
           <span className="hero-breadcrumb-current">{food.name}</span>
         </nav>

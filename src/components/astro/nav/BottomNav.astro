@@ -2,9 +2,9 @@
 const currentPath = Astro.url.pathname;
 const navItems = [
   { href: '/', label: 'Beranda', key: 'home' },
-  { href: '/search', label: 'Jelajahi', key: 'search' },
-  { href: '/quiz', label: 'Kuis', key: 'quiz' },
-  { href: '/about', label: 'Tentang', key: 'about' },
+  { href: '/jelajahi', label: 'Jelajahi', key: 'jelajahi' },
+  { href: '/kuis', label: 'Kuis', key: 'kuis' },
+  { href: '/tentang', label: 'Tentang', key: 'tentang' },
 ];
 function isActive(path: string) {
   if (path === '/') return currentPath === '/';

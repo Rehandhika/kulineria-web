@@ -7,14 +7,14 @@ const BUILD_DATE = '2026-05-17';
 
 const routes = [
   { path: '/', priority: '1.0', changefreq: 'daily' },
-  { path: '/search', priority: '0.6', changefreq: 'weekly' },
-  { path: '/quiz', priority: '0.5', changefreq: 'monthly' },
-  { path: '/about', priority: '0.4', changefreq: 'monthly' },
+  { path: '/jelajahi', priority: '0.6', changefreq: 'weekly' },
+  { path: '/kuis', priority: '0.5', changefreq: 'monthly' },
+  { path: '/tentang', priority: '0.4', changefreq: 'monthly' },
 ];
 
 const foods = getAllFoods();
 const foodRoutes = foods.map(food => ({
-  path: `/food/${food.id}`,
+  path: `/hidangan/${food.id}`,
   priority: '0.8',
   changefreq: 'weekly',
 }));

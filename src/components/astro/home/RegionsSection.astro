@@ -27,7 +27,7 @@ const regionImages: Record<string, string> = {
         const count = foods.filter(f => f.region === region.id).length;
         return (
           <a
-            href={`/search?region=${region.id}`}
+            href={`/jelajahi?region=${region.id}`}
             class="region-card"
             style={{ '--card-color': region.color } as any}
           >
