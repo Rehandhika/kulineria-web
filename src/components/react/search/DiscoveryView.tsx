@@ -48,7 +48,7 @@ export default function DiscoveryView({ initialFoods }: Props) {
         }
         return;
       }
-      const picked = shuffleArr(docs).slice(0, 9).map((d) => ({
+      const picked = shuffleArr(docs).slice(0, 12).map((d) => ({
         id: d.id,
         name: d.name,
         region: d.region,
@@ -66,6 +66,11 @@ export default function DiscoveryView({ initialFoods }: Props) {
       {featuredFoods && featuredFoods.length > 0 && (
         <section className="discovery-section discovery-featured">
           <div className="discovery-featured-header">
+            <div>
+              <p style={{ fontFamily: 'var(--ff-body)', fontSize: 'var(--fs-sm)', color: 'var(--c-text-3)', fontWeight: 600, marginBottom: 4 }}>
+                Menampilkan {featuredFoods.length} hidangan
+              </p>
+            </div>
             <button onClick={handleShuffle} className="shuffle-btn" aria-label="Acak hidangan">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="16 3 21 3 21 8"/>

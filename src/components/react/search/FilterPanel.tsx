@@ -1,66 +1,65 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useStore } from '@nanostores/react';
 import { $regionFilters, $tasteFilters, clearFilters } from '@/lib/stores/search';
 import type { RegionId, Taste } from '@/types/food';
 
-const REGIONS: { id: RegionId; label: string }[] = [
-  { id: 'sumatera', label: 'Sumatera' },
-  { id: 'jawa', label: 'Jawa' },
-  { id: 'kalimantan', label: 'Kalimantan' },
-  { id: 'sulawesi', label: 'Sulawesi' },
-  { id: 'bali-ntt', label: 'Bali & NTT' },
-  { id: 'maluku-papua', label: 'Maluku & Papua' },
+const REGIONS: { id: RegionId; label: string; color: string }[] = [
+  { id: 'sumatera',     label: 'Sumatera',        color: 'var(--c-sumatera)' },
+  { id: 'jawa',         label: 'Jawa',             color: 'var(--c-jawa)' },
+  { id: 'kalimantan',   label: 'Kalimantan',       color: 'var(--c-kalimantan)' },
+  { id: 'sulawesi',     label: 'Sulawesi',         color: 'var(--c-sulawesi)' },
+  { id: 'bali-ntt',     label: 'Bali & NTT',       color: 'var(--c-bali-ntt)' },
+  { id: 'maluku-papua', label: 'Maluku & Papua',   color: 'var(--c-maluku-papua)' },
 ];
 
-const TASTES: { id: Taste; label: string }[] = [
-  { id: 'manis', label: 'Manis' },
-  { id: 'pedas', label: 'Pedas' },
-  { id: 'gurih', label: 'Gurih' },
-  { id: 'asam', label: 'Asam' },
-  { id: 'asin', label: 'Asin' },
+const TASTES: { id: Taste; label: string; emoji: string }[] = [
+  { id: 'manis', label: 'Manis', emoji: '🍯' },
+  { id: 'pedas', label: 'Pedas', emoji: '🌶️' },
+  { id: 'gurih', label: 'Gurih', emoji: '🧆' },
+  { id: 'asam',  label: 'Asam',  emoji: '🍋' },
+  { id: 'asin',  label: 'Asin',  emoji: '🧂' },
 ];
 
-function ToggleChip({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      className={`duo-badge ${active ? 'duo-badge-accent' : ''}`}
-      onClick={onClick}
-      aria-pressed={active}
-    >
-      {label}
-    </button>
-  );
+interface FilterPanelProps {
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export default function FilterPanel() {
+export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
   const regions = useStore($regionFilters);
-  const tastes = useStore($tasteFilters);
-  const [collapsed, setCollapsed] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
-  const sectionsRef = useRef<HTMLDivElement>(null);
+  const tastes  = useStore($tasteFilters);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const panelRef   = useRef<HTMLDivElement>(null);
 
+  // Close on Escape
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 1023px)');
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches);
-      if (!e.matches) setCollapsed(false);
-    };
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
+    if (!isOpen) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose();
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, onClose]);
 
-  const activeCount = regions.size + tastes.size;
+  // Lock body scroll when open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  // Focus trap
+  useEffect(() => {
+    if (isOpen && panelRef.current) {
+      const firstBtn = panelRef.current.querySelector<HTMLElement>('button');
+      firstBtn?.focus();
+    }
+  }, [isOpen]);
 
   function toggleRegion(id: RegionId) {
     const next = new Set(regions);
@@ -74,82 +73,101 @@ export default function FilterPanel() {
     $tasteFilters.set(next);
   }
 
+  const activeCount = regions.size + tastes.size;
+
   return (
-    <aside className="filter-panel duo-card" style={{ padding: 'var(--sp-4)' }}>
+    <>
+      {/* Backdrop */}
       <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 'var(--sp-3)',
-          paddingBottom: 'var(--sp-3)',
-          borderBottom: '1px solid var(--c-border)',
-        }}
+        ref={overlayRef}
+        className={`fp-backdrop${isOpen ? ' fp-backdrop--open' : ''}`}
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Panel */}
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Filter hidangan"
+        className={`fp-panel${isOpen ? ' fp-panel--open' : ''}`}
       >
-        {isMobile ? (
-          <button
-            onClick={() => setCollapsed(!collapsed)}
-            aria-expanded={!collapsed}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--sp-2)',
-              fontSize: 'var(--fs-base)',
-              fontWeight: 700,
-              color: 'var(--c-text-1)',
-              fontFamily: 'var(--ff-display)',
-            }}
-          >
-            Filter{activeCount > 0 ? ` (${activeCount})` : ''}
-            <span
-              style={{
-                display: 'inline-block',
-                transition: 'transform 0.3s ease',
-                transform: collapsed ? 'rotate(0deg)' : 'rotate(180deg)',
-                fontSize: '0.7rem',
-              }}
+        {/* Two-column grid */}
+        <div className="fp-columns">
+
+          {/* Left: Wilayah */}
+          <div className="fp-col">
+            <p className="fp-col-label">
+              <span className="fp-col-label-muted">Filter</span> per Wilayah
+            </p>
+            <div className="fp-list">
+              {REGIONS.map(r => {
+                const active = regions.has(r.id);
+                return (
+                  <button
+                    key={r.id}
+                    className={`fp-item fp-item--region${active ? ' fp-item--active' : ''}`}
+                    style={active ? { '--fp-item-color': r.color } as React.CSSProperties : undefined}
+                    onClick={() => toggleRegion(r.id)}
+                    aria-pressed={active}
+                  >
+                    <span
+                      className="fp-item-dot"
+                      style={{ background: r.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="fp-item-label">{r.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right: Rasa */}
+          <div className="fp-col">
+            <p className="fp-col-label">
+              <span className="fp-col-label-muted">Filter</span> per Rasa
+            </p>
+            <div className="fp-list">
+              {TASTES.map(t => {
+                const active = tastes.has(t.id);
+                return (
+                  <button
+                    key={t.id}
+                    className={`fp-item${active ? ' fp-item--active fp-item--taste-active' : ''}`}
+                    onClick={() => toggleTaste(t.id)}
+                    aria-pressed={active}
+                  >
+                    <span className="fp-item-emoji" aria-hidden="true">{t.emoji}</span>
+                    <span className="fp-item-label">{t.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Footer: clear + close */}
+        <div className="fp-footer">
+          {activeCount > 0 && (
+            <button
+              className="fp-clear-btn"
+              onClick={clearFilters}
             >
-              ▼
-            </span>
+              Hapus filter ({activeCount})
+            </button>
+          )}
+          <button
+            className="fp-close-btn"
+            onClick={onClose}
+            aria-label="Tutup filter"
+          >
+            ✕
           </button>
-        ) : (
-          <h3 style={{ fontSize: 'var(--fs-lg)', fontWeight: 700, color: 'var(--c-text-1)', fontFamily: 'var(--ff-display)' }}>
-            Filter
-          </h3>
-        )}
-        <button
-          onClick={clearFilters}
-          className="duo-btn-sm duo-btn-outline"
-          style={{ fontSize: 'var(--fs-xs)', padding: '4px 12px', minHeight: 0 }}
-        >
-          Hapus
-        </button>
+        </div>
       </div>
-
-      <div ref={sectionsRef} className={`filter-sections ${collapsed && isMobile ? 'collapsed' : ''}`}>
-        <section style={{ marginBottom: 'var(--sp-4)' }}>
-          <h4 className="filter-section-label">Wilayah</h4>
-          <div className="filter-chips">
-            {REGIONS.map(r => (
-              <ToggleChip
-                key={r.id}
-                label={r.label}
-                active={regions.has(r.id)}
-                onClick={() => toggleRegion(r.id)}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section style={{ marginBottom: 'var(--sp-4)' }}>
-          <h4 className="filter-section-label">Rasa</h4>
-          <div className="filter-chips">
-            {TASTES.map(t => (
-              <ToggleChip key={t.id} label={t.label} active={tastes.has(t.id)} onClick={() => toggleTaste(t.id)} />
-            ))}
-          </div>
-        </section>
-      </div>
-    </aside>
+    </>
   );
 }

@@ -10,9 +10,20 @@ const allFoods = getAllFoods();
 <BaseLayout title="Jelajahi" description="Cari dan temukan hidangan Nusantara berdasarkan wilayah, rasa, dan jenis">
   <SearchHero />
 
-  <main class="container section-py">
-    <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 9))} />
+  <main class="container jelajahi-main">
+    <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 12))} />
   </main>
+
+  <style>
+    /* Extra bottom padding so FAB doesn't overlap last card row */
+    .jelajahi-main {
+      padding-top: var(--sp-8);
+      padding-bottom: 120px;
+    }
+    @media (min-width: 768px) {
+      .jelajahi-main { padding-top: var(--sp-12); }
+    }
+  </style>
 
   <Footer />
 </BaseLayout>

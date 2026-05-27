@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import './SearchProvider.css';
 import {
@@ -10,6 +10,7 @@ import {
   $searchResults,
   $isSearching,
   $hasActiveSearch,
+  $activeFilterCount,
   performSearch,
   syncFromUrl,
   syncToUrl,
@@ -24,7 +25,7 @@ function LoadingSkeleton() {
   return (
     <div className="results-grid">
       <div className="results-grid-inner">
-        {Array.from({ length: 6 }).map((_, i) => (
+        {Array.from({ length: 9 }).map((_, i) => (
           <div key={i} className="result-card duo-card skeleton-card">
             <div className="skeleton-img" />
             <div className="skeleton-content">
@@ -44,15 +45,17 @@ interface Props {
 }
 
 export default function SearchProvider({ initialFoods }: Props) {
-  const query = useStore($searchQuery);
-  const regionFilters = useStore($regionFilters);
-  const tasteFilters = useStore($tasteFilters);
-  const results = useStore($searchResults);
-  const isSearching = useStore($isSearching);
+  const query          = useStore($searchQuery);
+  const regionFilters  = useStore($regionFilters);
+  const tasteFilters   = useStore($tasteFilters);
+  const results        = useStore($searchResults);
+  const isSearching    = useStore($isSearching);
   const hasActiveSearch = useStore($hasActiveSearch);
-  const [hydrated, setHydrated] = useState(false);
-  const [contentKey, setContentKey] = useState(0);
-  const prevKey = useRef(0);
+  const activeFilterCount = useStore($activeFilterCount);
+
+  const [hydrated, setHydrated]         = useState(false);
+  const [contentKey, setContentKey]     = useState(0);
+  const [filterOpen, setFilterOpen]     = useState(false);
 
   useEffect(() => {
     syncFromUrl();
@@ -87,30 +90,53 @@ export default function SearchProvider({ initialFoods }: Props) {
 
   return (
     <div className="search-page">
-      <div className="search-layout">
-        <FilterPanel />
-        <div className="search-main" id="search-main">
-          {isSearching && <LoadingSkeleton />}
 
-          {!isSearching && hasActiveSearch && results.length === 0 && (
-            <div key={contentKey} className="search-content">
-              <NoResultsView />
-            </div>
-          )}
+      {/* Main content — full width, no sidebar */}
+      <div className="search-main" id="search-main">
+        {isSearching && <LoadingSkeleton />}
 
-          {!isSearching && !hasActiveSearch && (
-            <div key={contentKey} className="search-content">
-              <DiscoveryView initialFoods={parsedInitial} />
-            </div>
-          )}
+        {!isSearching && hasActiveSearch && results.length === 0 && (
+          <div key={contentKey} className="search-content">
+            <NoResultsView />
+          </div>
+        )}
 
-          {!isSearching && hasActiveSearch && results.length > 0 && (
-            <div key={contentKey} className="search-content">
-              <ResultsGrid results={results} query={query} />
-            </div>
-          )}
-        </div>
+        {!isSearching && !hasActiveSearch && (
+          <div key={contentKey} className="search-content">
+            <DiscoveryView initialFoods={parsedInitial} />
+          </div>
+        )}
+
+        {!isSearching && hasActiveSearch && results.length > 0 && (
+          <div key={contentKey} className="search-content">
+            <ResultsGrid results={results} query={query} />
+          </div>
+        )}
       </div>
+
+      {/* Floating FILTER button */}
+      <div className="filter-fab-wrap">
+        <button
+          className={`filter-fab${activeFilterCount > 0 ? ' filter-fab--active' : ''}`}
+          onClick={() => setFilterOpen(true)}
+          aria-label={`Buka filter${activeFilterCount > 0 ? `, ${activeFilterCount} aktif` : ''}`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="2.2"
+            strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <line x1="4" y1="6" x2="20" y2="6"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+            <line x1="11" y1="18" x2="13" y2="18"/>
+          </svg>
+          <span>FILTER</span>
+          {activeFilterCount > 0 && (
+            <span className="filter-fab-badge" aria-hidden="true">{activeFilterCount}</span>
+          )}
+        </button>
+      </div>
+
+      {/* Filter modal */}
+      <FilterPanel isOpen={filterOpen} onClose={() => setFilterOpen(false)} />
     </div>
   );
 }
