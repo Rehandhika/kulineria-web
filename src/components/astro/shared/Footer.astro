@@ -1,84 +1,48 @@
 ﻿---
-import { getRegions } from '../../../lib/data/loaders';
-const regions = getRegions();
 const year = new Date().getFullYear();
 const { id } = Astro.props;
 ---
 
 <footer class="footer" id={id}>
-  <div class="footer-wave">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="var(--c-brand-mocha)"/>
-          <stop offset="50%" stop-color="var(--c-brand-cinnamon)"/>
-          <stop offset="100%" stop-color="var(--c-brand-caramel)"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,80 C360,120 720,40 1080,80 C1260,100 1350,90 1440,80 L1440,120 L0,120 Z" fill="url(#waveGrad)" opacity="0.15"/>
-      <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="url(#waveGrad)" opacity="0.25"/>
-      <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,120 L0,120 Z" fill="url(#waveGrad)"/>
+  <!-- Wave separator -->
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,50 C200,90 400,10 600,50 C800,90 1000,10 1200,50 C1320,70 1380,60 1440,50 L1440,100 L0,100 Z"
+        fill="var(--c-brand-mocha-dark)" opacity="0.18"/>
+      <path d="M0,30 C240,80 480,0 720,40 C960,80 1200,10 1440,40 L1440,100 L0,100 Z"
+        fill="var(--c-brand-mocha-dark)" opacity="0.35"/>
+      <path d="M0,10 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1380,20 1440,10 L1440,100 L0,100 Z"
+        fill="var(--c-brand-mocha-dark)"/>
     </svg>
   </div>
 
-  <div class="footer-content">
-    <div class="container">
-      <div class="footer-grid">
+  <div class="footer-body">
+    <div class="footer-container">
+
+      <!-- Brand + Nav in one row -->
+      <div class="footer-main">
+
         <div class="footer-brand">
-          <a href="/" class="footer-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="none" style="display:inline-block;vertical-align:middle;margin-right:8px;color:#fff;">
-              <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.2"/>
-              <path d="M12 10C12 10 14 8 16 8C18 8 20 10 20 10C20 10 22 12 22 14C22 18 18 22 16 24C14 22 10 18 10 14C10 12 12 10 12 10Z" fill="currentColor" opacity="0.4"/>
-              <path d="M14 14L16 18L18 14L16 12L14 14Z" fill="currentColor"/>
-            </svg>
-            <span>Kulineria</span>
-          </a>
-          <p class="footer-tagline">Atlas Kuliner Nusantara — jelajahi ragam cita rasa Indonesia!</p>
-          <div class="footer-mascot">
-            <svg viewBox="0 0 100 100" class="footer-mascot-svg" aria-hidden="true">
-              <ellipse cx="50" cy="40" rx="28" ry="26" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-              <polygon points="32,18 25,8 40,16" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-              <polygon points="68,18 75,8 60,16" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-              <ellipse cx="38" cy="36" rx="6" ry="7" fill="white"/>
-              <ellipse cx="38" cy="36" rx="3" ry="3.5" fill="#3C2A1E"/>
-              <ellipse cx="62" cy="36" rx="6" ry="7" fill="white"/>
-              <ellipse cx="62" cy="36" rx="3" ry="3.5" fill="#3C2A1E"/>
-              <ellipse cx="50" cy="42" rx="3" ry="2" fill="#E8A87C" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-              <path d="M 42 48 Q 50 54 58 48" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <span class="footer-mascot-text">"Makan enak, hidup senang!" — Nara</span>
-          </div>
+          <a href="/" class="footer-logo" aria-label="Kulineria — Beranda">Kulineria</a>
+          <p class="footer-tagline">Atlas Kuliner Nusantara —<br/>jelajahi ragam cita rasa Indonesia.</p>
         </div>
 
-        <div class="footer-links">
-          <h4 class="footer-heading">Jelajahi</h4>
-          <a href="/jelajahi" class="footer-link">Semua Hidangan</a>
-          <a href="/kuis" class="footer-link">Kuis Kuliner</a>
-          <a href="/tentang" class="footer-link">Tentang Kulineria</a>
-        </div>
+        <nav class="footer-nav" aria-label="Navigasi footer">
+          <span class="footer-nav-label">Jelajahi</span>
+          <a href="/jelajahi" class="footer-nav-link">Semua Hidangan</a>
+          <a href="/kuis" class="footer-nav-link">Kuis Kuliner</a>
+          <a href="/tentang" class="footer-nav-link">Tentang Kami</a>
+        </nav>
 
-        <div class="footer-regions">
-          <h4 class="footer-heading">Wilayah</h4>
-          {regions.slice(0, 6).map(r => (
-            <a href={`/jelajahi?region=${r.id}`} class="footer-link">
-              <span class="footer-region-dot" style={{ backgroundColor: `var(--c-${r.id})` }}></span>
-              {r.name}
-            </a>
-          ))}
-        </div>
       </div>
 
+      <!-- Bottom bar -->
       <div class="footer-bottom">
-        <p>&copy; {year} Kulineria — dibuat dengan <span class="footer-heart" aria-hidden="true">❤</span> dan banyak sambal</p>
-        <div class="footer-social">
-          <span class="footer-social-icon" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          </span>
-          <span class="footer-social-icon" aria-label="YouTube">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-          </span>
-        </div>
+        <p class="footer-copy">
+          &copy; {year} Kulineria
+        </p>
       </div>
+
     </div>
   </div>
 </footer>
@@ -86,154 +50,154 @@ const { id } = Astro.props;
 <style>
   .footer {
     position: relative;
-    margin-top: var(--sp-12);
+    margin-top: var(--sp-16);
   }
 
+  /* ── Wave ── */
   .footer-wave {
-    position: relative;
-    height: 80px;
+    height: 60px;
     overflow: hidden;
     line-height: 0;
+    pointer-events: none;
   }
   .footer-wave svg {
     width: 100%;
     height: 100%;
+    display: block;
   }
   @media (min-width: 768px) {
-    .footer-wave { height: 100px; }
+    .footer-wave { height: 80px; }
   }
 
-  .footer-content {
-    background: linear-gradient(135deg, var(--c-brand-mocha-dark), var(--c-brand-mocha), var(--c-brand-cinnamon));
-    padding: var(--sp-12) 0 var(--sp-6);
+  /* ── Body ── */
+  .footer-body {
+    background: var(--c-brand-mocha-dark);
+    padding: var(--sp-8) 0 var(--sp-6);
   }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--sp-8);
+  .footer-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
   }
-  @media (min-width: 640px) {
-    .footer-grid {
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: var(--sp-10);
+  @media (min-width: 1024px) {
+    .footer-container { padding: 0 var(--sp-10); }
+  }
+
+  /* ── Main row: brand + nav ── */
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+  @media (min-width: 560px) {
+    .footer-main {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-8);
     }
+  }
+
+  /* ── Brand ── */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
   }
 
   .footer-logo {
     font-family: var(--ff-display);
-    font-size: var(--fs-2xl);
     font-weight: 900;
-    color: #fff;
-    letter-spacing: -0.02em;
-    display: flex;
-    align-items: center;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    letter-spacing: var(--ls-tight);
+    color: var(--c-brand-cream);
+    text-decoration: none;
+    line-height: 1;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    display: inline-block;
+    transition: color 0.18s var(--ease-smooth), transform 0.18s var(--ease-bounce);
+  }
+  .footer-logo:hover {
+    color: var(--c-brand-caramel);
+    transform: translateX(3px);
   }
 
   .footer-tagline {
-    color: rgba(255, 255, 255, 0.80);
-    font-weight: 700;
-    margin-top: var(--sp-2);
+    font-family: var(--ff-body);
     font-size: var(--fs-sm);
+    font-weight: 600;
+    color: rgba(255, 248, 240, 0.55);
     line-height: var(--lh-relaxed);
-    max-width: 320px;
+    max-width: 260px;
+    margin: 0;
   }
 
-  .footer-mascot {
+  /* ── Nav ── */
+  .footer-nav {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: var(--sp-4);
-    padding: var(--sp-3) var(--sp-4);
-    background: rgba(255, 255, 255, 0.10);
-    border-radius: var(--r-lg);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    max-width: 320px;
-  }
-  .footer-mascot-svg {
-    width: 44px;
-    height: 44px;
+    flex-direction: column;
+    gap: 2px;
     flex-shrink: 0;
   }
-  .footer-mascot-text {
-    color: rgba(255, 255, 255, 0.90);
-    font-weight: 700;
-    font-size: var(--fs-sm);
-    font-style: italic;
-  }
 
-  .footer-heading {
-    font-family: var(--ff-display);
-    color: #fff;
-    font-size: var(--fs-sm);
-    font-weight: 900;
+  .footer-nav-label {
+    font-family: var(--ff-body);
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    letter-spacing: var(--ls-widest);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: var(--sp-4);
+    color: var(--c-brand-caramel);
+    margin-bottom: var(--sp-2);
   }
 
-  .footer-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255, 255, 255, 0.80);
-    font-weight: 700;
+  .footer-nav-link {
+    font-family: var(--ff-body);
     font-size: var(--fs-sm);
-    padding: 4px 0;
-    transition: all 0.15s var(--ease-bounce);
+    font-weight: 700;
+    color: rgba(255, 248, 240, 0.70);
+    text-decoration: none;
+    padding: 3px 0;
+    display: inline-block;
+    transition: color 0.15s var(--ease-smooth), transform 0.15s var(--ease-bounce);
   }
-  .footer-link:hover {
-    color: #fff;
+  .footer-nav-link:hover {
+    color: var(--c-brand-cream);
     transform: translateX(4px);
   }
 
-  .footer-region-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
+  /* ── Bottom bar ── */
+  .footer-bottom {
+    padding-top: var(--sp-4);
+    border-top: 1px solid rgba(255, 248, 240, 0.10);
   }
 
-  .footer-bottom {
-    margin-top: var(--sp-8);
-    padding-top: var(--sp-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
-  }
-  .footer-bottom p {
-    color: rgba(255, 255, 255, 0.70);
-    font-weight: 700;
+  .footer-copy {
+    font-family: var(--ff-body);
     font-size: var(--fs-xs);
+    font-weight: 600;
+    color: rgba(255, 248, 240, 0.40);
+    margin: 0;
   }
+
   .footer-heart {
     color: var(--c-brand-terracotta);
     display: inline-block;
-    animation: duoPulse 1.5s ease-in-out infinite;
+    animation: heartbeat 1.6s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    40%       { transform: scale(1.25); }
+    60%       { transform: scale(1.1); }
   }
 
-  .footer-social {
-    display: flex;
-    gap: var(--sp-2);
-  }
-  .footer-social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.10);
-    color: rgba(255, 255, 255, 0.70);
-    transition: all 0.15s var(--ease-bounce);
-    cursor: pointer;
-  }
-  .footer-social-icon:hover {
-    background: rgba(255, 255, 255, 0.20);
-    color: #fff;
-    transform: translateY(-2px);
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .footer-logo,
+    .footer-nav-link { transition-duration: 1ms !important; }
+    .footer-heart    { animation: none; }
   }
 </style>
