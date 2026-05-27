@@ -501,7 +501,6 @@
    Filter Panel Modal
 ───────────────────────────────────────────── */
 
-/* Backdrop */
 .fp-backdrop {
   position: fixed;
   inset: 0;
@@ -513,202 +512,174 @@
   pointer-events: none;
   transition: opacity 0.28s var(--ease-smooth);
 }
-
 .fp-backdrop--open {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Panel */
+/* Panel — compact, bottom sheet */
 .fp-panel {
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(24px);
+  transform: translateX(-50%) translateY(20px);
   z-index: var(--z-overlay);
-  width: min(92vw, 680px);
+  width: min(94vw, 560px);
   background: var(--c-surface);
-  border-radius: var(--r-2xl) var(--r-2xl) var(--r-xl) var(--r-xl);
-  box-shadow:
-    0 -4px 0 var(--c-border),
-    0 -24px 80px rgba(43, 30, 20, 0.22);
-  padding: var(--sp-6) var(--sp-6) var(--sp-5);
+  border-radius: 20px 20px 16px 16px;
+  box-shadow: 0 -3px 0 var(--c-border), 0 -20px 60px rgba(43, 30, 20, 0.20);
+  padding: var(--sp-4) var(--sp-4) var(--sp-3);
   opacity: 0;
   pointer-events: none;
   transition:
-    opacity 0.3s var(--ease-smooth),
-    transform 0.35s var(--ease-out-expo);
+    opacity 0.28s var(--ease-smooth),
+    transform 0.32s var(--ease-out-expo);
 }
-
 .fp-panel--open {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
 
-/* Two-column layout */
-.fp-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-5);
-  margin-bottom: var(--sp-5);
-}
-
-@media (max-width: 480px) {
-  .fp-columns {
-    grid-template-columns: 1fr;
-    gap: var(--sp-4);
-  }
-}
-
-/* Column label */
-.fp-col-label {
-  font-family: var(--ff-body);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--c-text-1);
-  margin-bottom: var(--sp-3);
-}
-
-.fp-col-label-muted {
-  color: var(--c-text-3);
-  font-weight: 600;
-}
-
-/* Item list */
-.fp-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-2);
-}
-
-/* Base item */
-.fp-item {
+/* Header */
+.fp-header {
   display: flex;
   align-items: center;
-  gap: var(--sp-3);
-  width: 100%;
-  padding: 11px var(--sp-4);
-  background: var(--c-surface-2);
-  border: 1.5px solid transparent;
-  border-radius: var(--r-lg);
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+.fp-title {
   font-family: var(--ff-body);
-  font-size: var(--fs-base);
+  font-size: var(--fs-sm);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-text-2);
+}
+.fp-clear-btn {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
   font-weight: 700;
-  color: var(--c-text-1);
+  color: var(--c-accent);
+  background: none;
+  border: none;
+  padding: 4px 0;
   cursor: pointer;
-  text-align: left;
-  transition:
-    background 0.18s var(--ease-smooth),
-    border-color 0.18s var(--ease-smooth),
-    color 0.18s var(--ease-smooth),
-    transform 0.15s var(--ease-bounce);
+  transition: opacity 0.15s;
+}
+.fp-clear-btn:hover { opacity: 0.7; }
+
+/* Body: dua section berdampingan */
+.fp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+@media (max-width: 400px) {
+  .fp-body { grid-template-columns: 1fr; }
 }
 
-.fp-item:hover {
-  background: var(--c-surface-3);
-  transform: translateX(2px);
+/* Section label */
+.fp-section-label {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  margin-bottom: var(--sp-2);
 }
 
-.fp-item:active {
-  transform: translateX(0) scale(0.98);
+/* Grid chip 2 kolom dalam setiap section */
+.fp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
 }
 
-/* Active state — region */
-.fp-item--active {
-  background: var(--fp-item-color, var(--c-accent));
-  border-color: transparent;
-  color: #fff;
+/* Wilayah: 1 kolom penuh karena nama panjang */
+.fp-section--region .fp-grid {
+  grid-template-columns: 1fr;
 }
 
-.fp-item--active:hover {
-  filter: brightness(1.08);
-  transform: translateX(2px);
-}
-
-/* Active state — taste (no color var, use accent) */
-.fp-item--taste-active {
-  background: var(--c-brand-mocha);
-  color: var(--c-brand-cream);
-}
-
-.fp-item--taste-active:hover {
-  background: var(--c-brand-cinnamon);
-}
-
-/* Dot indicator for regions */
-.fp-item-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  transition: transform 0.15s var(--ease-bounce);
-}
-
-.fp-item--active .fp-item-dot {
-  background: rgba(255,255,255,0.9) !important;
-  transform: scale(1.2);
-}
-
-/* Emoji for tastes */
-.fp-item-emoji {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.fp-item-label {
-  flex: 1;
-}
-
-/* Footer */
-.fp-footer {
+/* Chip — compact pill */
+.fp-chip {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--sp-3);
-  padding-top: var(--sp-4);
-  border-top: 1px solid var(--c-border-soft);
-}
-
-.fp-clear-btn {
+  padding: 7px 6px;
+  background: var(--c-surface-2);
+  border: 1.5px solid var(--c-border-soft);
+  border-radius: var(--r-md);
   font-family: var(--ff-body);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--c-text-2);
-  background: none;
-  border: 1.5px solid var(--c-border);
-  border-radius: var(--r-full);
-  padding: 8px 20px;
   cursor: pointer;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition:
+    background 0.15s var(--ease-smooth),
+    color 0.15s var(--ease-smooth),
+    border-color 0.15s var(--ease-smooth),
+    transform 0.12s var(--ease-bounce);
 }
-
-.fp-clear-btn:hover {
+.fp-chip:hover {
+  background: var(--c-surface-3);
   color: var(--c-text-1);
-  border-color: var(--c-border-strong);
-  background: var(--c-surface-2);
+  transform: scale(1.03);
+}
+.fp-chip:active { transform: scale(0.97); }
+
+/* Active region — warna brand region */
+.fp-chip--active {
+  background: var(--fp-chip-color, var(--c-accent));
+  border-color: transparent;
+  color: #fff;
+}
+.fp-chip--active:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
 }
 
+/* Active taste — mocha */
+.fp-chip--taste {
+  background: var(--c-brand-mocha);
+  border-color: transparent;
+  color: var(--c-brand-cream);
+}
+.fp-chip--taste:hover {
+  background: var(--c-brand-cinnamon);
+}
+
+/* Footer: tombol close */
+.fp-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--c-border-soft);
+}
 .fp-close-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   background: var(--c-surface-2);
   border: 1.5px solid var(--c-border);
   border-radius: var(--r-full);
-  font-size: 1rem;
-  color: var(--c-text-2);
+  font-size: 0.85rem;
+  color: var(--c-text-3);
   cursor: pointer;
   transition: background 0.15s, color 0.15s, transform 0.15s var(--ease-bounce);
 }
-
 .fp-close-btn:hover {
   background: var(--c-surface-3);
   color: var(--c-text-1);
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 /* ─────────────────────────────────────────────
@@ -717,7 +688,7 @@
 @media (prefers-reduced-motion: reduce) {
   .fp-backdrop,
   .fp-panel,
-  .fp-item,
+  .fp-chip,
   .filter-fab,
   .search-content {
     transition-duration: 1ms !important;
