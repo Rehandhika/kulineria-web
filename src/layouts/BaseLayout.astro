@@ -130,28 +130,27 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       import { gsap } from 'gsap';
 
       const WAVE_H = 60;
+      // Buffer ekstra untuk mobile — address bar dinamis bisa buat innerHeight
+      // lebih kecil dari 100vh CSS. 150px buffer memastikan layer selalu tersembunyi.
+      const BUFFER = 150;
 
       const l1 = document.getElementById('pt-l1')!;
       const l2 = document.getElementById('pt-l2')!;
       const l3 = document.getElementById('pt-l3')!;
 
-      // .pt-layer punya top: -60px, jadi untuk menyembunyikan di bawah viewport:
-      // translateY harus = window.innerHeight + 60 (kompensasi top offset)
-      // Untuk menutupi layar penuh: translateY = 0 (posisi CSS normal)
-      // Untuk keluar ke atas: translateY = -(window.innerHeight + 60 + WAVE_H)
-
       function getY() {
-        const vh = window.innerHeight;
+        // Gunakan visualViewport jika tersedia (lebih akurat di mobile),
+        // fallback ke innerHeight + buffer besar
+        const vh = (window.visualViewport?.height ?? window.innerHeight) + BUFFER;
         return {
-          hidden:  vh + WAVE_H,          // tersembunyi di bawah (kompensasi top:-60px)
-          covered: 0,                    // menutupi layar penuh
-          gone:    -(vh + WAVE_H * 2),   // keluar ke atas sepenuhnya
+          hidden:  vh + WAVE_H,        // tersembunyi di bawah, kompensasi top:-60px + buffer
+          covered: 0,                  // menutupi layar penuh
+          gone:    -(vh + WAVE_H * 2), // keluar ke atas sepenuhnya
         };
       }
 
-      // Sembunyikan semua layer di bawah viewport saat load
-      const init = getY();
-      gsap.set([l1, l2, l3], { y: init.hidden });
+      // Sembunyikan semua layer saat load
+      gsap.set([l1, l2, l3], { y: getY().hidden });
 
       function setupSwupHooks() {
         const swup = (window as any).swup;
@@ -164,8 +163,8 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
             const tl = gsap.timeline({ onComplete: resolve });
             tl.to(l1, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0);
-            tl.to(l2, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.08);
-            tl.to(l3, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.14);
+            tl.to(l2, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.12);
+            tl.to(l3, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.24);
           })
         );
 
@@ -179,9 +178,10 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
                 resolve();
               },
             });
+            // Enter: l1 pergi duluan, l3 mocha menyusul cepat
             tl.to(l1, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0);
-            tl.to(l2, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.08);
-            tl.to(l3, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.14);
+            tl.to(l2, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.12);
+            tl.to(l3, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.24);
           })
         );
       }
@@ -244,15 +244,17 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
   .pt-layer {
     position: fixed;
-    top: -60px;                        /* ombak atas masuk ke dalam div */
+    top: -60px;
     left: 0;
     width: 100%;
-    height: calc(100vh + 120px);       /* viewport + ombak atas + ombak bawah */
+    /* 100dvh = dynamic viewport height, akurat di mobile saat address bar muncul/hilang.
+       + 120px untuk ombak atas + bawah. + 150px buffer ekstra untuk keamanan mobile. */
+    height: calc(100dvh + 270px);
     pointer-events: none;
     display: flex;
     flex-direction: column;
     will-change: transform;
-    overflow: hidden;                  /* tidak perlu overflow:visible */
+    overflow: hidden;
   }
 
   .pt-layer .pt-wave {
