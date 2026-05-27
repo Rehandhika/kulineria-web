@@ -10,13 +10,6 @@ function isActive(path: string) {
   if (path === '/') return currentPath === '/';
   return currentPath.startsWith(path);
 }
-
-const navIcons: Record<string, string> = {
-  home: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-  search: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
-  quiz: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>',
-  about: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>',
-};
 ---
 
 <header class="top-nav" id="top-nav" role="banner">
@@ -26,49 +19,59 @@ const navIcons: Record<string, string> = {
         <span class="top-nav-logo-text">Kulineria</span>
       </a>
 
-      <nav class="top-nav-links" role="navigation" aria-label="Main navigation">
-        {navItems.map(item => (
-          <a
-            href={item.href}
-            class:list={['top-nav-link', { active: isActive(item.href) }]}
-            aria-current={isActive(item.href) ? 'page' : undefined}
-          >
-            <span>{item.label}</span>
-          </a>
-        ))}
-      </nav>
+      <div class="top-nav-actions">
+        <button
+          class="top-nav-menu-toggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="top-nav-overlay"
+          aria-haspopup="menu"
+          data-menu-toggle
+        >
+          <span class="menu-toggle-label" data-menu-label>MENU</span>
+          <span class="menu-toggle-icon" aria-hidden="true">
+            <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="4" y1="13" x2="20" y2="13" />
+              <line x1="4" y1="19" x2="20" y2="19" />
+            </svg>
+            <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <line x1="6" y1="6" x2="18" y2="18" />
+              <line x1="18" y1="6" x2="6" y2="18" />
+            </svg>
+          </span>
+        </button>
 
-      <button class="top-nav-hamburger" aria-label="Buka menu" aria-expanded="false" data-menu-toggle>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Overlay -->
-  <div class="top-nav-overlay" data-menu-overlay inert>
-    <div class="overlay-bg"></div>
-    <div class="overlay-scroll">
-      <nav class="overlay-nav">
-        {navItems.map((item, idx) => (
-          <a
-            href={item.href}
-            class:list={['overlay-link', { active: isActive(item.href) }]}
-            style={`--idx: ${idx}`}
-            aria-current={isActive(item.href) ? 'page' : undefined}
-          >
-            <span class="overlay-link-icon" aria-hidden="true" set:html={navIcons[item.key]}></span>
-            <span class="overlay-link-label">{item.label}</span>
-          </a>
-        ))}
-      </nav>
-
-      <div class="overlay-footer">
-        <span class="overlay-tagline">dibuat dengan ❤ dan sambal</span>
+        <!-- Floating menu overlay (anchored to actions group so its right edge aligns with the toggle's right edge) -->
+        <div
+          class="menu-overlay"
+          id="top-nav-overlay"
+          data-menu-overlay
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu navigasi"
+          inert
+        >
+          <nav class="overlay-nav" aria-label="Menu utama">
+            {navItems.map((item, idx) => (
+              <a
+                href={item.href}
+                class:list={['overlay-link', { active: isActive(item.href) }]}
+                style={`--idx: ${idx}`}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                data-overlay-link
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Page dim / wash -->
+  <div class="page-dim" data-page-dim aria-hidden="true"></div>
 </header>
 
 <script>
@@ -76,57 +79,171 @@ import { gsap } from 'gsap';
 
 function initNav() {
   const header = document.getElementById('top-nav');
-  const overlay = document.querySelector('[data-menu-overlay]');
-  const toggle = document.querySelector('[data-menu-toggle]');
+  const overlay = document.querySelector<HTMLElement>('[data-menu-overlay]');
+  const dim = document.querySelector<HTMLElement>('[data-page-dim]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const toggleLabel = document.querySelector<HTMLElement>('[data-menu-label]');
   const body = document.body;
-  if (!header || !overlay || !toggle) return;
+  if (!header || !overlay || !dim || !toggle || !toggleLabel) return;
 
-  let tl;
+  let state: 'open' | 'closed' = 'closed';
+  let openTl: gsap.core.Timeline | null = null;
+  let closeTl: gsap.core.Timeline | null = null;
+  let prevOverflow = '';
 
-  function closeMenu() {
-    if (tl) tl.kill();
-    overlay.classList.remove('open');
-    overlay.setAttribute('inert', '');
-    toggle.setAttribute('aria-expanded', 'false');
-    body.style.overflow = '';
+  const reduceMotion = () =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+
+  function setToggleVisuals(open: boolean) {
+    toggle!.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle!.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+    toggleLabel!.textContent = open ? 'CLOSE' : 'MENU';
+    toggle!.classList.toggle('is-open', open);
   }
 
   function openMenu() {
-    overlay.classList.add('open');
-    overlay.removeAttribute('inert');
-    toggle.setAttribute('aria-expanded', 'true');
+    if (state === 'open') return; // idempotent
+    state = 'open';
+
+    if (closeTl) { closeTl.kill(); closeTl = null; }
+
+    overlay!.removeAttribute('inert');
+    dim!.classList.add('is-visible');
+    overlay!.classList.add('is-open');
+    setToggleVisuals(true);
+
+    prevOverflow = body.style.overflow;
     body.style.overflow = 'hidden';
 
-    tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.set(overlay, { clearProps: 'opacity' })
-      .fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.35 })
-      .from(overlay.querySelectorAll('.overlay-link'), { y: 40, opacity: 0, filter: 'blur(6px)', stagger: 0.06, duration: 0.55 }, '-=0.2')
-      .from(overlay.querySelector('.overlay-footer'), { y: 16, opacity: 0, duration: 0.4 }, '-=0.15');
+    if (reduceMotion()) {
+      gsap.set(overlay, { opacity: 1, scale: 1, y: 0, clearProps: 'transform' });
+      gsap.set(overlay!.querySelectorAll('.overlay-link'), { opacity: 1, y: 0 });
+      requestAnimationFrame(() => {
+        const first = overlay!.querySelector<HTMLElement>('.overlay-link');
+        first?.focus();
+      });
+      return;
+    }
+
+    const desktop = isDesktop();
+    openTl = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      onComplete: () => {
+        const first = overlay!.querySelector<HTMLElement>('.overlay-link');
+        first?.focus();
+      },
+    });
+
+    gsap.set(dim, { opacity: 0 });
+    openTl.to(dim, { opacity: 1, duration: 0.25, ease: 'power2.out' }, 0);
+
+    if (desktop) {
+      openTl.fromTo(
+        overlay,
+        { opacity: 0, scale: 0.92, y: 0, transformOrigin: 'top right' },
+        { opacity: 1, scale: 1, duration: 0.35 },
+        0
+      );
+    } else {
+      openTl.fromTo(
+        overlay,
+        { opacity: 0, y: -16 },
+        { opacity: 1, y: 0, duration: 0.35 },
+        0
+      );
+    }
+
+    openTl.fromTo(
+      overlay!.querySelectorAll('.overlay-link'),
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.32, stagger: 0.05 },
+      0.12
+    );
+  }
+
+  function closeMenu(opts: { restoreFocus?: boolean } = {}) {
+    if (state === 'closed') return; // idempotent
+    state = 'closed';
+
+    if (openTl) { openTl.kill(); openTl = null; }
+
+    setToggleVisuals(false);
+
+    const finalize = () => {
+      overlay!.classList.remove('is-open');
+      overlay!.setAttribute('inert', '');
+      dim!.classList.remove('is-visible');
+      body.style.overflow = prevOverflow || '';
+      if (opts.restoreFocus !== false) toggle!.focus();
+    };
+
+    if (reduceMotion()) {
+      gsap.set(overlay, { opacity: 0 });
+      gsap.set(dim, { opacity: 0 });
+      finalize();
+      return;
+    }
+
+    closeTl = gsap.timeline({ onComplete: finalize });
+    closeTl.to(overlay, { opacity: 0, duration: 0.2, ease: 'power2.in' }, 0);
+    closeTl.to(dim, { opacity: 0, duration: 0.2, ease: 'power2.in' }, 0);
   }
 
   toggle.addEventListener('click', () => {
-    overlay.classList.contains('open') ? closeMenu() : openMenu();
+    state === 'open' ? closeMenu() : openMenu();
   });
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeMenu(); });
+
+  // Click outside (on dim) closes
+  dim.addEventListener('click', () => closeMenu());
+
+  // ESC closes
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+    if (e.key === 'Escape' && state === 'open') closeMenu();
   });
 
-  // Reset body scroll when clicking any overlay link (navigation)
-  overlay.querySelectorAll('.overlay-link').forEach((link) => {
-    link.addEventListener('click', closeMenu);
+  // Tab focus trap: cycle between overlay links + toggle
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || state !== 'open') return;
+    const focusables = [
+      ...Array.from(overlay!.querySelectorAll<HTMLElement>('.overlay-link')),
+      toggle!,
+    ];
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement as HTMLElement | null;
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    } else if (active && !focusables.includes(active)) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
-  // Safety net: release scroll lock on page navigation
-  document.addEventListener('astro:before-swap', closeMenu);
+  // Close menu when an overlay link is activated (before navigation)
+  overlay.querySelectorAll<HTMLAnchorElement>('.overlay-link').forEach((link) => {
+    link.addEventListener('click', () => closeMenu({ restoreFocus: false }));
+  });
+
+  // Safety: release scroll lock + close on page navigation
+  document.addEventListener('astro:before-swap', () => {
+    closeMenu({ restoreFocus: false });
+    body.style.overflow = '';
+  });
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') body.style.overflow = '';
   });
 
-  // Scroll effect: hero mode vs scrolled
+  // Scroll effect: bar gets cream surface + shadow once scrolled past hero edge
   function onScroll() {
     const scrolled = window.scrollY > 30;
-    header.classList.toggle('top-nav-scrolled', scrolled);
+    header!.classList.toggle('is-scrolled', scrolled);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -143,257 +260,263 @@ document.addEventListener('astro:page-load', () => requestAnimationFrame(initNav
     right: 0;
     z-index: var(--z-nav);
     padding-top: env(safe-area-inset-top, 0);
-    font-family: var(--ff-body);
-    color: rgba(255, 248, 240, 0.85);
+    font-family: var(--ff-ui-system);
+    color: var(--c-brand-cream);
   }
 
+  /* === BAR === */
+  /* Default: transparent over hero so the hero stays untouched. */
   .top-nav-bar {
     position: relative;
     z-index: 2;
-    transition: background 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
     background: transparent;
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   }
-  .top-nav-bar::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--c-brand-caramel), transparent);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-  .top-nav-scrolled .top-nav-bar {
-    background: rgba(250, 244, 236, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 1px 8px rgba(60, 42, 30, 0.06);
-    color: var(--c-text-2);
-  }
-  .top-nav-scrolled .top-nav-bar::after {
-    opacity: 0.25;
+  /* Scrolled: cream solid surface + soft shadow */
+  .top-nav.is-scrolled .top-nav-bar {
+    background: var(--c-cream-bar);
+    box-shadow: 0 4px 16px rgba(60, 42, 30, 0.10);
+    color: var(--c-ink);
   }
 
   .top-nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--sp-3);
     height: var(--nav-mobile-h);
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 var(--sp-4);
+    padding: 0 var(--sp-5);
   }
   @media (min-width: 1024px) {
-    .top-nav-inner { height: var(--nav-h); padding: 0 var(--sp-8); }
+    .top-nav-inner {
+      height: var(--nav-h);
+      padding: 0 var(--sp-10);
+    }
   }
 
-  /* Logo */
+  /* === LOGO === */
   .top-nav-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
-    transition: opacity 0.2s ease;
+    transition: transform 0.18s var(--ease-bounce);
   }
-  .top-nav-logo:hover { opacity: 0.8; }
+  .top-nav-logo:hover { transform: scale(1.04); }
+  .top-nav-logo:active { transform: scale(0.98); }
+
   .top-nav-logo-text {
     font-family: var(--ff-display);
-    font-size: var(--fs-lg);
     font-weight: 900;
-    letter-spacing: -0.02em;
-    background: var(--grad-warm);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--c-brand-cream);
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    transition: color 0.3s ease;
+  }
+  /* On scrolled cream bar, the logo turns warm cinnamon for contrast */
+  .top-nav.is-scrolled .top-nav-logo-text {
+    color: var(--c-brand-cinnamon-dark);
   }
 
-  /* Desktop nav links */
-  .top-nav-links {
-    display: none;
+  /* === ACTIONS GROUP (anchor for the floating menu) === */
+  .top-nav-actions {
+    position: relative; /* anchor for .menu-overlay so its right edge aligns with the toggle */
+    display: inline-flex;
     align-items: center;
-    gap: var(--sp-1);
-  }
-  @media (min-width: 1024px) {
-    .top-nav-links { display: flex; }
   }
 
-  .top-nav-link {
-    position: relative;
-    padding: 6px 14px;
-    font-weight: 700;
-    font-size: var(--fs-sm);
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .top-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 18px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--grad-warm);
-    transition: transform 0.25s var(--ease-smooth);
-  }
-  .top-nav-link:hover { color: #FFF8F0; }
-  .top-nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
-  .top-nav-link.active { color: var(--c-brand-caramel); }
-  .top-nav-link.active::after { transform: translateX(-50%) scaleX(1); }
-
-  .top-nav-scrolled .top-nav-link { color: var(--c-text-2); }
-  .top-nav-scrolled .top-nav-link:hover { color: var(--c-text-1); }
-  .top-nav-scrolled .top-nav-link.active { color: var(--c-brand-cinnamon-dark); }
-  .top-nav-scrolled .top-nav-link::after { background: var(--grad-warm); }
-
-  /* Hamburger */
-  .top-nav-hamburger {
-    display: flex;
-    flex-direction: column;
+  /* === MENU TOGGLE PILL === */
+  .top-nav-menu-toggle {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 40px;
+    gap: 8px;
     height: 40px;
-    padding: 0;
-    border: 1.5px solid rgba(255, 248, 240, 0.3);
-    border-radius: 50%;
-    background: transparent;
+    min-width: 44px;
+    padding: 0 16px;
+    border-radius: var(--r-full);
+    background: rgba(255, 248, 240, 0.10);
+    color: var(--c-brand-cream);
+    border: 1.5px solid rgba(255, 248, 240, 0.55);
+    font-family: var(--ff-ui-system);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.2s ease;
-    color: inherit;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+                transform 0.15s var(--ease-bounce);
   }
-  .top-nav-hamburger:hover {
-    border-color: rgba(255, 248, 240, 0.6);
+  .top-nav-menu-toggle:hover {
+    background: rgba(255, 248, 240, 0.20);
+    border-color: rgba(255, 248, 240, 0.85);
+    transform: translateY(-1px);
   }
-  .top-nav-scrolled .top-nav-hamburger {
-    border-color: var(--c-border);
-    color: var(--c-text-2);
+  .top-nav-menu-toggle:active {
+    transform: translateY(2px);
   }
-  .top-nav-scrolled .top-nav-hamburger:hover {
-    border-color: var(--c-brand-caramel);
-    color: var(--c-brand-caramel-dark);
+  /* On cream bar, toggle becomes ink-on-cream */
+  .top-nav.is-scrolled .top-nav-menu-toggle {
+    background: var(--c-cream-bar);
+    color: var(--c-ink);
+    border-color: var(--duo-stroke-color);
+  }
+  .top-nav.is-scrolled .top-nav-menu-toggle:hover {
+    background: var(--c-cream-bar-2);
+    border-color: var(--duo-stroke-color);
+  }
+  /* When OPEN: morph into accent pill (warm cinnamon) */
+  .top-nav-menu-toggle.is-open {
+    background: var(--c-nav-accent);
+    color: var(--c-brand-cream);
+    border-color: var(--c-nav-accent-dark);
+  }
+  .top-nav-menu-toggle.is-open:hover {
+    background: var(--c-nav-accent-hover);
   }
   @media (min-width: 1024px) {
-    .top-nav-hamburger { display: none; }
+    .top-nav-menu-toggle {
+      height: 42px;
+      padding: 0 20px;
+      font-size: 14px;
+    }
   }
 
-  .hamburger-line {
-    display: block;
-    width: 16px;
-    height: 1.5px;
-    background: currentColor;
-    border-radius: 2px;
-    transition: all 0.25s ease;
-    transform-origin: center;
+  .menu-toggle-label {
+    line-height: 1;
   }
-  .top-nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
+  .menu-toggle-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    color: currentColor;
   }
-  .top-nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  .menu-toggle-icon svg {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.18s ease, transform 0.18s var(--ease-bounce);
+  }
+  .icon-close { opacity: 0; transform: rotate(-90deg); }
+  .top-nav-menu-toggle.is-open .icon-hamburger {
     opacity: 0;
-    transform: scaleX(0);
+    transform: rotate(90deg);
   }
-  .top-nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
+  .top-nav-menu-toggle.is-open .icon-close {
+    opacity: 1;
+    transform: rotate(0);
   }
 
-  /* ---- OVERLAY ---- */
-  .top-nav-overlay {
+  /* === PAGE DIM === */
+  .page-dim {
     position: fixed;
     inset: 0;
     z-index: 1;
-    visibility: hidden;
+    background: var(--c-page-dim);
+    backdrop-filter: blur(10px) saturate(110%);
+    -webkit-backdrop-filter: blur(10px) saturate(110%);
     opacity: 0;
-    transition: visibility 0s 0.4s;
-    overflow: hidden;
-    background: linear-gradient(155deg, var(--c-brand-mocha-dark) 0%, var(--c-brand-mocha) 50%, #6B4A2E 100%);
-    color: rgba(255, 248, 240, 0.9);
+    pointer-events: none;
+    transition: opacity 0.25s ease;
   }
-  .top-nav-overlay.open {
-    visibility: visible;
+  .page-dim.is-visible {
     opacity: 1;
-    transition: visibility 0s 0s;
+    pointer-events: auto;
   }
 
-  .overlay-scroll {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  /* === FLOATING MENU CARD ===
+     Positioned absolutely inside .top-nav-actions so its right edge
+     always aligns exactly with the right edge of the MENU toggle. */
+  .menu-overlay {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;          /* sejajar dengan sisi kanan tombol MENU */
+    left: auto;
+    z-index: var(--z-overlay);
+    width: 320px;
+    max-width: min(86vw, 380px);
+    padding: 24px 28px;
+    background: var(--c-overlay-surface);
+    color: var(--c-overlay-link);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 248, 240, 0.08);
+    box-shadow:
+      0 6px 0 var(--c-overlay-surface-dark),
+      0 22px 50px rgba(20, 12, 6, 0.35);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: calc(var(--nav-mobile-h) + env(safe-area-inset-top, 0) + var(--sp-8)) var(--sp-6) var(--sp-8);
-    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0s linear 0.3s;
+  }
+  .menu-overlay.is-open {
+    pointer-events: auto;
+    visibility: visible;
+    transition: visibility 0s linear 0s;
+  }
+  @media (min-width: 1024px) {
+    .menu-overlay {
+      top: calc(100% + 14px);
+      width: 340px;
+      padding: 28px 34px;
+      border-radius: 28px;
+    }
+  }
+  /* On very narrow phones the actions group can sit close to the right edge,
+     give the floating card a small viewport-edge guard so it never clips. */
+  @media (max-width: 380px) {
+    .menu-overlay {
+      width: calc(100vw - 32px);
+      max-width: calc(100vw - 32px);
+    }
   }
 
+  /* === OVERLAY LINKS === */
   .overlay-nav {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-2);
-    width: 100%;
-    max-width: 320px;
+    gap: 6px;
   }
-
   .overlay-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 16px 20px;
-    border-radius: var(--r-xl);
-    color: rgba(255, 248, 240, 0.7);
-    font-weight: 700;
-    font-size: var(--fs-lg);
+    display: inline-block;
+    color: var(--c-overlay-link);
+    font-family: var(--ff-display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4.8vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: 0;
     text-decoration: none;
-    transition: color 0.2s ease, background 0.2s ease;
-    opacity: 0;
-  }
-  .open .overlay-link {
-    opacity: 1;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    transition: color 0.18s ease, transform 0.18s var(--ease-bounce);
   }
   .overlay-link:hover {
-    color: #FFF8F0;
-    background: rgba(255, 255, 255, 0.06);
+    color: var(--c-brand-caramel);
+    transform: translateX(3px);
   }
   .overlay-link.active {
     color: var(--c-brand-caramel);
-    background: rgba(196, 154, 110, 0.1);
-  }
-  .overlay-link-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    flex-shrink: 0;
-    color: inherit;
-  }
-  .overlay-link.active .overlay-link-icon {
-    background: rgba(196, 154, 110, 0.2);
-    color: var(--c-brand-caramel);
-  }
-  .overlay-link-label {
-    font-family: var(--ff-display);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
   }
 
-  .overlay-footer {
-    margin-top: var(--sp-10);
-    opacity: 0;
-  }
-  .open .overlay-footer {
-    opacity: 1;
-  }
-  .overlay-tagline {
-    font-size: var(--fs-sm);
-    color: rgba(255, 248, 240, 0.4);
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .top-nav-bar,
+    .top-nav-menu-toggle,
+    .top-nav-logo,
+    .top-nav-logo-text,
+    .menu-overlay,
+    .overlay-link,
+    .page-dim,
+    .menu-toggle-icon svg {
+      transition-duration: 1ms !important;
+    }
   }
 </style>

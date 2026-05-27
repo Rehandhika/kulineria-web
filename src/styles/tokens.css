@@ -108,11 +108,26 @@
   --grad-sunset:    linear-gradient(135deg, var(--c-brand-terracotta), var(--c-brand-dusty-rose));
   --grad-fresh:     linear-gradient(135deg, var(--c-brand-sage), #7BA8B8);
 
-  /* TYPOGRAPHY */
-  --ff-display:     'Plus Jakarta Sans', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --ff-body:        'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --ff-nara:        'Nunito', 'Segoe UI', Roboto, sans-serif;
-  --ff-mono:        'Geist Mono', 'SF Mono', 'Fira Code', monospace;
+  /* TYPOGRAPHY
+     Site rule: only Fraunces (display) and Google Sans Flex (body) are used.
+     Exception: Navbar & Menu UI labels intentionally render in a neutral
+     system sans (--ff-ui-system) for clean pill chrome. */
+  --ff-display:     'Fraunces', 'DM Serif Display', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --ff-body:        'Google Sans Flex', 'Google Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ff-nara:        var(--ff-body);
+  --ff-mono:        var(--ff-body);
+  --ff-ui-system:   system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* === NAVBAR SURFACE TOKENS (aliased to warm-brown brand palette) === */
+  --c-cream-bar:    var(--c-brand-cream);            /* solid cream top-bar surface when scrolled */
+  --c-cream-bar-2:  var(--c-brand-cream-dark);       /* hover/border depth */
+  --c-nav-accent:   var(--c-brand-cinnamon-dark);    /* primary action — deeper cinnamon for proper cream-on-bg contrast */
+  --c-nav-accent-dark: #6F3F22;                      /* press/shadow depth */
+  --c-nav-accent-hover: var(--c-brand-cinnamon);     /* hover */
+  --c-overlay-surface: var(--c-brand-mocha-dark);    /* floating menu card surface */
+  --c-overlay-surface-dark: #3F2A18;                 /* depth shadow under menu card */
+  --c-overlay-link: var(--c-brand-cream);            /* cream text inside the overlay */
+  --c-page-dim:     rgba(43, 30, 20, 0.45);          /* warm-brown wash behind overlay */
 
   --fs-display:     clamp(3rem, 10vw, 7rem);
   --fs-mega:        clamp(2.2rem, 7vw, 5rem);
@@ -310,6 +325,17 @@
 
     --duo-stroke-color:  #6A5A4C;
     --duo-stroke-soft:   rgba(255, 245, 240, 0.08);
+
+    /* Navbar surface tokens (dark) */
+    --c-cream-bar:    #2B1E14;
+    --c-cream-bar-2:  #3A2A1C;
+    --c-nav-accent:   var(--c-brand-caramel);
+    --c-nav-accent-dark: var(--c-brand-caramel-dark);
+    --c-nav-accent-hover: var(--c-brand-cinnamon);
+    --c-overlay-surface: #1E1610;
+    --c-overlay-surface-dark: #14100B;
+    --c-overlay-link: var(--c-brand-cream);
+    --c-page-dim:     rgba(0, 0, 0, 0.55);
 
     --sh-1:  0 2px 0 rgba(0, 0, 0, 0.2);
     --sh-2:  0 4px 0 rgba(0, 0, 0, 0.22);

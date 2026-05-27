@@ -51,10 +51,9 @@ const icons: Record<string, string> = {
     justify-content: space-around;
     height: var(--nav-mobile-h);
     min-height: 56px;
-    background: rgba(255, 253, 247, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 2px solid var(--c-border-soft);
+    background: var(--c-cream-bar);
+    border-top: 1px solid var(--c-border-soft);
+    box-shadow: 0 -4px 16px rgba(60, 42, 30, 0.08);
   }
 
   .bottom-nav-item {
@@ -66,10 +65,13 @@ const icons: Record<string, string> = {
     flex: 1;
     min-width: 64px;
     min-height: 48px;
-    color: var(--c-text-3);
+    color: var(--c-ink-mute);
+    font-family: var(--ff-ui-system);
     font-size: 11px;
     font-weight: 800;
-    transition: all 0.12s var(--ease-bounce);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.12s var(--ease-bounce), transform 0.12s var(--ease-bounce);
     position: relative;
     padding-top: 4px;
   }
@@ -78,12 +80,9 @@ const icons: Record<string, string> = {
     display: flex;
     transition: transform 0.12s var(--ease-bounce);
   }
-  .bottom-nav-label {
-    letter-spacing: 0.03em;
-  }
 
   .bottom-nav-item.active {
-    color: var(--c-accent);
+    color: var(--c-nav-accent);
   }
   .bottom-nav-item.active .bottom-nav-icon {
     transform: scale(1.15);
@@ -96,12 +95,12 @@ const icons: Record<string, string> = {
     transform: translateX(-50%);
     width: 28px;
     height: 3px;
-    background: var(--grad-brand);
+    background: var(--c-nav-accent);
     border-radius: 0 0 var(--r-full) var(--r-full);
   }
 
   .bottom-nav-item:hover {
-    color: var(--c-text-2);
+    color: var(--c-ink);
   }
   .bottom-nav-item:active .bottom-nav-icon {
     transform: scale(0.9);
