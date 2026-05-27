@@ -1,883 +1,164 @@
 ﻿{
-    "foods":  [
-                  {
-                      "id":  "papeda-001",
-                      "name":  "Papeda",
-                      "region":  "maluku-papua",
-                      "description":  "Bubur sagu khas Papua yang disajikan dengan ikan kuah kuning.",
-                      "taste":  [
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/papeda.jpg"
-                  },
-                  {
-                      "id":  "ikan-bakar-taliwang-002",
-                      "name":  "Ikan Bakar Taliwang",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan bakar dengan sambal pedas khas Lombok.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-bakar-taliwang.jpg"
-                  },
-                  {
-                      "id":  "sagu-lempeng-003",
-                      "name":  "Sagu Lempeng",
-                      "region":  "maluku-papua",
-                      "description":  "Roti sagu tradisional dari Maluku, dimakan dengan ikan atau sambal.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-lempeng.jpg"
-                  },
-                  {
-                      "id":  "kue-bika-004",
-                      "name":  "Bika Sagu",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari sagu dan gula merah, khas Maluku.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/bika-sagu.jpg"
-                  },
-                  {
-                      "id":  "es-sagu-005",
-                      "name":  "Es Sagu",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman segar dari sagu mutiara dengan sirup dan santan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-sagu.jpg"
-                  },
-                  {
-                      "id":  "ikan-kuah-kuning-006",
-                      "name":  "Ikan Kuah Kuning",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan dengan kuah kuning dari kunyit dan rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-kuah-kuning.jpg"
-                  },
-                  {
-                      "id":  "sambal-colocolo-007",
-                      "name":  "Sambal Colo-colo",
-                      "region":  "maluku-papua",
-                      "description":  "Sambal mentah dari tomat, cabai, dan bawang merah.",
-                      "taste":  [
-                                    "pedas",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/sambal-colocolo.jpg"
-                  },
-                  {
-                      "id":  "nasi-jagung-008",
-                      "name":  "Nasi Jagung",
-                      "region":  "maluku-papua",
-                      "description":  "Nasi dari jagung yang dihaluskan, khas Papua.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-jagung.jpg"
-                  },
-                  {
-                      "id":  "papeda-ikan-009",
-                      "name":  "Papeda Ikan Kuah Kuning",
-                      "region":  "maluku-papua",
-                      "description":  "Papeda dengan ikan kuah kuning dan sambal.",
-                      "taste":  [
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/papeda-ikan.jpg"
-                  },
-                  {
-                      "id":  "sagu-bakar-010",
-                      "name":  "Sagu Bakar",
-                      "region":  "maluku-papua",
-                      "description":  "Sagu yang dibakar hingga matang, dimakan dengan ikan.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-bakar.jpg"
-                  },
-                  {
-                      "id":  "sagu-rendang-011",
-                      "name":  "Sagu Rendang",
-                      "region":  "maluku-papua",
-                      "description":  "Sagu dimasak dengan daging dan bumbu rendang.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-rendang.jpg"
-                  },
-                  {
-                      "id":  "sagu-goreng-012",
-                      "name":  "Sagu Goreng",
-                      "region":  "maluku-papua",
-                      "description":  "Sagu yang digoreng dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-goreng.jpg"
-                  },
-                  {
-                      "id":  "sagu-bubur-013",
-                      "name":  "Sagu Bubur",
-                      "region":  "maluku-papua",
-                      "description":  "Bubur sagu dengan kuah santan dan gula merah.",
-                      "taste":  [
-                                    "manis",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-bubur.jpg"
-                  },
-                  {
-                      "id":  "sagu-kue-014",
-                      "name":  "Kue Sagu",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari sagu dengan gula merah dan kelapa.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-kue.jpg"
-                  },
-                  {
-                      "id":  "sagu-lapis-015",
-                      "name":  "Kue Lapis Sagu",
-                      "region":  "maluku-papua",
-                      "description":  "Kue lapis dari sagu dengan warna-warni.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-lapis.jpg"
-                  },
-                  {
-                      "id":  "sagu-ondol-016",
-                      "name":  "Ondol Sagu",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari sagu dengan isian gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-ondol.jpg"
-                  },
-                  {
-                      "id":  "sagu-kering-017",
-                      "name":  "Sagu Kering",
-                      "region":  "maluku-papua",
-                      "description":  "Sagu yang dikeringkan untuk penyimpanan.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-kering.jpg"
-                  },
-                  {
-                      "id":  "sagu-basah-018",
-                      "name":  "Sagu Basah",
-                      "region":  "maluku-papua",
-                      "description":  "Sagu segar yang baru diproses.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-basah.jpg"
-                  },
-                  {
-                      "id":  "sagu-tepung-019",
-                      "name":  "Tepung Sagu",
-                      "region":  "maluku-papua",
-                      "description":  "Tepung dari sagu untuk berbagai masakan.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-tepung.jpg"
-                  },
-                  {
-                      "id":  "sagu-mutiara-020",
-                      "name":  "Sagu Mutiara",
-                      "region":  "maluku-papua",
-                      "description":  "Sagu berbentuk mutiara untuk minuman.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/sagu-mutiara.jpg"
-                  },
-                  {
-                      "id":  "ikan-asap-021",
-                      "name":  "Ikan Asap",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan yang diasapi untuk pengawetan.",
-                      "taste":  [
-                                    "gurih",
-                                    "asin"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-asap.jpg"
-                  },
-                  {
-                      "id":  "ikan-panggang-022",
-                      "name":  "Ikan Panggang",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan yang dipanggang dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-panggang.jpg"
-                  },
-                  {
-                      "id":  "ikan-goreng-023",
-                      "name":  "Ikan Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan goreng dengan sambal colo-colo.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-goreng.jpg"
-                  },
-                  {
-                      "id":  "ikan-bakar-sambal-024",
-                      "name":  "Ikan Bakar Sambal Colo-colo",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan bakar dengan sambal colo-colo.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-bakar-sambal.jpg"
-                  },
-                  {
-                      "id":  "udang-bakar-025",
-                      "name":  "Udang Bakar Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Udang bakar dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/udang-bakar.jpg"
-                  },
-                  {
-                      "id":  "udang-goreng-026",
-                      "name":  "Udang Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Udang goreng tepung khas Maluku.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/udang-goreng.jpg"
-                  },
-                  {
-                      "id":  "kepiting-bakar-027",
-                      "name":  "Kepiting Bakar Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kepiting bakar dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/kepiting-bakar.jpg"
-                  },
-                  {
-                      "id":  "kepiting-goreng-028",
-                      "name":  "Kepiting Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kepiting goreng dengan saus padang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/kepiting-goreng.jpg"
-                  },
-                  {
-                      "id":  "cumibakar-029",
-                      "name":  "Cumi Bakar Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Cumi-cumi bakar dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/cumibakar.jpg"
-                  },
-                  {
-                      "id":  "cumigoreng-030",
-                      "name":  "Cumi Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Cumi-cumi goreng tepung.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/cumigoreng.jpg"
-                  },
-                  {
-                      "id":  "kerang-bakar-031",
-                      "name":  "Kerang Bakar Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kerang bakar dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/kerang-bakar.jpg"
-                  },
-                  {
-                      "id":  "kerang-goreng-032",
-                      "name":  "Kerang Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kerang goreng dengan bumbu pedas.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/kerang-goreng.jpg"
-                  },
-                  {
-                      "id":  "sate-ikan-033",
-                      "name":  "Sate Ikan Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Sate ikan dengan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-ikan.jpg"
-                  },
-                  {
-                      "id":  "sate-udang-034",
-                      "name":  "Sate Udang Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Sate udang dengan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-udang.jpg"
-                  },
-                  {
-                      "id":  "sate-kerang-035",
-                      "name":  "Sate Kerang Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Sate kerang dengan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-kerang.jpg"
-                  },
-                  {
-                      "id":  "sate-sapi-036",
-                      "name":  "Sate Sapi Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Sate sapi dengan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-sapi.jpg"
-                  },
-                  {
-                      "id":  "sate-ayam-037",
-                      "name":  "Sate Ayam Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Sate ayam dengan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-ayam.jpg"
-                  },
-                  {
-                      "id":  "sate-kambing-038",
-                      "name":  "Sate Kambing Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Sate kambing dengan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-kambing.jpg"
-                  },
-                  {
-                      "id":  "ayam-goreng-039",
-                      "name":  "Ayam Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Ayam goreng dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-goreng.jpg"
-                  },
-                  {
-                      "id":  "ayam-bakar-040",
-                      "name":  "Ayam Bakar Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Ayam bakar dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-bakar.jpg"
-                  },
-                  {
-                      "id":  "nasi-goreng-041",
-                      "name":  "Nasi Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Nasi goreng dengan bumbu khas Maluku.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-goreng.jpg"
-                  },
-                  {
-                      "id":  "mie-goreng-042",
-                      "name":  "Mie Goreng Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Mie goreng dengan bumbu khas Maluku.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/mie-goreng.jpg"
-                  },
-                  {
-                      "id":  "mie-ayam-043",
-                      "name":  "Mie Ayam Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Mie ayam dengan kuah kaldu.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/mie-ayam.jpg"
-                  },
-                  {
-                      "id":  "bakso-044",
-                      "name":  "Bakso Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Bakso dengan kuah kaldu dan mi.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/bakso.jpg"
-                  },
-                  {
-                      "id":  "soto-ayam-045",
-                      "name":  "Soto Ayam Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Soto ayam dengan kuah kuning dan bihun.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-ayam.jpg"
-                  },
-                  {
-                      "id":  "soto-daging-046",
-                      "name":  "Soto Daging Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Soto daging dengan kuah bening dan sayuran.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-daging.jpg"
-                  },
-                  {
-                      "id":  "soto-kambing-047",
-                      "name":  "Soto Kambing Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Soto kambing dengan kuah bening dan tomat.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-kambing.jpg"
-                  },
-                  {
-                      "id":  "soto-buntut-048",
-                      "name":  "Soto Buntut Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Soto buntut dengan kuah bening dan sayuran.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-buntut.jpg"
-                  },
-                  {
-                      "id":  "soto-iga-049",
-                      "name":  "Soto Iga Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Soto iga dengan kuah bening dan tomat.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-iga.jpg"
-                  },
-                  {
-                      "id":  "kue-bangkit-050",
-                      "name":  "Kue Bangkit Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue kering dari tepung sagu dan santan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-bangkit.jpg"
-                  },
-                  {
-                      "id":  "kue-lapis-051",
-                      "name":  "Kue Lapis Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue lapis dari tepung beras dengan warna-warni.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-lapis.jpg"
-                  },
-                  {
-                      "id":  "kue-klepon-052",
-                      "name":  "Klepon Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue hijau dengan isian gula merah cair.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-klepon.jpg"
-                  },
-                  {
-                      "id":  "kue-onde-053",
-                      "name":  "Onde-onde Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung beras dengan isian kacang hijau.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-onde.jpg"
-                  },
-                  {
-                      "id":  "kue-nagasari-054",
-                      "name":  "Nagasari Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung beras dengan isian pisang.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-nagasari.jpg"
-                  },
-                  {
-                      "id":  "kue-putu-055",
-                      "name":  "Kue Putu Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung beras dengan isian gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-putu.jpg"
-                  },
-                  {
-                      "id":  "kue-mendut-056",
-                      "name":  "Kue Mendut Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung beras dengan isian gula merah dan kelapa.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-mendut.jpg"
-                  },
-                  {
-                      "id":  "kue-getuk-057",
-                      "name":  "Getuk Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari singkong dengan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-getuk.jpg"
-                  },
-                  {
-                      "id":  "kue-lumpur-058",
-                      "name":  "Kue Lumpur Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung terigu dengan isian pisang.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-lumpur.jpg"
-                  },
-                  {
-                      "id":  "kue-bika-059",
-                      "name":  "Bika Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dengan tekstur berpori dan aroma pandan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-bika.jpg"
-                  },
-                  {
-                      "id":  "kue-serabi-060",
-                      "name":  "Serabi Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung beras dengan topping cokelat.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-serabi.jpg"
-                  },
-                  {
-                      "id":  "kue-ape-061",
-                      "name":  "Kue Ape Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue tipis dari tepung beras dengan kelapa.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-ape.jpg"
-                  },
-                  {
-                      "id":  "kue-cucur-062",
-                      "name":  "Kue Cucur Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kue dari tepung beras dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-cucur.jpg"
-                  },
-                  {
-                      "id":  "es-buah-063",
-                      "name":  "Es Buah Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dengan potongan buah segar dan susu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-buah.jpg"
-                  },
-                  {
-                      "id":  "es-teler-064",
-                      "name":  "Es Teler Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dengan alpukat, kelapa muda, dan cincau.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-teler.jpg"
-                  },
-                  {
-                      "id":  "es-degan-065",
-                      "name":  "Es Degan Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dari kelapa muda dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-degan.jpg"
-                  },
-                  {
-                      "id":  "es-jeruk-066",
-                      "name":  "Es Jeruk Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman jeruk segar dengan es batu.",
-                      "taste":  [
-                                    "asam",
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-jeruk.jpg"
-                  },
-                  {
-                      "id":  "es-teh-manis-067",
-                      "name":  "Es Teh Manis Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Teh manis dingin yang menyegarkan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-teh-manis.jpg"
-                  },
-                  {
-                      "id":  "es-kopi-susu-068",
-                      "name":  "Es Kopi Susu Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Kopi susu gula aren yang populer.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-kopi-susu.jpg"
-                  },
-                  {
-                      "id":  "es-campur-069",
-                      "name":  "Es Campur Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Es campur dengan berbagai topping dan sirup.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-campur.jpg"
-                  },
-                  {
-                      "id":  "es-cendol-070",
-                      "name":  "Es Cendol Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dengan cendol, santan, dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-cendol.jpg"
-                  },
-                  {
-                      "id":  "es-dawet-071",
-                      "name":  "Es Dawet Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dengan dawet hijau dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-dawet.jpg"
-                  },
-                  {
-                      "id":  "es-cincau-072",
-                      "name":  "Es Cincau Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dengan cincau hitam dan santan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-cincau.jpg"
-                  },
-                  {
-                      "id":  "es-kelapa-muda-073",
-                      "name":  "Es Kelapa Muda Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman dari kelapa muda dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-kelapa-muda.jpg"
-                  },
-                  {
-                      "id":  "es-alpukat-074",
-                      "name":  "Es Alpukat Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman alpukat dengan susu kental manis.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-alpukat.jpg"
-                  },
-                  {
-                      "id":  "es-avocado-075",
-                      "name":  "Es Avocado Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman alpukat dengan susu kental manis dan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-avocado.jpg"
-                  },
-                  {
-                      "id":  "es-susu-076",
-                      "name":  "Es Susu Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman susu dingin dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-susu.jpg"
-                  },
-                  {
-                      "id":  "es-soda-077",
-                      "name":  "Es Soda Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman soda dengan es batu dan sirup.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-soda.jpg"
-                  },
-                  {
-                      "id":  "es-sirup-078",
-                      "name":  "Es Sirup Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman sirup dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-sirup.jpg"
-                  },
-                  {
-                      "id":  "es-cream-079",
-                      "name":  "Es Cream Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman es krim dengan susu dan sirup.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-cream.jpg"
-                  },
-                  {
-                      "id":  "es-milkshake-080",
-                      "name":  "Es Milkshake Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman milkshake dengan berbagai rasa.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-milkshake.jpg"
-                  },
-                  {
-                      "id":  "es-smoothie-081",
-                      "name":  "Es Smoothie Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman smoothie dengan buah segar.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-smoothie.jpg"
-                  },
-                  {
-                      "id":  "es-juice-082",
-                      "name":  "Es Juice Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman jus buah segar dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-juice.jpg"
-                  },
-                  {
-                      "id":  "es-fruit-tea-083",
-                      "name":  "Es Fruit Tea Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman teh buah dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-fruit-tea.jpg"
-                  },
-                  {
-                      "id":  "es-lemon-tea-084",
-                      "name":  "Es Lemon Tea Maluku",
-                      "region":  "maluku-papua",
-                      "description":  "Minuman teh lemon dengan es batu.",
-                      "taste":  [
-                                    "asam",
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-lemon-tea.jpg"
-                  },
-                  {
-                      "id":  "gohu-ikan-085",
-                      "name":  "Gohu Ikan",
-                      "region":  "maluku-papua",
-                      "description":  "Ikan mentah dengan bumbu asam dan cabai, khas Maluku.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gohu-ikan.jpg"
-                  }
-              ]
+    "foods": [
+        {
+            "id": "papeda-001",
+            "name": "Papeda",
+            "region": "maluku-papua",
+            "description": "Bubur sagu khas Maluku dan Papua, disajikan dengan ikan kuah kuning dan sambal.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/papeda.jpg"
+        },
+        {
+            "id": "ikan-kuah-kuning-002",
+            "name": "Ikan Kuah Kuning",
+            "region": "maluku-papua",
+            "description": "Ikan segar dimasak dengan kuah kuning dari kunyit dan rempah khas Maluku.",
+            "taste": ["gurih", "asam"],
+            "imageUrl": "/images/foods/ikan-kuah-kuning.jpg"
+        },
+        {
+            "id": "sambal-colocolo-003",
+            "name": "Sambal Colo-colo",
+            "region": "maluku-papua",
+            "description": "Sambal segar khas Ambon dari cabai, tomat, bawang merah, dan jeruk nipis.",
+            "taste": ["pedas", "asam"],
+            "imageUrl": "/images/foods/sambal-colocolo.jpg"
+        },
+        {
+            "id": "sagu-lempeng-004",
+            "name": "Sagu Lempeng",
+            "region": "maluku-papua",
+            "description": "Roti sagu tradisional Maluku dan Papua, dimakan dengan ikan atau sambal.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/sagu-lempeng.jpg"
+        },
+        {
+            "id": "gohu-ikan-005",
+            "name": "Gohu Ikan",
+            "region": "maluku-papua",
+            "description": "Ikan tuna mentah khas Maluku (sashimi ala Indonesia) dengan bumbu asam dan pedas.",
+            "taste": ["asam", "pedas"],
+            "imageUrl": "/images/foods/gohu-ikan.jpg"
+        },
+        {
+            "id": "nasi-lapola-006",
+            "name": "Nasi Lapola",
+            "region": "maluku-papua",
+            "description": "Nasi campur kacang tolo dan kelapa parut, khas Maluku. Disajikan dengan kohu-kohu.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/nasi-lapola.jpg"
+        },
+        {
+            "id": "kohu-kohu-007",
+            "name": "Kohu-kohu",
+            "region": "maluku-papua",
+            "description": "Urap khas Maluku dari sayuran dan suwiran ikan cakalang dengan kelapa.",
+            "taste": ["gurih", "asam"],
+            "imageUrl": "/images/foods/kohu-kohu.jpg"
+        },
+        {
+            "id": "kue-bagea-008",
+            "name": "Kue Bagea",
+            "region": "maluku-papua",
+            "description": "Kue kering khas Maluku dari sagu dan kenari, renyah dan gurih.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/kue-bagea.jpg"
+        },
+        {
+            "id": "ikan-asar-009",
+            "name": "Ikan Asar",
+            "region": "maluku-papua",
+            "description": "Ikan cakalang atau tuna yang diasapi, khas Maluku. Disajikan dengan sambal colo-colo.",
+            "taste": ["gurih", "asin"],
+            "imageUrl": "/images/foods/ikan-asar.jpg"
+        },
+        {
+            "id": "bubur-ne-010",
+            "name": "Bubur Ne",
+            "region": "maluku-papua",
+            "description": "Bubur sagu mutiara manis khas Maluku dengan kuah santan dan gula merah.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/bubur-ne.jpg"
+        },
+        {
+            "id": "kue-asida-011",
+            "name": "Kue Asida",
+            "region": "maluku-papua",
+            "description": "Kue tradisional Maluku dari tepung, gula, dan kayu manis, pengaruh Timur Tengah.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/kue-asida.jpg"
+        },
+        {
+            "id": "woku-komo-komo-012",
+            "name": "Woku Komo-komo",
+            "region": "maluku-papua",
+            "description": "Sagu dimasak dengan bumbu woku pedas dan ikan, khas Maluku.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/woku-komo-komo.jpg"
+        },
+        {
+            "id": "udang-selingkuh-013",
+            "name": "Udang Selingkuh",
+            "region": "maluku-papua",
+            "description": "Udang air tawar khas Papua dengan capit panjang, dibakar atau digoreng.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/udang-selingkuh.jpg"
+        },
+        {
+            "id": "kue-lontar-014",
+            "name": "Kue Lontar",
+            "region": "maluku-papua",
+            "description": "Kue basah khas Papua dari tepung sagu dan gula merah.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/kue-lontar.jpg"
+        },
+        {
+            "id": "nasi-jagung-015",
+            "name": "Nasi Jagung",
+            "region": "maluku-papua",
+            "description": "Nasi dari jagung tumbuk, makanan pokok masyarakat Papua.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/nasi-jagung.jpg"
+        },
+        {
+            "id": "bubur-sagu-ubi-016",
+            "name": "Bubur Sagu Ubi",
+            "region": "maluku-papua",
+            "description": "Bubur manis dari sagu dan ubi jalar dengan kuah santan.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/bubur-sagu-ubi.jpg"
+        },
+        {
+            "id": "kopi-sibu-sibu-017",
+            "name": "Kopi Sibu-sibu",
+            "region": "maluku-papua",
+            "description": "Kopi khas Maluku dengan campuran biji ketapang dan cengkeh, aromatik.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/kopi-sibu-sibu.jpg"
+        },
+        {
+            "id": "kasbi-komplet-018",
+            "name": "Kasbi Komplet",
+            "region": "maluku-papua",
+            "description": "Singkong dengan berbagai lauk seperti ikan dan sayur, khas Maluku.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/kasbi-komplet.jpg"
+        },
+        {
+            "id": "papeda-ikan-kuning-019",
+            "name": "Papeda Ikan Kuah Kuning",
+            "region": "maluku-papua",
+            "description": "Papeda dengan ikan kuah kuning berbumbu kunyit dan sambal colo-colo.",
+            "taste": ["gurih", "asam"],
+            "imageUrl": "/images/foods/papeda-ikan.jpg"
+        },
+        {
+            "id": "sagu-bakar-020",
+            "name": "Sagu Bakar",
+            "region": "maluku-papua",
+            "description": "Sagu yang dibakar hingga matang, dimakan dengan ikan atau sambal.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/sagu-bakar.jpg"
+        }
+    ]
 }

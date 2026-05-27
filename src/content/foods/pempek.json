@@ -1,9 +1,13 @@
 {
-  "id": "pempek-palembang-054",
+  "id": "pempek-002",
   "name": "Pempek Palembang",
   "region": "sumatera",
   "description": "Makanan dari ikan dan sagu, disajikan dengan cuko pedas manis.",
-  "taste": ["asam", "pedas", "gurih"],
+  "taste": [
+    "asam",
+    "pedas",
+    "gurih"
+  ],
   "type": "digoreng",
   "imageUrl": "/img/foods/pempek-palembang.jpg",
   "hero": {
@@ -18,12 +22,42 @@
     "image": "/img/foods/pempek-story.jpg"
   },
   "ingredients": [
-    { "name": "Ikan Tenggiri", "qty": "500g", "image": "/img/ingredients/mackerel.svg", "essential": true },
-    { "name": "Tepung Sagu", "qty": "250g", "image": "/img/ingredients/sago-flour.svg", "essential": true },
-    { "name": "Air Es", "qty": "150ml", "image": "/img/ingredients/ice-water.svg", "essential": true },
-    { "name": "Gula Merah", "qty": "200g", "image": "/img/ingredients/palm-sugar.svg", "essential": true },
-    { "name": "Cabai Rawit", "qty": "50g", "image": "/img/ingredients/bird-chili.svg", "essential": true },
-    { "name": "Cuka", "qty": "50ml", "image": "/img/ingredients/vinegar.svg", "essential": true }
+    {
+      "name": "Ikan Tenggiri",
+      "qty": "500g",
+      "image": "/img/ingredients/mackerel.svg",
+      "essential": true
+    },
+    {
+      "name": "Tepung Sagu",
+      "qty": "250g",
+      "image": "/img/ingredients/sago-flour.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Es",
+      "qty": "150ml",
+      "image": "/img/ingredients/ice-water.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah",
+      "qty": "200g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit",
+      "qty": "50g",
+      "image": "/img/ingredients/bird-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Cuka",
+      "qty": "50ml",
+      "image": "/img/ingredients/vinegar.svg",
+      "essential": true
+    }
   ],
   "recipe": {
     "servings": 4,
@@ -31,19 +65,75 @@
     "cookTime": 30,
     "difficulty": "hard",
     "steps": [
-      { "order": 1, "title": "Buat Adonan", "text": "Campurkan ikan giling dengan tepung sagu dan air es, uleni hingga kalis.", "duration": 900, "tip": "Gunakan air es agar adonan tidak lengket" },
-      { "order": 2, "title": "Bentuk Pempek", "text": "Bentuk adonan sesuai jenis: kapal selam, lenjer, keriting.", "duration": 600 },
-      { "order": 3, "title": "Rebus Pempek", "text": "Rebus pempek dalam air mendidih hingga mengapung.", "duration": 900 },
-      { "order": 4, "title": "Buat Cuko", "text": "Masak gula merah, cabai, cuka, dan air hingga mendidih.", "duration": 600 },
-      { "order": 5, "title": "Goreng & Sajikan", "text": "Goreng pempek hingga kecokelatan, sajikan dengan cuko.", "duration": 600 }
+      {
+        "order": 1,
+        "title": "Buat Adonan",
+        "text": "Campurkan ikan giling dengan tepung sagu dan air es, uleni hingga kalis.",
+        "duration": 900,
+        "tip": "Gunakan air es agar adonan tidak lengket"
+      },
+      {
+        "order": 2,
+        "title": "Bentuk Pempek",
+        "text": "Bentuk adonan sesuai jenis: kapal selam, lenjer, keriting.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Rebus Pempek",
+        "text": "Rebus pempek dalam air mendidih hingga mengapung.",
+        "duration": 900
+      },
+      {
+        "order": 4,
+        "title": "Buat Cuko",
+        "text": "Masak gula merah, cabai, cuka, dan air hingga mendidih.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Goreng & Sajikan",
+        "text": "Goreng pempek hingga kecokelatan, sajikan dengan cuko.",
+        "duration": 600
+      }
     ]
   },
-  "tasteScore": { "manis": 30, "pedas": 60, "gurih": 70, "asam": 50, "asin": 20 },
-  "nutrition": { "calories": 220, "protein": 12, "carbs": 28, "fat": 8, "fiber": 1, "servingSize": "4 potong (150g)" },
+  "tasteScore": {
+    "manis": 30,
+    "pedas": 60,
+    "gurih": 70,
+    "asam": 50,
+    "asin": 20
+  },
+  "nutrition": {
+    "calories": 220,
+    "protein": 12,
+    "carbs": 28,
+    "fat": 8,
+    "fiber": 1,
+    "servingSize": "4 potong (150g)"
+  },
   "locations": [
-    { "name": "Pempek Pak Raden", "city": "Palembang", "lat": -2.9761, "lng": 104.7754, "description": "Pempek asli Palembang sejak 1970", "priceRange": "Rp 15.000 - 25.000" }
+    {
+      "name": "Pempek Pak Raden",
+      "city": "Palembang",
+      "lat": -2.9761,
+      "lng": 104.7754,
+      "description": "Pempek asli Palembang sejak 1970",
+      "priceRange": "Rp 15.000 - 25.000"
+    }
   ],
-  "related": ["tekwan-055", "model-056", "laksan-057"],
-  "funFacts": ["Pempek kapal selam berisi telur utuh di dalamnya", "Kata 'pempek' berasal dari panggilan 'apek' (pria Tionghoa tua)"],
-  "tags": ["palembang", "ikan", "sagu", "digoreng", "cuko", "khas sumatera"]
+  "related": [],
+  "funFacts": [
+    "Pempek kapal selam berisi telur utuh di dalamnya",
+    "Kata 'pempek' berasal dari panggilan 'apek' (pria Tionghoa tua)"
+  ],
+  "tags": [
+    "palembang",
+    "ikan",
+    "sagu",
+    "digoreng",
+    "cuko",
+    "khas sumatera"
+  ]
 }

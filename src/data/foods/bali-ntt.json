@@ -1,895 +1,164 @@
 ﻿{
-    "foods":  [
-                  {
-                      "id":  "bebek-betutu-001",
-                      "name":  "Bebek Betutu",
-                      "region":  "bali-ntt",
-                      "description":  "Bebek utuh yang dibumbui rempah lengkap dan dibungkus daun pisang, dimasak lambat hingga empuk.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/bebek-betutu.jpg"
-                  },
-                  {
-                      "id":  "sate-lilit-002",
-                      "name":  "Sate Lilit",
-                      "region":  "bali-ntt",
-                      "description":  "Sate khas Bali dari daging ikan atau ayam yang dililitkan pada batang serai.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-lilit.jpg"
-                  },
-                  {
-                      "id":  "babi-guling-003",
-                      "name":  "Babi Guling",
-                      "region":  "bali-ntt",
-                      "description":  "Babi panggang utuh dengan bumbu rempah khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/babi-guling.jpg"
-                  },
-                  {
-                      "id":  "lawar-004",
-                      "name":  "Lawar",
-                      "region":  "bali-ntt",
-                      "description":  "Sayur campuran dengan kelapa parut dan bumbu rempah, sering dicampur daging.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/lawar.jpg"
-                  },
-                  {
-                      "id":  "es-daluman-005",
-                      "name":  "Es Daluman",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman segar khas Bali dengan cincau hijau, santan, dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-daluman.jpg"
-                  },
-                  {
-                      "id":  "ayam-betutu-006",
-                      "name":  "Ayam Betutu",
-                      "region":  "bali-ntt",
-                      "description":  "Ayam utuh yang dibumbui rempah lengkap dan dibungkus daun pisang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-betutu.jpg"
-                  },
-                  {
-                      "id":  "nasi-campur-bali-007",
-                      "name":  "Nasi Campur Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Nasi dengan berbagai lauk khas Bali seperti sate lilit dan lawar.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-campur-bali.jpg"
-                  },
-                  {
-                      "id":  "bubur-injin-008",
-                      "name":  "Bubur Injin",
-                      "region":  "bali-ntt",
-                      "description":  "Bubur ketan hitam dengan santan dan gula merah, khas Bali.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/bubur-injin.jpg"
-                  },
-                  {
-                      "id":  "jaje-batu-009",
-                      "name":  "Jaje Batun Bedil",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari ketan hitam dengan kelapa parut dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaje-batu.jpg"
-                  },
-                  {
-                      "id":  "jaje-klepon-010",
-                      "name":  "Jaje Klepon",
-                      "region":  "bali-ntt",
-                      "description":  "Kue hijau dengan isian gula merah cair, khas Bali.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaje-klepon.jpg"
-                  },
-                  {
-                      "id":  "jaje-laklak-011",
-                      "name":  "Jaje Laklak",
-                      "region":  "bali-ntt",
-                      "description":  "Kue tradisional Bali dari tepung beras dengan kelapa.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaje-laklak.jpg"
-                  },
-                  {
-                      "id":  "jaje-ulis-012",
-                      "name":  "Jaje Ulis",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari ketan dengan kelapa dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaje-ulis.jpg"
-                  },
-                  {
-                      "id":  "jaje-sumping-013",
-                      "name":  "Jaje Sumping",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari tepung beras dengan isian pisang.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaje-sumping.jpg"
-                  },
-                  {
-                      "id":  "jaje-godoh-014",
-                      "name":  "Jaje Godoh",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari pisang dengan adonan tepung goreng.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaje-godoh.jpg"
-                  },
-                  {
-                      "id":  "sate-babi-015",
-                      "name":  "Sate Babi",
-                      "region":  "bali-ntt",
-                      "description":  "Sate babi dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-babi.jpg"
-                  },
-                  {
-                      "id":  "sate-ayam-bali-016",
-                      "name":  "Sate Ayam Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Sate ayam dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-ayam-bali.jpg"
-                  },
-                  {
-                      "id":  "sate-sapi-bali-017",
-                      "name":  "Sate Sapi Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Sate sapi dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-sapi-bali.jpg"
-                  },
-                  {
-                      "id":  "sate-ikan-bali-018",
-                      "name":  "Sate Ikan Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Sate ikan dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-ikan-bali.jpg"
-                  },
-                  {
-                      "id":  "sate-udang-bali-019",
-                      "name":  "Sate Udang Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Sate udang dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-udang-bali.jpg"
-                  },
-                  {
-                      "id":  "sate-kambing-bali-020",
-                      "name":  "Sate Kambing Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Sate kambing dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-kambing-bali.jpg"
-                  },
-                  {
-                      "id":  "ayam-goreng-bali-021",
-                      "name":  "Ayam Goreng Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Ayam goreng dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "ayam-bakar-bali-022",
-                      "name":  "Ayam Bakar Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Ayam bakar dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-bakar-bali.jpg"
-                  },
-                  {
-                      "id":  "ikan-bakar-bali-023",
-                      "name":  "Ikan Bakar Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Ikan bakar dengan sambal dan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-bakar-bali.jpg"
-                  },
-                  {
-                      "id":  "ikan-goreng-bali-024",
-                      "name":  "Ikan Goreng Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Ikan goreng dengan sambal dan lalapan.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "bebek-goreng-bali-025",
-                      "name":  "Bebek Goreng Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Bebek goreng dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/bebek-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "bebek-bakar-bali-026",
-                      "name":  "Bebek Bakar Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Bebek bakar dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/bebek-bakar-bali.jpg"
-                  },
-                  {
-                      "id":  "babi-kecap-027",
-                      "name":  "Babi Kecap",
-                      "region":  "bali-ntt",
-                      "description":  "Daging babi dengan kecap dan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/babi-kecap.jpg"
-                  },
-                  {
-                      "id":  "babi-chargrill-028",
-                      "name":  "Babi Chargrill",
-                      "region":  "bali-ntt",
-                      "description":  "Babi panggang dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/babi-chargrill.jpg"
-                  },
-                  {
-                      "id":  "plecing-kangkung-029",
-                      "name":  "Plecing Kangkung",
-                      "region":  "bali-ntt",
-                      "description":  "Kangkung dengan sambal tomat khas Lombok.",
-                      "taste":  [
-                                    "pedas",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/plecing-kangkung.jpg"
-                  },
-                  {
-                      "id":  "ayam-taliwang-030",
-                      "name":  "Ayam Taliwang",
-                      "region":  "bali-ntt",
-                      "description":  "Ayam bakar dengan sambal pedas khas Lombok.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-taliwang.jpg"
-                  },
-                  {
-                      "id":  "bebalung-031",
-                      "name":  "Bebalung",
-                      "region":  "bali-ntt",
-                      "description":  "Sup iga sapi dengan kuah bening, khas Lombok.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/bebalung.jpg"
-                  },
-                  {
-                      "id":  "sate-bulayak-032",
-                      "name":  "Sate Bulayak",
-                      "region":  "bali-ntt",
-                      "description":  "Sate dengan lontong bulat khas Lombok.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-bulayak.jpg"
-                  },
-                  {
-                      "id":  "nasi-puyung-033",
-                      "name":  "Nasi Puyung",
-                      "region":  "bali-ntt",
-                      "description":  "Nasi dengan ayam bakar dan sambal khas Lombok.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-puyung.jpg"
-                  },
-                  {
-                      "id":  "nasi-balap-puyung-034",
-                      "name":  "Nasi Balap Puyung",
-                      "region":  "bali-ntt",
-                      "description":  "Nasi dengan berbagai lauk khas Lombok.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-balap-puyung.jpg"
-                  },
-                  {
-                      "id":  "sate-pusut-035",
-                      "name":  "Sate Pusut",
-                      "region":  "bali-ntt",
-                      "description":  "Sate dari ikan dan kelapa parut, khas Lombok.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-pusut.jpg"
-                  },
-                  {
-                      "id":  "tanjung-036",
-                      "name":  "Tanjung",
-                      "region":  "bali-ntt",
-                      "description":  "Gulai ikan dengan kuah santan, khas Lombok.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/tanjung.jpg"
-                  },
-                  {
-                      "id":  "arem-arem-037",
-                      "name":  "Arem-arem",
-                      "region":  "bali-ntt",
-                      "description":  "Lontong dengan isian sayur dan daging.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/arem-arem.jpg"
-                  },
-                  {
-                      "id":  "tipat-cantok-038",
-                      "name":  "Tipat Cantok",
-                      "region":  "bali-ntt",
-                      "description":  "Ketupat dengan sayuran dan bumbu kacang.",
-                      "taste":  [
-                                    "gurih",
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/tipat-cantok.jpg"
-                  },
-                  {
-                      "id":  "rujak-kakul-039",
-                      "name":  "Rujak Kakul",
-                      "region":  "bali-ntt",
-                      "description":  "Rujak dengan kuah pindang dan sayuran.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/rujak-kakul.jpg"
-                  },
-                  {
-                      "id":  "nasi-jinggo-040",
-                      "name":  "Nasi Jinggo",
-                      "region":  "bali-ntt",
-                      "description":  "Nasi kecil dengan lauk sederhana, khas Bali.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-jinggo.jpg"
-                  },
-                  {
-                      "id":  "laklak-041",
-                      "name":  "Laklak",
-                      "region":  "bali-ntt",
-                      "description":  "Kue tradisional Bali dari tepung beras.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/laklak.jpg"
-                  },
-                  {
-                      "id":  "jaja-batu-042",
-                      "name":  "Jaja Batun Bedil",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari ketan hitam dengan kelapa parut.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaja-batu.jpg"
-                  },
-                  {
-                      "id":  "jaja-geroh-043",
-                      "name":  "Jaja Geroh",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari singkong dengan kelapa parut.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaja-geroh.jpg"
-                  },
-                  {
-                      "id":  "jaja-kuskus-044",
-                      "name":  "Jaja Kuskus",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari ketan dengan kelapa dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaja-kuskus.jpg"
-                  },
-                  {
-                      "id":  "jaja-wajik-045",
-                      "name":  "Jaja Wajik",
-                      "region":  "bali-ntt",
-                      "description":  "Kue dari ketan dengan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaja-wajik.jpg"
-                  },
-                  {
-                      "id":  "jaja-kue-046",
-                      "name":  "Jaja Kue",
-                      "region":  "bali-ntt",
-                      "description":  "Kue tradisional Bali dengan berbagai bentuk.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/jaja-kue.jpg"
-                  },
-                  {
-                      "id":  "es-buah-bali-047",
-                      "name":  "Es Buah Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman dengan potongan buah segar dan susu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-buah-bali.jpg"
-                  },
-                  {
-                      "id":  "es-kelapa-muda-bali-048",
-                      "name":  "Es Kelapa Muda Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman dari kelapa muda dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-kelapa-muda-bali.jpg"
-                  },
-                  {
-                      "id":  "es-campur-bali-049",
-                      "name":  "Es Campur Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Es campur dengan berbagai topping dan sirup.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-campur-bali.jpg"
-                  },
-                  {
-                      "id":  "es-cendol-bali-050",
-                      "name":  "Es Cendol Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman dengan cendol, santan, dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-cendol-bali.jpg"
-                  },
-                  {
-                      "id":  "es-dawet-bali-051",
-                      "name":  "Es Dawet Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman dengan dawet hijau dan gula merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-dawet-bali.jpg"
-                  },
-                  {
-                      "id":  "es-teler-bali-052",
-                      "name":  "Es Teler Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman dengan alpukat, kelapa muda, dan cincau.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-teler-bali.jpg"
-                  },
-                  {
-                      "id":  "es-jeruk-bali-053",
-                      "name":  "Es Jeruk Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman jeruk segar dengan es batu.",
-                      "taste":  [
-                                    "asam",
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-jeruk-bali.jpg"
-                  },
-                  {
-                      "id":  "es-teh-manis-bali-054",
-                      "name":  "Es Teh Manis Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Teh manis dingin yang menyegarkan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-teh-manis-bali.jpg"
-                  },
-                  {
-                      "id":  "es-kopi-susu-bali-055",
-                      "name":  "Es Kopi Susu Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Kopi susu gula aren yang populer.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-kopi-susu-bali.jpg"
-                  },
-                  {
-                      "id":  "es-alpukat-bali-056",
-                      "name":  "Es Alpukat Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman alpukat dengan susu kental manis.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-alpukat-bali.jpg"
-                  },
-                  {
-                      "id":  "es-avocado-bali-057",
-                      "name":  "Es Avocado Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman alpukat dengan susu kental manis dan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-avocado-bali.jpg"
-                  },
-                  {
-                      "id":  "es-susu-bali-058",
-                      "name":  "Es Susu Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman susu dingin dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-susu-bali.jpg"
-                  },
-                  {
-                      "id":  "es-soda-bali-059",
-                      "name":  "Es Soda Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman soda dengan es batu dan sirup.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-soda-bali.jpg"
-                  },
-                  {
-                      "id":  "es-sirup-bali-060",
-                      "name":  "Es Sirup Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman sirup dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-sirup-bali.jpg"
-                  },
-                  {
-                      "id":  "es-cream-bali-061",
-                      "name":  "Es Cream Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman es krim dengan susu dan sirup.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-cream-bali.jpg"
-                  },
-                  {
-                      "id":  "es-milkshake-bali-062",
-                      "name":  "Es Milkshake Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman milkshake dengan berbagai rasa.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-milkshake-bali.jpg"
-                  },
-                  {
-                      "id":  "es-smoothie-bali-063",
-                      "name":  "Es Smoothie Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman smoothie dengan buah segar.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-smoothie-bali.jpg"
-                  },
-                  {
-                      "id":  "es-juice-bali-064",
-                      "name":  "Es Juice Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman jus buah segar dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-juice-bali.jpg"
-                  },
-                  {
-                      "id":  "es-fruit-tea-bali-065",
-                      "name":  "Es Fruit Tea Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman teh buah dengan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-fruit-tea-bali.jpg"
-                  },
-                  {
-                      "id":  "es-lemon-tea-bali-066",
-                      "name":  "Es Lemon Tea Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Minuman teh lemon dengan es batu.",
-                      "taste":  [
-                                    "asam",
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-lemon-tea-bali.jpg"
-                  },
-                  {
-                      "id":  "soto-ayam-bali-067",
-                      "name":  "Soto Ayam Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Soto ayam dengan kuah kuning dan bihun.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-ayam-bali.jpg"
-                  },
-                  {
-                      "id":  "soto-daging-bali-068",
-                      "name":  "Soto Daging Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Soto daging dengan kuah bening dan sayuran.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-daging-bali.jpg"
-                  },
-                  {
-                      "id":  "soto-kambing-bali-069",
-                      "name":  "Soto Kambing Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Soto kambing dengan kuah bening dan tomat.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-kambing-bali.jpg"
-                  },
-                  {
-                      "id":  "soto-buntut-bali-070",
-                      "name":  "Soto Buntut Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Soto buntut dengan kuah bening dan sayuran.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-buntut-bali.jpg"
-                  },
-                  {
-                      "id":  "soto-iga-bali-071",
-                      "name":  "Soto Iga Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Soto iga dengan kuah bening dan tomat.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-iga-bali.jpg"
-                  },
-                  {
-                      "id":  "bakso-bali-072",
-                      "name":  "Bakso Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Bakso dengan kuah kaldu dan mi, khas Bali.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/bakso-bali.jpg"
-                  },
-                  {
-                      "id":  "mie-ayam-bali-073",
-                      "name":  "Mie Ayam Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Mie ayam dengan kuah kaldu khas Bali.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/mie-ayam-bali.jpg"
-                  },
-                  {
-                      "id":  "mie-goreng-bali-074",
-                      "name":  "Mie Goreng Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Mie goreng dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/mie-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "nasi-goreng-bali-075",
-                      "name":  "Nasi Goreng Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Nasi goreng dengan bumbu khas Bali.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "kwetiau-bali-076",
-                      "name":  "Kwetiau Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Mie lebar yang digoreng dengan bumbu khas.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/kwetiau-bali.jpg"
-                  },
-                  {
-                      "id":  "bihun-goreng-bali-077",
-                      "name":  "Bihun Goreng Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Bihun yang digoreng dengan telur dan sayuran.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/bihun-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "capcay-bali-078",
-                      "name":  "Capcay Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Sayur campuran dengan kuah kental.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/capcay-bali.jpg"
-                  },
-                  {
-                      "id":  "fu-yung-hai-bali-079",
-                      "name":  "Fu Yung Hai Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Telur dadar dengan isian sayuran dan daging.",
-                      "taste":  [
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/fu-yung-hai-bali.jpg"
-                  },
-                  {
-                      "id":  "ayam-goreng-bali-080",
-                      "name":  "Ayam Goreng Bali Pedas",
-                      "region":  "bali-ntt",
-                      "description":  "Ayam goreng dengan sambal matah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-goreng-bali.jpg"
-                  },
-                  {
-                      "id":  "sambal-matah-081",
-                      "name":  "Sambal Matah",
-                      "region":  "bali-ntt",
-                      "description":  "Sambal mentah dari bawang merah, cabai, dan sereh.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sambal-matah.jpg"
-                  },
-                  {
-                      "id":  "pepes-ikan-bali-082",
-                      "name":  "Pepes Ikan Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Ikan dibungkus daun pisang dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/pepes-ikan-bali.jpg"
-                  },
-                  {
-                      "id":  "pepes-ayam-bali-083",
-                      "name":  "Pepes Ayam Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Ayam dibungkus daun pisang dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/pepes-ayam-bali.jpg"
-                  },
-                  {
-                      "id":  "pepes-udang-bali-084",
-                      "name":  "Pepes Udang Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Udang dibungkus daun pisang dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/pepes-udang-bali.jpg"
-                  },
-                  {
-                      "id":  "pepes-tahu-bali-085",
-                      "name":  "Pepes Tahu Bali",
-                      "region":  "bali-ntt",
-                      "description":  "Tahu dibungkus daun pisang dengan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/pepes-tahu-bali.jpg"
-                  }
-              ]
+    "foods": [
+        {
+            "id": "bebek-betutu-001",
+            "name": "Bebek Betutu",
+            "region": "bali-ntt",
+            "description": "Bebek utuh dibumbui rempah lengkap dan dibungkus daun pisang, dimasak lambat hingga empuk.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/bebek-betutu.jpg"
+        },
+        {
+            "id": "sate-lilit-002",
+            "name": "Sate Lilit",
+            "region": "bali-ntt",
+            "description": "Sate khas Bali dari daging ikan cincang yang dililitkan pada batang serai.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/sate-lilit.jpg"
+        },
+        {
+            "id": "babi-guling-003",
+            "name": "Babi Guling",
+            "region": "bali-ntt",
+            "description": "Babi panggang utuh dengan bumbu rempah khas Bali. Kulit garing dan daging empuk.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/babi-guling.jpg"
+        },
+        {
+            "id": "lawar-004",
+            "name": "Lawar",
+            "region": "bali-ntt",
+            "description": "Campuran sayur, kelapa parut, dan daging cincang dengan bumbu rempah khas Bali.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/lawar.jpg"
+        },
+        {
+            "id": "ayam-betutu-005",
+            "name": "Ayam Betutu",
+            "region": "bali-ntt",
+            "description": "Ayam utuh diungkep bumbu betutu pedas khas Bali, dibungkus daun pisang dan dipanggang.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/ayam-betutu.jpg"
+        },
+        {
+            "id": "nasi-campur-006",
+            "name": "Nasi Campur",
+            "region": "bali-ntt",
+            "description": "Nasi dengan aneka lauk khas Bali: sate lilit, lawar, ayam betutu, dan sambal.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/nasi-campur-bali.jpg"
+        },
+        {
+            "id": "sate-babi-007",
+            "name": "Sate Babi",
+            "region": "bali-ntt",
+            "description": "Sate babi dengan bumbu kecap pedas manis khas Bali.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/sate-babi.jpg"
+        },
+        {
+            "id": "nasi-jinggo-008",
+            "name": "Nasi Jinggo",
+            "region": "bali-ntt",
+            "description": "Nasi kecil dengan lauk sederhana seperti ayam suwir, mie goreng, dan sambal.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/nasi-jinggo.jpg"
+        },
+        {
+            "id": "plecing-kangkung-009",
+            "name": "Plecing Kangkung",
+            "region": "bali-ntt",
+            "description": "Kangkung rebus dengan sambal tomat pedas khas Lombok.",
+            "taste": ["pedas", "asam"],
+            "imageUrl": "/images/foods/plecing-kangkung.jpg"
+        },
+        {
+            "id": "ayam-taliwang-010",
+            "name": "Ayam Taliwang",
+            "region": "bali-ntt",
+            "description": "Ayam bakar dengan sambal pedas khas Lombok, Nusa Tenggara Barat.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/ayam-taliwang.jpg"
+        },
+        {
+            "id": "sei-sapi-011",
+            "name": "Se'i Sapi",
+            "region": "bali-ntt",
+            "description": "Daging sapi asap khas Nusa Tenggara Timur, dimasak dengan kayu kosambi.",
+            "taste": ["gurih", "asin"],
+            "imageUrl": "/images/foods/sei-sapi.jpg"
+        },
+        {
+            "id": "sambal-matah-012",
+            "name": "Sambal Matah",
+            "region": "bali-ntt",
+            "description": "Sambal mentah khas Bali dari bawang merah, cabai, serai, dan minyak kelapa.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/sambal-matah.jpg"
+        },
+        {
+            "id": "es-daluman-013",
+            "name": "Es Daluman",
+            "region": "bali-ntt",
+            "description": "Minuman segar khas Bali dengan cincau hijau, santan, dan gula merah.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/es-daluman.jpg"
+        },
+        {
+            "id": "bubur-injin-014",
+            "name": "Bubur Injin",
+            "region": "bali-ntt",
+            "description": "Bubur ketan hitam khas Bali dengan santan dan gula merah.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/bubur-injin.jpg"
+        },
+        {
+            "id": "babi-kecap-015",
+            "name": "Babi Kecap",
+            "region": "bali-ntt",
+            "description": "Daging babi dimasak dengan kecap manis dan bumbu rempah khas Bali.",
+            "taste": ["gurih", "manis"],
+            "imageUrl": "/images/foods/babi-kecap.jpg"
+        },
+        {
+            "id": "nasi-puyung-016",
+            "name": "Nasi Puyung",
+            "region": "bali-ntt",
+            "description": "Nasi dengan ayam bakar dan sambal khas Lombok, hidangan ikonik dari Puyung.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/nasi-puyung.jpg"
+        },
+        {
+            "id": "sate-bulayak-017",
+            "name": "Sate Bulayak",
+            "region": "bali-ntt",
+            "description": "Sate dengan lontong bulat khas Lombok, disajikan dengan bumbu kacang pedas.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/sate-bulayak.jpg"
+        },
+        {
+            "id": "tipat-cantok-018",
+            "name": "Tipat Cantok",
+            "region": "bali-ntt",
+            "description": "Ketupat dengan sayuran dan bumbu kacang khas Bali.",
+            "taste": ["gurih", "manis"],
+            "imageUrl": "/images/foods/tipat-cantok.jpg"
+        },
+        {
+            "id": "rujak-kakul-019",
+            "name": "Rujak Kakul",
+            "region": "bali-ntt",
+            "description": "Rujak dengan kuah pindang pedas dan sayuran khas Bali.",
+            "taste": ["asam", "pedas"],
+            "imageUrl": "/images/foods/rujak-kakul.jpg"
+        },
+        {
+            "id": "bebalung-020",
+            "name": "Bebalung",
+            "region": "bali-ntt",
+            "description": "Sup iga sapi dengan kuah bening rempah khas Lombok.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/bebalung.jpg"
+        }
+    ]
 }

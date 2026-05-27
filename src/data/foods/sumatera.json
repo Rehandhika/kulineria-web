@@ -1,909 +1,164 @@
 ﻿{
-    "foods":  [
-                  {
-                      "id":  "rendang-001",
-                      "name":  "Rendang",
-                      "region":  "sumatera",
-                      "description":  "Daging sapi yang dimasak dengan santan dan rempah-rempah hingga kering dan berwarna cokelat kehitaman. Hidangan khas Minangkabau yang terkenal di seluruh dunia.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/rendang.jpg"
-                  },
-                  {
-                      "id":  "gulai-ikan-002",
-                      "name":  "Gulai Ikan",
-                      "region":  "sumatera",
-                      "description":  "Ikan yang dimasak dengan kuah santan kental dan bumbu rempah khas Padang.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-ikan.jpg"
-                  },
-                  {
-                      "id":  "sate-padang-003",
-                      "name":  "Sate Padang",
-                      "region":  "sumatera",
-                      "description":  "Sate daging sapi dengan bumbu kuning kental yang khas dari Padang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-padang.jpg"
-                  },
-                  {
-                      "id":  "nasi-padang-004",
-                      "name":  "Nasi Padang",
-                      "region":  "sumatera",
-                      "description":  "Nasi putih disajikan dengan berbagai lauk khas Minangkabau seperti rendang, gulai, dan ayam pop.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-padang.jpg"
-                  },
-                  {
-                      "id":  "bika-ambon-005",
-                      "name":  "Bika Ambon",
-                      "region":  "sumatera",
-                      "description":  "Kue tradisional dari Medan dengan tekstur berpori dan rasa pandan yang khas.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/bika-ambon.jpg"
-                  },
-                  {
-                      "id":  "ayam-pop-006",
-                      "name":  "Ayam Pop",
-                      "region":  "sumatera",
-                      "description":  "Ayam goreng Padang yang direndam kaldu sebelum digoreng, empuk dan gurih.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-pop.jpg"
-                  },
-                  {
-                      "id":  "dendeng-balado-007",
-                      "name":  "Dendeng Balado",
-                      "region":  "sumatera",
-                      "description":  "Daging sapi tipis yang digoreng kering dan disiram sambal balado pedas.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/dendeng-balado.jpg"
-                  },
-                  {
-                      "id":  "gulai-tunjang-008",
-                      "name":  "Gulai Tunjang",
-                      "region":  "sumatera",
-                      "description":  "Gulai kikil sapi dengan kuah santan kuning yang gurih dan kental.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-tunjang.jpg"
-                  },
-                  {
-                      "id":  "es-teh-poci-009",
-                      "name":  "Es Teh Poci",
-                      "region":  "sumatera",
-                      "description":  "Teh manis yang disajikan dalam teko tanah liat dengan es batu, khas Medan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-teh-poci.jpg"
-                  },
-                  {
-                      "id":  "lontong-sayur-010",
-                      "name":  "Lontong Sayur Padang",
-                      "region":  "sumatera",
-                      "description":  "Lontong dengan gulai nangka muda dan santan, lauk khas Padang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/lontong-sayur.jpg"
-                  },
-                  {
-                      "id":  "gulai-ayam-011",
-                      "name":  "Gulai Ayam",
-                      "region":  "sumatera",
-                      "description":  "Ayam dimasak dalam kuah santan kuning dengan bumbu rempah kaya rasa.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-ayam.jpg"
-                  },
-                  {
-                      "id":  "gulai-tambusu-012",
-                      "name":  "Gulai Tambusu",
-                      "region":  "sumatera",
-                      "description":  "Gulai usus sapi yang diisi dengan telur dan tahu, khas Padang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-tambusu.jpg"
-                  },
-                  {
-                      "id":  "gulai-otak-013",
-                      "name":  "Gulai Otak",
-                      "region":  "sumatera",
-                      "description":  "Otak sapi dimasak dalam kuah santan dengan bumbu rempah khas.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-otak.jpg"
-                  },
-                  {
-                      "id":  "paru-goreng-014",
-                      "name":  "Paru Goreng",
-                      "region":  "sumatera",
-                      "description":  "Paru sapi goreng yang renyah dengan bumbu sereh dan daun jeruk.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/paru-goreng.jpg"
-                  },
-                  {
-                      "id":  "telur-balado-015",
-                      "name":  "Telur Balado",
-                      "region":  "sumatera",
-                      "description":  "Telur rebus goreng dengan sambal balado merah yang pedas.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/telur-balado.jpg"
-                  },
-                  {
-                      "id":  "kikil-goreng-016",
-                      "name":  "Kikil Goreng",
-                      "region":  "sumatera",
-                      "description":  "Kikil sapi goreng renyah dengan bumbu bawang putih.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/kikil-goreng.jpg"
-                  },
-                  {
-                      "id":  "gulai-kambiang-017",
-                      "name":  "Gulai Kambiang",
-                      "region":  "sumatera",
-                      "description":  "Gulai daging kambing dengan kuah santan dan bumbu rempah khas Minang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-kambiang.jpg"
-                  },
-                  {
-                      "id":  "rendang-telur-018",
-                      "name":  "Rendang Telur",
-                      "region":  "sumatera",
-                      "description":  "Telur rebus dimasak rendang dengan bumbu rempah dan santan.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/rendang-telur.jpg"
-                  },
-                  {
-                      "id":  "gulai-cancang-019",
-                      "name":  "Gulai Cancang",
-                      "region":  "sumatera",
-                      "description":  "Gulai campuran daging dan tulang sapi dengan kuah santan kental.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-cancang.jpg"
-                  },
-                  {
-                      "id":  "sambal-lado-020",
-                      "name":  "Sambal Lado",
-                      "region":  "sumatera",
-                      "description":  "Sambal lado mudo dari cabai hijau dan tomat, pelengkap khas Padang.",
-                      "taste":  [
-                                    "pedas",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/sambal-lado.jpg"
-                  },
-                  {
-                      "id":  "kerupuk-jangek-021",
-                      "name":  "Kerupuk Jangek",
-                      "region":  "sumatera",
-                      "description":  "Kerupuk kulit sapi yang renyah, pelengkap khas Minangkabau.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/kerupuk-jangek.jpg"
-                  },
-                  {
-                      "id":  "lamang-tapai-022",
-                      "name":  "Lamang Tapai",
-                      "region":  "sumatera",
-                      "description":  "Lemang ketan hitam dengan tapai singkong, khas Minangkabau.",
-                      "taste":  [
-                                    "manis",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/lamang-tapai.jpg"
-                  },
-                  {
-                      "id":  "dodol-garut-023",
-                      "name":  "Dodol Garut",
-                      "region":  "sumatera",
-                      "description":  "Dodol dari tepung beras ketan dan gula merah, khas Garut Sumatera.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/dodol-garut.jpg"
-                  },
-                  {
-                      "id":  "wajik-024",
-                      "name":  "Wajik",
-                      "region":  "sumatera",
-                      "description":  "Kue dari beras ketan dengan gula merah, berbentuk belah ketupat.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/wajik.jpg"
-                  },
-                  {
-                      "id":  "gulai-pakis-025",
-                      "name":  "Gulai Pakis",
-                      "region":  "sumatera",
-                      "description":  "Sayur pakis dimasak dengan kuah santan dan bumbu rempah.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-pakis.jpg"
-                  },
-                  {
-                      "id":  "gulai-nangka-026",
-                      "name":  "Gulai Nangka",
-                      "region":  "sumatera",
-                      "description":  "Nangka muda dimasak dengan kuah santan kuning yang gurih.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-nangka.jpg"
-                  },
-                  {
-                      "id":  "asam-padeh-027",
-                      "name":  "Asam Padeh",
-                      "region":  "sumatera",
-                      "description":  "Ikan dimasak dengan kuah asam pedas dari asam jawa dan cabai.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/asam-padeh.jpg"
-                  },
-                  {
-                      "id":  "gulai-itoi-028",
-                      "name":  "Gulai Itoi",
-                      "region":  "sumatera",
-                      "description":  "Gulai ikan teri dengan kuah santan dan sayur nangka muda.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-itoi.jpg"
-                  },
-                  {
-                      "id":  "sate-dangung-029",
-                      "name":  "Sate Dangung",
-                      "region":  "sumatera",
-                      "description":  "Sate kambing dengan bumbu manis dari gula merah, khas Payakumbuh.",
-                      "taste":  [
-                                    "manis",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sate-dangung.jpg"
-                  },
-                  {
-                      "id":  "bubur-lamang-030",
-                      "name":  "Bubur Lamang",
-                      "region":  "sumatera",
-                      "description":  "Bubur ketan hitam dengan santan dan gula merah.",
-                      "taste":  [
-                                    "manis",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/bubur-lamang.jpg"
-                  },
-                  {
-                      "id":  "es-campur-medan-031",
-                      "name":  "Es Campur Medan",
-                      "region":  "sumatera",
-                      "description":  "Es campur dengan berbagai topping buah dan sirup merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-campur-medan.jpg"
-                  },
-                  {
-                      "id":  "soto-medan-032",
-                      "name":  "Soto Medan",
-                      "region":  "sumatera",
-                      "description":  "Soto dengan kuah santan kuning dan daging sapi, khas Medan.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/soto-medan.jpg"
-                  },
-                  {
-                      "id":  "mie-aceh-033",
-                      "name":  "Mie Aceh",
-                      "region":  "sumatera",
-                      "description":  "Mie tebal dengan bumbu rempah pedas dan daging kambing atau seafood.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/mie-aceh.jpg"
-                  },
-                  {
-                      "id":  "kuah-pliek-034",
-                      "name":  "Kuah Pliek",
-                      "region":  "sumatera",
-                      "description":  "Gulai ikan dengan kelapa parut sangrai, khas Aceh.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/kuah-pliek.jpg"
-                  },
-                  {
-                      "id":  "ayam-tangkap-035",
-                      "name":  "Ayam Tangkap",
-                      "region":  "sumatera",
-                      "description":  "Ayam goreng dengan daun pandan dan daun salam yang digoreng bersama.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ayam-tangkap.jpg"
-                  },
-                  {
-                      "id":  "gulai-katuk-036",
-                      "name":  "Gulai Katuk",
-                      "region":  "sumatera",
-                      "description":  "Sayur katuk dimasak dengan kuah santan dan ikan asin.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-katuk.jpg"
-                  },
-                  {
-                      "id":  "ikan-bakar-pesisir-037",
-                      "name":  "Ikan Bakar Pesisir",
-                      "region":  "sumatera",
-                      "description":  "Ikan bakar dengan sambal dan bumbu rempah khas pesisir Sumatera.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-bakar-pesisir.jpg"
-                  },
-                  {
-                      "id":  "kopi-gayo-038",
-                      "name":  "Kopi Gayo",
-                      "region":  "sumatera",
-                      "description":  "Kopi arabika khas dataran tinggi Gayo, Aceh Tengah.",
-                      "taste":  [
-                                    "asin"
-                                ],
-                      "imageUrl":  "/images/foods/kopi-gayo.jpg"
-                  },
-                  {
-                      "id":  "gulai-ubi-039",
-                      "name":  "Gulai Ubi",
-                      "region":  "sumatera",
-                      "description":  "Ubi kayu dimasak dengan kuah santan dan ikan asin.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-ubi.jpg"
-                  },
-                  {
-                      "id":  "bolu-kembang-040",
-                      "name":  "Bolu Kembang",
-                      "region":  "sumatera",
-                      "description":  "Kue bolu berbentuk bunga dari Medan, lembut dan manis.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/bolu-kembang.jpg"
-                  },
-                  {
-                      "id":  "gulai-tempe-041",
-                      "name":  "Gulai Tempe",
-                      "region":  "sumatera",
-                      "description":  "Tempe dimasak dengan kuah santan dan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-tempe.jpg"
-                  },
-                  {
-                      "id":  "sambal-ijo-042",
-                      "name":  "Sambal Ijo",
-                      "region":  "sumatera",
-                      "description":  "Sambal cabai hijau goreng yang pedas dan gurih.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sambal-ijo.jpg"
-                  },
-                  {
-                      "id":  "gulai-pucuak-ubiang-043",
-                      "name":  "Gulai Pucuak Ubiang",
-                      "region":  "sumatera",
-                      "description":  "Daun ubi dimasak dengan kuah santan dan ikan teri.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-pucuak-ubiang.jpg"
-                  },
-                  {
-                      "id":  "nasi-kapau-044",
-                      "name":  "Nasi Kapau",
-                      "region":  "sumatera",
-                      "description":  "Nasi dengan berbagai lauk khas Bukittinggi, disajikan di piring kecil.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-kapau.jpg"
-                  },
-                  {
-                      "id":  "randang-jariang-045",
-                      "name":  "Randang Jariang",
-                      "region":  "sumatera",
-                      "description":  "Rendang dari daging kerbau yang lebih alot dan beraroma.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/randang-jariang.jpg"
-                  },
-                  {
-                      "id":  "gulai-sampadeh-046",
-                      "name":  "Gulai Sampadeh",
-                      "region":  "sumatera",
-                      "description":  "Gulai ikan dengan kuah asam pedas dari asam jawa.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-sampadeh.jpg"
-                  },
-                  {
-                      "id":  "kue-bangkit-047",
-                      "name":  "Kue Bangkit",
-                      "region":  "sumatera",
-                      "description":  "Kue kering dari tepung sagu dan santan, khas Lebaran.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-bangkit.jpg"
-                  },
-                  {
-                      "id":  "gulai-buah-048",
-                      "name":  "Gulai Buah",
-                      "region":  "sumatera",
-                      "description":  "Gulai dari buah-buahan seperti nangka muda dan cempedak.",
-                      "taste":  [
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-buah.jpg"
-                  },
-                  {
-                      "id":  "ikan-asam-padeh-049",
-                      "name":  "Ikan Asam Padeh",
-                      "region":  "sumatera",
-                      "description":  "Ikan dimasak dengan kuah asam pedas yang menyegarkan.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-asam-padeh.jpg"
-                  },
-                  {
-                      "id":  "sate-mak-goneng-050",
-                      "name":  "Sate Mak Goneng",
-                      "region":  "sumatera",
-                      "description":  "Sate kambing dengan bumbu kacang manis, khas Payakumbuh.",
-                      "taste":  [
-                                    "manis",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/sate-mak-goneng.jpg"
-                  },
-                  {
-                      "id":  "gulai-lima-051",
-                      "name":  "Gulai Lima",
-                      "region":  "sumatera",
-                      "description":  "Gulai campuran lima jenis jeroan sapi dengan kuah santan.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-lima.jpg"
-                  },
-                  {
-                      "id":  "es-laksamana-mengamuk-052",
-                      "name":  "Es Laksamana Mengamuk",
-                      "region":  "sumatera",
-                      "description":  "Minuman es dengan kelapa muda, cincau, dan sirup merah.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-laksamana-mengamuk.jpg"
-                  },
-                  {
-                      "id":  "gulai-kacang-panjang-053",
-                      "name":  "Gulai Kacang Panjang",
-                      "region":  "sumatera",
-                      "description":  "Kacang panjang dimasak dengan kuah santan dan teri.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-kacang-panjang.jpg"
-                  },
-                  {
-                      "id":  "pempek-palembang-054",
-                      "name":  "Pempek Palembang",
-                      "region":  "sumatera",
-                      "description":  "Makanan dari ikan dan sagu, disajikan dengan cuko pedas manis.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/pempek-palembang.jpg"
-                  },
-                  {
-                      "id":  "tekwan-055",
-                      "name":  "Tekwan",
-                      "region":  "sumatera",
-                      "description":  "Sup dengan pempek kecil, bunga sedap malam, dan kuah udang.",
-                      "taste":  [
-                                    "gurih",
-                                    "asam"
-                                ],
-                      "imageUrl":  "/images/foods/tekwan.jpg"
-                  },
-                  {
-                      "id":  "model-056",
-                      "name":  "Model",
-                      "region":  "sumatera",
-                      "description":  "Sup tahu berisi pempek kecil dengan kuah udang segar.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/model.jpg"
-                  },
-                  {
-                      "id":  "laksan-057",
-                      "name":  "Laksan",
-                      "region":  "sumatera",
-                      "description":  "Lempok sagu dengan kuah santan dan ikan, khas Palembang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/laksan.jpg"
-                  },
-                  {
-                      "id":  "celor-058",
-                      "name":  "Mie Celor",
-                      "region":  "sumatera",
-                      "description":  "Mie dengan kuah kaldu udang kental dan telur rebus.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/celor.jpg"
-                  },
-                  {
-                      "id":  "burgo-059",
-                      "name":  "Burgo",
-                      "region":  "sumatera",
-                      "description":  "Lempeng dari tepung beras dengan kuah santan dan ikan.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/burgo.jpg"
-                  },
-                  {
-                      "id":  "lakso-060",
-                      "name":  "Lakso",
-                      "region":  "sumatera",
-                      "description":  "Mie bulat dari tepung beras dengan kuah santan dan ikan.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/lakso.jpg"
-                  },
-                  {
-                      "id":  "pindang-patin-061",
-                      "name":  "Pindang Patin",
-                      "region":  "sumatera",
-                      "description":  "Sup ikan patin dengan kuah asam pedas dan kunyit.",
-                      "taste":  [
-                                    "asam",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/pindang-patin.jpg"
-                  },
-                  {
-                      "id":  "tempoyak-062",
-                      "name":  "Tempoyak",
-                      "region":  "sumatera",
-                      "description":  "Durian fermentasi yang dimasak dengan ikan atau sambal.",
-                      "taste":  [
-                                    "asam",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/tempoyak.jpg"
-                  },
-                  {
-                      "id":  "gulai-lemak-063",
-                      "name":  "Gulai Lemak",
-                      "region":  "sumatera",
-                      "description":  "Gulai dengan kuah santan kental dari Jambi.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-lemak.jpg"
-                  },
-                  {
-                      "id":  "gulai-tepak-tahu-064",
-                      "name":  "Gulai Tepak Tahu",
-                      "region":  "sumatera",
-                      "description":  "Tahu dan telur dalam kuah santan kuning yang gurih.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-tepak-tahu.jpg"
-                  },
-                  {
-                      "id":  "nasi-goreng-ampang-065",
-                      "name":  "Nasi Goreng Ampang",
-                      "region":  "sumatera",
-                      "description":  "Nasi goreng khas Palembang dengan ikan teri dan sambal.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-goreng-ampang.jpg"
-                  },
-                  {
-                      "id":  "kue-maksuba-066",
-                      "name":  "Kue Maksuba",
-                      "region":  "sumatera",
-                      "description":  "Kue lapis dari telur itik dan gula, khas Palembang.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-maksuba.jpg"
-                  },
-                  {
-                      "id":  "kue-pek-ba-067",
-                      "name":  "Kue Pek Ba",
-                      "region":  "sumatera",
-                      "description":  "Kue dari tepung beras ketan dengan isian kacang hijau.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-pek-ba.jpg"
-                  },
-                  {
-                      "id":  "srikaya-068",
-                      "name":  "Srikaya",
-                      "region":  "sumatera",
-                      "description":  "Selai dari telur dan gula, khas Palembang.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/srikaya.jpg"
-                  },
-                  {
-                      "id":  "gulai-belandah-069",
-                      "name":  "Gulai Belandah",
-                      "region":  "sumatera",
-                      "description":  "Gulai ikan gabus dengan kuah santan dan rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-belandah.jpg"
-                  },
-                  {
-                      "id":  "ikan-bakar-bengkulu-070",
-                      "name":  "Ikan Bakar Bengkulu",
-                      "region":  "sumatera",
-                      "description":  "Ikan bakar dengan sambal lado mudo dari Bengkulu.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/ikan-bakar-bengkulu.jpg"
-                  },
-                  {
-                      "id":  "pendap-071",
-                      "name":  "Pendap",
-                      "region":  "sumatera",
-                      "description":  "Ikan dibungkus daun pisang dengan bumbu kelapa dan cabai.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/pendap.jpg"
-                  },
-                  {
-                      "id":  "lemang-072",
-                      "name":  "Lemang",
-                      "region":  "sumatera",
-                      "description":  "Ketan dimasak dalam bambu dengan santan, khas Minang.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/lemang.jpg"
-                  },
-                  {
-                      "id":  "rendang-daging-073",
-                      "name":  "Rendang Daging Sapi",
-                      "region":  "sumatera",
-                      "description":  "Rendang daging sapi asli Minangkabau dengan bumbu rempah lengkap.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/rendang-daging.jpg"
-                  },
-                  {
-                      "id":  "gulai-ikan-patin-074",
-                      "name":  "Gulai Ikan Patin",
-                      "region":  "sumatera",
-                      "description":  "Ikan patin dimasak dengan kuah santan kuning.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-ikan-patin.jpg"
-                  },
-                  {
-                      "id":  "nasi-lemak-075",
-                      "name":  "Nasi Lemak",
-                      "region":  "sumatera",
-                      "description":  "Nasi dimasak dengan santan, disajikan dengan ikan teri dan sambal.",
-                      "taste":  [
-                                    "pedas",
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/nasi-lemak.jpg"
-                  },
-                  {
-                      "id":  "kue-lapis-076",
-                      "name":  "Kue Lapis",
-                      "region":  "sumatera",
-                      "description":  "Kue lapis berwarna-warni dari tepung beras dan santan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-lapis.jpg"
-                  },
-                  {
-                      "id":  "gulai-ketam-077",
-                      "name":  "Gulai Ketam",
-                      "region":  "sumatera",
-                      "description":  "Kepiting dimasak dengan kuah santan dan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-ketam.jpg"
-                  },
-                  {
-                      "id":  "sate-kerang-078",
-                      "name":  "Sate Kerang",
-                      "region":  "sumatera",
-                      "description":  "Sate kerang dengan bumbu kacang pedas.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-kerang.jpg"
-                  },
-                  {
-                      "id":  "es-kopi-susu-079",
-                      "name":  "Es Kopi Susu",
-                      "region":  "sumatera",
-                      "description":  "Kopi susu gula aren yang populer di Medan.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-kopi-susu.jpg"
-                  },
-                  {
-                      "id":  "gulai-udang-080",
-                      "name":  "Gulai Udang",
-                      "region":  "sumatera",
-                      "description":  "Udang dimasak dengan kuah santan dan bumbu rempah.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-udang.jpg"
-                  },
-                  {
-                      "id":  "kue-bika-ambon-081",
-                      "name":  "Bika Ambon Pandan",
-                      "region":  "sumatera",
-                      "description":  "Bika ambon dengan aroma pandan yang harum.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/kue-bika-ambon.jpg"
-                  },
-                  {
-                      "id":  "gulai-kambing-082",
-                      "name":  "Gulai Kambing",
-                      "region":  "sumatera",
-                      "description":  "Gulai daging kambing dengan kuah santan kental.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-kambing.jpg"
-                  },
-                  {
-                      "id":  "sate-ayam-padang-083",
-                      "name":  "Sate Ayam Padang",
-                      "region":  "sumatera",
-                      "description":  "Sate ayam dengan bumbu kacang khas Padang.",
-                      "taste":  [
-                                    "gurih",
-                                    "pedas"
-                                ],
-                      "imageUrl":  "/images/foods/sate-ayam-padang.jpg"
-                  },
-                  {
-                      "id":  "gulai-jamur-084",
-                      "name":  "Gulai Jamur",
-                      "region":  "sumatera",
-                      "description":  "Jamur kuping dimasak dengan kuah santan dan rempah.",
-                      "taste":  [
-                                    "gurih"
-                                ],
-                      "imageUrl":  "/images/foods/gulai-jamur.jpg"
-                  },
-                  {
-                      "id":  "es-avocado-085",
-                      "name":  "Es Alpukat",
-                      "region":  "sumatera",
-                      "description":  "Minuman alpukat dengan susu kental manis dan es batu.",
-                      "taste":  [
-                                    "manis"
-                                ],
-                      "imageUrl":  "/images/foods/es-avocado.jpg"
-                  }
-              ]
+    "foods": [
+        {
+            "id": "rendang-001",
+            "name": "Rendang",
+            "region": "sumatera",
+            "description": "Daging sapi dimasak lambat dengan santan dan rempah hingga kering. Hidangan ikonik Minangkabau yang mendunia.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/rendang.jpg"
+        },
+        {
+            "id": "pempek-002",
+            "name": "Pempek",
+            "region": "sumatera",
+            "description": "Olahan ikan dan sagu khas Palembang, disajikan dengan cuko asam manis pedas.",
+            "taste": ["gurih", "manis"],
+            "imageUrl": "/images/foods/pempek.jpg"
+        },
+        {
+            "id": "mie-aceh-003",
+            "name": "Mie Aceh",
+            "region": "sumatera",
+            "description": "Mi tebal dengan rempah khas Aceh, disajikan goreng atau kuah dengan daging dan seafood.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/mie-aceh.jpg"
+        },
+        {
+            "id": "sate-padang-004",
+            "name": "Sate Padang",
+            "region": "sumatera",
+            "description": "Sate daging sapi dengan bumbu kuning kental khas Padang.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/sate-padang.jpg"
+        },
+        {
+            "id": "nasi-padang-005",
+            "name": "Nasi Padang",
+            "region": "sumatera",
+            "description": "Nasi putih dengan berbagai lauk khas Minangkabau seperti rendang, gulai, dan ayam pop.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/nasi-padang.jpg"
+        },
+        {
+            "id": "bika-ambon-006",
+            "name": "Bika Ambon",
+            "region": "sumatera",
+            "description": "Kue tradisional Medan dengan tekstur berpori dan aroma pandan yang khas.",
+            "taste": ["manis"],
+            "imageUrl": "/images/foods/bika-ambon.jpg"
+        },
+        {
+            "id": "ayam-pop-007",
+            "name": "Ayam Pop",
+            "region": "sumatera",
+            "description": "Ayam goreng Padang yang direbus dalam kaldu berbumbu sebelum digoreng sebentar.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/ayam-pop.jpg"
+        },
+        {
+            "id": "dendeng-balado-008",
+            "name": "Dendeng Balado",
+            "region": "sumatera",
+            "description": "Daging sapi tipis digoreng kering dan disiram sambal balado cabai merah.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/dendeng-balado.jpg"
+        },
+        {
+            "id": "gulai-ikan-009",
+            "name": "Gulai Ikan",
+            "region": "sumatera",
+            "description": "Ikan dimasak dalam kuah santan kental dengan bumbu rempah khas Padang.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/gulai-ikan.jpg"
+        },
+        {
+            "id": "soto-medan-010",
+            "name": "Soto Medan",
+            "region": "sumatera",
+            "description": "Soto dengan kuah santan kuning dan daging sapi, khas Medan. Disajikan dengan perkedel dan kerupuk.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/soto-medan.jpg"
+        },
+        {
+            "id": "soto-padang-011",
+            "name": "Soto Padang",
+            "region": "sumatera",
+            "description": "Soto dengan kuah bening dan daging sapi goreng kering, khas Padang.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/soto-padang.jpg"
+        },
+        {
+            "id": "lontong-sayur-012",
+            "name": "Lontong Sayur",
+            "region": "sumatera",
+            "description": "Lontong dengan gulai nangka muda dan santan, lauk khas Padang.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/lontong-sayur.jpg"
+        },
+        {
+            "id": "gulai-ayam-013",
+            "name": "Gulai Ayam",
+            "region": "sumatera",
+            "description": "Ayam dimasak dalam kuah santan kuning dengan bumbu rempah kaya rasa khas Padang.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/gulai-ayam.jpg"
+        },
+        {
+            "id": "telur-balado-014",
+            "name": "Telur Balado",
+            "region": "sumatera",
+            "description": "Telur rebus digoreng dan disiram sambal balado merah yang pedas.",
+            "taste": ["pedas", "gurih"],
+            "imageUrl": "/images/foods/telur-balado.jpg"
+        },
+        {
+            "id": "gulai-tunjang-015",
+            "name": "Gulai Tunjang",
+            "region": "sumatera",
+            "description": "Gulai kikil sapi dengan kuah santan kuning yang gurih dan kental.",
+            "taste": ["gurih", "pedas"],
+            "imageUrl": "/images/foods/gulai-tunjang.jpg"
+        },
+        {
+            "id": "asam-padeh-016",
+            "name": "Asam Padeh",
+            "region": "sumatera",
+            "description": "Ikan atau daging dimasak dengan kuah asam pedas khas Minangkabau tanpa santan.",
+            "taste": ["asam", "pedas"],
+            "imageUrl": "/images/foods/asam-padeh.jpg"
+        },
+        {
+            "id": "lemang-017",
+            "name": "Lemang",
+            "region": "sumatera",
+            "description": "Beras ketan dimasak dalam bambu dengan santan, khas Sumatra. Disajikan dengan tapai atau rendang.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/lemang.jpg"
+        },
+        {
+            "id": "tempoyak-018",
+            "name": "Tempoyak",
+            "region": "sumatera",
+            "description": "Durian fermentasi khas Sumatra yang diolah menjadi sambal atau gulai.",
+            "taste": ["asam", "pedas"],
+            "imageUrl": "/images/foods/tempoyak.jpg"
+        },
+        {
+            "id": "pindang-patin-019",
+            "name": "Pindang Patin",
+            "region": "sumatera",
+            "description": "Ikan patin dimasak dengan kuah kuning asam pedas khas Jambi dan Sumatra Selatan.",
+            "taste": ["asam", "pedas"],
+            "imageUrl": "/images/foods/pindang-patin.jpg"
+        },
+        {
+            "id": "kerupuk-jangek-020",
+            "name": "Kerupuk Jangek",
+            "region": "sumatera",
+            "description": "Kerupuk kulit sapi yang renyah, pelengkap khas Minangkabau.",
+            "taste": ["gurih"],
+            "imageUrl": "/images/foods/kerupuk-jangek.jpg"
+        }
+    ]
 }

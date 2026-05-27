@@ -1,9 +1,12 @@
 {
-  "id": "papeda-501",
+  "id": "papeda-001",
   "name": "Papeda",
   "region": "maluku-papua",
   "description": "Makanan pokok dari sagu yang dimasak hingga mengental, disajikan dengan ikan kuah kuning khas Papua.",
-  "taste": ["gurih", "asam"],
+  "taste": [
+    "gurih",
+    "asam"
+  ],
   "type": "berkuah",
   "imageUrl": "/img/foods/papeda.jpg",
   "hero": {
@@ -18,12 +21,42 @@
     "image": "/img/foods/papeda-story.jpg"
   },
   "ingredients": [
-    { "name": "Tepung Sagu", "qty": "200g", "image": "/img/ingredients/sago-flour.svg", "essential": true },
-    { "name": "Air Mendidih", "qty": "500ml", "image": "/img/ingredients/boiling-water.svg", "essential": true },
-    { "name": "Ikan Kakap", "qty": "500g", "image": "/img/ingredients/snapper.svg", "essential": true },
-    { "name": "Kunyit", "qty": "3cm", "image": "/img/ingredients/turmeric.svg", "essential": true },
-    { "name": "Belimbing Wuluh", "qty": "3 buah", "image": "/img/ingredients/belimbing.svg", "essential": true },
-    { "name": "Kemangi", "qty": "1 ikat", "image": "/img/ingredients/basil.svg", "essential": false }
+    {
+      "name": "Tepung Sagu",
+      "qty": "200g",
+      "image": "/img/ingredients/sago-flour.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Mendidih",
+      "qty": "500ml",
+      "image": "/img/ingredients/boiling-water.svg",
+      "essential": true
+    },
+    {
+      "name": "Ikan Kakap",
+      "qty": "500g",
+      "image": "/img/ingredients/snapper.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit",
+      "qty": "3cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Belimbing Wuluh",
+      "qty": "3 buah",
+      "image": "/img/ingredients/belimbing.svg",
+      "essential": true
+    },
+    {
+      "name": "Kemangi",
+      "qty": "1 ikat",
+      "image": "/img/ingredients/basil.svg",
+      "essential": false
+    }
   ],
   "recipe": {
     "servings": 4,
@@ -31,18 +64,72 @@
     "cookTime": 45,
     "difficulty": "medium",
     "steps": [
-      { "order": 1, "title": "Buat Papeda", "text": "Seduh tepung sagu dengan air mendidih, aduk cepat hingga mengental dan bening.", "duration": 600, "tip": "Aduk searah jarum jam agar tidak menggumpal" },
-      { "order": 2, "title": "Masak Ikan", "text": "Rebus ikan dengan kunyit, serai, dan belimbing wuluh.", "duration": 1200 },
-      { "order": 3, "title": "Bumbu Kuah", "text": "Tambahkan cabai, tomat, dan kemangi ke dalam kuah.", "duration": 300 },
-      { "order": 4, "title": "Sajikan", "text": "Sajikan papeda dengan ikan kuah kuning panas.", "duration": 120 }
+      {
+        "order": 1,
+        "title": "Buat Papeda",
+        "text": "Seduh tepung sagu dengan air mendidih, aduk cepat hingga mengental dan bening.",
+        "duration": 600,
+        "tip": "Aduk searah jarum jam agar tidak menggumpal"
+      },
+      {
+        "order": 2,
+        "title": "Masak Ikan",
+        "text": "Rebus ikan dengan kunyit, serai, dan belimbing wuluh.",
+        "duration": 1200
+      },
+      {
+        "order": 3,
+        "title": "Bumbu Kuah",
+        "text": "Tambahkan cabai, tomat, dan kemangi ke dalam kuah.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Sajikan",
+        "text": "Sajikan papeda dengan ikan kuah kuning panas.",
+        "duration": 120
+      }
     ]
   },
-  "tasteScore": { "manis": 5, "pedas": 25, "gurih": 70, "asam": 55, "asin": 20 },
-  "nutrition": { "calories": 210, "protein": 18, "carbs": 30, "fat": 4, "fiber": 1, "servingSize": "1 porsi (250g)" },
+  "tasteScore": {
+    "manis": 5,
+    "pedas": 25,
+    "gurih": 70,
+    "asam": 55,
+    "asin": 20
+  },
+  "nutrition": {
+    "calories": 210,
+    "protein": 18,
+    "carbs": 30,
+    "fat": 4,
+    "fiber": 1,
+    "servingSize": "1 porsi (250g)"
+  },
   "locations": [
-    { "name": "Rumah Makan Papua", "city": "Jayapura", "lat": -2.5337, "lng": 140.7181, "description": "Papeda autentik dengan ikan segar dari Laut Arafuru", "priceRange": "Rp 25.000 - 45.000" }
+    {
+      "name": "Rumah Makan Papua",
+      "city": "Jayapura",
+      "lat": -2.5337,
+      "lng": 140.7181,
+      "description": "Papeda autentik dengan ikan segar dari Laut Arafuru",
+      "priceRange": "Rp 25.000 - 45.000"
+    }
   ],
-  "related": ["ikan-kuah-kuning-502", "sagu-mutiara-503"],
-  "funFacts": ["Papeda dimakan dengan menggunakan gaba-gaba (sumpit khas Papua)", "Sagu sebagai bahan papeda berasal dari pohon sagu yang tumbuh di rawa-rawa Papua"],
-  "tags": ["papua", "sagu", "papeda", "ikan", "kuah kuning", "khas papua", "makanan pokok"]
+  "related": [
+    "ikan-kuah-kuning-002"
+  ],
+  "funFacts": [
+    "Papeda dimakan dengan menggunakan gaba-gaba (sumpit khas Papua)",
+    "Sagu sebagai bahan papeda berasal dari pohon sagu yang tumbuh di rawa-rawa Papua"
+  ],
+  "tags": [
+    "papua",
+    "sagu",
+    "papeda",
+    "ikan",
+    "kuah kuning",
+    "khas papua",
+    "makanan pokok"
+  ]
 }

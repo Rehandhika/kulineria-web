@@ -1,9 +1,12 @@
 {
-  "id": "coto-makassar-201",
+  "id": "coto-makassar-001",
   "name": "Coto Makassar",
   "region": "sulawesi",
   "description": "Sup daging sapi dengan kuah kacang yang kaya rempah, khas Makassar, Sulawesi Selatan.",
-  "taste": ["gurih", "pedas"],
+  "taste": [
+    "gurih",
+    "pedas"
+  ],
   "type": "berkuah",
   "imageUrl": "/img/foods/coto-makassar.jpg",
   "hero": {
@@ -18,11 +21,36 @@
     "image": "/img/foods/coto-story.jpg"
   },
   "ingredients": [
-    { "name": "Daging Sapi", "qty": "500g", "image": "/img/ingredients/beef.svg", "essential": true },
-    { "name": "Kacang Tanah", "qty": "100g", "image": "/img/ingredients/peanut.svg", "essential": true },
-    { "name": "Serai", "qty": "3 batang", "image": "/img/ingredients/lemongrass.svg", "essential": true },
-    { "name": "Daun Salam", "qty": "3 lembar", "image": "/img/ingredients/bay-leaf.svg", "essential": true },
-    { "name": "Bawang Goreng", "qty": "50g", "image": "/img/ingredients/fried-onion.svg", "essential": false }
+    {
+      "name": "Daging Sapi",
+      "qty": "500g",
+      "image": "/img/ingredients/beef.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Tanah",
+      "qty": "100g",
+      "image": "/img/ingredients/peanut.svg",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "3 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Salam",
+      "qty": "3 lembar",
+      "image": "/img/ingredients/bay-leaf.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Goreng",
+      "qty": "50g",
+      "image": "/img/ingredients/fried-onion.svg",
+      "essential": false
+    }
   ],
   "recipe": {
     "servings": 4,
@@ -30,18 +58,70 @@
     "cookTime": 120,
     "difficulty": "medium",
     "steps": [
-      { "order": 1, "title": "Rebus Daging", "text": "Rebus daging sapi hingga empuk, potong dadu.", "duration": 3600 },
-      { "order": 2, "title": "Haluskan Bumbu", "text": "Haluskan kacang tanah, bawang merah, bawang putih, dan rempah.", "duration": 300 },
-      { "order": 3, "title": "Masak Kuah", "text": "Tumis bumbu halus, masukkan kaldu dan daging, masak hingga meresap.", "duration": 1800 },
-      { "order": 4, "title": "Sajikan", "text": "Sajikan dengan ketupat dan bawang goreng.", "duration": 120 }
+      {
+        "order": 1,
+        "title": "Rebus Daging",
+        "text": "Rebus daging sapi hingga empuk, potong dadu.",
+        "duration": 3600
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu",
+        "text": "Haluskan kacang tanah, bawang merah, bawang putih, dan rempah.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Masak Kuah",
+        "text": "Tumis bumbu halus, masukkan kaldu dan daging, masak hingga meresap.",
+        "duration": 1800
+      },
+      {
+        "order": 4,
+        "title": "Sajikan",
+        "text": "Sajikan dengan ketupat dan bawang goreng.",
+        "duration": 120
+      }
     ]
   },
-  "tasteScore": { "manis": 10, "pedas": 35, "gurih": 85, "asam": 5, "asin": 30 },
-  "nutrition": { "calories": 290, "protein": 22, "carbs": 15, "fat": 18, "fiber": 2, "servingSize": "1 mangkuk (300ml)" },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 35,
+    "gurih": 85,
+    "asam": 5,
+    "asin": 30
+  },
+  "nutrition": {
+    "calories": 290,
+    "protein": 22,
+    "carbs": 15,
+    "fat": 18,
+    "fiber": 2,
+    "servingSize": "1 mangkuk (300ml)"
+  },
   "locations": [
-    { "name": "Coto Mangga Dua", "city": "Makassar", "lat": -5.1477, "lng": 119.4327, "description": "Coto Makassar legendaris sejak 1980", "priceRange": "Rp 20.000 - 35.000" }
+    {
+      "name": "Coto Mangga Dua",
+      "city": "Makassar",
+      "lat": -5.1477,
+      "lng": 119.4327,
+      "description": "Coto Makassar legendaris sejak 1980",
+      "priceRange": "Rp 20.000 - 35.000"
+    }
   ],
-  "related": ["konro-202", "pallubasa-203"],
-  "funFacts": ["Coto Makassar biasanya disajikan dengan ketupat dan buras (lontong khas Bugis)"],
-  "tags": ["makassar", "sulawesi", "daging sapi", "kacang", "kuah", "khas sulawesi"]
+  "related": [
+    "konro-002",
+    "pallubasa-003"
+  ],
+  "funFacts": [
+    "Coto Makassar biasanya disajikan dengan ketupat dan buras (lontong khas Bugis)"
+  ],
+  "tags": [
+    "makassar",
+    "sulawesi",
+    "daging sapi",
+    "kacang",
+    "kuah",
+    "khas sulawesi"
+  ]
 }

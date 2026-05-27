@@ -39,13 +39,8 @@ function getPageNumbers(current: number, total: number): (number | 'ellipsis')[]
 
 const foodImages: Record<string, string> = {
   'rendang-001': 'https://images.unsplash.com/photo-1563379091339-03b21ab4e23f?w=400&q=80',
-  'sate-002': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80',
   'nasi-goreng-003': 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80',
   'gado-gado-004': 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80',
-  'soto-005': 'https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?w=400&q=80',
-  'mie-goreng-006': 'https://images.unsplash.com/photo-1552611052-33e04de1b100?w=400&q=80',
-  'bakso-007': 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80',
-  'nasi-uduk-008': 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=80',
 };
 
 const allFoods = getAllFoods();
