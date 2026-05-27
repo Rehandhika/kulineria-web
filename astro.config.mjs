@@ -1,10 +1,25 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import swup from '@swup/astro';
 
 export default defineConfig({
   site: 'https://kulineria.id',
-  integrations: [react()],
+  integrations: [
+    react(),
+    swup({
+      theme: false,             // custom animation via JS hooks
+      animationClass: false,    // tidak pakai CSS timing detection
+      containers: ['main'],
+      cache: true,
+      preload: true,
+      accessibility: true,
+      smoothScrolling: false,
+      updateHead: true,
+      globalInstance: true,
+      loadOnIdle: false,
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
     build: {

@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import TopNav from '../components/astro/nav/TopNav.astro';
 import SeoMeta from '../components/astro/shared/SeoMeta.astro';
 import '../styles/globals.css';
@@ -44,19 +43,65 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     </noscript>
 
     <SeoMeta title={title} description={description} type={seoProps.type} keywords={seoProps.keywords} recipe={seoProps.recipe} />
-    <ViewTransitions />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">
-      Skip to main content
-    </a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <TopNav />
 
-    <main id="main-content" transition:animate="none">
+    <main id="main-content">
       <slot />
     </main>
 
+    <!--
+      3 layer curtain wipe.
+
+      PENDEKATAN BENAR:
+      Setiap layer adalah satu <div> tunggal yang tingginya 100vh + 120px
+      (ruang ekstra untuk ombak atas 60px + ombak bawah 60px).
+      Posisi awal: top = -60px (ombak atas sudah di dalam div).
+      GSAP menggerakkan dengan translateY dalam pixel — bukan yPercent —
+      sehingga semua bagian (body + ombak) bergerak sebagai satu unit.
+
+      Posisi awal (tersembunyi di bawah): translateY(100vh)
+      Posisi tengah (menutupi layar):     translateY(-60px)  ← ombak atas pas di tepi atas viewport
+      Posisi akhir (keluar ke atas):      translateY(calc(-100vh - 120px))
+    -->
+
+    <!-- Layer 1: caramel -->
+    <div class="pt-layer" id="pt-l1" aria-hidden="true">
+      <svg class="pt-wave pt-wave-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,60 C150,20 300,55 450,30 C600,5 750,50 900,25 C1050,0 1150,40 1200,20 L1200,60 Z" fill="#C49A6E"/>
+      </svg>
+      <div class="pt-body"></div>
+      <svg class="pt-wave pt-wave-bot" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,0 C150,40 300,5 450,30 C600,55 750,10 900,35 C1050,60 1150,20 1200,40 L1200,0 Z" fill="#C49A6E"/>
+      </svg>
+    </div>
+
+    <!-- Layer 2: cinnamon -->
+    <div class="pt-layer" id="pt-l2" aria-hidden="true">
+      <svg class="pt-wave pt-wave-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,60 C200,15 350,50 550,22 C750,0 900,45 1050,18 C1130,5 1170,35 1200,15 L1200,60 Z" fill="#B8734A"/>
+      </svg>
+      <div class="pt-body"></div>
+      <svg class="pt-wave pt-wave-bot" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,0 C200,45 350,10 550,38 C750,60 900,15 1050,42 C1130,55 1170,25 1200,45 L1200,0 Z" fill="#B8734A"/>
+      </svg>
+    </div>
+
+    <!-- Layer 3: mocha dark -->
+    <div class="pt-layer" id="pt-l3" aria-hidden="true">
+      <svg class="pt-wave pt-wave-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,60 C100,25 280,55 480,18 C680,0 850,48 1000,20 C1100,5 1160,38 1200,22 L1200,60 Z" fill="#5A3E22"/>
+      </svg>
+      <div class="pt-body"></div>
+      <svg class="pt-wave pt-wave-bot" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,0 C100,35 280,5 480,42 C680,60 850,12 1000,40 C1100,55 1160,22 1200,38 L1200,0 Z" fill="#5A3E22"/>
+      </svg>
+    </div>
+
+    <!-- Lenis smooth scroll -->
     <script>
       import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
       import { gsap } from 'gsap';
@@ -65,21 +110,13 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       gsap.registerPlugin(ScrollTrigger);
 
       function initGlobalSmoothScroll() {
-        initSmoothScroll({
-          duration: 1.5,
-          wheelMultiplier: 1,
-          touchMultiplier: 1.5,
-        });
-
-        // Refresh ScrollTrigger after Lenis is ready to recalculate positions
-        requestAnimationFrame(() => {
-          ScrollTrigger.refresh();
-        });
+        initSmoothScroll({ duration: 1.5, wheelMultiplier: 1, touchMultiplier: 1.5 });
+        requestAnimationFrame(() => ScrollTrigger.refresh());
       }
 
       document.addEventListener('DOMContentLoaded', initGlobalSmoothScroll);
 
-      document.addEventListener('astro:after-swap', () => {
+      document.addEventListener('swup:page:view', () => {
         destroySmoothScroll();
         requestAnimationFrame(() => {
           initGlobalSmoothScroll();
@@ -88,92 +125,72 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       });
     </script>
 
+    <!-- Curtain wipe: 3-layer wave via Swup JS hooks + GSAP -->
     <script>
       import { gsap } from 'gsap';
 
-      const TRANSITION_DURATION = 0.35;
-      const TRANSITION_EASE = 'power2.inOut';
+      const WAVE_H = 60;
 
-      function prefersReducedMotion(): boolean {
-        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const l1 = document.getElementById('pt-l1')!;
+      const l2 = document.getElementById('pt-l2')!;
+      const l3 = document.getElementById('pt-l3')!;
+
+      // .pt-layer punya top: -60px, jadi untuk menyembunyikan di bawah viewport:
+      // translateY harus = window.innerHeight + 60 (kompensasi top offset)
+      // Untuk menutupi layar penuh: translateY = 0 (posisi CSS normal)
+      // Untuk keluar ke atas: translateY = -(window.innerHeight + 60 + WAVE_H)
+
+      function getY() {
+        const vh = window.innerHeight;
+        return {
+          hidden:  vh + WAVE_H,          // tersembunyi di bawah (kompensasi top:-60px)
+          covered: 0,                    // menutupi layar penuh
+          gone:    -(vh + WAVE_H * 2),   // keluar ke atas sepenuhnya
+        };
       }
 
-      let transitionOverlay: HTMLDivElement | null = null;
+      // Sembunyikan semua layer di bawah viewport saat load
+      const init = getY();
+      gsap.set([l1, l2, l3], { y: init.hidden });
 
-      function ensureOverlay() {
-        if (!transitionOverlay || !document.body.contains(transitionOverlay)) {
-          transitionOverlay = document.createElement('div');
-          transitionOverlay.id = 'page-transition-overlay';
-          transitionOverlay.style.cssText = [
-            'position: fixed; inset: 0; z-index: 9999;',
-            'pointer-events: none;',
-            'background: var(--c-bg, #F8F2EA);',
-            'opacity: 0;',
-            'will-change: opacity, transform;',
-          ].join('');
-          document.body.appendChild(transitionOverlay);
-        }
+      function setupSwupHooks() {
+        const swup = (window as any).swup;
+        if (!swup) return;
+
+        swup.hooks.replace('animation:out:await', () =>
+          new Promise<void>((resolve) => {
+            const { hidden, covered } = getY();
+            gsap.set([l1, l2, l3], { y: hidden });
+
+            const tl = gsap.timeline({ onComplete: resolve });
+            tl.to(l1, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0);
+            tl.to(l2, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.08);
+            tl.to(l3, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.14);
+          })
+        );
+
+        swup.hooks.replace('animation:in:await', () =>
+          new Promise<void>((resolve) => {
+            const { gone, hidden } = getY();
+
+            const tl = gsap.timeline({
+              onComplete: () => {
+                gsap.set([l1, l2, l3], { y: hidden });
+                resolve();
+              },
+            });
+            tl.to(l1, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0);
+            tl.to(l2, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.08);
+            tl.to(l3, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.14);
+          })
+        );
       }
 
-      function animatePageOut(): Promise<void> {
-        if (prefersReducedMotion()) return Promise.resolve();
-        ensureOverlay();
-        const main = document.querySelector('#main-content') as HTMLElement;
-        return new Promise((resolve) => {
-          const tl = gsap.timeline({
-            onComplete: resolve,
-          });
-          if (main) {
-            tl.to(main, {
-              opacity: 0,
-              y: -24,
-              duration: TRANSITION_DURATION * 0.7,
-              ease: 'power2.in',
-            }, 0);
-          }
-          tl.to(transitionOverlay!, {
-            opacity: 1,
-            duration: TRANSITION_DURATION * 0.5,
-            ease: 'power1.in',
-          }, TRANSITION_DURATION * 0.3);
-        });
+      if ((window as any).swup) {
+        setupSwupHooks();
+      } else {
+        document.addEventListener('swup:enable', setupSwupHooks, { once: true });
       }
-
-      function animatePageIn(): Promise<void> {
-        if (prefersReducedMotion()) {
-          if (transitionOverlay) transitionOverlay.style.opacity = '0';
-          return Promise.resolve();
-        }
-        ensureOverlay();
-        const main = document.querySelector('#main-content') as HTMLElement;
-        return new Promise((resolve) => {
-          if (main) {
-            gsap.set(main, { opacity: 0, y: 32 });
-          }
-          const tl = gsap.timeline({ onComplete: resolve });
-          tl.to(transitionOverlay!, {
-            opacity: 0,
-            duration: TRANSITION_DURATION * 0.5,
-            ease: 'power1.out',
-          }, 0);
-          if (main) {
-            tl.to(main, {
-              opacity: 1,
-              y: 0,
-              duration: TRANSITION_DURATION * 0.8,
-              ease: 'power3.out',
-            }, TRANSITION_DURATION * 0.15);
-          }
-        });
-      }
-
-      document.addEventListener('astro:before-swap', () => {
-        animatePageOut();
-      });
-
-      document.addEventListener('astro:after-swap', () => {
-        animatePageIn();
-      });
     </script>
   </body>
 </html>
@@ -206,19 +223,60 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     color: #000;
     border-radius: 0.375rem;
     font-weight: 700;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
-  #page-transition-overlay {
+  /* ─── 3 Layer curtain ───────────────────────────────────────────────────
+   *
+   * PENDEKATAN BENAR:
+   * Setiap layer adalah satu div tunggal yang tingginya 100vh + 120px.
+   * Posisi: fixed, top: -60px (ombak atas sudah di dalam div).
+   * GSAP menggerakkan dengan y pixel — bukan yPercent — sehingga
+   * semua bagian bergerak sebagai satu unit yang konsisten.
+   *
+   * Struktur dalam setiap layer:
+   *   .pt-wave-top  : SVG ombak atas (60px)
+   *   .pt-body      : area solid (100vh)
+   *   .pt-wave-bot  : SVG ombak bawah (60px)
+   *
+   * z-index di atas navbar (--z-nav: 200) dan semua UI lainnya.
+   * ─────────────────────────────────────────────────────────────────── */
+
+  .pt-layer {
+    position: fixed;
+    top: -60px;                        /* ombak atas masuk ke dalam div */
+    left: 0;
+    width: 100%;
+    height: calc(100vh + 120px);       /* viewport + ombak atas + ombak bawah */
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    overflow: hidden;                  /* tidak perlu overflow:visible */
   }
 
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none !important;
-    mix-blend-mode: normal;
+  .pt-layer .pt-wave {
+    width: 100%;
+    height: 60px;
+    flex-shrink: 0;
+    display: block;
   }
 
+  .pt-layer .pt-body {
+    flex: 1;                           /* mengisi sisa ruang = 100vh */
+  }
+
+  /* Warna solid per layer */
+  #pt-l1 { z-index: 9996; }
+  #pt-l1 .pt-body { background: #C49A6E; }
+
+  #pt-l2 { z-index: 9997; }
+  #pt-l2 .pt-body { background: #B8734A; }
+
+  #pt-l3 { z-index: 9998; }
+  #pt-l3 .pt-body { background: #5A3E22; }
+
+  /* ─── Lenis ─────────────────────────────────────────────────────────── */
   html:not(.lenis) { overflow: auto; }
   html:not(.lenis) body { overflow-x: hidden; overflow-y: auto; }
 </style>

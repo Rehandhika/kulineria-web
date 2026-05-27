@@ -104,7 +104,7 @@ function initNav() {
   }
 
   function openMenu() {
-    if (state === 'open') return; // idempotent
+    if (state === 'open') return;
     state = 'open';
 
     if (closeTl) { closeTl.kill(); closeTl = null; }
@@ -164,7 +164,7 @@ function initNav() {
   }
 
   function closeMenu(opts: { restoreFocus?: boolean } = {}) {
-    if (state === 'closed') return; // idempotent
+    if (state === 'closed') return;
     state = 'closed';
 
     if (openTl) { openTl.kill(); openTl = null; }
@@ -191,19 +191,34 @@ function initNav() {
     closeTl.to(dim, { opacity: 0, duration: 0.2, ease: 'power2.in' }, 0);
   }
 
+  // ── Update active link berdasarkan URL saat ini ──────────────────────
+  function updateActiveLinks() {
+    const path = window.location.pathname;
+    overlay!.querySelectorAll<HTMLAnchorElement>('.overlay-link').forEach((link) => {
+      const href = link.getAttribute('href') ?? '';
+      const active = href === '/' ? path === '/' : path.startsWith(href);
+      link.classList.toggle('active', active);
+      if (active) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  // Jalankan sekali saat init
+  updateActiveLinks();
+
   toggle.addEventListener('click', () => {
     state === 'open' ? closeMenu() : openMenu();
   });
 
-  // Click outside (on dim) closes
   dim.addEventListener('click', () => closeMenu());
 
-  // ESC closes
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state === 'open') closeMenu();
   });
 
-  // Tab focus trap: cycle between overlay links + toggle
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab' || state !== 'open') return;
     const focusables = [
@@ -226,21 +241,22 @@ function initNav() {
     }
   });
 
-  // Close menu when an overlay link is activated (before navigation)
   overlay.querySelectorAll<HTMLAnchorElement>('.overlay-link').forEach((link) => {
     link.addEventListener('click', () => closeMenu({ restoreFocus: false }));
   });
 
-  // Safety: release scroll lock + close on page navigation
-  document.addEventListener('astro:before-swap', () => {
+  // ── Swup: tutup menu + update active saat navigasi selesai ──────────
+  // 'swup:page:view' = konten baru sudah visible, URL sudah berubah
+  document.addEventListener('swup:page:view', () => {
     closeMenu({ restoreFocus: false });
     body.style.overflow = '';
+    updateActiveLinks();
   });
+
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') body.style.overflow = '';
   });
 
-  // Scroll effect: bar gets cream surface + shadow once scrolled past hero edge
   function onScroll() {
     const scrolled = window.scrollY > 30;
     header!.classList.toggle('is-scrolled', scrolled);
@@ -249,7 +265,10 @@ function initNav() {
   onScroll();
 }
 
-document.addEventListener('astro:page-load', () => requestAnimationFrame(initNav));
+// Jalankan sekali saat DOMContentLoaded — Swup tidak mengganti <header>
+// sehingga initNav tidak perlu dipanggil ulang setiap navigasi.
+// Event listener tidak menumpuk karena hanya dipanggil sekali.
+document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNav));
 </script>
 
 <style>
