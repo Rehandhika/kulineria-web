@@ -211,6 +211,10 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
           // DOM baru sudah diswap. Lakukan re-init Lenis secara sinkron
           // agar siap digunakan ScrollTrigger.
           destroySmoothScroll();
+          
+          // Reset posisi scroll browser ke atas sebelum smooth scroll di-reinit!
+          window.scrollTo(0, 0);
+          
           initGlobalSmoothScroll();
           refreshSmoothScroll();
 
