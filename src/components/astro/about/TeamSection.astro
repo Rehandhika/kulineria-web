@@ -8,7 +8,7 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 
 <section class="team" id="about-team">
   <div class="container">
-    <SectionHeader overline="Tim Kami" title="Orang di Balik Kulineria" subtitle="Bertemu dengan para pencinta kuliner yang mewujudkan atlas ini" />
+    <SectionHeader overline="Para Peramu Rasa" title="Mereka yang menghidupkan cerita" subtitle="Mengenal wajah para penjelajah yang mendedikasikan waktu mereka untuk mengkurasi dan mendokumentasikan setiap resep" />
 
     <div class="team-grid">
       {
@@ -53,16 +53,18 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     const cards = document.querySelectorAll('.team-card');
     if (!cards.length) return;
 
-    gsap.set(cards, { y: 30, opacity: 0 });
+    gsap.set(cards, { y: 40, opacity: 0, filter: 'blur(8px)' });
 
     ScrollTrigger.refresh();
 
     const tl = gsap.to(cards, {
       y: 0,
       opacity: 1,
-      duration: 0.6,
-      stagger: 0.08,
+      filter: 'blur(0px)',
+      duration: 1.2,
+      stagger: 0.2,
       ease: 'power2.out',
+      clearProps: 'filter,y',
       scrollTrigger: { trigger: '.team-grid', start: 'top 85%' },
     });
 
@@ -127,14 +129,6 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     position: relative;
     padding: var(--sp-12) 0;
     background: var(--c-bg);
-  }
-  .team::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--grad-warm);
-    opacity: 0.04;
-    pointer-events: none;
   }
   .team .container {
     position: relative;
@@ -209,25 +203,25 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
   .team-card h3 {
     font-family: var(--ff-display);
     font-size: var(--fs-lg);
-    font-weight: 800;
+    font-weight: 500;
     color: var(--c-text-1);
     margin-bottom: var(--sp-1);
   }
 
   .team-role {
     font-size: var(--fs-xs);
-    color: var(--c-accent);
-    font-weight: 800;
+    color: var(--c-brand-caramel);
+    font-weight: 500;
     margin-bottom: var(--sp-3);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
   }
 
   .team-bio {
     font-size: var(--fs-sm);
     color: var(--c-text-2);
-    line-height: 1.6;
-    font-weight: 600;
+    line-height: 1.7;
+    font-weight: 400;
     max-width: 280px;
     margin: 0 auto;
   }

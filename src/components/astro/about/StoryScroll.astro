@@ -1,34 +1,30 @@
 <section class="story-scroll" id="cerita">
+  <div class="story-scroll-bg" aria-hidden="true"></div>
   <div class="container">
     <div class="story-scroll-inner">
 
       <div class="story-scene">
-        <span class="scene-number" aria-hidden="true">01</span>
-        <p class="story-line">Indonesia, negeri yang dipersatukan oleh rasa.</p>
-        <p class="story-line">Dari Sumatera hingga Papua,</p>
-        <p class="story-line">ribuan hidangan menanti untuk diceritakan.</p>
+        <p class="story-line">Negeri ini lahir dari ragam budaya</p>
+        <p class="story-line">yang dipersatukan oleh <i class="highlight">kemurnian alam</i></p>
+        <p class="story-line">dan <i class="highlight">aroma rempah</i>.</p>
       </div>
 
       <div class="story-scene">
-        <span class="scene-number" aria-hidden="true">02</span>
-        <p class="story-line">Tapi kekayaan ini tersebar,</p>
-        <p class="story-line">tersimpan dalam ingatan para sesepuh,</p>
-        <p class="story-line">resep warisan yang mulai pudar.</p>
+        <p class="story-line">Namun seiring berjalannya waktu,</p>
+        <p class="story-line">banyak resep leluhur yang <i class="highlight">perlahan hilang</i></p>
+        <p class="story-line">tergantikan oleh derap zaman.</p>
       </div>
 
       <div class="story-scene">
-        <span class="scene-number" aria-hidden="true">03</span>
-        <p class="story-line">Maka lahirlah Kulineria —</p>
-        <p class="story-line">sebuah atlas digital</p>
-        <p class="story-line">untuk menghimpun warisan rasa Nusantara.</p>
+        <p class="story-line">Kami membangun ruang ini</p>
+        <p class="story-line">untuk menjaga kenangan manis tersebut</p>
+        <p class="story-line">agar tetap <i class="highlight">bernapas dan hidup</i>.</p>
       </div>
 
       <div class="story-scene">
-        <span class="scene-number" aria-hidden="true">04</span>
-        <p class="story-line">Bukan sekadar katalog.</p>
-        <p class="story-line">Tapi jendela menuju kekayaan rasa Indonesia.</p>
-        <p class="story-line">Agar setiap hidangan memiliki tempat,</p>
-        <p class="story-line">dan tak pernah dilupakan.</p>
+        <p class="story-line">Agar kelak generasi mendatang</p>
+        <p class="story-line">masih bisa mencecap <i class="highlight">kekayaan tradisi</i></p>
+        <p class="story-line">yang kita rawat hari ini.</p>
       </div>
 
     </div>
@@ -42,44 +38,43 @@
   gsap.registerPlugin(ScrollTrigger);
 
   function initStoryScroll() {
+    const container = document.querySelector('.story-scroll');
     const scenes = document.querySelectorAll('.story-scene');
-    if (!scenes.length) return;
+    const bg = document.querySelector('.story-scroll-bg');
+    if (!scenes.length || !container) return;
 
     const mm = gsap.matchMedia();
 
     mm.add('(prefers-reduced-motion: no-preference)', () => {
-      scenes.forEach((scene) => {
-        const lines = scene.querySelectorAll('.story-line');
-        const num = scene.querySelector('.scene-number');
+      gsap.set(scenes, { opacity: 0, y: 30 });
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: scene,
-            start: 'top 75%',
-            end: 'top 35%',
-            scrub: 1,
-            toggleActions: 'play none none reverse',
-          },
-        });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: '+=400%', // 4 scenes
+          pin: true,
+          scrub: 1,
+        },
+      });
 
-        tl.from(lines, {
-          y: 30,
-          opacity: 0,
-          stagger: 0.2,
-          duration: 0.5,
-          ease: 'power2.out',
-        });
+      // Background fade in darker
+      tl.to(bg, { opacity: 0.8, duration: 0.5 }, 0);
 
-        if (num) {
-          tl.from(num, { opacity: 0, x: -20, duration: 0.3 }, 0);
-        }
+      scenes.forEach((scene, i) => {
+        const startTime = i * 2.5;
+        // Fade in
+        tl.to(scene, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, startTime);
+        // Hold
+        tl.to(scene, { opacity: 1, duration: 0.5 }, startTime + 1);
+        // Fade out
+        tl.to(scene, { opacity: 0, y: -30, duration: 1, ease: 'power2.in' }, startTime + 1.5);
       });
     });
 
     mm.add('(prefers-reduced-motion: reduce)', () => {
-      document.querySelectorAll('.story-line, .scene-number').forEach((el) => {
-        gsap.set(el, { opacity: 1, y: 0, x: 0 });
-      });
+      gsap.set(scenes, { opacity: 1, y: 0, position: 'relative', marginBottom: '4rem' });
+      gsap.set(bg, { opacity: 0.1 });
     });
   }
 
@@ -90,90 +85,64 @@
 <style>
   .story-scroll {
     position: relative;
-    padding: var(--sp-16) 0;
     background: var(--c-bg);
+    overflow: hidden;
   }
-  .story-scroll::before {
-    content: '';
+  
+  .story-scroll-bg {
     position: absolute;
     inset: 0;
-    background: var(--grad-warm);
-    opacity: 0.06;
+    background: linear-gradient(180deg, var(--c-brand-mocha-dark) 0%, #17110C 100%);
+    opacity: 0;
     pointer-events: none;
+    z-index: 0;
   }
-  @media (min-width: 768px) {
-    .story-scroll { padding: var(--sp-24) 0; }
+
+  .story-scroll .container {
+    position: relative;
+    z-index: 1;
   }
 
   .story-scroll-inner {
     position: relative;
-    z-index: 1;
-    max-width: 800px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .story-scene {
-    position: relative;
-    margin-bottom: var(--sp-12);
-    padding-left: var(--sp-8);
-    border-left: 3px solid var(--c-brand-caramel);
-    border-radius: 0 0 0 var(--r-md);
-  }
-  @media (min-width: 768px) {
-    .story-scene {
-      margin-bottom: var(--sp-16);
-      padding-left: var(--sp-12);
-    }
-  }
-  .story-scene:last-child { margin-bottom: 0; }
-
-  .scene-number {
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(calc(-100% - var(--sp-3)));
-    font-family: var(--ff-mono);
-    font-size: var(--fs-xs);
-    font-weight: 700;
-    color: var(--c-brand-caramel);
-    letter-spacing: 0.08em;
-    opacity: 0.5;
-  }
-  @media (max-width: 767px) {
-    .scene-number {
-      position: static;
-      display: block;
-      transform: none;
-      margin-bottom: var(--sp-2);
-      font-size: var(--fs-tiny);
-    }
+    width: 100%;
+    text-align: center;
+    padding: 0 var(--sp-4);
+    will-change: transform, opacity;
   }
 
   .story-line {
     font-family: var(--ff-display);
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
-    font-weight: 800;
-    line-height: var(--lh-tight);
-    color: var(--c-text-1);
-    margin-bottom: var(--sp-1);
-    will-change: transform, opacity;
+    font-size: clamp(1.6rem, 4.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgba(255, 248, 240, 0.7);
+    margin-bottom: var(--sp-2);
+    letter-spacing: -0.01em;
   }
-  @media (min-width: 768px) {
-    .story-line {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      margin-bottom: var(--sp-2);
-    }
-  }
-  @media (min-width: 1024px) {
-    .story-line {
-      font-size: clamp(2rem, 2.8vw, 2.8rem);
-    }
+
+  .story-line .highlight {
+    color: var(--c-brand-gold);
+    font-style: italic;
+    font-weight: 500;
   }
 
   .story-line:last-child {
     margin-bottom: 0;
   }
 
-  .story-line:first-of-type {
-    font-weight: 900;
+  @media (max-width: 767px) {
+    .story-line {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      line-height: 1.5;
+    }
   }
 </style>
