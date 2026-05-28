@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef } from 'react';
 import type { RegionId } from '@/types/food';
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
-import { $selectedRegion, setSelectedRegion } from '@/lib/stores/selectedRegion';
+import { setSelectedRegion } from '@/lib/stores/selectedRegion';
 
 const REGION_HEX: Record<string, string> = {
   sumatera: '#A0522D',
@@ -21,20 +21,27 @@ function getFoodCount(regionId: string) {
   return allFoods.filter(f => f.region === regionId).length;
 }
 
+interface RegionLayout {
+  wPct: string;
+  lPct: string;
+  tPct: string;
+  intrinsic: { w: number; h: number };
+}
+
 interface RegionAsset {
   id: RegionId;
   src: string;
   zIndex: number;
-  layout: { width: string; left: string; top: string };
+  layout: RegionLayout;
 }
 
 const REGION_ASSETS: RegionAsset[] = [
-  { id: 'sumatera', src: '/img/map/SUMATERA.png', zIndex: 6, layout: { width: '41.2%', left: '-1.2%', top: '10.1%' } },
-  { id: 'jawa', src: '/img/map/JAWA.png', zIndex: 5, layout: { width: '34.2%', left: '21.6%', top: '48.4%' } },
-  { id: 'kalimantan', src: '/img/map/KALIMANTAN.png', zIndex: 4, layout: { width: '48.3%', left: '19.8%', top: '11.1%' } },
-  { id: 'sulawesi', src: '/img/map/SULAWESI.png', zIndex: 3, layout: { width: '43.4%', left: '40.4%', top: '17.8%' } },
-  { id: 'bali-ntt', src: '/img/map/BALI NTB.png', zIndex: 2, layout: { width: '27.6%', left: '43.4%', top: '57.1%' } },
-  { id: 'maluku-papua', src: '/img/map/PAPUA MALUKU.png', zIndex: 1, layout: { width: '47.3%', left: '53.6%', top: '18.5%' } },
+  { id: 'sumatera',     src: '/img/map/Sumatera.png',              zIndex: 7, layout: { wPct: '34%',  lPct: '-2%',  tPct: '11%',  intrinsic: { w: 294, h: 196 } } },
+  { id: 'jawa',         src: '/img/map/Jawa.png',                  zIndex: 5, layout: { wPct: '36%',  lPct: '17%',  tPct: '47%',  intrinsic: { w: 407, h: 271 } } },
+  { id: 'kalimantan',   src: '/img/map/Kalimantan.png',            zIndex: 6, layout: { wPct: '48%',  lPct: '12%',  tPct: '13%',  intrinsic: { w: 504, h: 336 } } },
+  { id: 'sulawesi',     src: '/img/map/Sulawesi.png',              zIndex: 3, layout: { wPct: '30%',  lPct: '43%',  tPct: '16%',  intrinsic: { w: 300, h: 200 } } },
+  { id: 'bali-ntt',     src: '/img/map/bali-ntt.png',              zIndex: 4, layout: { wPct: '36%',  lPct: '47%',  tPct: '50%',  intrinsic: { w: 381, h: 240 } } },
+  { id: 'maluku-papua', src: '/img/map/Maluku%20Papua.png',        zIndex: 2, layout: { wPct: '32%',  lPct: '68%',  tPct: '19%',  intrinsic: { w: 349, h: 361 } } },
 ];
 
 export default function InteractiveMap() {
@@ -71,55 +78,52 @@ export default function InteractiveMap() {
 
   return (
     <div className="interactive-map" ref={containerRef} onMouseMove={handleMouseMove}>
-      <div className="map-container relative w-full aspect-[16/10] md:aspect-[2/1] overflow-hidden rounded-2xl bg-[var(--c-surface)] border-[3px] border-[var(--duo-stroke-color)] shadow-[0_5px_0_var(--c-duo-shadow)]">
-        <div className="map-ocean-bg absolute inset-0 z-0" />
+      <div className="map-container relative w-full overflow-hidden rounded-2xl bg-[var(--c-surface)] border-[3px] border-[var(--duo-stroke-color)] shadow-[0_5px_0_var(--c-duo-shadow)]">
+        <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
-        {REGION_ASSETS.map(region => {
-          const isActive = selected === region.id;
-          const isHovered = hovered === region.id;
-          const dimmed = selected && !isActive;
-          const color = REGION_HEX[region.id];
+        <div className="map-content-wrapper">
+          {REGION_ASSETS.map(region => {
+            const isActive = selected === region.id;
+            const isHovered = hovered === region.id;
+            const dimmed = selected && !isActive;
+            const color = REGION_HEX[region.id];
 
-          return (
-            <button
-              key={region.id}
-              id={`region-wrap-${region.id}`}
-              className="map-region-path absolute"
-              type="button"
-              aria-label={regions.find(r => r.id === region.id)?.name || region.id}
-              style={{
-                zIndex: region.zIndex,
-                width: region.layout.width,
-                left: region.layout.left,
-                top: region.layout.top,
-                opacity: dimmed ? 0.3 : 1,
-                filter: isActive || isHovered
-                  ? `drop-shadow(0 0 16px ${color}99) brightness(1.2) saturate(1.1)`
-                  : 'none',
-                transform: isActive || isHovered ? 'scale(1.03)' : 'scale(1)',
-                cursor: 'pointer',
-                padding: 0,
-                border: 'none',
-                background: 'none',
-                outline: 'none',
-              }}
-              onClick={() => handleRegionClick(region.id)}
-              onMouseEnter={() => handleRegionEnter(region.id)}
-              onMouseLeave={handleRegionLeave}
-            >
-              <img
-                src={region.src}
-                alt=""
-                className="map-region-img"
-                draggable={false}
-                style={{ pointerEvents: 'none', width: '100%', height: 'auto' }}
-              />
-            </button>
-          );
-        })}
+            return (
+              <button
+                key={region.id}
+                id={`region-wrap-${region.id}`}
+                className="map-region-path"
+                type="button"
+                aria-label={regions.find(r => r.id === region.id)?.name || region.id}
+                style={{
+                  zIndex: region.zIndex,
+                  width: region.layout.wPct,
+                  left: region.layout.lPct,
+                  top: region.layout.tPct,
+                  opacity: dimmed ? 0.3 : 1,
+                  filter: isActive || isHovered
+                    ? `drop-shadow(0 0 16px ${color}99) brightness(1.2) saturate(1.1)`
+                    : 'none',
+                  transform: isActive || isHovered ? 'scale(1.03)' : 'scale(1)',
+                }}
+                onClick={() => handleRegionClick(region.id)}
+                onMouseEnter={() => handleRegionEnter(region.id)}
+                onMouseLeave={handleRegionLeave}
+              >
+                <img
+                  src={region.src}
+                  alt=""
+                  className="map-region-img"
+                  draggable={false}
+                  loading="eager"
+                />
+              </button>
+            );
+          })}
+        </div>
 
         {hovered && (
-          <div className="map-tooltip" style={{ left: tooltipPos.x, top: tooltipPos.y, pointerEvents: 'none' }}>
+          <div className="map-tooltip" style={{ left: tooltipPos.x, top: tooltipPos.y }}>
             <span className="map-tooltip-dot" style={{ background: REGION_HEX[hovered] }} />
             {regions.find(r => r.id === hovered)?.name}
             <span className="map-tooltip-count">{getFoodCount(hovered)} hidangan</span>
