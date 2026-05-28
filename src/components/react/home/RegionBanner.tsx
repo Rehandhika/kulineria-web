@@ -39,14 +39,28 @@ export default function RegionBanner() {
     if (!region) return;
 
     import('gsap').then(({ default: gsap }) => {
+      const banner = bannerRef.current;
+
       if (isNewRegion) {
-        gsap.fromTo(
-          bannerRef.current,
+        gsap.fromTo(banner,
           { opacity: 0, y: 30, scale: 0.97 },
           { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out' }
         );
+
+        const accent = banner.querySelector('.region-banner-accent');
+        const close = banner.querySelector('.region-banner-close');
+        const overline = banner.querySelector('.region-banner-overline');
+        const title = banner.querySelector('.region-banner-title');
+        const footer = banner.querySelector('.region-banner-footer');
+
+        const tl = gsap.timeline({ delay: 0.15, defaults: { ease: 'power3.out', duration: 0.35 } });
+        if (accent) tl.fromTo(accent, { width: 0 }, { width: 3 }, 0);
+        if (overline) tl.fromTo(overline, { opacity: 0, y: 8 }, { opacity: 1, y: 0 }, 0.05);
+        if (title) tl.fromTo(title, { opacity: 0, y: 12 }, { opacity: 1, y: 0 }, 0.12);
+        if (footer) tl.fromTo(footer, { opacity: 0, y: 12 }, { opacity: 1, y: 0 }, 0.2);
+        if (close) tl.fromTo(close, { opacity: 0, rotation: -90 }, { opacity: 1, rotation: 0 }, 0.25);
       } else {
-        gsap.to(bannerRef.current, { opacity: 1, y: 0, scale: 1, duration: 0.3 });
+        gsap.set(banner, { opacity: 1, y: 0, scale: 1 });
       }
     });
   }, [selectedId]);

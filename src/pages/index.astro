@@ -12,11 +12,11 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
   <HeroSection />
 
   <!-- INTERACTIVE MAP -->
-  <section class="section-py map-section" id="map-section">
-    <div class="container">
+  <section class="map-section section-py" id="map-section">
+    <div class="container map-section-container">
       <SectionHeader
         title="Jelajahi Nusantara"
-        subtitle="Klik pulau untuk melihat hidangan khas dari setiap daerah"
+        subtitle="Klik pulau, temukan hidangan khasnya."
       />
       <InteractiveMap client:visible />
       <RegionBanner client:idle />
@@ -28,27 +28,31 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
 </BaseLayout>
 
 <style is:global>
+  @import '../styles/section-transitions.css';
+
   .map-section {
-    padding-top: var(--sp-12);
-    padding-bottom: var(--sp-12);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8L72 40L40 72L8 40Z' fill='none' stroke='%23C49A6E' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 80px 80px;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 639px) {
     .map-section {
-      padding-top: var(--sp-16);
-      padding-bottom: var(--sp-16);
+      min-height: auto;
     }
   }
 
-  @media (min-width: 1024px) {
-    .map-section {
-      padding-top: var(--sp-20);
-      padding-bottom: var(--sp-20);
-    }
+  .map-section-container {
+    width: 100%;
   }
 
   .interactive-map {
     width: 100%;
+    will-change: transform, opacity;
   }
 
   .map-container {
@@ -82,9 +86,12 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     z-index: 1;
   }
 
+  /* ─── Ocean Background ──────────────────────────── */
+
   .map-ocean-bg {
     position: absolute;
     inset: 0;
+    will-change: opacity;
     background-color: #EDE4D8;
     background-image:
       radial-gradient(ellipse at 20% 30%, rgba(196, 154, 110, 0.25) 0%, transparent 50%),
@@ -147,3 +154,101 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     animation: fadeIn 0.15s ease;
   }
 </style>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+function initScrollReveals() {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 640;
+
+  if (reduced) {
+    gsap.set('.map-section .duo-section-header', { opacity: 1, y: 0 });
+    gsap.set('.interactive-map', { opacity: 1, y: 0, scale: 1 });
+    gsap.set('#featured .featured-header', { opacity: 1, y: 0 });
+    return;
+  }
+
+  // ── HERO PARALLAX (desktop only) ──
+  const hero = document.getElementById('hero-section');
+  if (hero && !isMobile) {
+    const heroBg = hero.querySelector('.hero-bg');
+    if (heroBg) {
+      gsap.to(heroBg, {
+        y: '15%',
+        scale: 1.06,
+        ease: 'none',
+        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1 },
+      });
+    }
+
+    gsap.to('.hero-inner', {
+      opacity: 0.7,
+      y: -20,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.5 },
+    });
+  }
+
+  // ── MAP SECTION STAGGERED REVEAL ──
+  const mapHeader = document.querySelector('.map-section .duo-section-header');
+  const mapEl = document.querySelector('.interactive-map');
+  const oceanBg = document.querySelector('.map-ocean-bg');
+  const mapTrigger = isMobile ? 'top 90%' : 'top 80%';
+
+  if (mapHeader && !mapHeader.dataset.revealed) {
+    mapHeader.dataset.revealed = 'true';
+    gsap.fromTo(mapHeader,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+        scrollTrigger: { trigger: mapHeader, start: mapTrigger, toggleActions: 'play none none none' }
+      }
+    );
+  }
+
+  if (oceanBg && !oceanBg.dataset.revealed) {
+    oceanBg.dataset.revealed = 'true';
+    gsap.fromTo(oceanBg,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: oceanBg, start: mapTrigger, toggleActions: 'play none none none' }
+      }
+    );
+  }
+
+  if (mapEl && !mapEl.dataset.revealed) {
+    mapEl.dataset.revealed = 'true';
+    gsap.fromTo(mapEl,
+      { opacity: 0, y: 40, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: mapEl, start: isMobile ? 'top 85%' : 'top 75%', toggleActions: 'play none none none' }
+      }
+    );
+  }
+
+  // ── FEATURED FOODS HEADER REVEAL ──
+  const featuredHeader = document.querySelector('#featured .featured-header');
+  if (featuredHeader && !featuredHeader.dataset.revealed) {
+    featuredHeader.dataset.revealed = 'true';
+    gsap.fromTo(featuredHeader,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: featuredHeader, start: isMobile ? 'top 90%' : 'top 85%', toggleActions: 'play none none none' }
+      }
+    );
+  }
+
+  ScrollTrigger.refresh();
+}
+
+function triggerReveals() { setTimeout(initScrollReveals, 80); }
+
+document.addEventListener('DOMContentLoaded', triggerReveals);
+document.addEventListener('swup:page:view', triggerReveals);
+window.__pageAnimate = window.__pageAnimate || [];
+window.__pageAnimate.push(triggerReveals);
+setTimeout(initScrollReveals, 4000);
+</script>

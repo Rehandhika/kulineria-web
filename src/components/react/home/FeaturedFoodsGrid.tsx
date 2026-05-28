@@ -8,17 +8,6 @@ import './FeaturedFoodsGrid.css';
 
 const ITEMS_PER_PAGE = 8;
 
-const TASTE_EMOJI: Record<string, string> = { manis: '🍬', pedas: '🌶️', gurih: '🧂', asam: '🍋', asin: '🧀' };
-
-function getRegionEmoji(id: string): string {
-  const map: Record<string, string> = { sumatera: '🌶️', jawa: '🍚', kalimantan: '🌴', sulawesi: '🐟', 'bali-ntt': '🌺', 'maluku-papua': '🐚' };
-  return map[id] || '🍽️';
-}
-
-function getRegionStyle(id: string): string {
-  return `var(--c-${id})`;
-}
-
 function getPageNumbers(current: number, total: number): (number | 'ellipsis')[] {
   if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
 
@@ -64,9 +53,7 @@ export default function FeaturedFoodsGrid() {
   const paginated = filtered.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
   const title = region ? `Hidangan ${region.name}` : 'Hidangan Pilihan';
-  const subtitle = region
-    ? `${region.name} — halaman ${page} dari ${totalPages}`
-    : `${filtered.length} hidangan dari seluruh Nusantara — halaman ${page} dari ${totalPages}`;
+  const subtitle = region ? '' : 'Hidangan dari seluruh Nusantara';
 
   useEffect(() => {
     if (prevId !== selectedId) {
@@ -82,7 +69,7 @@ export default function FeaturedFoodsGrid() {
     prevPageRef.current = page;
 
     import('gsap').then(({ default: gsap }) => {
-      const cards = gridRef.current?.querySelectorAll('.food-card');
+      const cards = gridRef.current?.querySelectorAll('.result-card');
       if (!cards || cards.length === 0) return;
 
       if (pageChanged) {
@@ -109,43 +96,39 @@ export default function FeaturedFoodsGrid() {
     <section className="featured" id="featured">
       <div className="container">
         <div className="featured-header">
-          <span className="duo-badge duo-badge-accent">🍽️ Koleksi</span>
-          <h2 className="featured-title">{title}</h2>
-          <p className="featured-subtitle">{subtitle}</p>
-          {selectedId && (
-            <button onClick={clearSelectedRegion} className="featured-reset-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              Tampilkan Semua
-            </button>
-          )}
+          <div className="featured-header-row">
+            <h2 className="featured-title">{title}</h2>
+            {selectedId && (
+              <button onClick={clearSelectedRegion} className="featured-reset-btn" aria-label="Tampilkan semua hidangan">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </button>
+            )}
+          </div>
+          {subtitle && <p className="featured-subtitle">{subtitle}</p>}
         </div>
-        <div className="food-grid" ref={gridRef}>
+        <div className="results-grid-inner" ref={gridRef}>
           {paginated.map((food) => {
             const foodRegion = regions.find(r => r.id === food.region);
             const imgUrl = food.imageUrl || foodImages[food.id] || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80';
             return (
-              <a href={`/hidangan/${food.id}`} className="food-card" key={food.id}>
-                <div className="food-card-img">
+              <a
+                href={`/hidangan/${food.id}`}
+                className="result-card duo-card flex flex-col overflow-hidden"
+                key={food.id}
+                style={{ borderTop: `4px solid var(--c-${food.region})` }}
+              >
+                <div className="result-card-image">
                   <img src={imgUrl} alt={food.name} loading="lazy" />
-                  <div className="food-card-img-overlay"></div>
-                  <span className="food-card-badge" style={{ backgroundColor: getRegionStyle(food.region) }}>
-                    {getRegionEmoji(food.region)} {foodRegion?.name || food.region}
-                  </span>
                 </div>
-                <div className="food-card-info">
-                  <h3 className="food-card-name">{food.name}</h3>
-                  <p className="food-card-desc">{food.description.slice(0, 65)}...</p>
-                  <div className="food-card-tags">
-                    {food.taste.slice(0, 3).map(t => (
-                      <span className="food-card-tag" data-taste={t} key={t}>
-                        {TASTE_EMOJI[t] || ''} {t}
-                      </span>
+                <div className="result-card-content">
+                  <h3>{food.name}</h3>
+                  <span className="result-card-region">{foodRegion?.name || food.region}</span>
+                  <div className="result-card-tags">
+                    {food.taste.map(t => (
+                      <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{t}</span>
                     ))}
                   </div>
                 </div>
-                <span className="food-card-arrow">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </span>
               </a>
             );
           })}
@@ -183,6 +166,7 @@ export default function FeaturedFoodsGrid() {
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
+            <span className="pagination-status">Halaman {page} dari {totalPages}</span>
           </div>
         )}
       </div>

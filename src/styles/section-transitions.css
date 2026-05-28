@@ -1,0 +1,27 @@
+/* ─── SECTION TRANSITIONS ────────────────────── */
+
+.featured {
+  position: relative;
+}
+
+/* Border accent bar at top of content sections */
+.featured::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 2px;
+  background: var(--c-accent);
+  opacity: 0.15;
+  border-radius: 1px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .featured::after {
+    opacity: 0.08;
+  }
+}

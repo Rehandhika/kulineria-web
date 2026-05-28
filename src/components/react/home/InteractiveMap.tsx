@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { useStore } from '@nanostores/react';
 import type { RegionId } from '@/types/food';
 import { getRegions } from '@/lib/data/loaders';
-import { setSelectedRegion } from '@/lib/stores/selectedRegion';
+import { $selectedRegion, setSelectedRegion } from '@/lib/stores/selectedRegion';
 
 const REGION_HEX: Record<string, string> = {
   sumatera: '#A0522D',
@@ -61,8 +62,8 @@ function loadImageData(src: string): Promise<ImageData | null> {
 
 export default function InteractiveMap() {
   const [hovered, setHovered] = useState<string | null>(null);
-  const [selected, setSelected] = useState<string | null>(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+  const selected = useStore($selectedRegion);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const pixelData = useRef<Record<string, ImageData>>({});
@@ -125,23 +126,15 @@ export default function InteractiveMap() {
   const handleClick = useCallback((e: React.MouseEvent) => {
     const id = hitTest(e.clientX, e.clientY);
     if (!id) return;
-    setSelected(prev => {
-      const next = prev === id ? null : id;
-      setSelectedRegion(next);
-      return next;
-    });
-  }, [hitTest]);
+    setSelectedRegion(selected === id ? null : id);
+  }, [hitTest, selected]);
 
   const handleKeyDown = useCallback((id: string) => (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      setSelected(prev => {
-        const next = prev === id ? null : id;
-        setSelectedRegion(next);
-        return next;
-      });
+      setSelectedRegion(selected === id ? null : id);
     }
-  }, []);
+  }, [selected]);
 
   return (
     <div
@@ -192,6 +185,7 @@ export default function InteractiveMap() {
               </div>
             );
           })}
+
         </div>
 
         {hovered && (
