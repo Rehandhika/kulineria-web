@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import type { RegionId } from '@/types/food';
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
 import { setSelectedRegion } from '@/lib/stores/selectedRegion';
@@ -44,40 +44,118 @@ const REGION_ASSETS: RegionAsset[] = [
   { id: 'maluku-papua', src: '/img/map/Maluku%20Papua.png',        zIndex: 2, layout: { wPct: '32%',  lPct: '68%',  tPct: '19%',  intrinsic: { w: 349, h: 361 } } },
 ];
 
+const REGION_SORTED = [...REGION_ASSETS].sort((a, b) => b.zIndex - a.zIndex);
+
+function loadImageData(src: string): Promise<ImageData | null> {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = img.width;
+      c.height = img.height;
+      const ctx = c.getContext('2d');
+      if (!ctx) { resolve(null); return; }
+      ctx.drawImage(img, 0, 0);
+      resolve(ctx.getImageData(0, 0, img.width, img.height));
+    };
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
+
 export default function InteractiveMap() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const pixelData = useRef<Record<string, ImageData>>({});
+
+  useEffect(() => {
+    REGION_ASSETS.forEach(async r => {
+      const d = await loadImageData(r.src);
+      if (d) pixelData.current[r.src] = d;
+    });
+  }, []);
+
+  const hitTest = useCallback((clientX: number, clientY: number): string | null => {
+    const el = containerRef.current;
+    if (!el) return null;
+    const rect = el.getBoundingClientRect();
+    const rx = clientX - rect.left;
+    const ry = clientY - rect.top;
+
+    for (const r of REGION_SORTED) {
+      const l = parseFloat(r.layout.lPct);
+      const w = parseFloat(r.layout.wPct);
+      const t = parseFloat(r.layout.tPct);
+      const iw = r.layout.intrinsic.w;
+      const ih = r.layout.intrinsic.h;
+
+      const bw = (w / 100) * rect.width;
+      const bh = bw * (ih / iw);
+      const bx = (l / 100) * rect.width;
+      const by = (t / 100) * rect.height;
+
+      if (rx < bx || rx > bx + bw || ry < by || ry > by + bh) continue;
+
+      const data = pixelData.current[r.src];
+      if (!data) return r.id;
+
+      const px = Math.floor(((rx - bx) / bw) * data.width);
+      const py = Math.floor(((ry - by) / bh) * data.height);
+      if (px < 0 || px >= data.width || py < 0 || py >= data.height) continue;
+
+      if (data.data[(py * data.width + px) * 4 + 3] > 10) return r.id;
+    }
+    return null;
+  }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    setTooltipPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top - 12,
-    });
-  }, []);
+    const rx = e.clientX - rect.left;
+    const ry = e.clientY - rect.top;
+    setTooltipPos({ x: rx, y: ry - 12 });
 
-  const handleRegionEnter = useCallback((id: string) => {
-    setHovered(id);
-  }, []);
+    const id = hitTest(e.clientX, e.clientY);
+    if (id !== hovered) setHovered(id);
+  }, [hovered, hitTest]);
 
-  const handleRegionLeave = useCallback(() => {
+  const handleMouseLeave = useCallback(() => {
     setHovered(null);
   }, []);
 
-  const handleRegionClick = useCallback((id: string) => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    const id = hitTest(e.clientX, e.clientY);
+    if (!id) return;
     setSelected(prev => {
       const next = prev === id ? null : id;
       setSelectedRegion(next);
       return next;
     });
+  }, [hitTest]);
+
+  const handleKeyDown = useCallback((id: string) => (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setSelected(prev => {
+        const next = prev === id ? null : id;
+        setSelectedRegion(next);
+        return next;
+      });
+    }
   }, []);
 
   return (
-    <div className="interactive-map" ref={containerRef} onMouseMove={handleMouseMove}>
+    <div
+      className="interactive-map"
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+    >
       <div className="map-container relative w-full overflow-hidden rounded-2xl bg-[var(--c-surface)] border-[3px] border-[var(--duo-stroke-color)] shadow-[0_5px_0_var(--c-duo-shadow)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
@@ -89,12 +167,14 @@ export default function InteractiveMap() {
             const color = REGION_HEX[region.id];
 
             return (
-              <button
+              <div
                 key={region.id}
                 id={`region-wrap-${region.id}`}
                 className="map-region-path"
-                type="button"
+                tabIndex={0}
+                role="button"
                 aria-label={regions.find(r => r.id === region.id)?.name || region.id}
+                onKeyDown={handleKeyDown(region.id)}
                 style={{
                   zIndex: region.zIndex,
                   width: region.layout.wPct,
@@ -106,9 +186,6 @@ export default function InteractiveMap() {
                     : 'none',
                   transform: isActive || isHovered ? 'scale(1.03)' : 'scale(1)',
                 }}
-                onClick={() => handleRegionClick(region.id)}
-                onMouseEnter={() => handleRegionEnter(region.id)}
-                onMouseLeave={handleRegionLeave}
               >
                 <img
                   src={region.src}
@@ -117,7 +194,7 @@ export default function InteractiveMap() {
                   draggable={false}
                   loading="eager"
                 />
-              </button>
+              </div>
             );
           })}
         </div>
