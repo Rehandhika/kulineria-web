@@ -21,11 +21,6 @@ function getEmoji(percentage: number): string {
   return '📚';
 }
 
-interface ModeBreakdown {
-  tebakMakanan: { total: number; correct: number };
-  tebakAsal: { total: number; correct: number };
-}
-
 interface WrongAnswer {
   questionId: string;
   foodId: string;
@@ -39,25 +34,11 @@ export default function QuizResults() {
   const maxStreak = useQuizStore((s) => s.maxStreak);
   const answers = useQuizStore((s) => s.answers);
   const questions = useQuizStore((s) => s.questions);
-  const stats = useQuizStore((s) => s.stats);
   const resetQuiz = useQuizStore((s) => s.resetQuiz);
-  const mode = useQuizStore((s) => s.mode);
 
   const correctCount = answers.filter((a) => a.isCorrect).length;
   const totalQuestions = answers.length;
   const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
-
-  const breakdown: ModeBreakdown = useMemo(() => {
-    const b: ModeBreakdown = { tebakMakanan: { total: 0, correct: 0 }, tebakAsal: { total: 0, correct: 0 } };
-    answers.forEach((a, i) => {
-      const q = questions[i];
-      if (!q) return;
-      const isAsal = 'description' in q && q.description !== undefined;
-      if (isAsal) { b.tebakAsal.total++; if (a.isCorrect) b.tebakAsal.correct++; }
-      else { b.tebakMakanan.total++; if (a.isCorrect) b.tebakMakanan.correct++; }
-    });
-    return b;
-  }, [answers, questions]);
 
   const wrongAnswers: WrongAnswer[] = useMemo(() => {
     const allFoods = getAllFoods();
@@ -91,13 +72,7 @@ export default function QuizResults() {
       .filter((w): w is WrongAnswer => w !== null);
   }, [answers, questions]);
 
-  const modes = [
-    { key: 'tebakMakanan' as const, label: 'Tebak Makanan', icon: '🍽️' },
-    { key: 'tebakAsal' as const, label: 'Tebak Asal', icon: '🗺️' },
-  ];
-
-  return (
-    <div className="quiz-results">
+  return (    <div className="quiz-results">
       <div className="results-header">
         <span className="results-emoji">{getEmoji(percentage)}</span>
         <h2>Kuis Selesai!</h2>
@@ -128,31 +103,7 @@ export default function QuizResults() {
           <span className="result-value">🔥 {maxStreak}</span>
           <span className="result-label">Streak</span>
         </div>
-        <div className="result-stat">
-          <span className="result-value">🏆 {stats.highScore}</span>
-          <span className="result-label">High Score</span>
-        </div>
       </div>
-
-      {modes.some(m => breakdown[m.key].total > 0) && (
-        <div className="results-breakdown">
-          <h3>Performa per Mode</h3>
-          {modes.map(m => {
-            const data = breakdown[m.key];
-            if (data.total === 0) return null;
-            const pct = data.total > 0 ? (data.correct / data.total) * 100 : 0;
-            return (
-              <div key={m.key} className="breakdown-row">
-                <span className="breakdown-label">{m.icon} {m.label}</span>
-                <div className="breakdown-bar">
-                  <div className="breakdown-fill" style={{ width: `${pct}%` }} />
-                </div>
-                <span className="breakdown-value">{data.correct}/{data.total}</span>
-              </div>
-            );
-          })}
-        </div>
-      )}
 
       {wrongAnswers.length > 0 && (
         <div className="results-review">
