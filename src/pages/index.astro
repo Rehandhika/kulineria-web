@@ -14,7 +14,10 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
   <!-- INTERACTIVE MAP -->
   <section class="section-py map-section" id="map-section">
     <div class="container">
-      <SectionHeader overline="🗺️ Interaktif" title="Jelajahi Nusantara" />
+      <SectionHeader
+        title="Jelajahi Nusantara"
+        subtitle="Klik pulau untuk melihat hidangan khas dari setiap daerah"
+      />
       <InteractiveMap client:visible />
       <RegionBanner client:idle />
     </div>
@@ -130,8 +133,8 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
   .map-tooltip {
     position: absolute;
     transform: translate(-50%, -100%);
-    background: var(--c-text-1);
-    color: #fff;
+    background: var(--c-accent);
+    color: var(--c-cream);
     padding: 6px 14px;
     border-radius: var(--r-full);
     font-size: var(--fs-sm);
@@ -140,23 +143,7 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     pointer-events: none;
     white-space: nowrap;
     box-shadow: 0 3px 0 rgba(0,0,0,0.15);
-    display: flex;
-    align-items: center;
-    gap: 8px;
     z-index: 50;
     animation: fadeIn 0.15s ease;
-  }
-
-  .map-tooltip-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .map-tooltip-count {
-    font-weight: 600;
-    opacity: 0.7;
-    font-size: 0.85em;
   }
 </style>

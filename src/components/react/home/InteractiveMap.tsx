@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import type { RegionId } from '@/types/food';
-import { getRegions, getAllFoods } from '@/lib/data/loaders';
+import { getRegions } from '@/lib/data/loaders';
 import { setSelectedRegion } from '@/lib/stores/selectedRegion';
 
 const REGION_HEX: Record<string, string> = {
@@ -15,11 +15,6 @@ const REGION_HEX: Record<string, string> = {
 };
 
 const regions = getRegions();
-const allFoods = getAllFoods();
-
-function getFoodCount(regionId: string) {
-  return allFoods.filter(f => f.region === regionId).length;
-}
 
 interface RegionLayout {
   wPct: string;
@@ -201,9 +196,7 @@ export default function InteractiveMap() {
 
         {hovered && (
           <div className="map-tooltip" style={{ left: tooltipPos.x, top: tooltipPos.y }}>
-            <span className="map-tooltip-dot" style={{ background: REGION_HEX[hovered] }} />
             {regions.find(r => r.id === hovered)?.name}
-            <span className="map-tooltip-count">{getFoodCount(hovered)} hidangan</span>
           </div>
         )}
       </div>

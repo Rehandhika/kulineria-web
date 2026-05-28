@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import './RegionBanner.css';
 import { useStore } from '@nanostores/react';
 import { $selectedRegion, clearSelectedRegion } from '@/lib/stores/selectedRegion';
-import { type RegionId } from '@/types/food';
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
 
 const REGION_HEX: Record<string, string> = {
@@ -14,15 +13,6 @@ const REGION_HEX: Record<string, string> = {
   sulawesi: '#B8860B',
   'bali-ntt': '#CD853F',
   'maluku-papua': '#8B4513',
-};
-
-const REGION_EMOJI: Record<string, string> = {
-  sumatera: '🌶️',
-  jawa: '🍚',
-  kalimantan: '🌴',
-  sulawesi: '🐟',
-  'bali-ntt': '🌺',
-  'maluku-papua': '🐚',
 };
 
 const regions = getRegions();
@@ -66,32 +56,32 @@ export default function RegionBanner() {
   const color = REGION_HEX[selectedId];
 
   return (
-    <div ref={bannerRef} className="region-banner" style={{ borderColor: `${color}40` }}>
-      <div className="region-banner-bg" style={{ background: `linear-gradient(135deg, ${color}15 0%, ${color}05 100%)` }} />
-      <div className="region-banner-inner">
-        <div className="region-banner-icon" style={{ background: `${color}20`, borderColor: color }}>
-          <span>{REGION_EMOJI[selectedId] || '🍽️'}</span>
+    <div ref={bannerRef} className="region-banner" style={{ borderColor: `${color}25` }}>
+      <div className="region-banner-glow" style={{ background: `radial-gradient(ellipse at 50% 0%, ${color}15 0%, transparent 70%)` }} />
+      <div className="region-banner-accent" style={{ background: color }} />
+
+      <button className="region-banner-close" onClick={clearSelectedRegion} aria-label="Tutup">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div className="region-banner-body">
+        <span className="region-banner-overline">Jelajahi</span>
+
+        <h2 className="region-banner-title" style={{"--region-color": color} as React.CSSProperties}>
+          {region.name}
+        </h2>
+      </div>
+
+      <div className="region-banner-footer">
+        <div className="region-banner-stat">
+          <span className="region-banner-stat-val" style={{ color }}>{count}</span>
+          <span className="region-banner-stat-label">Hidangan</span>
         </div>
-        <div className="region-banner-info">
-          <span className="region-banner-overline">Wilayah Terpilih</span>
-          <h2 className="region-banner-title">{region.name}</h2>
-          <p className="region-banner-desc">{region.naraDialog}</p>
-        </div>
-        <div className="region-banner-meta">
-          <div className="region-banner-stat">
-            <span className="region-banner-stat-val">{count}</span>
-            <span className="region-banner-stat-label">Hidangan</span>
-          </div>
-          <div className="region-banner-actions">
-            <a href={`/jelajahi?region=${selectedId}`} className="region-banner-btn" style={{ background: color }}>
-              Lihat Semua
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <button onClick={clearSelectedRegion} className="region-banner-reset">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-          </div>
-        </div>
+
+        <a href={`/jelajahi?region=${selectedId}`} className="region-banner-btn" style={{ background: color }}>
+          Lihat Semua
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   );
