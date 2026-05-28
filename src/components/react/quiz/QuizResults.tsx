@@ -5,20 +5,28 @@ import { useQuizStore } from '@/lib/stores/quiz';
 import { getAllFoods } from '@/lib/data/loaders';
 import './QuizResults.css';
 
+function getTitle(percentage: number): string {
+  if (percentage === 100) return 'Ahli Mahakarya Rasa';
+  if (percentage >= 80) return 'Penjelajah Rempah Nusantara';
+  if (percentage >= 60) return 'Penikmat Tradisi Kuliner';
+  if (percentage >= 40) return 'Pencicip Rasa Pemula';
+  return 'Musafir Rasa Nusantara';
+}
+
 function getMessage(percentage: number): string {
-  if (percentage === 100) return 'Sempurna! Kamu memang ahli kuliner Indonesia!';
-  if (percentage >= 80) return 'Hebat! Pengetahuan kuliner yang luar biasa!';
-  if (percentage >= 60) return 'Bagus! Terus belajar dan eksplorasi!';
-  if (percentage >= 40) return 'Lumayan! Yuk coba lagi untuk naikkan skor!';
-  return 'Jangan menyerah! Ayo coba lagi dan kenali lebih banyak masakan!';
+  if (percentage === 100) return 'Pengetahuanmu seharum rempah pilihan, tak tertandingi dan sempurna.';
+  if (percentage >= 80) return 'Luar biasa. Kau mengenali jejak warisan rasa dengan sangat mendalam.';
+  if (percentage >= 60) return 'Cukup memukau. Perjalanan kulinermu telah membekas namun masih bisa dijelajahi.';
+  if (percentage >= 40) return 'Langkah awal yang baik. Banyak misteri rasa yang masih menunggu untuk kau cicipi.';
+  return 'Jangan berkecil hati. Setiap perjalanan besar selalu dimulai dari satu suapan pertama.';
 }
 
 function getEmoji(percentage: number): string {
-  if (percentage === 100) return '🏆';
-  if (percentage >= 80) return '🌟';
-  if (percentage >= 60) return '👍';
-  if (percentage >= 40) return '💪';
-  return '📚';
+  if (percentage === 100) return '👑';
+  if (percentage >= 80) return '✨';
+  if (percentage >= 60) return '🏺';
+  if (percentage >= 40) return '🌿';
+  return '🥄';
 }
 
 interface WrongAnswer {
@@ -66,23 +74,22 @@ export default function QuizResults() {
           foodId,
           foodName,
           correctAnswer: correctOption?.label || '',
-          yourAnswer: selectedOption?.label || '(tidak menjawab)',
+          yourAnswer: selectedOption?.label || '(kosong)',
         };
       })
       .filter((w): w is WrongAnswer => w !== null);
   }, [answers, questions]);
 
-  return (    <div className="quiz-results">
+  return (
+    <div className="quiz-results">
       <div className="results-header">
         <span className="results-emoji">{getEmoji(percentage)}</span>
-        <h2>Kuis Selesai!</h2>
+        <h2>{getTitle(percentage)}</h2>
         <p className="results-message">{getMessage(percentage)}</p>
       </div>
 
       <div className="results-score">
-        <div className="score-circle" style={{
-          background: `conic-gradient(var(--c-accent) ${percentage}%, var(--c-surface-2) ${percentage}%)`,
-        }}>
+        <div className="score-circle">
           <div className="score-circle-inner">
             <span className="score-number">{percentage}%</span>
             <span className="score-label">Akurasi</span>
@@ -97,26 +104,28 @@ export default function QuizResults() {
         </div>
         <div className="result-stat">
           <span className="result-value">{correctCount}/{totalQuestions}</span>
-          <span className="result-label">Benar</span>
+          <span className="result-label">Jawaban Tepat</span>
         </div>
-        <div className="result-stat">
-          <span className="result-value">🔥 {maxStreak}</span>
-          <span className="result-label">Streak</span>
+        <div className="result-stat" style={{ gridColumn: '1 / -1' }}>
+          <span className="result-value" style={{ color: 'var(--c-brand-gold)' }}>🔥 {maxStreak}</span>
+          <span className="result-label">Runtutan Terpanjang</span>
         </div>
       </div>
 
       {wrongAnswers.length > 0 && (
         <div className="results-review">
-          <h3>Pelajari Jawaban Salah</h3>
+          <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: '1.25rem', color: 'var(--c-brand-cream)', marginBottom: 'var(--sp-4)' }}>
+            Pelajari Kembali
+          </h3>
           <div className="review-list">
             {wrongAnswers.map((w) => (
               <div key={w.questionId} className="review-item">
                 <div className="review-info">
-                  <span className="review-question">{w.foodName || 'Makanan'}</span>
+                  <span className="review-question">{w.foodName || 'Rahasia Rasa'}</span>
                   <span className="review-answer">
-                    Jawaban: <strong>{w.correctAnswer}</strong>
+                    Seharusnya: <strong>{w.correctAnswer}</strong>
                   </span>
-                  <span className="review-your">Kamu: {w.yourAnswer}</span>
+                  <span className="review-your">Tebakanmu: {w.yourAnswer}</span>
                 </div>
                 {w.foodId && (
                   <a
@@ -124,7 +133,7 @@ export default function QuizResults() {
                     className="review-link"
                     onClick={() => sessionStorage.setItem('kulineria-return', '/kuis')}
                   >
-                    Pelajari
+                    Selami
                   </a>
                 )}
               </div>
@@ -133,12 +142,12 @@ export default function QuizResults() {
         </div>
       )}
 
-      <div className="results-actions">
+      <div className="results-actions" style={{ marginTop: 'var(--sp-8)' }}>
         <button className="btn-primary" onClick={resetQuiz}>
-          Main Lagi
+          Uji Kembali
         </button>
         <button className="btn-secondary" onClick={() => window.history.back()}>
-          Kembali
+          Akhiri Perjalanan
         </button>
       </div>
     </div>

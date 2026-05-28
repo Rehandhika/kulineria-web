@@ -42,33 +42,34 @@ export default function FeedbackOverlay() {
     <div className={`feedback-overlay ${lastAnswer.isCorrect ? 'correct' : 'wrong'}`}>
       <div className="feedback-content">
         <div className="feedback-icon-wrapper">
-          <span className="feedback-icon">{lastAnswer.isCorrect ? '✓' : '✗'}</span>
+          <span className="feedback-icon">{lastAnswer.isCorrect ? '✨' : '🥀'}</span>
         </div>
         <span className="feedback-text">
-          {lastAnswer.isCorrect ? 'Benar!' : 'Salah!'}
+          {lastAnswer.isCorrect ? 'Tepat Sekali.' : 'Belum Tepat.'}
         </span>
         {lastAnswer.isCorrect && (
           <span className="feedback-points">+{lastAnswer.pointsEarned} poin</span>
         )}
         {!lastAnswer.isCorrect && correctLabel && (
-          <p className="feedback-answer">Jawaban: <strong>{correctLabel}</strong></p>
+          <p className="feedback-answer">Sebenarnya: <strong>{correctLabel}</strong></p>
         )}
         {!lastAnswer.isCorrect && foodLink && (
           <a
             href={`/hidangan/${foodLink.id}`}
-            className="feedback-fact-link"
+            className="feedback-continue"
+            style={{ marginTop: 'var(--sp-2)', padding: 'var(--sp-2) var(--sp-6)', fontSize: 'var(--fs-xs)', textDecoration: 'none', display: 'inline-block' }}
             target="_blank"
             rel="noopener"
           >
-            Pelajari {foodLink.name}
+            Pelajari Lebih Lanjut
           </a>
         )}
         {streak >= 3 && lastAnswer.isCorrect && (
-          <span className="feedback-streak">🔥 Streak {streak}!</span>
+          <span className="feedback-streak">Runtutan {streak}!</span>
         )}
       </div>
       <button className="feedback-continue" onClick={nextQuestion}>
-        Lanjut →
+        Teruskan Perjalanan
       </button>
     </div>
   );

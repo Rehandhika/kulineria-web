@@ -48,11 +48,19 @@ interface QuizStore {
 }
 
 let timerId: ReturnType<typeof setInterval> | null = null;
+let countdownId: ReturnType<typeof setInterval> | null = null;
 
 function stopTimer() {
   if (timerId !== null) {
     clearInterval(timerId);
     timerId = null;
+  }
+}
+
+function stopCountdown() {
+  if (countdownId !== null) {
+    clearInterval(countdownId);
+    countdownId = null;
   }
 }
 
@@ -65,6 +73,7 @@ function startTimer() {
 
 export function cleanupQuizTimer() {
   stopTimer();
+  stopCountdown();
 }
 
 function finishQuizInternal(score: number, maxStreak: number, answers: Answer[]) {
@@ -96,6 +105,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
   selectedOptionId: null,
 
   startQuiz: (mode: QuizMode) => {
+    stopCountdown(); // Pastikan tidak ada countdown ganda berjalan
     const questions = generateQuestions(mode, 10);
     set({
       mode,
@@ -112,11 +122,11 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
     });
 
     let count = 3;
-    const countdownId = setInterval(() => {
+    countdownId = setInterval(() => {
       count--;
       set({ countdownValue: count });
       if (count <= 0) {
-        clearInterval(countdownId);
+        stopCountdown();
         set({ status: 'playing', countdownValue: 0 });
         startTimer();
       }

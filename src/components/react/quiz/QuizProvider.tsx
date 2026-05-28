@@ -20,7 +20,10 @@ export default function QuizProvider() {
   }, [status]);
 
   useEffect(() => {
-    return () => cleanupQuizTimer();
+    return () => {
+      cleanupQuizTimer();
+      useQuizStore.getState().resetQuiz();
+    };
   }, []);
 
   if (status === 'idle') return <QuizMenu />;

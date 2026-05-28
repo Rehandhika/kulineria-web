@@ -8,15 +8,15 @@ export default function TimerBar() {
   const timeLimit = currentQuestion?.timeLimit ?? 15;
   const percentage = (timeRemaining / timeLimit) * 100;
 
-  const color = percentage > 60 ? 'var(--c-success)' : percentage > 30 ? 'var(--c-warning)' : 'var(--c-danger)';
+  const color = percentage > 30 ? 'var(--c-brand-gold)' : '#9C5246';
 
   return (
     <div className="timer-bar">
       <div
         className="timer-fill"
-        style={{ width: `${percentage}%`, backgroundColor: color, transition: 'width 1s linear, background-color 0.3s ease' }}
+        style={{ width: `${percentage}%`, backgroundColor: color, transition: 'width 1s linear, background-color 0.5s ease' }}
       />
-      <span className="timer-text" aria-live="polite" aria-atomic="true">{timeRemaining}s</span>
+      <span className="timer-text" aria-live="polite" aria-atomic="true">{timeRemaining} detik</span>
     </div>
   );
 }
