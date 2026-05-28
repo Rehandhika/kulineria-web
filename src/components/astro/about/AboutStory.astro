@@ -39,13 +39,8 @@
     });
   }
 
-  function triggerStory() { setTimeout(initStory, 100); }
-
-  document.addEventListener('DOMContentLoaded', triggerStory);
-  document.addEventListener('swup:page:view', triggerStory);
-
-  window.__pageAnimate = window.__pageAnimate || [];
-  window.__pageAnimate.push(triggerStory);
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(initStory);
 </script>
 
 <style>

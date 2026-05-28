@@ -247,9 +247,37 @@ export function createHorizontalScroll(
 
 export function cleanupAnimations() {
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  gsap.killTweensOf('*');
-  gsap.globalTimeline.clear();
+
+  const main = document.getElementById('main-content');
+  if (main) {
+    gsap.killTweensOf(main);
+    gsap.killTweensOf(Array.from(main.querySelectorAll('*')));
+  }
 }
+
+export function runOnPageReady(callback: () => void) {
+  const w = window as any;
+
+  // 🚨 CRITICAL FIX: Astro module dieksekusi HANYA SEKALI oleh browser.
+  // Jika script ini diload terlambat secara asinkron, ia akan masuk ke blok if(w.__kulineriaPageReady)
+  // Tapi JIKA kita tidak mendaftarkan event listener di bawah ini, navigasi
+  // Swup KEDUA KALINYA (misal user kembali ke halaman ini) TIDAK AKAN PERNAH
+  // memicu callback, menyebabkan komponen mati/hilang (opacity: 0 selamanya).
+  // Oleh karena itu, kita SELALU mendaftarkan listener.
+  document.addEventListener('kulineria:page:ready', callback);
+
+  if (w.__kulineriaPageReady) {
+    // Swup navigation: eksekusi asinkron yang terlambat, langsung jalankan.
+    requestAnimationFrame(callback);
+  } else if (!w.swup && (document.readyState === 'complete' || document.readyState === 'interactive')) {
+    // Initial load: eksekusi aman setelah DOM siap
+    setTimeout(callback, 50);
+  } else {
+    // Initial load: belum siap, tunggu event
+    document.addEventListener('DOMContentLoaded', () => setTimeout(callback, 50));
+  }
+}
+
 
 export function blurInText(
   target: string | HTMLElement | HTMLElement[],

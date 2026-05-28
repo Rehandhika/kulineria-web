@@ -83,13 +83,8 @@ function initRegionReveal() {
   }, 4000);
 }
 
-function triggerRegion() { setTimeout(initRegionReveal, 200); }
-
-document.addEventListener('DOMContentLoaded', triggerRegion);
-document.addEventListener('swup:page:view', triggerRegion);
-
-window.__pageAnimate = window.__pageAnimate || [];
-window.__pageAnimate.push(triggerRegion);
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(initRegionReveal);
 </script>
 
 <style>

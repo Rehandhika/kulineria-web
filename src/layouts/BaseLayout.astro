@@ -54,50 +54,42 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     </main>
 
     <!--
-      3 layer curtain wipe.
+      3-layer arc + wave — kontinu tanpa freeze, smooth & slow.
 
-      PENDEKATAN BENAR:
-      Setiap layer adalah satu <div> tunggal yang tingginya 100vh + 120px
-      (ruang ekstra untuk ombak atas 60px + ombak bawah 60px).
-      Posisi awal: top = -60px (ombak atas sudah di dalam div).
-      GSAP menggerakkan dengan translateY dalam pixel — bukan yPercent —
-      sehingga semua bagian (body + ombak) bergerak sebagai satu unit.
-
-      Posisi awal (tersembunyi di bawah): translateY(100vh)
-      Posisi tengah (menutupi layar):     translateY(-60px)  ← ombak atas pas di tepi atas viewport
-      Posisi akhir (keluar ke atas):      translateY(calc(-100vh - 120px))
+      OUT:  caramel → cinnamon → mocha naik langsung ke gone (sine.inOut).
+      IN:   main content fade-up, lalu layer direset ke hidden.
     -->
 
-    <!-- Layer 1: caramel -->
-    <div class="pt-layer" id="pt-l1" aria-hidden="true">
-      <svg class="pt-wave pt-wave-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,60 C150,20 300,55 450,30 C600,5 750,50 900,25 C1050,0 1150,40 1200,20 L1200,60 Z" fill="#C49A6E"/>
+    <!-- Layer 1: caramel (belakang) -->
+    <div class="pt-layer pt-l1" aria-hidden="true">
+      <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#C49A6E"/>
       </svg>
       <div class="pt-body"></div>
-      <svg class="pt-wave pt-wave-bot" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,0 C150,40 300,5 450,30 C600,55 750,10 900,35 C1050,60 1150,20 1200,40 L1200,0 Z" fill="#C49A6E"/>
+      <svg class="pt-arc-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
+        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#C49A6E"/>
       </svg>
     </div>
 
-    <!-- Layer 2: cinnamon -->
-    <div class="pt-layer" id="pt-l2" aria-hidden="true">
-      <svg class="pt-wave pt-wave-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,60 C200,15 350,50 550,22 C750,0 900,45 1050,18 C1130,5 1170,35 1200,15 L1200,60 Z" fill="#B8734A"/>
+    <!-- Layer 2: cinnamon (tengah) -->
+    <div class="pt-layer pt-l2" aria-hidden="true">
+      <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#B8734A"/>
       </svg>
       <div class="pt-body"></div>
-      <svg class="pt-wave pt-wave-bot" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,0 C200,45 350,10 550,38 C750,60 900,15 1050,42 C1130,55 1170,25 1200,45 L1200,0 Z" fill="#B8734A"/>
+      <svg class="pt-arc-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
+        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#B8734A"/>
       </svg>
     </div>
 
-    <!-- Layer 3: mocha dark -->
-    <div class="pt-layer" id="pt-l3" aria-hidden="true">
-      <svg class="pt-wave pt-wave-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,60 C100,25 280,55 480,18 C680,0 850,48 1000,20 C1100,5 1160,38 1200,22 L1200,60 Z" fill="#5A3E22"/>
+    <!-- Layer 3: mocha dark (depan) -->
+    <div class="pt-layer pt-l3" aria-hidden="true">
+      <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
+        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#5A3E22"/>
       </svg>
       <div class="pt-body"></div>
-      <svg class="pt-wave pt-wave-bot" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,0 C100,35 280,5 480,42 C680,60 850,12 1000,40 C1100,55 1160,22 1200,38 L1200,0 Z" fill="#5A3E22"/>
+      <svg class="pt-arc-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
+        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#5A3E22"/>
       </svg>
     </div>
 
@@ -117,114 +109,116 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
       document.addEventListener('DOMContentLoaded', initGlobalSmoothScroll);
 
-      /* ─── PAGE ANIMATION ORCHESTRATOR ───────────────────────────────
+      /* ─── PAGE ANIMATION ORCHESTRATOR ─────────────────────────────────
        *
-       * Three-layer defense untuk memastikan animasi jalan di setiap navigasi:
+       * Arsitektur baru — sinkronisasi deterministik antara layer transisi
+       * dan hero entry animation:
        *
-       * 1. Persistent listener (swup:page:view) — components daftar listener
-       *    saat module pertama kali load. Listener persist, handle semua
-       *    navigasi setelahnya.
+       * FASE OUT  (halaman lama):
+       *   animation:out:start → cleanup ScrollTrigger/tween konten lama
+       *   animation:out:await → layer naik menutup layar (resolve saat selesai)
        *
-       * 2. Queue backup (__pageAnimate[]) — untuk race condition saat
-       *    module ES async belum selesai loading ketika swup:page:view fire.
-       *    Component push init function ke queue. Orchestrator process queue
-       *    + polling 50ms selama 2s.
+       * FASE IN  (halaman baru):
+       *   animation:in:await  → DOM sudah ter-swap, tunggu 1 rAF agar browser
+       *                         paint konten baru, lalu resolve
+       *   swup:page:view      → reinit Lenis + ScrollTrigger
+       *   layer turun         → BERSAMAAN dispatch 'kulineria:page:ready'
+       *   kulineria:page:ready → hero entry animations mulai (sinkron!)
        *
-       * 3. Safety timeout (4s) — di masing-masing component, force-show
-       *    content jika inisialisasi gagal.
-       *
-       * Orchestrator juga cleanup GSAP/ScrollTrigger dari halaman
-       * sebelumnya + reinit Lenis setiap navigasi.
-       * ─────────────────────────────────────────────────────────────── */
+       * Tidak ada setTimeout arbitrary, tidak ada __pageAnimate queue.
+       * ────────────────────────────────────────────────────────────────── */
 
-      window.__pageAnimate = window.__pageAnimate || [];
 
-      function processPageAnimations() {
-        const queue = window.__pageAnimate || [];
-        while (queue.length) {
-          const fn = queue.shift();
-          if (typeof fn === 'function') setTimeout(fn, 80);
-        }
-      }
-
-      function onPageView() {
-        cleanupAnimations();
-
-        destroySmoothScroll();
-        requestAnimationFrame(() => {
-          initGlobalSmoothScroll();
-          refreshSmoothScroll();
-        });
-
-        processPageAnimations();
-
-        let polls = 0;
-        const pollTimer = setInterval(() => {
-          processPageAnimations();
-          if (polls++ > 40) clearInterval(pollTimer);
-        }, 50);
-      }
-
-      document.addEventListener('swup:page:view', onPageView);
+      // swup:page:view tidak lagi dipakai untuk reinit Lenis —
+      // reinit dilakukan di animation:in:start (script kedua) agar sinkron
+      // dengan dispatch kulineria:page:ready.
+      // Dibiarkan kosong tapi tetap ada sebagai safety hook jika diperlukan.
+      document.addEventListener('swup:page:view', () => {});
     </script>
 
-    <!-- Curtain wipe: 3-layer wave via Swup JS hooks + GSAP -->
+    <!-- Arc + Wave: 3-layer via Swup hooks + GSAP -->
     <script>
       import { gsap } from 'gsap';
+      import { cleanupAnimations } from '../lib/animations/gsap-presets';
+      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-      const WAVE_H = 60;
-      // Buffer ekstra untuk mobile — address bar dinamis bisa buat innerHeight
-      // lebih kecil dari 100vh CSS. 150px buffer memastikan layer selalu tersembunyi.
-      const BUFFER = 150;
+      gsap.registerPlugin(ScrollTrigger);
 
-      const l1 = document.getElementById('pt-l1')!;
-      const l2 = document.getElementById('pt-l2')!;
-      const l3 = document.getElementById('pt-l3')!;
-
-      function getY() {
-        const vh = (window.visualViewport?.height ?? window.innerHeight) + BUFFER;
-        return {
-          hidden:  vh + WAVE_H,
-          covered: 0,
-          gone:    -(vh + WAVE_H * 2),
-        };
+      function initGlobalSmoothScroll() {
+        initSmoothScroll({ duration: 1.5, wheelMultiplier: 1, touchMultiplier: 1.5 });
+        requestAnimationFrame(() => ScrollTrigger.refresh());
       }
 
-      gsap.set([l1, l2, l3], { y: getY().hidden });
+      const BUFFER = 150;
+
+      const l1 = document.querySelector('.pt-l1')!;
+      const l2 = document.querySelector('.pt-l2')!;
+      const l3 = document.querySelector('.pt-l3')!;
+
+      function getVH() {
+        return (window.visualViewport?.height ?? window.innerHeight) + BUFFER;
+      }
+
+      gsap.set([l1, l2, l3], { y: getVH() });
+
+      function dispatchPageReady() {
+        (window as any).__kulineriaPageReady = true;
+        document.dispatchEvent(new CustomEvent('kulineria:page:ready'));
+      }
 
       function setupSwupHooks() {
         const swup = (window as any).swup;
         if (!swup) return;
 
+        // ── FASE OUT ────────────────────────────────────────────────────
+        swup.hooks.on('animation:out:start', () => {
+          (window as any).__kulineriaPageReady = false;
+          cleanupAnimations();
+        });
+
         swup.hooks.replace('animation:out:await', () =>
           new Promise<void>((resolve) => {
-            const { hidden, covered } = getY();
-            gsap.set([l1, l2, l3], { y: hidden });
+            const vh = getVH();
+            const coverY = -200; // Pastikan pt-body (solid) menutupi layar (arc = 180)
 
-            // Out: layer paling gelap nutup duluan (depth effect)
+            gsap.set([l1, l2, l3], { y: vh });
+
+            // Layer naik dari bawah ke tengah (menutupi layar)
             const tl = gsap.timeline({ onComplete: resolve });
-            tl.to(l3, { y: covered, duration: 0.35, ease: 'power3.in' }, 0);
-            tl.to(l2, { y: covered, duration: 0.4, ease: 'power3.inOut' }, 0.08);
-            tl.to(l1, { y: covered, duration: 0.45, ease: 'power3.inOut' }, 0.16);
+            tl.to(l1, { y: coverY, duration: 0.6, ease: 'power2.in' }, 0);
+            tl.to(l2, { y: coverY, duration: 0.6, ease: 'power2.in' }, 0.1);
+            tl.to(l3, { y: coverY, duration: 0.6, ease: 'power2.in' }, 0.2);
           })
         );
 
+        // ── FASE IN ─────────────────────────────────────────────────────
         swup.hooks.replace('animation:in:await', () =>
           new Promise<void>((resolve) => {
-            const { gone, hidden } = getY();
+            const vh = getVH();
+            const endY = -(vh + 500); // Pastikan layer benar-benar keluar layar di atas
 
-            const tl = gsap.timeline({
-              onComplete: () => {
-                gsap.set([l1, l2, l3], { y: hidden });
-                resolve();
-              },
-            });
-            // In: layer terang (caramel) pergi duluan, mocha nyusul
-            tl.to(l1, { y: gone, duration: 0.5, ease: 'power4.inOut' }, 0);
-            tl.to(l2, { y: gone, duration: 0.5, ease: 'power4.inOut' }, 0.1);
-            tl.to(l3, { y: gone, duration: 0.5, ease: 'power4.inOut' }, 0.2);
+            // Layer lanjut naik dari tengah ke atas (membuka layar)
+            const tl = gsap.timeline({ onComplete: resolve });
+            tl.to(l1, { y: endY, duration: 0.6, ease: 'power2.out' }, 0);
+            tl.to(l2, { y: endY, duration: 0.6, ease: 'power2.out' }, 0.05);
+            tl.to(l3, { y: endY, duration: 0.6, ease: 'power2.out' }, 0.1);
           })
         );
+
+        swup.hooks.on('animation:in:start', () => {
+          // Saat ini, layar masih TERUTUP PENUH oleh l3 di posisi coverY.
+          // DOM baru sudah diswap. Lakukan re-init Lenis secara sinkron
+          // agar siap digunakan ScrollTrigger.
+          destroySmoothScroll();
+          initGlobalSmoothScroll();
+          refreshSmoothScroll();
+
+          // Dispatch event agar animasi hero komponen menyiapkan state awalnya
+          // (misal: opacity 0) SEBELUM layar mulai dibuka oleh fase IN.
+          dispatchPageReady();
+        });
+
       }
 
       if ((window as any).swup) {
@@ -233,8 +227,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
         document.addEventListener('swup:enable', setupSwupHooks, { once: true });
       }
     </script>
-  </body>
-</html>
+
 
 <style is:global>
   .skip-link {
@@ -267,30 +260,20 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
-  /* ─── 3 Layer curtain ───────────────────────────────────────────────────
+  /* ─── 3-layer arc + wave transition ─────────────────────────────────────
    *
-   * PENDEKATAN BENAR:
-   * Setiap layer adalah satu div tunggal yang tingginya 100vh + 120px.
-   * Posisi: fixed, top: -60px (ombak atas sudah di dalam div).
-   * GSAP menggerakkan dengan y pixel — bukan yPercent — sehingga
-   * semua bagian bergerak sebagai satu unit yang konsisten.
+   * Semua arc = 180px (120px transparent top + 60px filled bottom).
+   * Stop positions staggered: l1=-120, l2=-60, l3=0
+   * Sehingga di viewport: caramel (0-60), cinnamon (60-120), mocha (120-180).
    *
-   * Struktur dalam setiap layer:
-   *   .pt-wave-top  : SVG ombak atas (60px)
-   *   .pt-body      : area solid (100vh)
-   *   .pt-wave-bot  : SVG ombak bawah (60px)
-   *
-   * z-index di atas navbar (--z-nav: 200) dan semua UI lainnya.
+   * After 180px: mocha body fills rest of viewport (normal).
    * ─────────────────────────────────────────────────────────────────── */
 
   .pt-layer {
     position: fixed;
-    top: -60px;
+    top: 0;
     left: 0;
     width: 100%;
-    /* 100dvh = dynamic viewport height, akurat di mobile saat address bar muncul/hilang.
-       + 120px untuk ombak atas + bawah. + 150px buffer ekstra untuk keamanan mobile. */
-    height: calc(100dvh + 270px);
     pointer-events: none;
     display: flex;
     flex-direction: column;
@@ -298,28 +281,36 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     overflow: hidden;
   }
 
-  .pt-layer .pt-wave {
+  .pt-l1 { z-index: 9996; height: calc(100dvh + 400px); }
+  .pt-l2 { z-index: 9997; height: calc(100dvh + 400px); }
+  .pt-l3 { z-index: 9998; height: calc(100dvh + 400px); }
+
+  .pt-layer .pt-arc {
     width: 100%;
-    height: 60px;
     flex-shrink: 0;
     display: block;
+    height: 180px;
+  }
+
+  .pt-layer .pt-arc-bottom {
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+    height: 80px;
   }
 
   .pt-layer .pt-body {
-    flex: 1;                           /* mengisi sisa ruang = 100vh */
+    flex: 1;
   }
 
   /* Warna solid per layer */
-  #pt-l1 { z-index: 9996; }
-  #pt-l1 .pt-body { background: #C49A6E; }
-
-  #pt-l2 { z-index: 9997; }
-  #pt-l2 .pt-body { background: #B8734A; }
-
-  #pt-l3 { z-index: 9998; }
-  #pt-l3 .pt-body { background: #5A3E22; }
+  .pt-l1 .pt-body { background: #C49A6E; }
+  .pt-l2 .pt-body { background: #B8734A; }
+  .pt-l3 .pt-body { background: #5A3E22; }
 
   /* ─── Lenis ─────────────────────────────────────────────────────────── */
   html:not(.lenis) { overflow: auto; }
   html:not(.lenis) body { overflow-x: hidden; overflow-y: auto; }
 </style>
+</body>
+</html>

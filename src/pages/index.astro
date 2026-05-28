@@ -244,11 +244,6 @@ function initScrollReveals() {
   ScrollTrigger.refresh();
 }
 
-function triggerReveals() { setTimeout(initScrollReveals, 80); }
-
-document.addEventListener('DOMContentLoaded', triggerReveals);
-document.addEventListener('swup:page:view', triggerReveals);
-window.__pageAnimate = window.__pageAnimate || [];
-window.__pageAnimate.push(triggerReveals);
-setTimeout(initScrollReveals, 4000);
+import { runOnPageReady } from '../lib/animations/gsap-presets';
+runOnPageReady(initScrollReveals);
 </script>

@@ -83,13 +83,8 @@
     });
   }
 
-  function triggerStoryScroll() { setTimeout(initStoryScroll, 100); }
-
-  document.addEventListener('DOMContentLoaded', triggerStoryScroll);
-  document.addEventListener('swup:page:view', triggerStoryScroll);
-
-  window.__pageAnimate = window.__pageAnimate || [];
-  window.__pageAnimate.push(triggerStoryScroll);
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(initStoryScroll);
 </script>
 
 <style>

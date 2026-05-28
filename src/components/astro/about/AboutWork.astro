@@ -56,13 +56,8 @@
     });
   }
 
-  function triggerWork() { setTimeout(initWork, 100); }
-
-  document.addEventListener('DOMContentLoaded', triggerWork);
-  document.addEventListener('swup:page:view', triggerWork);
-
-  window.__pageAnimate = window.__pageAnimate || [];
-  window.__pageAnimate.push(triggerWork);
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(initWork);
 </script>
 
 <style>

@@ -80,13 +80,13 @@ const regionCount = 6;
     const bg = hero.querySelector('.about-hero-bg');
     const noise = hero.querySelector('.about-hero-noise');
 
-    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out', overwrite: 'auto' } });
 
     tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, 0)
       .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 2.5 }, 0)
       .fromTo(label, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 0.15)
       .fromTo(words, { y: 60, opacity: 0, filter: 'blur(12px)' }, {
-        y: 0, opacity: 1, filter: 'blur(0px)', stagger: 0.06, duration: 1.2,
+        y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', stagger: 0.06, duration: 1.2,
       }, 0.2)
       .fromTo(subtitle, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, '-=0.5')
       .fromTo(cta, { y: 24, opacity: 0, scale: 0.92 }, {
@@ -94,26 +94,14 @@ const regionCount = 6;
       }, '-=0.35');
   }
 
-  function triggerHero() { setTimeout(initAboutHero, 80); }
+  /* ─── SINKRONISASI DENGAN TRANSISI HALAMAN ─────────────────────────────
+   *
+   * Menggunakan helper runOnPageReady untuk memastikan eksekusi aman
+   * secara deterministik, baik untuk initial load maupun asinkron Swup.
+   * ────────────────────────────────────────────────────────────────────── */
 
-  document.addEventListener('DOMContentLoaded', triggerHero);
-  document.addEventListener('swup:page:view', triggerHero);
-
-  window.__pageAnimate = window.__pageAnimate || [];
-  window.__pageAnimate.push(triggerHero);
-
-  setTimeout(() => {
-    const hero = document.getElementById('about-hero');
-    if (hero && !hero.dataset.animated) {
-      hero.dataset.animated = 'true';
-      gsap.set(hero.querySelector('.about-hero-bg'), { scale: 1, opacity: 1 });
-      gsap.set(hero.querySelector('.about-hero-noise'), { opacity: 0.8 });
-      gsap.set(hero.querySelector('.about-hero-label'), { y: 0, opacity: 1 });
-      gsap.set(hero.querySelectorAll('.about-hero-word'), { y: 0, opacity: 1, filter: 'blur(0px)' });
-      gsap.set(hero.querySelector('.about-hero-subtitle'), { y: 0, opacity: 1 });
-      gsap.set(hero.querySelector('.about-hero-cta'), { y: 0, opacity: 1, scale: 1 });
-    }
-  }, 4000);
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(initAboutHero);
 </script>
 
 <style>
@@ -141,6 +129,7 @@ const regionCount = 6;
       var(--c-brand-caramel-dark) 100%
     );
     will-change: transform, opacity;
+    opacity: 0;
   }
 
   .about-hero-noise {
@@ -150,7 +139,6 @@ const regionCount = 6;
     height: 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.8;
   }
 
   .about-hero-inner {
@@ -169,7 +157,7 @@ const regionCount = 6;
     text-transform: uppercase;
     color: var(--c-brand-caramel);
     margin-bottom: var(--sp-6);
-    opacity: 0.85;
+    opacity: 0;
   }
 
   .about-hero-title {
@@ -205,6 +193,7 @@ const regionCount = 6;
   .about-hero-word {
     display: inline-block;
     will-change: transform, opacity, filter;
+    opacity: 0;
   }
 
   .about-hero-subtitle {
@@ -218,6 +207,7 @@ const regionCount = 6;
     margin-left: auto;
     margin-right: auto;
     font-style: italic;
+    opacity: 0;
   }
 
   .about-hero-cta {
@@ -235,6 +225,7 @@ const regionCount = 6;
     transition: all 0.35s var(--ease-smooth);
     cursor: pointer;
     will-change: transform;
+    opacity: 0;
   }
   .about-hero-cta svg {
     transition: transform 0.3s var(--ease-smooth);

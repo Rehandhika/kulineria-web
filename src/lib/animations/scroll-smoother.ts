@@ -1,4 +1,4 @@
-﻿import Lenis from 'lenis';
+import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -6,6 +6,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 let lenisInstance: Lenis | null = null;
 let isInitialized = false;
+
+// Simpan referensi ke wrapper agar bisa diremove
+const gsapTickerWrapper = (time: number) => {
+  lenisInstance?.raf(time * 1000);
+};
 
 interface SmoothScrollOptions {
   duration?: number;
@@ -56,9 +61,7 @@ export function initSmoothScroll(options: SmoothScrollOptions = {}): Lenis | nul
 
     lenisInstance.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenisInstance?.raf(time * 1000);
-    });
+    gsap.ticker.add(gsapTickerWrapper);
 
     gsap.ticker.lagSmoothing(0);
 
@@ -74,7 +77,7 @@ export function initSmoothScroll(options: SmoothScrollOptions = {}): Lenis | nul
 
 export function destroySmoothScroll() {
   if (lenisInstance) {
-    gsap.ticker.remove(lenisInstance.raf);
+    gsap.ticker.remove(gsapTickerWrapper);
     lenisInstance.destroy();
     lenisInstance = null;
     isInitialized = false;
