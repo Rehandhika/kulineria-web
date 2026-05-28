@@ -118,7 +118,13 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     });
   }
 
-  document.addEventListener('astro:page-load', () => requestAnimationFrame(initTeam));
+  function triggerTeam() { setTimeout(initTeam, 100); }
+
+  document.addEventListener('DOMContentLoaded', triggerTeam);
+  document.addEventListener('swup:page:view', triggerTeam);
+
+  window.__pageAnimate = window.__pageAnimate || [];
+  window.__pageAnimate.push(triggerTeam);
 </script>
 
 <style>

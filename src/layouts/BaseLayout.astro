@@ -101,11 +101,12 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       </svg>
     </div>
 
-    <!-- Lenis smooth scroll -->
+    <!-- Lenis + Page Animation Orchestrator -->
     <script>
       import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
       import { gsap } from 'gsap';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      import { cleanupAnimations } from '../lib/animations/gsap-presets';
 
       gsap.registerPlugin(ScrollTrigger);
 
@@ -116,13 +117,55 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
       document.addEventListener('DOMContentLoaded', initGlobalSmoothScroll);
 
-      document.addEventListener('swup:page:view', () => {
+      /* ─── PAGE ANIMATION ORCHESTRATOR ───────────────────────────────
+       *
+       * Three-layer defense untuk memastikan animasi jalan di setiap navigasi:
+       *
+       * 1. Persistent listener (swup:page:view) — components daftar listener
+       *    saat module pertama kali load. Listener persist, handle semua
+       *    navigasi setelahnya.
+       *
+       * 2. Queue backup (__pageAnimate[]) — untuk race condition saat
+       *    module ES async belum selesai loading ketika swup:page:view fire.
+       *    Component push init function ke queue. Orchestrator process queue
+       *    + polling 50ms selama 2s.
+       *
+       * 3. Safety timeout (4s) — di masing-masing component, force-show
+       *    content jika inisialisasi gagal.
+       *
+       * Orchestrator juga cleanup GSAP/ScrollTrigger dari halaman
+       * sebelumnya + reinit Lenis setiap navigasi.
+       * ─────────────────────────────────────────────────────────────── */
+
+      window.__pageAnimate = window.__pageAnimate || [];
+
+      function processPageAnimations() {
+        const queue = window.__pageAnimate || [];
+        while (queue.length) {
+          const fn = queue.shift();
+          if (typeof fn === 'function') setTimeout(fn, 80);
+        }
+      }
+
+      function onPageView() {
+        cleanupAnimations();
+
         destroySmoothScroll();
         requestAnimationFrame(() => {
           initGlobalSmoothScroll();
           refreshSmoothScroll();
         });
-      });
+
+        processPageAnimations();
+
+        let polls = 0;
+        const pollTimer = setInterval(() => {
+          processPageAnimations();
+          if (polls++ > 40) clearInterval(pollTimer);
+        }, 50);
+      }
+
+      document.addEventListener('swup:page:view', onPageView);
     </script>
 
     <!-- Curtain wipe: 3-layer wave via Swup JS hooks + GSAP -->
@@ -139,17 +182,14 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       const l3 = document.getElementById('pt-l3')!;
 
       function getY() {
-        // Gunakan visualViewport jika tersedia (lebih akurat di mobile),
-        // fallback ke innerHeight + buffer besar
         const vh = (window.visualViewport?.height ?? window.innerHeight) + BUFFER;
         return {
-          hidden:  vh + WAVE_H,        // tersembunyi di bawah, kompensasi top:-60px + buffer
-          covered: 0,                  // menutupi layar penuh
-          gone:    -(vh + WAVE_H * 2), // keluar ke atas sepenuhnya
+          hidden:  vh + WAVE_H,
+          covered: 0,
+          gone:    -(vh + WAVE_H * 2),
         };
       }
 
-      // Sembunyikan semua layer saat load
       gsap.set([l1, l2, l3], { y: getY().hidden });
 
       function setupSwupHooks() {
@@ -161,10 +201,11 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
             const { hidden, covered } = getY();
             gsap.set([l1, l2, l3], { y: hidden });
 
+            // Out: layer paling gelap nutup duluan (depth effect)
             const tl = gsap.timeline({ onComplete: resolve });
-            tl.to(l1, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0);
-            tl.to(l2, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.12);
-            tl.to(l3, { y: covered, duration: 0.48, ease: 'power3.inOut' }, 0.24);
+            tl.to(l3, { y: covered, duration: 0.35, ease: 'power3.in' }, 0);
+            tl.to(l2, { y: covered, duration: 0.4, ease: 'power3.inOut' }, 0.08);
+            tl.to(l1, { y: covered, duration: 0.45, ease: 'power3.inOut' }, 0.16);
           })
         );
 
@@ -178,10 +219,10 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
                 resolve();
               },
             });
-            // Enter: l1 pergi duluan, l3 mocha menyusul cepat
-            tl.to(l1, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0);
-            tl.to(l2, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.12);
-            tl.to(l3, { y: gone, duration: 0.48, ease: 'power3.inOut' }, 0.24);
+            // In: layer terang (caramel) pergi duluan, mocha nyusul
+            tl.to(l1, { y: gone, duration: 0.5, ease: 'power4.inOut' }, 0);
+            tl.to(l2, { y: gone, duration: 0.5, ease: 'power4.inOut' }, 0.1);
+            tl.to(l3, { y: gone, duration: 0.5, ease: 'power4.inOut' }, 0.2);
           })
         );
       }

@@ -56,7 +56,13 @@
     });
   }
 
-  document.addEventListener('astro:page-load', () => requestAnimationFrame(initWork));
+  function triggerWork() { setTimeout(initWork, 100); }
+
+  document.addEventListener('DOMContentLoaded', triggerWork);
+  document.addEventListener('swup:page:view', triggerWork);
+
+  window.__pageAnimate = window.__pageAnimate || [];
+  window.__pageAnimate.push(triggerWork);
 </script>
 
 <style>

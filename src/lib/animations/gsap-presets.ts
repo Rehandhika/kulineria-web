@@ -250,3 +250,58 @@ export function cleanupAnimations() {
   gsap.killTweensOf('*');
   gsap.globalTimeline.clear();
 }
+
+export function blurInText(
+  target: string | HTMLElement | HTMLElement[],
+  options: AnimationOptions = {}
+) {
+  const { duration = 1.2, stagger = 0.08, delay = 0, ease = 'power4.out' } = options;
+
+  return gsap.fromTo(target,
+    { y: 80, opacity: 0, filter: 'blur(15px)', willChange: 'transform, opacity, filter' },
+    { y: 0, opacity: 1, filter: 'blur(0px)', duration, stagger, delay, ease }
+  );
+}
+
+export function heroBackgroundReveal(
+  target: string | HTMLElement,
+  options: { duration?: number; ease?: string } = {}
+) {
+  const { duration = 1.5, ease = 'power2.out' } = options;
+  return gsap.fromTo(target,
+    { scale: 1.08, opacity: 0 },
+    { scale: 1, opacity: 1, duration, ease }
+  );
+}
+
+export function ctaBounceIn(
+  target: string | HTMLElement,
+  options: { duration?: number; delay?: number; ease?: string } = {}
+) {
+  const { duration = 0.8, delay = 0, ease = 'back.out(1.7)' } = options;
+  return gsap.fromTo(target,
+    { y: 30, opacity: 0, scale: 0.92 },
+    { y: 0, opacity: 1, scale: 1, duration, delay, ease }
+  );
+}
+
+export function splitTextToWords(element: HTMLElement): HTMLElement[] {
+  const text = element.textContent || '';
+  element.innerHTML = '';
+  const words = text.split(/(\s+)/);
+  const spans: HTMLElement[] = [];
+
+  words.forEach((word) => {
+    if (word === '') return;
+    const span = document.createElement('span');
+    span.textContent = word;
+    span.style.display = 'inline-block';
+    if (word.trim() === '') {
+      span.style.width = '0.3em';
+    }
+    element.appendChild(span);
+    spans.push(span);
+  });
+
+  return spans;
+}

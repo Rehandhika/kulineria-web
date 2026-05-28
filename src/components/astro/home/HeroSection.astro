@@ -49,24 +49,56 @@ import { gsap } from 'gsap';
 
 function initHero() {
   const hero = document.getElementById('hero-section');
-  if (!hero) return;
+  if (!hero || hero.dataset.animated) return;
+  hero.dataset.animated = 'true';
 
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  const label = hero.querySelector('.hero-label');
+  const words = hero.querySelectorAll('.hero-word');
+  const subtitle = hero.querySelector('.hero-subtitle');
+  const cta = hero.querySelector('.hero-cta');
+  const bg = hero.querySelector('.hero-bg');
+  const noise = hero.querySelector('.hero-noise-svg');
 
-  tl.from(hero.querySelector('.hero-label'), { y: -12, opacity: 0, duration: 0.8 })
-    .from(hero.querySelectorAll('.hero-word'), {
-      y: 64,
-      opacity: 0,
-      filter: 'blur(10px)',
-      stagger: 0.08,
-      duration: 1.2,
-    }, '-=0.4')
-    .from(hero.querySelector('.hero-subtitle'), { y: 20, opacity: 0, duration: 0.8 }, '-=0.6')
-    .from(hero.querySelector('.hero-cta'), { y: 20, opacity: 0, scale: 0.95, duration: 0.6 }, '-=0.3')
-    .from(hero.querySelector('.hero-bg'), { opacity: 0, duration: 0.6 }, '-=1.2');
+  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+  tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, 0)
+    .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 2.5 }, 0)
+    .fromTo(label, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 0.15)
+    .fromTo(words, { y: 80, opacity: 0, filter: 'blur(15px)' }, {
+      y: 0, opacity: 1, filter: 'blur(0px)', stagger: 0.1, duration: 1.3,
+    }, 0.2)
+    .fromTo(subtitle, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, '-=0.45')
+    .fromTo(cta, { y: 24, opacity: 0, scale: 0.92 }, {
+      y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)',
+    }, '-=0.35');
 }
 
-document.addEventListener('astro:page-load', () => requestAnimationFrame(initHero));
+function triggerHero() { setTimeout(initHero, 80); }
+
+/* ─── THREE-LAYER DEFENSE ────────────────────────────
+ * 1. Persistent listener — survive module caching
+ * 2. Queue backup — catch race condition
+ * 3. Safety timeout — worst-case fallback
+ * ────────────────────────────────────────────────── */
+
+document.addEventListener('DOMContentLoaded', triggerHero);
+document.addEventListener('swup:page:view', triggerHero);
+
+window.__pageAnimate = window.__pageAnimate || [];
+window.__pageAnimate.push(triggerHero);
+
+setTimeout(() => {
+  const hero = document.getElementById('hero-section');
+  if (hero && !hero.dataset.animated) {
+    hero.dataset.animated = 'true';
+    gsap.set(hero.querySelector('.hero-bg'), { scale: 1, opacity: 1 });
+    gsap.set(hero.querySelector('.hero-noise-svg'), { opacity: 0.8 });
+    gsap.set(hero.querySelector('.hero-label'), { y: 0, opacity: 1 });
+    gsap.set(hero.querySelectorAll('.hero-word'), { y: 0, opacity: 1, filter: 'blur(0px)' });
+    gsap.set(hero.querySelector('.hero-subtitle'), { y: 0, opacity: 1 });
+    gsap.set(hero.querySelector('.hero-cta'), { y: 0, opacity: 1, scale: 1 });
+  }
+}, 4000);
 </script>
 
 <style>
@@ -93,6 +125,7 @@ document.addEventListener('astro:page-load', () => requestAnimationFrame(initHer
       #6B4A2E 70%,
       var(--c-brand-caramel-dark) 100%
     );
+    will-change: transform, opacity;
   }
 
   .hero-noise-svg {

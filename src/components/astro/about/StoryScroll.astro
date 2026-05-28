@@ -83,7 +83,13 @@
     });
   }
 
-  document.addEventListener('astro:page-load', () => requestAnimationFrame(initStoryScroll));
+  function triggerStoryScroll() { setTimeout(initStoryScroll, 100); }
+
+  document.addEventListener('DOMContentLoaded', triggerStoryScroll);
+  document.addEventListener('swup:page:view', triggerStoryScroll);
+
+  window.__pageAnimate = window.__pageAnimate || [];
+  window.__pageAnimate.push(triggerStoryScroll);
 </script>
 
 <style>

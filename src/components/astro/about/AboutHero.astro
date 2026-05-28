@@ -67,29 +67,53 @@ const regionCount = 6;
 
 <script>
   import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  gsap.registerPlugin(ScrollTrigger);
 
   function initAboutHero() {
     const hero = document.getElementById('about-hero');
-    if (!hero) return;
+    if (!hero || hero.dataset.animated) return;
+    hero.dataset.animated = 'true';
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const label = hero.querySelector('.about-hero-label');
+    const words = hero.querySelectorAll('.about-hero-word');
+    const subtitle = hero.querySelector('.about-hero-subtitle');
+    const cta = hero.querySelector('.about-hero-cta');
+    const bg = hero.querySelector('.about-hero-bg');
+    const noise = hero.querySelector('.about-hero-noise');
 
-    tl.from(hero.querySelector('.about-hero-label'), { y: -12, opacity: 0, duration: 0.8 })
-      .from(hero.querySelectorAll('.about-hero-word'), {
-        y: 64,
-        opacity: 0,
-        filter: 'blur(10px)',
-        stagger: 0.04,
-        duration: 1,
-      }, '-=0.4')
-      .from(hero.querySelector('.about-hero-subtitle'), { y: 20, opacity: 0, duration: 0.8 }, '-=0.6')
-      .from(hero.querySelector('.about-hero-cta'), { y: 20, opacity: 0, scale: 0.95, duration: 0.6 }, '-=0.3');
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+    tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, 0)
+      .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 2.5 }, 0)
+      .fromTo(label, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 0.15)
+      .fromTo(words, { y: 60, opacity: 0, filter: 'blur(12px)' }, {
+        y: 0, opacity: 1, filter: 'blur(0px)', stagger: 0.06, duration: 1.2,
+      }, 0.2)
+      .fromTo(subtitle, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, '-=0.5')
+      .fromTo(cta, { y: 24, opacity: 0, scale: 0.92 }, {
+        y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)',
+      }, '-=0.35');
   }
 
-  document.addEventListener('astro:page-load', () => requestAnimationFrame(initAboutHero));
+  function triggerHero() { setTimeout(initAboutHero, 80); }
+
+  document.addEventListener('DOMContentLoaded', triggerHero);
+  document.addEventListener('swup:page:view', triggerHero);
+
+  window.__pageAnimate = window.__pageAnimate || [];
+  window.__pageAnimate.push(triggerHero);
+
+  setTimeout(() => {
+    const hero = document.getElementById('about-hero');
+    if (hero && !hero.dataset.animated) {
+      hero.dataset.animated = 'true';
+      gsap.set(hero.querySelector('.about-hero-bg'), { scale: 1, opacity: 1 });
+      gsap.set(hero.querySelector('.about-hero-noise'), { opacity: 0.8 });
+      gsap.set(hero.querySelector('.about-hero-label'), { y: 0, opacity: 1 });
+      gsap.set(hero.querySelectorAll('.about-hero-word'), { y: 0, opacity: 1, filter: 'blur(0px)' });
+      gsap.set(hero.querySelector('.about-hero-subtitle'), { y: 0, opacity: 1 });
+      gsap.set(hero.querySelector('.about-hero-cta'), { y: 0, opacity: 1, scale: 1 });
+    }
+  }, 4000);
 </script>
 
 <style>
@@ -116,6 +140,7 @@ const regionCount = 6;
       #6B4A2E 65%,
       var(--c-brand-caramel-dark) 100%
     );
+    will-change: transform, opacity;
   }
 
   .about-hero-noise {

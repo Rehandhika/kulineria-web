@@ -23,14 +23,42 @@ import SearchBar from '../../react/search/SearchBar';
 
   function initSearchHero() {
     const hero = document.getElementById('search-hero');
-    if (!hero) return;
+    if (!hero || hero.dataset.animated) return;
+    hero.dataset.animated = 'true';
 
-    gsap.from(hero.querySelector('.search-hero-label'), { y: -12, opacity: 0, duration: 0.8, ease: 'power3.out' });
-    gsap.from(hero.querySelector('.search-hero-title'), { y: 32, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
-    gsap.from(hero.querySelector('.search-hero-bar'), { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.35, scale: 0.95 });
+    const label = hero.querySelector('.search-hero-label');
+    const title = hero.querySelector('.search-hero-title');
+    const bar = hero.querySelector('.search-hero-bar');
+    const bg = hero.querySelector('.search-hero-bg');
+
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+    tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, 0)
+      .fromTo(label, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.15)
+      .fromTo(title, { y: 40, opacity: 0, filter: 'blur(8px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.1 }, 0.25)
+      .fromTo(bar, { y: 24, opacity: 0, scale: 0.92 }, {
+        y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.7)',
+      }, '-=0.3');
   }
 
-  document.addEventListener('astro:page-load', () => requestAnimationFrame(initSearchHero));
+  function triggerHero() { setTimeout(initSearchHero, 80); }
+
+  document.addEventListener('DOMContentLoaded', triggerHero);
+  document.addEventListener('swup:page:view', triggerHero);
+
+  window.__pageAnimate = window.__pageAnimate || [];
+  window.__pageAnimate.push(triggerHero);
+
+  setTimeout(() => {
+    const hero = document.getElementById('search-hero');
+    if (hero && !hero.dataset.animated) {
+      hero.dataset.animated = 'true';
+      gsap.set(hero.querySelector('.search-hero-bg'), { scale: 1, opacity: 1 });
+      gsap.set(hero.querySelector('.search-hero-label'), { y: 0, opacity: 1 });
+      gsap.set(hero.querySelector('.search-hero-title'), { y: 0, opacity: 1, filter: 'blur(0px)' });
+      gsap.set(hero.querySelector('.search-hero-bar'), { y: 0, opacity: 1, scale: 1 });
+    }
+  }, 4000);
 </script>
 
 <style>
@@ -56,6 +84,7 @@ import SearchBar from '../../react/search/SearchBar';
       #6B4A2E 65%,
       var(--c-brand-caramel-dark) 100%
     );
+    will-change: transform, opacity;
   }
 
   .search-hero-inner {

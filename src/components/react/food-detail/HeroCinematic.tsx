@@ -21,10 +21,15 @@ export default function HeroCinematic({ food, regionName }: Props) {
 
   useEffect(() => {
     if (!containerRef.current) return;
+
     const tl = gsap.timeline({ onComplete: () => setRevealed(true) });
-    tl.fromTo('.hero-image', { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1, ease: 'expo.out' })
-      .fromTo('.hero-content-inner', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, '-=0.5');
-    return () => tl.kill();
+
+    tl.fromTo('.hero-image', { clipPath: 'inset(100% 0 0 0)', scale: 1.1 }, { clipPath: 'inset(0% 0 0 0)', scale: 1, duration: 1.2, ease: 'expo.out' }, 0)
+      .fromTo('.hero-overlay', { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out' }, 0)
+      .fromTo('.hero-breadcrumb', { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.3)
+      .fromTo('.hero-content-inner', { opacity: 0, y: 40, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'expo.out' }, '-=0.2')
+      .fromTo('.hero-actions', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.3');
+    return () => { tl.kill(); };
   }, []);
 
   const handleFavorite = useCallback(() => {
