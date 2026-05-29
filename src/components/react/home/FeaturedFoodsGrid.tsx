@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useStore } from '@nanostores/react';
-import { $selectedRegion, clearSelectedRegion } from '@/lib/stores/selectedRegion';
+import { $selectedRegion } from '@/lib/stores/selectedRegion';
 import { getAllFoods, getRegions } from '@/lib/data/loaders';
 import './FeaturedFoodsGrid.css';
 
@@ -42,8 +42,6 @@ export default function FeaturedFoodsGrid() {
   const [page, setPage] = useState(1);
   const prevPageRef = useRef(page);
 
-  const region = selectedId ? regions.find(r => r.id === selectedId) : null;
-
   const filtered = selectedId
     ? allFoods.filter(f => f.region === selectedId)
     : allFoods;
@@ -51,9 +49,6 @@ export default function FeaturedFoodsGrid() {
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const startIdx = (page - 1) * ITEMS_PER_PAGE;
   const paginated = filtered.slice(startIdx, startIdx + ITEMS_PER_PAGE);
-
-  const title = region ? `Hidangan ${region.name}` : 'Hidangan Pilihan';
-  const subtitle = region ? '' : 'Hidangan dari seluruh Nusantara';
 
   useEffect(() => {
     if (prevId !== selectedId) {
@@ -95,17 +90,6 @@ export default function FeaturedFoodsGrid() {
   return (
     <section className="featured" id="featured">
       <div className="container">
-        <div className="featured-header">
-          <div className="featured-header-row">
-            <h2 className="featured-title">{title}</h2>
-            {selectedId && (
-              <button onClick={clearSelectedRegion} className="featured-reset-btn" aria-label="Tampilkan semua hidangan">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              </button>
-            )}
-          </div>
-          {subtitle && <p className="featured-subtitle">{subtitle}</p>}
-        </div>
         <div className="results-grid-inner" ref={gridRef}>
           {paginated.map((food) => {
             const foodRegion = regions.find(r => r.id === food.region);

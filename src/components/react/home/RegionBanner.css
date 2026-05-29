@@ -1,136 +1,137 @@
-.region-banner {
-  position: relative;
-  border-radius: var(--r-xl);
-  overflow: hidden;
-  margin-top: var(--sp-5);
-  padding: var(--sp-5) var(--sp-6) var(--sp-5);
+/* ── Region Banner — compact inline bar ── */
+
+.rb {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  padding: 0 var(--sp-4);
+  height: 52px;
   background: var(--c-surface);
-  border: 1.5px solid var(--c-border);
-  box-shadow: var(--sh-3);
-}
-
-/* Accent bar — left edge, colored by region */
-.region-banner-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  border-radius: 0 2px 2px 0;
-}
-
-/* Close button */
-.region-banner-close {
-  position: absolute;
-  top: var(--sp-3);
-  right: var(--sp-3);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
   border: 1px solid var(--c-border);
-  background: var(--c-surface-2);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-2);
+  /* Tidak melebar lebih dari map */
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0; /* GSAP akan set ke 1 */
+}
+
+/* Nama region — teks utama */
+.rb-name {
+  font-family: var(--ff-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--c-text-1);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Separator visual */
+.rb-sep {
+  display: block;
+  width: 1px;
+  height: 18px;
+  background: var(--c-border);
+  flex-shrink: 0;
+}
+
+/* Count — metadata ringan */
+.rb-count {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
   color: var(--c-text-3);
-  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Spacer — dorong grup kanan ke ujung */
+.rb-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+/* CTA — brand accent, compact */
+.rb-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: var(--c-accent);
+  color: #fff;
+  border-radius: var(--r-full);
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.15s var(--ease-bounce);
+  /* Tidak ada box-shadow berlebihan */
+}
+.rb-cta svg {
+  transition: transform 0.2s var(--ease-smooth);
+  flex-shrink: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .rb-cta:hover {
+    background: var(--c-accent-hover);
+    transform: translateY(-1px);
+  }
+  .rb-cta:hover svg { transform: translateX(3px); }
+}
+.rb-cta:active { transform: scale(0.96); }
+
+/* Close — minimal, tidak mencolok */
+.rb-close {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, color 0.15s, transform 0.2s var(--ease-bounce);
-  z-index: 2;
-}
-.region-banner-close:hover {
-  background: var(--c-surface-3);
-  color: var(--c-text-1);
-  transform: rotate(90deg) scale(1.1);
-}
-
-/* Body */
-.region-banner-body {
-  position: relative;
-  z-index: 1;
-  padding-right: 40px;
-  margin-bottom: var(--sp-4);
-}
-
-.region-banner-overline {
-  display: inline-block;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: var(--r-full);
+  border: 1px solid var(--c-border);
+  background: transparent;
   color: var(--c-text-3);
-  margin-bottom: var(--sp-1);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.2s var(--ease-bounce);
 }
+@media (hover: hover) and (pointer: fine) {
+  .rb-close:hover {
+    background: var(--c-surface-2);
+    color: var(--c-text-1);
+    transform: rotate(90deg);
+  }
+}
+.rb-close:active { transform: scale(0.9); }
 
-.region-banner-title {
-  font-family: var(--ff-display);
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  font-weight: 800;
-  color: var(--c-text-1);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-.region-banner-title::after {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 3px;
-  border-radius: var(--r-full);
-  background: var(--region-color, var(--c-accent));
-  margin-top: var(--sp-2);
-}
-
-/* Footer */
-.region-banner-footer {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-}
-
-.region-banner-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 20px;
-  border-radius: var(--r-full);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  border: none;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.18s var(--ease-bounce), filter 0.18s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-.region-banner-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.08);
-}
-.region-banner-btn:active { transform: scale(0.97); }
-
-/* NARA — pojok kanan bawah */
-.region-banner-nara {
-  position: absolute;
-  bottom: -4px;
-  right: var(--sp-4);
-  z-index: 1;
-  pointer-events: none;
-}
-.region-banner-nara img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  display: block;
-  user-select: none;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
+/* Mobile — sedikit lebih compact */
 @media (max-width: 639px) {
-  .region-banner {
-    padding: var(--sp-4) var(--sp-4) var(--sp-4);
+  .rb {
+    height: 46px;
+    padding: 0 var(--sp-3);
+    gap: var(--sp-2);
     margin-top: var(--sp-3);
   }
-  .region-banner-body { padding-right: 36px; }
-  .region-banner-title { font-size: 1.15rem; }
-  .region-banner-nara img { width: 52px; height: 52px; }
+  .rb-name {
+    font-size: var(--fs-base);
+  }
+  .rb-count {
+    display: none; /* sembunyikan di mobile kecil agar tidak overflow */
+  }
+  .rb-sep {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rb-cta,
+  .rb-close { transition-duration: 1ms !important; }
 }
