@@ -28,8 +28,8 @@
 
 .countdown-text {
   font-size: var(--fs-lg);
-  color: var(--c-text-2);
-  font-weight: 700;
+  color: rgba(255, 248, 240, 0.65);
+  font-weight: 500;
   animation: countdownFade 0.3s ease;
 }
 

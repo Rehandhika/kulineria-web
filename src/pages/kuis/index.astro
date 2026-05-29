@@ -5,23 +5,50 @@ import Footer from '../../components/astro/shared/Footer.astro';
 ---
 
 <BaseLayout title="Quiz" description="Test your Indonesian culinary knowledge">
-  <div class="quiz-page-wrapper">
-    <QuizProvider client:only="react" />
+  <div class="quiz-outer">
+    <div class="quiz-page-wrapper">
+      <QuizProvider client:only="react" />
+    </div>
+    <Footer bg="none" id="quiz-footer" />
   </div>
-  <Footer id="quiz-footer" />
 </BaseLayout>
 
 <style is:global>
+  /*
+    quiz-outer: wraps both the quiz section and the footer in one
+    continuous gradient background, so there is no seam.
+  */
+  .quiz-outer {
+    background: linear-gradient(148deg,
+      var(--brown-800) 0%,
+      var(--brown-700) 25%,
+      var(--brown-600) 50%,
+      var(--brown-500) 75%,
+      var(--brown-300) 100%
+    );
+  }
+
   .quiz-page-wrapper {
-    min-height: 100vh;
-    padding-top: calc(var(--nav-mobile-h) + var(--sp-4));
-    padding-bottom: var(--sp-20);
+    min-height: 100svh;
+    padding-top: calc(var(--nav-mobile-h) + var(--sp-8));
+    padding-bottom: var(--sp-12);
   }
 
   @media (min-width: 1024px) {
     .quiz-page-wrapper {
-      padding-top: calc(var(--nav-h) + var(--sp-8));
-      padding-bottom: var(--sp-20);
+      padding-top: calc(var(--nav-h) + var(--sp-12));
+      padding-bottom: var(--sp-16);
     }
+  }
+
+  /* Wave tints should blend against the quiz gradient, not parchment */
+  #quiz-footer .footer-wave path[opacity="0.18"],
+  #quiz-footer .footer-wave path[opacity="0.35"] {
+    fill: var(--brown-800);
+  }
+
+  /* Footer body stays the same dark brown */
+  #quiz-footer .footer-body {
+    background: var(--brown-800);
   }
 </style>

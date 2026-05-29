@@ -2,7 +2,7 @@
 .quiz-menu {
   max-width: 900px;
   margin: 0 auto;
-  padding: var(--sp-8) 0 var(--sp-12);
+  padding: 0 0 var(--sp-4);
   position: relative;
 }
 
@@ -46,12 +46,12 @@
 
 .quiz-hero-title {
   font-family: var(--ff-display);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(1.6rem, 5.5vw, 4rem);
   font-weight: 800;
-  color: var(--c-text-1);
+  color: var(--c-brand-cream);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-3);
   opacity: 0;
   animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
@@ -59,20 +59,34 @@
 .quiz-hero-title span {
   font-style: italic;
   font-weight: 900;
-  color: var(--c-accent);
+  color: var(--c-accent-soft);
 }
 
 .quiz-hero-sub {
   font-family: var(--ff-body);
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  font-weight: 600;
-  color: var(--c-ink-mute);
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 500;
+  color: rgba(255, 248, 240, 0.65);
   line-height: 1.6;
-  max-width: 500px;
+  max-width: 420px;
   margin: 0 auto;
   opacity: 0;
   animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation-delay: 0.2s;
+}
+
+@media (max-width: 480px) {
+  .quiz-hero {
+    margin-bottom: var(--sp-8);
+  }
+  .quiz-hero-title {
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
+    margin-bottom: var(--sp-2);
+  }
+  .quiz-hero-sub {
+    font-size: 0.8rem;
+    max-width: 280px;
+  }
 }
 
 @keyframes heroFadeInUp {
@@ -108,10 +122,10 @@
   width: 100%;
   margin: 0 auto;
   max-width: 800px;
-  background-color: var(--c-surface);
-  border: 1.5px solid var(--c-border);
+  background: rgba(61, 36, 21, 0.5);
+  border: 1.5px solid rgba(194, 133, 88, 0.2);
   border-radius: 2rem;
-  box-shadow: var(--sh-3), inset 0 0 60px rgba(194, 65, 12, 0.04);
+  backdrop-filter: blur(4px);
   overflow: hidden;
 }
 
@@ -257,6 +271,7 @@
   .level-2 { left: 62.5%; top: 50%; }
   .level-locked { left: 37.5%; top: 85.714%; }
   
+  /* Label diposisikan di tengah node, lalu digeser ke atas via margin-top */
   .journey-node-label {
     top: 50%;
     left: auto;
@@ -268,14 +283,17 @@
   .level-1 .journey-node-label {
     left: 0; margin-left: 55px;
     align-items: flex-start; text-align: left;
+    margin-top: -10px;
   }
   .level-2 .journey-node-label {
     right: 0; margin-right: 55px;
     align-items: flex-end; text-align: right;
+    margin-top: -22px;
   }
   .level-locked .journey-node-label {
     left: 0; margin-left: 55px;
     align-items: flex-start; text-align: left;
+    margin-top: -10px;
   }
 
   .level-1 .journey-tooltip {
@@ -326,7 +344,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--c-accent);
+  color: var(--c-accent-soft);
   margin-bottom: 4px;
 }
 
@@ -334,7 +352,7 @@
   font-family: var(--ff-display);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--c-text-1);
+  color: var(--c-brand-cream);
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -363,7 +381,7 @@
   font-family: var(--ff-display);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--c-text-1);
+  color: var(--c-brand-cream);
   z-index: 1;
   line-height: 1;
 }
@@ -376,23 +394,23 @@
 
 .journey-node.locked .node-icon-number {
   font-size: 1.8rem;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .level-locked .level-number {
-  color: rgba(106, 65, 42, 0.5);
+  color: rgba(245, 196, 168, 0.4);
 }
 
 .level-locked .level-title {
-  color: rgba(106, 65, 42, 0.4);
+  color: rgba(255, 248, 240, 0.35);
 }
 
 /* ── Tooltips ── */
 .journey-tooltip {
   position: absolute;
   left: 50%;
-  background: var(--c-brand-mocha);
-  border: 1px solid var(--c-brand-caramel);
+  background: rgba(90, 52, 32, 0.85);
+  border: 1px solid rgba(194, 133, 88, 0.25);
   padding: var(--sp-3) var(--sp-5);
   border-radius: var(--r-xl);
   width: max-content;
@@ -401,7 +419,7 @@
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--sh-xl);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
 

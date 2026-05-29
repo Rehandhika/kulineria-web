@@ -64,7 +64,7 @@ export default function QuizMenu() {
           Peta <span>Penjelajahan</span>
         </h1>
         <p className="quiz-hero-sub">
-          Ikuti jejak rempah dan uji ingatanmu di setiap pemberhentian.
+          Uji seberapa jauh kamu mengenal kuliner Nusantara lewat kuis seru di setiap level.
         </p>
       </div>
 
@@ -84,7 +84,7 @@ export default function QuizMenu() {
                 <path d="M 383 250 C 500 250, 450 150, 567 150" fill="none" stroke="#ffffff" strokeWidth="12" pathLength="1" className="anim-mask-2" />
               </mask>
             </defs>
-            <g fill="var(--c-surface)" stroke="var(--brown-700, #6A412A)" strokeWidth="4" filter="url(#svg-glow-h)">
+            <g fill="rgba(90, 52, 32, 0.6)" stroke="var(--brown-400)" strokeWidth="4" filter="url(#svg-glow-h)">
               <circle cx="100" cy="150" r="33" pathLength="1" className="anim-circle-1" />
               <path d="M 133 150 C 250 150, 200 250, 317 250" fill="none" strokeDasharray="10 8" mask="url(#mask-h-1)" />
               <circle cx="350" cy="250" r="33" pathLength="1" className="anim-circle-2" />
@@ -106,7 +106,7 @@ export default function QuizMenu() {
                 <path d="M 250 383 C 250 500, 150 450, 150 567" fill="none" stroke="#ffffff" strokeWidth="12" pathLength="1" className="anim-mask-2" />
               </mask>
             </defs>
-            <g fill="var(--c-surface)" stroke="var(--brown-700, #6A412A)" strokeWidth="4" filter="url(#svg-glow-v)">
+            <g fill="rgba(90, 52, 32, 0.6)" stroke="var(--brown-400)" strokeWidth="4" filter="url(#svg-glow-v)">
               <circle cx="150" cy="100" r="33" pathLength="1" transform="rotate(90 150 100)" className="anim-circle-1" />
               <path d="M 150 133 C 150 250, 250 200, 250 317" fill="none" strokeDasharray="10 8" mask="url(#mask-v-1)" />
               <circle cx="250" cy="350" r="33" pathLength="1" transform="rotate(90 250 350)" className="anim-circle-2" />
