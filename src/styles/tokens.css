@@ -1,42 +1,42 @@
 :root {
   /* === KULINERIA COLOR PALETTE — Warm, Soft, Appetizing === */
 
-  /* BRAND — Warm Brown Family */
-  --c-brand-mocha:      #7A5C3A;
-  --c-brand-mocha-dark: #5A3E22;
-  --c-brand-mocha-bg:   #EDE4D8;
+  /* BRAND — Warm Brown Family (Redesigned with strict 6-color palette) */
+  --c-brand-mocha:      #6A412A;
+  --c-brand-mocha-dark: #6A412A;
+  --c-brand-mocha-bg:   #F5E9DA;
 
-  --c-brand-caramel:    #C49A6E;
-  --c-brand-caramel-dark: #A0784E;
-  --c-brand-caramel-bg: #F5EDE3;
+  --c-brand-caramel:    #D9995B;
+  --c-brand-caramel-dark: #B36935;
+  --c-brand-caramel-bg: #F5E9DA;
 
-  --c-brand-cinnamon:   #B8734A;
-  --c-brand-cinnamon-dark: #8E522E;
-  --c-brand-cinnamon-bg: #F0E2D6;
+  --c-brand-cinnamon:   #B36935;
+  --c-brand-cinnamon-dark: #6A412A;
+  --c-brand-cinnamon-bg: #F5E9DA;
 
-  --c-brand-cream:      #FFF8F0;
-  --c-brand-cream-dark: #F5EDE3;
+  --c-brand-cream:      #FFF8F1;
+  --c-brand-cream-dark: #F5E9DA;
 
   /* ACCENTS */
-  --c-brand-gold:       #D4A76A;
-  --c-brand-gold-dark:  #B8864A;
-  --c-brand-gold-bg:    #FFF4E6;
+  --c-brand-gold:       #E7C49A;
+  --c-brand-gold-dark:  #D9995B;
+  --c-brand-gold-bg:    #FFF8F1;
 
-  --c-brand-terracotta:  #C4815E;
-  --c-brand-terracotta-dark: #9A6040;
-  --c-brand-terracotta-bg: #F5E0D6;
+  --c-brand-terracotta:  #B36935;
+  --c-brand-terracotta-dark: #6A412A;
+  --c-brand-terracotta-bg: #F5E9DA;
 
-  --c-brand-sage:       #8FA87A;
-  --c-brand-sage-dark:  #6E8460;
-  --c-brand-sage-bg:    #EAF0E4;
+  --c-brand-sage:       #E7C49A;
+  --c-brand-sage-dark:  #D9995B;
+  --c-brand-sage-bg:    #FFF8F1;
 
-  --c-brand-dusty-rose: #D49A8A;
-  --c-brand-dusty-rose-dark: #B07464;
-  --c-brand-dusty-rose-bg: #F5E4DE;
+  --c-brand-dusty-rose: #D9995B;
+  --c-brand-dusty-rose-dark: #B36935;
+  --c-brand-dusty-rose-bg: #F5E9DA;
 
-  --c-brand-lavender:   #A88AA8;
-  --c-brand-lavender-dark: #806480;
-  --c-brand-lavender-bg: #EDE4ED;
+  --c-brand-lavender:   #B36935;
+  --c-brand-lavender-dark: #6A412A;
+  --c-brand-lavender-bg: #F5E9DA;
 
   /* ALIASES for backward compat */
   --c-duo-green:         var(--c-brand-mocha);
@@ -68,45 +68,61 @@
   --c-duo-cyan:          var(--c-brand-sage);
 
   /* REGION COLORS — Soft & Distinctive */
-  --c-sumatera:     var(--c-brand-cinnamon);
-  --c-jawa:         var(--c-brand-gold);
-  --c-kalimantan:   var(--c-brand-sage);
-  --c-sulawesi:     #7BA8B8;
-  --c-bali-ntt:     var(--c-brand-dusty-rose);
-  --c-maluku-papua: var(--c-brand-lavender);
+  --c-sumatera:     #B36935; /* Terracotta */
+  --c-jawa:         #E7C49A; /* Soft Sand Gold */
+  --c-kalimantan:   #D9995B; /* Caramel */
+  --c-sulawesi:     #6A412A; /* Deep Chestnut */
+  --c-bali-ntt:     #B36935; /* Terracotta */
+  --c-maluku-papua: #E7C49A; /* Soft Sand Gold */
 
   /* NEUTRAL SURFACES (Light mode) */
-  --c-white:        #FFFFFF;
-  --c-cream:        #FAF4EC;
-  --c-bg:           #F8F2EA;
-  --c-surface:      #FFFDF7;
-  --c-surface-1:    #FFFDF7;
-  --c-surface-2:    #F0E8DE;
-  --c-surface-3:    #E6DCD0;
-  --c-border:       #E0D4C8;
-  --c-border-soft:  #EBE0D6;
-  --c-border-strong:#C8B8A8;
-  --c-text-1:       #3C2A1E;
-  --c-text-2:       #7A6A5C;
-  --c-text-3:       #A09080;
-  --c-ink:          #2B1E14;
-  --c-ink-soft:     #3C2A1E;
-  --c-ink-mute:     #5C4A3C;
+  --c-white:        #FFF8F1;
+  --c-cream:        #F5E9DA;
+  --c-bg:           #E7C49A;
+  --c-surface:      #FFF8F1;
+  --c-surface-1:    #FFF8F1;
+  --c-surface-2:    #F5E9DA;
+  --c-surface-3:    #E7C49A;
+  --c-border:       #E7C49A;
+  --c-border-soft:  #F5E9DA;
+  --c-border-strong:#6A412A;
+  --c-text-1:       #6A412A;
+  --c-text-2:       #6A412A;
+  --c-text-3:       #B36935;
+  --c-ink:          #6A412A;
+  --c-ink-soft:     #6A412A;
+  --c-ink-mute:     #B36935;
 
   /* ACCENT COLORS */
-  --c-accent:       var(--c-brand-mocha);
-  --c-accent-light: var(--c-brand-mocha-bg);
-  --c-accent-hover: var(--c-brand-cinnamon);
-  --c-accent-dark:  var(--c-brand-mocha-dark);
-  --c-accent-alpha: rgba(122, 92, 58, 0.12);
-  --c-accent-soft:  #D2B48C;
-  --c-accent-bg:    var(--c-brand-mocha-bg);
+  --c-accent:       #B36935;
+  --c-accent-light: #FFF8F1;
+  --c-accent-hover: #D9995B;
+  --c-accent-dark:  #6A412A;
+  --c-accent-alpha: rgba(179, 105, 53, 0.12);
+  --c-accent-soft:  #E7C49A;
+  --c-accent-bg:    #F5E9DA;
+
+  /* SEMANTIC BUTTON CONTRAST TOKENS */
+  --c-btn-primary-bg:       #B36935;
+  --c-btn-primary-text:     #FFF8F1;
+  --c-btn-primary-border:   #6A412A;
+  --c-btn-secondary-bg:     #FFF8F1;
+  --c-btn-secondary-text:   #6A412A;
+  --c-btn-gold-bg:          #E7C49A;
+  --c-btn-gold-text:        #6A412A;
+
+  /* SEMANTIC BADGE CONTRAST TOKENS */
+  --c-badge-accent-bg:       #B36935;
+  --c-badge-accent-text:     #FFF8F1;
+  --c-badge-gold-text:       #6A412A;
+  --c-badge-warm-text:       #6A412A;
+  --c-badge-terracotta-text: #FFF8F1;
 
   /* GRADIENT */
-  --grad-brand:     linear-gradient(135deg, var(--c-brand-mocha), var(--c-brand-cinnamon));
-  --grad-warm:      linear-gradient(135deg, var(--c-brand-caramel), var(--c-brand-gold));
-  --grad-sunset:    linear-gradient(135deg, var(--c-brand-terracotta), var(--c-brand-dusty-rose));
-  --grad-fresh:     linear-gradient(135deg, var(--c-brand-sage), #7BA8B8);
+  --grad-brand:     linear-gradient(135deg, #6A412A, #B36935);
+  --grad-warm:      linear-gradient(135deg, #D9995B, #E7C49A);
+  --grad-sunset:    linear-gradient(135deg, #B36935, #D9995B);
+  --grad-fresh:     linear-gradient(135deg, #E7C49A, #F5E9DA);
 
   /* TYPOGRAPHY
      Site rule: only Fraunces (display) and Google Sans Flex (body) are used.
@@ -119,15 +135,17 @@
   --ff-ui-system:   system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* === NAVBAR SURFACE TOKENS (aliased to warm-brown brand palette) === */
-  --c-cream-bar:    var(--c-brand-cream);            /* solid cream top-bar surface when scrolled */
-  --c-cream-bar-2:  var(--c-brand-cream-dark);       /* hover/border depth */
+  --c-cream-bar:    #F5E9DA;            /* solid light-beige top-bar surface when scrolled */
+  --c-cream-bar-2:  #E7C49A;       /* hover/border depth */
   --c-nav-accent:   var(--c-brand-cinnamon-dark);    /* primary action — deeper cinnamon for proper cream-on-bg contrast */
-  --c-nav-accent-dark: #6F3F22;                      /* press/shadow depth */
+  --c-nav-accent-dark: #6A412A;                      /* press/shadow depth */
   --c-nav-accent-hover: var(--c-brand-cinnamon);     /* hover */
   --c-overlay-surface: var(--c-brand-mocha-dark);    /* floating menu card surface */
-  --c-overlay-surface-dark: #3F2A18;                 /* depth shadow under menu card */
+  --c-overlay-surface-dark: #6A412A;                 /* depth shadow under menu card */
   --c-overlay-link: var(--c-brand-cream);            /* cream text inside the overlay */
-  --c-page-dim:     rgba(43, 30, 20, 0.45);          /* warm-brown wash behind overlay */
+  --c-page-dim:     rgba(106, 65, 42, 0.45);          /* warm-brown wash behind overlay */
+  --c-nav-logo:             var(--c-brand-cream);
+  --c-nav-logo-scrolled:    var(--c-brand-cinnamon-dark);
 
   --fs-display:     clamp(3rem, 10vw, 7rem);
   --fs-mega:        clamp(2.2rem, 7vw, 5rem);
@@ -190,26 +208,26 @@
   --r-3xl:   40px;
   --r-full:  9999px;
 
-  /* SHADOWS — Soft & Warm */
-  --sh-1:  0 2px 0 rgba(60, 42, 30, 0.08);
-  --sh-2:  0 4px 0 rgba(60, 42, 30, 0.10);
-  --sh-3:  0 6px 0 rgba(60, 42, 30, 0.12);
-  --sh-4:  0 8px 0 rgba(60, 42, 30, 0.14);
-  --sh-5:  0 12px 0 rgba(60, 42, 30, 0.16);
-  --sh-lg: 0 16px 0 rgba(60, 42, 30, 0.12);
-  --sh-xl: 0 20px 0 rgba(60, 42, 30, 0.14);
-  --sh-cartoon:       0 6px 0 rgba(60, 42, 30, 0.10);
-  --sh-cartoon-hover: 0 3px 0 rgba(60, 42, 30, 0.08);
-  --sh-btn:           0 5px 0 var(--c-brand-mocha-dark);
-  --sh-btn-hover:     0 2px 0 var(--c-brand-mocha-dark);
-  --sh-card:          0 4px 0 rgba(60, 42, 30, 0.10);
-  --sh-card-hover:    0 8px 0 rgba(60, 42, 30, 0.12);
-  --sh-inner:         inset 0 2px 4px rgba(60, 42, 30, 0.08);
+  /* SHADOWS — Soft & Warm Organic Drop Shadows */
+  --sh-1:  0 2px 8px rgba(106, 65, 42, 0.04);
+  --sh-2:  0 4px 16px rgba(106, 65, 42, 0.06);
+  --sh-3:  0 8px 24px rgba(106, 65, 42, 0.08);
+  --sh-4:  0 12px 32px rgba(106, 65, 42, 0.10);
+  --sh-5:  0 16px 40px rgba(106, 65, 42, 0.12);
+  --sh-lg: 0 16px 36px rgba(106, 65, 42, 0.10);
+  --sh-xl: 0 24px 48px rgba(106, 65, 42, 0.12);
+  --sh-cartoon:       0 6px 20px rgba(106, 65, 42, 0.05);
+  --sh-cartoon-hover: 0 10px 28px rgba(106, 65, 42, 0.08);
+  --sh-btn:           0 4px 12px rgba(179, 105, 53, 0.22);
+  --sh-btn-hover:     0 6px 18px rgba(179, 105, 53, 0.32);
+  --sh-card:          0 6px 20px rgba(106, 65, 42, 0.05);
+  --sh-card-hover:    0 12px 32px rgba(106, 65, 42, 0.08);
+  --sh-inner:         inset 0 2px 4px rgba(106, 65, 42, 0.04);
 
-  /* BORDERS */
-  --duo-stroke:        3px;
-  --duo-stroke-color:  #3C2A1E;
-  --duo-stroke-soft:   rgba(60, 42, 30, 0.15);
+  /* BORDERS — Soft, Thin Editorial Separation */
+  --duo-stroke:        1.2px;
+  --duo-stroke-color:  #E7C49A;
+  --duo-stroke-soft:   rgba(231, 196, 154, 0.4);
 
   /* EASING */
   --ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -246,14 +264,14 @@
   --cartoon-stroke-color: var(--duo-stroke-color);
 
   /* Semantic colors */
-  --c-success:       #10B981;
-  --c-success-light: #D1FAE5;
-  --c-danger:        #EF4444;
-  --c-danger-light:  #FEE2E2;
-  --c-warning:       #F59E0B;
-  --c-warning-light: #FEF3C7;
-  --c-info:          #3B82F6;
-  --c-info-light:    #DBEAFE;
+  --c-success:       #B36935;
+  --c-success-light: #FFF8F1;
+  --c-danger:        #6A412A;
+  --c-danger-light:  #F5E9DA;
+  --c-warning:       #D9995B;
+  --c-warning-light: #FFF8F1;
+  --c-info:          #E7C49A;
+  --c-info-light:    #FFF8F1;
 
   --fw-normal:    400;
   --fw-medium:    600;
@@ -262,95 +280,4 @@
   --fw-extrabold: 900;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --c-brand-mocha-bg:     #2E2218;
-    --c-brand-caramel-bg:   #2E2418;
-    --c-brand-cinnamon-bg:  #2E2018;
-    --c-brand-gold-bg:      #2E2418;
-    --c-brand-terracotta-bg:#2E1E18;
-    --c-brand-sage-bg:      #1E2418;
-    --c-brand-dusty-rose-bg:#2E1E1E;
-    --c-brand-lavender-bg:  #221E22;
 
-    --c-brand-mocha:        #B8906C;
-    --c-brand-mocha-dark:   #8E6E4E;
-    --c-brand-caramel:      #D4A87A;
-    --c-brand-caramel-dark: #B08458;
-    --c-brand-cinnamon:     #C48458;
-    --c-brand-cinnamon-dark:#A0643E;
-
-    --c-brand-gold:         #D4A76A;
-    --c-brand-gold-dark:    #B8864A;
-    --c-brand-terracotta:   #C4815E;
-    --c-brand-terracotta-dark:#9A6040;
-    --c-brand-sage:         #8FA87A;
-    --c-brand-sage-dark:    #6E8460;
-    --c-brand-dusty-rose:   #D49A8A;
-    --c-brand-dusty-rose-dark:#B07464;
-    --c-brand-lavender:     #A88AA8;
-    --c-brand-lavender-dark:#806480;
-
-    --c-sumatera:     #C48458;
-    --c-jawa:         #B89840;
-    --c-kalimantan:   #7A9A64;
-    --c-sulawesi:     #5A8E9E;
-    --c-bali-ntt:     #C48070;
-    --c-maluku-papua: #8E6A8E;
-
-    --c-white:        #FFFFFF;
-    --c-cream:        #2B1E14;
-    --c-bg:           #1E1610;
-    --c-surface:      #2B1E14;
-    --c-surface-1:    #2B1E14;
-    --c-surface-2:    #36281C;
-    --c-surface-3:    #403020;
-    --c-border:       #4A3828;
-    --c-border-soft:  #3A2818;
-    --c-border-strong:#5A4838;
-    --c-text-1:       #F5EDE0;
-    --c-text-2:       #C8B8A8;
-    --c-text-3:       #908070;
-    --c-ink:          #F5EDE0;
-    --c-ink-soft:     #DCCFC4;
-    --c-ink-mute:     #A09080;
-
-    --c-accent:       var(--c-brand-mocha);
-    --c-accent-light: var(--c-brand-mocha-bg);
-    --c-accent-hover: var(--c-brand-cinnamon);
-    --c-accent-dark:  var(--c-brand-mocha-dark);
-    --c-accent-alpha: rgba(122, 92, 58, 0.15);
-    --c-accent-soft:  #A08060;
-    --c-accent-bg:    var(--c-brand-mocha-bg);
-
-    --duo-stroke-color:  #6A5A4C;
-    --duo-stroke-soft:   rgba(255, 245, 240, 0.08);
-
-    /* Navbar surface tokens (dark) */
-    --c-cream-bar:    #2B1E14;
-    --c-cream-bar-2:  #3A2A1C;
-    --c-nav-accent:   var(--c-brand-caramel);
-    --c-nav-accent-dark: var(--c-brand-caramel-dark);
-    --c-nav-accent-hover: var(--c-brand-cinnamon);
-    --c-overlay-surface: #1E1610;
-    --c-overlay-surface-dark: #14100B;
-    --c-overlay-link: var(--c-brand-cream);
-    --c-page-dim:     rgba(0, 0, 0, 0.55);
-
-    --sh-1:  0 2px 0 rgba(0, 0, 0, 0.2);
-    --sh-2:  0 4px 0 rgba(0, 0, 0, 0.22);
-    --sh-3:  0 6px 0 rgba(0, 0, 0, 0.24);
-    --sh-4:  0 8px 0 rgba(0, 0, 0, 0.26);
-    --sh-5:  0 12px 0 rgba(0, 0, 0, 0.28);
-    --sh-lg: 0 16px 0 rgba(0, 0, 0, 0.25);
-    --sh-xl: 0 20px 0 rgba(0, 0, 0, 0.28);
-    --sh-card:      0 4px 0 rgba(0, 0, 0, 0.22);
-    --sh-card-hover:0 8px 0 rgba(0, 0, 0, 0.25);
-    --sh-inner:     inset 0 2px 4px rgba(0, 0, 0, 0.15);
-
-    --c-success:       #34D399;
-    --c-danger:        #F87171;
-    --c-warning:       #FBBF24;
-    --c-info:          #60A5FA;
-  }
-}

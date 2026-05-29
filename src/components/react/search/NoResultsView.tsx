@@ -9,7 +9,7 @@ export default function NoResultsView() {
     <div className="no-results-view" style={{ textAlign: 'center', maxWidth: 480, margin: 'var(--sp-10) auto' }}>
       <div style={{ marginBottom: 'var(--sp-6)' }}>
         <svg width="88" height="88" viewBox="0 0 100 100" fill="none" style={{ margin: '0 auto' }}>
-          <circle cx="50" cy="50" r="48" fill="var(--c-surface-2)" stroke="var(--duo-stroke-color)" strokeWidth="3" />
+          <circle cx="50" cy="50" r="48" fill="var(--c-surface-2)" stroke="var(--c-border)" strokeWidth="1.5" />
           <ellipse cx="35" cy="40" rx="6" ry="8" fill="var(--c-text-1)" />
           <circle cx="35" cy="38" r="2" fill="var(--c-surface)" />
           <ellipse cx="65" cy="40" rx="6" ry="8" fill="var(--c-text-1)" />

@@ -15,6 +15,12 @@
     <rect width="100" height="100" filter="url(#hero-noise-fx)" opacity="0.04" style="mix-blend-mode: overlay"/>
   </svg>
 
+  <!-- Decorative Floating Traditional Motifs -->
+  <div class="hero-motif-container" aria-hidden="true">
+    <img src="/img/motif/png awan.png" class="hero-motif hero-motif-left" alt="" />
+    <img src="/img/motif/png batik mega mendung.png" class="hero-motif hero-motif-right" alt="" />
+  </div>
+
   <div class="hero-inner">
     <span class="hero-label">Atlas Kuliner Nusantara</span>
 
@@ -46,6 +52,8 @@
 
 <script>
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 function initHero() {
   const hero = document.getElementById('hero-section');
@@ -84,6 +92,32 @@ function initHero() {
     .fromTo(cta, { y: 24, opacity: 0, scale: 0.92 }, {
       y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)',
     }, '-=0.35');
+
+  // Entrance staggered fade-ins for motifs
+  tl.fromTo('.hero-motif-left', { x: -60, opacity: 0 }, { x: 0, opacity: 0.22, duration: 1.8, ease: 'power3.out' }, 0.4)
+    .fromTo('.hero-motif-right', { x: 60, opacity: 0 }, { x: 0, opacity: 0.22, duration: 1.8, ease: 'power3.out' }, 0.4);
+
+  // Parallax ScrollTriggers for motifs
+  gsap.to('.hero-motif-left', {
+    yPercent: -12,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+  gsap.to('.hero-motif-right', {
+    yPercent: 15,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
 }
 
 /* ─── SINKRONISASI DENGAN TRANSISI HALAMAN ─────────────────────────────
@@ -94,8 +128,14 @@ function initHero() {
  *   perlu setTimeout. dataset.animated di-reset oleh Swup (DOM baru dibuat).
  * ────────────────────────────────────────────────────────────────────── */
 
-  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
-  runOnPageReady(initHero);
+  import { runOnPageReady, magneticButton } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(() => {
+    initHero();
+    const cta = document.querySelector('.hero-cta');
+    if (cta instanceof HTMLElement) {
+      magneticButton(cta);
+    }
+  });
 </script>
 
 <style>
@@ -207,7 +247,7 @@ function initHero() {
     font-size: var(--fs-base);
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.35s var(--ease-smooth);
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
     cursor: pointer;
     will-change: transform;
     opacity: 0;
@@ -215,14 +255,19 @@ function initHero() {
   .hero-cta svg {
     transition: transform 0.3s var(--ease-smooth);
   }
-  .hero-cta:hover {
-    background: var(--c-brand-caramel);
-    color: var(--c-brand-mocha-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(196, 154, 110, 0.25);
+  @media (hover: hover) and (pointer: fine) {
+    .hero-cta:hover {
+      background: var(--c-brand-caramel);
+      color: var(--c-brand-mocha-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196, 154, 110, 0.25);
+    }
+    .hero-cta:hover svg {
+      transform: translateX(4px);
+    }
   }
-  .hero-cta:hover svg {
-    transform: translateX(4px);
+  .hero-cta:active {
+    transform: scale(0.97) !important;
   }
 
   .hero-scroll-indicator {
@@ -254,5 +299,44 @@ function initHero() {
   @media (max-width: 767px) {
     .hero-label { font-size: var(--fs-xs); }
     .hero-scroll-indicator { display: none; }
+  }
+
+  /* Decorative Floating Traditional Motifs */
+  .hero-motif-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .hero-motif {
+    position: absolute;
+    opacity: 0; /* Animated to 0.12 on load */
+    filter: brightness(0.95) contrast(1.1) sepia(0.65) saturate(0.3) hue-rotate(340deg);
+    will-change: transform;
+  }
+  .hero-motif-left {
+    top: 10%;
+    left: -40px;
+    width: clamp(140px, 20vw, 240px);
+    transform: rotate(15deg);
+  }
+  .hero-motif-right {
+    top: 15%;
+    right: -50px;
+    width: clamp(160px, 25vw, 280px);
+    transform: rotate(-10deg);
+  }
+  @media (max-width: 640px) {
+    .hero-motif-left {
+      top: 5%;
+      left: -60px;
+      width: 120px;
+    }
+    .hero-motif-right {
+      top: 8%;
+      right: -70px;
+      width: 140px;
+    }
   }
 </style>

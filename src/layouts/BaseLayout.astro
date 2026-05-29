@@ -63,33 +63,33 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     <!-- Layer 1: caramel (belakang) -->
     <div class="pt-layer pt-l1" aria-hidden="true">
       <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
-        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#C49A6E"/>
+        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#E7C49A"/>
       </svg>
       <div class="pt-body"></div>
       <svg class="pt-arc-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
-        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#C49A6E"/>
+        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#E7C49A"/>
       </svg>
     </div>
 
     <!-- Layer 2: cinnamon (tengah) -->
     <div class="pt-layer pt-l2" aria-hidden="true">
       <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
-        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#B8734A"/>
+        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#B36935"/>
       </svg>
       <div class="pt-body"></div>
       <svg class="pt-arc-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
-        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#B8734A"/>
+        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#B36935"/>
       </svg>
     </div>
 
     <!-- Layer 3: mocha dark (depan) -->
     <div class="pt-layer pt-l3" aria-hidden="true">
       <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
-        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#5A3E22"/>
+        <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#6A412A"/>
       </svg>
       <div class="pt-body"></div>
       <svg class="pt-arc-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
-        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#5A3E22"/>
+        <path d="M0,0 L0,80 C400,0 800,0 1200,80 L1200,0 Z" fill="#6A412A"/>
       </svg>
     </div>
 
@@ -257,11 +257,11 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
     top: 1rem;
     left: 1rem;
     z-index: 500;
-    background: #fff;
-    color: #000;
+    background: var(--c-white);
+    color: var(--c-text-1);
     border-radius: 0.375rem;
     font-weight: 700;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(106, 65, 42, 0.15);
   }
 
   /* ─── 3-layer arc + wave transition ─────────────────────────────────────
@@ -309,9 +309,9 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
   }
 
   /* Warna solid per layer */
-  .pt-l1 .pt-body { background: #C49A6E; }
-  .pt-l2 .pt-body { background: #B8734A; }
-  .pt-l3 .pt-body { background: #5A3E22; }
+  .pt-l1 .pt-body { background: #E7C49A; }
+  .pt-l2 .pt-body { background: #B36935; }
+  .pt-l3 .pt-body { background: #6A412A; }
 
   /* ─── Lenis ─────────────────────────────────────────────────────────── */
   html:not(.lenis) { overflow: auto; }

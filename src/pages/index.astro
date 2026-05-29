@@ -35,7 +35,7 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8L72 40L40 72L8 40Z' fill='none' stroke='%23C49A6E' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8L72 40L40 72L8 40Z' fill='none' stroke='%23B36935' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 80px 80px;
   }
@@ -57,13 +57,13 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
 
   .map-container {
     position: relative;
-    background: linear-gradient(155deg, #DBEAFE 0%, #E0F2FE 40%, #F0F9FF 100%);
+    background-color: #6A412A;
     border-radius: var(--r-2xl);
-    border: var(--duo-stroke) solid var(--duo-stroke-color);
+    border: 1px solid var(--c-border-strong);
     overflow: hidden;
     width: 100%;
     cursor: pointer;
-    box-shadow: 0 5px 0 var(--c-duo-shadow);
+    box-shadow: var(--sh-card);
     aspect-ratio: 21 / 10;
   }
 
@@ -92,23 +92,15 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     position: absolute;
     inset: 0;
     will-change: opacity;
-    background-color: #EDE4D8;
+    background-color: #6A412A;
     background-image:
-      radial-gradient(ellipse at 20% 30%, rgba(196, 154, 110, 0.25) 0%, transparent 50%),
-      radial-gradient(ellipse at 65% 40%, rgba(184, 115, 74, 0.15) 0%, transparent 45%),
-      radial-gradient(ellipse at 40% 70%, rgba(212, 167, 106, 0.2) 0%, transparent 40%);
+      radial-gradient(ellipse at 20% 30%, rgba(179, 105, 53, 0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 65% 40%, rgba(217, 153, 91, 0.25) 0%, transparent 45%),
+      radial-gradient(ellipse at 40% 70%, rgba(231, 196, 154, 0.25) 0%, transparent 40%);
     z-index: 0;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .map-ocean-bg {
-      background-color: #2E2218;
-      background-image:
-        radial-gradient(ellipse at 20% 30%, rgba(142, 110, 78, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 65% 40%, rgba(160, 100, 62, 0.2) 0%, transparent 45%),
-        radial-gradient(ellipse at 40% 70%, rgba(184, 134, 74, 0.2) 0%, transparent 40%);
-    }
-  }
+
 
   .map-region-path {
     position: absolute;
@@ -120,6 +112,28 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     cursor: pointer;
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
                 filter 0.4s ease, opacity 0.4s ease;
+    transform: scale(1);
+    filter: none;
+  }
+
+  .map-region-path.is-hovered {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 16px var(--region-pulse-color)) brightness(1.2) saturate(1.1);
+  }
+
+  .map-region-path.is-active-pulse {
+    animation: map-island-breathe 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes map-island-breathe {
+    0% {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 12px var(--region-pulse-color)) brightness(1.2) saturate(1.1);
+    }
+    100% {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 24px var(--region-pulse-color)) brightness(1.28) saturate(1.25);
+    }
   }
 
   .map-region-path:focus-visible {
@@ -141,7 +155,7 @@ import SectionHeader from '../components/astro/shared/SectionHeader.astro';
     position: absolute;
     transform: translate(-50%, -100%);
     background: var(--c-accent);
-    color: var(--c-cream);
+    color: var(--c-white);
     padding: 6px 14px;
     border-radius: var(--r-full);
     font-size: var(--fs-sm);

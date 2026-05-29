@@ -1,9 +1,9 @@
-﻿---
+---
+const { id, bg = 'bg' } = Astro.props;
 const year = new Date().getFullYear();
-const { id } = Astro.props;
 ---
 
-<footer class="footer" id={id}>
+<footer class:list={["footer", `bg-${bg}`]} id={id}>
   <!-- Wave separator -->
   <div class="footer-wave" aria-hidden="true">
     <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +51,14 @@ const { id } = Astro.props;
   .footer {
     position: relative;
     margin-top: var(--sp-16);
+  }
+  .footer.bg-surface {
+    background-color: var(--c-surface);
+    margin-top: 0;
+  }
+  .footer.bg-bg {
+    background-color: var(--c-bg);
+    margin-top: 0;
   }
 
   /* ── Wave ── */

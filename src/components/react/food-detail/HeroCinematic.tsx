@@ -2,7 +2,10 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { FoodItemFull } from '@/types/food';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   food: FoodItemFull;
@@ -22,15 +25,53 @@ export default function HeroCinematic({ food, regionName }: Props) {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // 1. Entrance animation timeline
     const tl = gsap.timeline({ onComplete: () => setRevealed(true) });
 
-    tl.fromTo('.hero-image', { clipPath: 'inset(100% 0 0 0)', scale: 1.1 }, { clipPath: 'inset(0% 0 0 0)', scale: 1, duration: 1.2, ease: 'expo.out' }, 0)
-      .fromTo('.hero-overlay', { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out' }, 0)
-      .fromTo('.hero-breadcrumb', { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.3)
-      .fromTo('.hero-content-inner', { opacity: 0, y: 40, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'expo.out' }, '-=0.2')
-      .fromTo('.hero-actions', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.3');
-    return () => { tl.kill(); };
-  }, []);
+    tl.fromTo('.hero-image', 
+      { clipPath: 'inset(100% 0 0 0)', scale: 1.15 }, 
+      { clipPath: 'inset(0% 0 0 0)', scale: 1.02, duration: 1.4, ease: 'power4.out' }, 
+      0
+    )
+      .fromTo('.hero-overlay', { opacity: 0 }, { opacity: 1, duration: 1.0, ease: 'power2.out' }, 0)
+      .fromTo('.hero-breadcrumb > *', 
+        { y: -12, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: 'power3.out' }, 
+        0.4
+      )
+      .fromTo('.hero-content-inner > *', 
+        { opacity: 0, y: 30, filter: 'blur(8px)' }, 
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, stagger: 0.1, ease: 'power4.out' }, 
+        0.5
+      )
+      .fromTo('.hero-actions > *', 
+        { scale: 0.8, opacity: 0 }, 
+        { scale: 1, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'back.out(1.8)' }, 
+        '-=0.4'
+      );
+
+    // 2. Parallax zoom scrollTrigger
+    const parallax = gsap.fromTo('.hero-img',
+      { yPercent: -5, scale: 1.02 },
+      {
+        yPercent: 12,
+        scale: 1.15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      }
+    );
+
+    return () => {
+      tl.kill();
+      parallax.scrollTrigger?.kill();
+      parallax.kill();
+    };
+  }, [food.id]);
 
   const handleFavorite = useCallback(() => {
     const favs = getFavorites();

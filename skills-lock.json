@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "emil-design-eng": {
+      "source": "emilkowalski/skill",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "ac3fc5b4e206488ffc408a2806f829bb2e5eaf518fded09be34790685c2b3a0d"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "516bd2154eb843a8240e43d5b285229129853114ad7075a5e141e1c08e408c84"
+    },
+    "motion-design": {
+      "source": "lottiefiles/motion-design-skill",
+      "sourceType": "github",
+      "skillPath": "skills/motion-design/SKILL.md",
+      "computedHash": "4f16f46c81f25a2a25b7a4720b7ea001e65f384b31b5b7f4b455fef87fbc9016"
+    },
+    "ui-animation": {
+      "source": "mblode/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ui-animation/SKILL.md",
+      "computedHash": "6cdb0f089b821656e31f56c1f4bba73a29525f34570d63567bb609ce9be8d6d0"
+    },
+    "wcag-accessibility-audit": {
+      "source": "mastepanoski/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/wcag-accessibility-audit/SKILL.md",
+      "computedHash": "13c47c758945cf3b182df4a139558ac1e7ca874ef83b94c8f0d0adbfb2bdc127"
+    }
+  }
+}

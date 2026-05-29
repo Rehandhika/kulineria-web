@@ -5,6 +5,12 @@
 <section class="about-hero" id="about-hero">
   <div class="about-hero-bg" aria-hidden="true"></div>
 
+  <!-- Decorative Floating Traditional Motifs -->
+  <div class="about-hero-motif-container" aria-hidden="true">
+    <img src="/img/motif/png awan.png" class="about-hero-motif about-hero-motif-left" alt="" />
+    <img src="/img/motif/png batik mega mendung.png" class="about-hero-motif about-hero-motif-right" alt="" />
+  </div>
+
   <svg class="about-hero-noise" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
     <defs>
       <filter id="about-noise-fx">
@@ -29,6 +35,8 @@
 
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
 
   function initAboutHero() {
     const hero = document.getElementById('about-hero');
@@ -58,6 +66,32 @@
       .fromTo(subtitle, { y: 20, opacity: 0, filter: 'blur(6px)' }, {
         y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', duration: 2
       }, 1.4);
+
+    if (!reduced) {
+      tl.fromTo('.about-hero-motif-left', { x: -60, opacity: 0 }, { x: 0, opacity: 0.15, duration: 1.8, ease: 'power3.out' }, 0.5)
+        .fromTo('.about-hero-motif-right', { x: 60, opacity: 0 }, { x: 0, opacity: 0.15, duration: 1.8, ease: 'power3.out' }, 0.5);
+
+      gsap.to('.about-hero-motif-left', {
+        yPercent: -12,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#about-hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+      gsap.to('.about-hero-motif-right', {
+        yPercent: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#about-hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
   }
 
   import { runOnPageReady } from '../../../lib/animations/gsap-presets';
@@ -123,7 +157,7 @@
 
   .about-hero-title {
     font-family: var(--ff-display);
-    font-weight: 400;
+    font-weight: 900;
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-bottom: var(--sp-8);
@@ -139,7 +173,7 @@
 
   .about-hero-word.italic {
     font-style: italic;
-    font-weight: 500;
+    font-weight: inherit;
     color: var(--c-brand-gold);
     padding-right: 0.05em;
   }
@@ -162,6 +196,45 @@
     .about-hero-label { font-size: var(--fs-xs); }
     .about-hero-line {
       font-size: clamp(1.6rem, 7vw, 2.2rem);
+    }
+  }
+
+  /* Decorative Floating Traditional Motifs */
+  .about-hero-motif-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .about-hero-motif {
+    position: absolute;
+    opacity: 0; /* Animated to 0.15 on load */
+    filter: brightness(0.95) contrast(1.1) sepia(0.65) saturate(0.3) hue-rotate(340deg);
+    will-change: transform;
+  }
+  .about-hero-motif-left {
+    top: 10%;
+    left: -40px;
+    width: clamp(140px, 20vw, 240px);
+    transform: rotate(15deg);
+  }
+  .about-hero-motif-right {
+    top: 15%;
+    right: -50px;
+    width: clamp(160px, 25vw, 280px);
+    transform: rotate(-10deg);
+  }
+  @media (max-width: 640px) {
+    .about-hero-motif-left {
+      top: 5%;
+      left: -60px;
+      width: 120px;
+    }
+    .about-hero-motif-right {
+      top: 8%;
+      right: -70px;
+      width: 140px;
     }
   }
 </style>

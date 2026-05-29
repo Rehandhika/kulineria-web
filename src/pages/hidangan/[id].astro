@@ -23,6 +23,9 @@ const regions = getRegions();
 const region = regions.find(r => r.id === food.region);
 const regionName = region?.name || food.region;
 const showStory = fullFood ? isRealContent(fullFood) : false;
+
+// Compute the background of the final rendered section for seamless footer waves
+const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || fullFood?.ingredients ? 'bg' : (showStory ? 'surface' : 'bg'));
 ---
 
 <BaseLayout title={food.name} description={food.description}
@@ -48,6 +51,10 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
   <!-- SECTION 2: CERITA (hanya jika data real) -->
   {showStory && fullFood?.story && (
     <section class="section cerita-section">
+      <!-- Decorative floral watermark -->
+      <div class="cerita-motif" aria-hidden="true">
+        <img src="/img/motif/png bunga.png" alt="" />
+      </div>
       <div class="container">
         <StorySection
           client:visible
@@ -65,22 +72,24 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
     <section class="section bahan-section">
       <div class="container">
         <h2 class="section-title">Bahan &amp; Cara Membuat</h2>
-        {fullFood?.ingredients && fullFood.ingredients.length > 0 && (
-          <div class="bahan-subsection">
-            <h3 class="subsection-title">Bahan-Bahan</h3>
-            <IngredientsGrid client:visible ingredients={fullFood.ingredients} />
-          </div>
-        )}
-        {fullFood?.recipe && fullFood.recipe.steps.length > 0 && (
-          <div class="bahan-subsection">
-            <h3 class="subsection-title">Langkah-Langkah</h3>
-            <RecipeStepper
-              client:visible
-              steps={fullFood.recipe.steps}
-              servings={fullFood.recipe.servings}
-            />
-          </div>
-        )}
+        <div class="bahan-grid">
+          {fullFood?.ingredients && fullFood.ingredients.length > 0 && (
+            <div class="bahan-subsection">
+              <h3 class="subsection-title">Bahan-Bahan</h3>
+              <IngredientsGrid client:visible ingredients={fullFood.ingredients} />
+            </div>
+          )}
+          {fullFood?.recipe && fullFood.recipe.steps.length > 0 && (
+            <div class="bahan-subsection">
+              <h3 class="subsection-title">Langkah-Langkah</h3>
+              <RecipeStepper
+                client:visible
+                steps={fullFood.recipe.steps}
+                servings={fullFood.recipe.servings}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   ) : null}
@@ -97,15 +106,28 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
     </section>
   )}
 
-  <Footer />
+  <Footer bg={lastSectionBg} />
 </BaseLayout>
 
 <style is:global>
-  .section { padding: var(--sp-12) 0; }
+  .section {
+    padding: var(--sp-12) 0;
+    border-bottom: 1px solid var(--c-border-soft);
+  }
+  @media (min-width: 768px) {
+    .section { padding: var(--sp-16) 0; }
+  }
+  @media (min-width: 1024px) {
+    .section { padding: var(--sp-20) 0; }
+  }
+  .section:last-of-type {
+    border-bottom: none;
+  }
+
   .section-title {
     font-family: var(--ff-display);
     font-size: var(--fs-xl);
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: var(--ls-tight);
     color: var(--c-text-1);
     margin-bottom: var(--sp-6);
@@ -113,12 +135,23 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
   .subsection-title {
     font-family: var(--ff-display);
     font-size: var(--fs-lg);
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: var(--sp-4);
     color: var(--c-text-1);
   }
-  .bahan-subsection { margin-bottom: var(--sp-8); }
-  .bahan-subsection:last-child { margin-bottom: 0; }
+  .bahan-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+  @media (min-width: 1024px) {
+    .bahan-grid {
+      grid-template-columns: 1fr 1.6fr;
+      gap: var(--sp-12);
+      align-items: start;
+    }
+  }
+  .bahan-subsection { margin-bottom: 0; }
 
   .hero {
     position: relative;
@@ -154,41 +187,41 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
     display: flex; align-items: center; gap: var(--sp-2);
     flex-wrap: wrap;
   }
-  .hero-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-  .hero-breadcrumb a:hover { color: #fff; }
-  .hero-breadcrumb-sep { color: rgba(255,255,255,0.4); }
-  .hero-breadcrumb-current { color: rgba(255,255,255,0.9); font-weight: 700; }
+  .hero-breadcrumb a { color: rgba(255,248,241,0.7); text-decoration: none; }
+  .hero-breadcrumb a:hover { color: var(--c-white); }
+  .hero-breadcrumb-sep { color: rgba(255,248,241,0.4); }
+  .hero-breadcrumb-current { color: rgba(255,248,241,0.9); font-weight: 700; }
 
   .hero-content-inner { max-width: 700px; }
   .hero-badge {
     display: inline-block; padding: 4px 12px;
     border-radius: var(--r-full); font-size: var(--fs-xs); font-weight: 700;
-    color: #fff; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--c-white); text-transform: uppercase; letter-spacing: 0.05em;
     margin-bottom: var(--sp-2);
   }
   .hero-title {
     font-family: var(--ff-display);
     font-size: var(--fs-hero); font-weight: 700;
-    line-height: var(--lh-tight); color: #fff;
+    line-height: var(--lh-tight); color: var(--c-white);
     margin-bottom: var(--sp-2);
   }
   .hero-subtitle {
-    font-size: var(--fs-base); color: rgba(255,255,255,0.8);
+    font-size: var(--fs-base); color: rgba(255,248,241,0.8);
     max-width: 550px; line-height: var(--lh-relaxed);
     margin-bottom: var(--sp-3);
   }
   .hero-actions { display: flex; gap: var(--sp-2); }
   .btn-icon {
     width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; background: rgba(255,255,255,0.2); color: #fff;
+    border-radius: 50%; background: rgba(255,248,241,0.2); color: var(--c-white);
     backdrop-filter: blur(8px); transition: all var(--dur-fast) var(--ease-ui);
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,248,241,0.3);
   }
-  .btn-icon:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
+  .btn-icon:hover { background: rgba(255,248,241,0.3); transform: scale(1.1); }
   .hero-skeleton { position: absolute; inset: 0; background: var(--c-surface-2); z-index: 0; }
   .hero-img-skeleton {
     position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.15) 50%, transparent 75%);
+    background: linear-gradient(90deg, transparent 25%, rgba(255,248,241,0.15) 50%, transparent 75%);
     background-size: 200% 100%; animation: shimmer 1.5s ease-in-out infinite; z-index: 0;
   }
 
@@ -202,19 +235,42 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
     padding: var(--sp-6);
     background: var(--c-surface);
     border-radius: var(--r-xl);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    box-shadow: var(--sh-cartoon);
+    border: 1px solid var(--c-border);
+    box-shadow: var(--sh-card);
   }
 
   .bahan-section { background: var(--c-bg); }
-  .cerita-section { background: var(--c-surface); }
+  .cerita-section {
+    position: relative;
+    background: var(--c-surface);
+    overflow: hidden;
+  }
+  .cerita-motif {
+    position: absolute;
+    bottom: -30px;
+    right: -40px;
+    width: clamp(120px, 15vw, 180px);
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: 0;
+    filter: sepia(1) saturate(0.5) hue-rotate(330deg);
+    transform: rotate(-15deg);
+    user-select: none;
+  }
   .ingredients-list {
     display: flex; flex-direction: column; gap: var(--sp-2);
   }
   .ingredient-row {
     display: flex; align-items: center; gap: var(--sp-3);
-    padding: var(--sp-2) 0;
+    padding: var(--sp-2.5) var(--sp-2);
     border-bottom: 1px solid var(--c-border-soft);
+    border-radius: var(--r-sm);
+    transition: background-color var(--dur-fast) var(--ease-smooth);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .ingredient-row:hover {
+      background-color: var(--c-surface-2);
+    }
   }
   .ingredient-row:last-child { border-bottom: none; }
   .ingredient-bullet {
@@ -237,7 +293,7 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
   .recipe-servings { font-size: var(--fs-sm); color: var(--c-text-2); margin-bottom: var(--sp-3); font-weight: 600; }
   .recipe-step {
     border-radius: var(--r-lg);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
+    border: 1px solid var(--c-border);
     background: var(--c-surface);
     overflow: hidden;
   }
@@ -248,12 +304,18 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
     width: 100%; cursor: pointer;
     background: none; border: none;
     font-size: inherit; text-align: left;
-    transition: background var(--dur-fast) var(--ease-ui);
+    transition: background var(--dur-fast) var(--ease-ui), transform var(--dur-fast) var(--ease-smooth);
+    will-change: transform;
   }
-  .recipe-step-header:hover { background: var(--c-accent-light); }
+  @media (hover: hover) and (pointer: fine) {
+    .recipe-step-header:hover { background: var(--c-surface-2); }
+  }
+  .recipe-step-header:active {
+    transform: scale(0.99) !important;
+  }
   .recipe-step-number {
     width: 28px; height: 28px; border-radius: 50%;
-    background: var(--c-text-1); color: #fff;
+    background: var(--c-text-1); color: var(--c-white);
     display: flex; align-items: center; justify-content: center;
     font-size: var(--fs-xs); font-weight: 700; flex-shrink: 0;
   }
@@ -263,7 +325,14 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
     font-size: var(--fs-xs); color: var(--c-text-3); font-weight: 600;
   }
   .recipe-step-arrow { font-size: 10px; color: var(--c-text-3); }
-  .recipe-step-body { padding: 0 var(--sp-4) var(--sp-4); }
+  .recipe-step-body {
+    padding: 0 var(--sp-4) var(--sp-4);
+    animation: stepContentSlideDown 0.3s var(--ease-out-expo) both;
+  }
+  @keyframes stepContentSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   .recipe-step-text { font-size: var(--fs-sm); color: var(--c-text-2); line-height: var(--lh-relaxed); }
   .recipe-step-tip {
     margin-top: var(--sp-2); font-size: var(--fs-sm); color: var(--c-accent-dark);
@@ -272,23 +341,71 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
 
   .nutrition-bars { padding: var(--sp-2) 0; }
   .nutrition-serving {
-    font-size: var(--fs-sm); color: var(--c-text-3);
-    margin-bottom: var(--sp-4); font-weight: 600;
+    font-size: var(--fs-xs); color: var(--c-text-3);
+    margin-bottom: var(--sp-6); font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--c-surface-2);
+    border-radius: var(--r-full);
+    border: 1.2px solid var(--c-border);
   }
-  .nutrition-item { margin-bottom: var(--sp-3); }
+  .nutrition-bars-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+  @media (min-width: 768px) {
+    .nutrition-bars-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+    }
+  }
+  .nutrition-item {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    box-shadow: var(--sh-1);
+    transition: transform var(--dur-fast) var(--ease-smooth), box-shadow var(--dur-fast) var(--ease-smooth), border-color var(--dur-fast) var(--ease-smooth);
+    will-change: transform;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .nutrition-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--sh-3);
+      border-color: var(--c-accent);
+    }
+  }
   .nutrition-header {
-    display: flex; justify-content: space-between;
-    margin-bottom: var(--sp-1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
-  .nutrition-label { font-size: var(--fs-sm); font-weight: 600; }
-  .nutrition-value { font-size: var(--fs-sm); font-weight: 700; color: var(--c-text-1); }
+  .nutrition-label {
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    color: var(--c-text-3);
+  }
+  .nutrition-value {
+    font-family: var(--ff-display);
+    font-size: var(--fs-xl);
+    font-weight: 900;
+    color: var(--c-text-1);
+  }
   .nutrition-bar-track {
     height: 8px; background: var(--c-surface-2);
-    border-radius: var(--r-full); overflow: hidden; border: 1px solid var(--c-border);
+    border-radius: var(--r-full); overflow: hidden; border: 1.2px solid var(--c-border-soft);
   }
   .nutrition-bar-fill {
     height: 100%; border-radius: var(--r-full);
-    transition: width 1s var(--ease-out-expo);
+    transition: width 1.2s var(--ease-out-expo);
   }
 
   .story-grid {
@@ -299,8 +416,8 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
   }
   .story-image-wrapper {
     overflow: hidden; border-radius: var(--r-xl);
-    border: var(--cartoon-stroke) solid var(--cartoon-stroke-color);
-    box-shadow: var(--sh-cartoon);
+    border: 1px solid var(--c-border);
+    box-shadow: var(--sh-card);
   }
   .story-img { width: 100%; height: auto; display: block; }
   .story-headline {
@@ -320,3 +437,46 @@ const showStory = fullFood ? isRealContent(fullFood) : false;
 
 
 </style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initStaggers() {
+    // 1. Ingredients rows reveal
+    const rows = document.querySelectorAll('.ingredient-row');
+    if (rows.length > 0) {
+      gsap.fromTo(rows, 
+        { opacity: 0, y: 15 },
+        { 
+          opacity: 1, y: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.ingredients-list',
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    }
+
+    // 2. Recipe steps reveal
+    const steps = document.querySelectorAll('.recipe-step');
+    if (steps.length > 0) {
+      gsap.fromTo(steps,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.recipe-accordion',
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    }
+  }
+
+  import { runOnPageReady } from '../../lib/animations/gsap-presets';
+  runOnPageReady(initStaggers);
+</script>

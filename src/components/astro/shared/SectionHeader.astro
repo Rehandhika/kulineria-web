@@ -1,4 +1,4 @@
-﻿---
+---
 interface Props {
   overline?: string;
   title: string;
@@ -18,5 +18,26 @@ const badgeClass = `duo-badge-${color}`;
     </div>
   )}
   <Tag class="duo-section-title">{title}</Tag>
+  <div class="duo-section-divider-motif" aria-hidden="true">
+    <img src="/img/motif/png ornamen nusantara.png" alt="" />
+  </div>
   {subtitle && <p class="duo-section-subtitle">{subtitle}</p>}
 </div>
+
+<style>
+  .duo-section-divider-motif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--sp-2) auto;
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+  }
+  .duo-section-divider-motif img {
+    height: 12px;
+    width: auto;
+    filter: sepia(1) saturate(0.5) hue-rotate(330deg);
+    display: block;
+  }
+</style>

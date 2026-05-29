@@ -7,12 +7,12 @@ import { getRegions } from '@/lib/data/loaders';
 import { $selectedRegion, setSelectedRegion } from '@/lib/stores/selectedRegion';
 
 const REGION_HEX: Record<string, string> = {
-  sumatera: '#A0522D',
-  jawa: '#D2691E',
-  kalimantan: '#8B6914',
-  sulawesi: '#B8860B',
-  'bali-ntt': '#CD853F',
-  'maluku-papua': '#8B4513',
+  sumatera: '#B36935',
+  jawa: '#E7C49A',
+  kalimantan: '#D9995B',
+  sulawesi: '#6A412A',
+  'bali-ntt': '#B36935',
+  'maluku-papua': '#E7C49A',
 };
 
 const regions = getRegions();
@@ -144,7 +144,7 @@ export default function InteractiveMap() {
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
-      <div className="map-container relative w-full overflow-hidden rounded-2xl bg-[var(--c-surface)] border-[3px] border-[var(--duo-stroke-color)] shadow-[0_5px_0_var(--c-duo-shadow)]">
+      <div className="map-container relative w-full overflow-hidden rounded-2xl bg-[#6A412A] border border-[var(--c-border-strong)] shadow-[var(--sh-card)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
         <div className="map-content-wrapper">
@@ -158,7 +158,7 @@ export default function InteractiveMap() {
               <div
                 key={region.id}
                 id={`region-wrap-${region.id}`}
-                className="map-region-path"
+                className={`map-region-path ${isActive ? 'is-active-pulse' : ''} ${isHovered ? 'is-hovered' : ''}`}
                 tabIndex={0}
                 role="button"
                 aria-label={regions.find(r => r.id === region.id)?.name || region.id}
@@ -169,11 +169,8 @@ export default function InteractiveMap() {
                   left: region.layout.lPct,
                   top: region.layout.tPct,
                   opacity: dimmed ? 0.3 : 1,
-                  filter: isActive || isHovered
-                    ? `drop-shadow(0 0 16px ${color}99) brightness(1.2) saturate(1.1)`
-                    : 'none',
-                  transform: isActive || isHovered ? 'scale(1.03)' : 'scale(1)',
-                }}
+                  '--region-pulse-color': `${color}99`,
+                } as React.CSSProperties}
               >
                 <img
                   src={region.src}

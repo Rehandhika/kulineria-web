@@ -19,7 +19,6 @@ export default function IngredientsGrid({ ingredients }: Props) {
           <span className="ingredient-bullet" />
           <span className="ingredient-name">{ing.name}</span>
           {ing.qty && <span className="ingredient-qty">{ing.qty}</span>}
-          {ing.essential && <span className="ingredient-badge">Utama</span>}
         </div>
       ))}
     </div>

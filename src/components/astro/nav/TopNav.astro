@@ -323,8 +323,10 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     flex-shrink: 0;
     transition: transform 0.18s var(--ease-bounce);
   }
-  .top-nav-logo:hover { transform: scale(1.04); }
-  .top-nav-logo:active { transform: scale(0.98); }
+  @media (hover: hover) and (pointer: fine) {
+    .top-nav-logo:hover { transform: scale(1.04); }
+  }
+  .top-nav-logo:active { transform: scale(0.97); }
 
   .top-nav-logo-text {
     font-family: var(--ff-display);
@@ -332,14 +334,14 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     font-size: clamp(1.6rem, 2.6vw, 2.15rem);
     line-height: 1;
     letter-spacing: 0;
-    color: var(--c-brand-cream);
+    color: var(--c-nav-logo);
     font-optical-sizing: auto;
     font-variation-settings: 'opsz' 144, 'SOFT' 50;
     transition: color 0.3s ease;
   }
   /* On scrolled cream bar, the logo turns warm cinnamon for contrast */
   .top-nav.is-scrolled .top-nav-logo-text {
-    color: var(--c-brand-cinnamon-dark);
+    color: var(--c-nav-logo-scrolled);
   }
 
   /* === ACTIONS GROUP (anchor for the floating menu) === */
@@ -359,9 +361,9 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     min-width: 44px;
     padding: 0 16px;
     border-radius: var(--r-full);
-    background: rgba(255, 248, 240, 0.10);
+    background: rgba(255, 248, 241, 0.10);
     color: var(--c-brand-cream);
-    border: 1.5px solid rgba(255, 248, 240, 0.55);
+    border: 1.5px solid rgba(255, 248, 241, 0.55);
     font-family: var(--ff-ui-system);
     font-weight: 800;
     font-size: 13px;
@@ -370,23 +372,26 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     cursor: pointer;
     transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
                 transform 0.15s var(--ease-bounce);
+    will-change: transform;
   }
-  .top-nav-menu-toggle:hover {
-    background: rgba(255, 248, 240, 0.20);
-    border-color: rgba(255, 248, 240, 0.85);
-    transform: translateY(-1px);
+  @media (hover: hover) and (pointer: fine) {
+    .top-nav-menu-toggle:hover {
+      background: rgba(255, 248, 241, 0.20);
+      border-color: rgba(255, 248, 241, 0.85);
+      transform: translateY(-1px);
+    }
+    .top-nav.is-scrolled .top-nav-menu-toggle:hover {
+      background: var(--c-cream-bar-2);
+      border-color: var(--duo-stroke-color);
+    }
   }
   .top-nav-menu-toggle:active {
-    transform: translateY(2px);
+    transform: scale(0.96) !important;
   }
   /* On cream bar, toggle becomes ink-on-cream */
   .top-nav.is-scrolled .top-nav-menu-toggle {
     background: var(--c-cream-bar);
     color: var(--c-ink);
-    border-color: var(--duo-stroke-color);
-  }
-  .top-nav.is-scrolled .top-nav-menu-toggle:hover {
-    background: var(--c-cream-bar-2);
     border-color: var(--duo-stroke-color);
   }
   /* When OPEN: morph into accent pill (warm cinnamon) */
@@ -395,8 +400,10 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     color: var(--c-brand-cream);
     border-color: var(--c-nav-accent-dark);
   }
-  .top-nav-menu-toggle.is-open:hover {
-    background: var(--c-nav-accent-hover);
+  @media (hover: hover) and (pointer: fine) {
+    .top-nav-menu-toggle.is-open:hover {
+      background: var(--c-nav-accent-hover);
+    }
   }
   @media (min-width: 1024px) {
     .top-nav-menu-toggle {
@@ -463,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     background: var(--c-overlay-surface);
     color: var(--c-overlay-link);
     border-radius: 24px;
-    border: 1px solid rgba(255, 248, 240, 0.08);
+    border: 1px solid rgba(255, 248, 241, 0.08);
     box-shadow:
       0 6px 0 var(--c-overlay-surface-dark),
       0 22px 50px rgba(20, 12, 6, 0.35);
@@ -514,9 +521,11 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     font-variation-settings: 'opsz' 144, 'SOFT' 50;
     transition: color 0.18s ease, transform 0.18s var(--ease-bounce);
   }
-  .overlay-link:hover {
-    color: var(--c-brand-caramel);
-    transform: translateX(3px);
+  @media (hover: hover) and (pointer: fine) {
+    .overlay-link:hover {
+      color: var(--c-brand-caramel);
+      transform: translateX(3px);
+    }
   }
   .overlay-link.active {
     color: var(--c-brand-caramel);

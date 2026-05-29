@@ -7,12 +7,12 @@ import { $selectedRegion, clearSelectedRegion } from '@/lib/stores/selectedRegio
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
 
 const REGION_HEX: Record<string, string> = {
-  sumatera: '#A0522D',
-  jawa: '#D2691E',
-  kalimantan: '#8B6914',
-  sulawesi: '#B8860B',
-  'bali-ntt': '#CD853F',
-  'maluku-papua': '#8B4513',
+  sumatera: '#B36935',
+  jawa: '#E7C49A',
+  kalimantan: '#D9995B',
+  sulawesi: '#6A412A',
+  'bali-ntt': '#B36935',
+  'maluku-papua': '#E7C49A',
 };
 
 const regions = getRegions();
@@ -40,6 +40,7 @@ export default function RegionBanner() {
 
     import('gsap').then(({ default: gsap }) => {
       const banner = bannerRef.current;
+      if (!banner) return;
 
       if (isNewRegion) {
         gsap.fromTo(banner,
@@ -68,9 +69,14 @@ export default function RegionBanner() {
   if (!region || !selectedId) return null;
 
   const color = REGION_HEX[selectedId];
+  const textColor = (color === '#E7C49A' || color === '#D9995B') ? '#6A412A' : '#FFF8F1';
+  const isLightBg = color === '#E7C49A' || color === '#D9995B';
 
   return (
-    <div ref={bannerRef} className="region-banner" style={{ borderColor: `${color}25` }}>
+    <div ref={bannerRef} className="region-banner border border-[rgba(106,65,42,0.16)] shadow-[var(--sh-card)]">
+      <div className="region-banner-motif" aria-hidden="true">
+        <img src="/img/motif/png bunga.png" alt="" />
+      </div>
       <div className="region-banner-glow" style={{ background: `radial-gradient(ellipse at 50% 0%, ${color}15 0%, transparent 70%)` }} />
       <div className="region-banner-accent" style={{ background: color }} />
 
@@ -88,11 +94,15 @@ export default function RegionBanner() {
 
       <div className="region-banner-footer">
         <div className="region-banner-stat">
-          <span className="region-banner-stat-val" style={{ color }}>{count}</span>
+          <span className="region-banner-stat-val">{count}</span>
           <span className="region-banner-stat-label">Hidangan</span>
         </div>
 
-        <a href={`/jelajahi?region=${selectedId}`} className="region-banner-btn" style={{ background: color }}>
+        <a 
+          href={`/jelajahi?region=${selectedId}`} 
+          className={`region-banner-btn ${isLightBg ? 'is-light' : ''}`} 
+          style={{ background: color, color: textColor }}
+        >
           Lihat Semua
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>

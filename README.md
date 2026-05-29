@@ -145,8 +145,8 @@ GSAP + Lenis memberikan smooth scroll, scroll-reveal, efek magnetic hover, rippl
 ### ♿ Aksesibilitas
 Skip-to-content, ARIA labels, focus trap pada modal, keyboard navigation, serta dukungan reduced-motion.
 
-### 🌙 Dark Mode
-Tampilan otomatis menyesuaikan preferensi tema sistem pengguna (`prefers-color-scheme`).
+### 🎨 Premium Paper Theme
+Desain visual eksklusif dengan palet warna hangat 6-warna (Cream, Light Beige, Soft Sand Gold, Caramel, Terracotta, dan Deep Chestnut) yang konsisten di semua preferensi tema untuk tampilan premium seperti majalah kuliner cetak.
 
 ### 🤖 SEO
 JSON-LD Recipe schema, Open Graph, sitemap XML dinamis, robots.txt — optimal untuk mesin pencari.
