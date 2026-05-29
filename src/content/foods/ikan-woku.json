@@ -1,0 +1,177 @@
+{
+  "id": "ikan-woku-010",
+  "name": "Ikan Woku",
+  "region": "sulawesi",
+  "description": "Olahan ikan khas Manado berkuah kuning cerah dengan paduan jahe, kunyit, cabai, yang diselimuti harum melimpah dari aneka daun aromatik segar.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asam"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/ikan-woku.jpg",
+  "hero": {
+    "image": "/images/foods/ikan-woku-hero.jpg",
+    "alt": "Ikan Woku Belanga berwarna kuning jingga menyala dengan taburan kemangi dan daun jeruk segar di dalam wajan tanah liat",
+    "dominantColor": "#E65100"
+  },
+  "story": {
+    "headline": "Ledakan Aroma Rempah Daun Bumi Minahasa",
+    "body": "Ikan Woku Belanga adalah representasi sempurna dari keberanian cita rasa kuliner Minahasa, Sulawesi Utara. Berbeda dengan masakan Jawa yang cenderung manis atau masakan Padang yang bersantan kental, Woku menonjolkan kekuatan rasa segar yang bersih dari kombinasi bumbu kuning pekat (kunyit, jahe, kemiri, cabai rawit) serta limpahan daun aromatik. Daun kemangi, daun jeruk purut, daun kunyit, daun pandan, dan daun bawang dicampurkan dalam jumlah banyak saat memasak, melahirkan sensasi wangi yang sangat kuat, tajam, menyegarkan, sekaligus menghilangkan bau amis ikan laut seketika.\n\nSecara historis, nama 'Woku' merujuk pada daun woka (sejenis daun palem hutan) yang dahulu digunakan sebagai pembungkus ikan berbumbu sebelum dipanggang langsung di atas bara api—metode kuno ini dikenal dengan nama Woku Daun. Ketika masyarakat Minahasa mulai menggunakan panci atau belangah tanah liat untuk memasak versi berkuah, hidangan ini bertransformasi menjadi Woku Belanga. Woku belanga melambangkan hubungan harmonis masyarakat pegunungan Minahasa dengan alam; mereka memanfaatkan bumbu dedaunan liar yang melimpah ruah di kebun mereka untuk melengkapi protein laut segar yang dibawa oleh para nelayan pesisir.",
+    "pullQuote": "Woku adalah simfoni dedaunan aromatik Minahasa, mengubah ikan laut menjadi mahakarya wewangian rasa.",
+    "image": "/images/foods/ikan-woku-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Kerapu Segar",
+      "qty": "800g",
+      "image": "/img/ingredients/fish.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Kemangi",
+      "qty": "2 ikat besar",
+      "image": "/img/ingredients/basil.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Kunyit",
+      "qty": "1 lembar",
+      "image": "/img/ingredients/turmeric-leaf.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Jeruk Purut",
+      "qty": "6 lembar",
+      "image": "/img/ingredients/lime-leaf.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Pandan",
+      "qty": "1 lembar",
+      "image": "/img/ingredients/pandan.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Jeruk Nipis",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "3 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "10 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit Segar",
+      "qty": "3 cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "15 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Lumuri Ikan Jeruk Nipis",
+        "text": "Bersihkan ikan kerapu segar, potong menjadi 3 atau 4 bagian sesuai selera. Lumuri dengan garam dan perasan jeruk nipis untuk menetralkan bau amis. Diamkan 15 menit, lalu bilas.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Olah Bumbu Dasar Kuning",
+        "text": "Haluskan kunyit, jahe, kemiri sangrai, bawang putih, dan sebagian cabai rawit merah. Iris tipis bawang merah dan sisihkan cabai rawit utuh lainnya.",
+        "duration": 480
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu dan Daun Aromatik",
+        "text": "Tumis irisan bawang merah hingga wangi. Masukkan bumbu halus kuning, serai memar, daun pandan simpul, daun kunyit iris halus, dan daun jeruk purut. Tumis hingga matang dan mengeluarkan aroma harum semerbak.",
+        "duration": 360
+      },
+      {
+        "order": 4,
+        "title": "Masak Ikan dalam Belanga",
+        "text": "Masukkan potongan ikan kerapu ke dalam tumisan bumbu aromatik, aduk perlahan agar ikan terbalut rata. Tuangkan 300ml air panas, masak di atas api sedang hingga mendidih dan kuah meresap ke dalam serat daging ikan.",
+        "duration": 900
+      },
+      {
+        "order": 5,
+        "title": "Masukkan Daun Kemangi",
+        "text": "Sesaat sebelum diangkat, tambahkan daun bawang iris, sisa cabai rawit utuh, air perasan jeruk nipis, dan daun kemangi segar dalam jumlah melimpah. Aduk perlahan hingga daun kemangi sedikit layu dan mengeluarkan wewangian khasnya, lalu angkat.",
+        "duration": 180
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 85,
+    "gurih": 90,
+    "asam": 70,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 280,
+    "protein": 32,
+    "carbs": 6,
+    "fat": 12,
+    "fiber": 2,
+    "servingSize": "1 porsi mangkuk besar (250g)"
+  },
+  "locations": [
+    {
+      "name": "RM Raja Oci",
+      "city": "Manado",
+      "lat": 1.4645,
+      "lng": 124.8398,
+      "description": "Restoran masakan laut legendaris di Manado yang sangat terkenal dengan olahan Ikan Woku Belanganya yang menyajikan kesegaran ikan kerapu berselimut kuah kuning woku yang super wangi rempah.",
+      "priceRange": "Rp 35.000 - Rp 65.000"
+    },
+    {
+      "name": "RM City Extra",
+      "city": "Manado",
+      "lat": 1.4428,
+      "lng": 124.821,
+      "description": "Restoran hidangan laut tepi pantai yang menyajikan pemandangan teluk Manado yang indah dengan menu andalan Ikan Woku belanga yang dimasak segar langsung setelah ikan dipilih hidup-hidup dari kolam.",
+      "priceRange": "Rp 50.000 - Rp 95.000"
+    }
+  ],
+  "related": [
+    "cakalang-fufu-008",
+    "tinutuan-009"
+  ],
+  "funFacts": [
+    "Memasak Woku Belanga secara tradisional harus menggunakan belanga atau panci tanah liat karena tanah liat menjaga suhu panas lambat yang meratakan aroma dedaunan aromatik ke dalam daging ikan secara sempurna.",
+    "Ikan Woku tidak menggunakan santan kelapa sama sekali; kekentalan alami kuahnya berasal dari kemiri sangrai yang dihaluskan bersama bumbu dasar kunyit."
+  ],
+  "tags": [
+    "ikan woku",
+    "woku belanga",
+    "manado",
+    "minahasa",
+    "kuliner sulawesi",
+    "ikan kerapu",
+    "makanan sehat",
+    "kemangi",
+    "sup kuning",
+    "rempah daun"
+  ]
+}

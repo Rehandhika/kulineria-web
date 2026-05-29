@@ -1,0 +1,176 @@
+{
+  "id": "ikan-kuah-kuning-002",
+  "name": "Ikan Kuah Kuning",
+  "region": "maluku-papua",
+  "description": "Hidangan sup ikan khas Timur Indonesia dengan kuah kuning segar beraroma kunyit, serai, daun kemangi, dan jeruk nipis yang biasanya disajikan sebagai pendamping setia papeda.",
+  "taste": [
+    "gurih",
+    "asam",
+    "pedas"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/img/foods/ikan-kuah-kuning.jpg",
+  "hero": {
+    "image": "/img/foods/ikan-kuah-kuning-hero.jpg",
+    "alt": "Ikan Kuah Kuning segar khas Maluku dan Papua",
+    "dominantColor": "#FFD700"
+  },
+  "story": {
+    "headline": "Kesegaran Samudra di Mangkok Kuning Emas",
+    "body": "Ikan Kuah Kuning adalah jantung kuliner Maluku dan Papua yang tidak terpisahkan dari papeda. Hidangan ini lahir dari limpahan hasil laut perairan Timur Indonesia yang luar biasa kaya. Kuah kuning yang berkilau ini mendapatkan warna emas alaminya dari kunyit, yang dipadukan dengan kesegaran jeruk nipis serta wewangian dari daun kemangi hutan dan serai.\n\nSecara historis, penggunaan kunyit dan rempah-rempah dalam kuah ini tidak hanya berfungsi sebagai penyedap, melainkan juga penawar alami bau amis ikan laut segar. Di pesisir Papua dan Kepulauan Maluku, hidangan sup ini melambangkan kehangatan keluarga dan harmoni alam, di mana hasil laut dan tanaman pekarangan bersatu di atas meja makan.\n\nKeunikan rasa kuah kuning terletak pada keseimbangan rasa asam segar, gurih yang mendalam, dan sedikit sengatan pedas dari cabai rawit utuh. Menyeruput kuah kuning hangat bersama kelembutan papeda membawa sensasi kuliner yang menghidupkan jiwa petualangan bahari.",
+    "pullQuote": "Kuah kuning mengalir seperti kehangatan matahari di pesisir Timur.",
+    "image": "/img/foods/ikan-kuah-kuning-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Cakalang atau Tongkol",
+      "qty": "500g",
+      "image": "/img/ingredients/cakalang.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit",
+      "qty": "3cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "2 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Kemangi",
+      "qty": "1 ikat",
+      "image": "/img/ingredients/basil.svg",
+      "essential": false
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "6 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "4 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "10 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": false
+    },
+    {
+      "name": "Air",
+      "qty": "750ml",
+      "image": "/img/ingredients/water.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 25,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Bersihkan Ikan",
+        "text": "Bersihkan ikan, potong menjadi beberapa bagian, lalu lumuri dengan perasan air jeruk nipis dan garam untuk menghilangkan bau amis. Diamkan selama 10 menit.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu",
+        "text": "Haluskan bumbu berupa bawang merah, bawang putih, kunyit, jahe, dan kemiri.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu",
+        "text": "Tumis bumbu halus bersama serai dan daun jeruk hingga harum dan matang sempurna.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Didihkan Air",
+        "text": "Tuangkan air ke dalam tumisan bumbu, lalu masak hingga mendidih.",
+        "duration": 300
+      },
+      {
+        "order": 5,
+        "title": "Masukkan Ikan",
+        "text": "Masukkan potongan ikan dan cabai rawit utuh. Masak dengan api sedang hingga ikan matang dan bumbu meresap.",
+        "duration": 600
+      },
+      {
+        "order": 6,
+        "title": "Tambahkan Kemangi",
+        "text": "Sesaat sebelum diangkat, masukkan daun kemangi dan perasan air jeruk nipis. Aduk sebentar lalu matikan api.",
+        "duration": 120,
+        "tip": "Daun kemangi dimasukkan terakhir agar warnanya tetap hijau segar dan aromanya maksimal."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 45,
+    "gurih": 85,
+    "asam": 60,
+    "asin": 40
+  },
+  "nutrition": {
+    "calories": 245,
+    "protein": 28,
+    "carbs": 6,
+    "fat": 12,
+    "fiber": 1,
+    "servingSize": "1 porsi (300g)"
+  },
+  "locations": [
+    {
+      "name": "Rumah Makan Dua Saudara",
+      "city": "Ambon",
+      "lat": -3.6934,
+      "lng": 128.1818,
+      "description": "Terkenal dengan sajian ikan kuah kuning super segar dengan rempah tradisional khas Maluku.",
+      "priceRange": "Rp 35.000 - Rp 60.000"
+    },
+    {
+      "name": "Resto Selera Papua",
+      "city": "Jayapura",
+      "lat": -2.5367,
+      "lng": 140.7099,
+      "description": "Tempat favorit menikmati papeda berpasangan dengan ikan kuah kuning kakap merah autentik.",
+      "priceRange": "Rp 40.000 - Rp 75.000"
+    }
+  ],
+  "related": [
+    "papeda-001",
+    "sambal-colocolo-003",
+    "gohu-ikan-005"
+  ],
+  "funFacts": [
+    "Ikan Kuah Kuning secara tradisional disajikan langsung di dalam wadah tanah liat (gerabah) bersama papeda hangat.",
+    "Jenis ikan terbaik yang digunakan adalah ikan cakalang atau tongkol karena tekstur dagingnya padat dan tidak mudah hancur saat direbus."
+  ],
+  "tags": [
+    "ikan kuah kuning",
+    "sup ikan",
+    "maluku",
+    "papua",
+    "segar",
+    "rempah",
+    "pendamping papeda"
+  ]
+}

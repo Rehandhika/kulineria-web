@@ -1,4 +1,4 @@
-﻿{
+{
     "foods": [
         {
             "id": "coto-makassar-001",
@@ -79,86 +79,6 @@
             "description": "Ikan dimasak dengan bumbu woku khas Manado, kaya kunyit, serai, dan kemangi.",
             "taste": ["pedas", "gurih"],
             "imageUrl": "/images/foods/ikan-woku.jpg"
-        },
-        {
-            "id": "kaledo-011",
-            "name": "Kaledo",
-            "region": "sulawesi",
-            "description": "Sup kaki sapi pedas khas Palu, Sulawesi Tengah, dengan kuah merah pekat.",
-            "taste": ["pedas", "gurih"],
-            "imageUrl": "/images/foods/kaledo.jpg"
-        },
-        {
-            "id": "panada-012",
-            "name": "Panada",
-            "region": "sulawesi",
-            "description": "Roti goreng isi ikan berbumbu pedas, camilan khas Manado.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/panada.jpg"
-        },
-        {
-            "id": "dabu-dabu-013",
-            "name": "Dabu-dabu",
-            "region": "sulawesi",
-            "description": "Sambal segar khas Manado dari cabai, tomat, dan bawang merah dengan perasan jeruk nipis.",
-            "taste": ["pedas", "asam"],
-            "imageUrl": "/images/foods/dabu-dabu.jpg"
-        },
-        {
-            "id": "palumara-014",
-            "name": "Palumara",
-            "region": "sulawesi",
-            "description": "Sup ikan pedas khas Makassar dengan kuah kuning dan bumbu rempah.",
-            "taste": ["pedas", "gurih"],
-            "imageUrl": "/images/foods/palumara.jpg"
-        },
-        {
-            "id": "binte-biluhuta-015",
-            "name": "Binte Biluhuta",
-            "region": "sulawesi",
-            "description": "Sup jagung khas Gorontalo dengan udang, kelapa, dan kemangi. Segar dan gurih.",
-            "taste": ["gurih", "manis"],
-            "imageUrl": "/images/foods/binte-biluhuta.jpg"
-        },
-        {
-            "id": "pisang-epe-016",
-            "name": "Pisang Epe",
-            "region": "sulawesi",
-            "description": "Pisang pipih bakar khas Makassar dengan saus gula merah dan susu.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/pisang-epe.jpg"
-        },
-        {
-            "id": "nasi-jaha-017",
-            "name": "Nasi Jaha",
-            "region": "sulawesi",
-            "description": "Nasi ketan dimasak dalam bambu dengan santan, khas Manado dan Gorontalo.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/nasi-jaha.jpg"
-        },
-        {
-            "id": "jalangkote-018",
-            "name": "Jalangkote",
-            "region": "sulawesi",
-            "description": "Pastel goreng isi sayuran dan daging, camilan khas Makassar.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/jalangkote.jpg"
-        },
-        {
-            "id": "sinonggi-019",
-            "name": "Sinonggi",
-            "region": "sulawesi",
-            "description": "Bubur sagu khas Sulawesi Tenggara, dimakan dengan ikan dan sayur.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/sinonggi.jpg"
-        },
-        {
-            "id": "kasoami-020",
-            "name": "Kasoami",
-            "region": "sulawesi",
-            "description": "Panganan dari ubi kayu dikukus berbentuk kerucut, khas Sulawesi Tenggara.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/kasoami.jpg"
         }
     ]
 }

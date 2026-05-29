@@ -1,0 +1,154 @@
+{
+  "id": "dendeng-balado-008",
+  "name": "Dendeng Balado",
+  "region": "sumatera",
+  "description": "Irisan daging sapi tipis garing khas Minangkabau yang digoreng garing, lalu dilumuri sambal balado merah kasar yang melimpah dan pedas menggigit.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/dendeng-balado.jpg",
+  "hero": {
+    "image": "/images/foods/dendeng-balado-hero.jpg",
+    "alt": "Dendeng Balado renyah garing berlumur sambal cabai merah kasar khas Minang",
+    "dominantColor": "#C0392B"
+  },
+  "story": {
+    "headline": "Sensasi Renyah Pedas Menggila Khas Minangkabau",
+    "body": "Dendeng Balado adalah salah satu pilar utama masakan Minangkabau yang mewakili perpaduan tekstur garing dan rasa pedas yang segar menggugah selera. Istilah 'dendeng' mengacu pada daging yang diiris tipis dan diawetkan (baik dikeringkan atau digoreng), sementara 'balado' berarti dimasak dengan bumbu cabai khas Sumatra Barat. Keunikan dendeng ini terletak pada kerenyahan daging sapinya yang diiris sangat tipis sebelum diolah.\n\nProses pembuatan dendeng yang otentik diawali dengan merebus daging sapi bersama bumbu rempah seperti bawang putih, ketumbar, dan air asam jawa hingga empuk. Daging kemudian diiris tipis searah seratnya, lalu dipukul-pukul ('ditokok') perlahan dengan ulekan batu cobek agar melebar dan tipis merata. Setelah itu, daging digoreng dalam minyak kelapa panas melimpah hingga garing menyerupai keripik, kemudian disiram dengan tumisan cabai merah keriting dan bawang merah kasar yang harum berminyak.",
+    "pullQuote": "Kerenyahan daging sapi tipis berpadu dalam pedasnya sambal balado merah membara",
+    "image": "/images/foods/dendeng-balado-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Sapi Gandik",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "4 siung",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Keriting",
+      "qty": "150g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Air Asam Jawa",
+      "qty": "2 sdm",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Garam",
+      "qty": "1 sdt",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 45,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Daging Sapi",
+        "text": "Rebus potongan daging sapi gandik (has luar) dalam air mendidih bersama bawang putih geprek, ketumbar bubuk, dan garam hingga daging matang matang sempurna dan kokoh seratnya.",
+        "duration": 1800,
+        "tip": "Jangan merebus daging terlalu lunak/hancur agar mudah diiris tipis searah serat daging"
+      },
+      {
+        "order": 2,
+        "title": "Iris dan Tokok Daging Sapi",
+        "text": "Potong daging tipis-tipis melintang serat setebal 0.5 cm. Letakkan daging di atas cobek batu, pukul-pukul perlahan menggunakan ulekan ('ditokok') hingga daging melebar tipis dan pipih merata.",
+        "duration": 480,
+        "tip": "Memukul daging bertujuan memutus serat otot agar daging bertekstur keripik yang garing renyah melimpah saat digoreng"
+      },
+      {
+        "order": 3,
+        "title": "Goreng Daging Hingga Garing",
+        "text": "Panaskan minyak kelapa melimpah dengan api sedang. Goreng irisan daging tipis yang telah ditokok hingga berwarna kecokelatan kering dan bertekstur sangat garing renyah. Angkat lalu tiriskan.",
+        "duration": 480
+      },
+      {
+        "order": 4,
+        "title": "Buat Sambal Balado Kasar",
+        "text": "Ulek kasar cabai merah keriting dan bawang merah dengan taburan garam kasar. Tumis bumbu ulek kasar tersebut menggunakan sisa minyak goreng daging dendeng, tambahkan air asam jawa, masak hingga harum dan minyaknya pecah berwarna merah cerah.",
+        "duration": 600,
+        "tip": "Gunakan sisa minyak menggoreng dendeng sapi agar rasa gurih kaldunya terinfusi ke sambal balado"
+      },
+      {
+        "order": 5,
+        "title": "Campur Dendeng dengan Sambal",
+        "text": "Biarkan tumisan sambal balado mereda panasnya hingga hangat kuku. Masukkan dendeng garing renyah ke dalam wajan sambal, aduk rata perlahan agar bumbu menyelimuti dendeng tanpa membuatnya lempem. Sajikan segera.",
+        "duration": 120,
+        "tip": "Jangan mencampur dendeng garing saat sambal balado masih mendidih panas agar kerenyahan dendeng tetap terjaga prima"
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 80,
+    "gurih": 85,
+    "asam": 20,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 340,
+    "protein": 28,
+    "carbs": 8,
+    "fat": 22,
+    "servingSize": "1 porsi (120g)"
+  },
+  "locations": [
+    {
+      "name": "RM Lamun Ombak",
+      "city": "Padang",
+      "lat": -0.9023,
+      "lng": 100.3512,
+      "description": "Restoran Minang paling populer di Padang yang menyajikan Dendeng Balado super garing dengan sambal merah kasar beraroma minyak kelapa murni.",
+      "priceRange": "Rp 30.000 - Rp 65.000"
+    },
+    {
+      "name": "Dendeng Batokok Pusako Satu",
+      "city": "Bukittinggi",
+      "lat": -0.3021,
+      "lng": 100.3705,
+      "description": "Spesialis dendeng legendaris dengan teknik menokok daging tradisional yang tipis dan garing renyah khas Bukittinggi.",
+      "priceRange": "Rp 35.000 - Rp 60.000"
+    }
+  ],
+  "related": [
+    "nasi-padang-005",
+    "rendang-001",
+    "sate-padang-004",
+    "ayam-pop-007"
+  ],
+  "funFacts": [
+    "Teknik 'tokok' atau memukul daging bertujuan memutus jalinan protein serat daging sapi, menjamin dendeng bertekstur krispi tipis layaknya keripik yang renyah digigit.",
+    "Bumbu sambal balado dendeng yang otentik selalu menggunakan air asam jawa atau jeruk nipis untuk menyeimbangkan pedasnya cabai merah keriting."
+  ],
+  "tags": [
+    "dendeng balado",
+    "dendeng batokok",
+    "sumatera",
+    "kuliner minang",
+    "daging sapi",
+    "pedas garing"
+  ]
+}

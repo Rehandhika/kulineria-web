@@ -1,0 +1,173 @@
+{
+  "id": "gangan-asam-007",
+  "name": "Gangan Asam",
+  "region": "kalimantan",
+  "description": "Sup ikan patin berkuah kuning khas Kalimantan Selatan dengan perpaduan rasa asam segar dari terong asam khas dan gurih kunyit rempah.",
+  "taste": [
+    "asam",
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/gangan-asam.jpg",
+  "hero": {
+    "image": "/images/foods/gangan-asam-hero.jpg",
+    "alt": "Gangan Asam Patin berkuah kuning segar khas Banjar",
+    "dominantColor": "#F1C40F"
+  },
+  "story": {
+    "headline": "Kesegaran Asam Kunyit dengan Kelembutan Lemak Ikan Patin",
+    "body": "Gangan Asam (sering disebut Gangan Asam Banjar atau Gangan Asam Patin) adalah masakan sayur sup berkuah kuning khas suku Banjar, Kalimantan Selatan. Sayur ini mencerminkan kearifan lokal dalam mengolah kekayaan hayati sungai-sungai besar Kalimantan yang melimpah akan ikan air tawar, khususnya ikan patin yang bertubuh mulus dan berlemak gurih. Rasa asam segar yang dominan pada hidangan ini bukan didapat dari asam jawa atau cuka biasa, melainkan dari buah Terung Asam (solanum ferox) atau terung rimbang khas Kalimantan yang berkulit jingga berbulu halus serta beraroma buah segar masam.\n\nKuah kuning yang cantik dihasilkan dari perpaduan kunyit, jahe, kemiri, serai, bawang merah, dan terasi. Bahan pendukung yang tidak kalah unik adalah pucuk pisang muda (umbut pisang) atau keladi (talas) yang dipotong-potong, memberikan tekstur lembut berair yang lezat. Lemak ikan patin yang lumer meleleh di mulut ketika dipadukan dengan kuah kuning yang asam, gurih, dan sedikit pedas menciptakan kesegaran luar biasa yang sangat digemari untuk dinikmati di tengah udara panas Kalimantan, disandingkan dengan nasi hangat dan sambal terasi.",
+    "pullQuote": "Kuah kuning gangan asam patin, penyegar dahaga penambah selera di siang hari.",
+    "image": "/images/foods/gangan-asam-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Patin Segar",
+      "qty": "500g",
+      "image": "/img/ingredients/catfish.svg",
+      "essential": true
+    },
+    {
+      "name": "Terong Asam Kalimantan",
+      "qty": "2 buah",
+      "image": "/img/ingredients/sour-eggplant.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "3 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit",
+      "qty": "3 cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Kemiri",
+      "qty": "4 butir",
+      "image": "/img/ingredients/candle-nut.svg",
+      "essential": true
+    },
+    {
+      "name": "Terasi Bakar",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/shrimp-paste.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Panjang",
+      "qty": "5 batang",
+      "image": "/img/ingredients/long-bean.svg",
+      "essential": false
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": false
+    },
+    {
+      "name": "Cabai Merah Besar",
+      "qty": "2 buah",
+      "image": "/img/ingredients/red-chili.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 15,
+    "cookTime": 30,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Bersihkan Ikan Patin",
+        "text": "Cuci bersih ikan patin segar, potong menjadi beberapa bagian. Lumuri potongan ikan patin dengan garam dan perasan air jeruk nipis agar lendir amisnya hilang, diamkan 10 menit lalu bilas bersih.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu",
+        "text": "Haluskan bawang merah, bawang putih, kunyit bakar, kemiri sangrai, cabai merah besar, dan terasi bakar hingga bertekstur pasta halus.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Didihkan Air Kaldu Rempah",
+        "text": "Didihkan 1 liter air di panci. Masukkan pasta bumbu halus beserta memaran daun serai dan lengkuas. Masak hingga tercium aroma wangi matang.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Masukkan Terong Asam dan Kacang Panjang",
+        "text": "Kupas kulit terong asam Kalimantan, potong dadu kasar. Masukkan potongan terong asam rimbang dan kacang panjang ke dalam kuah rebusan kuning yang mendidih.",
+        "duration": 300
+      },
+      {
+        "order": 5,
+        "title": "Masak Ikan Patin",
+        "text": "Masukkan potongan ikan patin segar ke dalam panci. Tambahkan garam dan sedikit gula pasir. Rebus dengan api sedang selama 10-12 menit hingga daging ikan patin empuk, gurih berlemak, dan air asam kuning menyerap sempurna.",
+        "duration": 720
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 20,
+    "pedas": 30,
+    "gurih": 80,
+    "asam": 85,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 260,
+    "protein": 20,
+    "carbs": 12,
+    "fat": 15,
+    "fiber": 2,
+    "servingSize": "1 mangkuk (350ml)"
+  },
+  "locations": [
+    {
+      "name": "Rumah Makan Haji Fauzan",
+      "city": "Banjarmasin",
+      "lat": -3.342981,
+      "lng": 114.621245,
+      "description": "Restoran ikan tawar khas Banjar terbesar, sangat terkenal dengan kelezatan Gangan Asam Patin kuah kuningnya yang segar bebas bau lumpur.",
+      "priceRange": "Rp 30.000 - Rp 50.000"
+    },
+    {
+      "name": "Warung Pondok Bahari",
+      "city": "Banjarmasin",
+      "lat": -3.319864,
+      "lng": 114.590451,
+      "description": "Depot legendaris 24 jam yang menyajikan aneka gangan Banjar otentik, kuah gangan asamnya di sini sangat seimbang asam manis gurihnya.",
+      "priceRange": "Rp 25.000 - Rp 40.000"
+    }
+  ],
+  "related": [
+    "ketupat-kandangan-002",
+    "gangan-habang-008",
+    "iwak-pakasam-010"
+  ],
+  "funFacts": [
+    "Rasa asam segar khas yang meluluhkan rasa eneg lemak ikan patin berasal dari Terung Asam (rimbang), buah asam liar berbulu halus berkulit jingga dari hutan hujan tropis Kalimantan.",
+    "Dalam versi adat Banjar Hulu, sayur ini kerap ditambahkan 'umbut pisang' yaitu empulur putih lembut bagian paling dalam dari pohon pisang kepok muda."
+  ],
+  "tags": [
+    "gangan asam",
+    "kalimantan selatan",
+    "ikan patin",
+    "kuliner banjar",
+    "terong asam"
+  ]
+}

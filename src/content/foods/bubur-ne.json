@@ -1,0 +1,163 @@
+{
+  "id": "bubur-ne-010",
+  "name": "Bubur Ne",
+  "region": "maluku-papua",
+  "description": "Bubur manis khas Maluku yang terbuat dari sagu lempeng atau mutiara sagu berwarna-warni, dimasak dalam kuah santan gurih beraroma daun pandan dan manisnya gula merah.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/img/foods/bubur-ne.jpg",
+  "hero": {
+    "image": "/img/foods/bubur-ne-hero.jpg",
+    "alt": "Bubur Ne mutiara sagu manis gurih khas Maluku",
+    "dominantColor": "#8B4513"
+  },
+  "story": {
+    "headline": "Sensasi Manis Legit Mutiara Sagu dari Bumi Kepulauan",
+    "body": "Bubur Ne adalah hidangan penutup (dessert) tradisional yang sangat dicintai di Kepulauan Maluku. Makanan manis ini terbuat dari olahan sagu yang dibentuk menjadi bulatan-bulatan kecil kenyal berwarna-warni (sering disebut sagu mutiara) atau potongan sagu lempengan kering yang direbus hingga melunak dan kenyal.\n\nNama 'Ne' merujuk pada mutiara sagu kecil khas setempat. Hidangan ini dimasak perlahan di dalam santan kelapa segar yang gurih bersama sisiran gula merah (gula aren) Ambon yang terkenal pekat dan harum, dipadukan dengan wewangian aromatik dari selembar daun pandan hutan.\n\nBubur Ne menyajikan kombinasi tekstur kenyal-lembut mutiara sagu yang menyenangkan di mulut, berpadu dengan kuah santan gula merah yang manis manis gurih melimpah. Hidangan manis ini sangat populer disajikan dingin sebagai pencuci mulut setelah makan besar, atau dinikmati hangat-hangat sebagai takjil berbuka puasa di bulan Ramadhan.",
+    "pullQuote": "Bubur Ne membawa kelembutan rasa manis sagu dalam riak kuah santan yang gurih.",
+    "image": "/img/foods/bubur-ne-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Sagu Mutiara Mentah",
+      "qty": "150g",
+      "image": "/img/ingredients/sago-pearls.svg",
+      "essential": true
+    },
+    {
+      "name": "Santan Instan Kental",
+      "qty": "200ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah Ambon",
+      "qty": "150g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Pandan",
+      "qty": "2 lembar",
+      "image": "/img/ingredients/pandan.svg",
+      "essential": false
+    },
+    {
+      "name": "Garam",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Air",
+      "qty": "800ml",
+      "image": "/img/ingredients/water.svg",
+      "essential": true
+    },
+    {
+      "name": "Daging Kelapa Muda",
+      "qty": "secukupnya",
+      "image": "/img/ingredients/coconut-meat.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 10,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Masak Sagu Mutiara",
+        "text": "Didihkan 600ml air dalam panci, lalu masukkan sagu mutiara. Masak dengan metode 5-30-7 (rebus 5 menit, diamkan tertutup 30 menit, lalu rebus kembali 7 menit) hingga mutiara sagu menjadi bening dan matang kenyal.",
+        "duration": 2520,
+        "tip": "Metode ini menghemat gas dan memastikan bagian tengah sagu mutiara matang sempurna tanpa hancur."
+      },
+      {
+        "order": 2,
+        "title": "Bilas Sagu",
+        "text": "Tiriskan sagu mutiara matang lalu siram dengan air dingin agar tidak saling menempel.",
+        "duration": 120
+      },
+      {
+        "order": 3,
+        "title": "Larutkan Gula",
+        "text": "Di panci lain, rebus 200ml air bersama gula merah sisir dan selembar daun pandan hingga gula larut sepenuhnya. Saring air gula tersebut.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Masak Kuah Santan",
+        "text": "Campurkan air gula merah saring dengan santan kental dan sisa air, tambahkan garam dan selembar daun pandan. Masak di atas api kecil sambil terus diaduk perlahan agar santan tidak pecah.",
+        "duration": 480
+      },
+      {
+        "order": 5,
+        "title": "Gabungkan Bahan",
+        "text": "Setelah kuah santan mendidih perlahan, masukkan sagu mutiara rebus dan serutan kelapa muda.",
+        "duration": 120
+      },
+      {
+        "order": 6,
+        "title": "Matangkan Bubur",
+        "text": "Masak sebentar selama 2 menit hingga meresap dan kuah sedikit mengental. Angkat dan sajikan bubur ne baik hangat maupun dingin dengan es batu.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 85,
+    "pedas": 0,
+    "gurih": 70,
+    "asam": 0,
+    "asin": 35
+  },
+  "nutrition": {
+    "calories": 220,
+    "protein": 1,
+    "carbs": 46,
+    "fat": 4,
+    "fiber": 1,
+    "servingSize": "1 mangkuk (180g)"
+  },
+  "locations": [
+    {
+      "name": "Pasar Mardika Ambon",
+      "city": "Ambon",
+      "lat": -3.6917,
+      "lng": 128.1878,
+      "description": "Area pusat jajanan takjil sore hari di dekat pasar Mardika yang menyajikan bubur ne legendaris porsi melimpah.",
+      "priceRange": "Rp 10.000 - Rp 15.000"
+    },
+    {
+      "name": "Resto Timur Kaya",
+      "city": "Jayapura",
+      "lat": -2.5381,
+      "lng": 140.7105,
+      "description": "Restoran modern bernuansa lokal yang menyajikan bubur ne dingin sebagai hidangan penutup premium khas Maluku.",
+      "priceRange": "Rp 20.000 - Rp 35.000"
+    }
+  ],
+  "related": [
+    "sagu-lempeng-004",
+    "kue-bagea-008",
+    "papeda-001"
+  ],
+  "funFacts": [
+    "Bubur Ne terkadang juga disajikan dengan tambahan ubi jalar rebus atau potongan buah pisang raja, menjadikannya kolak manis khas kepulauan timur.",
+    "Masyarakat lokal percaya bahwa memakan makanan penutup berbahan dasar sagu ini membantu menenangkan pencernaan setelah seharian menyantap hidangan pedas berempah."
+  ],
+  "tags": [
+    "bubur ne",
+    "bubur sagu",
+    "bubur manis",
+    "khas maluku",
+    "kolak sagu",
+    "jajanan pasar",
+    "takjil"
+  ]
+}

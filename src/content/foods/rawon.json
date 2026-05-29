@@ -1,0 +1,150 @@
+{
+  "id": "rawon-002",
+  "name": "Rawon",
+  "region": "jawa",
+  "description": "Sup daging sapi legendaris khas Jawa Timur dengan kuah hitam pekat yang gurih beraroma harum, yang dihasilkan dari penggunaan buah kluwek.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/rawon.jpg",
+  "hero": {
+    "image": "/images/foods/rawon-hero.jpg",
+    "alt": "Semangkuk Rawon hangat dengan kuah hitam pekat khas Jawa Timur disajikan bersama kecambah kecil dan telur asin",
+    "dominantColor": "#2C3E50"
+  },
+  "story": {
+    "headline": "Hitamnya Kuah Kluwek yang Legendaris",
+    "body": "Rawon merupakan salah satu sup tertua dan paling ikonik di Nusantara yang berasal dari Jawa Timur. Prasasti Taji yang berangka tahun 901 Masehi pada zaman Kerajaan Mataram Kuno telah menyebut hidangan sejenis bernama 'Rarawwan'. Keunikan tak tertandingi dari Rawon terletak pada kuahnya yang berwarna hitam legam pekat, yang didapatkan secara alami dari buah kluwek (Pangium edule), sejenis biji tanaman tropis yang harus diperam dalam abu terlebih dahulu untuk menghilangkan racun hidrogen sianidanya.\n\nKluwek yang sudah matang dan aman dikonsumsi kemudian diambil daging buahnya yang lunak dan berwarna hitam kecokelatan, lalu dihaluskan bersama bawang merah, bawang putih, kemiri, ketumbar, dan kunyit. Bumbu halus ini ditumis harum bersama serai, daun jeruk purut, dan lengkuas sebelum dipadukan dengan rebusan daging sapi sandung lamur yang berlemak gurih. Rawon disajikan hangat dengan taburan tauge pendek segar, bawang goreng, perasan jeruk nipis, sambal terasi, serta pelengkap wajib berupa telur asin dan kerupuk udang.",
+    "pullQuote": "Di balik kuah hitamnya yang misterius, tersimpan kehangatan rempah pusaka Jawa Timur",
+    "image": "/images/foods/rawon-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Sapi Sandung Lamur",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kluwek Tua Pilihan",
+      "qty": "5 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Jeruk Purut",
+      "qty": "5 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Tauge Pendek (Kecambah)",
+      "qty": "100g",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Telur Asin",
+      "qty": "2 butir",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 90,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Daging Sapi",
+        "text": "Rebus daging sapi sandung lamur dalam air mendidih hingga empuk. Angkat daging, potong berbentuk dadu sedang searah seratnya, lalu masukkan kembali ke dalam kuah kaldu di panci.",
+        "duration": 3600,
+        "tip": "Gunakan potongan daging sandung lamur (brisket) karena kandungan lemaknya akan mencair berpadu membuat kuah kaldu terasa gurih alami"
+      },
+      {
+        "order": 2,
+        "title": "Siapkan Daging Kluwek",
+        "text": "Pecahkan kulit keras kluwek menggunakan ulekan atau palu kecil, ambil daging buahnya yang berwarna hitam pekat. Seduh daging kluwek dengan air panas, lalu haluskan bersama bawang merah, bawang putih, kemiri sangrai, ketumbar, kunyit, dan jahe.",
+        "duration": 600,
+        "tip": "Pastikan mencicipi secuil daging kluwek terlebih dahulu; jika rasanya pahit sekali, buang karena itu menandakan kluwek belum terfermentasi sempurna dan beracun"
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu Halus",
+        "text": "Tumis bumbu halus kluwek bersama daun jeruk purut, lengkuas yang dimemarkan, dan serai di atas minyak kelapa sedang hingga matang, pecah minyak, dan menebarkan aroma harum khas.",
+        "duration": 480
+      },
+      {
+        "order": 4,
+        "title": "Masak Rawon Bersama Kaldu",
+        "text": "Masukkan tumisan bumbu halus kluwek ke dalam panci rebusan daging sapi. Tambahkan garam, gula pasir, dan sedikit lada bubuk. Masak kembali dengan api kecil hingga kuah hitam meresap sempurna ke dalam pori-pori daging.",
+        "duration": 1800
+      },
+      {
+        "order": 5,
+        "title": "Sajikan dengan Pelengkap",
+        "text": "Tuang rawon hangat beserta kuah hitam legamnya ke mangkuk saji. Berikan taburan tauge pendek mentah yang renyah di atasnya, lengkapi dengan potongan telur asin gurih, jeruk nipis, dan kerupuk udang.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 10,
+    "gurih": 90,
+    "asam": 15,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 310,
+    "protein": 22,
+    "carbs": 10,
+    "fat": 20,
+    "servingSize": "1 porsi semangkuk (300ml)"
+  },
+  "locations": [
+    {
+      "name": "Rawon Setan Mbak Endang",
+      "city": "Surabaya",
+      "lat": -7.2625,
+      "lng": 112.7423,
+      "description": "Rawon legendaris di Surabaya dengan potongan daging sapi sandung lamur tebal empuk dan siraman kuah kluwek hitam yang legendaris mantap.",
+      "priceRange": "Rp 35.000 - Rp 55.000"
+    },
+    {
+      "name": "Rawon Nguling",
+      "city": "Probolinggo",
+      "lat": -7.7554,
+      "lng": 113.1256,
+      "description": "Warung rawon terkenal sejak tahun 1940-an dengan kekhasan kuah hitamnya yang cenderung ringan namun harum bumbu rempah aromatik kuno.",
+      "priceRange": "Rp 30.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "soto-betawi-006",
+    "tongseng-010"
+  ],
+  "funFacts": [
+    "Biji kluwek mentah memiliki kandungan asam sianida tinggi yang mematikan. Racun ini meluruh secara alami setelah direbus lama dan ditimbun abu tanah selama 40 hari lamanya.",
+    "Rawon dinobatkan sebagai 'Sup Terbaik di Dunia' (Best Rated Soup in the World) oleh TasteAtlas pada edisi Juli 2023, mengalahkan sup ternama Jepang dan Prancis."
+  ],
+  "tags": [
+    "rawon",
+    "jawa timur",
+    "surabaya",
+    "kluwek",
+    "daging sapi",
+    "sup hitam",
+    "berkuah"
+  ]
+}

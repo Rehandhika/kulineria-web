@@ -1,0 +1,146 @@
+{
+  "id": "nasi-jinggo-008",
+  "name": "Nasi Jinggo",
+  "region": "bali-ntt",
+  "description": "Nasi kucing khas Bali berukuran kepalan tangan yang dibungkus daun pisang berbentuk kerucut, disajikan dengan ayam suwir, mi goreng, tempe orek, dan sambal embe yang sangat pedas.",
+  "taste": [
+    "pedas",
+    "gurih"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/img/foods/nasi-jinggo.jpg",
+  "hero": {
+    "image": "/img/foods/nasi-jinggo-hero.jpg",
+    "alt": "Nasi Jinggo Bali mini terbungkus daun pisang dengan ayam sisit dan mi goreng",
+    "dominantColor": "#4A6B32"
+  },
+  "story": {
+    "headline": "Penyelamat Perut di Kala Malam Pulau Dewata",
+    "body": "Nasi Jinggo (atau Jenggo) adalah ikon makanan jalanan murah meriah di Bali yang memiliki tempat tersendiri di hati warga lokal maupun wisatawan. Karakteristik utamanya adalah porsinya yang sangat kecil—hanya seukuran kepalan tangan—dan dibungkus rapi dengan daun pisang berbentuk kerucut yang disematkan lidi (pincuk). Nasi Jinggo menjadi penyelamat perut lapar di malam hari karena biasanya dijajakan di emperan toko atau gerobak pinggir jalan dari sore hingga dini hari.\n\nAsal-usul nama 'Jinggo' disinyalir berasal dari bahasa Hokkien 'jeng go' yang berarti 'seribu lima ratus', merujuk pada harga pasaran nasi ini pada awal kemunculannya di era 1990-an sebelum krisis moneter. Ada juga yang mengaitkannya dengan film koboi populer 'Django', karena kepedasan sambalnya yang 'menembak' tajam di lidah.\n\nMeskipun porsinya minimalis, lauk di dalam Nasi Jinggo sangat meriah dan padat rasa. Nasi putih atau nasi kuning dipadukan dengan ayam suwir bumbu Bali, mi goreng kuning, kering tempe manis-gurih, serundeng kelapa, dan yang paling krusial: sambal embe (sambal bawang goreng khas Bali) atau sambal terasi super pedas yang menyengat namun sangat menggugah selera.",
+    "pullQuote": "Porsinya boleh kecil, tapi sengatan pedas sambal dan kelezatan Nasi Jinggo adalah legenda yang ramah di kantong.",
+    "image": "/img/foods/nasi-jinggo-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Nasi Putih Hangat",
+      "qty": "300g",
+      "image": "/img/ingredients/steamed-rice.svg",
+      "essential": true
+    },
+    {
+      "name": "Ayam Suwir Bumbu Bali",
+      "qty": "100g",
+      "image": "/img/ingredients/shredded-chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Sambal Embe",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/sambal-embe.svg",
+      "essential": true
+    },
+    {
+      "name": "Mi Goreng Kuning",
+      "qty": "70g",
+      "image": "/img/ingredients/fried-noodles.svg",
+      "essential": false
+    },
+    {
+      "name": "Kering Tempe Orek",
+      "qty": "50g",
+      "image": "/img/ingredients/tempeh.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Pisang",
+      "qty": "2 lembar",
+      "image": "/img/ingredients/banana-leaf.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Lauk Kering Tempe",
+        "text": "Goreng tempe yang telah diiris korek api hingga kering garing. Tumis bumbu manis (bawang merah, bawang putih, cabai, gula merah, asam jawa), lalu masukkan tempe garing. Aduk cepat hingga rata dan kering.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Masak Mi Goreng Kuning",
+        "text": "Rebus mi kuning, lalu tumis dengan bawang merah, bawang putih, kecap manis, garam, dan merica hingga matang.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Buat Sambal Embe",
+        "text": "Iris bawang merah, bawang putih, dan cabai rawit merah. Goreng bawang merah dan putih hingga setengah matang, masukkan cabai dan terasi. Goreng hingga matang kecokelatan dan wangi, angkat lalu peras sedikit jeruk limau dan beri garam.",
+        "duration": 450,
+        "tip": "Sambal embe khas karena teksturnya yang renyah berkat bawang goreng setengah garing."
+      },
+      {
+        "order": 4,
+        "title": "Membungkus Nasi Jinggo",
+        "text": "Ambil selembar daun pisang berbentuk bulat. Letakkan satu kepal nasi putih/kuning di tengah. Susun mi goreng, ayam suwir, orek tempe, dan sesendok sambal embe di atas nasi. Lipat daun pisang membentuk kerucut meruncing ke atas, lalu sematkan dengan lidi di ujungnya.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 20,
+    "pedas": 90,
+    "gurih": 80,
+    "asam": 15,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 290,
+    "protein": 10,
+    "carbs": 42,
+    "fat": 8,
+    "fiber": 2,
+    "servingSize": "1 bungkus kecil (150g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Jinggo Wikowi",
+      "city": "Badung",
+      "lat": -8.6791,
+      "lng": 115.2072,
+      "description": "Sangat populer dengan aneka pilihan nasi jinggo mulai dari nasi putih, nasi kuning, hingga nasi sela (ubi) dengan lauk sapi dan ayam suwir melimpah.",
+      "priceRange": "Rp 7.000 - Rp 15.000"
+    },
+    {
+      "name": "Nasi Jinggo Tutu",
+      "city": "Denpasar",
+      "lat": -8.6515,
+      "lng": 115.2136,
+      "description": "Warung nasi jinggo kaki lima legendaris di Denpasar yang buka hingga larut malam, terkenal dengan sambal terasi jinggonya yang pedasnya membakar lidah.",
+      "priceRange": "Rp 6.000 - Rp 12.000"
+    }
+  ],
+  "related": [
+    "nasi-campur-006",
+    "sate-lilit-002",
+    "lawar-004"
+  ],
+  "funFacts": [
+    "Nasi Jinggo awalnya dijual seharga Rp 1.500 per bungkus di kawasan Jalan Gajah Mada Denpasar pada akhir tahun 1990-an.",
+    "Meskipun porsinya mungil, orang dewasa rata-rata menghabiskan 2 sampai 3 bungkus Nasi Jinggo sekali makan untuk merasa kenyang."
+  ],
+  "tags": [
+    "nasi jinggo",
+    "bali",
+    "kuliner bali",
+    "street food",
+    "pedas",
+    "sambal embe",
+    "murah",
+    "makanan malam"
+  ]
+}

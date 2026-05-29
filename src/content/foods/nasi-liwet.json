@@ -1,0 +1,159 @@
+{
+  "id": "nasi-liwet-009",
+  "name": "Nasi Liwet",
+  "region": "jawa",
+  "description": "Hidangan nasi gurih khas Solo yang dimasak dengan kelapa dan rempah, disajikan beralas daun pisang dengan siraman sayur labu siam pedas berkuah encer, ayam suwir gulai, telur bacem, dan areh putih gurih tebal.",
+  "taste": [
+    "gurih",
+    "manis",
+    "pedas",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/nasi-liwet.jpg",
+  "hero": {
+    "image": "/images/foods/nasi-liwet-hero.jpg",
+    "alt": "Sajian Nasi Liwet Solo hangat beralas daun pisang pincuk dengan siraman kuah labu siam pedas gurih dan gumpalan areh kelapa putih",
+    "dominantColor": "#E5D3B3"
+  },
+  "story": {
+    "headline": "Kelembutan Areh dan Manis Gurih Tradisi Keraton",
+    "body": "Nasi Liwet merupakan ikon kuliner legendaris dari Kota Surakarta (Solo), Jawa Tengah. Hidangan ini lahir sebagai makanan rakyat jelata pedesaan yang kemudian naik kasta menjadi kesukaan para bangsawan di lingkungan Keraton Kasunanan Surakarta Hadiningrat. Cara menanak nasi dengan metode 'liwet'—yaitu memasak beras langsung di dalam panci cor logam tebal bersama santan kelapa tua diperas hangat dan daun-daun rempah lokal tanpa dikukus kembali—menghasilkan tekstur nasi yang sangat gurih basah, pulen berminyak tipis, dan beraroma harum memikat.\n\nYang membedakan Nasi Liwet Solo dari nasi liwet Sunda adalah pelengkap lauk pauk pendampingnya yang sangat kompleks. Nasi liwet Solo disajikan di atas 'pincuk' daun pisang beralas anyaman bambu, disiram kuah encer gurih pedas dari sayur labu siam (jipang), dilengkapi suwiran opor ayam kuning, telur bacem manis kecokelatan, serta 'areh'—yaitu sari pati santan kelapa yang dikentalkan bersama kocokan putih telur hingga menyerupai bubur putih tebal bercita rasa super gurih berlemak tebal.",
+    "pullQuote": "Nasi liwet pincuk adalah simfoni rasa manis gurih yang menyapa lembut lidah di pagi hari",
+    "image": "/images/foods/nasi-liwet-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras Putih Pulen",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kelapa Tua",
+      "qty": "500ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Labu Siam (Iris Korek)",
+      "qty": "2 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Areh Putih Kental",
+      "qty": "100ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Salam & Daun Pandan",
+      "qty": "4 lembar & 2 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Ayam Kampung",
+      "qty": "1/2 ekor",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Bawang Merah & Bawang Putih",
+      "qty": "5 butir & 3 siung",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 50,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Tanak Nasi Liwet",
+        "text": "Campurkan beras bersih, santan kelapa sedang, serai memar, daun salam, daun pandan wangi, dan garam di panci ketel tebal. Masak di atas api sedang hingga santan menyusut terserap habis, lalu kecilkan api sekecil mungkin dan tutup panci rapat hingga nasi liwet matang tanak sempurna.",
+        "duration": 1800,
+        "tip": "Gunakan panci cor logam tebal beralas berat agar distribusi panas menyelimuti beras merata melahirkan nasi liwet basah gurih legendaris"
+      },
+      {
+        "order": 2,
+        "title": "Masak Sayur Jipang Berkuah",
+        "text": "Tumis bumbu halus sayur (bawang merah, bawang putih, kemiri, cabai merah keriting, ketumbar bubuk) hingga wangi matang. Masukkan irisan labu siam, daun salam, dan serai. Tuangkan santan encer secukupnya, rebus hingga labu siam empuk basah dan kuah gurih pedas kemerahan mendidih tebal.",
+        "duration": 900
+      },
+      {
+        "order": 3,
+        "title": "Siapkan Opor Ayam Suwir",
+        "text": "Rebus ayam kampung bersama kuah santan kelapa dan bumbu opor kuning (bawang merah, bawang putih, kunyit bubuk, jahe, lengkuas, serai, daun salam) hingga ayam empuk meresap. Angkat ayam kampungknya, tiriskan lalu suwir-suwir serat dagingnya tipis.",
+        "duration": 1200
+      },
+      {
+        "order": 4,
+        "title": "Rebus Areh Putih Kental",
+        "text": "Rebus putih telur ayam bersama santan kelapa tua kental diperas segar dan garam kasar di atas panci kecil api minimal. Aduk lambat secara konstan tanpa henti hingga santan menggumpal pecah membentuk tekstur bubur putih padat berlemak.",
+        "duration": 480,
+        "tip": "Putih telur bertindak sebagai emulgator alami yang menstabilkan globula lemak santan kelapa melahirkan areh putih padat gurih"
+      },
+      {
+        "order": 5,
+        "title": "Sajikan ala Pincuk Solo",
+        "text": "Ambil selembar daun pisang segar melengkung membentuk pincuk. Tata nasi liwet gurih panas di dasarnya. Guyurkan sayur labu siam berkuah encer merah merata, beri suwiran opor ayam kuning, telur bacem, dan bubuhkan satu sendok areh putih kental gurih di atas nasi uap panas.",
+        "duration": 240
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 40,
+    "pedas": 30,
+    "gurih": 95,
+    "asam": 5,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 430,
+    "protein": 18,
+    "carbs": 52,
+    "fat": 18,
+    "servingSize": "1 porsi lengkap (300g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Liwet Wongso Lemu",
+      "city": "Surakarta",
+      "lat": -7.5694,
+      "lng": 110.8295,
+      "description": "Warung nasi liwet paling legendaris di Solo sejak tahun 1950, menyuguhkan suasana khas Jawa kuno dengan iringan alunan musik gamelan sinden tradisional.",
+      "priceRange": "Rp 25.000 - Rp 50.000"
+    },
+    {
+      "name": "Nasi Liwet Bu Sri Pasar Gede",
+      "city": "Surakarta",
+      "lat": -7.5682,
+      "lng": 110.8291,
+      "description": "Lapak nasi liwet sarapan pagi legendaris di kawasan Pasar Gede Solo, menyajikan nasi liwet hangat yang super gurih dengan harga bersahaja ramah kantong.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "gudeg-001",
+    "rawon-002",
+    "pecel-005"
+  ],
+  "funFacts": [
+    "Areh putih pada nasi liwet terbuat dari santan kental yang dikocok bersama putih telur, memberikan sensasi rasa 'creamy' gurih gurih asin yang menyeimbangkan rasa pedas sayur labu siam.",
+    "Dalam tradisi keraton Kasunanan Surakarta, nasi liwet disajikan sebagai hidangan adat bernilai sakral untuk memperingati Maulid Nabi Muhammad SAW sebagai simbol kemakmuran yang melimpah."
+  ],
+  "tags": [
+    "nasi liwet",
+    "nasi liwet solo",
+    "khas jawa",
+    "solo",
+    "areh kelapa",
+    "sayur labu siam",
+    "berkuah"
+  ]
+}

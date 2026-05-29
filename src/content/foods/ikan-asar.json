@@ -1,0 +1,151 @@
+{
+  "id": "ikan-asar-009",
+  "name": "Ikan Asar",
+  "region": "maluku-papua",
+  "description": "Ikan cakalang atau tongkol utuh yang diawetkan melalui proses pengasapan tradisional selama berjam-jam menggunakan sabut dan tempurung kelapa hingga kering, beraroma asap kuat, dan gurih.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/ikan-asar.jpg",
+  "hero": {
+    "image": "/img/foods/ikan-asar-hero.jpg",
+    "alt": "Ikan Asar cakalang asap khas Jayapura dan Ambon",
+    "dominantColor": "#8B0000"
+  },
+  "story": {
+    "headline": "Cakalang Samudra yang Terjaga dalam Selimut Asap Tempurung",
+    "body": "Ikan Asar adalah mahakarya pengawetan makanan tradisional masyarakat pesisir Papua dan Maluku. Kata 'asar' sendiri berarti diasapi atau dipanggang dengan asap. Lahir dari kebutuhan menyimpan hasil tangkapan laut berlimpah sebelum era lemari es, teknik pengasapan ini menghasilkan produk ikan olahan dengan cita rasa asap yang luar biasa pekat dan tekstur daging padat kenyal.\n\nDalam pembuatannya, ikan cakalang atau tongkol segar dibelah dua memanjang, dibersihkan bagian dalamnya, lalu ditusuk melintang menggunakan bilah bambu agar posisinya tetap terbuka lebar. Ikan kemudian diletakkan miring di atas rak pengasapan khusus setinggi setengah meter dari lantai bara.\n\nBahan bakar asap mutlak menggunakan sabut kelapa kering dan tempurung kelapa tua. Asap tebal bersuhu rendah menyelimuti ikan selama 4 hingga 8 jam, mematangkan daging sekaligus membunuh bakteri perusak secara alami. Ikan asar matang memiliki warna kulit kecokelatan mengkilap yang eksotis, siap dinikmati langsung bersama siraman sambal colo-colo atau diolah kembali menjadi masakan kuah santan pedas.",
+    "pullQuote": "Ikan asar adalah wujud rasa syukur masyarakat pesisir atas kemurahan laut Timur.",
+    "image": "/img/foods/ikan-asar-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Cakalang atau Tongkol Segar (ukuran besar)",
+      "qty": "1 ekor",
+      "image": "/img/ingredients/cakalang.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam Kasar",
+      "qty": "1.5 sdm",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "2 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Bilah Bambu Penusuk",
+      "qty": "2 buah",
+      "image": "/img/ingredients/bamboo.svg",
+      "essential": false
+    },
+    {
+      "name": "Tempurung dan Sabut Kelapa Kering",
+      "qty": "secukupnya",
+      "image": "/img/ingredients/coconut-shell.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 20,
+    "cookTime": 240,
+    "difficulty": "hard",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Belah Ikan",
+        "text": "Belah punggung ikan cakalang secara membujur tanpa memutuskan bagian perutnya, lalu bersihkan seluruh isi perut dan insangnya hingga benar-benar bersih dari darah.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Bumbui Asam Garam",
+        "text": "Lumuri ikan dengan garam kasar dan perasan air jeruk nipis di seluruh permukaan daging bagian dalam dan kulit luar. Diamkan selama 15 menit agar bumbu meresap.",
+        "duration": 900
+      },
+      {
+        "order": 3,
+        "title": "Tusuk Bentangkan",
+        "text": "Tusuk badan ikan secara melintang menggunakan bilah bambu tebal agar tubuh ikan tetap membentang lebar selama proses pengasapan.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Siapkan Tungku Bara",
+        "text": "Siapkan tempat pengasapan (tungku asar) tradisional. Bakar sabut dan tempurung kelapa hingga menjadi bara api yang menghasilkan asap tebal tanpa lidah api menyala.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Susun Ikan",
+        "text": "Susun ikan secara miring di atas rak pengasapan dengan posisi daging menghadap ke bawah menuju arah datangnya asap.",
+        "duration": 180
+      },
+      {
+        "order": 6,
+        "title": "Proses Pengasapan",
+        "text": "Asapi ikan secara terus-menerus selama 4-6 jam sambil sesekali dibalik hingga daging ikan mengering sempurna, berubah warna menjadi cokelat kemerahan gelap, dan matang rata.",
+        "duration": 18000,
+        "tip": "Jaga agar api tidak berkobar; hanya asap tebal konstan yang dibutuhkan untuk menghasilkan ikan asar berkualitas tinggi dan tidak gosong luar."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 5,
+    "pedas": 10,
+    "gurih": 90,
+    "asam": 15,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 290,
+    "protein": 34,
+    "carbs": 0,
+    "fat": 16,
+    "fiber": 0,
+    "servingSize": "1 potong (150g)"
+  },
+  "locations": [
+    {
+      "name": "Pasar Ikan Asar Hamadi",
+      "city": "Jayapura",
+      "lat": -2.5492,
+      "lng": 140.7208,
+      "description": "Pusat penjualan ikan asar cakalang terbesar di Papua dengan puluhan tungku pengasapan aktif di lokasi.",
+      "priceRange": "Rp 50.000 - Rp 90.000 per ekor"
+    },
+    {
+      "name": "Ikan Asar Galala",
+      "city": "Ambon",
+      "lat": -3.6825,
+      "lng": 128.2111,
+      "description": "Kawasan kuliner legendaris Galala yang menjadi pelopor pembuatan ikan asar tongkol berkualitas ekspor di Ambon.",
+      "priceRange": "Rp 40.000 - Rp 80.000 per ekor"
+    }
+  ],
+  "related": [
+    "sambal-colocolo-003",
+    "kohu-kohu-007",
+    "gohu-ikan-005"
+  ],
+  "funFacts": [
+    "Ikan asar yang diasap dengan benar dapat bertahan hingga 3-5 hari di suhu ruangan terbuka tanpa membusuk, menjadikannya oleh-oleh favorit wisatawan dari Indonesia Timur.",
+    "Selain dimakan dengan sambal colo-colo, ikan asar sering dimasak kembali sebagai gulai santan bersayur pakis hutan yang rasanya sangat sedap."
+  ],
+  "tags": [
+    "ikan asar",
+    "cakalang asap",
+    "pengasapan tradisional",
+    "khas papua",
+    "khas maluku",
+    "awet alami",
+    "seafood"
+  ]
+}

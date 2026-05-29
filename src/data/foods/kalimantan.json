@@ -1,4 +1,4 @@
-﻿{
+{
     "foods": [
         {
             "id": "soto-banjar-001",
@@ -79,86 +79,6 @@
             "description": "Ikan fermentasi khas Kalimantan Selatan yang digoreng dan disajikan dengan sambal.",
             "taste": ["asin", "asam"],
             "imageUrl": "/images/foods/iwak-pakasam.jpg"
-        },
-        {
-            "id": "bubur-pedas-011",
-            "name": "Bubur Pedas",
-            "region": "kalimantan",
-            "description": "Bubur rempah khas Sambas dengan berbagai sayuran dan ikan teri.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/bubur-pedas.jpg"
-        },
-        {
-            "id": "wadi-patin-012",
-            "name": "Wadi Patin",
-            "region": "kalimantan",
-            "description": "Ikan patin fermentasi khas Kalimantan Tengah yang digoreng atau dikukus.",
-            "taste": ["asin", "asam"],
-            "imageUrl": "/images/foods/wadi-patin.jpg"
-        },
-        {
-            "id": "hintalu-karuang-013",
-            "name": "Hintalu Karuang",
-            "region": "kalimantan",
-            "description": "Kue dari tepung ketan berbentuk bulat dalam kuah santan dan gula merah.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/hintalu-karuang.jpg"
-        },
-        {
-            "id": "amplang-014",
-            "name": "Amplang",
-            "region": "kalimantan",
-            "description": "Kerupuk ikan khas Kalimantan Timur yang renyah dan gurih.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/amplang.jpg"
-        },
-        {
-            "id": "lempok-durian-015",
-            "name": "Lempok Durian",
-            "region": "kalimantan",
-            "description": "Dodol durian khas Kalimantan Timur dengan tekstur kenyal dan rasa manis legit.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/lempok-durian.jpg"
-        },
-        {
-            "id": "nasi-bekepor-016",
-            "name": "Nasi Bekepor",
-            "region": "kalimantan",
-            "description": "Nasi dimasak dengan rempah dan minyak, disajikan dengan ikan asin dan sambal raja.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/nasi-bekepor.jpg"
-        },
-        {
-            "id": "pengkang-017",
-            "name": "Pengkang",
-            "region": "kalimantan",
-            "description": "Ketan isi ebi dibungkus daun pisang dan dibakar, khas Kalimantan Barat.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/pengkang.jpg"
-        },
-        {
-            "id": "kalumpe-018",
-            "name": "Kalumpe",
-            "region": "kalimantan",
-            "description": "Daun singkong ditumbuk dan dimasak dengan bumbu rempah, khas Kalimantan Tengah.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/kalumpe.jpg"
-        },
-        {
-            "id": "bebek-sinjay-019",
-            "name": "Bebek Sinjay",
-            "region": "kalimantan",
-            "description": "Bebek goreng khas Kalimantan dengan sambal pedas yang menggugah selera.",
-            "taste": ["pedas", "gurih"],
-            "imageUrl": "/images/foods/bebek-sinjay.jpg"
-        },
-        {
-            "id": "ikan-patin-bakar-020",
-            "name": "Ikan Patin Bakar",
-            "region": "kalimantan",
-            "description": "Ikan patin bakar dengan bumbu rempah dan sambal, hidangan favorit tepian sungai.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/ikan-patin-bakar.jpg"
         }
     ]
 }

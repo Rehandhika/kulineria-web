@@ -1,0 +1,153 @@
+{
+  "id": "ayam-pop-007",
+  "name": "Ayam Pop",
+  "region": "sumatera",
+  "description": "Olahan ayam kampung khas Minang berwarna putih pucat yang direbus dengan air kelapa dan rempah, lalu digoreng sangat sebentar dan disajikan dengan sambal merah khusus.",
+  "taste": [
+    "gurih",
+    "pedas",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/ayam-pop.jpg",
+  "hero": {
+    "image": "/images/foods/ayam-pop-hero.jpg",
+    "alt": "Ayam Pop khas Minang bertekstur empuk berwarna putih pucat disajikan dengan sambal merah khusus",
+    "dominantColor": "#E59866"
+  },
+  "story": {
+    "headline": "Keunikan Ayam Goreng Tanpa Kulit Khas Minang",
+    "body": "Berbeda dari kebanyakan ayam goreng khas Nusantara yang berwarna cokelat keemasan dan berkulit renyah, Ayam Pop tampil beda dengan kulit yang sengaja dikupas dan daging ayamnya yang berwarna putih pucat basah. Kuliner legendaris ini berasal dari daerah Bukittinggi, Sumatra Barat. Nama 'Pop' konon terinspirasi dari musik populer (Pop) atau suara letupan ('pop-pop') saat ayam digoreng dalam minyak kelapa panas yang banyak.\n\nKeistimewaan rasa Ayam Pop terletak pada rahasia bumbu rebusannya. Sebelum digoreng, ayam kampung muda yang telah dikuliti direbus bersama air kelapa murni, bawang putih, jahe, serai, daun jeruk purut, dan garam hingga meresap sempurna ke dalam serat daging terkecil. Proses penggorengan pun hanya dilakukan selama beberapa detik ('quick fry') dalam minyak kelapa kelenteng panas, hanya untuk memberikan tekstur gurih basah yang khas tanpa mengubah warna alami daging ayam yang putih bersih.",
+    "pullQuote": "Ayam Pop membuktikan bahwa kelembutan rasa sejati tidak selalu butuh balutan warna cokelat",
+    "image": "/images/foods/ayam-pop-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ayam Kampung Muda",
+      "qty": "1 ekor",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Air Kelapa Muda Murni",
+      "qty": "500ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "6 siung",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Jahe",
+      "qty": "2cm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Minyak Kelapa",
+      "qty": "300ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "1 buah",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 40,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Ayam Kampung",
+        "text": "Bersihkan ayam kampung muda, kuliti atau kupas kulit ayam sepenuhnya, lalu potong menjadi 4 bagian. Lumuri dengan perasan air jeruk nipis dan garam kasar. Diamkan selama 15 menit, lalu bilas bersih di air mengalir.",
+        "duration": 900,
+        "tip": "Mengupas kulit ayam bertujuan agar rebusan air kelapa dan rempah dapat langsung meresap ke serat daging terdalam"
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu Rebusan",
+        "text": "Haluskan bawang putih dan jahe. Memarkan serai dan daun jeruk purut sebagai aromatik pelengkap.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Rebus Ayam dengan Air Kelapa",
+        "text": "Masukkan potongan ayam tanpa kulit ke dalam wajan. Tuangkan air kelapa muda murni bersama bumbu halus, serai, daun jeruk purut, dan garam secukupnya. Tutup wajan, rebus dengan api kecil hingga air kelapa menyusut dan daging ayam empuk meresap sempurna.",
+        "duration": 1800,
+        "tip": "Air kelapa murni memberikan rasa gurih manis alami yang khas pada daging ayam"
+      },
+      {
+        "order": 4,
+        "title": "Goreng Kilat (Quick Fry)",
+        "text": "Panaskan minyak kelapa dalam wajan bersih di atas api sedang. Celupkan potongan ayam rebus satu per satu ke dalam minyak panas selama 5-10 detik saja. Angkat segera sebelum ayam berubah warna menjadi kecokelatan.",
+        "duration": 120,
+        "tip": "Tujuan menggoreng kilat ini hanya agar permukaan luar ayam terasa gurih basah tanpa merusak warna putih pucat khasnya"
+      },
+      {
+        "order": 5,
+        "title": "Buat Sambal Merah Khas",
+        "text": "Rebus cabai merah keriting, bawang merah, bawang putih, dan tomat merah hingga layu. Ulek halus, tumis sebentar dengan sisa minyak kelapa panas, bumbui dengan garam dan sedikit gula. Sajikan hangat bersama Ayam Pop hangat.",
+        "duration": 480
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 60,
+    "gurih": 90,
+    "asam": 10,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 290,
+    "protein": 26,
+    "carbs": 4,
+    "fat": 18,
+    "servingSize": "1 porsi (2 potong ayam + sambal)"
+  },
+  "locations": [
+    {
+      "name": "RM Family Benteng Indah",
+      "city": "Bukittinggi",
+      "lat": -0.3056,
+      "lng": 100.3692,
+      "description": "Restoran legendaris di Bukittinggi yang diyakini sebagai tempat kelahiran resep asli Ayam Pop pertama kali di Indonesia.",
+      "priceRange": "Rp 25.000 - Rp 50.000"
+    },
+    {
+      "name": "RM Simpang Raya",
+      "city": "Jakarta Pusat",
+      "lat": -6.1754,
+      "lng": 106.8272,
+      "description": "Salah satu restoran Minang ternama dengan sajian Ayam Pop paling lembut dan sambal merah berminyak yang gurih pedas manis.",
+      "priceRange": "Rp 28.000 - Rp 45.000"
+    }
+  ],
+  "related": [
+    "nasi-padang-005",
+    "dendeng-balado-008",
+    "gulai-ikan-009"
+  ],
+  "funFacts": [
+    "Nama Ayam Pop lahir pada tahun 1963 dari restoran Family Benteng Indah Bukittinggi ketika hidangan ayam ini dipesan massal saat gelaran konser musik populer (Pop) setempat.",
+    "Warna putih pucat Ayam Pop yang legendaris didapatkan dari teknik menggoreng kilat berdurasi sekitar 5-10 detik saja dalam minyak kelapa panas melimpah."
+  ],
+  "tags": [
+    "ayam pop",
+    "sumatera",
+    "bukittinggi",
+    "ayam kampung",
+    "gurih",
+    "kuliner minang",
+    "lauk nasi padang"
+  ]
+}

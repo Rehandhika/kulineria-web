@@ -1,0 +1,183 @@
+{
+  "id": "soto-banjar-001",
+  "name": "Soto Banjar",
+  "region": "kalimantan",
+  "description": "Soto khas suku Banjar dengan kuah kuning keruh yang kaya rempah seperti kayu manis, cengkih, dan pala, disajikan dengan suwiran ayam kampung, telur bebek, dan perkedel kentang.",
+  "taste": [
+    "gurih"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/soto-banjar.jpg",
+  "hero": {
+    "image": "/images/foods/soto-banjar-hero.jpg",
+    "alt": "Semangkuk Soto Banjar hangat dengan taburan bawang goreng dan pelengkap",
+    "dominantColor": "#D4A017"
+  },
+  "story": {
+    "headline": "Kehangatan Rempah di Tepian Sungai Martapura",
+    "body": "Soto Banjar merupakan salah satu ikon kuliner Kalimantan Selatan yang mencerminkan sejarah panjang perdagangan rempah di nusantara. Kuah soto ini sangat khas karena menggunakan rempah-rempah kering seperti kayu manis, biji pala, cengkih, dan kapulaga, yang berpadu dengan gurihnya kaldu ayam kampung. Keunikan lain terletak pada teknik pengentalan kuahnya; beberapa versi menggunakan susu kental manis atau telur bebek rebus yang dihancurkan ke dalam kuah untuk memberikan tekstur sedikit keruh yang gurih alami dan legit.\n\nSecara tradisi, Soto Banjar disajikan dengan ketupat berbentuk segitiga yang dipotong kecil-kecil, bukan nasi. Sebagai pelengkap wajib, soto ini ditemani oleh perkedel kentang yang lembut, soun, telur bebek rebus, perasan jeruk nipis khas Banjar (limau kuit), dan taburan bawang merah goreng. Hidangan ini tidak hanya sekadar pengisi perut, melainkan simbol kehangatan dan kebersamaan masyarakat Banjar yang kerap disajikan dalam berbagai acara adat, pernikahan, hingga santapan sehari-hari di sepanjang sungai Barito.",
+    "pullQuote": "Lamun kada mamakan Soto Banjar, parak kada karuan rasanya.",
+    "image": "/images/foods/soto-banjar-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ayam Kampung",
+      "qty": "1 ekor",
+      "image": "/img/ingredients/chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Kayu Manis",
+      "qty": "5 cm",
+      "image": "/img/ingredients/cinnamon.svg",
+      "essential": true
+    },
+    {
+      "name": "Biji Pala",
+      "qty": "1/2 butir",
+      "image": "/img/ingredients/nutmeg.svg",
+      "essential": true
+    },
+    {
+      "name": "Cengkih",
+      "qty": "4 butir",
+      "image": "/img/ingredients/clove.svg",
+      "essential": true
+    },
+    {
+      "name": "Kapulaga",
+      "qty": "3 butir",
+      "image": "/img/ingredients/cardamom.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "10 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "6 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Jahe",
+      "qty": "2 cm",
+      "image": "/img/ingredients/ginger.svg",
+      "essential": true
+    },
+    {
+      "name": "Susu Kental Manis",
+      "qty": "1 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Soun",
+      "qty": "100g",
+      "image": "/img/ingredients/vermicelli.svg",
+      "essential": false
+    },
+    {
+      "name": "Perkedel Kentang",
+      "qty": "4 buah",
+      "image": "/img/ingredients/potato-cake.svg",
+      "essential": false
+    },
+    {
+      "name": "Telur Bebek Rebus",
+      "qty": "2 butir",
+      "image": "/img/ingredients/duck-egg.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 30,
+    "cookTime": 60,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Ayam Kampung",
+        "text": "Rebus ayam kampung utuh dalam 2 liter air bersama garam hingga empuk dan menghasilkan kaldu yang gurih. Setelah matang, angkat ayam, suwir-suwir dagingnya, dan tiriskan air kaldu untuk kuah soto.",
+        "duration": 2400
+      },
+      {
+        "order": 2,
+        "title": "Haluskan dan Tumis Bumbu",
+        "text": "Haluskan bawang merah, bawang putih, jahe, dan merica bubuk. Tumis bumbu halus dengan minyak secukupnya, masukkan kapulaga, cengkih, pala, dan kayu manis hingga matang serta harum.",
+        "duration": 450
+      },
+      {
+        "order": 3,
+        "title": "Ramu Kuah Kaldu",
+        "text": "Masukkan tumisan bumbu halus dan rempah-rempah kering ke dalam air kaldu ayam. Didihkan kembali dengan api kecil. Masukkan susu kental manis untuk memberikan sentuhan rasa gurih legit yang khas.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Persiapkan Bahan Pelengkap",
+        "text": "Seduh soun dengan air hangat hingga lunak lalu tiriskan. Potong-potong ketupat, telur bebek rebus, perkedel kentang, dan iris halus daun seledri serta bawang merah goreng.",
+        "duration": 300
+      },
+      {
+        "order": 5,
+        "title": "Penyajian Soto Banjar",
+        "text": "Susun ketupat, soun, dan suwiran ayam di mangkuk saji. Siram dengan kuah soto panas beserta aroma rempahnya yang harum. Hias dengan potongan telur bebek rebus, perkedel kentang, seledri, daun bawang, bawang goreng, serta kucuran limau kuit dan sambal rawit.",
+        "duration": 180
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 20,
+    "pedas": 25,
+    "gurih": 90,
+    "asam": 30,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 380,
+    "protein": 24,
+    "carbs": 38,
+    "fat": 14,
+    "fiber": 2,
+    "servingSize": "1 porsi (450g)"
+  },
+  "locations": [
+    {
+      "name": "Soto Banjar Bang Amat",
+      "city": "Banjarmasin",
+      "lat": -3.303975,
+      "lng": 114.598583,
+      "description": "Warung soto terapung legendaris di tepian Sungai Martapura dengan pertunjukan musik tradisional Panting.",
+      "priceRange": "Rp 30.000 - Rp 45.000"
+    },
+    {
+      "name": "Soto Banjar H. Anang",
+      "city": "Banjarmasin",
+      "lat": -3.323562,
+      "lng": 114.591244,
+      "description": "Terkenal dengan kaldu kuning keruh khas yang sangat gurih menggunakan resep turun-temurun sejak tahun 1970-an.",
+      "priceRange": "Rp 25.000 - Rp 40.000"
+    }
+  ],
+  "related": [
+    "ketupat-kandangan-002",
+    "nasi-kuning-banjar-004",
+    "sate-banjar-005"
+  ],
+  "funFacts": [
+    "Kuah keruh legendaris Soto Banjar secara tradisional diberi sentuhan susu kental manis atau kuning telur bebek yang dihancurkan agar teksturnya kental dan legit.",
+    "Pelengkap asam pada Soto Banjar menggunakan jeruk Limau Kuit (jeruk purut khas Banjar) yang memberikan aroma harum yang jauh lebih pekat dibanding jeruk nipis biasa."
+  ],
+  "tags": [
+    "soto banjar",
+    "kalimantan selatan",
+    "soto ayam",
+    "kuliner banjar",
+    "rempah nusantara"
+  ]
+}

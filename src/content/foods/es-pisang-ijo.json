@@ -1,0 +1,149 @@
+{
+  "id": "es-pisang-ijo-006",
+  "name": "Es Pisang Ijo",
+  "region": "sulawesi",
+  "description": "Minuman es legendaris Makassar berupa potongan pisang ijo lembut di atas bubur sumsum gurih, berlimpah es serut, susu kental manis, dan sirup merah DHT yang harum khas.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "minuman",
+  "imageUrl": "/images/foods/es-pisang-ijo.jpg",
+  "hero": {
+    "image": "/images/foods/es-pisang-ijo-hero.jpg",
+    "alt": "Es Pisang Ijo segar dengan gunungan es serut bersiramkan sirup merah kental khas Makassar dan susu kental manis",
+    "dominantColor": "#E91E63"
+  },
+  "story": {
+    "headline": "Kesegaran Tropis Berselimut Sirup DHT Makassar",
+    "body": "Es Pisang Ijo adalah transformasi dingin yang menyegarkan dari sajian pisang ijo klasik. Keistimewaan utama yang membedakannya dari sekadar pisang ijo biasa adalah penyajian dingin dengan gunungan es batu serut kasar, kucuran susu kental manis putih, dan yang paling krusial: sirup DHT merah rasa pisang ambon khas Makassar. Sirup DHT memiliki aroma wangi buah pisang yang sangat kuat dan tingkat kekentalan yang unik, menciptakan harmonisasi rasa manis-gurih-dingin yang tak tertandingi di bawah terik matahari pesisir Makassar.\n\nPopularitas es ini meroket sebagai hidangan berbuka puasa (takjil) paling dicari di seantero Indonesia selama bulan Ramadan. Namun di kota asalnya, Es Pisang Ijo dinikmati sepanjang tahun di warung-warung pinggir jalan hingga restoran bintang lima. Es ini tidak hanya menyegarkan tenggorokan, tetapi juga menghidupkan kenangan masa kecil masyarakat Makassar. Kombinasi gurihnya bubur sumsum kelapa, manisnya pisang raja, kenyalnya kulit pandan, dinginnya es, serta wewangian sirup merah menjadikannya mahakarya minuman es nusantara yang tak tergantikan.",
+    "pullQuote": "Siraman sirup merah DHT di atas es serut mengalirkan rindu manis akan kehangatan Pantai Losari.",
+    "image": "/images/foods/es-pisang-ijo-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Pisang Ijo Matang",
+      "qty": "2 batang",
+      "image": "/img/ingredients/pisang-ijo-cut.svg",
+      "essential": true
+    },
+    {
+      "name": "Bubur Sumsum Halus",
+      "qty": "200g",
+      "image": "/img/ingredients/porridge.svg",
+      "essential": true
+    },
+    {
+      "name": "Es Batu Serut",
+      "qty": "300g",
+      "image": "/img/ingredients/shaved-ice.svg",
+      "essential": true
+    },
+    {
+      "name": "Sirup DHT Merah Makassar",
+      "qty": "50ml",
+      "image": "/img/ingredients/dht-syrup.svg",
+      "essential": true
+    },
+    {
+      "name": "Susu Kental Manis",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/condensed-milk.svg",
+      "essential": false
+    },
+    {
+      "name": "Santan Matang Gurih",
+      "qty": "50ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 5,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Pisang Ijo",
+        "text": "Potong serong pisang ijo matang setebal 1.5 cm dengan pisau yang dibalut plastik tipis agar kulit tepungnya tidak lengket.",
+        "duration": 120
+      },
+      {
+        "order": 2,
+        "title": "Tata Bubur Sumsum",
+        "text": "Sendokkan bubur sumsum putih ke dalam dasar mangkuk saji hingga menutupi dasar mangkuk secara merata.",
+        "duration": 60
+      },
+      {
+        "order": 3,
+        "title": "Susun Potongan Pisang",
+        "text": "Tata potongan pisang ijo di atas hamparan bubur sumsum secara rapi di bagian pinggir mangkuk.",
+        "duration": 120
+      },
+      {
+        "order": 4,
+        "title": "Tambahkan Es Serut",
+        "text": "Letakkan gunungan es serut padat tepat di tengah-tengah mangkuk di antara susunan pisang ijo.",
+        "duration": 90
+      },
+      {
+        "order": 5,
+        "title": "Beri Sirup dan Susu",
+        "text": "Siramkan santan gurih matang di atas es serut, dilanjutkan dengan sirup merah DHT secukupnya, dan terakhir susu kental manis secara merata. Sajikan segera.",
+        "duration": 90
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 95,
+    "pedas": 0,
+    "gurih": 85,
+    "asam": 0,
+    "asin": 35
+  },
+  "nutrition": {
+    "calories": 380,
+    "protein": 5,
+    "carbs": 68,
+    "fat": 10,
+    "fiber": 3,
+    "servingSize": "1 porsi mangkuk besar (350g)"
+  },
+  "locations": [
+    {
+      "name": "Es Pisang Ijo Bravo",
+      "city": "Makassar",
+      "lat": -5.1278,
+      "lng": 119.415,
+      "description": "Destinasi kuliner utama untuk menikmati Es Pisang Ijo legendaris Makassar dengan perpaduan sirup merah DHT yang harum legit dan es serut melimpah.",
+      "priceRange": "Rp 18.000 - Rp 32.000"
+    },
+    {
+      "name": "Pisang Ijo Lasinrang",
+      "city": "Makassar",
+      "lat": -5.1432,
+      "lng": 119.4138,
+      "description": "Sangat terkenal dengan kualitas pisang raja yang digunakan yang manis madu tanpa rasa sepat, serta porsi bubur sumsum yang lumer gurih.",
+      "priceRange": "Rp 15.000 - Rp 25.000"
+    }
+  ],
+  "related": [
+    "pisang-ijo-005"
+  ],
+  "funFacts": [
+    "Sirup DHT merah adalah ikon kuliner Makassar yang wajib digunakan dalam Es Pisang Ijo asli; aromanya sangat khas karena didominasi wangi buah pisang ambon yang pekat.",
+    "Di kota Makassar, es ini dulunya sering dijajakan keliling menggunakan gerobak kayu bercat hijau kuning yang sangat khas di sore hari menjelang matahari terbenam."
+  ],
+  "tags": [
+    "es pisang ijo",
+    "makassar",
+    "kuliner sulawesi",
+    "sirup dht",
+    "es serut",
+    "bubur sumsum",
+    "minuman",
+    "takjil"
+  ]
+}

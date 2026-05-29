@@ -1,0 +1,148 @@
+{
+  "id": "sate-lilit-002",
+  "name": "Sate Lilit",
+  "region": "bali-ntt",
+  "description": "Sate khas Bali yang terbuat dari cincangan daging ikan atau ayam, dicampur kelapa parut dan bumbu rempah, kemudian dililitkan pada batang serai lalu dibakar.",
+  "taste": [
+    "gurih",
+    "pedas",
+    "manis"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/sate-lilit.jpg",
+  "hero": {
+    "image": "/img/foods/sate-lilit-hero.jpg",
+    "alt": "Sate Lilit khas Bali yang harum dipanggang dengan batang serai",
+    "dominantColor": "#D9A05B"
+  },
+  "story": {
+    "headline": "Kelembutan Rempah dalam Setiap Lilitan",
+    "body": "Sate Lilit merupakan salah satu warisan kuliner Bali yang paling ikonik. Berbeda dengan sate pada umumnya yang menusuk potongan daging utuh, sate lilit dibuat dengan cara mencincang daging hingga halus, mencampurnya dengan kelapa parut dan bumbu basa genep, lalu melilitkannya pada pelepah kelapa atau batang serai yang wangi. Teknik 'melilit' ini melambangkan persatuan dan kebersamaan masyarakat Bali.\n\nSecara historis, sate lilit awalnya disajikan sebagai hidangan upacara keagamaan (yadnya). Lilitan adonan daging melambangkan pengikatan diri terhadap ajaran kebaikan dan harmoni kehidupan. Kini, hidangan ini telah menjadi bagian tak terpisahkan dari sajian harian masyarakat lokal maupun wisatawan.\n\nKeunikan sate lilit juga terletak pada penggunaan batang serai sebagai tusukannya. Ketika sate dibakar di atas bara api, panasnya batangan serai melepaskan minyak atsiri yang meresap ke dalam daging, menciptakan aroma wangi herbal yang khas dan meningkatkan cita rasa gurih-pedas yang mendalam.",
+    "pullQuote": "Lilitan bumbu dan daging adalah rajutan harmoni kehidupan masyarakat Bali.",
+    "image": "/img/foods/sate-lilit-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Ikan Tenggiri Cincang",
+      "qty": "500g",
+      "image": "/img/ingredients/mackerel.svg",
+      "essential": true
+    },
+    {
+      "name": "Kelapa Parut Setengah Tua",
+      "qty": "150g",
+      "image": "/img/ingredients/grated-coconut.svg",
+      "essential": true
+    },
+    {
+      "name": "Batang Serai",
+      "qty": "12 batang",
+      "image": "/img/ingredients/lemongrass-stalk.svg",
+      "essential": true
+    },
+    {
+      "name": "Basa Genep Halus",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/bali-spice.svg",
+      "essential": true
+    },
+    {
+      "name": "Santan Kental",
+      "qty": "50ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Jeruk Purut",
+      "qty": "5 lembar",
+      "image": "/img/ingredients/lime-leaf.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 30,
+    "cookTime": 15,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Campurkan Adonan",
+        "text": "Campurkan cincangan ikan tenggiri, kelapa parut, basa genep, irisan daun jeruk purut, garam, dan santan kental ke dalam wadah. Aduk rata hingga adonan menjadi kalis dan bisa dibentuk.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Siapkan Batang Serai",
+        "text": "Memarkan pangkal batang serai untuk mengeluarkan aromanya, cuci bersih dan tiriskan.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Lilitkan Adonan",
+        "text": "Ambil satu kepal adonan daging ikan (sekitar 30-40 gram), tempelkan pada ujung batang serai, lalu lilitkan sambil ditekan-tekan perlahan hingga melekat kuat dan berbentuk lonjong.",
+        "duration": 600,
+        "tip": "Basahi tangan dengan sedikit air atau minyak agar adonan tidak lengket di tangan saat melilit."
+      },
+      {
+        "order": 4,
+        "title": "Bakar Sate",
+        "text": "Panggang sate lilit di atas bara api arang batok kelapa atau wajan datar dengan api sedang, bolak-balik hingga seluruh permukaan berwarna kuning kecokelatan dan matang merata.",
+        "duration": 900,
+        "tip": "Jangan memanggang terlalu lama agar tekstur ikan tetap lembut dan tidak kering."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 30,
+    "pedas": 50,
+    "gurih": 85,
+    "asam": 10,
+    "asin": 40
+  },
+  "nutrition": {
+    "calories": 280,
+    "protein": 22,
+    "carbs": 8,
+    "fat": 18,
+    "fiber": 2,
+    "servingSize": "3 tusuk (150g)"
+  },
+  "locations": [
+    {
+      "name": "Warung Be Sanur",
+      "city": "Denpasar",
+      "lat": -8.6738,
+      "lng": 115.2625,
+      "description": "Terkenal dengan sate lilit ikan tenggiri khas Sanur yang sangat legendaris, lembut, dan kaya bumbu sejak puluhan tahun lalu.",
+      "priceRange": "Rp 30.000 - Rp 60.000"
+    },
+    {
+      "name": "Sate Lilit Warung Krubo",
+      "city": "Badung",
+      "lat": -8.6473,
+      "lng": 115.1686,
+      "description": "Warung makan tradisional yang menyajikan sate lilit ayam dan ikan panggang arang kelapa dengan cita rasa otentik Bali selatan.",
+      "priceRange": "Rp 25.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "bebek-betutu-001",
+    "lawar-004",
+    "ayam-betutu-005"
+  ],
+  "funFacts": [
+    "Secara tradisional di Bali, sate lilit untuk upacara keagamaan biasanya dibuat oleh kaum laki-laki (ngelawar) sebagai wujud gotong royong.",
+    "Batang serai digunakan tidak hanya sebagai tusuk sate ramah lingkungan, tetapi juga sebagai penyedap rasa alami saat dipanggang."
+  ],
+  "tags": [
+    "sate lilit",
+    "bali",
+    "kuliner bali",
+    "ikan tenggiri",
+    "basa genep",
+    "serai",
+    "panggang",
+    "makanan bali"
+  ]
+}

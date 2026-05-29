@@ -1,0 +1,164 @@
+{
+  "id": "mie-aceh-003",
+  "name": "Mie Aceh",
+  "region": "sumatera",
+  "description": "Mi tebal dengan kuah kari pedas kental khas Aceh, disajikan dengan irisan daging sapi, kambing, atau seafood, serta emping dan acar bawang.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/mie-aceh.jpg",
+  "hero": {
+    "image": "/images/foods/mie-aceh-hero.jpg",
+    "alt": "Sajian Mie Aceh tumis kepiting dengan bumbu kari merah merona",
+    "dominantColor": "#A0522D"
+  },
+  "story": {
+    "headline": "Harmoni Jalur Rempah di Ujung Sumatra",
+    "body": "Mie Aceh merupakan cerminan sejarah Banda Aceh sebagai pelabuhan perdagangan utama di Nusantara. Kuah karinya yang pekat dipengaruhi oleh cita rasa kuliner India, sementara mi kuning tebalnya diadaptasi dari tradisi Tionghoa. Perpaduan budaya ini melahirkan hidangan mi yang sarat rempah lokal pilihan.\n\nDalam perkembangannya, hidangan ini disajikan dalam tiga varian: kuah (basah), tumis (setengah basah), dan goreng (kering). Daging kambing dan kepiting bakau segar sering ditambahkan sebagai pelengkap mewah yang memperkaya kaldu kari tradisional.",
+    "pullQuote": "Kelezatan mi legendaris dengan kehangatan kari pusaka serambi mekah",
+    "image": "/images/foods/mie-aceh-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Mi Kuning Tebal",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daging Sapi",
+      "qty": "150g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "5 siung",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "3 siung",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Kering",
+      "qty": "10 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Jinten",
+      "qty": "1 sdt",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kapulaga",
+      "qty": "2 butir",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Kol",
+      "qty": "100g",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Tauge",
+      "qty": "50g",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 2,
+    "prepTime": 20,
+    "cookTime": 20,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Haluskan Bumbu Kari",
+        "text": "Haluskan cabai merah kering, bawang merah, bawang putih, jinten, kapulaga, dan sedikit jahe menggunakan blender atau cobek batu.",
+        "duration": 300,
+        "tip": "Gunakan sedikit minyak kelapa untuk mempercepat proses blending"
+      },
+      {
+        "order": 2,
+        "title": "Tumis Bumbu Hingga Harum",
+        "text": "Panaskan minyak di wajan, tumis bawang merah iris hingga wangi, lalu masukkan bumbu kari halus. Tumis hingga minyak bumbu keluar.",
+        "duration": 240
+      },
+      {
+        "order": 3,
+        "title": "Masak Daging Sapi",
+        "text": "Masukkan irisan daging sapi ke dalam wajan. Aduk rata hingga daging berubah warna dan bumbu meresap.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Tambahkan Sayuran dan Mi",
+        "text": "Tuangkan sedikit kaldu sapi hangat, biarkan mendidih. Masukkan irisan kol, tauge segar, dan mi kuning tebal. Aduk cepat hingga mi rata dengan kuah kari.",
+        "duration": 240,
+        "tip": "Jangan memasak sayur terlalu lama agar tetap renyah"
+      },
+      {
+        "order": 5,
+        "title": "Penyajian",
+        "text": "Angkat mi dan sajikan panas-panas. Lengkapi dengan taburan bawang goreng, emping melinjo renyah, dan acar bawang merah khas Aceh.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 20,
+    "pedas": 85,
+    "gurih": 90,
+    "asam": 30,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 450,
+    "protein": 22,
+    "carbs": 55,
+    "fat": 15,
+    "servingSize": "1 porsi (350g)"
+  },
+  "locations": [
+    {
+      "name": "Mie Aceh Razali",
+      "city": "Banda Aceh",
+      "lat": 5.5562,
+      "lng": 95.3214,
+      "description": "Warung mie aceh legendaris yang berdiri sejak tahun 1967",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    },
+    {
+      "name": "Mie Aceh Jaly-Jaly",
+      "city": "Jakarta Selatan",
+      "lat": -6.2297,
+      "lng": 106.8294,
+      "description": "Cabang populer dengan cita rasa otentik bumbu rempah Aceh",
+      "priceRange": "Rp 20.000 - Rp 35.000"
+    }
+  ],
+  "funFacts": [
+    "Penggunaan daging kambing atau kepiting dalam Mie Aceh merupakan simbol kemewahan kuliner pesisir Aceh",
+    "Acar bawang merah utuh yang disajikan sebagai pendamping wajib berfungsi sebagai penetral rasa pekat dari kaldu kari yang tebal"
+  ],
+  "tags": [
+    "mie aceh",
+    "sumatera",
+    "pedas",
+    "kari",
+    "kuliner aceh",
+    "seafood"
+  ]
+}

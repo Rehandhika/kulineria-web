@@ -1,0 +1,173 @@
+{
+  "id": "kapurung-004",
+  "name": "Kapurung",
+  "region": "sulawesi",
+  "description": "Kuliner sagu tradisional khas Tana Luwu dengan kuah ikan kuning asam segar, dipadukan sayuran hijau segar dan sambal tomat rawit yang menggigit.",
+  "taste": [
+    "asam",
+    "pedas",
+    "gurih"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/kapurung.jpg",
+  "hero": {
+    "image": "/images/foods/kapurung-hero.jpg",
+    "alt": "Mangkuk Kapurung dengan bola-bola sagu kenyal transparan dalam kuah asam segar berisi sayur kangkung, jagung pipil, dan suwiran ikan cakalang",
+    "dominantColor": "#E6C280"
+  },
+  "story": {
+    "headline": "Simbol Keguyuban dan Ketahanan Pangan Luwu",
+    "body": "Kapurung adalah makanan pokok tradisional yang berasal dari wilayah Tana Luwu (meliputi Palopo, Luwu Utara, Luwu Timur, dan Luwu). Inti dari hidangan ini adalah bola-bola sagu kenyal bertekstur transparan yang disiram kuah kaldu ikan kuning yang sangat segar, asam, dan gurih. Untuk melengkapi kelezatannya, Kapurung dicampur dengan aneka sayuran rebus seperti kangkung, bayam, kacang panjang, jantung pisang, jagung manis pipil, serta suwiran ikan cakalang, udang, atau ayam.\n\nSecara sejarah, sagu merupakan makanan pokok masyarakat pesisir dan dataran rendah di Sulawesi Selatan jauh sebelum beras mendominasi. Kapurung melambangkan kearifan lokal dalam memanfaatkan hutan sagu yang melimpah ruah di Kerajaan Luwu purba. Makan kapurung bersama-sama dari satu wadah besar (disebut tradisi ma'kapurung) merupakan tradisi keguyuban keluarga Bugis-Luwu yang mempererat tali persaudaraan dan gotong royong antarwarga.",
+    "pullQuote": "Kapurung adalah untaian rasa kebersamaan, menyatukan kelembutan sagu dengan kesegaran alam Luwu.",
+    "image": "/images/foods/kapurung-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Tepung Sagu Asli",
+      "qty": "250g",
+      "image": "/img/ingredients/sago.svg",
+      "essential": true
+    },
+    {
+      "name": "Ikan Cakalang",
+      "qty": "300g",
+      "image": "/img/ingredients/tuna.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Tanah Goreng",
+      "qty": "50g",
+      "image": "/img/ingredients/peanut.svg",
+      "essential": false
+    },
+    {
+      "name": "Jagung Manis",
+      "qty": "1 buah",
+      "image": "/img/ingredients/sweet-corn.svg",
+      "essential": false
+    },
+    {
+      "name": "Sayur Kangkung",
+      "qty": "50g",
+      "image": "/img/ingredients/spinach.svg",
+      "essential": false
+    },
+    {
+      "name": "Sayur Bayam",
+      "qty": "50g",
+      "image": "/img/ingredients/spinach.svg",
+      "essential": false
+    },
+    {
+      "name": "Kacang Panjang",
+      "qty": "5 batang",
+      "image": "/img/ingredients/long-bean.svg",
+      "essential": false
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "2 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "10 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit",
+      "qty": "2 cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 40,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Masak Ikan Kuning",
+        "text": "Rebus ikan cakalang dengan air, kunyit yang dihaluskan, garam, dan sedikit asam jawa. Setelah matang, suwir-suwir daging ikan dan saring sisa air rebusannya untuk dijadikan kaldu utama.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Olah Adonan Sagu",
+        "text": "Larutkan tepung sagu dengan air dingin hingga merata. Siram perlahan dengan air mendidih sembari diaduk cepat hingga adonan mengental, bening, dan kenyal sempurna.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Bentuk Bola-Bola Sagu",
+        "text": "Ambil adonan sagu menggunakan sumpit kayu atau sendok basah, lalu pilin kecil-kecil dan masukkan ke dalam wadah berisi air es dingin agar bola sagu tidak saling menempel.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Rebus Sayuran",
+        "text": "Rebus jagung manis pipil, kacang panjang, kangkung, dan bayam secara terpisah hingga setengah matang, lalu angkat dan tiriskan.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Satukan dan Bumbui Kapurung",
+        "text": "Dalam mangkuk besar berisi kuah kaldu ikan, masukkan bola-bola sagu, sayuran rebus, suwiran cakalang, dan kacang tanah goreng yang dihaluskan kasar. Tambahkan ulekan cabai rawit merah dan perasan jeruk nipis. Aduk rata dan sajikan.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 75,
+    "gurih": 80,
+    "asam": 85,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 240,
+    "protein": 16,
+    "carbs": 38,
+    "fat": 4,
+    "fiber": 4,
+    "servingSize": "1 porsi besar (400g)"
+  },
+  "locations": [
+    {
+      "name": "Kapurung Aroma Luwu",
+      "city": "Makassar",
+      "lat": -5.1481,
+      "lng": 119.441,
+      "description": "Warung makan spesialis masakan Luwu legendaris di Makassar yang menyajikan Kapurung autentik dengan kelembutan sagu dan kepekatan kuah ikan kuning yang tiada duanya.",
+      "priceRange": "Rp 20.000 - Rp 35.000"
+    },
+    {
+      "name": "Kapurung Nyaty",
+      "city": "Palopo",
+      "lat": -2.9904,
+      "lng": 120.1962,
+      "description": "Restoran Kapurung legendaris di tanah asalnya, Palopo, yang terkenal dengan kuah asam segar dan perpaduan sayur tradisional yang melimpah.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "tinutuan-009",
+    "papeda-001"
+  ],
+  "funFacts": [
+    "Membuat bola-bola sagu membutuhkan keterampilan khusus dan kecepatan tangan agar adonan sagu panas tidak mengeras atau menggumpal tidak merata.",
+    "Kapurung merupakan alternatif karbohidrat non-beras yang sangat sehat karena sagu memiliki indeks glikemik rendah dan aman untuk pencernaan."
+  ],
+  "tags": [
+    "kapurung",
+    "sagu",
+    "palopo",
+    "luwu",
+    "makanan sehat",
+    "sup sayur"
+  ]
+}

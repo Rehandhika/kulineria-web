@@ -1,0 +1,150 @@
+{
+  "id": "nasi-kuning-008",
+  "name": "Nasi Kuning",
+  "region": "jawa",
+  "description": "Hidangan nasi khas Jawa bercita rasa gurih asin yang dimasak dengan kunyit, santan, dan rempah daun, sering kali dibentuk tumpeng untuk simbol rasa syukur.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/nasi-kuning.jpg",
+  "hero": {
+    "image": "/images/foods/nasi-kuning-hero.jpg",
+    "alt": "Sajian Tumpeng Nasi Kuning mini dengan lauk kering tempe, perkedel kentang, dan telur dadar iris",
+    "dominantColor": "#F1C40F"
+  },
+  "story": {
+    "headline": "Simbol Kemakmuran dan Rasa Syukur Berwarna Emas",
+    "body": "Nasi Kuning adalah hidangan sakral nan meriah yang tersebar luas di Nusantara, terutama di Pulau Jawa. Rona kuning keemasan yang menawan didapatkan secara alami dari perasan rimpang kunyit segar yang direbus bersama santan kelapa tua. Warna kuning cerah ini secara historis menyimbolkan timbunan emas, kemakmuran, kemuliaan, dan limpahan rasa syukur. Oleh karena itu, nasi kuning sering dibentuk kerucut menjulang tinggi menjadi 'tumpeng' di acara selamatan adat Jawa.\n\nMemasak nasi kuning yang mengkilap berkilau membutuhkan presisi takaran asam dan rempah daun. Kunyit parut segar diperas bersama santan kelapa, ditambahkan daun pandan wangi, daun jeruk purut, daun salam, serai memar, dan sedikit perasan air jeruk nipis segar. Jeruk nipis ini sangat krusial karena keasamannya bereaksi dengan senyawa kurkumin kunyit untuk mengunci warna kuning agar cerah mengkilap ('glossy') dan tidak kusam kelabu. Nasi kuning tradisional disajikan dengan lauk kering tempe garing, abon sapi, telur dadar iris tipis, perkedel kentang, dan ayam goreng kuning.",
+    "pullQuote": "Nasi kuning tumpeng adalah representasi doa luhur kemakmuran yang terwujud di atas piring",
+    "image": "/images/foods/nasi-kuning-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras Putih Pulen",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kelapa Sedang",
+      "qty": "400ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kunyit Parut Segar",
+      "qty": "5cm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "1 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Salam & Daun Jeruk",
+      "qty": "3 lembar & 2 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 40,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Peras Kunyit bersama Santan",
+        "text": "Kupas kunyit segar lalu parut halus. Campurkan parutan kunyit ke dalam santan kelapa sedang, remas-remas rata agar pigmen kurkuminnya terlarut, kemudian saring ampas kunyit agar kuah santan berwarna kuning cerah bebas ampas halus.",
+        "duration": 480
+      },
+      {
+        "order": 2,
+        "title": "Rebus Santan Kuning",
+        "text": "Tuangkan santan kuning ke panci. Tambahkan air perasan jeruk nipis, daun salam, daun jeruk purut, serai memar, pandan wangi, dan garam halus. Didihkan perlahan di atas api sedang sambil diaduk-aduk konstan.",
+        "duration": 600,
+        "tip": "Asam jeruk nipis bereaksi mengunci kestabilan kurkumin kunyit sehingga rona kuning nasi tampak berkilau menawan saat matang"
+      },
+      {
+        "order": 3,
+        "title": "Tanak Beras Kuning (Aron)",
+        "text": "Masukkan beras bersih ke panci santan kuning yang telah mendidih wangi. Masak dengan api sedang cenderung kecil sambil sesekali diaduk rata hingga santan menyusut habis terserap butiran beras menjadi aron kuning.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Kukus Nasi Kuning",
+        "text": "Panaskan dandang kukusan hingga uap air mendidih mengepul tebal. Masukkan beras aron kuning ke dalam saringan dandang. Kukus selama 30-35 menit hingga nasi kuning benar-benar matang pulen dan tanak.",
+        "duration": 1800
+      },
+      {
+        "order": 5,
+        "title": "Cetak dan Sajikan",
+        "text": "Cetak nasi kuning hangat menggunakan cetakan kerucut tumpeng mini. Tata rapi di piring saji, lengkapi sekeliling kerucut nasi kuning dengan lauk kering tempe garing, abon sapi manis, perkedel kentang lembut, dan irisan telur dadar tipis.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 10,
+    "gurih": 85,
+    "asam": 5,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 350,
+    "protein": 7,
+    "carbs": 56,
+    "fat": 10,
+    "servingSize": "1 porsi (150g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Kuning Ibu Roes",
+      "city": "Surakarta",
+      "lat": -7.5615,
+      "lng": 110.8223,
+      "description": "Kedai sarapan pagi nasi kuning legendaris di Solo dengan aneka lauk pauk tradisional khas Jawa terlengkap dan tekstur nasi kuning wangi cerah yang pulen.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    },
+    {
+      "name": "Nasi Kuning Cakalang Komo",
+      "city": "Manado",
+      "lat": 1.4892,
+      "lng": 124.8402,
+      "description": "Meskipun nasi kuning berakar dari Jawa, kota Manado menyuguhkan varian nasi kuning legendaris berbungkus daun woka yang berpasangan dengan suwiran cakalang asap pedas hangat.",
+      "priceRange": "Rp 20.000 - Rp 35.000"
+    }
+  ],
+  "related": [
+    "nasi-uduk-007",
+    "nasi-goreng-003",
+    "gudeg-001"
+  ],
+  "funFacts": [
+    "Perasan jeruk nipis wajib dicampurkan ke air rebusan kunyit karena zat asamnya bertindak sebagai mordant alami yang menstabilkan warna kurkumin sehingga nasi tidak kusam keabuan saat matang lama.",
+    "Bentuk kerucut menjulang pada Tumpeng Nasi Kuning melambangkan kosmologi kuno Gunung Mahameru yang suci, representasi rasa hormat terdalam kepada Sang Pencipta atas nikmat keselamatan kehidupan."
+  ],
+  "tags": [
+    "nasi kuning",
+    "tumpeng",
+    "khas jawa",
+    "kunyit",
+    "selamatan",
+    "sarapan",
+    "kemakmuran"
+  ]
+}

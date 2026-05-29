@@ -1,0 +1,166 @@
+{
+  "id": "gangan-habang-008",
+  "name": "Gangan Habang",
+  "region": "kalimantan",
+  "description": "Hidangan berkuah kental kemerahan khas Banjar yang dimasak dengan bumbu merah pekat dari cabai kering rebus, menawarkan cita rasa manis gurih yang legit.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/gangan-habang.jpg",
+  "hero": {
+    "image": "/images/foods/gangan-habang-hero.jpg",
+    "alt": "Gangan Masak Habang daging sapi dengan kuah kental merah pekat manis gurih",
+    "dominantColor": "#78281F"
+  },
+  "story": {
+    "headline": "Sentuhan Merah Manis Legendaris Masakan Banjar",
+    "body": "Gangan Habang (atau lebih dikenal dengan istilah Masak Habang) adalah pusaka kuliner suku Banjar di Kalimantan Selatan yang sangat melegenda. Kata 'gangan' merujuk pada sayuran atau lauk berkuah/berbumbu, sementara 'habang' berarti merah dalam bahasa Banjar. Sesuai namanya, hidangan ini menyuguhkan kuah atau bumbu kental berwarna merah tua kecokelatan yang tampak sangat pedas membara. Namun, penampilan tersebut menipu; rasa bumbu habang ini justru manis legit, gurih mendalam, dan sama sekali tidak pedas menyengat. Hal ini dikarenakan bumbu merahnya murni diolah dari cabai merah kering lokal yang telah dibuang seluruh bijinya, direbus hingga lunak, lalu dihaluskan bersama bawang merah, bawang putih, jahe, terasi, dan gula merah Banjar yang melimpah.\n\nBumbu Gangan Habang sangat serbaguna dan dapat dimasak bersama berbagai jenis lauk. Lauk yang paling ikonik adalah daging sapi potong tebal yang diempukkan, telur bebek rebus, ikan haruan (gabus) asap, atau ayam kampung. Proses memasaknya menuntut kesabaran tingkat tinggi: bumbu halus harus ditumis dalam minyak yang cukup banyak hingga pecah minyak dan warnanya menggelap menjadi merah tua eksotis sebelum lauk dimasukkan. Gangan Habang merupakan hidangan wajib dalam setiap hajatan adat Banjar, perkawinan, hari raya keagamaan, serta menjadi pendamping utama Nasi Kuning Banjar sebungkus daun pisang.",
+    "pullQuote": "Habang warnanya, manis rasanya, meresap hingga ke sanubari.",
+    "image": "/images/foods/gangan-habang-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Sapi (Paha)",
+      "qty": "500g",
+      "image": "/img/ingredients/beef.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Kering",
+      "qty": "80g",
+      "image": "/img/ingredients/dried-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "12 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "6 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Jahe",
+      "qty": "3 cm",
+      "image": "/img/ingredients/ginger.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah Banjar",
+      "qty": "100g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Terasi Bakar",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/shrimp-paste.svg",
+      "essential": true
+    },
+    {
+      "name": "Kayu Manis",
+      "qty": "3 cm",
+      "image": "/img/ingredients/cinnamon.svg",
+      "essential": false
+    },
+    {
+      "name": "Air Asam Jawa",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/tamarind.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 60,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Cabai Kering",
+        "text": "Belah membujur cabai merah kering, buang bijinya secara menyeluruh. Rebus cabai dalam air mendidih selama 10-15 menit hingga lunak sepenuhnya, tiriskan.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Rebus Daging Sapi",
+        "text": "Rebus daging sapi dalam air secukupnya hingga empuk. Angkat daging, tiriskan, potong melebar setebal 1 cm. Saring air kaldu sisa rebusan daging untuk kuah gangan.",
+        "duration": 1800
+      },
+      {
+        "order": 3,
+        "title": "Haluskan Bumbu",
+        "text": "Blender cabai kering rebus bersama bawang merah, bawang putih, jahe, dan terasi bakar menggunakan sedikit minyak hingga membentuk pasta halus berwarna merah pekat.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Tumis Bumbu Merah",
+        "text": "Tumis pasta bumbu halus merah dengan minyak melimpah bersama sepotong kayu manis hingga harum dan warnanya berubah merah tua gelap (pecah minyak).",
+        "duration": 450
+      },
+      {
+        "order": 5,
+        "title": "Masak Gangan Sapi Habang",
+        "text": "Masukkan potongan daging sapi rebus ke tumisan bumbu merah. Tuangkan air kaldu sapi rebusan, tambahkan gula merah Banjar disisir halus, air asam jawa, dan garam. Rebus dengan api kecil hingga air menyusut menjadi kuah kental kemerahan berminyak yang meresap manis gurih ke daging.",
+        "duration": 1500
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 85,
+    "pedas": 20,
+    "gurih": 80,
+    "asam": 15,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 420,
+    "protein": 26,
+    "carbs": 28,
+    "fat": 22,
+    "fiber": 2,
+    "servingSize": "1 porsi (200g)"
+  },
+  "locations": [
+    {
+      "name": "Warung Nasi Itik Gambut Tenda Biru",
+      "city": "Gambut",
+      "lat": -3.421562,
+      "lng": 114.678213,
+      "description": "Warung legendaris di pinggir jalan raya Gambut, sangat terkenal dengan nasi itik bumbu masak habangnya yang luar biasa manis legit meresap.",
+      "priceRange": "Rp 20.000 - Rp 35.000"
+    },
+    {
+      "name": "Depot Nyaman Rasa",
+      "city": "Banjarmasin",
+      "lat": -3.328762,
+      "lng": 114.591244,
+      "description": "Menyajikan beraneka gangan khas Banjar termasuk Gangan Habang Sapi dan Haruan dengan kuah bumbu merah kental berminyak yang sangat sedap.",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    }
+  ],
+  "related": [
+    "nasi-kuning-banjar-004",
+    "soto-banjar-001",
+    "gangan-asam-007"
+  ],
+  "funFacts": [
+    "Meskipun bumbu Gangan Habang berwarna merah pekat membara, cita rasanya sama sekali tidak pedas melainkan dominan manis gurih legit. Ini karena biji cabai kering dibuang bersih dan daging cabainya direbus matang sebelum dihaluskan.",
+    "Dalam hidangan tradisi Banjar, Gangan Habang merupakan lauk wajib pendamping nasi kuning Banjar dan menjadi bagian tak terpisahkan dari menu perayaan hari besar keagamaan maupun perkawinan adat."
+  ],
+  "tags": [
+    "gangan habang",
+    "masak habang",
+    "kuliner banjar",
+    "khas kalsel",
+    "daging sapi habang"
+  ]
+}

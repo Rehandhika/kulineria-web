@@ -1,0 +1,178 @@
+{
+  "id": "nasi-kuning-banjar-004",
+  "name": "Nasi Kuning Banjar",
+  "region": "kalimantan",
+  "description": "Nasi kuning khas Banjar bertekstur pera (karau) yang harum daun pandan, disajikan dengan lauk Masak Habang (bumbu merah manis) berbahan ikan haruan atau ayam kampung.",
+  "taste": [
+    "gurih",
+    "manis"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/nasi-kuning-banjar.jpg",
+  "hero": {
+    "image": "/images/foods/nasi-kuning-banjar-hero.jpg",
+    "alt": "Sajian Nasi Kuning Banjar dengan lauk Haruan Masak Habang di atas daun pisang",
+    "dominantColor": "#F39C12"
+  },
+  "story": {
+    "headline": "Sarapan Harum dengan Cita Rasa Masak Habang yang Legit",
+    "body": "Bagi masyarakat Banjar di Kalimantan Selatan, pagi hari belum lengkap tanpa sebungkus Nasi Kuning Banjar hangat. Nasi kuning ini memiliki karakteristik rasa dan aroma yang berbeda dengan nasi kuning di daerah Jawa atau Sulawesi. Beras yang digunakan adalah jenis beras lokal bertekstur pera (karau) khas Banjar seperti beras Unus atau Siam, yang dimasak bersama santan, kunyit, daun pandan, sereh, serta daun jeruk purut. Perpaduan ini menghasilkan butiran nasi kuning yang tidak lengket, beraroma sangat harum, dan gurih alami.\n\nYang membuat Nasi Kuning Banjar begitu istimewa dan tiada bandingnya adalah lauk pendamping wajibnya, yaitu Masak Habang (bumbu merah). Masak Habang dibuat dari cabai merah kering lokal (cabai habang) yang direbus lalu dihaluskan bersama bawang merah, bawang putih, jahe, terasi, dan gula merah melimpah yang memberikan warna merah tua pekat dengan rasa dominan manis legit berpadu gurih rempah, tanpa rasa pedas yang menyengat. Lauk Masak Habang ini biasanya berupa Ikan Haruan (gabus) goreng/asap, ayam goreng, atau telur bebek rebus, disajikan berbalut daun pisang yang menyumbang aroma sedap.",
+    "pullQuote": "Sarapan Nasi Kuning Banjar mambuat semangat tulak bagawi.",
+    "image": "/images/foods/nasi-kuning-banjar-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras Pera (Unus/Siam)",
+      "qty": "500g",
+      "image": "/img/ingredients/rice.svg",
+      "essential": true
+    },
+    {
+      "name": "Santan Sedang",
+      "qty": "600ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit",
+      "qty": "3 cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Kering",
+      "qty": "50g",
+      "image": "/img/ingredients/dried-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "10 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "6 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah Banjar",
+      "qty": "75g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Ikan Haruan (Gabus)",
+      "qty": "500g",
+      "image": "/img/ingredients/corkfish.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Pandan",
+      "qty": "2 lembar",
+      "image": "/img/ingredients/pandan-leaf.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Jeruk Purut",
+      "qty": "3 lembar",
+      "image": "/img/ingredients/lime-leaf.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 45,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Memasak Nasi Kuning",
+        "text": "Rebus santan encer bersama air perasan kunyit segar, daun pandan, daun jeruk purut, serai, dan garam hingga mendidih. Masukkan beras pera Banjar, aduk rata hingga santan terserap habis (proses aron). Kukus nasi aron dalam dandang panas hingga matang berderai dan harum.",
+        "duration": 1500
+      },
+      {
+        "order": 2,
+        "title": "Rebus Cabai Kering",
+        "text": "Buang biji cabai merah kering, cuci bersih lalu rebus dalam air mendidih selama 10 menit hingga lunak. Angkat dan tiriskan cabai kering tersebut.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Haluskan Bumbu Habang",
+        "text": "Blender atau ulek cabai kering rebus bersama bawang merah, bawang putih, jahe, dan sedikit terasi bakar hingga bertekstur halus.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Goreng Lauk Masak Habang",
+        "text": "Bersihkan ikan haruan (atau ayam), beri garam dan asam jawa, lalu goreng setengah kering dalam minyak panas. Angkat dan tiriskan.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Masak Bumbu Masak Habang",
+        "text": "Tumis bumbu halus merah dalam minyak melimpah hingga wangi dan berubah warna merah tua pekat. Masukkan gula merah Banjar yang disisir halus, garam, air asam jawa, dan sedikit air kaldu. Masukkan ikan haruan goreng, masak dengan api kecil hingga bumbu mengental pekat membungkus lauk.",
+        "duration": 900
+      },
+      {
+        "order": 6,
+        "title": "Sajikan Hidangan",
+        "text": "Tata nasi kuning hangat berderai di piring beralas daun pisang. Sajikan lauk Masak Habang beserta limpahan bumbunya yang merah legit di samping nasi. Taburi bawang merah goreng melimpah.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 60,
+    "pedas": 30,
+    "gurih": 85,
+    "asam": 15,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 460,
+    "protein": 18,
+    "carbs": 65,
+    "fat": 15,
+    "fiber": 2,
+    "servingSize": "1 porsi (380g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Kuning Cempaka",
+      "city": "Banjarmasin",
+      "lat": -3.321457,
+      "lng": 114.595462,
+      "description": "Warung sarapan legendaris di Banjarmasin yang selalu ramai sejak subuh, terkenal dengan lauk haruan masak habangnya yang manis gurih meresap.",
+      "priceRange": "Rp 15.000 - Rp 25.000"
+    },
+    {
+      "name": "Nasi Kuning Malam Rahmat",
+      "city": "Banjarmasin",
+      "lat": -3.329871,
+      "lng": 114.591322,
+      "description": "Destinasi kuliner malam favorit yang menyajikan nasi kuning Banjar beralas daun pisang harum dengan cita rasa bumbu habang super legit.",
+      "priceRange": "Rp 15.000 - Rp 22.000"
+    }
+  ],
+  "related": [
+    "soto-banjar-001",
+    "ketupat-kandangan-002",
+    "gangan-habang-008"
+  ],
+  "funFacts": [
+    "Meskipun lauk Masak Habang berwarna merah pekat membara, bumbu ini sama sekali tidak pedas melainkan bercita rasa dominan manis gurih legit. Ini dikarenakan penggunaan cabai kering khas Banjar yang telah dibuang bijinya lalu direbus sebelum dihaluskan.",
+    "Nasi Kuning Banjar wajib dimasak menggunakan beras pera Banjar (karau) seperti beras Unus atau Siam, sehingga butiran nasi kuningnya tidak menggumpal melainkan terurai indah, sangat pas disiram bumbu pekat."
+  ],
+  "tags": [
+    "nasi kuning banjar",
+    "masak habang",
+    "sarapan banjar",
+    "kuliner kalsel",
+    "beras pera"
+  ]
+}

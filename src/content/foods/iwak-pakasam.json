@@ -1,0 +1,149 @@
+{
+  "id": "iwak-pakasam-010",
+  "name": "Iwak Pakasam",
+  "region": "kalimantan",
+  "description": "Hidangan fermentasi ikan air tawar khas suku Banjar yang dibaluri beras ketan sangrai kasar, menghasilkan cita rasa asam-asin-gurih yang renyah saat digoreng.",
+  "taste": [
+    "asin",
+    "asam",
+    "gurih"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/iwak-pakasam.jpg",
+  "hero": {
+    "image": "/images/foods/iwak-pakasam-hero.jpg",
+    "alt": "Iwak Pakasam goreng renyah bertabur beras ketan sangrai kasar dan irisan cabai bawang",
+    "dominantColor": "#5C3A21"
+  },
+  "story": {
+    "headline": "Perpaduan Ikan Rawa dan Beras Ketan Sangrai yang Asam Gurih",
+    "body": "Iwak Pakasam (atau cukup disebut Pakasam) adalah mahakarya kuliner berbasis fermentasi tradisional dari Barabai, Kabupaten Hulu Sungai Tengah, Kalimantan Selatan. Pakasam merupakan strategi ketahanan pangan tradisional yang brilian untuk menyiasati melimpahnya hasil tangkapan ikan rawa banjiran (ikan air tawar berukuran kecil seperti sepat, betok/papuyu, seluang, atau gabus kecil) selama musim kemarau atau saat air rawa menyusut.\n\nKeunikan luar biasa dari Pakasam dibanding ikan asin biasa terletak pada penggunaan bahan pembantu fermentasi berupa 'samu', yaitu beras ketan putih yang disangrai kering hingga kecokelatan lalu ditumbuk kasar. Ikan segar yang sudah dibersihkan dan dilumuri garam diletakkan dalam wadah, lalu dibalur melimpah dengan beras ketan sangrai tersebut sebelum difermentasi selama 3 hingga 7 hari. Selama fermentasi, karbohidrat pada beras ketan dipecah menjadi asam laktat yang mengawetkan ikan sekaligus memberikan rasa asam alami yang segar dan khas. Saat digoreng, beras ketan sangrai yang menyelimuti tubuh ikan akan bertekstur sangat renyah (crispy) beraroma harum panggang yang gurih asin berpadu asam daging ikan, berpadu hebat dengan tumisan irisan bawang merah dan cabai rawit pedas.",
+    "pullQuote": "Pakasam goreng garing, aromanya mengundang tetangga, rasanya menghabiskan sebakul nasi.",
+    "image": "/images/foods/iwak-pakasam-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Sepat (atau Papuyu) Segar",
+      "qty": "500g",
+      "image": "/img/ingredients/sepat-fish.svg",
+      "essential": true
+    },
+    {
+      "name": "Beras Ketan Putih",
+      "qty": "100g",
+      "image": "/img/ingredients/glutinous-rice.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam Kasar",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": false
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "4 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": false
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "10 buah",
+      "image": "/img/ingredients/bird-chili.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 15,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Bersihkan Ikan Rawa",
+        "text": "Bersihkan sisik dan isi perut ikan sepat atau papuyu segar. Cuci bersih hingga lendir hilang, lalu tiriskan ikan hingga benar-benar kering kesat.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Buat Samu (Ketan Sangrai)",
+        "text": "Sangrai beras ketan putih dalam wajan kering tanpa minyak dengan api kecil hingga berwarna kecokelatan wangi gosong khas panggang. Tumbuk kasar beras ketan sangrai tersebut hingga pecah berbutir.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Proses Fermentasi Pakasam",
+        "text": "Lumuri ikan kering dengan garam kasar secara merata. Masukkan ikan ke toples kaca, balurkan beras ketan sangrai tumbuk (samu) melimpah ke seluruh tubuh ikan hingga tertutup rapat. Tutup toples kaca kedap udara, biarkan berfermentasi pada suhu ruang selama 3-5 hari.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Goreng Iwak Pakasam",
+        "text": "Ambil iwak pakasam beserta butiran samu ketan yang menyelimutinya (jangan dicuci). Goreng dalam minyak panas melimpah di atas api sedang hingga matang garing renyah berwarna keemasan. Angkat dan tiriskan.",
+        "duration": 450
+      },
+      {
+        "order": 5,
+        "title": "Tumis Bumbu Pelengkap",
+        "text": "Gunakan sisa minyak goreng sedikit. Tumis irisan bawang merah, bawang putih, dan cabai rawit merah hingga layu harum kekuningan. Sajikan iwak pakasam goreng renyah bertabur tumisan bumbu pedas di atasnya hangat-hangat.",
+        "duration": 180
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 45,
+    "gurih": 85,
+    "asam": 55,
+    "asin": 75
+  },
+  "nutrition": {
+    "calories": 220,
+    "protein": 16,
+    "carbs": 14,
+    "fat": 10,
+    "fiber": 1,
+    "servingSize": "2 ekor pakasam (90g)"
+  },
+  "locations": [
+    {
+      "name": "Pusat Oleh-oleh Pakasam Barabai H. Inas",
+      "city": "Barabai",
+      "lat": -2.593254,
+      "lng": 115.381242,
+      "description": "Produsen pakasam paling terkenal dan legendaris di Hulu Sungai Tengah, menyajikan pakasam segar khas ikan sepat, papuyu, dan gabus berkualitas tinggi.",
+      "priceRange": "Rp 20.000 - Rp 35.000"
+    },
+    {
+      "name": "Warung Banjar H. Ijay",
+      "city": "Banjarmasin",
+      "lat": -3.328901,
+      "lng": 114.593122,
+      "description": "Depot makan khas Banjar terpopuler yang menyajikan menu Pakasam goreng renyah bertabur bawang cabai yang sangat gurih adiktif.",
+      "priceRange": "Rp 15.000 - Rp 25.000"
+    }
+  ],
+  "related": [
+    "mandai-009",
+    "ketupat-kandangan-002",
+    "gangan-asam-007"
+  ],
+  "funFacts": [
+    "Butiran renyah crispy kecokelatan yang menyelimuti iwak pakasam goreng merupakan beras ketan putih sangrai harum yang disebut 'samu', berfungsi memicu proses fermentasi sekaligus penyedia tekstur garing.",
+    "Proses fermentasi pakasam murni berbasis bakteri asam laktat alami dari karbohidrat ketan sangrai, menghasilkan rasa kecut segar yang mengawetkan ikan rawa air tawar secara sehat tanpa bahan kimia buatan."
+  ],
+  "tags": [
+    "iwak pakasam",
+    "fermentasi ikan",
+    "kuliner barabai",
+    "khas kalsel",
+    "sepat goreng"
+  ]
+}

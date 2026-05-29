@@ -1,0 +1,146 @@
+{
+  "id": "bingka-barandam-006",
+  "name": "Bingka Barandam",
+  "region": "kalimantan",
+  "description": "Kue basah tradisional khas Banjar bertekstur sangat lembut berongga, dipanggang dalam cetakan lalu disajikan direndam kuah air gula pandan manis yang segar.",
+  "taste": [
+    "manis"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/images/foods/bingka-barandam.jpg",
+  "hero": {
+    "image": "/images/foods/bingka-barandam-hero.jpg",
+    "alt": "Bingka Barandam lembut berongga disiram air gula pandan wangi",
+    "dominantColor": "#D35400"
+  },
+  "story": {
+    "headline": "Kelembutan Kue Busa yang Terendam Sirup Pandan Manis",
+    "body": "Bingka Barandam merupakan salah satu wadai (kue) tradisional yang sangat populer di Kalimantan Selatan, khususnya selama bulan suci Ramadan sebagai hidangan takjil berbuka puasa. Berbeda dengan kue Bingka kentang biasa yang bertekstur padat, basah, dan gurih santan, Bingka Barandam memiliki karakteristik yang jauh lebih mirip dengan bolu spons atau kue busa (sponge cake) yang sangat lembut, berongga besar, ringan, dan empuk. Keunikan utama kue ini terletak pada penamaannya, yaitu 'Barandam' yang dalam bahasa Banjar berarti 'berendam' atau 'direndam'.\n\nKue ini dibuat dengan mengocok telur bebek dan sedikit terigu hingga mengembang kaku berbusa, lalu dipanggang di atas cetakan khusus kuningan hingga mengembang tinggi. Setelah matang, kue bolu yang masih panas berongga ini tidak langsung dimakan begitu saja. Ia harus disiram atau direndam ke dalam air gula (sirup) matang yang telah dimasak bersama daun pandan wangi dan sedikit garam. Kue spons yang berongga tersebut akan menyerap sirup manis seperti spons. Ketika digigit, kuah air gula pandan yang manis legit akan membanjiri mulut, berpadu dengan tekstur super lembut kue yang meleleh seketika di lidah.",
+    "pullQuote": "Sekali menggigit Wadai Bingka Barandam, manis kuahnya langsung membasahi tenggorokan.",
+    "image": "/images/foods/bingka-barandam-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Telur Bebek",
+      "qty": "5 butir",
+      "image": "/img/ingredients/duck-egg.svg",
+      "essential": true
+    },
+    {
+      "name": "Tepung Terigu",
+      "qty": "50g",
+      "image": "/img/ingredients/wheat-flour.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Pasir",
+      "qty": "200g",
+      "image": "/img/ingredients/sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Pandan",
+      "qty": "300ml",
+      "image": "/img/ingredients/pandan-juice.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": false
+    },
+    {
+      "name": "Ekstrak Vanili",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/vanilla.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 20,
+    "cookTime": 25,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Membuat Sirup Pandan",
+        "text": "Rebus air bersama gula pasir, daun pandan wangi yang disobek-sobek, vanili, dan garam hingga mendidih serta gula larut sepenuhnya. Matikan api dan dinginkan sirup.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Mengocok Telur Bebek",
+        "text": "Kocok telur bebek menggunakan mixer berkecepatan tinggi hingga mengembang kaku, putih pucat berbusa, dan berjejak tebal.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Mencampurkan Tepung",
+        "text": "Masukkan tepung terigu sedikit demi sedikit dengan cara diayak halus ke kocokan telur bebek. Aduk lipat dengan spatula secara lembut agar kocokan udara telur tidak pecah dan kempis.",
+        "duration": 200
+      },
+      {
+        "order": 4,
+        "title": "Memanggang Kue",
+        "text": "Panaskan cetakan khusus bingka barandam yang diolesi mentega tipis. Tuang adonan penuh ke dalam cetakan. Panggang dengan penutup cetakan di atas api kecil kompor hingga kue mengembang tinggi dan matang berwarna kuning kecokelatan.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Merendam Kue (Barandam)",
+        "text": "Keluarkan kue bingka panas dari cetakan panggang. Tusuk-tusuk permukaannya halus dengan tusuk gigi atau garpu, lalu celupkan/rendam kue ke dalam mangkuk berisi sirup pandan manis dingin selama 5 menit hingga meresap kental.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 95,
+    "pedas": 0,
+    "gurih": 60,
+    "asam": 0,
+    "asin": 20
+  },
+  "nutrition": {
+    "calories": 240,
+    "protein": 6,
+    "carbs": 42,
+    "fat": 5,
+    "fiber": 0,
+    "servingSize": "1 buah (90g)"
+  },
+  "locations": [
+    {
+      "name": "Sentra Kuliner Wadai Banjar Mawarung",
+      "city": "Banjarmasin",
+      "lat": -3.325982,
+      "lng": 114.593412,
+      "description": "Kios sentra kue tradisional Banjar yang terkenal menyajikan kue basah berkualitas tinggi dengan kuah gula pandan yang segar.",
+      "priceRange": "Rp 5.000 - Rp 15.000"
+    },
+    {
+      "name": "Toko Kue Tradisional H. Sabrie",
+      "city": "Banjarmasin",
+      "lat": -3.308234,
+      "lng": 114.591285,
+      "description": "Toko kue legendaris yang terkenal memproduksi wadai Bingka Barandam premium bertekstur super lembut dan manis wangi alami sejak 1980.",
+      "priceRange": "Rp 6.000 - Rp 18.000"
+    }
+  ],
+  "related": [
+    "nasi-kuning-banjar-004",
+    "soto-banjar-001"
+  ],
+  "funFacts": [
+    "Adonan kue ini murni mengandalkan kocokan kaku busa telur bebek sebagai pengembang alami utama tanpa ragi, baking powder, atau soda kue.",
+    "Istilah 'Barandam' berasal dari bahasa Banjar yang berarti 'direndam', merepresentasikan penyajian kue bolu berongga yang sengaja digenangi kuah sirup gula manis wangi hingga terserap sempurna layaknya spons."
+  ],
+  "tags": [
+    "bingka barandam",
+    "wadai banjar",
+    "kue tradisional kalsel",
+    "kue basah",
+    "takjil"
+  ]
+}

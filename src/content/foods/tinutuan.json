@@ -1,0 +1,177 @@
+{
+  "id": "tinutuan-009",
+  "name": "Tinutuan",
+  "region": "sulawesi",
+  "description": "Bubur sayur legendaris khas Manado yang sehat dan padat gizi, memadukan kelembutan bubur labu kuning dan ubi dengan aneka sayuran hijau serta sambal roa.",
+  "taste": [
+    "manis",
+    "gurih",
+    "pedas"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/tinutuan.jpg",
+  "hero": {
+    "image": "/images/foods/tinutuan-hero.jpg",
+    "alt": "Semangkuk Tinutuan kuning cerah dengan campuran kangkung hijau, daun kemangi, pipilan jagung manis, disajikan dengan ikan asin goreng dan sambal roa",
+    "dominantColor": "#FBC02D"
+  },
+  "story": {
+    "headline": "Harmoni Sayur dan Rasa Syukur di Bumi Kawanua",
+    "body": "Tinutuan, atau yang lebih populer dikenal secara nasional sebagai Bubur Manado, adalah hidangan tradisional khas Sulawesi Utara yang sarat akan gizi. Dasar bubur ini terbuat dari beras yang dimasak bersama potongan ubi jalar manis, labu kuning, dan jagung manis pipil hingga hancur melumer berwarna kuning keemasan yang indah. Adonan dasar ini kemudian diperkaya dengan beragam sayuran hijau segar seperti kangkung, bayam, daun kemangi yang wangi, serta yang paling otentik: daun gedi yang memberikan tekstur sedikit kental dan rasa gurih alami yang khas.\n\nSecara etimologis, kata 'Tinutuan' berasal dari bahasa Minahasa yang berarti 'diberi air banyak' atau 'diaduk campur'. Legenda urban masyarakat setempat menceritakan bahwa Tinutuan tercipta pada masa penjajahan ketika terjadi krisis pangan akibat perang. Penduduk desa terpaksa memadukan sisa beras yang sangat sedikit dengan segala macam hasil bumi yang tumbuh liar di pekarangan rumah seperti ubi, labu, dan dedaunan hijau ke dalam satu kuali besar agar cukup dimakan oleh seluruh anggota keluarga. Kebiasaan ini lambat laun bertransformasi menjadi kuliner pemersatu yang melambangkan kerukunan, kesederhanaan, dan rasa syukur masyarakat kawanua.",
+    "pullQuote": "Tinutuan mengajarkan bahwa dalam kesederhanaan bahan pekarangan, tersimpan kekayaan rasa dan kesehatan yang melimpah.",
+    "image": "/images/foods/tinutuan-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras Berkualitas",
+      "qty": "150g",
+      "image": "/img/ingredients/rice.svg",
+      "essential": true
+    },
+    {
+      "name": "Labu Kuning (Kupas)",
+      "qty": "200g",
+      "image": "/img/ingredients/pumpkin.svg",
+      "essential": true
+    },
+    {
+      "name": "Ubi Jalar Kuning",
+      "qty": "150g",
+      "image": "/img/ingredients/sweet-potato.svg",
+      "essential": true
+    },
+    {
+      "name": "Jagung Manis Pipil",
+      "qty": "1 buah",
+      "image": "/img/ingredients/sweet-corn.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Gedi",
+      "qty": "1 ikat",
+      "image": "/img/ingredients/gedi-leaf.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Kangkung",
+      "qty": "1 ikat",
+      "image": "/img/ingredients/spinach.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Kemangi",
+      "qty": "1 genggam",
+      "image": "/img/ingredients/basil.svg",
+      "essential": false
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": false
+    },
+    {
+      "name": "Sambal Roa",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/roa-sambal.svg",
+      "essential": false
+    },
+    {
+      "name": "Ikan Asin Goreng",
+      "qty": "100g",
+      "image": "/img/ingredients/salted-fish.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 15,
+    "cookTime": 45,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Beras dan Umbi",
+        "text": "Didihkan air dalam panci besar. Rebus beras bersama potongan kecil labu kuning, ubi jalar kuning, serai memar, dan sedikit garam hingga umbi melunak hancur dan beras menjadi bubur lembut kekuningan.",
+        "duration": 1500
+      },
+      {
+        "order": 2,
+        "title": "Masukkan Pipilan Jagung",
+        "text": "Tambahkan pipilan jagung manis ke dalam bubur. Aduk secara merata dan terus masak dengan api sedang hingga jagung menjadi empuk.",
+        "duration": 480
+      },
+      {
+        "order": 3,
+        "title": "Tambahkan Sayuran Hijau",
+        "text": "Masukkan daun gedi iris kasar, kangkung, dan bayam ke dalam adonan bubur panas. Aduk cepat hingga dedaunan layu merata namun tetap mempertahankan warna hijau cerahnya.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Beri Daun Kemangi",
+        "text": "Sesaat sebelum kompor dimatikan, masukkan daun kemangi segar ke dalam bubur. Aduk sebentar hingga wanginya yang khas menyebar, lalu angkat.",
+        "duration": 120
+      },
+      {
+        "order": 5,
+        "title": "Sajikan dengan Pelengkap",
+        "text": "Tuang Tinutuan panas ke dalam mangkuk saji. Dampingi dengan piring kecil berisi ikan asin goreng garing renyah dan sambal roa yang pedas nikmat.",
+        "duration": 180
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 40,
+    "pedas": 50,
+    "gurih": 80,
+    "asam": 5,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 210,
+    "protein": 6,
+    "carbs": 42,
+    "fat": 2,
+    "fiber": 6,
+    "servingSize": "1 mangkuk besar (350g)"
+  },
+  "locations": [
+    {
+      "name": "Kuliner Wakeke",
+      "city": "Manado",
+      "lat": 1.4883,
+      "lng": 124.8392,
+      "description": "Kawasan legendaris pusat kuliner Tinutuan di jantung kota Manado yang menjamin keaslian cita rasa bubur dengan penggunaan daun gedi asli.",
+      "priceRange": "Rp 15.000 - Rp 25.000"
+    },
+    {
+      "name": "Tinutuan Dego Dego",
+      "city": "Manado",
+      "lat": 1.4812,
+      "lng": 124.834,
+      "description": "Terkenal sebagai tempat sarapan Tinutuan favorit warga lokal yang menyajikan bubur Manado dengan pendamping perkedel jagung hangat dan sambal roa matang.",
+      "priceRange": "Rp 18.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "kapurung-004",
+    "ikan-woku-010",
+    "cakalang-fufu-008"
+  ],
+  "funFacts": [
+    "Tinutuan yang otentik mutlak membutuhkan daun gedi sebagai pengental alami; tanpa daun gedi, bubur akan terlalu encer dan kehilangan rasa gurih yang khas.",
+    "Tinutuan adalah kuliner nabati (vegan) alami nusantara karena sama sekali tidak menggunakan kaldu daging atau lemak hewani dalam pembuatan adonan buburnya."
+  ],
+  "tags": [
+    "tinutuan",
+    "bubur manado",
+    "manado",
+    "minahasa",
+    "kuliner sulawesi",
+    "makanan sehat",
+    "bubur sayur",
+    "daun gedi",
+    "vegan"
+  ]
+}

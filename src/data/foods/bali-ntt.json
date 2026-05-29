@@ -1,4 +1,4 @@
-﻿{
+{
     "foods": [
         {
             "id": "bebek-betutu-001",
@@ -79,86 +79,6 @@
             "description": "Ayam bakar dengan sambal pedas khas Lombok, Nusa Tenggara Barat.",
             "taste": ["pedas", "gurih"],
             "imageUrl": "/images/foods/ayam-taliwang.jpg"
-        },
-        {
-            "id": "sei-sapi-011",
-            "name": "Se'i Sapi",
-            "region": "bali-ntt",
-            "description": "Daging sapi asap khas Nusa Tenggara Timur, dimasak dengan kayu kosambi.",
-            "taste": ["gurih", "asin"],
-            "imageUrl": "/images/foods/sei-sapi.jpg"
-        },
-        {
-            "id": "sambal-matah-012",
-            "name": "Sambal Matah",
-            "region": "bali-ntt",
-            "description": "Sambal mentah khas Bali dari bawang merah, cabai, serai, dan minyak kelapa.",
-            "taste": ["pedas", "gurih"],
-            "imageUrl": "/images/foods/sambal-matah.jpg"
-        },
-        {
-            "id": "es-daluman-013",
-            "name": "Es Daluman",
-            "region": "bali-ntt",
-            "description": "Minuman segar khas Bali dengan cincau hijau, santan, dan gula merah.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/es-daluman.jpg"
-        },
-        {
-            "id": "bubur-injin-014",
-            "name": "Bubur Injin",
-            "region": "bali-ntt",
-            "description": "Bubur ketan hitam khas Bali dengan santan dan gula merah.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/bubur-injin.jpg"
-        },
-        {
-            "id": "babi-kecap-015",
-            "name": "Babi Kecap",
-            "region": "bali-ntt",
-            "description": "Daging babi dimasak dengan kecap manis dan bumbu rempah khas Bali.",
-            "taste": ["gurih", "manis"],
-            "imageUrl": "/images/foods/babi-kecap.jpg"
-        },
-        {
-            "id": "nasi-puyung-016",
-            "name": "Nasi Puyung",
-            "region": "bali-ntt",
-            "description": "Nasi dengan ayam bakar dan sambal khas Lombok, hidangan ikonik dari Puyung.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/nasi-puyung.jpg"
-        },
-        {
-            "id": "sate-bulayak-017",
-            "name": "Sate Bulayak",
-            "region": "bali-ntt",
-            "description": "Sate dengan lontong bulat khas Lombok, disajikan dengan bumbu kacang pedas.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/sate-bulayak.jpg"
-        },
-        {
-            "id": "tipat-cantok-018",
-            "name": "Tipat Cantok",
-            "region": "bali-ntt",
-            "description": "Ketupat dengan sayuran dan bumbu kacang khas Bali.",
-            "taste": ["gurih", "manis"],
-            "imageUrl": "/images/foods/tipat-cantok.jpg"
-        },
-        {
-            "id": "rujak-kakul-019",
-            "name": "Rujak Kakul",
-            "region": "bali-ntt",
-            "description": "Rujak dengan kuah pindang pedas dan sayuran khas Bali.",
-            "taste": ["asam", "pedas"],
-            "imageUrl": "/images/foods/rujak-kakul.jpg"
-        },
-        {
-            "id": "bebalung-020",
-            "name": "Bebalung",
-            "region": "bali-ntt",
-            "description": "Sup iga sapi dengan kuah bening rempah khas Lombok.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/bebalung.jpg"
         }
     ]
 }

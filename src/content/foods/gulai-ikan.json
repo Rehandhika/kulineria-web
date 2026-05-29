@@ -1,0 +1,159 @@
+{
+  "id": "gulai-ikan-009",
+  "name": "Gulai Ikan",
+  "region": "sumatera",
+  "description": "Olahan ikan kakap atau ikan laut khas Sumatra yang dimasak dalam kuah santan kuning kental kaya rempah, beraroma harum asam kandis dan daun ruku-ruku.",
+  "taste": [
+    "gurih",
+    "pedas",
+    "asam",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/gulai-ikan.jpg",
+  "hero": {
+    "image": "/images/foods/gulai-ikan-hero.jpg",
+    "alt": "Gulai Kepala Ikan Kakap khas Minang yang tersaji dalam kuah kuning pekat berempah segar",
+    "dominantColor": "#D4AC0D"
+  },
+  "story": {
+    "headline": "Kelezatan Laut Sumatera dalam Dekapan Santan Kuning",
+    "body": "Gulai Ikan, khususnya Gulai Kepala Ikan Kakap Merah, adalah mahakarya hidangan laut yang menempati posisi terhormat dalam khazanah kuliner Minangkabau dan Sumatra Barat. Hidangan ini memadukan kesegaran ikan laut tangkapan segar dengan kekayaan bumbu rempah tropis yang gurih, pedas, sedikit asam, dan harum memikat. Penggunaan daun ruku-ruku (kemangi hutan khas Minang) serta asam kandis menjadi rahasia penting yang memberikan aroma segar khas sekaligus menangkal bau amis alami dari ikan.\n\nMemasak Gulai Ikan membutuhkan keahlian dalam mengolah santan agar kuah gulai tidak pecah ('pecah santan'). Santan diperas segar dari kelapa tua pilihan, lalu dimasak perlahan bersama bumbu halus kuning (kunyit, jahe, lengkuas, serai, kemiri, bawang merah, dan bawang putih) hingga aroma harumnya tercium semerbak. Potongan kepala atau daging ikan kakap kemudian dimasukkan secara hati-hati agar dagingnya tetap utuh dan lembut saat disajikan.",
+    "pullQuote": "Rasa gurih kepala kakap menyatu syahdu dengan hangat segar rempah santan kuning",
+    "image": "/images/foods/gulai-ikan-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Kepala Ikan Kakap Merah",
+      "qty": "1 buah (700g)",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kental",
+      "qty": "400ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Ruku-Ruku",
+      "qty": "2 ikat",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Asam Kandis",
+      "qty": "2 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kunyit Basah",
+      "qty": "3cm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Lengkuas",
+      "qty": "3cm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 20,
+    "cookTime": 35,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Ikan Kakap",
+        "text": "Bersihkan kepala ikan kakap merah dari insang, darah beku, dan sisiknya. Lumuri secara merata dengan perasan air jeruk nipis dan garam halus. Diamkan selama 15 menit agar aroma amisnya hilang, lalu bilas hingga bersih sempurna.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Tumis Bumbu Halus Kuning",
+        "text": "Haluskan bawang merah, bawang putih, kunyit, jahe, kemiri, dan cabai merah keriting. Tumis bumbu halus bersama lengkuas memar, serai memar, daun kunyit, dan daun jeruk purut hingga harum pecah minyak.",
+        "duration": 480
+      },
+      {
+        "order": 3,
+        "title": "Masak Santan Encer",
+        "text": "Tuangkan santan encer terlebih dahulu ke wajan tumisan bumbu, aduk rata. Didihkan secara perlahan di atas api sedang sambil terus diaduk konstan agar santan tidak pecah bumbu.",
+        "duration": 600,
+        "tip": "Gunakan spatula kayu besar dan aduk perlahan membentuk pola melingkar tanpa henti demi kestabilan santan"
+      },
+      {
+        "order": 4,
+        "title": "Rebus Kepala Ikan",
+        "text": "Masukkan potongan kepala ikan kakap merah dengan hati-hati ke dalam wajan kuah santan. Tambahkan asam kandis dan garam secukupnya. Kecilkan api kompor, lalu tuangkan santan kental secara perlahan sambil terus diaduk.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Tambahkan Ruku-Ruku & Matangkan",
+        "text": "Masukkan daun ruku-ruku segar sesaat sebelum diangkat. Siram-siram kuah kuning panas ke bagian atas kepala ikan kakap hingga matang merata, kuah menyusut tebal dan berminyak gurih. Angkat dan sajikan selagi panas.",
+        "duration": 300,
+        "tip": "Daun ruku-ruku memberikan aroma mint-herbal pedas hangat alami yang menjadi ciri khas gulai Minang otentik"
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 75,
+    "gurih": 90,
+    "asam": 30,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 420,
+    "protein": 32,
+    "carbs": 12,
+    "fat": 28,
+    "servingSize": "1 porsi (kepala ikan + kuah)"
+  },
+  "locations": [
+    {
+      "name": "RM Medan Baru",
+      "city": "Jakarta Pusat",
+      "lat": -6.1623,
+      "lng": 106.8312,
+      "description": "Restoran legendaris di Jakarta spesialis Gulai Kepala Ikan Kakap merah porsi raksasa yang sangat lembut dan bersantan tebal gurih.",
+      "priceRange": "Rp 120.000 - Rp 250.000"
+    },
+    {
+      "name": "RM Pauh Piaman",
+      "city": "Padang",
+      "lat": -0.9234,
+      "lng": 100.3621,
+      "description": "Sajian gulai kepala ikan kakap otentik khas pesisir Pariaman dengan kuah kuning pedas beraroma ruku-ruku yang dihidangkan segar dari kuali.",
+      "priceRange": "Rp 90.000 - Rp 180.000"
+    }
+  ],
+  "related": [
+    "nasi-padang-005",
+    "rendang-001",
+    "sate-padang-004"
+  ],
+  "funFacts": [
+    "Daun ruku-ruku adalah sayuran herbal sekeluarga dengan kemangi (holy basil) namun beraroma cengkeh dan mint yang tajam, sangat krusial untuk melenyapkan bau amis ikan laut.",
+    "Bagi pecinta kuliner Minang sejati, bagian pipi tebal, mata kenyal, dan tulang muda dari kepala kakap merah adalah bagian paling berharga yang menawarkan sensasi kelezatan terbaik."
+  ],
+  "tags": [
+    "gulai ikan",
+    "gulai kepala ikan",
+    "sumatera",
+    "kuliner minang",
+    "ikan kakap",
+    "santan",
+    "berkuah"
+  ]
+}

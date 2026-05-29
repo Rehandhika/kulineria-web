@@ -1,0 +1,155 @@
+{
+  "id": "mandai-009",
+  "name": "Mandai",
+  "region": "kalimantan",
+  "description": "Kuliner fermentasi legendaris suku Banjar berbahan kulit buah cempedak yang diawetkan dalam air garam, menghasilkan tekstur berserat mirip daging yang gurih kenyal saat digoreng.",
+  "taste": [
+    "gurih",
+    "asin",
+    "asam"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/mandai.jpg",
+  "hero": {
+    "image": "/images/foods/mandai-hero.jpg",
+    "alt": "Mandai goreng dengan tumisan bawang merah, bawang putih, dan cabai rawit pedas gurih",
+    "dominantColor": "#D35400"
+  },
+  "story": {
+    "headline": "Kearifan Fermentasi Kulit Cempedak yang Menyerupai Daging",
+    "body": "Mandai (atau biasa disebut Mandai Tiwadak) adalah salah satu makanan paling unik, eksotis, dan sarat akan kearifan lokal suku Banjar di Kalimantan Selatan. Hidangan ini lahir dari cara masyarakat pedalaman mengawetkan hasil panen buah cempedak (tiwadak) yang melimpah selama musim buah agar dapat dikonsumsi sepanjang tahun. Alih-alih membuang kulit buahnya yang tebal berduri halus, masyarakat Banjar mengupas kulit luar yang berwarna jingga kehijauan, mengambil bagian kulit putih bagian dalam (daman) yang tebal berserat, lalu mengawetkannya melalui proses fermentasi dalam toples kedap udara berisi air garam pekat.\n\nProses fermentasi alami (yang disebut 'ma-asin') ini memakan waktu dari hitungan minggu hingga bertahun-tahun. Semakin lama mandai disimpan dalam air garam, teksturnya akan semakin lembut dan cita rasanya semakin kaya akan keasaman laktat alami yang khas. Ketika akan diolah, mandai dicuci bersih untuk mengurangi kadar garamnya, dipotong dadu, diperas, lalu digoreng garing. Saat digoreng bersama irisan bawang merah, bawang putih, dan cabai rawit melimpah, mandai menghasilkan tekstur berserat kenyal dan cita rasa gurih-masam-asin yang sangat mirip dengan daging ayam atau daging sapi serat halus, menjadikannya lauk pendamping nasi hangat yang sangat adiktif bagi siapa saja yang mencobanya.",
+    "pullQuote": "Mandai goreng pedas wangi, lauk sederhana penambah selera makan melampaui batas.",
+    "image": "/images/foods/mandai-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Kulit Cempedak (Bagian Dalam)",
+      "qty": "500g",
+      "image": "/img/ingredients/cempedak-rind.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam Kasar",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Matang",
+      "qty": "500ml",
+      "image": "/img/ingredients/water.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "6 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "3 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "10 buah",
+      "image": "/img/ingredients/bird-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Goreng",
+      "qty": "100ml",
+      "image": "/img/ingredients/oil.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Proses Fermentasi Mandai",
+        "text": "Kupas kulit luar berduri buah cempedak hingga tersisa kulit putih tebal bagian dalam. Cuci bersih, potong lebar. Lumuri garam kasar, masukkan toples kaca, tuang air hingga terendam penuh. Tutup rapat toples dan berfermentasi selama 3-7 hari.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Bilas Mandai",
+        "text": "Ambil mandai secukupnya dari toples fermentasi. Cuci bersih dengan air mengalir untuk membuang sisa garam berlebih. Potong mandai menjadi bentuk dadu kecil lalu peras airnya agar kesat.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Goreng Mandai",
+        "text": "Goreng potongan dadu mandai dalam minyak panas banyak hingga permukaannya garing kecokelatan dan berserat mirip daging goreng. Angkat dan tiriskan.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Tumis Bumbu Iris",
+        "text": "Tumis irisan tipis bawang merah, bawang putih, dan cabai rawit merah melimpah dengan sedikit minyak sisa goreng mandai hingga layu wangi.",
+        "duration": 300
+      },
+      {
+        "order": 5,
+        "title": "Masak Mandai Tumis Pedas",
+        "text": "Masukkan kembali mandai goreng ke wajan tumisan bumbu. Tambahkan sejumput gula pasir dan sedikit penyedap rasa. Aduk cepat selama 3-5 menit agar bumbu pedas gurih menyelimuti serat-serat mandai. Sajikan hangat.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 60,
+    "gurih": 85,
+    "asam": 40,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 190,
+    "protein": 3,
+    "carbs": 18,
+    "fat": 12,
+    "fiber": 4,
+    "servingSize": "1 porsi (100g)"
+  },
+  "locations": [
+    {
+      "name": "Sentra Mandai Tradisional Pasar Kuripan",
+      "city": "Banjarmasin",
+      "lat": -3.328974,
+      "lng": 114.604612,
+      "description": "Pasar tradisional terbaik di mana pengunjung dapat membeli Mandai mentah hasil pengawetan bertahun-tahun dalam stoples kaca langsung dari pembuatnya.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    },
+    {
+      "name": "Warung Khas Banjar Acil Miah",
+      "city": "Banjarmasin",
+      "lat": -3.326211,
+      "lng": 114.590892,
+      "description": "Rumah makan lokal yang terkenal menyajikan Mandai goreng pedas super gurih dengan tekstur serat kenyal mirip empal daging.",
+      "priceRange": "Rp 10.000 - Rp 20.000"
+    }
+  ],
+  "related": [
+    "iwak-pakasam-010",
+    "gangan-asam-007",
+    "nasi-kuning-banjar-004"
+  ],
+  "funFacts": [
+    "Struktur serat kulit bagian dalam buah cempedak berubah secara kimiawi selama fermentasi garam menjadi empuk, kenyal, dan sangat berserat halus menyerupai serat daging sapi ketika digoreng garing.",
+    "Proses fermentasi mandai dalam stoples kedap udara garam pekat dapat bertahan hingga lebih dari 2-3 tahun tanpa membusuk, justru rasanya akan semakin masam kaya laktat."
+  ],
+  "tags": [
+    "mandai",
+    "kulit cempedak",
+    "fermentasi banjar",
+    "kuliner kalsel",
+    "lauk goreng"
+  ]
+}

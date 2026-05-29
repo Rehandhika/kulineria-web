@@ -1,4 +1,4 @@
-﻿{
+{
     "foods": [
         {
             "id": "papeda-001",
@@ -79,86 +79,6 @@
             "description": "Bubur sagu mutiara manis khas Maluku dengan kuah santan dan gula merah.",
             "taste": ["manis"],
             "imageUrl": "/images/foods/bubur-ne.jpg"
-        },
-        {
-            "id": "kue-asida-011",
-            "name": "Kue Asida",
-            "region": "maluku-papua",
-            "description": "Kue tradisional Maluku dari tepung, gula, dan kayu manis, pengaruh Timur Tengah.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/kue-asida.jpg"
-        },
-        {
-            "id": "woku-komo-komo-012",
-            "name": "Woku Komo-komo",
-            "region": "maluku-papua",
-            "description": "Sagu dimasak dengan bumbu woku pedas dan ikan, khas Maluku.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/woku-komo-komo.jpg"
-        },
-        {
-            "id": "udang-selingkuh-013",
-            "name": "Udang Selingkuh",
-            "region": "maluku-papua",
-            "description": "Udang air tawar khas Papua dengan capit panjang, dibakar atau digoreng.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/udang-selingkuh.jpg"
-        },
-        {
-            "id": "kue-lontar-014",
-            "name": "Kue Lontar",
-            "region": "maluku-papua",
-            "description": "Kue basah khas Papua dari tepung sagu dan gula merah.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/kue-lontar.jpg"
-        },
-        {
-            "id": "nasi-jagung-015",
-            "name": "Nasi Jagung",
-            "region": "maluku-papua",
-            "description": "Nasi dari jagung tumbuk, makanan pokok masyarakat Papua.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/nasi-jagung.jpg"
-        },
-        {
-            "id": "bubur-sagu-ubi-016",
-            "name": "Bubur Sagu Ubi",
-            "region": "maluku-papua",
-            "description": "Bubur manis dari sagu dan ubi jalar dengan kuah santan.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/bubur-sagu-ubi.jpg"
-        },
-        {
-            "id": "kopi-sibu-sibu-017",
-            "name": "Kopi Sibu-sibu",
-            "region": "maluku-papua",
-            "description": "Kopi khas Maluku dengan campuran biji ketapang dan cengkeh, aromatik.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/kopi-sibu-sibu.jpg"
-        },
-        {
-            "id": "kasbi-komplet-018",
-            "name": "Kasbi Komplet",
-            "region": "maluku-papua",
-            "description": "Singkong dengan berbagai lauk seperti ikan dan sayur, khas Maluku.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/kasbi-komplet.jpg"
-        },
-        {
-            "id": "papeda-ikan-kuning-019",
-            "name": "Papeda Ikan Kuah Kuning",
-            "region": "maluku-papua",
-            "description": "Papeda dengan ikan kuah kuning berbumbu kunyit dan sambal colo-colo.",
-            "taste": ["gurih", "asam"],
-            "imageUrl": "/images/foods/papeda-ikan.jpg"
-        },
-        {
-            "id": "sagu-bakar-020",
-            "name": "Sagu Bakar",
-            "region": "maluku-papua",
-            "description": "Sagu yang dibakar hingga matang, dimakan dengan ikan atau sambal.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/sagu-bakar.jpg"
         }
     ]
 }

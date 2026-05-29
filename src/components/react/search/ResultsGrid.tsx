@@ -60,7 +60,6 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
             key={food.id}
             href={`/hidangan/${food.id}`}
             className="result-card duo-card flex flex-col overflow-hidden"
-            style={{ borderTop: `4px solid ${REGION_COLORS[food.region] || 'var(--c-accent)'}` }}
             onClick={() => sessionStorage.setItem('kulineria-return', '/jelajahi')}
           >
             <div className="result-card-image">

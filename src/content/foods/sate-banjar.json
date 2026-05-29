@@ -1,0 +1,166 @@
+{
+  "id": "sate-banjar-005",
+  "name": "Sate Banjar",
+  "region": "kalimantan",
+  "description": "Sate khas Banjar berbahan daging ayam beriris tipis memanjang yang dimarinasi bumbu merah, lalu dibakar harum dan disiram saus merah kental manis beraroma limau kuit.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/images/foods/sate-banjar.jpg",
+  "hero": {
+    "image": "/images/foods/sate-banjar-hero.jpg",
+    "alt": "Sate Banjar bakar dengan lumuran saus merah manis yang legit",
+    "dominantColor": "#D35400"
+  },
+  "story": {
+    "headline": "Sate Ayam Beraroma Saus Merah Jeruk Nipis yang Khas",
+    "body": "Sate Banjar merupakan variasi sate ayam khas Kalimantan Selatan yang menawarkan sensasi rasa yang sangat unik dibanding sate Madura atau sate Ponorogo. Keunikan pertama terlihat dari teknik penusukan dagingnya. Daging dada atau paha ayam tidak dipotong dadu tebal, melainkan diiris tipis memanjang (diberet) lalu ditusuk berkelok-kelok menyerupai gelombang. Sebelum dibakar, sate ayam dimarinasi terlebih dahulu dengan bumbu masak habang encer atau kecap dan margarin, sehingga bumbunya meresap sampai ke serat-serat daging paling dalam.\n\nPerbedaan paling mencolok terletak pada sausnya. Sate Banjar sama sekali tidak menggunakan saus kacang berbutir kasar. Saus sate Banjar dibuat dengan menghaluskan cabai merah kering rebus bersama bawang merah, bawang putih, dan kemiri, lalu dimasak dengan air kaldu ayam, gula merah, dan sedikit kentang rebus lumat hingga mengental menjadi saus berwarna kemerahan yang lembut, licin, dan mengilap. Sebelum disajikan, saus ini diberi kucuran jeruk nipis kuit segar, menciptakan harmoni rasa gurih, manis legit, dengan kesegaran jeruk kuit yang tiada tandingannya saat dipadukan dengan sate bakar harum asap.",
+    "pullQuote": "Sate Banjar lumer di lidah, rasa manis sausnya merasuk jiwa.",
+    "image": "/images/foods/sate-banjar-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Dada/Paha Ayam",
+      "qty": "500g",
+      "image": "/img/ingredients/chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Kering",
+      "qty": "5 buah",
+      "image": "/img/ingredients/dried-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "4 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Kemiri",
+      "qty": "3 butir",
+      "image": "/img/ingredients/candle-nut.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah",
+      "qty": "50g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Kentang Rebus Lumat",
+      "qty": "1 buah kecil",
+      "image": "/img/ingredients/potato.svg",
+      "essential": false
+    },
+    {
+      "name": "Kecap Manis",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/sweet-soy-sauce.svg",
+      "essential": false
+    },
+    {
+      "name": "Limau Kuit / Jeruk Purut",
+      "qty": "1 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Iris Tipis Daging Ayam",
+        "text": "Fillet daging ayam bagian dada atau paha. Iris tipis memanjang (diberet), lalu tusukkan secara bergelombang melipat pada tusuk sate bambu.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Masak Bumbu Dasar Saus",
+        "text": "Haluskan cabai merah kering rebus, bawang merah, bawang putih, dan kemiri sangrai. Tumis bumbu dasar dalam minyak panas bersama kecap manis, garam, dan gula merah hingga wangi aromatis.",
+        "duration": 450
+      },
+      {
+        "order": 3,
+        "title": "Kentalkan Saus Merah",
+        "text": "Tambahkan air kaldu ayam. Masukkan kentang rebus lumat halus sebagai bahan pengental alami saus. Masak perlahan hingga mendidih licin, lalu tambahkan kucuran air limau kuit segar agar aromanya menusuk sedap.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Bakar Sate",
+        "text": "Celupkan tusukan sate ayam mentah ke bumbu marinasi kecap dan minyak. Panggang di atas bara api arang kayu hingga matang kecokelatan serta harum wangi gosong khas bakar tercium.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Sajikan Sate Banjar",
+        "text": "Tata sate ayam hangat di piring saji dengan potongan ketupat. Siram saus merah kental hangat di atasnya. Taburi bawang merah goreng renyah.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 75,
+    "pedas": 25,
+    "gurih": 80,
+    "asam": 20,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 310,
+    "protein": 22,
+    "carbs": 25,
+    "fat": 12,
+    "fiber": 1,
+    "servingSize": "1 porsi (10 tusuk)"
+  },
+  "locations": [
+    {
+      "name": "Sate Tulang & Sate Banjar Elda",
+      "city": "Banjarmasin",
+      "lat": -3.328905,
+      "lng": 114.594723,
+      "description": "Depot legendaris di Banjarmasin yang menyajikan kombinasi sate tulang lezat dan sate Banjar bersaus merah pekat manis gurih.",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    },
+    {
+      "name": "Sate Banjar H. Ishak",
+      "city": "Banjarmasin",
+      "lat": -3.314562,
+      "lng": 114.598211,
+      "description": "Warung sate Banjar legendaris dengan saus merah kentalnya yang sangat halus, mengilap, legit, dan beraroma segar limau kuit.",
+      "priceRange": "Rp 30.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "soto-banjar-001",
+    "nasi-kuning-banjar-004",
+    "ayam-cincane-003"
+  ],
+  "funFacts": [
+    "Berbeda dari kebanyakan sate di Indonesia yang disajikan dengan saus kacang kental bertekstur kasar, saus Sate Banjar murni berbasis kaldu rempah cabai merah manis yang dikentalkan kentang rebus lembut.",
+    "Daging ayam diiris sangat tipis melebar sebelum ditusuk secara berlipat berkelok agar matang rata seketika ketika disentuh bara api yang panas."
+  ],
+  "tags": [
+    "sate banjar",
+    "sate ayam",
+    "kuliner banjar",
+    "khas kalsel",
+    "saus merah manis"
+  ]
+}

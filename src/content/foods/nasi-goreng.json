@@ -1,0 +1,159 @@
+{
+  "id": "nasi-goreng-003",
+  "name": "Nasi Goreng",
+  "region": "jawa",
+  "description": "Hidangan nasi yang ditumis dalam wajan bersama kecap manis khas Jawa, bawang merah, bawang putih, cabai, telur, ayam, dan aroma smoky harum 'napas wajan' (wok hei).",
+  "taste": [
+    "manis",
+    "gurih",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/nasi-goreng.jpg",
+  "hero": {
+    "image": "/images/foods/nasi-goreng-hero.jpg",
+    "alt": "Sepiring Nasi Goreng Jawa kecap manis hangat bertabur telur ceplok dan acar segar di sampingnya",
+    "dominantColor": "#D35400"
+  },
+  "story": {
+    "headline": "Seni Wajan Panas dan Kelembutan Kecap Manis",
+    "body": "Nasi Goreng Indonesia memiliki keunikan rasa tersendiri yang membedakannya dari varian nasi goreng Tiongkok atau negara Asia lainnya. Kunci perbedaan utama ini terletak pada penggunaan kecap manis kental tradisional berbahan kedelai hitam yang memberikan sentuhan karamel manis gurih serta warna cokelat keemasan yang berkilau menggoda. Di Pulau Jawa, nasi goreng telah berkembang menjadi kuliner rakyat yang dinikmati mulai dari gerobak kaki lima malam hari hingga restoran hotel bintang lima.\n\nSecara historis, nasi goreng bermula dari tradisi masyarakat Tionghoa untuk memanfaatkan nasi sisa semalam agar tidak terbuang sia-sia. Di tangan masyarakat Jawa, resep ini dimodifikasi dengan penambahan terasi bakar, bawang merah lokal, kemiri, cabai merah, dan siraman kecap manis khas. Teknik memasaknya menuntut api besar ('high heat cooking') agar menghasilkan aroma smoky yang khas, yang dalam kuliner oriental disebut sebagai 'wok hei' atau napas wajan, yang menyelimuti setiap butir nasi yang terurai kering.",
+    "pullQuote": "Nasi goreng adalah perpaduan kehangatan nasi semalam dan magisnya kecap manis",
+    "image": "/images/foods/nasi-goreng-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Nasi Dingin Pera",
+      "qty": "400g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kecap Manis",
+      "qty": "3 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "6 butir",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "3 siung",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Terasi Bakar",
+      "qty": "1 sdt",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Keriting",
+      "qty": "4 buah",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Telur Ayam",
+      "qty": "2 butir",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Nasi Pera",
+        "text": "Pastikan menggunakan nasi putih dingin (nasi semalam) agar butiran beras terurai kering (pera) saat digoreng dan tidak menggumpal becek.",
+        "duration": 300,
+        "tip": "Masukkan nasi hangat ke dalam lemari es selama 1-2 jam sebelum dimasak agar kadar airnya menyusut ideal"
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu Aromatik",
+        "text": "Ulek halus bawang merah, bawang putih, kemiri sangrai, cabai merah keriting, terasi bakar, dan garam hingga membentuk pasta halus.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu & Orak-Arik Telur",
+        "text": "Panaskan minyak kelapa secukupnya di wajan baja. Tumis bumbu halus hingga harum dan matang. Sisihkan bumbu di pinggiran wajan, tuang telur kocok di tengah wajan, lalu orak-arik hingga matang kering.",
+        "duration": 180,
+        "tip": "Menggoreng telur orak-arik hingga kering akan mencegah nasi goreng menjadi basah atau berbau amis"
+      },
+      {
+        "order": 4,
+        "title": "Masukkan Nasi Dingin",
+        "text": "Masukkan nasi putih dingin ke dalam wajan. Besarkan api kompor secara maksimal. Aduk cepat menggunakan spatula hingga bumbu halus terdistribusi merata ke seluruh butiran nasi.",
+        "duration": 180
+      },
+      {
+        "order": 5,
+        "title": "Karamelisasi Kecap Manis",
+        "text": "Tuangkan kecap manis di sepanjang pinggiran logam wajan panas (bukan langsung di atas nasi) agar menguap dan terkaramelisasi sebentar. Aduk cepat nasi goreng di atas api besar hingga seluruh nasi berwarna cokelat berkilau merata dan wangi berasap ('wok hei') keluar. Angkat lalu sajikan dengan telur ceplok.",
+        "duration": 120,
+        "tip": "Panas logam wajan yang menyentuh kecap manis langsung memicu reaksi Maillard yang melahirkan aroma karamel smoky legendaris"
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 75,
+    "pedas": 40,
+    "gurih": 85,
+    "asam": 5,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 450,
+    "protein": 14,
+    "carbs": 62,
+    "fat": 16,
+    "servingSize": "1 porsi piring (250g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Goreng Kambing Kebon Sirih",
+      "city": "Jakarta Pusat",
+      "lat": -6.1837,
+      "lng": 106.8284,
+      "description": "Kuliner malam legendaris ibukota sejak tahun 1958, dimasak massal di wajan raksasa dengan infusi minyak samin dan rempah kari timur tengah yang aromatik.",
+      "priceRange": "Rp 40.000 - Rp 60.000"
+    },
+    {
+      "name": "Nasi Goreng Beringharjo",
+      "city": "Yogyakarta",
+      "lat": -7.7989,
+      "lng": 110.3664,
+      "description": "Salah satu pelopor nasi goreng legendaris dekat Kraton Yogya dengan gaya rasa gurih manis oriental-Jawa kuno.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "nasi-uduk-007",
+    "nasi-kuning-008",
+    "gudeg-001"
+  ],
+  "funFacts": [
+    "Nasi Goreng disajikan secara khusus kepada tokoh dunia saat bertandang ke istana negara, termasuk Presiden AS Barack Obama yang memuji cita rasa otentik manis gurihnya.",
+    "Wajan baja hitam yang dipakai pedagang kaki lima menyimpan lapisan 'patina' kelapa, yang menjadi konduktor panas terbaik untuk melahirkan aroma asap (smoky) tiada tanding."
+  ],
+  "tags": [
+    "nasi goreng",
+    "khas jawa",
+    "nasi goreng jawa",
+    "manis gurih",
+    "kecap manis",
+    "kuliner malam",
+    "wok hei"
+  ]
+}

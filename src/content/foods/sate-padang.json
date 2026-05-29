@@ -1,0 +1,164 @@
+{
+  "id": "sate-padang-004",
+  "name": "Sate Padang",
+  "region": "sumatera",
+  "description": "Sate lidah, daging, atau jeroan sapi bakar khas Minangkabau yang disiram dengan saus kuah kuning kental berbumbu rempah pedas hangat dan ditaburi bawang goreng.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asin"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/images/foods/sate-padang.jpg",
+  "hero": {
+    "image": "/images/foods/sate-padang-hero.jpg",
+    "alt": "Sajian Sate Padang dengan siraman kuah kuning kental dan taburan bawang goreng",
+    "dominantColor": "#A0522D"
+  },
+  "story": {
+    "headline": "Cita Rasa Pedas Hangat Khas Ranah Minang",
+    "body": "Sate Padang merupakan salah satu mahakarya kuliner khas Sumatra Barat yang menonjolkan keunikan saus karinya. Berbeda dengan sate Jawa yang manis dan berbasis kacang, kuah Sate Padang kental bertekstur bubur halus yang diracik dari rebusan tepung beras dicampur dengan belasan jenis rempah-rempah hangat seperti kapulaga, ketumbar, jinten, kunyit, jahe, dan cabai merah.\n\nDalam tradisinya, sate ini memiliki beberapa variasi kuah: kuah Padang Panjang yang berwarna kuning cerah, kuah Pariaman yang kemerahan dan lebih pedas, serta kuah dari Padang Kota yang kecokelatan. Daging yang digunakan direbus terlebih dahulu dalam bumbu rempah sebelum dibakar untuk memastikan rasa yang meresap sempurna.",
+    "pullQuote": "Kelezatan daging bakar rempah dalam pelukan kuah kuning hangat nan menggoda",
+    "image": "/images/foods/sate-padang-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Sapi / Lidah Sapi",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Tepung Beras",
+      "qty": "50g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kunyit Bubuk",
+      "qty": "2 sdt",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Jeruk",
+      "qty": "4 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Lengkuas",
+      "qty": "2cm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Ketumbar",
+      "qty": "1 sdt",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Adas Manis",
+      "qty": "1/2 sdt",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "6 siung",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 30,
+    "cookTime": 45,
+    "difficulty": "hard",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Daging & Rempah",
+        "text": "Rebus daging sapi dan lidah dalam air mendidih bersama bawang merah, bawang putih halus, kunyit, lengkuas, serai, daun kunyit, daun jeruk, dan ketumbar hingga daging benar-benar empuk.",
+        "duration": 1800,
+        "tip": "Gunakan panci presto jika ingin daging sapi dan lidah lebih cepat empuk"
+      },
+      {
+        "order": 2,
+        "title": "Tusuk & Siapkan Sate",
+        "text": "Angkat daging dari kaldu rebusan. Potong daging berbentuk dadu kecil, lalu tusukkan ke tusuk sate bambu (isi 3-4 potongan per tusuk).",
+        "duration": 480
+      },
+      {
+        "order": 3,
+        "title": "Bakar Sate",
+        "text": "Olesi sate dengan sedikit minyak kelapa berbumbu, lalu bakar sebentar di atas bara api arang hingga wangi dan sedikit kecokelatan.",
+        "duration": 180
+      },
+      {
+        "order": 4,
+        "title": "Buat Kuah Kental Kuning",
+        "text": "Saring sisa air kaldu rebusan daging. Larutkan tepung beras dengan sedikit air dingin, lalu tuang secara perlahan ke dalam air kaldu mendidih sambil diaduk konstan hingga mengental membentuk saus kuning gurih.",
+        "duration": 300,
+        "tip": "Aduk terus secara cepat agar tepung tidak menggumpal di dasar panci"
+      },
+      {
+        "order": 5,
+        "title": "Sajikan dengan Ketupat",
+        "text": "Potong ketupat di atas daun pisang, letakkan tusukan sate bakar, lalu siram dengan kuah kuning kental panas. Taburi bawang merah goreng melimpah di atasnya.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 80,
+    "gurih": 90,
+    "asam": 10,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 380,
+    "protein": 26,
+    "carbs": 24,
+    "fat": 12,
+    "servingSize": "1 porsi (250g)"
+  },
+  "locations": [
+    {
+      "name": "Sate Mak Syukur",
+      "city": "Padang Panjang",
+      "lat": -0.4616,
+      "lng": 100.3972,
+      "description": "Kedai sate legendaris paling terkenal di Sumatra Barat sejak 1941",
+      "priceRange": "Rp 30.000 - Rp 50.000"
+    },
+    {
+      "name": "Sate Padang Ajo Ramon",
+      "city": "Jakarta Selatan",
+      "lat": -6.2384,
+      "lng": 106.8202,
+      "description": "Sate Padang kuah kemerahan khas Pariaman paling populer di ibukota",
+      "priceRange": "Rp 32.000 - Rp 48.000"
+    }
+  ],
+  "funFacts": [
+    "Warna kuah Sate Padang yang berbeda menandakan daerah asalnya (Kuning untuk Padang Panjang, Kemerahan untuk Pariaman, dan Cokelat untuk Padang Kota)",
+    "Penggunaan alas daun pisang membantu menjaga saus kuning agar tidak cepat encer dan memperkuat aroma alami hidangan sate"
+  ],
+  "tags": [
+    "sate padang",
+    "sumatera",
+    "pedas",
+    "kuliner minang",
+    "daging sapi",
+    "sate"
+  ]
+}

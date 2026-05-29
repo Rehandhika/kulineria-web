@@ -1,0 +1,173 @@
+{
+  "id": "pallubasa-003",
+  "name": "Pallubasa",
+  "region": "sulawesi",
+  "description": "Sup jeroan dan daging sapi tradisional khas Makassar dengan kuah kental beraroma kelapa parut sangrai yang gurih pekat.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/pallubasa.jpg",
+  "hero": {
+    "image": "/images/foods/pallubasa-hero.jpg",
+    "alt": "Semangkuk Pallubasa hangat dengan taburan kelapa sangrai dan sebutir kuning telur ayam kampung",
+    "dominantColor": "#5C3A21"
+  },
+  "story": {
+    "headline": "Sajian Rakyat yang Menembus Batas Kelas",
+    "body": "Pallubasa adalah kuliner legendaris asal Makassar yang menyajikan keunikan rasa melalui kuah kaldu sapi yang dicampur dengan kaluku—kelapa parut yang disangrai hingga cokelat gelap dan berminyak lalu dihaluskan. Hasilnya adalah kuah dengan sensasi gurih-manis-asin yang sangat pekat, kental, berserat kasar, dan memiliki aroma asap kelapa yang sangat memikat. Pallubasa biasanya diisi dengan campuran daging sapi dan jeroan seperti babat, paru, usus, dan hati.\n\nDari sisi sejarah sosial, Pallubasa bermula sebagai makanan kelas pekerja. Di masa lampau, Coto Makassar disajikan khusus bagi para raja dan bangsawan dengan potongan daging sapi pilihan, sementara para jagal dan masyarakat kelas bawah memanfaatkan bagian jeroan dan sisa potongan untuk dimasak menjadi Pallubasa. Ironisnya, cita rasa Pallubasa yang begitu kaya justru membuatnya meroket melampaui sekat sosial, hingga kini dinikmati oleh seluruh kalangan bahkan menjadi simbol kuliner Makassar yang tak boleh dilewatkan.",
+    "pullQuote": "Kelembutan jeroan menyatu dalam kasarnya kaluku, menceritakan kebersahajaan Makassar yang mendunia.",
+    "image": "/images/foods/pallubasa-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging & Jeroan Sapi",
+      "qty": "600g",
+      "image": "/img/ingredients/beef-offal.svg",
+      "essential": true
+    },
+    {
+      "name": "Kelapa Parut",
+      "qty": "150g",
+      "image": "/img/ingredients/grated-coconut.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Asam Jawa",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/tamarind.svg",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": true
+    },
+    {
+      "name": "Lengkuas",
+      "qty": "3 cm",
+      "image": "/img/ingredients/galangal.svg",
+      "essential": true
+    },
+    {
+      "name": "Ketumbar Bubuk",
+      "qty": "1 sdm",
+      "image": "/img/ingredients/coriander.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit Bubuk",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "5 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Kuning Telur Ayam Kampung",
+      "qty": "4 butir",
+      "image": "/img/ingredients/native-egg.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 30,
+    "cookTime": 90,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Olah Kaluku (Kelapa Sangrai)",
+        "text": "Sangrai kelapa parut di atas wajan tanpa minyak dengan api kecil hingga berwarna cokelat gelap merata dan harum. Ulek kelapa sangrai hangat hingga mengeluarkan minyak alami, lalu sisihkan.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Rebus Daging dan Jeroan",
+        "text": "Rebus daging sapi dan jeroan secara terpisah dengan sedikit garam hingga empuk. Angkat, potong dadu kecil, lalu saring kaldu daging untuk dijadikan kuah utama.",
+        "duration": 2700
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu Halus",
+        "text": "Haluskan bawang merah, bawang putih, ketumbar, kunyit, dan jahe. Tumis bumbu halus bersama serai dan lengkuas yang dimemarkan hingga matang dan pecah minyak.",
+        "duration": 480
+      },
+      {
+        "order": 4,
+        "title": "Masak Pallubasa",
+        "text": "Masukkan potongan daging dan jeroan ke dalam kaldu daging. Tambahkan tumisan bumbu halus dan kelapa sangrai (kaluku). Tuangkan air asam jawa, masak hingga meresap dan mengental.",
+        "duration": 1200
+      },
+      {
+        "order": 5,
+        "title": "Sajikan dengan Telur",
+        "text": "Tuangkan Pallubasa panas ke dalam mangkuk. Tambahkan kuning telur ayam kampung mentah (alas) tepat di tengah kuah panas sebelum segera dihidangkan.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 20,
+    "pedas": 30,
+    "gurih": 98,
+    "asam": 15,
+    "asin": 75
+  },
+  "nutrition": {
+    "calories": 380,
+    "protein": 26,
+    "carbs": 14,
+    "fat": 24,
+    "fiber": 3,
+    "servingSize": "1 porsi (300ml)"
+  },
+  "locations": [
+    {
+      "name": "Pallubasa Serigala",
+      "city": "Makassar",
+      "lat": -5.1612,
+      "lng": 119.4239,
+      "description": "Warung Pallubasa paling tersohor di Makassar yang selalu dipadati pengunjung. Terkenal dengan tambahan kuning telur ayam kampung (alas) setengah matang dalam kuahnya.",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    },
+    {
+      "name": "Pallubasa Onta",
+      "city": "Makassar",
+      "lat": -5.1538,
+      "lng": 119.4245,
+      "description": "Legenda rasa Pallubasa dengan kuah kaluku yang sangat gurih, pekat, beraroma kelapa bakar yang tajam, dan potongan daging sapi super empuk.",
+      "priceRange": "Rp 25.000 - Rp 40.000"
+    }
+  ],
+  "related": [
+    "coto-makassar-001",
+    "konro-002",
+    "sop-saudara-007"
+  ],
+  "funFacts": [
+    "Istilah 'Alas' dalam memesan Pallubasa merujuk pada penambahan kuning telur ayam kampung mentah langsung ke dalam mangkuk sup yang panas membara.",
+    "Berbeda dengan Coto Makassar yang disantap dengan ketupat atau buras, Pallubasa secara tradisional disantap bersama sepiring nasi putih hangat."
+  ],
+  "tags": [
+    "pallubasa",
+    "makassar",
+    "kuliner sulawesi",
+    "jeroan sapi",
+    "kelapa sangrai",
+    "sop daging"
+  ]
+}

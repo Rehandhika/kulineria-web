@@ -1,0 +1,157 @@
+{
+  "id": "soto-betawi-006",
+  "name": "Soto Betawi",
+  "region": "jawa",
+  "description": "Soto daging dan jeroan sapi khas Betawi (Jakarta) dengan kuah putih gurih pekat beraroma pala, cengkeh, yang memadukan santan segar dengan susu sapi murni.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/soto-betawi.jpg",
+  "hero": {
+    "image": "/images/foods/soto-betawi-hero.jpg",
+    "alt": "Semangkuk Soto Betawi dengan kuah putih susu hangat, emping melinjo, dan taburan daun bawang",
+    "dominantColor": "#F39C12"
+  },
+  "story": {
+    "headline": "Perpaduan Harmonis Santan, Susu, dan Rempah Pala",
+    "body": "Soto Betawi adalah representasi kuliner Jakarta yang megah, menonjolkan pengaruh percampuran budaya peranakan Tionghoa, Arab, India, dan Belanda yang menetap di kota pelabuhan Batavia kuno. Istilah 'Soto Betawi' pertama kali dipopulerkan ke publik oleh seorang penjual soto bernama Lie Boen Po pada tahun 1977 di kawasan hiburan THR Lokasari, Jakarta Barat. Ciri khas paling mencolok dari Soto Betawi yang membedakannya dari jenis soto Nusantara lainnya adalah tekstur kuahnya yang putih kental kekuningan, hasil perpaduan harmonis santan kelapa kelapa segar dengan susu sapi murni cair.\n\nPenggunaan susu sapi murni ini diyakini terinspirasi dari pengaruh kuliner Arab dan India, yang memberikan rasa gurih berlemak tebal yang lembut (creamy) tanpa aroma amis daging. Kuah ini diracik dengan bumbu rempah aromatik hangat seperti biji pala, cengkeh, kayu manis, serai, daun jeruk purut, dan jahe. Di dalamnya, berisi potongan daging sapi sandung lamur, paru goreng kering yang garing, babat, Kentang rebus goreng setengah basah, dan emping melinjo renyah.",
+    "pullQuote": "Gurih tebal kuah susu kelapa berpadu kesegaran jeruk limau khas Batavia kuno",
+    "image": "/images/foods/soto-betawi-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Sapi & Jeroan (Paru, Babat)",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Susu Sapi Murni Cair",
+      "qty": "250ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kelapa Segar",
+      "qty": "250ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Minyak Samin",
+      "qty": "2 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Biji Pala",
+      "qty": "1/2 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kayu Manis dan Cengkeh",
+      "qty": "3cm & 3 butir",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Kentang Rebus",
+      "qty": "2 buah",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 60,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Daging dan Jeroan",
+        "text": "Rebus daging sapi dan jeroan (paru dan babat) dalam panci air mendidih secara terpisah hingga empuk. Angkat, tiriskan daging dan jeroan, lalu potong berbentuk dadu berukuran sedang. Saring air kaldu rebusan daging untuk dijadikan air kuah soto dasar.",
+        "duration": 2400
+      },
+      {
+        "order": 2,
+        "title": "Goreng Paru Hingga Krispi",
+        "text": "Goreng paru sapi rebus di wajan minyak kelapa panas di atas api sedang hingga berwarna gelap kecokelatan basah dan bertekstur kering garing krispi. Sisihkan.",
+        "duration": 300,
+        "tip": "Menggoreng paru terpisah dari kuah akan menjaga keempukan paru tetap renyah garing ketika dicemplungkan ke kuah soto hangat saat disajikan"
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu Kuah",
+        "text": "Panaskan minyak samin di atas api sedang wajan. Tumis bumbu halus (bawang merah, bawang putih, kemiri sangrai, ketumbar bubuk, jahe) bersama cengkeh, kayu manis, serai memar, dan parutan biji pala hingga matang harum.",
+        "duration": 480,
+        "tip": "Minyak samin kelenteng memberikan aroma mentega gurih berminyak yang sangat khas Betawi"
+      },
+      {
+        "order": 4,
+        "title": "Masak Kuah Santan Susu",
+        "text": "Masukkan tumisan bumbu halus ke panci air kaldu daging sapi. Tuangkan santan segar dan susu sapi murni cair secara perlahan sambil terus diaduk konstan di atas api kecil agar kuah susu kelapa tidak pecah bumbu. Didihkan lalu bumbui garam kasar dan merica bubuk.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Sajikan Soto Betawi Lengkap",
+        "text": "Tata potongan kentang goreng setengah basah, tomat segar potong, dan daging jeroan sapi di dasar mangkuk saji. Guyur dengan kuah soto putih kental berempah panas. Taburi emping melinjo geprek, daun bawang iris halus, bawang merah goreng, dan beri perasan jeruk limau segar.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 15,
+    "gurih": 90,
+    "asam": 25,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 410,
+    "protein": 24,
+    "carbs": 14,
+    "fat": 28,
+    "servingSize": "1 porsi semangkuk (350ml)"
+  },
+  "locations": [
+    {
+      "name": "Soto Betawi H. Ma'ruf",
+      "city": "Jakarta Pusat",
+      "lat": -6.1895,
+      "lng": 106.8405,
+      "description": "Kedai soto Betawi tertua dan paling legendaris sejak tahun 1940-an di kawasan Cikini, terkenal dengan keaslian racikan kuah santan campur susu murni beraroma minyak samin murni.",
+      "priceRange": "Rp 35.000 - Rp 60.000"
+    },
+    {
+      "name": "Soto H. Mamat",
+      "city": "Tangerang Selatan",
+      "lat": -6.2912,
+      "lng": 106.6625,
+      "description": "Soto Betawi modern yang sangat populer dengan menu andalan daging sapi oseng dengan kuah soto yang dipisah hangat gurih berlemak tebal.",
+      "priceRange": "Rp 32.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "rawon-002",
+    "nasi-uduk-007",
+    "tongseng-010"
+  ],
+  "funFacts": [
+    "Istilah nama 'Soto Betawi' diciptakan pertama kali oleh Lie Boen Po pada 1977 untuk membedakan soto jeroan sapi buatannya dari soto-soto daerah lain di kawasan Lokasari.",
+    "Penggunaan campuran susu murni di dalam kuah santan merupakan perpaduan teknik memasak Betawi kuno dengan kultur kuliner India dan Arab (pengguna minyak samin dan susu)."
+  ],
+  "tags": [
+    "soto betawi",
+    "khas betawi",
+    "jakarta",
+    "susu sapi",
+    "minyak samin",
+    "jeroan sapi",
+    "berkuah"
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": "pecel-005",
+  "name": "Pecel",
+  "region": "jawa",
+  "description": "Sajian sayuran rebus khas Jawa Timur yang diguyur saus kacang tanah berbumbu pekat kencur, daun jeruk purut, cabai rawit, serta disajikan bersama rempeyek renyah.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "manis",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/pecel.jpg",
+  "hero": {
+    "image": "/images/foods/pecel-hero.jpg",
+    "alt": "Seporsi Pecel pincuk daun pisang dengan rempeyek kacang renyah",
+    "dominantColor": "#808000"
+  },
+  "story": {
+    "headline": "Kesederhanaan Sayur Bumi dalam Balutan Bumbu Kencur",
+    "body": "Pecel adalah salah satu mahakarya kuliner tradisional Jawa yang memiliki akar sejarah sangat tua. Kata 'pecel' telah tertulis dalam serat kuno abad ke-19, Serat Centhini, sebagai hidangan sayuran rebus bersiram sambal kacang yang disajikan kepada para bangsawan. Hidangan ini sangat populer di wilayah Jawa Tengah dan Jawa Timur, dengan Kota Madiun sebagai salah satu kiblat pecel paling tersohor di Indonesia. Secara filosofis, pecel menggambarkan kesederhanaan dan kedekatan harmonis masyarakat Jawa dengan hasil bumi.\n\nPerbedaan mendasar antara pecel dan gado-gado terletak pada bumbunya. Sambal pecel memiliki aroma kencur dan daun jeruk purut yang sangat dominan, memberikan rasa segar hangat beraroma sitrus. Kacang tanah digoreng garing, digiling bersama gula merah aren, bawang putih, cabai, kencur segar, daun jeruk purut, dan sedikit garam. Penyajian pecel paling autentik menggunakan 'pincuk', yaitu wadah dari lipatan daun pisang segar yang disemat lidi bambu, dilengkapi sayur seperti bayam, tauge, kacang panjang, serta bunga pohon turi (kembang turi) rebus.",
+    "pullQuote": "Pecel pincuk daun pisang adalah rasa rindu tanah kelahiran yang bersahaja",
+    "image": "/images/foods/pecel-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Kacang Tanah",
+      "qty": "250g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Jeruk Purut",
+      "qty": "5 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kencur Segar",
+      "qty": "3cm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah Aren",
+      "qty": "150g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Sayuran Hijau (Bayam, Kacang Panjang, Tauge)",
+      "qty": "2 ikat",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "5 buah",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Sayuran Rebus",
+        "text": "Bersihkan dan potong sayuran seperti bayam, kacang panjang, kol, dan tauge. Rebus terpisah dalam air mendidih secara bergantian hingga matang layu namun warnanya tetap segar, lalu tiriskan segera.",
+        "duration": 480
+      },
+      {
+        "order": 2,
+        "title": "Goreng Kacang Tanah",
+        "text": "Goreng kacang tanah kupas menggunakan api sedang hingga berwarna kecokelatan kering dan wangi. Tiriskan minyak sepenuhnya dan biarkan dingin.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Ulek Sambal Pecel Padat",
+        "text": "Ulek halus kencur segar, bawang putih, cabai rawit, cabai merah keriting, daun jeruk purut yang sudah diiris halus tanpa tulang daun, garam, dan gula merah aren sisir. Masukkan kacang tanah goreng dingin, lalu giling kasar hingga minyak kacang keluar dan bumbu memadat.",
+        "duration": 480,
+        "tip": "Membuang tulang daun jeruk purut sebelum diulek kasar akan mencegah rasa getir pahit yang merusak saus pecel"
+      },
+      {
+        "order": 4,
+        "title": "Larutkan Sambal Pecel",
+        "text": "Ambil sebagian sambal pecel padat ke dalam mangkuk. Tuangkan air hangat matang secukupnya sedikit demi sedikit, aduk menggunakan sendok hingga bumbu mencair lembut dengan kekentalan pekat.",
+        "duration": 120,
+        "tip": "Selalu gunakan air hangat suam-suam kuku agar pelepasan aroma minyak atsiri kencur berlangsung optimal"
+      },
+      {
+        "order": 5,
+        "title": "Sajikan ala Pincuk Tradisional",
+        "text": "Lipat daun pisang membentuk pincuk, sematkan lidi di ujungnya. Letakkan nasi putih hangat di dasar pincuk, tata sayuran rebus di atas nasi, lalu siram dengan saus pecel kencur hangat. Lengkapi dengan rempeyek kacang tanah renyah.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 65,
+    "pedas": 50,
+    "gurih": 80,
+    "asam": 10,
+    "asin": 55
+  },
+  "nutrition": {
+    "calories": 280,
+    "protein": 10,
+    "carbs": 36,
+    "fat": 12,
+    "servingSize": "1 porsi (200g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Pecel Madiun Jl. Cokroaminoto",
+      "city": "Madiun",
+      "lat": -7.6254,
+      "lng": 111.5202,
+      "description": "Warung pecel legendaris di jantung kota Madiun dengan sambal pecel khasnya yang legit pedas berminyak harum kencur segar.",
+      "priceRange": "Rp 12.000 - Rp 25.000"
+    },
+    {
+      "name": "Pecel Solo",
+      "city": "Surakarta",
+      "lat": -7.5684,
+      "lng": 110.8215,
+      "description": "Menyajikan pecel Solo otentik dengan pilihan nasi merah hangat, aneka sayuran ndeso musiman, dan guyuran bumbu kacang gurih.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "gado-gado-004",
+    "nasi-kuning-008"
+  ],
+  "funFacts": [
+    "Nama 'Pecel' pertama kali terdokumentasi dalam naskah sastra Jawa legendaris abad ke-19, Serat Centhini, sebagai hidangan sayuran bersaus kacang bagi kaum ningrat.",
+    "Dalam penyajian pecel tradisional Jawa Timur, bunga pohon turi (kembang turi) rebus sering dicampurkan untuk memberikan rasa pahit manis tipis alami yang sangat khas pedesaan."
+  ],
+  "tags": [
+    "pecel",
+    "pecel madiun",
+    "jawa",
+    "sayur rebus",
+    "sambal pecel",
+    "rempeyek",
+    "kuliner tradisional"
+  ]
+}

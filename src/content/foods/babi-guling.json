@@ -1,0 +1,141 @@
+{
+  "id": "babi-guling-003",
+  "name": "Babi Guling",
+  "region": "bali-ntt",
+  "description": "Hidangan pesta khas Bali berupa babi utuh yang diisi dengan bumbu basa genep dan sayur daun ketela, kemudian dipanggang secara tradisional sambil diputar di atas bara api.",
+  "taste": [
+    "gurih",
+    "pedas",
+    "asin"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/babi-guling.jpg",
+  "hero": {
+    "image": "/img/foods/babi-guling-hero.jpg",
+    "alt": "Babi Guling utuh yang diputar perlahan di atas bara api tradisional Bali",
+    "dominantColor": "#8B4513"
+  },
+  "story": {
+    "headline": "Pesta Kuliner Dewata yang Megah",
+    "body": "Babi Guling atau dalam bahasa Bali disebut 'be guling' adalah puncak dari seni kuliner pesta di Bali. Awalnya, babi guling disajikan khusus sebagai sajian persembahan (banten) dalam upacara adat besar seperti pernikahan, potong gigi (mepandes), atau upacara keagamaan lainnya. Babi yang digunakan dipanggang utuh di atas bara kayu kopi atau kelapa sambil diputar perlahan selama berjam-jam untuk mendapatkan kulit yang renyah keemasan.\n\nKeistimewaan babi guling terletak pada bumbu bagian dalamnya. Perut babi dibersihkan lalu diisi dengan campuran bumbu basa genep berlimpah yang dipadukan dengan daun ketela pohon atau daun kelor. Saat babi dipanggang dan diputar, lemak babi meleleh dan menyatu dengan bumbu di dalam perut, menciptakan aroma yang sangat sedap dan daging yang luar biasa empuk serta berair.\n\nMenyantap babi guling merupakan pengalaman rasa yang kaya tekstur. Seporsi babi guling lengkap biasanya disajikan bersama kulit renyah (krupuk kulit), irisan daging empuk, lawar, sate lilit, jeroan goreng, dan kuah ares yang hangat, menjadikannya perayaan cita rasa Bali yang sejati.",
+    "pullQuote": "Kerenyahan kulit dan kelembutan daging bumbu basa genep adalah harmoni rasa tiada tara.",
+    "image": "/img/foods/babi-guling-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Anak Babi Utuh",
+      "qty": "1 ekor (12kg)",
+      "image": "/img/ingredients/whole-pig.svg",
+      "essential": true
+    },
+    {
+      "name": "Basa Genep Lengkap",
+      "qty": "1kg",
+      "image": "/img/ingredients/bali-spice.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Ketela Pohon",
+      "qty": "300g",
+      "image": "/img/ingredients/cassava-leaves.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Kelapa Murni",
+      "qty": "100ml",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": false
+    },
+    {
+      "name": "Air Kunyit",
+      "qty": "100ml",
+      "image": "/img/ingredients/turmeric-water.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 20,
+    "prepTime": 60,
+    "cookTime": 240,
+    "difficulty": "hard",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Persiapan Babi",
+        "text": "Bersihkan babi secara menyeluruh, bersihkan bagian dalam perut dan bulu kulit luar dengan air hangat. Gosok kulit luar dengan air kunyit agar menghasilkan warna keemasan saat dipanggang.",
+        "duration": 1800
+      },
+      {
+        "order": 2,
+        "title": "Isi Bumbu",
+        "text": "Masukkan bumbu basa genep cincang kasar yang dicampur dengan daun ketela pohon dan serai ke dalam perut babi. Jahit lubang perut dengan benang kasur hingga benar-benar rapat agar bumbu tidak keluar.",
+        "duration": 1200
+      },
+      {
+        "order": 3,
+        "title": "Persiapan Pemanggangan",
+        "text": "Tusuk babi dari bagian mulut hingga tembus ke belakang menggunakan kayu atau besi pemanggang panjang khusus.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Panggang dan Gulingkan",
+        "text": "Panggang babi di atas bara api kayu yang membara sedang. Putar (gulingkan) batang pemanggang secara konsisten dan perlahan selama 3 hingga 4 jam hingga kulitnya menjadi cokelat keemasan, tipis, renyah, dan daging di dalamnya matang merata.",
+        "duration": 14400,
+        "tip": "Olesi kulit babi sesekali dengan sedikit minyak kelapa atau air kelapa agar kulit tidak retak dan menghasilkan kerenyahan maksimal."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 75,
+    "gurih": 95,
+    "asam": 15,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 420,
+    "protein": 32,
+    "carbs": 5,
+    "fat": 30,
+    "fiber": 1,
+    "servingSize": "1 porsi (250g)"
+  },
+  "locations": [
+    {
+      "name": "Babi Guling Ibu Oka",
+      "city": "Gianyar",
+      "lat": -8.5069,
+      "lng": 115.2624,
+      "description": "Sangat legendaris dan terkenal di kalangan wisatawan mancanegara serta domestik, menyajikan babi guling dengan kulit super renyah khas Ubud.",
+      "priceRange": "Rp 50.000 - Rp 90.000"
+    },
+    {
+      "name": "Babi Guling Pak Malen",
+      "city": "Badung",
+      "lat": -8.6908,
+      "lng": 115.1685,
+      "description": "Destinasi kuliner babi guling favorit di area Seminyak dengan rasa bumbu pedas yang kuat dan kuah kaldu yang kaya rasa.",
+      "priceRange": "Rp 45.000 - Rp 75.000"
+    }
+  ],
+  "related": [
+    "sate-lilit-002",
+    "lawar-004",
+    "sate-babi-007"
+  ],
+  "funFacts": [
+    "Memutar babi guling secara manual membutuhkan ketahanan fisik luar biasa karena harus dilakukan dekat bara api panas selama minimal 3 jam.",
+    "Kulit babi guling yang sempurna harus berbunyi nyaring ('kriuk') saat diketuk dan memiliki tekstur tipis seperti kaca."
+  ],
+  "tags": [
+    "babi guling",
+    "bali",
+    "kuliner bali",
+    "non-halal",
+    "basa genep",
+    "pesta bali",
+    "kulit renyah",
+    "ubud"
+  ]
+}

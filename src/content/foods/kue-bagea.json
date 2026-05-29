@@ -1,0 +1,168 @@
+{
+  "id": "kue-bagea-008",
+  "name": "Kue Bagea",
+  "region": "maluku-papua",
+  "description": "Kue kering tradisional khas Maluku dan Papua berbahan dasar tepung sagu yang renyah dan padat, beraroma harum kayu manis, cengkih, serta taburan kacang kenari yang gurih.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/kue-bagea.jpg",
+  "hero": {
+    "image": "/img/foods/kue-bagea-hero.jpg",
+    "alt": "Kue Bagea kenari manis renyah khas Maluku",
+    "dominantColor": "#DEB887"
+  },
+  "story": {
+    "headline": "Manis Gurih Rempah Penghangat Sore di Ambon Manise",
+    "body": "Kue Bagea adalah ikon camilan manis dari Maluku dan Papua yang merekam jejak sejarah kejayaan perdagangan rempah-rempah dunia. Terbuat dari perpaduan sagu murni, gula merah, kayu manis, dan cengkih, kue ini memancarkan aroma aromatik hangat yang sangat khas Timur Indonesia saat dipanggang.\n\nTekstur bagea sangat unik; ia keras di bagian luar namun akan meleleh dan renyah berpasir saat digigit di dalam mulut berkat karakteristik tepung sagu murni. Taburan kacang kenari hutan kupas di atas atau di dalam adonan memberikan kontras rasa gurih berminyak alami yang mewah.\n\nDalam kehidupan sehari-hari masyarakat Maluku, kue bagea adalah teman setia dalam tradisi minum teh sore atau kopi jahe hangat. Menyuguhkan kue bagea kepada tamu merupakan simbol penghormatan dan keramahan yang tulus di tanah Kepulauan Maluku.",
+    "pullQuote": "Bagea adalah rasa manis sagu yang dibalut wewangian cengkih kepulauan.",
+    "image": "/img/foods/kue-bagea-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Tepung Sagu Murni",
+      "qty": "250g",
+      "image": "/img/ingredients/sago-flour.svg",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah",
+      "qty": "100g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Kenari",
+      "qty": "50g",
+      "image": "/img/ingredients/walnut.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Sayur",
+      "qty": "75ml",
+      "image": "/img/ingredients/vegetable-oil.svg",
+      "essential": true
+    },
+    {
+      "name": "Telur Ayam",
+      "qty": "1 butir",
+      "image": "/img/ingredients/egg.svg",
+      "essential": false
+    },
+    {
+      "name": "Bubuk Kayu Manis",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/cinnamon.svg",
+      "essential": true
+    },
+    {
+      "name": "Bubuk Cengkih",
+      "qty": "1/4 sdt",
+      "image": "/img/ingredients/cloves.svg",
+      "essential": true
+    },
+    {
+      "name": "Soda Kue",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/baking-soda.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 12,
+    "prepTime": 20,
+    "cookTime": 25,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Kocok Telur & Gula",
+        "text": "Kocok telur ayam dan gula merah sisir hingga larut dan mengembang lembut.",
+        "duration": 300
+      },
+      {
+        "order": 2,
+        "title": "Masukkan Minyak",
+        "text": "Masukkan minyak sayur ke dalam kocokan telur, aduk perlahan hingga rata.",
+        "duration": 120
+      },
+      {
+        "order": 3,
+        "title": "Ayak Bahan Kering",
+        "text": "Di wadah lain, campurkan tepung sagu, bubuk kayu manis, bubuk cengkih, dan soda kue. Ayak bersama agar tercampur rata.",
+        "duration": 240
+      },
+      {
+        "order": 4,
+        "title": "Uleni Adonan",
+        "text": "Masukkan campuran tepung sagu kering sedikit demi sedikit ke dalam adonan basah telur sambil diaduk perlahan hingga terbentuk adonan yang bisa dipulung.",
+        "duration": 300
+      },
+      {
+        "order": 5,
+        "title": "Bentuk Kue",
+        "text": "Ambil sedikit adonan, bentuk bulat lonjong atau bulat pipih, lalu taruh beberapa cincangan kacang kenari di atasnya sebagai hiasan.",
+        "duration": 300
+      },
+      {
+        "order": 6,
+        "title": "Panggang Kue",
+        "text": "Panggang kue di dalam oven ber-suhu 160 derajat Celcius selama 20-25 menit hingga kering, merekah, dan berwarna kuning kecokelatan. Dinginkan sebelum disimpan.",
+        "duration": 1500,
+        "tip": "Biarkan bagea benar-benar dingin setelah dipanggang agar mendapatkan tekstur renyah garing maksimal."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 70,
+    "pedas": 10,
+    "gurih": 60,
+    "asam": 0,
+    "asin": 25
+  },
+  "nutrition": {
+    "calories": 120,
+    "protein": 1.5,
+    "carbs": 18,
+    "fat": 5,
+    "fiber": 0.8,
+    "servingSize": "2 keping (30g)"
+  },
+  "locations": [
+    {
+      "name": "Toko Kanari Oleh-oleh Khas Ambon",
+      "city": "Ambon",
+      "lat": -3.6941,
+      "lng": 128.1812,
+      "description": "Toko oleh-oleh tertua yang terkenal memproduksi bagea kenari hangat dengan resep warisan keluarga.",
+      "priceRange": "Rp 20.000 - Rp 40.000"
+    },
+    {
+      "name": "Pasar Hamadi Jayapura",
+      "city": "Jayapura",
+      "lat": -2.5487,
+      "lng": 140.7202,
+      "description": "Pasar seni dan kuliner tempat berburu bagea sagu khas Papua yang dikemas tradisional dalam anyaman daun sagu kering.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "sagu-lempeng-004",
+    "bubur-ne-010"
+  ],
+  "funFacts": [
+    "Secara tradisional, beberapa varian bagea dibungkus menggunakan daun sagu kering (daun rumbia) sebelum dijual agar aroma alaminya terjaga.",
+    "Rempah cengkih dan kayu manis dalam bagea adalah bentuk asimilasi budaya kuliner lokal dengan para pedagang rempah asing pada era kolonial."
+  ],
+  "tags": [
+    "kue bagea",
+    "bagea sagu",
+    "kenari",
+    "khas maluku",
+    "khas papua",
+    "kue kering",
+    "cemilan manis"
+  ]
+}

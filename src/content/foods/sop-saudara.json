@@ -1,0 +1,175 @@
+{
+  "id": "sop-saudara-007",
+  "name": "Sop Saudara",
+  "region": "sulawesi",
+  "description": "Sup daging sapi berkuah rempah kental khas Pangkep yang disajikan unik bersama bihun lembut, perkedel kentang goreng, dan paru goreng garing.",
+  "taste": [
+    "gurih",
+    "asin",
+    "pedas"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/sop-saudara.jpg",
+  "hero": {
+    "image": "/images/foods/sop-saudara-hero.jpg",
+    "alt": "Semangkuk Sop Saudara hangat dengan suwiran daging sapi empuk, perkedel kentang, paru goreng, bihun, dan taburan daun bawang bawang goreng",
+    "dominantColor": "#795548"
+  },
+  "story": {
+    "headline": "Sup Persaudaraan Hangat dari Pangkep",
+    "body": "Sop Saudara adalah hidangan sup daging sapi khas Kabupaten Pangkajene dan Kepulauan (Pangkep), Sulawesi Selatan. Kaldu sup ini memiliki karakteristik yang berbeda dengan coto; kuahnya berwarna kuning keruh karena penggunaan rempah-rempah yang kaya seperti jahe, lengkuas, serai, kunyit, pala, kayu manis, dan cengkih, tanpa campuran kacang tanah. Ciri khas penyajiannya yang unik adalah kehadiran bihun, perkedel kentang, telur rebus, serta potongan paru sapi goreng garing yang memberikan kombinasi tekstur kenyal, lembut, dan renyah sekaligus dalam satu mangkuk sup.\n\nNama 'Sop Saudara' lahir dari gagasan kreatif Haji Muhammad Aliah pada tahun 1957. Beliau merupakan seorang penjual coto asal Pangkep yang merantau ke Makassar. Terinspirasi dari nama kedai es legendaris bernama 'Es Saudara', beliau menamai sup buatannya 'Sop Saudara' dengan filosofi mendalam: 'Saudara' yang berarti persaudaraan. Harapannya, siapa pun yang datang menikmati sup ini akan merasa seperti makan bersama saudara kandung sendiri, mempererat silaturahmi tanpa memandang kasta atau asal daerah.",
+    "pullQuote": "Mangkuk hangat Sop Saudara melarutkan segala perbedaan, menyatukan rasa dalam ikatan persaudaraan yang tulus.",
+    "image": "/images/foods/sop-saudara-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Sapi (Sengkel)",
+      "qty": "500g",
+      "image": "/img/ingredients/beef.svg",
+      "essential": true
+    },
+    {
+      "name": "Paru Sapi",
+      "qty": "200g",
+      "image": "/img/ingredients/beef-lung.svg",
+      "essential": false
+    },
+    {
+      "name": "Perkedel Kentang",
+      "qty": "4 buah",
+      "image": "/img/ingredients/potato-fritter.svg",
+      "essential": true
+    },
+    {
+      "name": "Bihun Seduh",
+      "qty": "100g",
+      "image": "/img/ingredients/vermicelli.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Bawang",
+      "qty": "2 batang",
+      "image": "/img/ingredients/scallion.svg",
+      "essential": false
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "5 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Kemiri Sangrai",
+      "qty": "4 butir",
+      "image": "/img/ingredients/candle-nut.svg",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": true
+    },
+    {
+      "name": "Kayu Manis",
+      "qty": "3 cm",
+      "image": "/img/ingredients/cinnamon.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 90,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Daging Sapi",
+        "text": "Rebus daging sapi sengkel bersama satu batang serai memar hingga benar-benar empuk. Angkat daging, tiriskan lalu potong dadu kecil. Saring air rebusan daging untuk kaldu sup.",
+        "duration": 2700
+      },
+      {
+        "order": 2,
+        "title": "Tumis Bumbu Halus",
+        "text": "Haluskan bawang merah, bawang putih, kemiri, kunyit, ketumbar, pala, dan jahe. Tumis bumbu halus bersama kayu manis dan sisa serai hingga matang dan pecah minyak.",
+        "duration": 480
+      },
+      {
+        "order": 3,
+        "title": "Satukan Bumbu dan Kaldu",
+        "text": "Tuangkan bumbu tumis ke dalam air kaldu daging. Didihkan kembali dengan api sedang agar cita rasa rempah menyatu sempurna dalam kaldu sapi.",
+        "duration": 900
+      },
+      {
+        "order": 4,
+        "title": "Persiapkan Bahan Pelengkap",
+        "text": "Rebus paru sapi secara terpisah hingga matang, potong tipis-tipis, bumbui dengan sedikit garam dan ketumbar, lalu goreng hingga garing renyah. Siapkan pula bihun seduh dan perkedel kentang goreng.",
+        "duration": 1200
+      },
+      {
+        "order": 5,
+        "title": "Racik dan Hidangkan",
+        "text": "Tata bihun, perkedel kentang yang dihancurkan kasar, dan potongan daging sapi di dalam mangkuk saji. Siram dengan kuah kaldu rempah yang mendidih. Taburi paru goreng garing, bawang goreng, dan irisan daun bawang di atasnya.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 40,
+    "gurih": 90,
+    "asam": 10,
+    "asin": 80
+  },
+  "nutrition": {
+    "calories": 340,
+    "protein": 24,
+    "carbs": 22,
+    "fat": 16,
+    "fiber": 2,
+    "servingSize": "1 porsi mangkuk (300ml)"
+  },
+  "locations": [
+    {
+      "name": "Sop Saudara Jl. Irian",
+      "city": "Makassar",
+      "lat": -5.1264,
+      "lng": 119.4109,
+      "description": "Warung Sop Saudara pertama dan paling legendaris di Makassar yang didirikan langsung oleh keluarga H. M. Aliah, menjaga keaslian rasa kuah rempahnya sejak 1957.",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    },
+    {
+      "name": "Sop Saudara Pangkep Toddopuli",
+      "city": "Makassar",
+      "lat": -5.1632,
+      "lng": 119.4445,
+      "description": "Sangat digemari karena kelezatan paru gorengnya yang sangat garing gurih serta perkedel kentangnya yang lembut gurih menyerap kuah rempah.",
+      "priceRange": "Rp 22.000 - Rp 38.000"
+    }
+  ],
+  "related": [
+    "coto-makassar-001",
+    "konro-002",
+    "pallubasa-003"
+  ],
+  "funFacts": [
+    "Perkedel kentang dalam Sop Saudara sengaja diremas kasar tepat sebelum kuah sup panas disiramkan agar perkedel larut sebagian dan mengentalkan kuahnya secara gurih alami.",
+    "Meskipun merupakan kuliner asli Kabupaten Pangkep, ketenaran Sop Saudara justru melonjak drastis setelah diperkenalkan di Jalan Irian, Kota Makassar."
+  ],
+  "tags": [
+    "sop saudara",
+    "pangkep",
+    "makassar",
+    "kuliner sulawesi",
+    "daging sapi",
+    "perkedel",
+    "makanan berkuah"
+  ]
+}

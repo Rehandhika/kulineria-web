@@ -1,0 +1,154 @@
+{
+  "id": "pisang-ijo-005",
+  "name": "Pisang Ijo",
+  "region": "sulawesi",
+  "description": "Hidangan penutup manis khas Makassar berupa pisang raja ranum yang dibalut adonan tepung beras beraroma daun pandan segar, disiram santan gurih.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "minuman",
+  "imageUrl": "/images/foods/pisang-ijo.jpg",
+  "hero": {
+    "image": "/images/foods/pisang-ijo-hero.jpg",
+    "alt": "Pisang Ijo yang dipotong-potong rapi di atas piring datar bersiramkan bubur sumsum putih salju dan sirup merah",
+    "dominantColor": "#4CAF50"
+  },
+  "story": {
+    "headline": "Kemegahan Warna Hijau di Ujung Lidah",
+    "body": "Pisang Ijo adalah jajanan legendaris khas Makassar yang melambangkan kelembutan hati dan keramahtamahan. Kue ini terbuat dari pisang raja utuh yang dibalut kulit tipis berbahan tepung beras, tepung terigu, dan santan yang diberi warna hijau alami dari perasan daun suji dan daun pandan wangi. Setelah dikukus hingga matang, pisang hijau ini dipotong-potong dan disajikan di atas hamparan bubur sumsum yang super lembut, gurih, dan legit.\n\nDalam kebudayaan Makassar, warna hijau pada kulit pembungkus pisang memiliki makna filosofis yang mendalam. Hijau melambangkan kemakmuran, kedamaian, dan harapan baru yang suci. Pisang Ijo tidak sekadar menjadi hidangan pencuci mulut biasa, melainkan media penyampai rasa syukur. Di masa silam, hidangan manis ini kerap disajikan dalam upacara pernikahan adat Bugis-Makassar sebagai simbol harapan agar kehidupan baru yang ditempuh kedua mempelai selalu dinaungi kedamaian dan kesejahteraan.",
+    "pullQuote": "Kelembutan adonan hijau memeluk erat manisnya pisang raja, melambangkan kehangatan sambutan tanah daeng.",
+    "image": "/images/foods/pisang-ijo-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Pisang Raja Ranum",
+      "qty": "6 buah",
+      "image": "/img/ingredients/banana.svg",
+      "essential": true
+    },
+    {
+      "name": "Tepung Beras",
+      "qty": "150g",
+      "image": "/img/ingredients/rice-flour.svg",
+      "essential": true
+    },
+    {
+      "name": "Air Daun Pandan & Suji",
+      "qty": "100ml",
+      "image": "/img/ingredients/pandan.svg",
+      "essential": true
+    },
+    {
+      "name": "Santan Kental",
+      "qty": "200ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": true
+    },
+    {
+      "name": "Tepung Terigu",
+      "qty": "150g",
+      "image": "/img/ingredients/flour.svg",
+      "essential": false
+    },
+    {
+      "name": "Gula Pasir",
+      "qty": "50g",
+      "image": "/img/ingredients/sugar.svg",
+      "essential": false
+    },
+    {
+      "name": "Garapan / Garam",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Kukus Pisang",
+        "text": "Kukus pisang raja utuh beserta kulitnya hingga matang dan empuk selama 15 menit. Angkat, kupas kulitnya, lalu sisihkan.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Buat Adonan Kulit Hijau",
+        "text": "Campur tepung beras, tepung terigu, gula pasir, santan, dan air perasan daun pandan-suji dalam panci. Aduk rata hingga tidak bergumpal, lalu masak di atas api kecil sambil terus diaduk hingga kalis dan matang.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Balut Pisang dengan Adonan",
+        "text": "Ambil sebagian adonan hijau selagi hangat, gilas tipis di atas selembar plastik. Letakkan satu buah pisang raja di atas adonan, gulung dan rapatkan hingga seluruh bagian pisang terbungkus sempurna.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Kukus Pisang Ijo",
+        "text": "Tata pisang ijo di atas daun pisang, lalu kukus kembali selama 15 menit hingga adonan kulit matang merata dan warnanya berubah menjadi hijau pekat.",
+        "duration": 900
+      },
+      {
+        "order": 5,
+        "title": "Tata dan Hidangkan",
+        "text": "Biarkan pisang ijo dingin terlebih dahulu, potong-potong serong, lalu sajikan bersama bubur sumsum putih gurih di piring hidang.",
+        "duration": 180
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 90,
+    "pedas": 0,
+    "gurih": 80,
+    "asam": 0,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 310,
+    "protein": 4,
+    "carbs": 58,
+    "fat": 8,
+    "fiber": 3,
+    "servingSize": "1 porsi (250g)"
+  },
+  "locations": [
+    {
+      "name": "Spesial Pisang Ijo Muda Mudi",
+      "city": "Makassar",
+      "lat": -5.1485,
+      "lng": 119.4187,
+      "description": "Kedai legendaris di Makassar yang terkenal dengan pisang ijonya yang memiliki tekstur kulit hijau super lembut dan rasa bubur sumsum gurih sejak tahun 1990-an.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    },
+    {
+      "name": "RM Bravo",
+      "city": "Makassar",
+      "lat": -5.1278,
+      "lng": 119.415,
+      "description": "Pusat kuliner Makassar yang menyajikan Pisang Ijo klasik dengan resep warisan keluarga yang mempertahankan aroma alami daun suji dan santan kelapa murni.",
+      "priceRange": "Rp 18.000 - Rp 32.000"
+    }
+  ],
+  "related": [
+    "es-pisang-ijo-006"
+  ],
+  "funFacts": [
+    "Pisang Ijo yang autentik wajib menggunakan pisang raja ranum agar rasa manis alami karamel pisang dapat meresap sempurna saat dikukus.",
+    "Warna hijau cerah pada kulit pisang ijo tradisional didapatkan sepenuhnya dari perasan daun suji (pewarna alami) dan daun pandan (aromatis alami)."
+  ],
+  "tags": [
+    "pisang ijo",
+    "makassar",
+    "kuliner sulawesi",
+    "pisang raja",
+    "pandan",
+    "jajanan pasar",
+    "minuman"
+  ]
+}

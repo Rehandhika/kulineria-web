@@ -1,0 +1,141 @@
+{
+  "id": "ayam-betutu-005",
+  "name": "Ayam Betutu",
+  "region": "bali-ntt",
+  "description": "Ayam kampung utuh yang dibalur dengan bumbu basa genep lengkap, dibungkus daun pisang atau pelepah pinang, kemudian dikukus dan dipanggang hingga bumbunya meresap sempurna ke dalam serat daging.",
+  "taste": [
+    "pedas",
+    "gurih"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/ayam-betutu.jpg",
+  "hero": {
+    "image": "/img/foods/ayam-betutu-hero.jpg",
+    "alt": "Ayam Betutu khas Gilimanuk dengan kuah rempah kuning pedas berlimpah",
+    "dominantColor": "#C04000"
+  },
+  "story": {
+    "headline": "Sentuhan Rempah Pedas Khas Gilimanuk",
+    "body": "Ayam Betutu adalah salah satu hidangan pusaka kuliner Bali yang sangat digemari karena sensasi rasa pedasnya yang membakar namun membuat ketagihan. Berbeda dengan bebek betutu yang lebih pekat dan sering diasosiasikan dengan Gianyar, ayam betutu sangat populer di kawasan Gilimanuk dan Melaya, Jembrana. Sejarah mencatat bahwa kuliner betutu dirintis oleh Ni Wayan Tempeh asal Abianbase yang menetap di Gilimanuk sejak tahun 1970-an.\n\nKata 'betutu' berasal dari kata 'be' yang berarti daging dan 'tutu' yang artinya dibakar menggunakan sekam. Proses pembuatannya sangat tradisional: ayam kampung utuh dilumuri bumbu basa genep berlimpah yang ditumbuk kasar (basa gede) lalu dimasukkan ke dalam rongga perut bersama daun singkong. Daging ayam kemudian dibungkus berlapis-lapis dengan daun pisang agar kelembapannya terjaga saat dikukus atau dipanggang lama di bawah sekam padi yang membara.\n\nKeistimewaan ayam betutu terletak pada keempukan dagingnya yang luar biasa hingga mudah terlepas dari tulangnya. Karakter bumbunya sangat tajam, didominasi oleh cabai rawit merah, kencur, jahe, kunyit, terasi, serai, dan minyak kelapa asli Bali. Hidangan ini biasanya disajikan bersama nasi hangat, plecing kangkung, lawar sayur, dan semangkuk sambal matah yang segar.",
+    "pullQuote": "Pedasnya ayam betutu Gilimanuk adalah kehangatan rempah yang meresap hingga ke tulang.",
+    "image": "/img/foods/ayam-betutu-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ayam Kampung Utuh",
+      "qty": "1 ekor (900g)",
+      "image": "/img/ingredients/whole-chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Basa Genep Tumbuk",
+      "qty": "250g",
+      "image": "/img/ingredients/bali-spice.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Singkong Muda",
+      "qty": "100g",
+      "image": "/img/ingredients/cassava-leaves.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Kelapa Murni",
+      "qty": "4 sdm",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": false
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "1 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 45,
+    "cookTime": 120,
+    "difficulty": "hard",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Ayam",
+        "text": "Bersihkan ayam kampung utuh, buang ceker dan leher jika suka, lumuri permukaan ayam dengan garam dan air jeruk nipis agar bersih dan kesat. Diamkan selama 15 menit, lalu bilas.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Isi Rongga Ayam",
+        "text": "Campurkan bumbu basa genep tumbuk kasar dengan minyak kelapa dan daun singkong rebus. Masukkan campuran daun singkong berbumbu ini ke dalam rongga perut ayam kampung hingga padat, lalu sematkan ujungnya dengan lidi agar bumbu tidak berhamburan.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Bungkus Ayam",
+        "text": "Bungkus ayam kampung berbumbu dengan beberapa lembar daun pisang yang telah dilayukan di atas api. Ikat erat dengan tali kasur atau pelepah pisang.",
+        "duration": 600,
+        "tip": "Daun pisang harus berlapis tebal agar uap air tertahan dan membuat daging sangat empuk."
+      },
+      {
+        "order": 4,
+        "title": "Kukus dan Panggang",
+        "text": "Kukus ayam yang telah dibungkus selama 90 menit hingga dagingnya melunak. Setelah dikukus, panggang bungkusan ayam di atas bara api arang atau oven bersuhu 180 derajat Celsius selama 30 menit hingga aromanya harum meresap.",
+        "duration": 7200,
+        "tip": "Untuk hasil tradisional yang maksimal, panggang dalam timbunan abu dan sekam padi hangat semalaman."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 85,
+    "gurih": 80,
+    "asam": 15,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 310,
+    "protein": 26,
+    "carbs": 5,
+    "fat": 20,
+    "fiber": 1,
+    "servingSize": "1 porsi (200g)"
+  },
+  "locations": [
+    {
+      "name": "Ayam Betutu Khas Gilimanuk",
+      "city": "Jembrana",
+      "lat": -8.1632,
+      "lng": 114.4376,
+      "description": "Pelopor dan tempat paling terkenal untuk menikmati ayam betutu kuah dan goreng dengan cita rasa pedas super mantap.",
+      "priceRange": "Rp 60.000 - Rp 120.000"
+    },
+    {
+      "name": "Ayam Betutu Men Tempeh",
+      "city": "Jembrana",
+      "lat": -8.1618,
+      "lng": 114.4391,
+      "description": "Warung legendaris yang didirikan sejak tahun 1978 di dekat Pelabuhan Gilimanuk, terkenal sebagai rujukan utama pencinta kuliner pedas Bali.",
+      "priceRange": "Rp 55.000 - Rp 110.000"
+    }
+  ],
+  "related": [
+    "bebek-betutu-001",
+    "sate-lilit-002",
+    "plecing-kangkung-009"
+  ],
+  "funFacts": [
+    "Nama 'betutu' awalnya merujuk pada proses memasak dalam lubang tanah dengan sekam padi membara selama belasan jam.",
+    "Meskipun sangat pedas, ayam betutu disukai karena rasa pedasnya berasal dari rempah-rempah alami seperti cabai rawit dan kencur yang menyehatkan lambung."
+  ],
+  "tags": [
+    "ayam betutu",
+    "bali",
+    "kuliner bali",
+    "gilimanuk",
+    "pedas",
+    "basa genep",
+    "ayam kampung",
+    "tradisional"
+  ]
+}

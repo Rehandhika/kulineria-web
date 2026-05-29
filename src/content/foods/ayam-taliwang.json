@@ -1,0 +1,148 @@
+{
+  "id": "ayam-taliwang-010",
+  "name": "Ayam Taliwang",
+  "region": "bali-ntt",
+  "description": "Kuliner legendaris khas Lombok berupa ayam kampung muda yang dibakar dengan lumuran bumbu rempah cabai rawit pedas dan terasi Lombok yang khas dan beraroma kuat.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asin"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/ayam-taliwang.jpg",
+  "hero": {
+    "image": "/img/foods/ayam-taliwang-hero.jpg",
+    "alt": "Ayam Taliwang Lombok bakar arang berlumur bumbu cabai rawit kencur merah menggoda",
+    "dominantColor": "#800000"
+  },
+  "story": {
+    "headline": "Sensasi Pedas Membakar dari Kampung Taliwang",
+    "body": "Ayam Taliwang adalah lambang supremasi kuliner pedas dari Nusa Tenggara Barat. Asal-usul nama hidangan ini merujuk pada Kampung Karang Taliwang di Kota Mataram, Lombok. Konon, masakan ini pertama kali diperkenalkan oleh masyarakat Taliwang (Sumbawa) yang bermigrasi ke Lombok pada masa peperangan antara Kerajaan Selaparang dan Karangasem Bali. Peramu pertamanya adalah H. Moerad yang kemudian membuka warung lesehan sederhana di Mataram, menyajikan ayam panggang berlumur bumbu pedas menyengat yang segera merebut hati masyarakat lokal.\n\nKunci utama kelezatan Ayam Taliwang terletak pada pemilihan jenis ayam. Ayam yang digunakan wajib berupa ayam kampung yang masih sangat muda (disebut ayam jejaran), biasanya berusia sekitar 3-4 bulan. Ayam muda ini memiliki daging yang sangat lembut, gurih alami, dan tidak liat, sehingga cepat matang saat dibakar dan bumbu dapat meresap sempurna hingga ke tulang.\n\nBumbu olesan Ayam Taliwang merupakan perpaduan antara kencur yang melimpah, cabai rawit Lombok yang terkenal sangat pedas, bawang merah, bawang putih, tomat merah, dan terasi khas Lombok yang asin gurih. Ayam dibakar di atas bara arang kayu sambil diolesi bumbu secara bertahap dalam beberapa kali proses pembakaran, menghasilkan warna merah kecokelatan yang eksotis, aroma asap yang memikat, dan cita rasa pedas gurih yang meledak di mulut.",
+    "pullQuote": "Pedas membakar Ayam Taliwang adalah perayaan keberanian bumbu Nusantara yang tiada banding.",
+    "image": "/img/foods/ayam-taliwang-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ayam Kampung Muda",
+      "qty": "1 ekor (550g)",
+      "image": "/img/ingredients/young-chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Lombok",
+      "qty": "15 buah",
+      "image": "/img/ingredients/bird-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Kencur Segar",
+      "qty": "3cm",
+      "image": "/img/ingredients/aromatic-ginger.svg",
+      "essential": true
+    },
+    {
+      "name": "Terasi Lombok Lengkare",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/shrimp-paste.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": false
+    },
+    {
+      "name": "Minyak Kelapa Murni",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 2,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Persiapan Ayam",
+        "text": "Bersihkan ayam kampung muda. Belah bagian dada ayam dari arah depan, lalu tekan agar terbuka lebar (membentuk ayam ingkung/bekakak). Lumuri dengan garam dan jeruk nipis, lalu bilas.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Ulek Bumbu Taliwang",
+        "text": "Haluskan cabai rawit merah, kencur, terasi bakar, bawang merah, bawang putih, kemiri sangrai, dan tomat merah. Tumis bumbu halus dengan minyak kelapa hingga harum dan matang pecah minyak.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Bakar Setengah Matang",
+        "text": "Panggang ayam kampung muda di atas bara api arang hingga setengah matang dan beraroma asap.",
+        "duration": 450,
+        "tip": "Bakar dengan jarak tidak terlalu dekat dengan bara api agar daging matang merata tanpa gosong di luar."
+      },
+      {
+        "order": 4,
+        "title": "Oles Bumbu dan Bakar Matang",
+        "text": "Celupkan atau olesi ayam setengah matang dengan bumbu tumis secara merata ke seluruh permukaan daging. Panggang kembali ayam di atas bara api. Ulangi proses pengolesan bumbu ini sebanyak 2-3 kali selama pembakaran hingga bumbu meresap kering dan ayam matang sempurna.",
+        "duration": 450,
+        "tip": "Gunakan kuas tradisional dari pelepah serai untuk mengoleskan bumbu agar menambah aroma wangi herbal."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 95,
+    "gurih": 90,
+    "asam": 10,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 290,
+    "protein": 28,
+    "carbs": 4,
+    "fat": 18,
+    "fiber": 1,
+    "servingSize": "1/2 ekor ayam (180g)"
+  },
+  "locations": [
+    {
+      "name": "Lesehan Ayam Taliwang H. Moerad",
+      "city": "Mataram",
+      "lat": -8.5833,
+      "lng": 116.1167,
+      "description": "Warung lesehan perintis kuliner Ayam Taliwang paling legendaris di Lombok sejak era 1960-an, terkenal dengan cita rasa pedas kencurnya yang tiada banding.",
+      "priceRange": "Rp 45.000 - Rp 80.000"
+    },
+    {
+      "name": "Ayam Taliwang Bersaudara",
+      "city": "Jakarta Selatan",
+      "lat": -6.2297,
+      "lng": 106.8159,
+      "description": "Membawa cita rasa Ayam Taliwang otentik Lombok ke Jakarta, terkenal dengan ayam taliwang bakar madu dan bakar pedasnya yang sangat digemari.",
+      "priceRange": "Rp 50.000 - Rp 95.000"
+    }
+  ],
+  "related": [
+    "plecing-kangkung-009",
+    "ayam-betutu-005",
+    "sate-lilit-002"
+  ],
+  "funFacts": [
+    "Ayam Taliwang yang asli wajib menggunakan ayam kampung muda agar tulang-tulangnya masih cukup lunak dan dagingnya sangat empuk berair.",
+    "Tingkat kepedasan Ayam Taliwang legendaris sering kali dinilai menggunakan cabai rawit Lombok yang memiliki sensasi pedas lebih tajam dibanding cabai Jawa."
+  ],
+  "tags": [
+    "ayam taliwang",
+    "lombok",
+    "kuliner lombok",
+    "pedas",
+    "ayam bakar",
+    "taliwang",
+    "kencur",
+    "terasi lombok"
+  ]
+}

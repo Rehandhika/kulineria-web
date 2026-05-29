@@ -1,0 +1,184 @@
+{
+  "id": "ketupat-kandangan-002",
+  "name": "Ketupat Kandangan",
+  "region": "kalimantan",
+  "description": "Hidangan ketupat legendaris khas kota Kandangan dengan kuah santan gurih beraroma kunyit, disajikan dengan ikan haruan (gabus) yang diasap lalu dimasak dalam kuah santan rempah.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/ketupat-kandangan.jpg",
+  "hero": {
+    "image": "/images/foods/ketupat-kandangan-hero.jpg",
+    "alt": "Ketupat Kandangan kuah santan kuning kental dengan lauk ikan gabus (haruan)",
+    "dominantColor": "#DDA00B"
+  },
+  "story": {
+    "headline": "Keunikan Ikan Haruan Asap dalam Kuah Santan Pekat",
+    "body": "Ketupat Kandangan berasal dari kota Kandangan, ibu kota Kabupaten Hulu Sungai Selatan, Kalimantan Selatan. Ciri khas utama hidangan ini adalah penggunaan Ikan Haruan (ikan gabus rawa) sebagai lauk utamanya. Sebelum dimasukkan ke dalam kuah santan, ikan haruan terlebih dahulu dibersihkan, dipotong, lalu diasap atau dipanggang di atas bara api kayu bakar hingga matang kering dan mengeluarkan aroma asap (smoky) yang sangat menggugah selera.\n\nKeunikan luar biasa lain terletak pada ketupatnya. Jika ketupat Jawa umumnya bertekstur padat dan kenyal, ketupat Kandangan dibuat dengan teknik khusus sehingga teksturnya cenderung mudah hancur atau berderai ketika disiram kuah hangat. Cara makan tradisionalnya pun sangat ikonik: hidangan ini disantap langsung dengan tangan tanpa sendok, di mana jemari meremas ketupat hingga menyatu sempurna dengan kuah santan kental yang gurih dan bumbu rempah kuning (berisi kunyit, jahe, kemiri, dan kencur) serta lauk ikan haruan.",
+    "pullQuote": "Mamakan Katupat Kandangan, paling pakol lamun langsung pakai tangan.",
+    "image": "/images/foods/ketupat-kandangan-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Haruan (Gabus)",
+      "qty": "500g",
+      "image": "/img/ingredients/corkfish.svg",
+      "essential": true
+    },
+    {
+      "name": "Santan Encer",
+      "qty": "500ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": true
+    },
+    {
+      "name": "Santan Kental",
+      "qty": "250ml",
+      "image": "/img/ingredients/coconut-milk.svg",
+      "essential": true
+    },
+    {
+      "name": "Ketupat Beras",
+      "qty": "4 buah",
+      "image": "/img/ingredients/ketupat.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "4 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Kunyit",
+      "qty": "3 cm",
+      "image": "/img/ingredients/turmeric.svg",
+      "essential": true
+    },
+    {
+      "name": "Kemiri",
+      "qty": "4 butir",
+      "image": "/img/ingredients/candle-nut.svg",
+      "essential": true
+    },
+    {
+      "name": "Jahe",
+      "qty": "2 cm",
+      "image": "/img/ingredients/ginger.svg",
+      "essential": true
+    },
+    {
+      "name": "Kencur",
+      "qty": "1 cm",
+      "image": "/img/ingredients/sand-ginger.svg",
+      "essential": false
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Salam",
+      "qty": "2 lembar",
+      "image": "/img/ingredients/bay-leaf.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 45,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Mengasap Ikan Haruan",
+        "text": "Bersihkan ikan haruan, potong menjadi beberapa bagian. Lumuri dengan garam dan sedikit jeruk nipis. Panggang atau asap ikan di atas bara api kayu bakar kecil hingga matang kering dan mengeluarkan aroma asap (smoky).",
+        "duration": 1200
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu",
+        "text": "Haluskan bawang merah, bawang putih, kemiri sangrai, kunyit bakar, jahe, kencur, dan garam. Memarkan serai dan siapkan daun salam segar.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Masak Kuah Encer",
+        "text": "Rebus bumbu halus bersama santan encer, daun salam, dan serai di atas api sedang. Aduk terus agar santan tidak pecah, lalu masukkan ikan haruan asap.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Kentalkan Kuah",
+        "text": "Setelah bumbu meresap ke dalam ikan, tuangkan santan kental. Masak kembali sambil diaduk perlahan hingga kuah mendidih sempurna, gurih, dan sedikit berminyak.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Sajikan Tradisional",
+        "text": "Letakkan potongan ketupat di atas piring. Siram dengan kuah santan kuning yang panas beserta potongan ikan haruan asap. Sajikan dengan sambal mentah dan perasan limau kuit, disantap menggunakan tangan kosong agar nikmat.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 30,
+    "gurih": 90,
+    "asam": 15,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 410,
+    "protein": 28,
+    "carbs": 35,
+    "fat": 18,
+    "fiber": 1,
+    "servingSize": "1 porsi (400g)"
+  },
+  "locations": [
+    {
+      "name": "Warung Ketupat Kandangan H. Munda",
+      "city": "Kandangan",
+      "lat": -2.775825,
+      "lng": 115.224151,
+      "description": "Warung legendaris paling ikonik di kota asalnya, terkenal dengan keaslian cita rasa dan ikan gabus asapnya yang tebal.",
+      "priceRange": "Rp 25.000 - Rp 35.000"
+    },
+    {
+      "name": "Ketupat Kandangan Kaum",
+      "city": "Banjarmasin",
+      "lat": -3.315891,
+      "lng": 114.594612,
+      "description": "Destinasi terpopuler bagi pencinta ketupat Kandangan di Banjarmasin, menyajikan porsi melimpah dengan kuah sangat gurih.",
+      "priceRange": "Rp 20.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "soto-banjar-001",
+    "gangan-asam-007",
+    "iwak-pakasam-010"
+  ],
+  "funFacts": [
+    "Ketupat Kandangan secara turun-temurun disantap menggunakan tangan kosong tanpa sendok garpu karena tekstur ketupatnya yang rapuh sengaja dirancang agar lumat bersama kuah ketika diremas.",
+    "Ikan haruan yang digunakan wajib merupakan tangkapan liar dari perairan rawa pedalaman Kalimantan, karena dagingnya dinilai lebih manis, kesat, dan bebas bau lumpur dibanding ikan budidaya kolam."
+  ],
+  "tags": [
+    "ketupat kandangan",
+    "kalimantan selatan",
+    "ikan gabus",
+    "kuliner banjar",
+    "santan"
+  ]
+}

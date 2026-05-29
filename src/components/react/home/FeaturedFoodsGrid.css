@@ -149,7 +149,7 @@
 }
 
 .result-card-image {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
@@ -165,11 +165,11 @@
 }
 
 .result-card-content {
-  padding: var(--sp-3);
-}
-
-@media (min-width: 768px) {
-  .result-card-content { padding: var(--sp-4); }
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--sp-1.5);
 }
 
 .result-card-content h3 {
@@ -177,7 +177,8 @@
   font-weight: 700;
   color: var(--c-text-1);
   font-family: var(--ff-display);
-  margin-bottom: var(--sp-1);
+  margin-bottom: 0;
+  line-height: 1.25;
 }
 
 @media (min-width: 768px) {
@@ -188,16 +189,17 @@
   display: block;
   font-size: var(--fs-xs);
   color: var(--c-text-3);
-  margin-bottom: var(--sp-3);
   font-family: var(--ff-body);
   font-weight: 600;
   text-transform: capitalize;
+  margin-bottom: var(--sp-2);
 }
 
 .result-card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-1);
+  margin-top: auto; /* Mendorong tag ke bagian paling bawah kartu agar rapi */
 }
 
 /* ── Pagination ── */

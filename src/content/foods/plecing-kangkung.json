@@ -1,0 +1,149 @@
+{
+  "id": "plecing-kangkung-009",
+  "name": "Plecing Kangkung",
+  "region": "bali-ntt",
+  "description": "Hidangan khas Lombok yang juga sangat populer di Bali, menyajikan kangkung rebus air tawar yang bertekstur renyah dengan siraman sambal tomat terasi segar, kacang goreng, dan perasan jeruk limau.",
+  "taste": [
+    "pedas",
+    "asin",
+    "asam",
+    "gurih"
+  ],
+  "type": "mentah",
+  "imageUrl": "/img/foods/plecing-kangkung.jpg",
+  "hero": {
+    "image": "/img/foods/plecing-kangkung-hero.jpg",
+    "alt": "Plecing Kangkung Lombok segar dengan ulekan sambal tomat terasi merah merona",
+    "dominantColor": "#2E8B57"
+  },
+  "story": {
+    "headline": "Segar dan Pedas Menggigit dari Bumi Sasak",
+    "body": "Plecing Kangkung adalah mahakarya kuliner khas Suku Sasak di Lombok, Nusa Tenggara Barat, yang kepopulerannya telah merambah luas hingga ke Pulau Bali dan menjadi menu wajib di berbagai rumah makan tradisional. Keunikan utama sajian ini terletak pada bahan dasarnya, yaitu kangkung air khas Lombok yang tumbuh di aliran air parit atau sungai yang bersih. Kangkung Lombok terkenal memiliki batang yang besar, berongga renyah, dan berdaun lebar, menghasilkan sensasi kriuk yang khas dan berbeda dari kangkung darat biasa.\n\nSajian ini merupakan perpaduan antara kesegaran sayuran yang direbus setengah matang dengan sengatan sambal plecing yang sangat pedas. Sambal plecing diracik dari cabai rawit merah, cabai merah besar, tomat segar, garam, dan terasi khas Lombok (terasi lengkare) yang beraroma kuat dan gurih manis alami. Kangkung rebus yang telah disuwir memanjang kemudian disiram dengan sambal mentah/setengah matang ini.\n\nSebagai pelengkap tekstur, plecing kangkung ditaburi kacang tanah goreng yang renyah dan kacang tolo (kacang merah kecil) rebus. Perasan jeruk limau segar ditambahkan sesaat sebelum disajikan, menyumbang aroma wangi citrus yang membangkitkan selera. Hidangan sehat dan menyegarkan ini sangat sempurna mendampingi ayam taliwang atau sate lilit Bali.",
+    "pullQuote": "Kerenyahan kangkung Lombok berpadu dengan ledakan rasa pedas-asam sambal plecing adalah harmoni kesegaran alami.",
+    "image": "/img/foods/plecing-kangkung-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Kangkung Air Lombok",
+      "qty": "300g",
+      "image": "/img/ingredients/water-spinach.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "10 buah",
+      "image": "/img/ingredients/bird-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Tomat Merah Segar",
+      "qty": "2 buah",
+      "image": "/img/ingredients/tomato.svg",
+      "essential": true
+    },
+    {
+      "name": "Terasi Lombok Lengkare",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/shrimp-paste.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Limau",
+      "qty": "1 buah",
+      "image": "/img/ingredients/key-lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Tanah Goreng",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/fried-peanuts.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 15,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Kangkung",
+        "text": "Siapkan air dalam panci besar, tambahkan sedikit garam. Rebus kangkung air yang telah disiangi dalam air mendidih selama 2-3 menit hingga layu namun batangnya masih renyah. Angkat dan masukkan ke air dingin segera.",
+        "duration": 180,
+        "tip": "Jangan merebus kangkung terlalu lama agar tekstur renyahnya tidak hilang."
+      },
+      {
+        "order": 2,
+        "title": "Suwir Kangkung",
+        "text": "Tiriskan kangkung secara menyeluruh. Belah batang kangkung membujur menjadi 2 atau 3 bagian dengan cara disuwir menggunakan jari tangan. Sisihkan di atas piring saji.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Ulek Sambal Plecing",
+        "text": "Ulek kasar cabai rawit merah, cabai merah keriting, tomat merah, terasi bakar, dan garam.",
+        "duration": 300,
+        "tip": "Gunakan tomat segar yang ranum agar sambal memiliki kandungan air segar alami."
+      },
+      {
+        "order": 4,
+        "title": "Siram dan Sajikan",
+        "text": "Siramkan sambal plecing di atas suwiran kangkung rebus. Beri perasan jeruk limau segar di atasnya, lalu taburi dengan kacang tanah goreng renyah. Plecing kangkung siap disajikan.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 85,
+    "gurih": 70,
+    "asam": 60,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 95,
+    "protein": 3,
+    "carbs": 8,
+    "fat": 6,
+    "fiber": 4,
+    "servingSize": "1 porsi (150g)"
+  },
+  "locations": [
+    {
+      "name": "Lesehan Ayam Taliwang H. Moerad",
+      "city": "Mataram",
+      "lat": -8.5833,
+      "lng": 116.1167,
+      "description": "Sangat terkenal di Lombok sebagai pendamping legendaris ayam taliwang, menyajikan plecing kangkung dengan rasa sambal terasi lengkare yang sangat kuat.",
+      "priceRange": "Rp 15.000 - Rp 25.000"
+    },
+    {
+      "name": "Warung Tempong & Plecing Bali",
+      "city": "Denpasar",
+      "lat": -8.6715,
+      "lng": 115.2234,
+      "description": "Kedai makan populer di Bali yang menghadirkan plecing kangkung segar dengan siraman jeruk purut yang wangi berpadu kacang tanah renyah.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    }
+  ],
+  "related": [
+    "ayam-taliwang-010",
+    "ayam-betutu-005",
+    "sate-lilit-002"
+  ],
+  "funFacts": [
+    "Kangkung khas Lombok memiliki ukuran batang hampir sebesar jempol tangan orang dewasa, jauh lebih besar dibandingkan kangkung pulau lain.",
+    "Proses menyuwir kangkung dengan tangan (bukan memotong dengan pisau) membantu bumbu sambal meresap lebih baik ke serat-serat batang kangkung."
+  ],
+  "tags": [
+    "plecing kangkung",
+    "lombok",
+    "bali",
+    "kuliner sasak",
+    "kangkung lombok",
+    "pedas",
+    "sehat",
+    "vegetaran"
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "id": "tongseng-010",
+  "name": "Tongseng",
+  "region": "jawa",
+  "description": "Olahan daging kambing atau sapi khas Jawa Tengah yang dimasak dalam kuah gulai yang gurih manis pedas hangat, ditumis dadakan bersama kecap manis, irisan kubis, tomat merah segar, dan cabai rawit.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "manis",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/tongseng.jpg",
+  "hero": {
+    "image": "/images/foods/tongseng-hero.jpg",
+    "alt": "Semangkuk Tongseng Kambing hangat berkuah kecap manis kecokelatan dengan taburan kubis iris",
+    "dominantColor": "#5D4037"
+  },
+  "story": {
+    "headline": "Sentuhan Manis Pedas pada Kuah Gulai Kambing",
+    "body": "Tongseng adalah mahakarya kuliner dari wilayah Mataraman, Jawa Tengah, dengan daerah Klego di Boyolali sebagai sentra asal muasal para pedagang tongseng yang paling legendaris. Sejarah tongseng sangat erat kaitannya dengan perkembangan industri sate kambing di Jawa pada abad ke-19, seiring menjamurnya pabrik gula tebu dan kecap manis lokal. Setelah potongan daging kambing terbaik ditusuk menjadi sate, bagian tulang belulang, jeroan, dan sisa serpihan daging berlemak diolah kembali menjadi masakan berkuah kaya rempah.\n\nYang membuat tongseng sangat unik adalah metode memasaknya yang menggunakan konsep 'tongseng' (tumis dadakan). Tongseng tidak pernah dimasak massal dalam panci besar seperti gulai biasa, melainkan dimasak porsi demi porsi di atas wajan baja kecil panas. Daging kambing ditumis dadakan bersama minyak samin, bawang merah iris, cabai rawit utuh, kecap manis khas Jawa, kubis (kol) mentah, dan tomat segar. Setelah tumisan daging layu harum, barulah diguyur kuah gulai kuning yang pekat gurih. Proses kilat ini menghasilkan sayuran kol yang tetap bertekstur garing berpadu rasa manis karamel kecap manis.",
+    "pullQuote": "Tongseng adalah keajaiban tumisan kilat yang mengawinkan kuah gulai kental dengan gurih manis kecap panas",
+    "image": "/images/foods/tongseng-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Kambing Muda",
+      "qty": "400g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kuah Gulai Matang",
+      "qty": "400ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kecap Manis Khas Jawa",
+      "qty": "4 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kubis (Kol) Segar",
+      "qty": "100g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Tomat Merah Segar",
+      "qty": "2 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "5 butir",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "10 buah",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 15,
+    "cookTime": 20,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Daging Kambing",
+        "text": "Potong-potong dadu kecil daging kambing muda beserta sedikit bagian lemaknya agar kuah gurih meresap. Hindari mencuci daging kambing dengan air mengalir secara langsung agar daging tidak mengeluarkan bau prengus berlebih.",
+        "duration": 300,
+        "tip": "Bungkus potongan daging kambing dengan remasan daun pepaya tua selama 10 menit agar serat daging empuk lunak saat ditumis cepat"
+      },
+      {
+        "order": 2,
+        "title": "Tumis Bumbu Irisan",
+        "text": "Panaskan minyak samin atau minyak kelapa di wajan baja panas api sedang. Tumis irisan bawang merah dan bawang putih hingga layu aromatik dan berwarna kuning kecokelatan.",
+        "duration": 120
+      },
+      {
+        "order": 3,
+        "title": "Tumis Cepat Daging Kambing",
+        "text": "Masukkan potongan daging kambing dan lemaknya ke dalam wajan baja panas. Aduk cepat menggunakan spatula di atas api besar hingga daging matang berubah warna abu-abu kemerahan dan lemaknya meleleh harum. Masukkan cabai rawit merah utuh.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Beri Kecap Manis dan Gulai",
+        "text": "Kucurkan kecap manis di sepanjang dinding besi wajan panas agar kecap mendidih menguap terkaramelisasi, aduk rata bersama daging. Guyurkan kuah gulai santan kuning pekat panas perlahan, didihkan kuah hingga meresap empuk ke dalam daging.",
+        "duration": 480,
+        "tip": "Menggunakan kuah gulai matang sebagai basis kuah mempercepat proses menumis sekaligus mengentalkan aroma rempah kunyit jahe kemiri"
+      },
+      {
+        "order": 5,
+        "title": "Masukkan Kubis & Tomat",
+        "text": "Masukkan potongan kasar kubis (kol) dan belahan tomat merah segar sesaat sebelum diangkat. Masak selama 1-2 menit saja hingga kubis layu sedikit namun warnanya tetap putih hijau segar dan garing garing renyah. Angkat segera.",
+        "duration": 120,
+        "tip": "Kubis harus dimasukkan paling terakhir agar sensasi 'kriuk' renyahnya tidak hilang berpadu empuknya serat daging kambing"
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 65,
+    "pedas": 70,
+    "gurih": 90,
+    "asam": 20,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 380,
+    "protein": 22,
+    "carbs": 16,
+    "fat": 24,
+    "servingSize": "1 porsi semangkuk (300g)"
+  },
+  "locations": [
+    {
+      "name": "Warung Tongseng Pak H. Budi",
+      "city": "Jakarta Timur",
+      "lat": -6.2234,
+      "lng": 106.8845,
+      "description": "Spesialis tongseng kambing legendaris dengan kuah kental pekat berwarna cokelat kemerahan yang gurih pedas manis, disajikan dalam mangkuk tanah liat panas.",
+      "priceRange": "Rp 30.000 - Rp 55.000"
+    },
+    {
+      "name": "Tongseng & Sate Kambing Pak Manto",
+      "city": "Surakarta",
+      "lat": -7.5675,
+      "lng": 110.8145,
+      "description": "Sangat legendaris di Solo dengan menu andalan Tongseng Rica-Rica yang super pedas membara dengan kuah kecap rempah hitam kental melimpah.",
+      "priceRange": "Rp 40.000 - Rp 65.000"
+    }
+  ],
+  "related": [
+    "soto-betawi-006",
+    "rawon-002",
+    "nasi-goreng-003"
+  ],
+  "funFacts": [
+    "Kecamatan Klego di Kabupaten Boyolali mendapat reputasi sebagai 'Kecamatan Tongseng' karena mayoritas warganya merantau ke penjuru Nusantara mendirikan warung tongseng sukses.",
+    "Kubis dan tomat merah dimasukkan sesaat sebelum tongseng dituang, memberikan sensasi gigitan garing (crunchy) manis segar sebagai penetralisir tebalnya rasa lemak kambing."
+  ],
+  "tags": [
+    "tongseng",
+    "tongseng kambing",
+    "khas jawa",
+    "boyolali",
+    "kuah gulai",
+    "kecap manis",
+    "pedas gurih",
+    "berkuah"
+  ]
+}

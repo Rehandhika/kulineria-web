@@ -1,0 +1,157 @@
+{
+  "id": "nasi-uduk-007",
+  "name": "Nasi Uduk",
+  "region": "jawa",
+  "description": "Hidangan nasi khas Betawi yang dimasak menggunakan santan kelapa, serai, cengkeh, kayu manis, dan daun pandan, disajikan harum gurih dengan siraman sambal kacang cair pedas asam manis.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/nasi-uduk.jpg",
+  "hero": {
+    "image": "/images/foods/nasi-uduk-hero.jpg",
+    "alt": "Sepiring Nasi Uduk Betawi hangat bertabur bawang goreng melimpah ditemani ayam goreng, semur tahu, dan sambal kacang cair",
+    "dominantColor": "#EAECEE"
+  },
+  "story": {
+    "headline": "Harumnya Nasi Santan Khas Ibukota",
+    "body": "Nasi Uduk adalah salah satu sarapan pagi dan kuliner malam terpopuler di Jakarta. Lahir dari kebudayaan Betawi, secara etimologis nama 'uduk' diyakini berasal dari kosakata Sunda kuno yang bermakna 'campur' atau kosakata Jawa 'wuduk' yang mengacu pada nasi gurih bersantan kelapa. Hidangan ini lahir dari peleburan harmonis kebudayaan Melayu pesisir yang membawa konsep nasi lemak, bersanding dengan pengaruh nasi kebuli khas Arab-Timur Tengah yang menggunakan bumbu-bumbu rempah kering aromatik.\n\nNasi Uduk ditanak di air perasan santan kelapa pekat bersama aromatik lokal seperti daun pandan wangi, daun salam, serai memar, cengkeh kering, pala parut, dan sepotong kayu manis. Proses ini membuahkan butiran nasi uduk yang pulen terurai, gurih berminyak tipis, dan sangat harum aromatik. Berbeda dengan nasi lemak Melayu yang berpasangan dengan sambal bilis pedas pekat, nasi uduk Betawi sejati selalu bersanding dengan sambal kacang cair kemerahan bercita rasa pedas gurih encer yang asam segar dari jeruk purut, serta bertabur bawang goreng Sumenep yang melimpah renyah.",
+    "pullQuote": "Keharuman pandan dan cengkeh menari indah dalam kelembutan butiran nasi gurih",
+    "image": "/images/foods/nasi-uduk-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras Putih Pulen",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kelapa Sedang",
+      "qty": "400ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Pandan Wangi",
+      "qty": "3 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Salam",
+      "qty": "3 lembar",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cengkeh dan Kayu Manis",
+      "qty": "3 butir & 2cm",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Bawang Merah Goreng",
+      "qty": "3 sdm",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 15,
+    "cookTime": 40,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Cuci dan Rendam Beras",
+        "text": "Cuci bersih beras putih pulen di bawah air mengalir, rendam dalam air bersih selama 15 menit agar beras mengembang lembut saat dimasak, lalu tiriskan sepenuhnya.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Didihkan Santan Bumbu",
+        "text": "Rebus santan sedang bersama daun pandan wangi yang disimpul, daun salam, serai yang telah dimemarkan, cengkeh, kayu manis, dan garam kasar dalam panci beralas tebal. Didihkan perlahan di atas api sedang.",
+        "duration": 600,
+        "tip": "Aduk rebusan santan secara konstan agar emulsi minyak kelapa tidak pecah bumbu saat mendidih"
+      },
+      {
+        "order": 3,
+        "title": "Tanak Beras (Aron)",
+        "text": "Masukkan beras putih kering ke dalam panci rebusan santan mendidih. Kecilkan api kompor, aduk sesekali hingga cairan santan meresap terserap habis seluruhnya oleh beras (menjadi nasi aron). Matikan api lalu angkat panci.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Kukus Nasi Uduk",
+        "text": "Panaskan panci kukusan (dandang) hingga air di dasarnya mendidih mengepul tebal. Pindahkan beras aron tadi ke saringan dandang secara perlahan. Tutup panci rapat, lalu kukus selama 30-35 menit hingga nasi uduk matang pulen tanak.",
+        "duration": 2100,
+        "tip": "Tepuk-tepuk nasi uduk di dalam kukusan menjelang matang; jika terdengar padat membal pulen, berarti nasi telah matang merata"
+      },
+      {
+        "order": 5,
+        "title": "Racik Sambal Kacang Encer",
+        "text": "Goreng kacang tanah, haluskan bersama cabai merah rebus, bawang putih, garam, gula aren, lalu larutkan air hangat hingga encer segar. Sajikan nasi uduk hangat berbungkus daun pisang bersama lauk pauk (ayam goreng, semur tahu) dan siraman sambal kacang cair.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 10,
+    "gurih": 85,
+    "asam": 5,
+    "asin": 65
+  },
+  "nutrition": {
+    "calories": 340,
+    "protein": 6,
+    "carbs": 54,
+    "fat": 11,
+    "servingSize": "1 porsi piring (150g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Uduk Gondangdia",
+      "city": "Jakarta Pusat",
+      "lat": -6.1878,
+      "lng": 106.8335,
+      "description": "Restoran nasi uduk Betawi legendaris sejak tahun 1952, terkenal dengan bungkusan nasi uduk berbentuk kerucut daun pisang yang harum wangi dan aneka lauk gorengan super mantap.",
+      "priceRange": "Rp 20.000 - Rp 45.000"
+    },
+    {
+      "name": "Nasi Uduk Kebon Kacang H. Zainal Fanani",
+      "city": "Jakarta Pusat",
+      "lat": -6.1852,
+      "lng": 106.8189,
+      "description": "Kawasan legendaris sentra nasi uduk Betawi mini berbungkus daun pisang berlapis-lapis dengan siraman sambal kacang cair asam pedas manis.",
+      "priceRange": "Rp 15.000 - Rp 35.000"
+    }
+  ],
+  "related": [
+    "nasi-goreng-003",
+    "nasi-kuning-008",
+    "soto-betawi-006"
+  ],
+  "funFacts": [
+    "Nasi uduk dibungkus daun pisang membentuk kerucut mungil. Bentuk geometris ini membantu menahan pelepasan uap panas nasi uduk agar kelembapan dan keharuman bumbu terkunci lebih lama.",
+    "Sambal uduk Betawi yang otentik berwujud sambal kacang encer (cair) dengan rasa asam manis pedas, didesain untuk menyegarkan tenggorokan dari tebalnya rasa gurih lemak santan nasi."
+  ],
+  "tags": [
+    "nasi uduk",
+    "khas betawi",
+    "jakarta",
+    "sarapan",
+    "sambal kacang",
+    "nasi santan",
+    "rempah harum"
+  ]
+}

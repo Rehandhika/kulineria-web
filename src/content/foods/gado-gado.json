@@ -1,0 +1,157 @@
+{
+  "id": "gado-gado-004",
+  "name": "Gado-Gado",
+  "region": "jawa",
+  "description": "Salad khas Jawa yang terdiri dari sayuran rebus, tahu, tempe, dan telur rebus, disiram dengan saus kacang tanah yang gurih manis nan kental.",
+  "taste": [
+    "gurih",
+    "manis",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/gado-gado.jpg",
+  "hero": {
+    "image": "/images/foods/gado-gado-hero.jpg",
+    "alt": "Sajian Gado-Gado dengan siraman saus kacang tanah kental beralas daun pisang serta taburan emping melinjo",
+    "dominantColor": "#8B5A2B"
+  },
+  "story": {
+    "headline": "Mahakarya Salad Nusantara Bersiram Saus Kacang",
+    "body": "Gado-Gado sering kali dijuluki sebagai salad khas Indonesia karena terdiri dari aneka sayuran segar yang direbus setengah matang, seperti kangkung, bayam, tauge, kubis, kacang panjang, labu siam, dilengkapi irisan kentang rebus, tahu, tempe goreng, dan telur rebus. Kata 'gado' sendiri berakar dari bahasa Betawi kuno yang berarti 'memakan sesuatu tanpa nasi'. Di Jawa Barat dan Jakarta, gado-gado adalah kuliner wajib harian yang menyehatkan sekaligus sangat memuaskan perut.\n\nKunci kelezatan gado-gado yang autentik terletak pada siraman saus kacangnya. Kacang tanah disangrai atau digoreng garing, kemudian digiling halus dan diulek bersama cabai, bawang putih, gula merah aren, garam, kencur, terasi bakar, dan sedikit air asam jawa untuk memberikan rasa segar penyeimbang. Teksturnya harus kental dan gurih berlemak dengan paduan rasa manis yang pas. Di warung-warung legendaris, bumbu kacang ini diulek langsung secara segar ('gado-gado ulek') di atas cobek batu raksasa sesaat sebelum dicampur sayuran.",
+    "pullQuote": "Kesegaran sayur bumi berpadu mesra dalam kehangatan ulekan saus kacang",
+    "image": "/images/foods/gado-gado-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Kacang Tanah Kupas",
+      "qty": "200g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Gula Merah Aren",
+      "qty": "100g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Air Asam Jawa",
+      "qty": "2 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kentang",
+      "qty": "2 buah",
+      "image": "",
+      "essential": false
+    },
+    {
+      "name": "Kangkung dan Tauge",
+      "qty": "1 ikat & 50g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Tahu dan Tempe Sutra",
+      "qty": "2 buah",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Telur Ayam",
+      "qty": "2 butir",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 20,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Sayuran dan Protein",
+        "text": "Didihkan air dengan sedikit garam kasar. Rebus kangkung, kacang panjang, kol, labu siam, kentang, dan tauge secara bergantian hingga setengah matang layu, lalu tiriskan segera. Goreng tahu dan tempe berlumur garam hingga garing kecokelatan, lalu potong-potong bentuk dadu.",
+        "duration": 600,
+        "tip": "Merebus sayuran dalam air garam sebentar akan mengunci zat hijau daun agar sayur tetap segar bertekstur krispi saat dikunyah"
+      },
+      {
+        "order": 2,
+        "title": "Goreng Kacang Tanah",
+        "text": "Goreng kacang tanah berkulit arang dalam minyak sedang hingga harum matang. Haluskan kacang tanah goreng tersebut menggunakan tumbukan batu atau blender kering hingga mengeluarkan minyak alami.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Racik Bumbu Ulek",
+        "text": "Ulek bawang putih, cabai rawit merah, sedikit terasi bakar, kencur memar, garam halus, dan gula aren sisir di atas cobek batu besar. Masukkan kacang tanah halus, lalu ulek kembali hingga menyatu.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Encerkan Saus Kacang",
+        "text": "Tuangkan air asam jawa dan sedikit air hangat matang perlahan ke atas cobek batu. Aduk-aduk bumbu kacang menggunakan ulekan hingga bumbu mengental lembut dengan konsistensi saus salad yang licin.",
+        "duration": 180,
+        "tip": "Gunakan air hangat agar lemak alami kacang teraktifkan maksimal menciptakan saus yang tebal berkilau"
+      },
+      {
+        "order": 5,
+        "title": "Campur Sayuran & Sajikan",
+        "text": "Tata susunan sayuran rebus, kentang rebus, potongan tahu, dan tempe goreng di atas piring saji beralas daun pisang. Guyurkan saus kacang kental melimpah di atasnya. Sajikan dengan belahan telur rebus, taburan emping melinjo, dan kerupuk udang.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 70,
+    "pedas": 30,
+    "gurih": 80,
+    "asam": 20,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 350,
+    "protein": 12,
+    "carbs": 42,
+    "fat": 15,
+    "servingSize": "1 porsi piring (300g)"
+  },
+  "locations": [
+    {
+      "name": "Gado-Gado Direksi",
+      "city": "Jakarta Barat",
+      "lat": -6.1408,
+      "lng": 106.8123,
+      "description": "Warung gado-gado legendaris sejak tahun 1967 di kawasan pecinan Glodok, terkenal dengan kelembutan saus kacang ulek yang sangat halus dan gurih eksklusif.",
+      "priceRange": "Rp 40.000 - Rp 55.000"
+    },
+    {
+      "name": "Gado-Gado Boplo",
+      "city": "Jakarta Selatan",
+      "lat": -6.2415,
+      "lng": 106.8142,
+      "description": "Terkenal dengan kreasi saus kacang premium yang memadukan kacang tanah dan kacang mete panggang, menghasilkan cita rasa gurih legit yang mewah.",
+      "priceRange": "Rp 35.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "pecel-005",
+    "gudeg-001"
+  ],
+  "funFacts": [
+    "Istilah 'Gado-Gado' diserap dari kata 'menggado' dalam dialek Betawi kuno yang bermakna memakan lauk pauk secara langsung tanpa nasi pendamping.",
+    "Bumbu kacang gado-gado legendaris biasanya memadukan kacang tanah Tuban yang gurih dengan kacang mete untuk rasa saus yang lebih creamy dan tidak cepat berair."
+  ],
+  "tags": [
+    "gado-gado",
+    "khas betawi",
+    "jawa",
+    "salad indonesia",
+    "saus kacang",
+    "sayuran rebus",
+    "sehat"
+  ]
+}

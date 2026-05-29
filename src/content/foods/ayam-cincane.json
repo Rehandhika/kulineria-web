@@ -1,0 +1,179 @@
+{
+  "id": "ayam-cincane-003",
+  "name": "Ayam Cincane",
+  "region": "kalimantan",
+  "description": "Hidangan ayam kampung khas Samarinda, Kalimantan Timur yang diungkep dengan bumbu merah kemiri, jahe, dan terasi khas, lalu dibakar di atas bara api hingga harum meresap.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asin"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/images/foods/ayam-cincane.jpg",
+  "hero": {
+    "image": "/images/foods/ayam-cincane-hero.jpg",
+    "alt": "Ayam Cincane bakar merah merona khas Kutai Samarinda",
+    "dominantColor": "#9E1B1B"
+  },
+  "story": {
+    "headline": "Sajian Kehormatan dan Jamuan Bangsawan Kutai",
+    "body": "Ayam Cincane merupakan kuliner tradisional legendaris khas suku Kutai di Samarinda dan Kutai Kartanegara, Kalimantan Timur. Di masa lampau, hidangan ini bukanlah makanan sehari-hari masyarakat jelata, melainkan kuliner istimewa yang disajikan secara eksklusif dalam upacara adat, ritual pernikahan, dan jamuan menyambut tamu-tamu agung dari Kesultanan Kutai Kartanegara. Penampilan Ayam Cincane sangat mencolok dengan warna merah kecokelatan yang membara, menandakan kekayaan bumbu yang meresap sempurna hingga ke serat-serat daging ayam kampung pilihan.\n\nRahasia kelezatan Ayam Cincane terletak pada proses memasaknya yang bertahap dan memakan waktu lama. Ayam kampung terlebih dahulu dimasak perlahan (diungkep) dalam campuran bumbu halus yang melimpah—terdiri dari bawang merah, bawang putih, cabai merah, kemiri, jahe, lengkuas, serai, serta terasi bakar khas Kalimantan. Setelah bumbu meresap dan mengental menyelimuti daging ayam, barulah ayam dibakar di atas bara api arang kayu. Hasilnya adalah daging ayam yang empuk dengan perpaduan cita rasa pedas menggigit, gurih terasi yang pekat, sedikit sentuhan manis jahe, serta aroma wangi asap yang menggugah selera.",
+    "pullQuote": "Aroma khas terasi dan jahe Ayam Cincane adalah penghormatan tertinggi bagi para tamu.",
+    "image": "/images/foods/ayam-cincane-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ayam Kampung",
+      "qty": "1 ekor",
+      "image": "/img/ingredients/chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Merah Keriting",
+      "qty": "10 buah",
+      "image": "/img/ingredients/red-chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "4 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Terasi Bakar",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/shrimp-paste.svg",
+      "essential": true
+    },
+    {
+      "name": "Kemiri",
+      "qty": "5 butir",
+      "image": "/img/ingredients/candle-nut.svg",
+      "essential": true
+    },
+    {
+      "name": "Jahe",
+      "qty": "3 cm",
+      "image": "/img/ingredients/ginger.svg",
+      "essential": true
+    },
+    {
+      "name": "Lengkuas",
+      "qty": "3 cm",
+      "image": "/img/ingredients/galangal.svg",
+      "essential": false
+    },
+    {
+      "name": "Serai",
+      "qty": "2 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": false
+    },
+    {
+      "name": "Air Asam Jawa",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/tamarind.svg",
+      "essential": false
+    },
+    {
+      "name": "Gula Merah",
+      "qty": "1 sdm",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 50,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Marinasi Ayam",
+        "text": "Cuci bersih ayam kampung yang telah dipotong menjadi 4 bagian. Lumuri dengan garam dan air asam jawa untuk melunakkan daging serta menghilangkan bau amis, diamkan selama 15 menit.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Haluskan Bumbu",
+        "text": "Haluskan bawang merah, bawang putih, cabai merah keriting, kemiri sangrai, jahe, dan terasi bakar hingga terbentuk pasta bumbu halus berwarna merah cerah.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Ungkep Ayam",
+        "text": "Tumis bumbu halus bersama daun serai memar dan lengkuas hingga harum. Masukkan potongan ayam kampung, aduk hingga berubah warna. Tuangkan air, masukkan gula merah dan sedikit garam. Ungkep dengan api kecil hingga ayam empuk dan bumbu menyusut mengental.",
+        "duration": 1800
+      },
+      {
+        "order": 4,
+        "title": "Bakar Ayam",
+        "text": "Siapkan panggangan arang atau pan grill. Olesi ayam dengan bumbu kental sisa ungkepan, lalu bakar di atas bara api hingga berwarna kecokelatan eksotis dan harum wangi asap tercium.",
+        "duration": 600
+      },
+      {
+        "order": 5,
+        "title": "Sajikan Ayam Cincane",
+        "text": "Tata ayam bakar cincane di piring saji, tuangkan sisa bumbu merah yang kental di atas ayam. Hidangkan selagi hangat dengan nasi putih pulen.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 25,
+    "pedas": 75,
+    "gurih": 85,
+    "asam": 15,
+    "asin": 60
+  },
+  "nutrition": {
+    "calories": 340,
+    "protein": 32,
+    "carbs": 8,
+    "fat": 18,
+    "fiber": 1,
+    "servingSize": "1 potong (180g)"
+  },
+  "locations": [
+    {
+      "name": "Rumah Makan Amado",
+      "city": "Samarinda",
+      "lat": -0.499694,
+      "lng": 117.147775,
+      "description": "Rumah makan paling terkenal sebagai pelopor menu Ayam Cincane khas Kutai di Samarinda dengan cita rasa bumbu legendaris.",
+      "priceRange": "Rp 35.000 - Rp 60.000"
+    },
+    {
+      "name": "Warung Selera Acil Inun",
+      "city": "Samarinda",
+      "lat": -0.485121,
+      "lng": 117.155829,
+      "description": "Warung makan khas tradisional Kutai yang menyajikan Ayam Cincane bakar dengan sensasi smoky arang yang pekat.",
+      "priceRange": "Rp 30.000 - Rp 55.000"
+    }
+  ],
+  "related": [
+    "sate-banjar-005",
+    "mandai-009",
+    "iwak-pakasam-010"
+  ],
+  "funFacts": [
+    "Ayam Cincane dahulunya merupakan makanan sakral bangsawan Kesultanan Kutai Kartanegara yang hanya boleh disajikan untuk upacara pernikahan adat dan menyambut tamu kehormatan istana.",
+    "Perpaduan bumbu terasi bakar dan jahe melimpah memberikan warna merah membara serta aroma wangi tajam yang menjadi ciri khas mutlak hidangan ini."
+  ],
+  "tags": [
+    "ayam cincane",
+    "samarinda",
+    "kalimantan timur",
+    "ayam bakar",
+    "kuliner kutai"
+  ]
+}

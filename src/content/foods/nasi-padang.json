@@ -1,0 +1,154 @@
+{
+  "id": "nasi-padang-005",
+  "name": "Nasi Padang",
+  "region": "sumatera",
+  "description": "Sajian nasi rames khas Minangkabau yang dihidangkan dengan aneka lauk bersantan, bercita rasa pedas gurih kaya rempah, dan disajikan secara unik.",
+  "taste": [
+    "pedas",
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/nasi-padang.jpg",
+  "hero": {
+    "image": "/images/foods/nasi-padang-hero.jpg",
+    "alt": "Hidangan Nasi Padang dengan berbagai lauk pauk khas Minang yang menggugah selera",
+    "dominantColor": "#C0392B"
+  },
+  "story": {
+    "headline": "Harmoni Ratusan Rasa dalam Satu Hidangan",
+    "body": "Nasi Padang merupakan representasi terbaik dari seni kuliner Minangkabau yang mendunia. Ciri khas penyajiannya yang paling ikonik adalah tradisi 'hidang', di mana pelayan dengan sigap membawa belasan piring lauk bertumpuk di sepanjang lengannya untuk disajikan langsung di meja makan pelanggan. Setiap lauk, mulai dari rendang yang legendaris, gulai tunjang yang kenyal gurih, hingga sambal ijo yang segar pedas, memiliki profil rasa unik yang saling melengkapi ketika dipadukan di atas sepiring nasi hangat.\n\nSecara historis, Nasi Padang juga sangat lekat dengan metode bungkusnya. Nasi Padang yang dibungkus untuk dibawa pulang secara tradisional porsinya akan jauh lebih banyak dibandingkan yang disantap langsung di restoran. Kebiasaan ini berakar dari rasa solidaritas sosial masyarakat Minang zaman kolonial, di mana pemilik rumah makan memberikan porsi lebih agar pembeli dapat membagi makanan tersebut dengan keluarga di rumah.",
+    "pullQuote": "Nasi Padang bukan hanya sekadar makanan, melainkan perayaan kebersamaan dan kerja keras",
+    "image": "/images/foods/nasi-padang-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras",
+      "qty": "500g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kental",
+      "qty": "300ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Daun Singkong",
+      "qty": "2 ikat",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Cabai Hijau Keriting",
+      "qty": "150g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Bumbu Gulai Halus",
+      "qty": "3 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Ayam atau Daging Sapi",
+      "qty": "500g",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 30,
+    "cookTime": 60,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Tanak Nasi",
+        "text": "Cuci bersih beras, lalu tanak nasi hingga pulen dan matang sempurna menggunakan rice cooker atau metode dandang tradisional.",
+        "duration": 1800,
+        "tip": "Tanak nasi agak kering agar tidak terlalu lembek saat diguyur kuah gulai melimpah"
+      },
+      {
+        "order": 2,
+        "title": "Rebus Daun Singkong",
+        "text": "Didihkan air dengan sedikit garam kasar dan seujung sendok teh soda kue. Masukkan daun singkong muda, rebus hingga empuk, tiriskan, lalu peras airnya sebelum diiris kasar.",
+        "duration": 600,
+        "tip": "Sedikit soda kue menjaga daun singkong tetap berwarna hijau segar alami"
+      },
+      {
+        "order": 3,
+        "title": "Buat Sambal Lado Mudo",
+        "text": "Kukus cabai hijau, bawang merah, dan tomat hijau. Ulek kasar bersama garam, lalu tumis menggunakan minyak kelapa bersama daun jeruk purut hingga harum dan matang sempurna.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Siapkan Kuah Gulai",
+        "text": "Masak santan cair bersama bumbu gulai halus (bawang merah, bawang putih, kunyit, jahe, kemiri, ketumbar) dan daun-daun rempah. Didihkan hingga kuah mengental dan mengeluarkan minyak kemerahan.",
+        "duration": 1800
+      },
+      {
+        "order": 5,
+        "title": "Sajikan ala Rames Padang",
+        "text": "Tata nasi hangat di tengah piring beralas daun pisang. Tambahkan rebusan daun singkong, siraman kuah gulai melimpah (kuah campur), sambal ijo, dan tambahkan lauk utama pilihan Anda.",
+        "duration": 300
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 85,
+    "gurih": 90,
+    "asam": 15,
+    "asin": 70
+  },
+  "nutrition": {
+    "calories": 650,
+    "protein": 28,
+    "carbs": 75,
+    "fat": 26,
+    "servingSize": "1 porsi lengkap (450g)"
+  },
+  "locations": [
+    {
+      "name": "RM Garuda",
+      "city": "Medan",
+      "lat": 3.5852,
+      "lng": 98.6756,
+      "description": "Restoran Padang legendaris dengan cita rasa khas Minang-Melayu yang sangat otentik.",
+      "priceRange": "Rp 40.000 - Rp 90.000"
+    },
+    {
+      "name": "Restoran Sederhana SA",
+      "city": "Jakarta Pusat",
+      "lat": -6.1845,
+      "lng": 106.8302,
+      "description": "Jaringan restoran Padang terbesar yang mempertahankan rasa standar emas dari kuah gulai dan rendang.",
+      "priceRange": "Rp 35.000 - Rp 75.000"
+    }
+  ],
+  "related": [
+    "rendang-001",
+    "sate-padang-004",
+    "ayam-pop-007",
+    "dendeng-balado-008",
+    "gulai-ikan-009"
+  ],
+  "funFacts": [
+    "Nasi Padang yang dibungkus selalu memiliki porsi nasi yang lebih banyak dibanding makan di tempat, konon berakar dari solidaritas sosial masa kolonial untuk menolong rakyat kecil.",
+    "Penyajian gaya 'hidang' di mana puluhan piring ditumpuk rapi di sepanjang lengan pelayan menuntut keseimbangan luar biasa dan latihan bertahun-tahun."
+  ],
+  "tags": [
+    "nasi padang",
+    "sumatera",
+    "minangkabau",
+    "rendang",
+    "gulai",
+    "sambal ijo",
+    "kuliner legendaris"
+  ]
+}

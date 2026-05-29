@@ -1,0 +1,167 @@
+{
+  "id": "konro-002",
+  "name": "Sop Konro",
+  "region": "sulawesi",
+  "description": "Sup iga sapi legendaris khas Makassar dengan kuah hitam pekat kaya rempah yang gurih, harum, dan mendalam.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "berkuah",
+  "imageUrl": "/images/foods/konro.jpg",
+  "hero": {
+    "image": "/images/foods/konro-hero.jpg",
+    "alt": "Sop Konro dengan tulang iga sapi besar dalam mangkuk kuah hitam pekat",
+    "dominantColor": "#3E2723"
+  },
+  "story": {
+    "headline": "Warisan Agung Dapur Makassar",
+    "body": "Sop Konro merupakan puncak seni kuliner berbasis daging dari Sulawesi Selatan. Keunikan utama hidangan ini terletak pada kuahnya yang hitam pekat, hasil dari penggunaan buah kluwek (keluak)—rempah yang juga digunakan pada rawon Jawa—namun dipadukan dengan rempah aromatik khas Bugis-Makassar seperti ketumbar, jintan, serai, dan kayu manis. Daging iga sapi direbus perlahan bersama tulang-tulangnya, melepaskan sumsum yang memperkaya rasa kaldu hingga menjadi begitu gurih alami dan mendalam.\n\nSecara historis, konro awalnya merupakan hidangan ritual yang disajikan hanya pada momen perayaan besar, seperti pernikahan adat atau syukuran panen raya bagi masyarakat Bugis. Di masa lampau, hidangan ini menggunakan kerbau sebagai bahan utama, yang merupakan simbol prestise dan kemakmuran dalam budaya setempat. Seiring waktu, penggunaan iga sapi menjadi standar, namun kesakralan rasa dan tradisi merebus daging dengan bumbu berlapis tetap dipertahankan dengan saksama.",
+    "pullQuote": "Tena kualleang tallanga na toalia - Lebih baik tenggelam daripada kembali tanpa hasil. Begitulah tekad di balik kehangatan kuah Konro.",
+    "image": "/images/foods/konro-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Iga Sapi",
+      "qty": "1kg",
+      "image": "/img/ingredients/beef-ribs.svg",
+      "essential": true
+    },
+    {
+      "name": "Kluwek (Keluak)",
+      "qty": "4 buah",
+      "image": "/img/ingredients/kluwek.svg",
+      "essential": true
+    },
+    {
+      "name": "Ketumbar Bubuk",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/coriander.svg",
+      "essential": true
+    },
+    {
+      "name": "Jintan Bubuk",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/cumin.svg",
+      "essential": true
+    },
+    {
+      "name": "Kayu Manis",
+      "qty": "3 cm",
+      "image": "/img/ingredients/cinnamon.svg",
+      "essential": true
+    },
+    {
+      "name": "Serai",
+      "qty": "3 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Salam",
+      "qty": "4 lembar",
+      "image": "/img/ingredients/bay-leaf.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "10 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Putih",
+      "qty": "6 siung",
+      "image": "/img/ingredients/garlic.svg",
+      "essential": true
+    },
+    {
+      "name": "Pala Bubuk",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/nutmeg.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 25,
+    "cookTime": 120,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Iga Sapi",
+        "text": "Rebus iga sapi bersama daun salam, serai yang dimemarkan, dan garam hingga daging mulai empuk dan kotoran keluar. Saring kaldu agar bersih dari sisa busa rebusan.",
+        "duration": 3600
+      },
+      {
+        "order": 2,
+        "title": "Olah Kluwek dan Bumbu",
+        "text": "Seduh daging buah kluwek dengan air panas hingga lunak, lalu haluskan bersama bawang merah, bawang putih, ketumbar, jintan, pala, dan jahe.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Tumis Bumbu Halus",
+        "text": "Tumis bumbu halus dengan sedikit minyak, masukkan kayu manis, kapulaga, dan cengkih hingga mengeluarkan aroma harum dan matang sempurna.",
+        "duration": 480
+      },
+      {
+        "order": 4,
+        "title": "Satukan Kuah dan Hidangkan",
+        "text": "Masukkan tumisan bumbu ke dalam panci rebusan iga sapi. Masak dengan api kecil hingga bumbu meresap sempurna ke dalam iga dan kuah menyusut menjadi pekat.",
+        "duration": 2400
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 15,
+    "pedas": 10,
+    "gurih": 95,
+    "asam": 10,
+    "asin": 80
+  },
+  "nutrition": {
+    "calories": 450,
+    "protein": 32,
+    "carbs": 12,
+    "fat": 28,
+    "fiber": 2,
+    "servingSize": "1 porsi (350g)"
+  },
+  "locations": [
+    {
+      "name": "Sop Konro Karebosi",
+      "city": "Makassar",
+      "lat": -5.1328,
+      "lng": 119.414,
+      "description": "Destinasi kuliner Sop Konro paling legendaris di Makassar yang terkenal dengan iga bakar dan sop konro kuah pekatnya sejak tahun 1968.",
+      "priceRange": "Rp 60.000 - Rp 90.000"
+    },
+    {
+      "name": "Sop Konro Bawakaraeng",
+      "city": "Makassar",
+      "lat": -5.1384,
+      "lng": 119.4276,
+      "description": "Terkenal dengan kuah kaldunya yang sangat kaya rempah dan daging iga sapi yang super lembut hingga mudah lepas dari tulangnya.",
+      "priceRange": "Rp 50.000 - Rp 75.000"
+    }
+  ],
+  "related": [
+    "coto-makassar-001",
+    "pallubasa-003",
+    "sop-saudara-007"
+  ],
+  "funFacts": [
+    "Kuah hitam pekat Sop Konro berasal dari biji kluwek yang harus direndam dan diolah dengan hati-hati karena biji mentahnya mengandung asam sianida alami.",
+    "Selain disajikan berkuah, versi modern yang sangat populer adalah Konro Bakar, di mana iga sapi dibakar terlebih dahulu lalu disiram saus kacang gurih manis khas Makassar."
+  ],
+  "tags": [
+    "sop konro",
+    "makassar",
+    "kuliner sulawesi",
+    "iga sapi",
+    "kluwek",
+    "makanan berkuah"
+  ]
+}

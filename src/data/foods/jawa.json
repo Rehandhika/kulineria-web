@@ -1,4 +1,4 @@
-﻿{
+{
     "foods": [
         {
             "id": "gudeg-001",
@@ -79,86 +79,6 @@
             "description": "Tumis daging kambing atau sapi dengan kol dan tomat, khas Jawa Tengah.",
             "taste": ["pedas", "gurih"],
             "imageUrl": "/images/foods/tongseng.jpg"
-        },
-        {
-            "id": "opor-ayam-011",
-            "name": "Opor Ayam",
-            "region": "jawa",
-            "description": "Ayam dimasak dalam kuah santan putih dengan rempah, hidangan wajib saat Lebaran.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/opor-ayam.jpg"
-        },
-        {
-            "id": "pecel-lele-012",
-            "name": "Pecel Lele",
-            "region": "jawa",
-            "description": "Lele goreng garing dengan sambal terasi dan lalapan, favorit di seluruh Jawa.",
-            "taste": ["pedas", "gurih"],
-            "imageUrl": "/images/foods/pecel-lele.jpg"
-        },
-        {
-            "id": "klepon-013",
-            "name": "Klepon",
-            "region": "jawa",
-            "description": "Kue hijau dari tepung ketan dengan isian gula merah cair, digulingkan di parutan kelapa.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/klepon.jpg"
-        },
-        {
-            "id": "lumpia-014",
-            "name": "Lumpia",
-            "region": "jawa",
-            "description": "Lumpia khas Semarang dengan isian rebung dan udang, disajikan dengan saus pedas manis.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/lumpia.jpg"
-        },
-        {
-            "id": "serabi-015",
-            "name": "Serabi",
-            "region": "jawa",
-            "description": "Kue tradisional dari tepung beras dan santan, dimasak di tungku tanah liat.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/serabi.jpg"
-        },
-        {
-            "id": "bakpia-016",
-            "name": "Bakpia",
-            "region": "jawa",
-            "description": "Kue bulat isi kacang hijau, oleh-oleh khas Yogyakarta.",
-            "taste": ["manis"],
-            "imageUrl": "/images/foods/bakpia.jpg"
-        },
-        {
-            "id": "tahu-pong-017",
-            "name": "Tahu Pong",
-            "region": "jawa",
-            "description": "Tahu goreng kopong khas Semarang, disajikan dengan petis dan cabai rawit.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/tahu-pong.jpg"
-        },
-        {
-            "id": "tumpeng-018",
-            "name": "Tumpeng",
-            "region": "jawa",
-            "description": "Nasi kuning berbentuk kerucut dengan aneka lauk, simbol syukur dalam tradisi Jawa.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/tumpeng.jpg"
-        },
-        {
-            "id": "bakso-019",
-            "name": "Bakso",
-            "region": "jawa",
-            "description": "Bakso daging sapi kenyal dengan kuah kaldu gurih, mi, dan pangsit.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/bakso.jpg"
-        },
-        {
-            "id": "sate-ayam-020",
-            "name": "Sate Ayam",
-            "region": "jawa",
-            "description": "Sate ayam panggang dengan bumbu kacang khas Jawa, disajikan dengan lontong dan kecap.",
-            "taste": ["gurih", "manis"],
-            "imageUrl": "/images/foods/sate-ayam.jpg"
         }
     ]
 }

@@ -1,0 +1,170 @@
+{
+  "id": "gohu-ikan-005",
+  "name": "Gohu Ikan",
+  "region": "maluku-papua",
+  "description": "Sashimi ala Ternate yang menyajikan potongan daging ikan tuna atau cakalang mentah segar, dilumuri jus jeruk nipis, garam, kemangi, lalu disiram minyak kelapa mendidih dan taburan kenari sangrai.",
+  "taste": [
+    "gurih",
+    "asam",
+    "pedas"
+  ],
+  "type": "mentah",
+  "imageUrl": "/img/foods/gohu-ikan.jpg",
+  "hero": {
+    "image": "/img/foods/gohu-ikan-hero.jpg",
+    "alt": "Gohu Ikan mentah segar khas Ternate Maluku Utara",
+    "dominantColor": "#2E8B57"
+  },
+  "story": {
+    "headline": "Sashimi Eksotis dari Kepulauan Rempah Ternate",
+    "body": "Gohu Ikan sering kali dijuluki sebagai 'Sashimi Maluku' atau 'Sashimi Ternate' karena kemiripannya dengan hidangan ikan mentah khas Jepang. Lahir di bumi Maluku Utara yang dikelilingi laut dalam nan kaya akan tuna sirip kuning, hidangan ini adalah wujud kesempurnaan cita rasa bahan makanan segar tanpa perlu proses memasak kompor yang lama.\n\nProses pembuatan gohu ikan sangat unik. Ikan tuna yang baru ditangkap langsung difileting dan dipotong dadu, kemudian 'dimasak' secara kimiawi melalui pelumuran jus jeruk nipis (lemon cui) dan garam. Asam jeruk nipis akan mendenaturasi protein ikan sehingga dagingnya berubah menjadi putih susu dan bertekstur kenyal, mirip proses pembuatan ceviche khas Peru.\n\nYang membuat gohu ikan tiada duanya adalah sentuhan akhir berupa siraman minyak kelapa kampung mendidih yang harum, serta taburan kacang kenari hutan yang disangrai renyah dan rajangan daun kemangi liar. Sensasi gigitan daging ikan yang dingin dan kenyal, dipadu kehangatan minyak kelapa gurih, wangi kemangi, dan renyahnya kacang kenari menciptakan harmoni rasa yang luar biasa mewah di mulut.",
+    "pullQuote": "Gohu ikan adalah perayaan kemurnian hasil laut Maluku Utara.",
+    "image": "/img/foods/gohu-ikan-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Ikan Tuna atau Cakalang Segar (sashimi-grade)",
+      "qty": "300g",
+      "image": "/img/ingredients/tuna.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Lemon Cui atau Jeruk Nipis",
+      "qty": "3 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Kenari Kupas",
+      "qty": "50g",
+      "image": "/img/ingredients/walnut.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Kelapa Kampung",
+      "qty": "3 sdm",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "5 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "8 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Kemangi Hutan",
+      "qty": "1 ikat",
+      "image": "/img/ingredients/basil.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 3,
+    "prepTime": 15,
+    "cookTime": 3,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Potong Ikan",
+        "text": "Potong dadu kecil daging ikan tuna segar yang sudah dicuci bersih dan dikeringkan dengan tisu dapur.",
+        "duration": 300
+      },
+      {
+        "order": 2,
+        "title": "Denaturasi Asam",
+        "text": "Taruh potongan ikan dalam mangkuk kaca. Lumuri dengan garam dan perasan air jeruk lemon cui hingga merata. Diamkan selama 5 menit hingga warna ikan sedikit memutih.",
+        "duration": 300,
+        "tip": "Gunakan mangkuk kaca atau stainless steel, hindari wadah plastik agar asam jeruk bereaksi maksimal."
+      },
+      {
+        "order": 3,
+        "title": "Susun Bumbu",
+        "text": "Tambahkan irisan bawang merah dan cabai rawit merah di atas ikan, jangan diaduk dulu.",
+        "duration": 120
+      },
+      {
+        "order": 4,
+        "title": "Panaskan Minyak",
+        "text": "Panaskan minyak kelapa murni hingga benar-benar panas dan berasap tipis.",
+        "duration": 120
+      },
+      {
+        "order": 5,
+        "title": "Siram Minyak Panas",
+        "text": "Siramkan minyak kelapa panas tepat di atas tumpukan irisan bawang merah dan cabai hingga berdesis aroma harum.",
+        "duration": 60
+      },
+      {
+        "order": 6,
+        "title": "Campur Kemangi & Kenari",
+        "text": "Masukkan rajangan daun kemangi dan taburan kacang kenari sangrai cincang, aduk cepat seluruh bahan hingga menyatu sempurna. Sajikan segera.",
+        "duration": 60
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 5,
+    "pedas": 60,
+    "gurih": 90,
+    "asam": 70,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 215,
+    "protein": 24,
+    "carbs": 2,
+    "fat": 12,
+    "fiber": 0.5,
+    "servingSize": "1 porsi (120g)"
+  },
+  "locations": [
+    {
+      "name": "Restoran Royal Resto",
+      "city": "Ternate",
+      "lat": 0.7902,
+      "lng": 127.3828,
+      "description": "Restoran legendaris di Ternate yang menyajikan gohu ikan tuna dengan siraman kenari sangrai melimpah.",
+      "priceRange": "Rp 40.000 - Rp 65.000"
+    },
+    {
+      "name": "RM Khas Ternate 'Gohu Tuna'",
+      "city": "Manado",
+      "lat": 1.4878,
+      "lng": 124.8398,
+      "description": "Warung spesialis hidangan mentah khas Maluku Utara dengan bahan ikan tangkapan segar harian.",
+      "priceRange": "Rp 35.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "sambal-colocolo-003",
+    "kohu-kohu-007",
+    "ikan-asar-009"
+  ],
+  "funFacts": [
+    "Ikan yang digunakan untuk gohu wajib dalam kondisi super segar (baru ditangkap), tidak boleh menggunakan ikan yang sudah dibekukan lama karena rasa gurih alaminya akan hilang.",
+    "Taburan kenari sangrai merupakan elemen pembeda yang membedakan gohu ikan Ternate dengan sashimi Jepang atau ceviche Amerika Latin."
+  ],
+  "tags": [
+    "gohu ikan",
+    "sashimi ternate",
+    "mentah",
+    "tuna segar",
+    "kenari",
+    "maluku utara",
+    "seafood"
+  ]
+}

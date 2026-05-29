@@ -1,4 +1,4 @@
-﻿{
+{
     "foods": [
         {
             "id": "rendang-001",
@@ -79,86 +79,6 @@
             "description": "Soto dengan kuah santan kuning dan daging sapi, khas Medan. Disajikan dengan perkedel dan kerupuk.",
             "taste": ["gurih"],
             "imageUrl": "/images/foods/soto-medan.jpg"
-        },
-        {
-            "id": "soto-padang-011",
-            "name": "Soto Padang",
-            "region": "sumatera",
-            "description": "Soto dengan kuah bening dan daging sapi goreng kering, khas Padang.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/soto-padang.jpg"
-        },
-        {
-            "id": "lontong-sayur-012",
-            "name": "Lontong Sayur",
-            "region": "sumatera",
-            "description": "Lontong dengan gulai nangka muda dan santan, lauk khas Padang.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/lontong-sayur.jpg"
-        },
-        {
-            "id": "gulai-ayam-013",
-            "name": "Gulai Ayam",
-            "region": "sumatera",
-            "description": "Ayam dimasak dalam kuah santan kuning dengan bumbu rempah kaya rasa khas Padang.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/gulai-ayam.jpg"
-        },
-        {
-            "id": "telur-balado-014",
-            "name": "Telur Balado",
-            "region": "sumatera",
-            "description": "Telur rebus digoreng dan disiram sambal balado merah yang pedas.",
-            "taste": ["pedas", "gurih"],
-            "imageUrl": "/images/foods/telur-balado.jpg"
-        },
-        {
-            "id": "gulai-tunjang-015",
-            "name": "Gulai Tunjang",
-            "region": "sumatera",
-            "description": "Gulai kikil sapi dengan kuah santan kuning yang gurih dan kental.",
-            "taste": ["gurih", "pedas"],
-            "imageUrl": "/images/foods/gulai-tunjang.jpg"
-        },
-        {
-            "id": "asam-padeh-016",
-            "name": "Asam Padeh",
-            "region": "sumatera",
-            "description": "Ikan atau daging dimasak dengan kuah asam pedas khas Minangkabau tanpa santan.",
-            "taste": ["asam", "pedas"],
-            "imageUrl": "/images/foods/asam-padeh.jpg"
-        },
-        {
-            "id": "lemang-017",
-            "name": "Lemang",
-            "region": "sumatera",
-            "description": "Beras ketan dimasak dalam bambu dengan santan, khas Sumatra. Disajikan dengan tapai atau rendang.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/lemang.jpg"
-        },
-        {
-            "id": "tempoyak-018",
-            "name": "Tempoyak",
-            "region": "sumatera",
-            "description": "Durian fermentasi khas Sumatra yang diolah menjadi sambal atau gulai.",
-            "taste": ["asam", "pedas"],
-            "imageUrl": "/images/foods/tempoyak.jpg"
-        },
-        {
-            "id": "pindang-patin-019",
-            "name": "Pindang Patin",
-            "region": "sumatera",
-            "description": "Ikan patin dimasak dengan kuah kuning asam pedas khas Jambi dan Sumatra Selatan.",
-            "taste": ["asam", "pedas"],
-            "imageUrl": "/images/foods/pindang-patin.jpg"
-        },
-        {
-            "id": "kerupuk-jangek-020",
-            "name": "Kerupuk Jangek",
-            "region": "sumatera",
-            "description": "Kerupuk kulit sapi yang renyah, pelengkap khas Minangkabau.",
-            "taste": ["gurih"],
-            "imageUrl": "/images/foods/kerupuk-jangek.jpg"
         }
     ]
 }

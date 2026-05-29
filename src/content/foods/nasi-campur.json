@@ -1,0 +1,147 @@
+{
+  "id": "nasi-campur-006",
+  "name": "Nasi Campur Bali",
+  "region": "bali-ntt",
+  "description": "Sajian nasi putih hangat khas Bali yang disajikan dengan aneka lauk pendamping tradisional seperti sate lilit, lawar, ayam sisit pedas, kacang goreng, dan sambal matah.",
+  "taste": [
+    "gurih",
+    "pedas",
+    "manis"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/img/foods/nasi-campur.jpg",
+  "hero": {
+    "image": "/img/foods/nasi-campur-hero.jpg",
+    "alt": "Nasi Campur Bali lengkap dengan sate lilit, ayam suwir pedas, lawar, dan kacang tanah",
+    "dominantColor": "#C8B195"
+  },
+  "story": {
+    "headline": "Harmoni Rasa Kuliner Bali dalam Satu Piring",
+    "body": "Nasi Campur Bali adalah miniatur kelezatan gastronomi Pulau Dewata. Hidangan ini mencerminkan konsep keragaman lauk pauk yang disajikan berdampingan secara harmonis di sekeliling nasi putih hangat. Setiap suapan menyajikan kombinasi rasa manis, pedas, gurih, asin, dan segar yang berpadu dengan indah. Mulanya, nasi campur adalah hidangan rumahan sederhana, tetapi kini telah berkembang menjadi primadona kuliner yang dicari oleh wisatawan lokal maupun internasional.\n\nYang membuat Nasi Campur Bali unik dan berbeda dari nasi campur daerah lain di Indonesia adalah komposisi lauk pendampingnya yang sangat berciri khas Bali. Di atas piring, Anda akan menemukan sate lilit yang wangi beraroma serai, lawar sayur kelapa yang segar, ayam sisit (suwir) berlimpah bumbu, kacang tanah goreng yang renyah, telur bumbu Bali yang gurih, dan tentu saja sambal matah atau sambal embe yang pedas menggigit.\n\nSetiap lauk pendamping diolah menggunakan teknik memasak yang berbeda-beda—mulai dari dililit dan dibakar pada serai, disuwir lalu ditumis dengan bumbu merah, hingga kacang yang digoreng garing. Keberagaman teknik ini menciptakan keragaman tekstur yang kaya di dalam mulut, menjadikan nasi campur sebuah representasi nyata dari kehangatan budaya ramah tamah Bali.",
+    "pullQuote": "Nasi Campur Bali adalah cerita tentang keanekaragaman rasa yang disatukan dalam piring harmoni.",
+    "image": "/img/foods/nasi-campur-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Nasi Putih Hangat",
+      "qty": "500g",
+      "image": "/img/ingredients/steamed-rice.svg",
+      "essential": true
+    },
+    {
+      "name": "Ayam Sisit Pedas",
+      "qty": "200g",
+      "image": "/img/ingredients/shredded-chicken.svg",
+      "essential": true
+    },
+    {
+      "name": "Sate Lilit Ikan",
+      "qty": "4 tusuk",
+      "image": "/img/ingredients/sate-lilit.svg",
+      "essential": true
+    },
+    {
+      "name": "Lawar Kacang Panjang",
+      "qty": "100g",
+      "image": "/img/ingredients/lawar.svg",
+      "essential": true
+    },
+    {
+      "name": "Sambal Matah",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/sambal-matah.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Tanah Goreng",
+      "qty": "30g",
+      "image": "/img/ingredients/fried-peanuts.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 2,
+    "prepTime": 30,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Lauk Ayam Sisit",
+        "text": "Rebus dada ayam hingga matang, suwir-suwir tipis. Tumis bumbu halus (basa genep merah) dengan minyak kelapa, masukkan ayam suwir, tambahkan garam dan perasan limau. Masak hingga bumbu meresap kering.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Siapkan Lawar Kacang",
+        "text": "Rebus potongan kacang panjang sebentar, campurkan dengan parutan kelapa muda sangrai dan bumbu lawar mentah.",
+        "duration": 450
+      },
+      {
+        "order": 3,
+        "title": "Goreng Kacang Tanah",
+        "text": "Goreng kacang tanah dalam minyak kelapa panas dengan api kecil hingga berwarna kecokelatan dan renyah. Angkat dan tiriskan.",
+        "duration": 300,
+        "tip": "Jangan gunakan api terlalu besar agar kacang garing merata hingga ke bagian dalam tanpa gosong."
+      },
+      {
+        "order": 4,
+        "title": "Penyajian",
+        "text": "Cetak nasi putih hangat di tengah piring saji. Susun ayam sisit pedas, sate lilit yang baru dibakar, lawar kacang panjang, kacang goreng, dan sambal matah segar di sekeliling nasi. Nasi campur siap dinikmati hangat.",
+        "duration": 150
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 25,
+    "pedas": 70,
+    "gurih": 90,
+    "asam": 20,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 450,
+    "protein": 24,
+    "carbs": 55,
+    "fat": 16,
+    "fiber": 3,
+    "servingSize": "1 piring lengkap (350g)"
+  },
+  "locations": [
+    {
+      "name": "Nasi Ayam Kedewatan Ibu Mangku",
+      "city": "Gianyar",
+      "lat": -8.4983,
+      "lng": 115.2447,
+      "description": "Sangat legendaris di Ubud sejak tahun 1960-an, menyajikan nasi campur ayam khas Bali yang super lengkap dengan cita rasa pedas gurih otentik.",
+      "priceRange": "Rp 35.000 - Rp 50.000"
+    },
+    {
+      "name": "Warung Nasi Campur Wardani",
+      "city": "Denpasar",
+      "lat": -8.6534,
+      "lng": 115.2215,
+      "description": "Destinasi kuliner nasi campur paling tersohor di Denpasar, terkenal dengan lauk dendeng sapi manis dan sate lilitnya yang empuk luar biasa.",
+      "priceRange": "Rp 40.000 - Rp 65.000"
+    }
+  ],
+  "related": [
+    "sate-lilit-002",
+    "lawar-004",
+    "nasi-jinggo-008"
+  ],
+  "funFacts": [
+    "Nasi Campur Bali secara tradisional disajikan menggunakan alas daun pisang pincuk, yang menambah harum khas nasi hangat saat bersentuhan.",
+    "Banyak warung nasi campur ternama di Bali mempertahankan resep turun-temurun selama lebih dari setengah abad."
+  ],
+  "tags": [
+    "nasi campur",
+    "nasi campur bali",
+    "bali",
+    "kuliner bali",
+    "ayam sisit",
+    "sambal matah",
+    "sate lilit",
+    "lawar"
+  ]
+}

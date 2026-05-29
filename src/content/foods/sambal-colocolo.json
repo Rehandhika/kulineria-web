@@ -1,0 +1,157 @@
+{
+  "id": "sambal-colocolo-003",
+  "name": "Sambal Colo-colo",
+  "region": "maluku-papua",
+  "description": "Sambal iris mentah khas Maluku yang sangat segar, terbuat dari cabai rawit, bawang merah, tomat muda hijau, perasan jeruk nipis, dan disiram minyak kelapa hangat.",
+  "taste": [
+    "pedas",
+    "asam",
+    "asin"
+  ],
+  "type": "mentah",
+  "imageUrl": "/img/foods/sambal-colocolo.jpg",
+  "hero": {
+    "image": "/img/foods/sambal-colocolo-hero.jpg",
+    "alt": "Sambal Colo-colo pedas segar khas Maluku",
+    "dominantColor": "#FF4500"
+  },
+  "story": {
+    "headline": "Sensasi Ledakan Rasa Asam Pedas Kepulauan Maluku",
+    "body": "Di kepulauan rempah-rempah Maluku, Sambal Colo-colo adalah raja dari segala penyedap masakan. Sambal mentah ini tidak diulek, melainkan diiris kasar sehingga menampilkan tekstur bahan segar yang berwarna-warni. Kehadirannya wajib mendampingi ikan bakar atau ikan asar khas Ambon.\n\nUniknya, sambal colo-colo versi asli Maluku tidak menggunakan kecap manis. Rasa manis gurih yang tipis diperoleh dari perasan jeruk nipis segar yang berpadu dengan bawang merah lokal yang manis dan sedikit siraman minyak kelapa asli yang masih hangat. Namun, dalam perkembangannya, variasi dengan kecap manis mulai populer di luar Maluku.\n\nSetiap gigitan sambal colo-colo memberikan kombinasi tekstur renyah dari bawang merah dan tomat hijau, berpadu dengan pedasnya cabai rawit merah dan asam segar jeruk nipis (sering disebut jeruk cui atau lemon cina). Sambal ini adalah cerminan gaya hidup masyarakat pesisir Maluku yang praktis, segar, dan berani.",
+    "pullQuote": "Colo-colo adalah kesegaran laut yang diabadikan dalam mangkuk kecil.",
+    "image": "/img/foods/sambal-colocolo-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Cabai Rawit Merah dan Hijau",
+      "qty": "15 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Tomat Hijau",
+      "qty": "2 buah",
+      "image": "/img/ingredients/green-tomato.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Lemon Cina atau Jeruk Nipis",
+      "qty": "2 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Kelapa Asli",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam",
+      "qty": "1/2 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Kemangi",
+      "qty": "secukupnya",
+      "image": "/img/ingredients/basil.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 10,
+    "cookTime": 2,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Siapkan Bahan",
+        "text": "Cuci bersih cabai rawit, bawang merah, tomat hijau, dan daun kemangi lalu tiriskan hingga kering.",
+        "duration": 180
+      },
+      {
+        "order": 2,
+        "title": "Iris Tipis",
+        "text": "Iris tipis cabai rawit dan bawang merah. Potong dadu kecil tomat hijau.",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Bumbui Sambal",
+        "text": "Campurkan semua irisan bahan ke dalam mangkuk kecil, tambahkan garam dan perasan air jeruk lemon cina.",
+        "duration": 120
+      },
+      {
+        "order": 4,
+        "title": "Panaskan Minyak",
+        "text": "Panaskan minyak kelapa murni sebentar saja, lalu siramkan minyak hangat tersebut ke atas campuran sambal.",
+        "duration": 60,
+        "tip": "Minyak kelapa hangat membantu mengeluarkan aroma bawang merah tanpa membuatnya matang."
+      },
+      {
+        "order": 5,
+        "title": "Sajikan",
+        "text": "Aduk rata seluruh bahan dan tambahkan daun kemangi jika suka. Sambal colo-colo siap disajikan.",
+        "duration": 60
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 85,
+    "gurih": 40,
+    "asam": 75,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 45,
+    "protein": 0.5,
+    "carbs": 3,
+    "fat": 4,
+    "fiber": 0.8,
+    "servingSize": "1 porsi (25g)"
+  },
+  "locations": [
+    {
+      "name": "Rumah Makan Colo-Colo",
+      "city": "Ambon",
+      "lat": -3.6972,
+      "lng": 128.1834,
+      "description": "Warung makan legendaris yang menyajikan ikan bakar legendaris dengan siraman sambal colo-colo autentik tanpa kecap.",
+      "priceRange": "Rp 15.000 - Rp 30.000"
+    },
+    {
+      "name": "Dapoer Maluku",
+      "city": "Manado",
+      "lat": 1.4816,
+      "lng": 124.8412,
+      "description": "Restoran masakan Maluku yang menyajikan sambal colo-colo segar pendamping olahan cakalang.",
+      "priceRange": "Rp 20.000 - Rp 45.000"
+    }
+  ],
+  "related": [
+    "ikan-asar-009",
+    "gohu-ikan-005",
+    "kohu-kohu-007"
+  ],
+  "funFacts": [
+    "Jeruk yang digunakan secara tradisional adalah jeruk cui atau lemon cina yang memiliki aroma wanki jeruk nipis namun berkali-kali lipat lebih segar.",
+    "Masyarakat Maluku biasa mencocol langsung ikan bakar ke dalam sambal ini lalu memakannya dengan tangan telanjang bersama sagu lempeng atau nasi hangat."
+  ],
+  "tags": [
+    "sambal colo-colo",
+    "sambal iris",
+    "khas maluku",
+    "pedas segar",
+    "tanpa ulek",
+    "ikan bakar"
+  ]
+}

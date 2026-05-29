@@ -1,0 +1,163 @@
+{
+  "id": "cakalang-fufu-008",
+  "name": "Cakalang Fufu",
+  "region": "sulawesi",
+  "description": "Ikan cakalang asap khas Minahasa yang diawetkan melalui pengasapan bambu tradisional, menghasilkan cita rasa gurih-asap yang khas dan daging super padat.",
+  "taste": [
+    "gurih",
+    "asin",
+    "pedas"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/images/foods/cakalang-fufu.jpg",
+  "hero": {
+    "image": "/images/foods/cakalang-fufu-hero.jpg",
+    "alt": "Ikan Cakalang Fufu kemerahan yang dijepit bilah bambu setengah lingkaran di atas pembakaran kayu",
+    "dominantColor": "#A0522D"
+  },
+  "story": {
+    "headline": "Warisan Asap dari Laut Minahasa",
+    "body": "Cakalang Fufu adalah mahakarya pengawetan ikan tradisional khas Minahasa, Sulawesi Utara. Kata 'Fufu' merujuk pada teknik pengasapan lambat menggunakan kayu keras khusus. Sebelum diasap, ikan cakalang segar dibelah dua, dibersihkan dari isi perut, dilumuri garam murni dan sedikit air jeruk nipis, lalu dijepit erat menggunakan kerangka bilah bambu berbentuk setengah lingkaran yang khas. Ikan kemudian diasap selama kurang lebih empat jam hingga dagingnya berubah warna menjadi kemerahan kering dengan aroma asap yang sangat kuat dan menggugah selera.\n\nSejarah Cakalang Fufu berakar erat pada budaya kemaritiman suku Minahasa yang kaya. Karena limpahan ikan cakalang yang luar biasa di Laut Sulawesi dan keterbatasan teknologi pendingin di masa lampau, nenek moyang mereka menciptakan teknik fufu untuk memperpanjang daya simpan hasil tangkapan. Kini, Cakalang Fufu tidak sekadar menjadi bahan pangan cadangan, melainkan bahan kuliner premium yang sangat dicari. Cakalang fufu biasanya disuwir-suwir halus lalu digoreng garing bersama bumbu rica-rica merah menyala yang super pedas, melahirkan cita rasa laut yang berani dan tak terlupakan.",
+    "pullQuote": "Aroma kayu bakar meresap ke serat terdalam cakalang, mengabadikan kesegaran laut Sulawesi Utara.",
+    "image": "/images/foods/cakalang-fufu-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Cakalang Segar",
+      "qty": "1.5kg",
+      "image": "/img/ingredients/tuna.svg",
+      "essential": true
+    },
+    {
+      "name": "Bilah Bambu Penjepit",
+      "qty": "1 set",
+      "image": "/img/ingredients/bamboo-frame.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam Kasar",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Nipis",
+      "qty": "2 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": false
+    },
+    {
+      "name": "Minyak Kelapa murni",
+      "qty": "100ml",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": false
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "15 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "8 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Jahe",
+      "qty": "2 cm",
+      "image": "/img/ingredients/ginger.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 6,
+    "prepTime": 30,
+    "cookTime": 240,
+    "difficulty": "hard",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Bersihkan Ikan Cakalang",
+        "text": "Belah ikan cakalang segar dari arah punggung hingga terbuka lebar namun jangan sampai terputus di perut. Bersihkan seluruh isi perut dan insang dengan air mengalir.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Bumbui dan Diamkan",
+        "text": "Lumuri merata daging ikan dengan air perasan jeruk nipis dan garam kasar. Diamkan selama 15 menit agar bumbu meresap ke dalam daging.",
+        "duration": 900
+      },
+      {
+        "order": 3,
+        "title": "Jepit dengan Kerangka Bambu",
+        "text": "Bentangkan ikan lebar-lebar, lalu jepit erat menggunakan bilah bambu penjepit fufu yang berbentuk setengah lingkaran agar bentuk ikan tetap rata dan kokoh.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Asap Ikan (Proses Fufu)",
+        "text": "Tempatkan ikan di atas tungku pengasapan dengan bahan bakar serabut kelapa atau kayu kelapa tua. Jaga agar tidak keluar lidah api besar, biarkan hanya asap tebal yang mematangkan ikan secara perlahan.",
+        "duration": 14400
+      },
+      {
+        "order": 5,
+        "title": "Suwir dan Goreng Rica",
+        "text": "Setelah ikan matang kemerahan, ambil sebagian dagingnya lalu suwir kasar. Goreng sebentar dengan minyak kelapa panas bersama bawang merah, cabai rawit merah, dan jahe yang ditumbuk kasar.",
+        "duration": 600
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 85,
+    "gurih": 95,
+    "asam": 15,
+    "asin": 75
+  },
+  "nutrition": {
+    "calories": 290,
+    "protein": 38,
+    "carbs": 2,
+    "fat": 14,
+    "fiber": 0,
+    "servingSize": "100g porsi cakalang fufu"
+  },
+  "locations": [
+    {
+      "name": "Cakalang Fufu Jembatan Sario",
+      "city": "Manado",
+      "lat": 1.4728,
+      "lng": 124.8322,
+      "description": "Sentra penjualan Cakalang Fufu legendaris di Manado yang terkenal dengan proses pengasapan tradisional langsung di tempat menggunakan kayu kelapa tua pilihan.",
+      "priceRange": "Rp 45.000 - Rp 80.000 per jepit"
+    },
+    {
+      "name": "Pasar Bersehati Manado",
+      "city": "Manado",
+      "lat": 1.4938,
+      "lng": 124.8415,
+      "description": "Pusat perdagangan Cakalang Fufu terbesar di mana nelayan langsung membawa hasil tangkapan segar untuk diasap segar setiap pagi hari.",
+      "priceRange": "Rp 40.000 - Rp 70.000 per jepit"
+    }
+  ],
+  "related": [
+    "tinutuan-009",
+    "ikan-woku-010"
+  ],
+  "funFacts": [
+    "Cakalang Fufu memiliki ketahanan simpan yang luar biasa; tanpa bahan kimia, ikan ini bisa bertahan hingga sebulan pada suhu ruang karena rendahnya kadar air hasil pengasapan.",
+    "Bahan pembakar terbaik untuk fufu adalah sabut dan batok kelapa tua karena memancarkan aroma asap manis alami yang khas meresap ke dalam serat daging ikan."
+  ],
+  "tags": [
+    "cakalang fufu",
+    "manado",
+    "minahasa",
+    "kuliner sulawesi",
+    "ikan asap",
+    "tuna",
+    "ikan goreng",
+    "rica-rica"
+  ]
+}

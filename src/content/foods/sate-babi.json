@@ -1,0 +1,141 @@
+{
+  "id": "sate-babi-007",
+  "name": "Sate Babi Bali",
+  "region": "bali-ntt",
+  "description": "Potongan daging babi empuk yang dimarinasi dengan paduan bumbu genep dan kecap manis, kemudian dipanggang di atas bara api arang hingga kecokelatan dan wangi meresap.",
+  "taste": [
+    "manis",
+    "pedas",
+    "gurih"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/sate-babi.jpg",
+  "hero": {
+    "image": "/img/foods/sate-babi-hero.jpg",
+    "alt": "Sate Babi Bali panggang arang kelapa dengan kilauan karamel kecap manis",
+    "dominantColor": "#5A2B14"
+  },
+  "story": {
+    "headline": "Perpaduan Manis Gurih di Atas Bara Api",
+    "body": "Sate Babi Bali adalah salah satu makanan jalanan (street food) paling digemari di Pulau Dewata. Cita rasanya berbeda dengan sate daging manis pada umumnya di Jawa karena menggunakan racikan bumbu khas Bali—seperti kunyit, kencur, terasi, bawang merah, cabai rawit—yang digiling halus dan ditumis dengan minyak kelapa murni, dipadukan dengan lumuran kecap manis berkualitas tinggi.\n\nPotongan daging babi diselingi dengan sedikit lemak babi pada setiap tusuknya. Ketika sate ini dibakar di atas arang batok kelapa, lemak yang meleleh menetes ke atas bara api, menciptakan asap tebal beraroma gurih-manis yang khas. Proses karamelisasi kecap manis dan rempah pada permukaan daging menghasilkan lapisan luar yang mengilap, agak renyah, namun bagian dalamnya tetap lembut dan berair.\n\nSate Babi Bali biasanya dijajakan di sore hingga malam hari di warung-warung pinggir jalan. Seporsi sate babi disajikan bersama potongan ketupat (tipat) hangat dan kuah sup bumbu kuning yang gurih. Ini adalah hidangan yang sangat memanjakan lidah bagi penikmat hidangan olahan daging babi karena kekayaan rempah yang seimbang dengan manis karamel kecap.",
+    "pullQuote": "Aroma asap lemak babi dan karamelisasi bumbu manis adalah godaan malam Bali yang tak tertahankan.",
+    "image": "/img/foods/sate-babi-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Daging Babi Bagian Lulur",
+      "qty": "500g",
+      "image": "/img/ingredients/pork.svg",
+      "essential": true
+    },
+    {
+      "name": "Kecap Manis",
+      "qty": "5 sdm",
+      "image": "/img/ingredients/sweet-soy-sauce.svg",
+      "essential": true
+    },
+    {
+      "name": "Basa Genep Halus",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/bali-spice.svg",
+      "essential": true
+    },
+    {
+      "name": "Lemak Daging Babi",
+      "qty": "100g",
+      "image": "/img/ingredients/pork-fat.svg",
+      "essential": false
+    },
+    {
+      "name": "Ketumbar Bubuk",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/coriander.svg",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 20,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Marinasi Daging",
+        "text": "Campurkan potongan daging babi, lemak babi, basa genep halus, kecap manis, ketumbar bubuk, dan sedikit garam ke dalam wadah besar. Aduk dan remas perlahan agar bumbu meresap. Diamkan di lemari es selama minimal 30 menit (lebih lama lebih baik).",
+        "duration": 1800
+      },
+      {
+        "order": 2,
+        "title": "Tusuk Sate",
+        "text": "Tusukkan potongan daging babi selang-seling dengan lemak babi pada tusuk bambu. Biasanya terdiri dari 3 potongan daging dan 1 potongan lemak di tengahnya.",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Bakar Sate",
+        "text": "Panggang sate di atas bara api arang yang panas membara. Bolak-balik secara teratur sambil sesekali diolesi sisa bumbu marinasi.",
+        "duration": 600,
+        "tip": "Gunakan arang batok kelapa untuk menghasilkan asap wangi alami dan panas bara yang stabil."
+      },
+      {
+        "order": 4,
+        "title": "Sajikan Sate",
+        "text": "Bakar hingga daging berwarna cokelat gelap mengilat dan matang sempurna. Sajikan selagi hangat.",
+        "duration": 120
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 65,
+    "pedas": 40,
+    "gurih": 85,
+    "asam": 10,
+    "asin": 45
+  },
+  "nutrition": {
+    "calories": 340,
+    "protein": 24,
+    "carbs": 12,
+    "fat": 22,
+    "fiber": 0,
+    "servingSize": "5 tusuk (150g)"
+  },
+  "locations": [
+    {
+      "name": "Sate Babi Bawah Pohon",
+      "city": "Badung",
+      "lat": -8.7042,
+      "lng": 115.1793,
+      "description": "Sangat legendaris dan terkenal di kalangan wisatawan domestik, menyajikan sate babi dengan lumuran bumbu gurih manis berlimpah cabai rawit ulek.",
+      "priceRange": "Rp 30.000 - Rp 50.000"
+    },
+    {
+      "name": "Sate Babi Warung Nyoman",
+      "city": "Denpasar",
+      "lat": -8.6656,
+      "lng": 115.2282,
+      "description": "Warung sate babi lokal legendaris di pusat kota Denpasar dengan potongan daging tebal, empuk, dan rasa bumbu marinasi tradisional yang sangat meresap.",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    }
+  ],
+  "related": [
+    "babi-guling-003",
+    "sate-lilit-002",
+    "nasi-campur-006"
+  ],
+  "funFacts": [
+    "Nama 'Sate Babi Bawah Pohon' awalnya berasal dari lokasinya yang berada di bawah pohon beringin rindang di kawasan Legian sebelum menetap di kedai permanen.",
+    "Sate babi khas Bali sering ditaburi sejumput garam kasar sesaat sebelum disajikan untuk memberikan ledakan rasa asin yang kontras di lidah."
+  ],
+  "tags": [
+    "sate babi",
+    "bali",
+    "kuliner bali",
+    "non-halal",
+    "sate babi bawah pohon",
+    "panggang",
+    "bumbu genep",
+    "street food"
+  ]
+}

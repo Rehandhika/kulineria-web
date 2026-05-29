@@ -1,0 +1,145 @@
+{
+  "id": "sagu-lempeng-004",
+  "name": "Sagu Lempeng",
+  "region": "maluku-papua",
+  "description": "Roti kering tradisional berbahan dasar tepung sagu murni yang dicetak dan dibakar di dalam cetakan tanah liat panas hingga keras dan tahan lama.",
+  "taste": [
+    "gurih",
+    "manis"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/img/foods/sagu-lempeng.jpg",
+  "hero": {
+    "image": "/img/foods/sagu-lempeng-hero.jpg",
+    "alt": "Sagu Lempeng bakar tradisional Maluku dan Papua",
+    "dominantColor": "#CD853F"
+  },
+  "story": {
+    "headline": "Roti Keras Penjelajah Hutan Timur Nusantara",
+    "body": "Sagu Lempeng adalah salah satu makanan paling kuno dan fungsional di wilayah Maluku dan Papua. Berbeda dengan papeda yang bertekstur basah dan lembek, sagu lempeng dirancang sebagai makanan kering yang awet berbulan-bulan. Roti ini terbuat dari tepung sagu kelapa murni yang disaring, dimasukkan ke dalam cetakan tanah liat membara bernama forna, lalu dibakar.\n\nSejarah mencatat sagu lempeng merupakan bekal utama para penjelajah, pemburu, dan nelayan tradisional Papua ketika melakukan perjalanan jauh melintasi belantara atau lautan. Karena sifatnya yang kering dan padat nutrisi, sagu lempeng menjadi penopang hidup yang andal sebelum nasi dikenal luas di wilayah ini.\n\nMeskipun awalnya tawar, kini sagu lempeng modern sering dipadukan dengan parutan kelapa, gula merah, atau kacang untuk menambah cita rasa. Teksturnya yang sangat keras membuatnya unik; cara terbaik menikmatinya adalah dengan mencelupkannya terlebih dahulu ke dalam kopi hangat atau teh manis hingga melunak sebelum digigit.",
+    "pullQuote": "Sagu lempeng adalah simbol ketahanan fisik dan kelestarian pangan Timur.",
+    "image": "/img/foods/sagu-lempeng-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Tepung Sagu Kering",
+      "qty": "400g",
+      "image": "/img/ingredients/sago-flour.svg",
+      "essential": true
+    },
+    {
+      "name": "Kelapa Parut Setengah Tua",
+      "qty": "150g",
+      "image": "/img/ingredients/grated-coconut.svg",
+      "essential": false
+    },
+    {
+      "name": "Gula Merah",
+      "qty": "50g",
+      "image": "/img/ingredients/palm-sugar.svg",
+      "essential": false
+    },
+    {
+      "name": "Garam",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Air",
+      "qty": "100ml",
+      "image": "/img/ingredients/water.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 8,
+    "prepTime": 20,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Sangrai Tepung",
+        "text": "Sangrai tepung sagu kering dengan api kecil selama kurang lebih 10 menit untuk mengurangi kadar airnya, lalu ayak halus.",
+        "duration": 600
+      },
+      {
+        "order": 2,
+        "title": "Campurkan Adonan",
+        "text": "Campurkan sagu ayak dengan parutan kelapa, garam, dan air sedikit demi sedikit sambil diaduk dengan tangan hingga berbutir kasar (lembab tapi tidak menggumpal becek).",
+        "duration": 300
+      },
+      {
+        "order": 3,
+        "title": "Panaskan Cetakan",
+        "text": "Panaskan cetakan tanah liat khusus (forna) atau wajan cetak batu di atas bara api hingga benar-benar panas.",
+        "duration": 480
+      },
+      {
+        "order": 4,
+        "title": "Isi Cetakan",
+        "text": "Masukkan adonan sagu ke dalam lubang cetakan, selingi dengan sisiran gula merah di tengahnya, lalu tutup kembali dengan adonan sagu di atasnya.",
+        "duration": 180
+      },
+      {
+        "order": 5,
+        "title": "Bakar Sagu",
+        "text": "Bakar di atas bara api selama 15-20 menit hingga adonan mengeras dan matang merata.",
+        "duration": 900,
+        "tip": "Ketuk perlahan cetakan; jika berbunyi nyaring dan lempengan mudah lepas, berarti sagu lempeng telah matang."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 40,
+    "pedas": 0,
+    "gurih": 65,
+    "asam": 0,
+    "asin": 35
+  },
+  "nutrition": {
+    "calories": 180,
+    "protein": 1,
+    "carbs": 41,
+    "fat": 1.5,
+    "fiber": 2,
+    "servingSize": "1 lembar (50g)"
+  },
+  "locations": [
+    {
+      "name": "Sentra Sagu Lempeng Sentani",
+      "city": "Jayapura",
+      "lat": -2.5701,
+      "lng": 140.4851,
+      "description": "Kawasan pembuat sagu lempeng tradisional di pinggiran Danau Sentani yang masih menggunakan forna tanah liat bakar.",
+      "priceRange": "Rp 10.000 - Rp 25.000"
+    },
+    {
+      "name": "Oleh-oleh Khas Ambon 'Tanjung'",
+      "city": "Ambon",
+      "lat": -3.6955,
+      "lng": 128.1802,
+      "description": "Toko pusat oleh-oleh yang menyediakan sagu lempeng rasa gula aren dan kacang kenari siap saji.",
+      "priceRange": "Rp 15.000 - Rp 35.000"
+    }
+  ],
+  "related": [
+    "papeda-001",
+    "kue-bagea-008",
+    "bubur-ne-010"
+  ],
+  "funFacts": [
+    "Cetakan tanah liat tradisional untuk membuat sagu lempeng disebut 'Forna', yang terdiri dari 4-6 lubang berbentuk persegi panjang tipis.",
+    "Sagu lempeng yang benar-benar kering dapat disimpan di suhu ruang hingga 1 tahun tanpa menggunakan pengawet kimia sedikit pun."
+  ],
+  "tags": [
+    "sagu lempeng",
+    "roti sagu",
+    "forna",
+    "bakar",
+    "khas papua",
+    "khas maluku",
+    "cemilan tradisional"
+  ]
+}

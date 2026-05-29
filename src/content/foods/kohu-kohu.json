@@ -1,0 +1,181 @@
+{
+  "id": "kohu-kohu-007",
+  "name": "Kohu-kohu",
+  "region": "maluku-papua",
+  "description": "Urap khas Maluku yang memadukan kacang panjang, tauge, mentimun, dan kemangi dengan parutan kelapa bumbu pedas, serta suwiran ikan cakalang asar yang gurih wangi.",
+  "taste": [
+    "gurih",
+    "pedas",
+    "asam"
+  ],
+  "type": "mentah",
+  "imageUrl": "/img/foods/kohu-kohu.jpg",
+  "hero": {
+    "image": "/img/foods/kohu-kohu-hero.jpg",
+    "alt": "Kohu-kohu urap ikan cakalang khas Maluku",
+    "dominantColor": "#556B2F"
+  },
+  "story": {
+    "headline": "Urap Pesisir dengan Sentuhan Cakalang Asar",
+    "body": "Jika Pulau Jawa terkenal dengan urap sayurnya, maka Kepulauan Maluku memiliki kembaran eksotisnya bernama Kohu-kohu. Perbedaan mendasar yang membuat kohu-kohu sangat istimewa adalah penambahan suwiran ikan cakalang asar (ikan asap) ke dalam campuran sayuran segar dan kelapa parut bumbu.\n\nHidangan ini lahir dari kebiasaan para nelayan Maluku yang memanfaatkan sisa ikan asar tangkapan hari sebelumnya untuk dicampur dengan sayuran pekarangan yang renyah. Sayuran yang digunakan seperti kacang panjang dan tauge biasanya direbus sangat sebentar (setengah matang) atau bahkan disajikan mentah untuk mempertahankan tekstur garing alami.\n\nBumbu kelapanya diperkaya dengan perasan air jeruk lemon cui segar yang berpadu dengan bawang merah mentah iris dan cabai. Kehadiran ikan cakalang asar memberikan aroma asap yang khas dan gurih laut yang mendalam. Kohu-kohu biasanya dimakan bersama singkong rebus, keladi rebus, atau sagu lempeng sebagai menu makan siang yang menyegarkan.",
+    "pullQuote": "Kohu-kohu adalah pertemuan segar sayur ladang dan gurih cakalang asap samudra.",
+    "image": "/img/foods/kohu-kohu-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Ikan Cakalang Asar",
+      "qty": "150g",
+      "image": "/img/ingredients/smoked-fish.svg",
+      "essential": true
+    },
+    {
+      "name": "Kelapa Setengah Tua",
+      "qty": "100g",
+      "image": "/img/ingredients/grated-coconut.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Panjang",
+      "qty": "100g",
+      "image": "/img/ingredients/long-beans.svg",
+      "essential": true
+    },
+    {
+      "name": "Tauge",
+      "qty": "100g",
+      "image": "/img/ingredients/bean-sprouts.svg",
+      "essential": true
+    },
+    {
+      "name": "Mentimun",
+      "qty": "1 buah",
+      "image": "/img/ingredients/cucumber.svg",
+      "essential": false
+    },
+    {
+      "name": "Daun Kemangi",
+      "qty": "1 ikat",
+      "image": "/img/ingredients/basil.svg",
+      "essential": false
+    },
+    {
+      "name": "Bawang Merah",
+      "qty": "5 butir",
+      "image": "/img/ingredients/shallot.svg",
+      "essential": true
+    },
+    {
+      "name": "Cabai Rawit Merah",
+      "qty": "6 buah",
+      "image": "/img/ingredients/chili.svg",
+      "essential": true
+    },
+    {
+      "name": "Jeruk Lemon Cui",
+      "qty": "1 buah",
+      "image": "/img/ingredients/lime.svg",
+      "essential": true
+    },
+    {
+      "name": "Garam",
+      "qty": "1 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 4,
+    "prepTime": 15,
+    "cookTime": 5,
+    "difficulty": "easy",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Blanching Sayur",
+        "text": "Rebus kacang panjang dan tauge secara terpisah dalam air mendidih selama masing-masing 1 menit agar tetap renyah (setengah matang), lalu tiriskan dan siram air es.",
+        "duration": 180
+      },
+      {
+        "order": 2,
+        "title": "Ulek Bumbu",
+        "text": "Haluskan cabai rawit merah, sebagian bawang merah, dan garam.",
+        "duration": 240
+      },
+      {
+        "order": 3,
+        "title": "Kukus Kelapa",
+        "text": "Campurkan bumbu halus dengan kelapa parut hingga merata. Kukus sebentar selama 5 menit agar kelapa tidak cepat basi.",
+        "duration": 300
+      },
+      {
+        "order": 4,
+        "title": "Iris Bawang",
+        "text": "Iris tipis sisa bawang merah mentah.",
+        "duration": 120
+      },
+      {
+        "order": 5,
+        "title": "Siapkan Wadah",
+        "text": "Dalam mangkuk besar, campurkan kacang panjang, tauge, mentimun, dan kemangi.",
+        "duration": 120
+      },
+      {
+        "order": 6,
+        "title": "Campur Semua Bahan",
+        "text": "Tambahkan bumbu kelapa kukus, suwiran ikan cakalang asar, irisan bawang merah mentah, dan perasan jeruk lemon cui. Aduk rata menggunakan tangan secara perlahan hingga semua bahan menyatu. Sajikan segera.",
+        "duration": 180,
+        "tip": "Irisan bawang merah mentah dan perasan jeruk lemon cui yang dicampur di akhir adalah rahasia kesegaran kohu-kohu yang autentik."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 5,
+    "pedas": 50,
+    "gurih": 80,
+    "asam": 40,
+    "asin": 50
+  },
+  "nutrition": {
+    "calories": 165,
+    "protein": 12,
+    "carbs": 9,
+    "fat": 8,
+    "fiber": 3,
+    "servingSize": "1 porsi (150g)"
+  },
+  "locations": [
+    {
+      "name": "Warung Makan Pantai Natsepa",
+      "city": "Ambon",
+      "lat": -3.6267,
+      "lng": 128.2933,
+      "description": "Warung-warung pinggir pantai Natsepa yang terkenal menyajikan kohu-kohu segar dengan singkong rebus hangat.",
+      "priceRange": "Rp 15.000 - Rp 25.000"
+    },
+    {
+      "name": "Dapur Timur Resto",
+      "city": "Makassar",
+      "lat": -5.1476,
+      "lng": 119.4149,
+      "description": "Restoran keluarga yang menghadirkan petualangan rasa kuliner Maluku dan Papua dengan bahan baku ikan asap pilihan.",
+      "priceRange": "Rp 25.000 - Rp 45.000"
+    }
+  ],
+  "related": [
+    "sambal-colocolo-003",
+    "ikan-asar-009",
+    "nasi-lapola-006"
+  ],
+  "funFacts": [
+    "Secara tradisional, sayur-sayuran untuk kohu-kohu sama sekali tidak direbus (semuanya mentah), namun penyajian modern sering kali merebusnya sebentar demi higienitas.",
+    "Ikan cakalang asar beraroma asap kuat adalah bahan mutlak; menggantinya dengan cakalang rebus biasa akan menghilangkan karakter khas kohu-kohu."
+  ],
+  "tags": [
+    "kohu-kohu",
+    "urap maluku",
+    "cakalang asap",
+    "sayur segar",
+    "kelapa parut",
+    "khas maluku"
+  ]
+}

@@ -115,7 +115,6 @@ export default function FeaturedFoodsGrid() {
                 href={`/hidangan/${food.id}`}
                 className="result-card duo-card flex flex-col overflow-hidden"
                 key={food.id}
-                style={{ borderTop: `4px solid var(--c-${food.region})` }}
               >
                 <div className="result-card-image">
                   <img src={imgUrl} alt={food.name} loading="lazy" />

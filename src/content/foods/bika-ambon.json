@@ -1,0 +1,142 @@
+{
+  "id": "bika-ambon-006",
+  "name": "Bika Ambon",
+  "region": "sumatera",
+  "description": "Kue basah tradisional khas Medan berwarna kuning terang dengan tekstur bersarang (berongga) unik, kenyal, beraroma harum pandan, daun jeruk, dan serai.",
+  "taste": [
+    "manis",
+    "gurih"
+  ],
+  "type": "dibakar",
+  "imageUrl": "/images/foods/bika-ambon.jpg",
+  "hero": {
+    "image": "/images/foods/bika-ambon-hero.jpg",
+    "alt": "Kue Bika Ambon potong dengan tekstur bersarang yang rapi dan berwarna kuning keemasan",
+    "dominantColor": "#FFD700"
+  },
+  "story": {
+    "headline": "Tekstur Bersarang yang Lahir dari Kesabaran",
+    "body": "Meskipun menyandang nama 'Ambon', kue legendaris ini tidak berasal dari Maluku, melainkan dari kota Medan, Sumatra Utara. Nama 'Ambon' konon berasal dari nama jalan tempat kue ini pertama kali dijual dan dipopulerkan, yaitu Jalan Ambon di Sei Kera, Kota Medan. Kue ini merupakan perpaduan indah budaya kuliner peranakan Tionghoa dan bahan-bahan lokal, menghasilkan peninggalan kuliner berkelas tinggi yang dicirikan oleh rongga-rongga vertikal yang mirip sarang lebah.\n\nMembuat Bika Ambon membutuhkan ketelitian dan teknik tingkat tinggi. Rahasia di balik kelembutan dan rongga bersarang yang sempurna terletak pada proses fermentasi air kelapa (nira atau ragi) serta kontrol suhu pemanggangan yang sangat presisi. Adonan harus dibiarkan berfermentasi selama beberapa jam agar ragi aktif memproduksi gelembung gas, yang kemudian saat dipanggang di atas api bawah cetakan terbuka akan membentuk rongga-rongga udara vertikal yang cantik nan kenyal.",
+    "pullQuote": "Setiap rongga Bika Ambon menyimpan kehangatan aroma daun jeruk dan manisnya tradisi",
+    "image": "/images/foods/bika-ambon-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Tepung Tapioka",
+      "qty": "200g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Santan Kental",
+      "qty": "300ml",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Kuning Telur",
+      "qty": "10 butir",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Gula Pasir",
+      "qty": "200g",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Ragi Instan",
+      "qty": "1 sdm",
+      "image": "",
+      "essential": true
+    },
+    {
+      "name": "Air Kelapa Muda",
+      "qty": "50ml",
+      "image": "",
+      "essential": false
+    }
+  ],
+  "recipe": {
+    "servings": 10,
+    "prepTime": 120,
+    "cookTime": 50,
+    "difficulty": "hard",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Aktifkan Ragi",
+        "text": "Campurkan ragi instan dengan air kelapa hangat dan sedikit gula pasir. Diamkan selama 10-15 menit hingga cairan berbusa melimpah, menandakan ragi telah aktif sempurna.",
+        "duration": 900
+      },
+      {
+        "order": 2,
+        "title": "Rebus Santan Bumbu",
+        "text": "Rebus santan kental bersama serai yang dimemarkan, daun pandan wangi, sobekan daun jeruk purut, dan bubuk kunyit di atas api kecil hingga wangi harum keluar. Saring santan dan biarkan mendingin hingga hangat kuku.",
+        "duration": 900,
+        "tip": "Daun jeruk purut sebaiknya disobek agar aroma minyak atsiri keluar maksimal tanpa merusak tekstur kuah"
+      },
+      {
+        "order": 3,
+        "title": "Kocok Telur dan Gula",
+        "text": "Kocok kuning telur bersama gula pasir menggunakan mixer dengan kecepatan rendah hingga gula larut sepenuhnya dan adonan sedikit pucat mengembang.",
+        "duration": 600
+      },
+      {
+        "order": 4,
+        "title": "Campur dan Fermentasikan Adonan",
+        "text": "Masukkan tepung tapioka sedikit demi sedikit berselingan dengan rebusan santan hangat ke dalam kocokan telur. Aduk perlahan, lalu tambahkan larutan ragi aktif. Saring adonan dan diamkan selama minimal 2 jam.",
+        "duration": 7200,
+        "tip": "Letakkan adonan di dalam wadah tertutup kain bersih di area yang hangat agar proses fermentasi berjalan optimal"
+      },
+      {
+        "order": 5,
+        "title": "Panggang Hingga Bersarang",
+        "text": "Panaskan loyang beralas pasir yang telah dioles tipis minyak. Tuangkan adonan Bika Ambon, lalu panggang dengan cetakan terbuka (tutup oven dibiarkan terbuka sedikit) menggunakan api bawah. Setelah gelembung udara naik dan adonan set setengah matang, tutup loyang dan panggang api atas sebentar hingga cokelat keemasan.",
+        "duration": 3000,
+        "tip": "Jangan menutup cetakan di awal pemanggangan agar gas CO2 dapat bergerak naik bebas membentuk serat berongga yang cantik"
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 85,
+    "pedas": 0,
+    "gurih": 70,
+    "asam": 0,
+    "asin": 10
+  },
+  "nutrition": {
+    "calories": 180,
+    "protein": 4,
+    "carbs": 32,
+    "fat": 5,
+    "servingSize": "1 potong (60g)"
+  },
+  "locations": [
+    {
+      "name": "Bika Ambon Zulaikha",
+      "city": "Medan",
+      "lat": 3.5937,
+      "lng": 98.6908,
+      "description": "Pelopor Bika Ambon bersertifikasi halal dengan tekstur yang luar biasa lembut dan wangi rempah jeruk purut alami yang pekat.",
+      "priceRange": "Rp 60.000 - Rp 95.000"
+    }
+  ],
+  "related": [
+    "mie-aceh-001",
+    "pempek-001"
+  ],
+  "funFacts": [
+    "Meskipun bernama Bika Ambon, camilan manis ini merupakan oleh-oleh andalan asli dari kota Medan dan tidak terhubung secara geografis dengan Maluku.",
+    "Serat atau sarang lebah vertikal yang terbentuk pada bika ambon terjadi berkat aktivitas ragi tapioka yang membebaskan karbon dioksida di dalam loyang panas terbuka."
+  ],
+  "tags": [
+    "bika ambon",
+    "khas medan",
+    "sumatera",
+    "kue tradisional",
+    "manis",
+    "oleh-oleh"
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "nasi-lapola-006",
+  "name": "Nasi Lapola",
+  "region": "maluku-papua",
+  "description": "Hidangan nasi tradisional Maluku yang dimasak bersama kacang tolo merah dan kelapa parut gurih, menghasilkan kombinasi rasa pulen, gurih bertekstur, dan beraroma harum.",
+  "taste": [
+    "gurih",
+    "asin"
+  ],
+  "type": "digoreng",
+  "imageUrl": "/img/foods/nasi-lapola.jpg",
+  "hero": {
+    "image": "/img/foods/nasi-lapola-hero.jpg",
+    "alt": "Nasi Lapola khas Maluku bertabur kacang tolo dan kelapa parut",
+    "dominantColor": "#D2B48C"
+  },
+  "story": {
+    "headline": "Harmoni Nasi, Kelapa, dan Kacang Merah khas Maluku",
+    "body": "Nasi Lapola adalah makanan pokok alternatif masyarakat Maluku yang memadukan beras dengan kacang tolo (kacang merah kecil) dan parutan kelapa muda yang gurih. Di Maluku, hidangan ini melambangkan kesuburan tanah perkebunan dan merupakan variasi makanan selain sagu yang sangat digemari sejak berabad-abad silam.\n\nDalam tradisinya, beras dimasak setengah matang lalu dicampurkan dengan kacang tolo yang telah direbus empuk serta bumbu parutan kelapa. Adonan ini kemudian dikukus hingga matang sempurna dan mengeluarkan aroma khas kelapa kukus yang sangat harum. Cita rasanya yang gurih pekat membuatnya sangat nikmat disantap hangat.\n\nUntuk menyempurnakan hidangan, nasi lapola sering kali ditumis sebentar dengan sedikit minyak kelapa atau disajikan bersama lauk pedas seperti olahan cakalang fufu, ikan asar, atau sambal colo-colo. Hidangan ini mencerminkan kearifan lokal dalam memperkaya rasa karbohidrat sederhana menjadi santapan bergizi tinggi.",
+    "pullQuote": "Nasi Lapola menyatukan rasa gurih kelapa pantai dan kehangatan kacang merah bumi Maluku.",
+    "image": "/img/foods/nasi-lapola-story.jpg"
+  },
+  "ingredients": [
+    {
+      "name": "Beras Putih",
+      "qty": "300g",
+      "image": "/img/ingredients/rice.svg",
+      "essential": true
+    },
+    {
+      "name": "Kacang Tolo (Kacang Merah Kecil)",
+      "qty": "100g",
+      "image": "/img/ingredients/red-beans.svg",
+      "essential": true
+    },
+    {
+      "name": "Kelapa Setengah Tua (parut kasar)",
+      "qty": "150g",
+      "image": "/img/ingredients/grated-coconut.svg",
+      "essential": true
+    },
+    {
+      "name": "Daun Pandan",
+      "qty": "2 lembar",
+      "image": "/img/ingredients/pandan.svg",
+      "essential": false
+    },
+    {
+      "name": "Serai",
+      "qty": "1 batang",
+      "image": "/img/ingredients/lemongrass.svg",
+      "essential": false
+    },
+    {
+      "name": "Garam",
+      "qty": "1.5 sdt",
+      "image": "/img/ingredients/salt.svg",
+      "essential": true
+    },
+    {
+      "name": "Minyak Kelapa",
+      "qty": "2 sdm",
+      "image": "/img/ingredients/coconut-oil.svg",
+      "essential": true
+    }
+  ],
+  "recipe": {
+    "servings": 5,
+    "prepTime": 30,
+    "cookTime": 40,
+    "difficulty": "medium",
+    "steps": [
+      {
+        "order": 1,
+        "title": "Rebus Kacang",
+        "text": "Cuci bersih kacang tolo, lalu rebus di dalam air mendidih hingga benar-benar empuk. Tiriskan.",
+        "duration": 1200
+      },
+      {
+        "order": 2,
+        "title": "Masak Beras",
+        "text": "Cuci bersih beras, masak dengan air secukupnya hingga menjadi nasi aron (setengah matang).",
+        "duration": 600
+      },
+      {
+        "order": 3,
+        "title": "Bumbui Kelapa",
+        "text": "Campurkan kelapa parut kasar dengan garam hingga rata di wadah terpisah.",
+        "duration": 180
+      },
+      {
+        "order": 4,
+        "title": "Campurkan Adonan",
+        "text": "Campurkan nasi aron, kacang tolo rebus, parutan kelapa berbumbu, daun pandan, dan serai. Aduk rata hingga kelapa menyebar.",
+        "duration": 300
+      },
+      {
+        "order": 5,
+        "title": "Kukus Nasi",
+        "text": "Kukus campuran nasi lapola dalam dandang panas selama 30 menit hingga matang dan tanak.",
+        "duration": 1800
+      },
+      {
+        "order": 6,
+        "title": "Tumis/Goreng Ringan",
+        "text": "Untuk menyajikan ala tumis (seperti tipe digoreng), panaskan minyak kelapa di wajan, masukkan nasi lapola kukus, lalu aduk cepat selama 2-3 menit hingga aroma kelapa sangrai keluar. Angkat dan sajikan hangat.",
+        "duration": 180,
+        "tip": "Menumis ringan dengan minyak kelapa murni di akhir menambah lapisan gurih dan kilau menggiurkan pada butiran nasi."
+      }
+    ]
+  },
+  "tasteScore": {
+    "manis": 10,
+    "pedas": 5,
+    "gurih": 85,
+    "asam": 5,
+    "asin": 55
+  },
+  "nutrition": {
+    "calories": 310,
+    "protein": 7,
+    "carbs": 54,
+    "fat": 8,
+    "fiber": 4,
+    "servingSize": "1 porsi (200g)"
+  },
+  "locations": [
+    {
+      "name": "Rumah Makan Beta Rasa",
+      "city": "Ambon",
+      "lat": -3.6922,
+      "lng": 128.1825,
+      "description": "Spesialis makanan khas Maluku yang menyajikan nasi lapola hangat lengkap dengan cakalang suwir pedas.",
+      "priceRange": "Rp 25.000 - Rp 40.000"
+    },
+    {
+      "name": "Depot Timur Rasa",
+      "city": "Surabaya",
+      "lat": -7.2575,
+      "lng": 112.7521,
+      "description": "Menyediakan aneka kuliner khas Maluku dan Papua bagi para perantau dengan cita rasa yang sangat autentik.",
+      "priceRange": "Rp 30.000 - Rp 50.000"
+    }
+  ],
+  "related": [
+    "kohu-kohu-007",
+    "ikan-asar-009",
+    "kue-bagea-008"
+  ],
+  "funFacts": [
+    "Nasi Lapola adalah perpaduan unik pengaruh pertanian kacang-kacangan di daratan Maluku dengan beras yang dibawa oleh para pendatang.",
+    "Kacang tolo yang digunakan berukuran lebih kecil dari kacang merah biasa, sehingga memiliki tekstur yang tidak terlalu dominan namun memberikan rasa gurih kacang yang padat."
+  ],
+  "tags": [
+    "nasi lapola",
+    "kacang tolo",
+    "kelapa parut",
+    "khas maluku",
+    "gurih",
+    "nasi gurih"
+  ]
+}
