@@ -1,0 +1,10 @@
+{
+    "name": "Rafli Alif Fikri",
+    "role": "Frontend Developer",
+    "photo": "/img/nara/NARA 1.png",
+    "bio": "",
+    "order": 2,
+    "socials": [
+        { "platform": "instagram", "url": "https://instagram.com" }
+    ]
+}

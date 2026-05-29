@@ -58,8 +58,8 @@
         },
       });
 
-      // Background fade in darker
-      tl.to(bg, { opacity: 0.8, duration: 0.5 }, 0);
+      // Glow accent menyala lembut saat scroll
+      tl.to(bg, { opacity: 1, duration: 0.5 }, 0);
 
       scenes.forEach((scene, i) => {
         const startTime = i * 2.5;
@@ -73,8 +73,9 @@
     });
 
     mm.add('(prefers-reduced-motion: reduce)', () => {
-      gsap.set(scenes, { opacity: 1, y: 0, position: 'relative', marginBottom: '4rem' });
-      gsap.set(bg, { opacity: 0.1 });
+      // Tampilkan semua scene sebagai stack vertikal yang terbaca
+      gsap.set(scenes, { opacity: 1, y: 0, position: 'relative', marginBottom: '3rem' });
+      gsap.set(bg, { opacity: 1 });
     });
   }
 
@@ -85,14 +86,15 @@
 <style>
   .story-scroll {
     position: relative;
-    background: var(--c-bg);
+    /* Selalu gelap — menyatu dari hero, teks cream selalu terbaca */
+    background: linear-gradient(180deg, #1C1109 0%, #2A1810 50%, #1C1109 100%);
     overflow: hidden;
   }
-  
+
   .story-scroll-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, var(--brown-800, #5A3420) 0%, #17110C 100%);
+    background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(194, 65, 12, 0.12) 0%, transparent 70%);
     opacity: 0;
     pointer-events: none;
     z-index: 0;
@@ -109,6 +111,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Reduced-motion: scene jadi stack vertikal, bukan 100vh terkunci */
+  @media (prefers-reduced-motion: reduce) {
+    .story-scroll-inner {
+      height: auto;
+      flex-direction: column;
+      padding-block: clamp(64px, 12vw, 140px);
+    }
+    .story-scene {
+      position: relative !important;
+    }
   }
 
   .story-scene {

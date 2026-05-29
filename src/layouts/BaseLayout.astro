@@ -95,52 +95,48 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
     <!-- Lenis + Page Animation Orchestrator -->
     <script>
-      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
+      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll, forceScrollToTop } from '../lib/animations/scroll-smoother';
       import { gsap } from 'gsap';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
       import { cleanupAnimations } from '../lib/animations/gsap-presets';
 
       gsap.registerPlugin(ScrollTrigger);
 
+      // Cegah browser restore scroll position saat back/forward
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
       function initGlobalSmoothScroll() {
         initSmoothScroll({ duration: 1.5, wheelMultiplier: 1, touchMultiplier: 1.5 });
         requestAnimationFrame(() => ScrollTrigger.refresh());
       }
 
-      document.addEventListener('DOMContentLoaded', initGlobalSmoothScroll);
+      document.addEventListener('DOMContentLoaded', () => {
+        initGlobalSmoothScroll();
+        // Pastikan scroll di top saat initial load (terutama untuk mobile / reduced motion)
+        forceScrollToTop();
+      });
 
-      /* ─── PAGE ANIMATION ORCHESTRATOR ─────────────────────────────────
-       *
-       * Arsitektur baru — sinkronisasi deterministik antara layer transisi
-       * dan hero entry animation:
-       *
-       * FASE OUT  (halaman lama):
-       *   animation:out:start → cleanup ScrollTrigger/tween konten lama
-       *   animation:out:await → layer naik menutup layar (resolve saat selesai)
-       *
-       * FASE IN  (halaman baru):
-       *   animation:in:await  → DOM sudah ter-swap, tunggu 1 rAF agar browser
-       *                         paint konten baru, lalu resolve
-       *   swup:page:view      → reinit Lenis + ScrollTrigger
-       *   layer turun         → BERSAMAAN dispatch 'kulineria:page:ready'
-       *   kulineria:page:ready → hero entry animations mulai (sinkron!)
-       *
-       * Tidak ada setTimeout arbitrary, tidak ada __pageAnimate queue.
-       * ────────────────────────────────────────────────────────────────── */
+      // Handle back/forward navigation — scroll ke top
+      window.addEventListener('popstate', () => {
+        forceScrollToTop();
+      });
+
+      /* ─── PAGE ANIMATION ORCHESTRATOR ───────────────────────────────── */
 
 
-      // swup:page:view tidak lagi dipakai untuk reinit Lenis —
-      // reinit dilakukan di animation:in:start (script kedua) agar sinkron
-      // dengan dispatch kulineria:page:ready.
-      // Dibiarkan kosong tapi tetap ada sebagai safety hook jika diperlukan.
-      document.addEventListener('swup:page:view', () => {});
+      // Safety: pastikan scroll di top setelah page view selesai
+      document.addEventListener('swup:page:view', () => {
+        forceScrollToTop();
+      });
     </script>
 
     <!-- Arc + Wave: 3-layer via Swup hooks + GSAP -->
     <script>
       import { gsap } from 'gsap';
       import { cleanupAnimations } from '../lib/animations/gsap-presets';
-      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll } from '../lib/animations/scroll-smoother';
+      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll, forceScrollToTop } from '../lib/animations/scroll-smoother';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
       gsap.registerPlugin(ScrollTrigger);
@@ -199,7 +195,13 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
             const endY = -(vh + 500); // Pastikan layer benar-benar keluar layar di atas
 
             // Layer lanjut naik dari tengah ke atas (membuka layar)
-            const tl = gsap.timeline({ onComplete: resolve });
+            const tl = gsap.timeline({
+              onComplete: () => {
+                // Safety: scroll ke top setelah layer selesai membuka
+                forceScrollToTop();
+                resolve();
+              }
+            });
             tl.to(l1, { y: endY, duration: 0.6, ease: 'power2.out' }, 0);
             tl.to(l2, { y: endY, duration: 0.6, ease: 'power2.out' }, 0.05);
             tl.to(l3, { y: endY, duration: 0.6, ease: 'power2.out' }, 0.1);
@@ -211,11 +213,15 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
           // DOM baru sudah diswap. Lakukan re-init Lenis secara sinkron
           // agar siap digunakan ScrollTrigger.
           destroySmoothScroll();
-          
+
           // Reset posisi scroll browser ke atas sebelum smooth scroll di-reinit!
-          window.scrollTo(0, 0);
-          
+          forceScrollToTop();
+
           initGlobalSmoothScroll();
+
+          // Paksa Lenis ke posisi 0 setelah re-init
+          forceScrollToTop();
+
           refreshSmoothScroll();
 
           // Dispatch event agar animasi hero komponen menyiapkan state awalnya

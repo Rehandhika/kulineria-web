@@ -101,3 +101,11 @@ export function isSmoothScrollActive(): boolean {
 export function scrollTo(target: string | HTMLElement | number, options?: { offset?: number; immediate?: boolean; duration?: number }) {
   lenisInstance?.scrollTo(target, options);
 }
+
+export function forceScrollToTop() {
+  if (lenisInstance) {
+    lenisInstance.scrollTo(0, { immediate: true });
+  } else {
+    window.scrollTo(0, 0);
+  }
+}

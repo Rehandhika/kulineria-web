@@ -26,6 +26,7 @@
       Dari Sabang sampai Merauke, ada ribuan resep yang tersebar di setiap dapur. Kulineria hadir untuk merangkum semuanya agar kamu bisa menjelajahi kuliner Indonesia secara lebih dekat.
     </p>
   </div>
+
 </section>
 
 <script>
@@ -68,15 +69,15 @@
 <style>
   .about-hero {
     position: relative;
-    min-height: 100svh;
+    min-height: clamp(560px, 90svh, 820px);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: calc(var(--nav-mobile-h) + var(--sp-8)) var(--page-px) var(--sp-8);
+    padding: calc(var(--nav-mobile-h) + var(--sp-12)) var(--page-px) var(--sp-16);
   }
   @media (min-width: 768px) {
-    .about-hero { padding: calc(var(--nav-h) + var(--sp-12)) var(--page-px) var(--sp-12); }
+    .about-hero { padding: calc(var(--nav-h) + var(--sp-16)) var(--page-px) var(--sp-20); }
   }
 
   .about-hero-bg {

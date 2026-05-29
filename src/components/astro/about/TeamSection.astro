@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import SectionHeader from '../shared/SectionHeader.astro';
 
 const teamMembers = await getCollection('team');
 const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order);
@@ -8,38 +7,41 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 
 <section class="team" id="about-team">
   <div class="container">
-    <SectionHeader overline="Tim" title="Orang-orang di balik Kulineria" subtitle="Mereka yang punya semangat yang sama buat ngerawat dan nyebarin resep-resep Nusantara biar tetap dikenal" />
+    <div class="team-container">
+      <h2 class="team-title">Tim di Balik Kulineria</h2>
 
-    <div class="team-grid">
-      {
-        sorted.map((member: any, i: number) => {
-          // Use distinct accent colors from the new palette
-          const avatarColors = ['#B5462E', '#2E7D6B', '#6A3FA0'];
-          const avatarBgs   = ['#FFF0E8', '#E8F5EE', '#F0EBF8'];
-          const color = avatarColors[i % avatarColors.length];
-          const bg    = avatarBgs[i % avatarBgs.length];
-
-          return (
-            <div class="team-card duo-card" data-tilt>
-              <div class="team-avatar-wrap" style={{ background: bg }}>
-                <svg viewBox="0 0 80 80" class="team-avatar" aria-hidden="true">
-                  <circle cx="40" cy="32" r="14" fill={color} />
-                  <ellipse cx="40" cy="62" rx="20" ry="16" fill={color} />
-                  <circle cx="34" cy="28" r="2.5" fill="var(--c-text-1)" />
-                  <circle cx="46" cy="28" r="2.5" fill="var(--c-text-1)" />
-                  <path d="M 36 36 Q 40 40 44 36" fill="none" stroke="var(--c-text-1)" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-              </div>
-              <div class="team-card-body">
-                <span class="team-number">0{i + 1}</span>
-                <h3>{member.data.name}</h3>
-                <p class="team-role">{member.data.role}</p>
-                <p class="team-bio">{member.data.bio}</p>
-              </div>
-            </div>
-          );
-        })
-      }
+      <div class="team-grid">
+        {
+          sorted.map((member: any) => {
+            return (
+              <article class="team-card">
+                <div class="team-card-top">
+                  <div class="team-avatar-wrap">
+                    <img src={member.data.photo || "/img/nara/NARA 1.png"} alt={member.data.name} class="team-avatar-img" width="120" height="120" loading="lazy" />
+                  </div>
+                </div>
+                <div class="team-card-body">
+                  <h3>{member.data.name}</h3>
+                  <p class="team-role">{member.data.role}</p>
+                  {member.data.socials?.find((s: any) => s.platform === 'instagram') && (
+                    <a
+                      href={member.data.socials.find((s: any) => s.platform === 'instagram').url}
+                      class="team-social-icon"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    >
+                      <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="var(--brown-500)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
     </div>
   </div>
 </section>
@@ -128,15 +130,34 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 <style>
   .team {
     position: relative;
-    padding: var(--sp-12) 0;
-    background: var(--c-bg);
+    padding-top: clamp(72px, 11vw, 152px);
+    padding-bottom: clamp(64px, 9vw, 128px);
+    /* Make section background transparent or white to let container pop, or keep original */
+    background: transparent;
   }
   .team .container {
     position: relative;
     z-index: 1;
   }
-  @media (min-width: 768px) {
-    .team { padding: var(--sp-20) 0; }
+
+  .team-container {
+    background: var(--c-bg); /* Use the warm parchment background */
+    border: 1px solid var(--brown-700);
+    border-radius: var(--r-3xl);
+    padding: var(--sp-8) var(--sp-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-8);
+  }
+
+  .team-title {
+    font-family: var(--ff-display);
+    font-size: var(--fs-3xl);
+    font-weight: 800;
+    color: var(--brown-800);
+    text-align: center;
+    margin: 0;
   }
 
   .team-grid {
@@ -147,107 +168,133 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     scroll-behavior: smooth;
     gap: var(--sp-4);
     margin: 0 calc(var(--page-px) * -1);
-    padding: var(--sp-6) var(--page-px);
+    padding: var(--sp-4) var(--page-px) var(--sp-2);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    width: 100%;
+    justify-content: flex-start;
   }
   .team-grid::-webkit-scrollbar {
     display: none;
   }
 
   .team-card {
-    flex: 0 0 80%;
+    flex: 0 0 75%;
     scroll-snap-align: center;
-    padding: var(--sp-6);
+    padding: var(--sp-8) var(--sp-6);
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: var(--sp-4);
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-2xl);
+    box-shadow: var(--sh-2);
     cursor: default;
     will-change: transform;
+    transition: box-shadow 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .team-card:hover {
+      box-shadow: var(--sh-card-hover);
+      border-color: var(--c-border-strong);
+    }
   }
 
-  @media (min-width: 640px) {
-    .team-grid { 
+  @media (min-width: 768px) {
+    .team-container {
+      padding: var(--sp-16) var(--sp-12);
+      border-radius: 48px;
+    }
+    .team-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       overflow-x: visible;
       margin: 0;
-      padding: 0;
+      padding: var(--sp-2) 0 0;
       gap: var(--sp-6);
       scroll-snap-type: none;
+      justify-content: center;
     }
     .team-card {
       flex: none;
       scroll-snap-align: none;
-      padding: var(--sp-8) var(--sp-6);
+      padding: var(--sp-10) var(--sp-6);
+      max-width: 300px;
     }
   }
 
-  @media (min-width: 1024px) {
-    .team-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-8); }
+  /* ── Avatar ── */
+  .team-card-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--sp-2);
   }
 
   .team-avatar-wrap {
-    width: 96px;
-    height: 96px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px solid var(--c-brand-cream);
-    box-shadow: 0 4px 0 rgba(60, 42, 30, 0.12);
-    transition: box-shadow 0.3s var(--ease-bounce);
+    background: var(--c-surface);
+    border: 1px solid var(--brown-300);
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-bounce);
     will-change: transform;
   }
   .team-card:hover .team-avatar-wrap {
-    box-shadow: 0 8px 0 rgba(60, 42, 30, 0.15);
+    transform: scale(1.06);
   }
 
-  .team-avatar {
-    width: 60px;
-    height: 60px;
+  .team-avatar-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    user-select: none;
   }
 
+  /* ── Body ── */
   .team-card-body {
-    text-align: center;
-    position: relative;
-  }
-
-  .team-number {
-    position: absolute;
-    top: -6px;
-    right: -8px;
-    font-family: var(--ff-display);
-    font-size: var(--fs-xs);
-    font-weight: 900;
-    color: var(--c-accent);
-    opacity: 0.25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .team-card h3 {
-    font-family: var(--ff-display);
+    font-family: var(--ff-body);
     font-size: var(--fs-lg);
     font-weight: 800;
-    color: var(--c-text-1);
+    color: var(--brown-800);
+    line-height: 1.2;
     margin-bottom: var(--sp-1);
   }
 
   .team-role {
-    font-size: var(--fs-xs);
-    color: var(--c-accent);
+    font-family: var(--ff-body);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    margin-bottom: var(--sp-3);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    color: var(--brown-500);
+    margin-bottom: var(--sp-4);
   }
 
-  .team-bio {
-    font-size: var(--fs-sm);
-    color: var(--c-text-2);
-    line-height: 1.7;
-    font-weight: 400;
-    max-width: 280px;
-    margin: 0 auto;
+  .team-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: var(--sp-1);
+    transition: transform 0.3s var(--ease-smooth), opacity 0.3s var(--ease-smooth);
+    opacity: 0.85;
+  }
+
+  .team-social-icon:hover {
+    transform: translateY(-3px) scale(1.12);
+    opacity: 1;
   }
 </style>

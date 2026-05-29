@@ -1,0 +1,10 @@
+{
+    "name": "Rehandhika A Pratama",
+    "role": "Backend Developer",
+    "photo": "/img/nara/NARA 1.png",
+    "bio": "",
+    "order": 3,
+    "socials": [
+        { "platform": "instagram", "url": "https://instagram.com" }
+    ]
+}
