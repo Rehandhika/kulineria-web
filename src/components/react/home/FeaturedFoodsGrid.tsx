@@ -75,8 +75,8 @@ export default function FeaturedFoodsGrid() {
       if (pageChanged) {
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 30, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.05, ease: 'back.out(1.6)' }
+          { opacity: 0, y: 40, scale: 0.94 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.9, stagger: 0.09, ease: 'power3.out' }
         );
       } else {
         gsap.set(cards, { opacity: 1, y: 0, scale: 1 });
@@ -117,14 +117,25 @@ export default function FeaturedFoodsGrid() {
                 key={food.id}
               >
                 <div className="result-card-image">
-                  <img src={imgUrl} alt={food.name} loading="lazy" />
+                  <img
+                    src={imgUrl}
+                    alt={food.name}
+                    loading="lazy"
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      if (!img.dataset.fallback) {
+                        img.dataset.fallback = '1';
+                        img.src = 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=70';
+                      }
+                    }}
+                  />
                 </div>
                 <div className="result-card-content">
                   <h3>{food.name}</h3>
                   <span className="result-card-region">{foodRegion?.name || food.region}</span>
                   <div className="result-card-tags">
-                    {food.taste.map(t => (
-                      <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{t}</span>
+                    {food.taste.slice(0, 3).map(t => (
+                      <span key={t} className="result-card-tag">{t}</span>
                     ))}
                   </div>
                 </div>

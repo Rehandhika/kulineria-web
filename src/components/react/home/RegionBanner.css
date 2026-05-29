@@ -3,213 +3,134 @@
   border-radius: var(--r-xl);
   overflow: hidden;
   margin-top: var(--sp-5);
-  padding: var(--sp-5) var(--sp-6) var(--sp-4);
+  padding: var(--sp-5) var(--sp-6) var(--sp-5);
   background: var(--c-surface);
-  transition: border-color var(--dur-base) var(--ease-smooth), box-shadow var(--dur-base) var(--ease-smooth);
+  border: 1.5px solid var(--c-border);
+  box-shadow: var(--sh-3);
 }
 
-.region-banner-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
+/* Accent bar — left edge, colored by region */
 .region-banner-accent {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5px;
+  width: 4px;
   height: 100%;
-  border-radius: 0 4px 4px 0;
-  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.15), 1px 0 0 rgba(106, 65, 42, 0.08);
+  border-radius: 0 2px 2px 0;
 }
 
+/* Close button */
 .region-banner-close {
   position: absolute;
   top: var(--sp-3);
   right: var(--sp-3);
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(106, 65, 42, 0.16);
-  background: var(--c-surface);
-  color: var(--c-text-2);
+  border: 1px solid var(--c-border);
+  background: var(--c-surface-2);
+  color: var(--c-text-3);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s var(--ease-smooth);
+  transition: background 0.15s, color 0.15s, transform 0.2s var(--ease-bounce);
   z-index: 2;
-  box-shadow: var(--sh-1);
 }
-
 .region-banner-close:hover {
-  border-color: var(--c-text-1);
-  background: var(--c-surface-2);
+  background: var(--c-surface-3);
   color: var(--c-text-1);
-  transform: scale(1.08) rotate(90deg);
-  box-shadow: var(--sh-2);
+  transform: rotate(90deg) scale(1.1);
 }
 
+/* Body */
 .region-banner-body {
   position: relative;
   z-index: 1;
-  padding-right: 42px;
+  padding-right: 40px;
+  margin-bottom: var(--sp-4);
 }
 
 .region-banner-overline {
   display: inline-block;
-  font-size: 10px;
-  font-weight: 800;
+  font-size: var(--fs-xs);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-widest);
-  color: var(--c-accent);
+  color: var(--c-text-3);
   margin-bottom: var(--sp-1);
-  opacity: 0.9;
 }
 
 .region-banner-title {
   font-family: var(--ff-display);
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 900;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 800;
   color: var(--c-text-1);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 0;
-  position: relative;
+  margin: 0;
 }
-
 .region-banner-title::after {
   content: '';
   display: block;
-  width: 36px;
+  width: 32px;
   height: 3px;
   border-radius: var(--r-full);
   background: var(--region-color, var(--c-accent));
   margin-top: var(--sp-2);
-  box-shadow: 0 1px 2px rgba(106, 65, 42, 0.08);
 }
 
+/* Footer */
 .region-banner-footer {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: var(--sp-4);
-  padding-top: var(--sp-3.5);
-  border-top: 1.2px solid rgba(106, 65, 42, 0.08);
-  gap: var(--sp-3);
-}
-
-/* ── Capsule pill badge layout for statistics ── */
-.region-banner-stat {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-1.5);
-  padding: 6px 14px;
-  background: var(--c-surface-2);
-  border: 1.2px solid var(--c-border);
-  border-radius: var(--r-full);
-  box-shadow: var(--sh-inner);
-}
-
-.region-banner-stat-val {
-  font-family: var(--ff-display);
-  font-size: var(--fs-lg);
-  font-weight: 900;
-  line-height: 1;
-  color: var(--c-text-1);
-}
-
-.region-banner-stat-label {
-  font-size: 10px;
-  color: var(--c-text-3);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
 }
 
 .region-banner-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 20px;
+  padding: 9px 20px;
   border-radius: var(--r-full);
-  color: var(--c-white);
-  font-size: var(--fs-xs);
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  border: 1.5px solid transparent;
-  transition: all 0.25s var(--ease-smooth);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: none;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: var(--sh-btn);
+  transition: transform 0.18s var(--ease-bounce), filter 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-
-/* Fine outline for light region button backgrounds */
-.region-banner-btn.is-light {
-  border-color: var(--c-border-strong);
-  box-shadow: 0 2px 8px rgba(106, 65, 42, 0.06);
-}
-
 .region-banner-btn:hover {
   transform: translateY(-2px);
-  box-shadow: var(--sh-btn-hover);
-  filter: brightness(1.02) contrast(1.02);
+  filter: brightness(1.08);
 }
+.region-banner-btn:active { transform: scale(0.97); }
 
-.region-banner-btn.is-light:hover {
-  box-shadow: 0 4px 12px rgba(106, 65, 42, 0.12);
+/* NARA — pojok kanan bawah */
+.region-banner-nara {
+  position: absolute;
+  bottom: -4px;
+  right: var(--sp-4);
+  z-index: 1;
+  pointer-events: none;
+}
+.region-banner-nara img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
 @media (max-width: 639px) {
   .region-banner {
-    padding: var(--sp-4) var(--sp-4) var(--sp-3);
+    padding: var(--sp-4) var(--sp-4) var(--sp-4);
     margin-top: var(--sp-3);
   }
-
-  .region-banner-body {
-    padding-right: 32px;
-  }
-
-  .region-banner-title {
-    font-size: 1.125rem;
-  }
-
-  .region-banner-title::after {
-    width: 28px;
-    margin-top: var(--sp-1);
-  }
-
-  .region-banner-footer {
-    flex-direction: row;
-    margin-top: var(--sp-2.5);
-    padding-top: var(--sp-2.5);
-  }
-  
-  .region-banner-stat {
-    padding: 4px 10px;
-  }
-}
-
-.region-banner-motif {
-  position: absolute;
-  bottom: -20px;
-  right: 15%;
-  width: 90px;
-  height: auto;
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 0;
-  filter: sepia(1) saturate(0.5) hue-rotate(330deg);
-  transform: rotate(-10deg);
-  user-select: none;
-}
-@media (max-width: 639px) {
-  .region-banner-motif {
-    width: 70px;
-    bottom: -15px;
-    right: 25%;
-  }
+  .region-banner-body { padding-right: 36px; }
+  .region-banner-title { font-size: 1.15rem; }
+  .region-banner-nara img { width: 52px; height: 52px; }
 }

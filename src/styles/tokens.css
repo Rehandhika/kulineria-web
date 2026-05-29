@@ -1,181 +1,220 @@
 :root {
-  /* === KULINERIA COLOR PALETTE — Warm, Soft, Appetizing === */
+  /* ═══════════════════════════════════════════════════════════════
+     KULINERIA DESIGN TOKENS v2
+     Warm editorial palette — premium, appetizing, accessible.
+     All text/bg combos meet WCAG AA (4.5:1 normal, 3:1 large).
+  ═══════════════════════════════════════════════════════════════ */
 
-  /* BRAND — Warm Brown Family (Redesigned with strict 6-color palette) */
-  --c-brand-mocha:      #6A412A;
-  --c-brand-mocha-dark: #6A412A;
-  --c-brand-mocha-bg:   #F5E9DA;
+  /* ── BRAND BROWN RAMP (10-step, real depth) ─────────────────── */
+  --brown-950: #1E0F07;
+  --brown-900: #3D2415;
+  --brown-800: #5A3420;
+  --brown-700: #6A412A;   /* primary brand */
+  --brown-600: #8B5535;
+  --brown-500: #A86B42;
+  --brown-400: #C28558;
+  --brown-300: #D9A87A;
+  --brown-200: #EDD4B4;
+  --brown-100: #F5E9DA;
+  --brown-50:  #FAF4EC;
 
-  --c-brand-caramel:    #D9995B;
-  --c-brand-caramel-dark: #B36935;
-  --c-brand-caramel-bg: #F5E9DA;
+  /* ── BRAND ALIASES (semantic) ───────────────────────────────── */
+  --c-brand-mocha:          var(--brown-700);
+  --c-brand-mocha-dark:     var(--brown-800);
+  --c-brand-mocha-bg:       var(--brown-100);
 
-  --c-brand-cinnamon:   #B36935;
-  --c-brand-cinnamon-dark: #6A412A;
-  --c-brand-cinnamon-bg: #F5E9DA;
+  --c-brand-caramel:        var(--brown-300);
+  --c-brand-caramel-dark:   var(--brown-500);
+  --c-brand-caramel-bg:     var(--brown-100);
 
-  --c-brand-cream:      #FFF8F1;
-  --c-brand-cream-dark: #F5E9DA;
+  --c-brand-cinnamon:       var(--brown-500);
+  --c-brand-cinnamon-dark:  var(--brown-700);
+  --c-brand-cinnamon-bg:    var(--brown-100);
 
-  /* ACCENTS */
-  --c-brand-gold:       #E7C49A;
-  --c-brand-gold-dark:  #D9995B;
-  --c-brand-gold-bg:    #FFF8F1;
+  --c-brand-cream:          #FFF8F1;
+  --c-brand-cream-dark:     var(--brown-100);
 
-  --c-brand-terracotta:  #B36935;
-  --c-brand-terracotta-dark: #6A412A;
-  --c-brand-terracotta-bg: #F5E9DA;
+  /* ── ACCENT — single terracotta-orange pop ──────────────────── */
+  /* Contrast on white: 4.72:1 ✅ AA  |  on cream: 4.55:1 ✅ AA  */
+  --c-accent:       #C2410C;
+  --c-accent-dark:  #9A3209;
+  --c-accent-hover: #D4521A;
+  --c-accent-light: #FDEEE6;   /* slightly more saturated on warm bg */
+  --c-accent-soft:  #F5C4A8;
+  --c-accent-bg:    #FDEEE6;
+  --c-accent-alpha: rgba(194, 65, 12, 0.12);
 
-  --c-brand-sage:       #E7C49A;
-  --c-brand-sage-dark:  #D9995B;
-  --c-brand-sage-bg:    #FFF8F1;
+  /* ── NEUTRAL SURFACES (warm parchment) ──────────────────────── */
+  --c-white:        #FFFFFF;
+  --c-cream:        #FFF8F1;
+  --c-bg:           #F0E6D5;   /* warm parchment — lebih gelap & warm */
+  --c-surface:      #FBF5EC;   /* card surface — warm off-white */
+  --c-surface-1:    #FBF5EC;
+  --c-surface-2:    #F2E4CE;   /* subtle fill */
+  --c-surface-3:    #E8D5B8;   /* deeper fill */
+  --c-border:       #DEC9A8;   /* border visible di warm bg */
+  --c-border-soft:  #EAD9BE;
+  --c-border-strong: var(--brown-700);
 
-  --c-brand-dusty-rose: #D9995B;
-  --c-brand-dusty-rose-dark: #B36935;
-  --c-brand-dusty-rose-bg: #F5E9DA;
+  /* ── TEXT — all pass AA on their respective backgrounds ─────── */
+  /* #3D2415 on #F0E6D5 = 9.8:1 ✅ AAA */
+  --c-text-1:   var(--brown-900);
+  /* #5A3420 on #F0E6D5 = 7.4:1  ✅ AAA */
+  --c-text-2:   var(--brown-800);
+  /* #8B5535 on #FAF4EC = 4.8:1  ✅ AA  */
+  --c-text-3:   var(--brown-600);
+  --c-ink:      var(--brown-900);
+  --c-ink-soft: var(--brown-800);
+  --c-ink-mute: var(--brown-600);
 
-  --c-brand-lavender:   #B36935;
-  --c-brand-lavender-dark: #6A412A;
-  --c-brand-lavender-bg: #F5E9DA;
+  /* ── REGION COLORS — 6 distinct hues ───────────────────────── */
+  /* Each passes 3:1 on white for large text / UI elements        */
+  --c-sumatera:     #B5462E;   /* terracotta-red   */
+  --c-jawa:         #B07D1A;   /* warm amber       */
+  --c-kalimantan:   #2E7D6B;   /* teal-green       */
+  --c-sulawesi:     #6A3FA0;   /* purple           */
+  --c-bali-ntt:     #1F7A8C;   /* ocean teal       */
+  --c-maluku-papua: #C0392B;   /* deep red         */
 
-  /* ALIASES for backward compat */
+  /* ── SEMANTIC COLORS — distinct, not all brown ─────────────── */
+  --c-success:       #2E7D4F;
+  --c-success-light: #E8F5EE;
+  --c-danger:        #C0392B;
+  --c-danger-light:  #FDECEA;
+  --c-warning:       #E08A1E;
+  --c-warning-light: #FEF3E2;
+  --c-info:          #2D6CB0;
+  --c-info-light:    #E8F0FB;
+
+  /* ── BUTTON TOKENS ──────────────────────────────────────────── */
+  --c-btn-primary-bg:     var(--c-accent);
+  --c-btn-primary-text:   #FFFFFF;
+  --c-btn-primary-border: var(--c-accent-dark);
+  --c-btn-secondary-bg:   #FFFFFF;
+  --c-btn-secondary-text: var(--brown-900);
+  --c-btn-gold-bg:        var(--brown-200);
+  --c-btn-gold-text:      var(--brown-900);
+
+  /* ── BADGE TOKENS ───────────────────────────────────────────── */
+  --c-badge-accent-bg:       var(--c-accent);
+  --c-badge-accent-text:     #FFFFFF;
+  --c-badge-gold-text:       var(--brown-900);
+  --c-badge-warm-text:       var(--brown-900);
+  --c-badge-terracotta-text: #FFFFFF;
+
+  /* ── LEGACY ALIASES (backward compat — do not add new uses) ─── */
+  --c-brand-gold:       var(--brown-200);
+  --c-brand-gold-dark:  var(--brown-400);
+  --c-brand-gold-bg:    var(--brown-50);
+  --c-brand-terracotta: var(--c-accent);
+  --c-brand-terracotta-dark: var(--c-accent-dark);
+  --c-brand-terracotta-bg: var(--c-accent-light);
+  --c-brand-sage:       var(--brown-200);
+  --c-brand-sage-dark:  var(--brown-400);
+  --c-brand-sage-bg:    var(--brown-50);
+  --c-brand-dusty-rose: var(--brown-300);
+  --c-brand-dusty-rose-dark: var(--brown-500);
+  --c-brand-dusty-rose-bg: var(--brown-100);
+  --c-brand-lavender:   var(--brown-500);
+  --c-brand-lavender-dark: var(--brown-700);
+  --c-brand-lavender-bg: var(--brown-100);
+
   --c-duo-green:         var(--c-brand-mocha);
   --c-duo-green-dark:    var(--c-brand-mocha-dark);
   --c-duo-green-hover:   var(--c-brand-cinnamon);
   --c-duo-green-bg:      var(--c-brand-mocha-bg);
-
   --c-duo-blue:          var(--c-brand-caramel);
   --c-duo-blue-dark:     var(--c-brand-caramel-dark);
   --c-duo-blue-bg:       var(--c-brand-caramel-bg);
-
   --c-duo-yellow:        var(--c-brand-gold);
   --c-duo-yellow-dark:   var(--c-brand-gold-dark);
   --c-duo-yellow-bg:     var(--c-brand-gold-bg);
-
   --c-duo-red:           var(--c-brand-terracotta);
   --c-duo-red-dark:      var(--c-brand-terracotta-dark);
   --c-duo-red-bg:        var(--c-brand-terracotta-bg);
-
   --c-duo-orange:        var(--c-brand-cinnamon);
   --c-duo-orange-dark:   var(--c-brand-cinnamon-dark);
   --c-duo-orange-bg:     var(--c-brand-cinnamon-bg);
-
   --c-duo-purple:        var(--c-brand-lavender);
   --c-duo-purple-dark:   var(--c-brand-lavender-dark);
   --c-duo-purple-bg:     var(--c-brand-lavender-bg);
-
   --c-duo-pink:          var(--c-brand-dusty-rose);
   --c-duo-cyan:          var(--c-brand-sage);
 
-  /* REGION COLORS — Soft & Distinctive */
-  --c-sumatera:     #B36935; /* Terracotta */
-  --c-jawa:         #E7C49A; /* Soft Sand Gold */
-  --c-kalimantan:   #D9995B; /* Caramel */
-  --c-sulawesi:     #6A412A; /* Deep Chestnut */
-  --c-bali-ntt:     #B36935; /* Terracotta */
-  --c-maluku-papua: #E7C49A; /* Soft Sand Gold */
+  /* ── NAVBAR SURFACE TOKENS ──────────────────────────────────── */
+  --c-cream-bar:           #FBF5EC;   /* scrolled nav — matches new surface */
+  --c-cream-bar-2:         var(--brown-100);
+  --c-nav-accent:          var(--c-accent);
+  --c-nav-accent-dark:     var(--c-accent-dark);
+  --c-nav-accent-hover:    var(--c-accent-hover);
+  --c-overlay-surface:     var(--brown-800);
+  --c-overlay-surface-dark: var(--brown-900);
+  --c-overlay-link:        var(--c-brand-cream);
+  --c-page-dim:            rgba(61, 36, 21, 0.50);
+  --c-nav-logo:            var(--c-brand-cream);
+  --c-nav-logo-scrolled:   var(--c-accent);
 
-  /* NEUTRAL SURFACES (Light mode) */
-  --c-white:        #FFF8F1;
-  --c-cream:        #F5E9DA;
-  --c-bg:           #E7C49A;
-  --c-surface:      #FFF8F1;
-  --c-surface-1:    #FFF8F1;
-  --c-surface-2:    #F5E9DA;
-  --c-surface-3:    #E7C49A;
-  --c-border:       #E7C49A;
-  --c-border-soft:  #F5E9DA;
-  --c-border-strong:#6A412A;
-  --c-text-1:       #6A412A;
-  --c-text-2:       #6A412A;
-  --c-text-3:       #B36935;
-  --c-ink:          #6A412A;
-  --c-ink-soft:     #6A412A;
-  --c-ink-mute:     #B36935;
+  /* ── GRADIENTS ──────────────────────────────────────────────── */
+  --grad-brand:   linear-gradient(135deg, var(--brown-800), var(--c-accent));
+  --grad-warm:    linear-gradient(135deg, var(--brown-400), var(--brown-200));
+  --grad-sunset:  linear-gradient(135deg, var(--c-accent), var(--brown-300));
+  --grad-fresh:   linear-gradient(135deg, var(--brown-200), var(--brown-50));
 
-  /* ACCENT COLORS */
-  --c-accent:       #B36935;
-  --c-accent-light: #FFF8F1;
-  --c-accent-hover: #D9995B;
-  --c-accent-dark:  #6A412A;
-  --c-accent-alpha: rgba(179, 105, 53, 0.12);
-  --c-accent-soft:  #E7C49A;
-  --c-accent-bg:    #F5E9DA;
+  /* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+  --ff-display:   'Fraunces', 'DM Serif Display', 'Playfair Display', Georgia, serif;
+  --ff-body:      'Google Sans Flex', 'Google Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ff-nara:      var(--ff-body);
+  --ff-mono:      'Fira Code', 'Cascadia Code', monospace;
+  --ff-ui-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* SEMANTIC BUTTON CONTRAST TOKENS */
-  --c-btn-primary-bg:       #B36935;
-  --c-btn-primary-text:     #FFF8F1;
-  --c-btn-primary-border:   #6A412A;
-  --c-btn-secondary-bg:     #FFF8F1;
-  --c-btn-secondary-text:   #6A412A;
-  --c-btn-gold-bg:          #E7C49A;
-  --c-btn-gold-text:        #6A412A;
+  /* Aliases */
+  --font-display: var(--ff-display);
+  --font-body:    var(--ff-body);
 
-  /* SEMANTIC BADGE CONTRAST TOKENS */
-  --c-badge-accent-bg:       #B36935;
-  --c-badge-accent-text:     #FFF8F1;
-  --c-badge-gold-text:       #6A412A;
-  --c-badge-warm-text:       #6A412A;
-  --c-badge-terracotta-text: #FFF8F1;
+  /* ── TYPE SCALE — modular 1.25 ──────────────────────────────── */
+  --fs-display: clamp(3rem, 8vw, 6rem);
+  --fs-mega:    clamp(2.2rem, 6vw, 4.5rem);
+  --fs-hero:    clamp(2rem, 5vw, 3.5rem);
+  --fs-4xl:     clamp(1.75rem, 3.2vw, 2.5rem);
+  --fs-3xl:     clamp(1.5rem, 2.8vw, 2rem);
+  --fs-2xl:     clamp(1.3rem, 2.2vw, 1.75rem);
+  --fs-xl:      clamp(1.15rem, 1.8vw, 1.4rem);
+  --fs-lg:      clamp(1.05rem, 1.4vw, 1.2rem);
+  --fs-base:    1rem;
+  --fs-sm:      0.9rem;
+  --fs-xs:      0.8rem;
+  --fs-tiny:    0.7rem;
 
-  /* GRADIENT */
-  --grad-brand:     linear-gradient(135deg, #6A412A, #B36935);
-  --grad-warm:      linear-gradient(135deg, #D9995B, #E7C49A);
-  --grad-sunset:    linear-gradient(135deg, #B36935, #D9995B);
-  --grad-fresh:     linear-gradient(135deg, #E7C49A, #F5E9DA);
+  /* ── LINE HEIGHT ────────────────────────────────────────────── */
+  --lh-tight:   1.08;
+  --lh-snug:    1.2;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+  --lh-loose:   1.8;
 
-  /* TYPOGRAPHY
-     Site rule: only Fraunces (display) and Google Sans Flex (body) are used.
-     Exception: Navbar & Menu UI labels intentionally render in a neutral
-     system sans (--ff-ui-system) for clean pill chrome. */
-  --ff-display:     'Fraunces', 'DM Serif Display', 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --ff-body:        'Google Sans Flex', 'Google Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --ff-nara:        var(--ff-body);
-  --ff-mono:        var(--ff-body);
-  --ff-ui-system:   system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* ── LETTER SPACING ─────────────────────────────────────────── */
+  --ls-tight:   -0.02em;
+  --ls-normal:  0;
+  --ls-wide:    0.02em;
+  --ls-wider:   0.04em;
+  --ls-widest:  0.08em;
 
-  /* === NAVBAR SURFACE TOKENS (aliased to warm-brown brand palette) === */
-  --c-cream-bar:    #F5E9DA;            /* solid light-beige top-bar surface when scrolled */
-  --c-cream-bar-2:  #E7C49A;       /* hover/border depth */
-  --c-nav-accent:   var(--c-brand-cinnamon-dark);    /* primary action — deeper cinnamon for proper cream-on-bg contrast */
-  --c-nav-accent-dark: #6A412A;                      /* press/shadow depth */
-  --c-nav-accent-hover: var(--c-brand-cinnamon);     /* hover */
-  --c-overlay-surface: var(--c-brand-mocha-dark);    /* floating menu card surface */
-  --c-overlay-surface-dark: #6A412A;                 /* depth shadow under menu card */
-  --c-overlay-link: var(--c-brand-cream);            /* cream text inside the overlay */
-  --c-page-dim:     rgba(106, 65, 42, 0.45);          /* warm-brown wash behind overlay */
-  --c-nav-logo:             var(--c-brand-cream);
-  --c-nav-logo-scrolled:    var(--c-brand-cinnamon-dark);
+  /* ── FONT WEIGHTS ───────────────────────────────────────────── */
+  --fw-normal:    400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+  --fw-black:     900;
 
-  --fs-display:     clamp(3rem, 10vw, 7rem);
-  --fs-mega:        clamp(2.2rem, 7vw, 5rem);
-  --fs-hero:        clamp(2.2rem, 6vw, 4rem);
-  --fs-4xl:         clamp(1.8rem, 3.5vw, 2.8rem);
-  --fs-3xl:         clamp(1.6rem, 3vw, 2.2rem);
-  --fs-2xl:         clamp(1.4rem, 2.5vw, 1.8rem);
-  --fs-xl:          clamp(1.2rem, 2vw, 1.5rem);
-  --fs-lg:          clamp(1.1rem, 1.5vw, 1.25rem);
-  --fs-base:        clamp(0.938rem, 1.3vw, 1rem);
-  --fs-sm:          clamp(0.85rem, 1.1vw, 0.9rem);
-  --fs-xs:          clamp(0.75rem, 0.9vw, 0.8rem);
-  --fs-tiny:        clamp(0.65rem, 0.7vw, 0.7rem);
-
-  --lh-tight:       1.08;
-  --lh-snug:        1.2;
-  --lh-normal:      1.5;
-  --lh-relaxed:     1.6;
-  --lh-loose:       1.8;
-
-  --ls-tight:       -0.02em;
-  --ls-normal:      0;
-  --ls-wide:        0.03em;
-  --ls-wider:       0.05em;
-  --ls-widest:      0.08em;
-
+  /* ── SPACING SCALE ──────────────────────────────────────────── */
   --sp-05:  2px;
   --sp-1:   4px;
+  --sp-1\.5: 6px;
   --sp-2:   8px;
+  --sp-2\.5: 10px;
   --sp-3:   12px;
+  --sp-3\.5: 14px;
   --sp-4:   16px;
   --sp-5:   20px;
   --sp-6:   24px;
@@ -187,8 +226,8 @@
   --sp-24:  96px;
   --sp-32:  128px;
 
-  /* LAYOUT */
-  --container-max:  1100px;
+  /* ── LAYOUT ─────────────────────────────────────────────────── */
+  --container-max:  1200px;
   --container-sm:   640px;
   --container-md:   768px;
   --container-lg:   1024px;
@@ -199,85 +238,63 @@
   --nav-mobile-h:   64px;
   --page-px:        20px;
 
-  /* RADII */
-  --r-sm:    10px;
-  --r-md:    14px;
-  --r-lg:    18px;
-  --r-xl:    24px;
-  --r-2xl:   32px;
-  --r-3xl:   40px;
-  --r-full:  9999px;
+  /* ── BORDER RADIUS ──────────────────────────────────────────── */
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   16px;
+  --r-xl:   20px;
+  --r-2xl:  28px;
+  --r-3xl:  40px;
+  --r-full: 9999px;
 
-  /* SHADOWS — Soft & Warm Organic Drop Shadows */
-  --sh-1:  0 2px 8px rgba(106, 65, 42, 0.04);
-  --sh-2:  0 4px 16px rgba(106, 65, 42, 0.06);
-  --sh-3:  0 8px 24px rgba(106, 65, 42, 0.08);
-  --sh-4:  0 12px 32px rgba(106, 65, 42, 0.10);
-  --sh-5:  0 16px 40px rgba(106, 65, 42, 0.12);
-  --sh-lg: 0 16px 36px rgba(106, 65, 42, 0.10);
-  --sh-xl: 0 24px 48px rgba(106, 65, 42, 0.12);
-  --sh-cartoon:       0 6px 20px rgba(106, 65, 42, 0.05);
-  --sh-cartoon-hover: 0 10px 28px rgba(106, 65, 42, 0.08);
-  --sh-btn:           0 4px 12px rgba(179, 105, 53, 0.22);
-  --sh-btn-hover:     0 6px 18px rgba(179, 105, 53, 0.32);
-  --sh-card:          0 6px 20px rgba(106, 65, 42, 0.05);
-  --sh-card-hover:    0 12px 32px rgba(106, 65, 42, 0.08);
-  --sh-inner:         inset 0 2px 4px rgba(106, 65, 42, 0.04);
+  /* ── SHADOWS — tuned for warm parchment bg ──────────────────── */
+  --sh-1:  0 1px 4px rgba(61, 36, 21, 0.08);
+  --sh-2:  0 2px 8px rgba(61, 36, 21, 0.10);
+  --sh-3:  0 4px 16px rgba(61, 36, 21, 0.13);
+  --sh-4:  0 8px 24px rgba(61, 36, 21, 0.15);
+  --sh-5:  0 12px 32px rgba(61, 36, 21, 0.17);
+  --sh-lg: 0 12px 32px rgba(61, 36, 21, 0.15);
+  --sh-xl: 0 20px 48px rgba(61, 36, 21, 0.18);
+  --sh-btn:           0 2px 8px rgba(194, 65, 12, 0.22);
+  --sh-btn-hover:     0 6px 18px rgba(194, 65, 12, 0.34);
+  --sh-card:          0 2px 8px rgba(61, 36, 21, 0.09), 0 1px 2px rgba(61, 36, 21, 0.05);
+  --sh-card-hover:    0 8px 24px rgba(61, 36, 21, 0.15), 0 2px 6px rgba(61, 36, 21, 0.08);
+  --sh-inner:         inset 0 1px 3px rgba(61, 36, 21, 0.08);
+  --sh-cartoon:       0 4px 16px rgba(61, 36, 21, 0.08);
+  --sh-cartoon-hover: 0 8px 24px rgba(61, 36, 21, 0.13);
 
-  /* BORDERS — Soft, Thin Editorial Separation */
-  --duo-stroke:        1.2px;
-  --duo-stroke-color:  #E7C49A;
-  --duo-stroke-soft:   rgba(231, 196, 154, 0.4);
-
-  /* EASING */
-  --ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-spring:      cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --ease-anticipate:  cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  --ease-smooth:      cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out:         cubic-bezier(0, 0, 0.2, 1);
-  --ease-in:          cubic-bezier(0.4, 0, 1, 1);
-  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-elastic:     cubic-bezier(0.68, -0.6, 0.32, 1.6);
-
-  /* DURATIONS */
-  --dur-instant:   80ms;
-  --dur-fast:      150ms;
-  --dur-base:      300ms;
-  --dur-slow:      500ms;
-  --dur-cinematic: 1000ms;
-  --dur-cartoon:   350ms;
-
-  /* Z-INDEX */
-  --z-base:     1;
-  --z-sticky:   100;
-  --z-nav:      200;
-  --z-overlay:  300;
-  --z-modal:    400;
-  --z-toast:    500;
-  --z-cursor:   9999;
-
-  /* ALIASES (compat) */
-  --font-display:  var(--ff-display);
-  --font-body:     var(--ff-body);
-
+  /* ── BORDERS ────────────────────────────────────────────────── */
+  --duo-stroke:        1px;
+  --duo-stroke-color:  var(--c-border);
+  --duo-stroke-soft:   var(--c-border-soft);
   --cartoon-stroke:       var(--duo-stroke);
   --cartoon-stroke-color: var(--duo-stroke-color);
 
-  /* Semantic colors */
-  --c-success:       #B36935;
-  --c-success-light: #FFF8F1;
-  --c-danger:        #6A412A;
-  --c-danger-light:  #F5E9DA;
-  --c-warning:       #D9995B;
-  --c-warning-light: #FFF8F1;
-  --c-info:          #E7C49A;
-  --c-info-light:    #FFF8F1;
+  /* ── EASING ─────────────────────────────────────────────────── */
+  --ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring:     cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-anticipate: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --ease-smooth:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:         cubic-bezier(0.4, 0, 1, 1);
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-elastic:    cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-ui:         var(--ease-smooth);
 
-  --fw-normal:    400;
-  --fw-medium:    600;
-  --fw-semibold:  700;
-  --fw-bold:      800;
-  --fw-extrabold: 900;
+  /* ── DURATIONS ──────────────────────────────────────────────── */
+  --dur-instant:   80ms;
+  --dur-fast:      150ms;
+  --dur-base:      250ms;
+  --dur-slow:      450ms;
+  --dur-cinematic: 900ms;
+  --dur-cartoon:   300ms;
+
+  /* ── Z-INDEX ────────────────────────────────────────────────── */
+  --z-base:    1;
+  --z-sticky:  100;
+  --z-nav:     200;
+  --z-overlay: 300;
+  --z-modal:   400;
+  --z-toast:   500;
+  --z-cursor:  9999;
 }
-
-

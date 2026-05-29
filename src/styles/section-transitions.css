@@ -1,23 +1,9 @@
-/* ─── SECTION TRANSITIONS ────────────────────── */
+/* ─── SECTION FLOW ──────────────────────────────────────────────
+ * Transitions antar section ditangani via gradient fade pada masing-masing
+ * komponen (hero::after, quiz-cta::before/::after) agar tidak ada batas
+ * yang patah. File ini sengaja minimal — tidak ada divider "tempelan".
+ * ─────────────────────────────────────────────────────────────── */
 
 .featured {
   position: relative;
 }
-
-/* Border accent bar at top of content sections */
-.featured::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 64px;
-  height: 2px;
-  background: var(--c-accent);
-  opacity: 0.15;
-  border-radius: 1px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-

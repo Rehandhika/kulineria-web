@@ -1,32 +1,13 @@
 .featured {
   position: relative;
-  padding-top: var(--sp-20);
-  padding-bottom: var(--sp-20);
-}
-
-@media (min-width: 768px) {
-  .featured {
-    padding-top: var(--sp-24);
-    padding-bottom: var(--sp-24);
-  }
-}
-
-@media (min-width: 1024px) {
-  .featured {
-    padding-top: var(--sp-32);
-    padding-bottom: var(--sp-32);
-  }
+  /* Bagian dari zona terang bersama map — top padding kecil, bottom penuh */
+  padding-top: clamp(24px, 3vw, 48px);
+  padding-bottom: clamp(56px, 8vw, 128px);
 }
 
 .featured-header {
   text-align: center;
-  margin-bottom: var(--sp-10);
-}
-
-@media (min-width: 768px) {
-  .featured-header {
-    margin-bottom: var(--sp-12);
-  }
+  margin-bottom: clamp(32px, 5vw, 64px);
 }
 
 .featured-header-row {
@@ -77,9 +58,10 @@
 
 .featured-subtitle {
   font-size: var(--fs-sm);
-  color: var(--c-text-1);
-  margin-top: var(--sp-4);
-  font-weight: 600;
+  color: var(--c-text-2);
+  margin-top: var(--sp-3);
+  font-weight: 500;
+  line-height: var(--lh-relaxed);
 }
 
 .featured-reset-btn {
@@ -208,7 +190,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-1);
-  margin-top: auto; /* Mendorong tag ke bagian paling bawah kartu agar rapi */
+  margin-top: auto;
+}
+
+/* Inline tag — replaces inline-style duo-badge hack */
+.result-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  background: var(--c-surface-2);
+  color: var(--c-text-2);
+  border: 1px solid var(--c-border-soft);
+  letter-spacing: 0.01em;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.result-card:hover .result-card-tag {
+  background: var(--c-surface-3);
+  border-color: var(--c-border);
 }
 
 /* ── Pagination ── */

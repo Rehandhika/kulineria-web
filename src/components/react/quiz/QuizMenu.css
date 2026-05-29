@@ -1,23 +1,54 @@
 /* ── Container ── */
 .quiz-menu {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: var(--sp-8) 0 var(--sp-8); /* Kurangi padding bawah dengan footer */
+  padding: var(--sp-8) 0 var(--sp-12);
+  position: relative;
 }
 
 /* ── Hero ── */
 .quiz-hero {
   text-align: center;
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-12);
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-motif {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.motif-hero-left {
+  width: 180px;
+  top: -20px;
+  left: 0px;
+  transform: rotate(-15deg);
+}
+
+.motif-hero-right {
+  width: 220px;
+  top: 40px;
+  right: -20px;
+  transform: rotate(15deg) scaleX(-1);
+}
+
+@media (max-width: 768px) {
+  .motif-hero-left { width: 120px; left: -20px; }
+  .motif-hero-right { width: 140px; right: -20px; }
 }
 
 .quiz-hero-title {
   font-family: var(--ff-display);
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 400;
-  color: var(--c-brand-cream);
+  font-weight: 800;
+  color: var(--c-text-1);
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: var(--sp-4);
@@ -26,16 +57,16 @@
 }
 
 .quiz-hero-title span {
-  font-style: normal;
-  font-weight: 500;
-  color: #ffffff;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  font-weight: 900;
+  color: var(--c-accent);
 }
 
 .quiz-hero-sub {
   font-family: var(--ff-body);
   font-size: clamp(1rem, 2vw, 1.125rem);
-  color: rgba(255, 248, 240, 0.7);
+  font-weight: 600;
+  color: var(--c-ink-mute);
   line-height: 1.6;
   max-width: 500px;
   margin: 0 auto;
@@ -49,21 +80,38 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Motifs Outside Map ── */
+.motif-map-outside-left {
+  width: 250px;
+  bottom: 50px;
+  left: -80px;
+  transform: rotate(15deg);
+  opacity: 0.15;
+}
+
+.motif-map-outside-right {
+  width: 200px;
+  bottom: 150px;
+  right: -50px;
+  transform: rotate(-10deg) scaleX(-1);
+  opacity: 0.15;
+}
+
+@media (max-width: 768px) {
+  .motif-map-outside-left { width: 150px; left: -40px; bottom: 80px; }
+  .motif-map-outside-right { width: 120px; right: -20px; bottom: 120px; }
+}
+
+/* ── Journey Map ── */
 .quiz-journey-map {
   position: relative;
   width: 100%;
   margin: 0 auto;
   max-width: 800px;
-  /* Warna Latar Peta Jejak Rempah Gelap dengan Glow */
-  background-color: #6A412A;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(179, 105, 53, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(217, 153, 91, 0.18) 0%, transparent 50%);
-  background-repeat: no-repeat, no-repeat;
-  background-size: auto, auto;
-  border: 1px solid var(--c-border-strong);
-  border-radius: 1.5rem;
-  box-shadow: var(--sh-card);
+  background-color: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: 2rem;
+  box-shadow: var(--sh-3), inset 0 0 60px rgba(194, 65, 12, 0.04);
   overflow: hidden;
 }
 
@@ -84,17 +132,6 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  pointer-events: none;
-}
-
-/* Latar Belakang Dekorasi Peta */
-.journey-decorations-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
   pointer-events: none;
 }
 
@@ -144,13 +181,12 @@
   justify-content: center;
 }
 
-/* Hilangkan gaya border HTML karena SVG sudah menggambarnya */
 .journey-node {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 66px; /* Sesuai inner diameter SVG (70 - 4 stroke) */
+  width: 66px; 
   height: 66px;
   border-radius: 50%;
   background: transparent;
@@ -160,22 +196,6 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Angka/Ikon & Label baru akan muncul (fade in) setelah lingkaran selesai dilukis */
-.journey-node .node-icon-number,
-.journey-node .node-icon-locked,
-.journey-node-label {
-  opacity: 0;
-  animation: fadeInIcon 0.4s ease forwards;
-}
-
-.level-1 .node-icon-number, .level-1 .journey-node-label { animation-delay: 0.5s; }
-.level-2 .node-icon-number, .level-2 .journey-node-label { animation-delay: 2.0s; }
-.level-locked .node-icon-locked, .level-locked .journey-node-label { animation-delay: 3.5s; }
-
-@keyframes fadeInIcon {
-  100% { opacity: 1; }
 }
 
 /* Posisi Node Default (Desktop Horizontal) */
@@ -198,28 +218,27 @@
 }
 
 .level-1 .journey-node-label {
-  top: 100%; /* Di bawah bulat */
+  top: 100%; 
   margin-top: 45px;
   align-items: center;
   text-align: center;
 }
 
 .level-2 .journey-node-label {
-  bottom: 100%; /* Di atas bulat */
+  bottom: 100%; 
   margin-bottom: 45px;
   align-items: center;
   text-align: center;
 }
 
 .level-locked .journey-node-label {
-  top: 100%; /* Di bawah bulat */
+  top: 100%; 
   margin-top: 45px;
   align-items: center;
   text-align: center;
 }
 
 /* ── Mode Mobile (Vertikal) ── */
-
 @media (max-width: 767px) {
   .quiz-journey-map {
     width: calc(100% - 2rem);
@@ -231,16 +250,13 @@
     aspect-ratio: 4 / 7;
   }
   
-  /* Toggle SVG */
   .path-horizontal { display: none; }
   .path-vertical { display: block; }
   
-  /* Posisi Vertikal */
   .level-1 { left: 37.5%; top: 14.285%; }
   .level-2 { left: 62.5%; top: 50%; }
   .level-locked { left: 37.5%; top: 85.714%; }
   
-  /* Posisi Label di Samping */
   .journey-node-label {
     top: 50%;
     left: auto;
@@ -250,7 +266,7 @@
   }
   
   .level-1 .journey-node-label {
-    left: 0; margin-left: 55px; /* Aman dari radius 35px/30px */
+    left: 0; margin-left: 55px;
     align-items: flex-start; text-align: left;
   }
   .level-2 .journey-node-label {
@@ -262,7 +278,6 @@
     align-items: flex-start; text-align: left;
   }
 
-  /* Tooltip Mobile (Anti-Tabrakan Samping) */
   .level-1 .journey-tooltip {
     left: auto;
     right: 100%;
@@ -292,12 +307,11 @@
   }
 }
 
-/* Penyesuaian Ekstra untuk Layar Sangat Kecil (<480px) */
 @media (max-width: 480px) {
-  .journey-node { width: 60px; height: 60px; } /* Radius 30px */
+  .journey-node { width: 60px; height: 60px; } 
   .node-icon-number { font-size: 2rem; }
   
-  .level-1 .journey-node-label { margin-left: 45px; } /* Jarak bersih 15px */
+  .level-1 .journey-node-label { margin-left: 45px; } 
   .level-2 .journey-node-label { margin-right: 45px; }
   .level-locked .journey-node-label { margin-left: 45px; }
   
@@ -308,41 +322,37 @@
 
 .level-number {
   font-family: var(--ff-body);
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--c-brand-gold);
+  letter-spacing: 0.12em;
+  color: var(--c-accent);
   margin-bottom: 4px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 .level-title {
   font-family: var(--ff-display);
-  font-size: 1.25rem;
-  font-weight: 400; /* Klasik Fraunces */
-  color: var(--c-brand-cream);
-  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-  letter-spacing: 0.02em;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-text-1);
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
-
 
 .node-glow {
   position: absolute;
   inset: -12px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(231, 196, 154, 0.5) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(179, 105, 53, 0.2) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: -1;
   pointer-events: none;
 }
 
-
-
 .journey-node-wrapper:hover .node-glow {
   opacity: 1;
+  transform: scale(1.15);
 }
 
 .journey-node:active {
@@ -352,39 +362,37 @@
 .node-icon-number {
   font-family: var(--ff-display);
   font-size: 2.5rem;
-  color: var(--c-brand-cream);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-weight: 800;
+  color: var(--c-text-1);
   z-index: 1;
   line-height: 1;
 }
 
 /* Node Terkunci */
 .journey-node.locked {
-  border-color: rgba(255, 248, 240, 0.2);
-  background: rgba(17, 12, 8, 0.8);
   cursor: not-allowed;
   box-shadow: none;
 }
 
 .journey-node.locked .node-icon-number {
   font-size: 1.8rem;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .level-locked .level-number {
-  color: rgba(255, 248, 240, 0.5);
+  color: rgba(106, 65, 42, 0.5);
 }
 
 .level-locked .level-title {
-  color: rgba(255, 248, 240, 0.4);
+  color: rgba(106, 65, 42, 0.4);
 }
 
-/* ── Tooltips (Sekarang hanya untuk detail misi) ── */
+/* ── Tooltips ── */
 .journey-tooltip {
   position: absolute;
   left: 50%;
-  background: rgba(43, 29, 20, 0.95);
-  border: 1px solid rgba(196, 154, 110, 0.3);
+  background: var(--c-brand-mocha);
+  border: 1px solid var(--c-brand-caramel);
   padding: var(--sp-3) var(--sp-5);
   border-radius: var(--r-xl);
   width: max-content;
@@ -393,12 +401,10 @@
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--sh-xl);
   z-index: 10;
 }
 
-/* Level 1: Tooltip muncul di ATAS bulatan (karena label statis di BAWAH) */
 .level-1 .journey-tooltip {
   bottom: 100%;
   top: auto;
@@ -410,7 +416,6 @@
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-/* Level 2: Tooltip muncul di BAWAH bulatan (karena label statis di ATAS) */
 .level-2 .journey-tooltip {
   top: 100%;
   bottom: auto;
@@ -422,7 +427,6 @@
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-/* Responsif Tooltip pada layar sangat kecil (<480px) */
 @media (max-width: 480px) {
   .level-1 .journey-tooltip {
     margin-right: 35px;
@@ -439,8 +443,9 @@
 
 .journey-tooltip p {
   font-family: var(--ff-body);
-  font-size: var(--fs-xs);
-  color: rgba(255, 248, 240, 0.8);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--c-brand-cream);
   margin-bottom: var(--sp-2);
   line-height: 1.4;
   white-space: normal;
@@ -449,11 +454,12 @@
 .mode-badge {
   display: inline-block;
   font-family: var(--ff-body);
-  font-size: 0.65rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: 700;
   color: var(--c-brand-gold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-top: 1px solid rgba(196, 154, 110, 0.3);
-  padding-top: 4px;
+  border-top: 1px solid rgba(255, 248, 241, 0.15);
+  padding-top: 6px;
 }
+

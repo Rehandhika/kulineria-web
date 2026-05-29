@@ -1,0 +1,305 @@
+---
+// StoryCTA — editorial teaser ke halaman Tentang
+// Warm surface, NARA thinking, pull-quote, tanpa angka/statistik
+---
+
+<section class="story-cta" id="story-cta" aria-labelledby="story-cta-title">
+
+  <!-- Ornament tengah — sangat halus -->
+  <div class="scta-ornament" aria-hidden="true">
+    <img src="/img/motif/png ornamen nusantara.png" alt="" />
+  </div>
+
+  <div class="container scta-inner">
+
+    <!-- Kiri: teks editorial -->
+    <div class="scta-text">
+      <span class="scta-eyebrow">Kisah di Balik Kulineria</span>
+      <h2 class="scta-title" id="story-cta-title">
+        Lebih dari sekadar<br/>
+        <em>daftar resep</em>
+      </h2>
+      <p class="scta-body">
+        Kulineria lahir dari kegelisahan — banyak resep leluhur yang perlahan hilang
+        tergantikan derap zaman. Kami mendokumentasikan setiap hidangan bukan hanya
+        sebagai data, tapi sebagai cerita yang layak diwariskan.
+      </p>
+      <a href="/tentang" class="scta-link">
+        Baca kisah kami
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Kanan: quote card + NARA thinking -->
+    <div class="scta-visual">
+      <div class="scta-card">
+        <!-- Motif watermark pojok -->
+        <div class="scta-card-motif" aria-hidden="true">
+          <img src="/img/motif/png bunga.png" alt="" />
+        </div>
+
+        <blockquote class="scta-quote">
+          <p>Setiap hidangan adalah jendela menuju budaya yang melahirkannya.</p>
+          <footer>
+            <cite>— Tim Kulineria</cite>
+          </footer>
+        </blockquote>
+      </div>
+
+      <!-- NARA thinking — besar, di luar card -->
+      <div class="scta-nara" aria-hidden="true">
+        <img
+          src="/img/nara/NARA 3.png"
+          alt=""
+          class="scta-nara-img"
+          width="200"
+          height="200"
+          draggable="false"
+          onerror="this.parentElement.style.display='none'"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initStoryCTA() {
+    const section = document.getElementById('story-cta');
+    if (!section || (section as any).dataset.revealed) return;
+    (section as any).dataset.revealed = 'true';
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    const text = section.querySelector('.scta-text');
+    const card = section.querySelector('.scta-card');
+    const nara = section.querySelector('.scta-nara-img');
+
+    gsap.fromTo(text,
+      { opacity: 0, x: -40 },
+      { opacity: 1, x: 0, duration: 1.3, ease: 'power3.out',
+        scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' }
+      }
+    );
+    gsap.fromTo(card,
+      { opacity: 0, y: 40, scale: 0.96 },
+      { opacity: 1, y: 0, scale: 1, duration: 1.3, ease: 'power3.out',
+        scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none none' }
+      }
+    );
+    if (nara) {
+      gsap.fromTo(nara,
+        { opacity: 0, scale: 0.7, rotation: -14 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 1.2, ease: 'back.out(1.5)',
+          scrollTrigger: { trigger: section, start: 'top 76%', toggleActions: 'play none none none' }
+        }
+      );
+      gsap.to(nara, {
+        y: -12, rotation: 4,
+        duration: 4.6, ease: 'sine.inOut',
+        yoyo: true, repeat: -1, delay: 1.6,
+      });
+    }
+  }
+
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+  runOnPageReady(initStoryCTA);
+</script>
+
+<style>
+  .story-cta {
+    position: relative;
+    background: var(--c-surface);
+    padding-top: clamp(64px, 9vw, 128px);
+    padding-bottom: clamp(72px, 10vw, 144px);
+    overflow: hidden;
+  }
+
+  /* Ornament */
+  .scta-ornament {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(180px, 35vw, 420px);
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 0;
+    filter: sepia(1) saturate(0.3) hue-rotate(330deg);
+    user-select: none;
+  }
+  .scta-ornament img { width: 100%; height: auto; display: block; }
+
+  /* Layout */
+  .scta-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+  @media (max-width: 767px) {
+    .scta-inner { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+
+  /* Text */
+  .scta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin-bottom: var(--sp-4);
+  }
+  .scta-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: var(--c-accent);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  .scta-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--c-text-1);
+    margin-bottom: var(--sp-5);
+  }
+  .scta-title em {
+    font-style: italic;
+    font-weight: 900;
+    color: var(--c-accent);
+  }
+
+  .scta-body {
+    font-size: var(--fs-base);
+    color: var(--c-text-2);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: var(--sp-8);
+    font-weight: 400;
+  }
+
+  .scta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--c-accent);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--c-accent-soft);
+    padding-bottom: 2px;
+    transition: border-color 0.16s, gap 0.16s var(--ease-bounce);
+  }
+  .scta-link:hover { border-color: var(--c-accent); gap: var(--sp-3); }
+  .scta-link svg { transition: transform 0.2s var(--ease-bounce); flex-shrink: 0; }
+  .scta-link:hover svg { transform: translateX(4px); }
+
+  /* Visual */
+  .scta-visual { position: relative; }
+
+  /* Quote card */
+  .scta-card {
+    position: relative;
+    background: var(--c-bg);
+    border: 1.5px solid var(--c-border);
+    border-radius: var(--r-2xl);
+    padding: var(--sp-8);
+    box-shadow: var(--sh-3);
+    overflow: hidden;
+  }
+  @media (max-width: 767px) { .scta-card { padding: var(--sp-6); } }
+
+  .scta-card-motif {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: 90px;
+    opacity: 0.10;
+    pointer-events: none;
+    filter: sepia(1) saturate(0.3) hue-rotate(330deg);
+    transform: rotate(-12deg);
+    user-select: none;
+  }
+  .scta-card-motif img { width: 100%; height: auto; display: block; }
+
+  .scta-quote {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  .scta-quote p {
+    font-family: var(--ff-display);
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--c-text-1);
+    margin: 0 0 var(--sp-5);
+  }
+  /* Large opening quote */
+  .scta-quote p::before {
+    content: '\201C';
+    font-size: 3.5em;
+    line-height: 0;
+    vertical-align: -0.45em;
+    color: var(--c-accent);
+    opacity: 0.3;
+    margin-right: 3px;
+    font-family: var(--ff-display);
+  }
+  .scta-quote footer {
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--c-border-soft);
+  }
+  .scta-quote cite {
+    font-size: var(--fs-sm);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--c-text-3);
+    letter-spacing: var(--ls-wide);
+  }
+
+  /* NARA */
+  .scta-nara {
+    position: absolute;
+    bottom: -24px;
+    right: -20px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .scta-nara-img {
+    width: clamp(100px, 14vw, 180px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+    opacity: 0;
+  }
+  @media (max-width: 767px) {
+    .scta-nara { bottom: -16px; right: -10px; }
+    .scta-nara-img { width: 90px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scta-nara-img { animation: none !important; }
+  }
+</style>

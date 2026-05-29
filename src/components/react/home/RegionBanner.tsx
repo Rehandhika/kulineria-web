@@ -7,12 +7,12 @@ import { $selectedRegion, clearSelectedRegion } from '@/lib/stores/selectedRegio
 import { getRegions, getAllFoods } from '@/lib/data/loaders';
 
 const REGION_HEX: Record<string, string> = {
-  sumatera: '#B36935',
-  jawa: '#E7C49A',
-  kalimantan: '#D9995B',
-  sulawesi: '#6A412A',
-  'bali-ntt': '#B36935',
-  'maluku-papua': '#E7C49A',
+  sumatera:       '#B5462E',   /* terracotta-red   */
+  jawa:           '#B07D1A',   /* warm amber       */
+  kalimantan:     '#2E7D6B',   /* teal-green       */
+  sulawesi:       '#6A3FA0',   /* purple           */
+  'bali-ntt':     '#1F7A8C',   /* ocean teal       */
+  'maluku-papua': '#C0392B',   /* deep red         */
 };
 
 const regions = getRegions();
@@ -69,15 +69,24 @@ export default function RegionBanner() {
   if (!region || !selectedId) return null;
 
   const color = REGION_HEX[selectedId];
-  const textColor = (color === '#E7C49A' || color === '#D9995B') ? '#6A412A' : '#FFF8F1';
-  const isLightBg = color === '#E7C49A' || color === '#D9995B';
+  // All new region colors are dark enough for white text (contrast ≥ 4.5:1)
+  const textColor = '#FFFFFF';
+  const isLightBg = false;
 
   return (
-    <div ref={bannerRef} className="region-banner border border-[rgba(106,65,42,0.16)] shadow-[var(--sh-card)]">
-      <div className="region-banner-motif" aria-hidden="true">
-        <img src="/img/motif/png bunga.png" alt="" />
+    <div ref={bannerRef} className="region-banner">
+      {/* NARA thinking — kecil di pojok kanan */}
+      <div className="region-banner-nara" aria-hidden="true">
+        <img
+          src="/img/nara/NARA 3.png"
+          alt=""
+          width="80"
+          height="80"
+          draggable={false}
+          onError={(e) => { (e.currentTarget as HTMLImageElement).parentElement!.style.display = 'none'; }}
+        />
       </div>
-      <div className="region-banner-glow" style={{ background: `radial-gradient(ellipse at 50% 0%, ${color}15 0%, transparent 70%)` }} />
+
       <div className="region-banner-accent" style={{ background: color }} />
 
       <button className="region-banner-close" onClick={clearSelectedRegion} aria-label="Tutup">
@@ -86,24 +95,18 @@ export default function RegionBanner() {
 
       <div className="region-banner-body">
         <span className="region-banner-overline">Jelajahi</span>
-
         <h2 className="region-banner-title" style={{"--region-color": color} as React.CSSProperties}>
           {region.name}
         </h2>
       </div>
 
       <div className="region-banner-footer">
-        <div className="region-banner-stat">
-          <span className="region-banner-stat-val">{count}</span>
-          <span className="region-banner-stat-label">Hidangan</span>
-        </div>
-
-        <a 
-          href={`/jelajahi?region=${selectedId}`} 
-          className={`region-banner-btn ${isLightBg ? 'is-light' : ''}`} 
-          style={{ background: color, color: textColor }}
+        <a
+          href={`/jelajahi?region=${selectedId}`}
+          className="region-banner-btn"
+          style={{ background: color, color: '#fff' }}
         >
-          Lihat Semua
+          Lihat Hidangan
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>

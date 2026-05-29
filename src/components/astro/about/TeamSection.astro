@@ -13,10 +13,11 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     <div class="team-grid">
       {
         sorted.map((member: any, i: number) => {
-          const gradients = ['var(--c-brand-caramel)', 'var(--c-brand-cinnamon)', 'var(--c-brand-gold)'];
-          const bgGradients = ['var(--c-brand-caramel-bg)', 'var(--c-brand-cinnamon-bg)', 'var(--c-brand-gold-bg)'];
-          const color = gradients[i % gradients.length];
-          const bg = bgGradients[i % bgGradients.length];
+          // Use distinct accent colors from the new palette
+          const avatarColors = ['#B5462E', '#2E7D6B', '#6A3FA0'];
+          const avatarBgs   = ['#FFF0E8', '#E8F5EE', '#F0EBF8'];
+          const color = avatarColors[i % avatarColors.length];
+          const bg    = avatarBgs[i % avatarBgs.length];
 
           return (
             <div class="team-card duo-card" data-tilt>
@@ -220,8 +221,8 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     font-family: var(--ff-display);
     font-size: var(--fs-xs);
     font-weight: 900;
-    color: var(--c-brand-caramel);
-    opacity: 0.3;
+    color: var(--c-accent);
+    opacity: 0.25;
   }
 
   .team-card h3 {
@@ -234,11 +235,11 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 
   .team-role {
     font-size: var(--fs-xs);
-    color: var(--c-brand-caramel);
+    color: var(--c-accent);
     font-weight: 500;
     margin-bottom: var(--sp-3);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
   }
 
   .team-bio {

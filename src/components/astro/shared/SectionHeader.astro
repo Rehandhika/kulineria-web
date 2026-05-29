@@ -5,39 +5,56 @@ interface Props {
   subtitle?: string;
   level?: 'h1' | 'h2' | 'h3';
   color?: 'accent' | 'gold' | 'warm' | 'terracotta';
+  align?: 'center' | 'left';
 }
-const { overline, title, subtitle, level = 'h2', color = 'accent' } = Astro.props;
+const { overline, title, subtitle, level = 'h2', color = 'accent', align = 'center' } = Astro.props;
 const Tag = level;
 const badgeClass = `duo-badge-${color}`;
 ---
 
-<div class="duo-section-header">
+<div class:list={['duo-section-header', align === 'left' && 'duo-section-header--left']}>
   {overline && (
     <div class="duo-section-overline">
       <span class:list={['duo-badge', badgeClass]}>{overline}</span>
     </div>
   )}
   <Tag class="duo-section-title">{title}</Tag>
-  <div class="duo-section-divider-motif" aria-hidden="true">
-    <img src="/img/motif/png ornamen nusantara.png" alt="" />
+  <div class="duo-section-divider" aria-hidden="true">
+    <span class="duo-section-divider-line"></span>
+    <img src="/img/motif/png ornamen nusantara.png" alt="" class="duo-section-divider-motif" />
+    <span class="duo-section-divider-line"></span>
   </div>
   {subtitle && <p class="duo-section-subtitle">{subtitle}</p>}
 </div>
 
 <style>
-  .duo-section-divider-motif {
+  .duo-section-divider {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: var(--sp-2) auto;
-    opacity: 0.55;
-    pointer-events: none;
-    user-select: none;
+    justify-content: center;
+    gap: var(--sp-3);
+    margin: var(--sp-3) auto var(--sp-1);
+    max-width: 280px;
   }
-  .duo-section-divider-motif img {
-    height: 12px;
+
+  .duo-section-header--left .duo-section-divider {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .duo-section-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--c-border);
+    max-width: 60px;
+  }
+
+  .duo-section-divider-motif {
+    height: 14px;
     width: auto;
-    filter: sepia(1) saturate(0.5) hue-rotate(330deg);
+    opacity: 0.55;
+    filter: sepia(1) saturate(0.6) hue-rotate(330deg) brightness(0.85);
     display: block;
+    flex-shrink: 0;
   }
 </style>

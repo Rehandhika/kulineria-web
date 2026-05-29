@@ -7,12 +7,12 @@ import { getRegions } from '@/lib/data/loaders';
 import { $selectedRegion, setSelectedRegion } from '@/lib/stores/selectedRegion';
 
 const REGION_HEX: Record<string, string> = {
-  sumatera: '#B36935',
-  jawa: '#E7C49A',
-  kalimantan: '#D9995B',
-  sulawesi: '#6A412A',
-  'bali-ntt': '#B36935',
-  'maluku-papua': '#E7C49A',
+  sumatera:       '#B5462E',
+  jawa:           '#B07D1A',
+  kalimantan:     '#2E7D6B',
+  sulawesi:       '#6A3FA0',
+  'bali-ntt':     '#1F7A8C',
+  'maluku-papua': '#C0392B',
 };
 
 const regions = getRegions();
@@ -144,7 +144,7 @@ export default function InteractiveMap() {
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
-      <div className="map-container relative w-full overflow-hidden rounded-2xl bg-[#6A412A] border border-[var(--c-border-strong)] shadow-[var(--sh-card)]">
+      <div className="map-container relative w-full overflow-hidden rounded-2xl border shadow-[var(--sh-card)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
         <div className="map-content-wrapper">
@@ -182,7 +182,6 @@ export default function InteractiveMap() {
               </div>
             );
           })}
-
         </div>
 
         {hovered && (

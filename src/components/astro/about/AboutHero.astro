@@ -1,15 +1,9 @@
 ---
-// Hero section untuk halaman Tentang
+// Hero halaman Tentang — editorial, tipografi sebagai fokus, tanpa motif dekoratif
 ---
 
 <section class="about-hero" id="about-hero">
   <div class="about-hero-bg" aria-hidden="true"></div>
-
-  <!-- Decorative Floating Traditional Motifs -->
-  <div class="about-hero-motif-container" aria-hidden="true">
-    <img src="/img/motif/png awan.png" class="about-hero-motif about-hero-motif-left" alt="" />
-    <img src="/img/motif/png batik mega mendung.png" class="about-hero-motif about-hero-motif-right" alt="" />
-  </div>
 
   <svg class="about-hero-noise" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
     <defs>
@@ -28,15 +22,13 @@
       <span class="about-hero-line"><span class="about-hero-word italic">jejak rasa</span> Nusantara</span>
     </h1>
     <p class="about-hero-subtitle">
-      Kami berlayar melintasi gugusan pulau demi menemukan resep rahasia yang diwariskan dari dapur ke dapur mencatat setiap bumbu dan setiap cerita yang tersembunyi di baliknya.
+      Kami berlayar melintasi gugusan pulau demi menemukan resep yang diwariskan dari dapur ke dapur — mencatat setiap bumbu dan cerita yang tersembunyi di baliknya.
     </p>
   </div>
 </section>
 
 <script>
   import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
 
   function initAboutHero() {
     const hero = document.getElementById('about-hero');
@@ -57,41 +49,15 @@
 
     const tl = gsap.timeline({ defaults: { ease: 'power2.out', overwrite: 'auto' } });
 
-    tl.fromTo(bg, { scale: 1.05, opacity: 0 }, { scale: 1, opacity: 1, duration: 2.5 }, 0)
-      .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 3 }, 0)
-      .fromTo(label, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5 }, 0.5)
+    tl.fromTo(bg, { scale: 1.05, opacity: 0 }, { scale: 1, opacity: 1, duration: 2.2 }, 0)
+      .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 2.8 }, 0)
+      .fromTo(label, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2 }, 0.4)
       .fromTo(lines, { y: 25, opacity: 0, filter: 'blur(8px)' }, {
-        y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', stagger: 0.4, duration: 2
-      }, 0.8)
+        y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', stagger: 0.35, duration: 1.6
+      }, 0.7)
       .fromTo(subtitle, { y: 20, opacity: 0, filter: 'blur(6px)' }, {
-        y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', duration: 2
-      }, 1.4);
-
-    if (!reduced) {
-      tl.fromTo('.about-hero-motif-left', { x: -60, opacity: 0 }, { x: 0, opacity: 0.15, duration: 1.8, ease: 'power3.out' }, 0.5)
-        .fromTo('.about-hero-motif-right', { x: 60, opacity: 0 }, { x: 0, opacity: 0.15, duration: 1.8, ease: 'power3.out' }, 0.5);
-
-      gsap.to('.about-hero-motif-left', {
-        yPercent: -12,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#about-hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-      gsap.to('.about-hero-motif-right', {
-        yPercent: 15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#about-hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    }
+        y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', duration: 1.6
+      }, 1.2);
   }
 
   import { runOnPageReady } from '../../../lib/animations/gsap-presets';
@@ -101,7 +67,7 @@
 <style>
   .about-hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,11 +82,11 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      155deg,
-      var(--c-brand-mocha-dark) 0%,
-      var(--c-brand-mocha) 35%,
-      #6B4A2E 65%,
-      var(--c-brand-caramel-dark) 100%
+      148deg,
+      #2A1508 0%,
+      #3D2415 32%,
+      #5A3420 66%,
+      #7A4A2E 100%
     );
     will-change: transform, opacity;
     opacity: 0;
@@ -139,7 +105,7 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 800px;
+    max-width: 820px;
   }
 
   .about-hero-label {
@@ -147,9 +113,9 @@
     font-family: var(--ff-body);
     font-size: var(--fs-sm);
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: var(--ls-widest);
     text-transform: uppercase;
-    color: rgba(255, 248, 240, 0.6);
+    color: rgba(255, 248, 240, 0.55);
     margin-bottom: var(--sp-6);
     opacity: 0;
     will-change: transform, opacity;
@@ -157,15 +123,15 @@
 
   .about-hero-title {
     font-family: var(--ff-display);
-    font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
     margin-bottom: var(--sp-8);
-    color: var(--c-brand-cream);
+    color: #FFF8F1;
   }
 
-  .about-hero-line { 
-    display: block; 
+  .about-hero-line {
+    display: block;
     font-size: clamp(2.2rem, 5.5vw, 4.5rem);
     will-change: transform, opacity, filter;
     opacity: 0;
@@ -173,18 +139,18 @@
 
   .about-hero-word.italic {
     font-style: italic;
-    font-weight: inherit;
-    color: var(--c-brand-gold);
+    font-weight: 900;
+    color: var(--c-accent-soft, #F5C4A8);
     padding-right: 0.05em;
   }
 
   .about-hero-subtitle {
     font-family: var(--ff-body);
-    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-    color: var(--c-brand-caramel);
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: rgba(255, 248, 240, 0.7);
     font-weight: 400;
-    line-height: 1.8;
-    margin-bottom: var(--sp-12);
+    line-height: 1.75;
+    margin-bottom: 0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -196,45 +162,6 @@
     .about-hero-label { font-size: var(--fs-xs); }
     .about-hero-line {
       font-size: clamp(1.6rem, 7vw, 2.2rem);
-    }
-  }
-
-  /* Decorative Floating Traditional Motifs */
-  .about-hero-motif-container {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
-  }
-  .about-hero-motif {
-    position: absolute;
-    opacity: 0; /* Animated to 0.15 on load */
-    filter: brightness(0.95) contrast(1.1) sepia(0.65) saturate(0.3) hue-rotate(340deg);
-    will-change: transform;
-  }
-  .about-hero-motif-left {
-    top: 10%;
-    left: -40px;
-    width: clamp(140px, 20vw, 240px);
-    transform: rotate(15deg);
-  }
-  .about-hero-motif-right {
-    top: 15%;
-    right: -50px;
-    width: clamp(160px, 25vw, 280px);
-    transform: rotate(-10deg);
-  }
-  @media (max-width: 640px) {
-    .about-hero-motif-left {
-      top: 5%;
-      left: -60px;
-      width: 120px;
-    }
-    .about-hero-motif-right {
-      top: 8%;
-      right: -70px;
-      width: 140px;
     }
   }
 </style>

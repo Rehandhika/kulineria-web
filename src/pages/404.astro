@@ -8,20 +8,22 @@ const statusCode = 404;
 <BaseLayout title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak ditemukan">
   <section class="not-found-page">
     <div class="not-found-content">
+      <!-- NARA mascot — sad expression (NARA 4.png) -->
       <div class="not-found-nara">
-        <svg viewBox="0 0 100 100" class="nara-svg">
-          <circle cx="50" cy="50" r="45" fill="var(--c-accent)" opacity="0.1" />
-          <circle cx="50" cy="50" r="25" fill="var(--c-surface-1)" stroke="var(--c-accent)" stroke-width="2" />
-          <path d="M 30 30 Q 35 25 40 30 M 60 30 Q 65 25 70 30" fill="none" stroke="var(--c-text-1)" stroke-width="2" stroke-linecap="round" />
-          <path d="M 35 44 Q 50 38 65 44" fill="none" stroke="var(--c-text-1)" stroke-width="2" stroke-linecap="round" />
-          <circle cx="30" cy="40" r="3" fill="var(--c-accent)" opacity="0.3" />
-          <circle cx="70" cy="40" r="3" fill="var(--c-accent)" opacity="0.3" />
-        </svg>
+        <img
+          src="/img/nara/NARA 4.png"
+          alt="Nara sedih"
+          class="nara-img"
+          width="160"
+          height="160"
+          onerror="this.style.display='none'"
+        />
+        <div class="nara-dialog">Aduh, halaman ini hilang...</div>
       </div>
 
       <span class="status-code">{statusCode}</span>
       <h1>Halaman Tidak Ditemukan</h1>
-      <p>Halaman yang Anda cari tidak ditemukan atau telah dipindahkan.</p>
+      <p>Halaman yang kamu cari tidak ada atau sudah dipindahkan. Yuk cari hidangan lain!</p>
 
       <form class="search-redirect" action="/jelajahi" method="GET">
         <input type="text" name="q" placeholder="Cari hidangan..." aria-label="Cari hidangan" />
@@ -34,14 +36,6 @@ const statusCode = 404;
         <a href="/kuis" class="quick-link">Kuis</a>
         <a href="/tentang" class="quick-link">Tentang</a>
       </div>
-    </div>
-    <div class="confetti">
-      <span class="confetti-piece" style="--delay: 0s; --x: 10%; --color: var(--c-accent);"></span>
-      <span class="confetti-piece" style="--delay: 0.8s; --x: 25%; --color: var(--c-warning);"></span>
-      <span class="confetti-piece" style="--delay: 1.6s; --x: 40%; --color: var(--c-success);"></span>
-      <span class="confetti-piece" style="--delay: 2.4s; --x: 55%; --color: var(--c-accent);"></span>
-      <span class="confetti-piece" style="--delay: 3.2s; --x: 70%; --color: var(--c-warning);"></span>
-      <span class="confetti-piece" style="--delay: 4s; --x: 85%; --color: var(--c-success);"></span>
     </div>
   </section>
   <Footer />
@@ -56,29 +50,73 @@ const statusCode = 404;
     padding: var(--sp-20) var(--sp-4);
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--c-cream) 0%, var(--c-bg) 100%);
+    background: var(--c-bg);
   }
 
   .not-found-content {
     text-align: center;
-    max-width: 500px;
+    max-width: 480px;
     position: relative;
     z-index: 1;
   }
 
+  /* ── NARA ── */
   .not-found-nara {
-    margin-bottom: var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-8);
   }
 
-  .nara-svg {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
+  .nara-img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    animation: naraFloat 3s ease-in-out infinite;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
+  @keyframes naraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  .nara-dialog {
+    background: var(--c-surface);
+    border: 1.5px solid var(--c-border);
+    border-radius: var(--r-xl);
+    padding: 8px 18px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--c-text-1);
+    box-shadow: var(--sh-2);
+    position: relative;
+  }
+  .nara-dialog::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: var(--c-border);
+  }
+  .nara-dialog::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: var(--c-surface);
+  }
+
+  /* ── Content ── */
   .status-code {
     display: block;
-    font-family: var(--font-display);
+    font-family: var(--ff-display);
     font-size: var(--fs-4xl);
     font-weight: 700;
     color: var(--c-accent);
@@ -86,7 +124,7 @@ const statusCode = 404;
   }
 
   .not-found-content h1 {
-    font-family: var(--font-display);
+    font-family: var(--ff-display);
     font-size: var(--fs-2xl);
     font-weight: 700;
     color: var(--c-text-1);
@@ -97,8 +135,10 @@ const statusCode = 404;
     font-size: var(--fs-base);
     color: var(--c-text-2);
     margin-bottom: var(--sp-8);
+    line-height: var(--lh-relaxed);
   }
 
+  /* ── Search ── */
   .search-redirect {
     display: flex;
     gap: var(--sp-2);
@@ -108,12 +148,13 @@ const statusCode = 404;
   .search-redirect input {
     flex: 1;
     padding: var(--sp-3) var(--sp-4);
-    border: 1px solid var(--c-border);
+    border: 1.5px solid var(--c-border);
     border-radius: var(--r-full);
     font-size: var(--fs-base);
-    font-family: var(--font-body);
-    background: var(--c-surface-1);
+    font-family: var(--ff-body);
+    background: var(--c-surface);
     color: var(--c-text-1);
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
   .search-redirect input:focus {
@@ -125,14 +166,15 @@ const statusCode = 404;
   .search-redirect button {
     padding: var(--sp-3) var(--sp-6);
     background: var(--c-accent);
-    color: var(--c-surface-1);
+    color: #fff;
     border: none;
     border-radius: var(--r-full);
     font-size: var(--fs-base);
     font-weight: 600;
-    font-family: var(--font-body);
+    font-family: var(--ff-body);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: var(--sh-btn);
   }
 
   .search-redirect button:hover {
@@ -140,60 +182,39 @@ const statusCode = 404;
     transform: translateY(-1px);
   }
 
+  /* ── Quick links ── */
   .quick-links {
     display: flex;
     justify-content: center;
-    gap: var(--sp-4);
+    gap: var(--sp-3);
     flex-wrap: wrap;
   }
 
   .quick-link {
     padding: var(--sp-2) var(--sp-4);
-    background: var(--c-surface-1);
-    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    border: 1.5px solid var(--c-border);
     border-radius: var(--r-full);
     font-size: var(--fs-sm);
     color: var(--c-text-1);
-    font-weight: 500;
-    font-family: var(--font-body);
-    transition: all 0.2s ease;
+    font-weight: 600;
+    font-family: var(--ff-body);
+    transition: border-color 0.15s, color 0.15s, transform 0.15s var(--ease-bounce);
   }
 
   .quick-link:hover {
     border-color: var(--c-accent);
     color: var(--c-accent);
-  }
-
-  .confetti {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .confetti-piece {
-    position: absolute;
-    left: var(--x);
-    top: -20px;
-    width: 8px;
-    height: 8px;
-    background: var(--color);
-    border-radius: 2px;
-    animation: confetti-fall 6s ease-in-out infinite;
-    animation-delay: var(--delay);
-  }
-
-  @keyframes confetti-fall {
-    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    transform: translateY(-2px);
   }
 
   @media (max-width: 640px) {
-    .search-redirect {
-      flex-direction: column;
-    }
-    .search-redirect button {
-      width: 100%;
-    }
+    .search-redirect { flex-direction: column; }
+    .search-redirect button { width: 100%; }
+    .nara-img { width: 120px; height: 120px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nara-img { animation: none; }
   }
 </style>

@@ -1,0 +1,267 @@
+---
+// Quiz CTA — dark, NARA besar di kiri, teks di kanan, tanpa angka/statistik
+// ID unik per-instance untuk menghindari konflik saat dipakai di beberapa halaman
+const instanceId = `quiz-cta-${Math.random().toString(36).slice(2, 7)}`;
+---
+
+<section class="quiz-cta" data-quiz-cta aria-labelledby={`${instanceId}-title`}>
+
+  <!-- Motif tepi -->
+  <div class="qcta-motif qcta-motif-tr" aria-hidden="true">
+    <img src="/img/motif/png batik mega mendung.png" alt="" />
+  </div>
+  <div class="qcta-motif qcta-motif-bl" aria-hidden="true">
+    <img src="/img/motif/png awan.png" alt="" />
+  </div>
+
+  <div class="container qcta-inner">
+
+    <!-- NARA — besar, karakter utama -->
+    <div class="qcta-nara" aria-hidden="true">
+      <img
+        src="/img/nara/NARA 5.png"
+        alt=""
+        class="qcta-nara-img"
+        width="320"
+        height="320"
+        draggable="false"
+        onerror="this.parentElement.style.display='none'"
+      />
+    </div>
+
+    <!-- Teks -->
+    <div class="qcta-text">
+      <span class="qcta-eyebrow">Kuis Kuliner</span>
+      <h2 class="qcta-title" id={`${instanceId}-title`}>
+        Seberapa dalam<br/>
+        <em>kamu mengenal<br/>Nusantara?</em>
+      </h2>
+      <p class="qcta-body">
+        Tebak nama hidangan, asal daerahnya, dan cerita di balik setiap suapan.
+        Ikuti Nara dalam perjalanan rasa yang tak terduga.
+      </p>
+      <div class="qcta-actions">
+        <a href="/kuis" class="qcta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Mulai Kuis
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initQuizCTAs() {
+    // Cari semua instance — komponen bisa muncul di beberapa halaman
+    const sections = document.querySelectorAll<HTMLElement>('[data-quiz-cta]');
+
+    sections.forEach((section) => {
+      if (section.dataset.revealed) return;
+      section.dataset.revealed = 'true';
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const nara = section.querySelector<HTMLElement>('.qcta-nara-img');
+      const text = section.querySelector<HTMLElement>('.qcta-text');
+
+      if (reduced) {
+        if (nara) gsap.set(nara, { opacity: 1, x: 0, scale: 1 });
+        if (text) gsap.set(text, { opacity: 1, x: 0 });
+        return;
+      }
+
+      if (text) {
+        gsap.fromTo(text,
+          { opacity: 0, x: 48 },
+          {
+            opacity: 1, x: 0, duration: 1.3, ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 78%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+
+      if (nara) {
+        gsap.fromTo(nara,
+          { opacity: 0, x: -70, scale: 0.8 },
+          {
+            opacity: 1, x: 0, scale: 1, duration: 1.5, ease: 'back.out(1.3)',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+
+        // Float loop — pelan
+        gsap.to(nara, {
+          y: -14,
+          duration: 4.4,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          delay: 1.8,
+        });
+      }
+    });
+  }
+
+  runOnPageReady(initQuizCTAs);
+</script>
+
+<style>
+  .quiz-cta {
+    position: relative;
+    overflow: hidden;
+    background: #2A1508;
+    padding: clamp(72px, 10vw, 144px) 0;
+  }
+
+  /* Motifs */
+  .qcta-motif {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.08;
+    filter: brightness(1.5) saturate(0.1);
+  }
+  .qcta-motif img { display: block; width: 100%; height: auto; }
+  .qcta-motif-tr {
+    top: -30px;
+    right: -50px;
+    width: clamp(140px, 18vw, 240px);
+    transform: rotate(-15deg);
+  }
+  .qcta-motif-bl {
+    bottom: -20px;
+    left: -40px;
+    width: clamp(120px, 15vw, 200px);
+    transform: rotate(20deg) scaleX(-1);
+  }
+
+  /* Layout */
+  .qcta-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-10);
+  }
+  @media (max-width: 767px) {
+    .qcta-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--sp-6);
+    }
+  }
+
+  /* NARA */
+  .qcta-nara {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+  .qcta-nara-img {
+    width: clamp(160px, 24vw, 320px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.5));
+    opacity: 0;
+  }
+  @media (max-width: 767px) {
+    .qcta-nara-img { width: clamp(140px, 50vw, 220px); }
+  }
+
+  /* Text */
+  .qcta-text { flex: 1; min-width: 0; }
+
+  .qcta-eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--c-accent-soft, #F5C4A8);
+    margin-bottom: var(--sp-4);
+    opacity: 0.85;
+  }
+
+  .qcta-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #FFF8F1;
+    margin-bottom: var(--sp-5);
+  }
+  .qcta-title em {
+    font-style: italic;
+    font-weight: 900;
+    color: var(--c-accent-soft, #F5C4A8);
+  }
+
+  .qcta-body {
+    font-size: var(--fs-base);
+    color: rgba(255, 248, 240, 0.6);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: var(--sp-8);
+    font-weight: 400;
+  }
+  @media (max-width: 767px) {
+    .qcta-body { margin-left: auto; margin-right: auto; }
+  }
+
+  /* Actions */
+  .qcta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
+  @media (max-width: 767px) {
+    .qcta-actions { justify-content: center; }
+  }
+
+  .qcta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 14px 32px;
+    background: var(--c-accent);
+    color: #fff;
+    border: 1.5px solid var(--c-accent-dark);
+    border-radius: var(--r-full);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.16s, transform 0.16s var(--ease-bounce), box-shadow 0.16s;
+    box-shadow: 0 4px 16px rgba(194, 65, 12, 0.4);
+    white-space: nowrap;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .qcta-btn:hover {
+      background: var(--c-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(194, 65, 12, 0.5);
+    }
+  }
+  .qcta-btn:active { transform: scale(0.97) !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .qcta-nara-img { animation: none !important; }
+  }
+</style>

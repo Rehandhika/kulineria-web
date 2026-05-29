@@ -21,12 +21,20 @@ function getMessage(percentage: number): string {
   return 'Jangan berkecil hati. Setiap perjalanan besar selalu dimulai dari satu suapan pertama.';
 }
 
-function getEmoji(percentage: number): string {
-  if (percentage === 100) return '👑';
-  if (percentage >= 80) return '✨';
-  if (percentage >= 60) return '🏺';
-  if (percentage >= 40) return '🌿';
-  return '🥄';
+function getNaraExpression(percentage: number): string {
+  if (percentage === 100) return '/img/nara/NARA 5.png'; /* celebrate — wave */
+  if (percentage >= 80)  return '/img/nara/NARA 2.png'; /* excited   */
+  if (percentage >= 60)  return '/img/nara/NARA 1.png'; /* idle      */
+  if (percentage >= 40)  return '/img/nara/NARA 3.png'; /* thinking  */
+  return '/img/nara/NARA 4.png';                         /* sad       */
+}
+
+function getNaraAlt(percentage: number): string {
+  if (percentage === 100) return 'Nara merayakan';
+  if (percentage >= 80)  return 'Nara semangat';
+  if (percentage >= 60)  return 'Nara senang';
+  if (percentage >= 40)  return 'Nara berpikir';
+  return 'Nara sedih';
 }
 
 interface WrongAnswer {
@@ -83,7 +91,15 @@ export default function QuizResults() {
   return (
     <div className="quiz-results">
       <div className="results-header">
-        <span className="results-emoji">{getEmoji(percentage)}</span>
+        <img
+          src={getNaraExpression(percentage)}
+          alt={getNaraAlt(percentage)}
+          className="results-nara-img"
+          width="120"
+          height="120"
+          draggable={false}
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+        />
         <h2>{getTitle(percentage)}</h2>
         <p className="results-message">{getMessage(percentage)}</p>
       </div>

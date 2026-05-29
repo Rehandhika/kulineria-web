@@ -427,11 +427,17 @@
 ───────────────────────────────────────────── */
 .filter-fab-wrap {
   position: fixed;
-  bottom: 32px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
   z-index: var(--z-sticky);
   pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .filter-fab-wrap {
+    bottom: 32px;
+  }
 }
 
 .filter-fab {

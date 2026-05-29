@@ -16,6 +16,19 @@ import SearchBar from '../../react/search/SearchBar';
       <SearchBar client:load />
     </div>
   </div>
+
+  <!-- NARA wave — peeking bottom right -->
+  <div class="search-hero-nara" aria-hidden="true">
+    <img
+      src="/img/nara/NARA 5.png"
+      alt=""
+      class="search-hero-nara-img"
+      width="140"
+      height="140"
+      draggable="false"
+      onerror="this.parentElement.style.display='none'"
+    />
+  </div>
 </section>
 
 <script>
@@ -70,10 +83,10 @@ import SearchBar from '../../react/search/SearchBar';
     inset: 0;
     background: linear-gradient(
       155deg,
-      var(--c-brand-mocha-dark) 0%,
-      var(--c-brand-mocha) 35%,
+      var(--brown-900, #3D2415) 0%,
+      var(--brown-800, #5A3420) 35%,
       #6B4A2E 65%,
-      var(--c-brand-caramel-dark) 100%
+      var(--brown-600, #8B5535) 100%
     );
     will-change: transform, opacity;
     opacity: 0;
@@ -115,6 +128,40 @@ import SearchBar from '../../react/search/SearchBar';
   .search-hero-bar {
     max-width: 640px;
     margin: 0 auto;
+  }
+
+  /* NARA */
+  .search-hero-nara {
+    position: absolute;
+    bottom: 0;
+    right: clamp(16px, 5vw, 80px);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    animation: searchNaraIn 0.7s ease 1.2s forwards;
+  }
+  .search-hero-nara-img {
+    width: clamp(80px, 11vw, 140px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    filter: drop-shadow(0 -4px 12px rgba(0,0,0,0.3));
+    animation: searchNaraFloat 3.5s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  @keyframes searchNaraIn { to { opacity: 1; } }
+  @keyframes searchNaraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+  @media (max-width: 640px) {
+    .search-hero-nara { right: 8px; }
+    .search-hero-nara-img { width: 70px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .search-hero-nara-img { animation: none; }
+    .search-hero-nara { opacity: 1; animation: none; }
   }
 
   @media (max-width: 767px) {

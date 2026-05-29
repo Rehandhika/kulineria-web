@@ -10,11 +10,24 @@
   margin-bottom: var(--sp-8);
 }
 
-.results-emoji {
-  font-size: 3rem;
+.results-nara-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
   display: block;
-  margin-bottom: var(--sp-4);
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+  margin: 0 auto var(--sp-4);
+  animation: naraResultFloat 3s ease-in-out infinite;
+  user-select: none;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+}
+
+@keyframes naraResultFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%       { transform: translateY(-10px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .results-nara-img { animation: none; }
 }
 
 .results-header h2 {
