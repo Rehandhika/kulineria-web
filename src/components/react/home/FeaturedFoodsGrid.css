@@ -12,6 +12,11 @@
   grid-template-columns: 1fr;
 }
 
+/* Cards mulai invisible — GSAP yang menganimasikan masuk */
+.results-grid-inner .result-card {
+  opacity: 0;
+}
+
 @media (min-width: 480px) {
   .results-grid-inner { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
 }
