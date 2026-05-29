@@ -15,6 +15,12 @@
 /* Cards mulai invisible — GSAP yang menganimasikan masuk */
 .results-grid-inner .result-card {
   opacity: 0;
+  /* Safety fallback: jika GSAP gagal, cards tetap muncul setelah 2s */
+  animation: cardFallbackReveal 0s 2s forwards;
+}
+
+@keyframes cardFallbackReveal {
+  to { opacity: 1; }
 }
 
 @media (min-width: 480px) {

@@ -154,7 +154,11 @@ export default function FeaturedFoodsGrid() {
     prevIdRef.current = selectedId;
 
     if (isInitial) {
-      // Load awal — animateIn sudah ditangani oleh effect animKey=1
+      // Load awal — grid sudah render, cukup trigger animateIn
+      // (animKey=1 sudah di-set, tapi effect mungkin sudah lewat sebelum
+      //  selectedId berubah, jadi kita bump animKey lagi untuk memastikan)
+      setTrigger('initial');
+      setAnimKey(k => k + 1);
       return;
     }
 
@@ -172,11 +176,17 @@ export default function FeaturedFoodsGrid() {
 
   // ── Animasi masuk setelah animKey berubah ────────────────────────
   useEffect(() => {
-    // Tunggu satu frame agar React render cards baru dulu
-    const raf = requestAnimationFrame(() => {
-      animateIn(trigger);
+    // Double rAF: frame 1 = React commits DOM, frame 2 = browser paints, frame 3 = animate
+    let raf1: number, raf2: number;
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
+        animateIn(trigger);
+      });
     });
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [animKey, trigger, animateIn]);
 
   // ── Ganti halaman ────────────────────────────────────────────────

@@ -129,6 +129,16 @@ export default function InteractiveMap() {
     setSelectedRegion(selected === id ? null : id);
   }, [hitTest, selected]);
 
+  const handleTouch = useCallback((e: React.TouchEvent) => {
+    // Prevent mouse event from also firing
+    e.preventDefault();
+    const touch = e.changedTouches[0];
+    if (!touch) return;
+    const id = hitTest(touch.clientX, touch.clientY);
+    if (!id) return;
+    setSelectedRegion(selected === id ? null : id);
+  }, [hitTest, selected]);
+
   const handleKeyDown = useCallback((id: string) => (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -143,6 +153,7 @@ export default function InteractiveMap() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
+      onTouchEnd={handleTouch}
     >
       <div className="map-container relative w-full overflow-hidden rounded-2xl border shadow-[var(--sh-card)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
