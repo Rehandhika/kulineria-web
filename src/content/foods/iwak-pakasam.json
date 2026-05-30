@@ -8,7 +8,7 @@
     "asam",
     "gurih"
   ],
-  "imageUrl": "/images/foods/iwak-pakasam.jpg",
+  "imageUrl": "/img/foods/iwak-pakasam.png",
   "hero": {
     "image": "/images/foods/iwak-pakasam-hero.jpg",
     "alt": "Iwak Pakasam goreng renyah bertabur beras ketan sangrai kasar dan irisan cabai bawang",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Perpaduan Ikan Rawa dan Beras Ketan Sangrai yang Asam Gurih",
-    "body": "Iwak Pakasam (atau cukup disebut Pakasam) adalah mahakarya kuliner berbasis fermentasi tradisional dari Barabai, Kabupaten Hulu Sungai Tengah, Kalimantan Selatan. Pakasam merupakan strategi ketahanan pangan tradisional yang brilian untuk menyiasati melimpahnya hasil tangkapan ikan rawa banjiran (ikan air tawar berukuran kecil seperti sepat, betok/papuyu, seluang, atau gabus kecil) selama musim kemarau atau saat air rawa menyusut.\n\nKeunikan luar biasa dari Pakasam dibanding ikan asin biasa terletak pada penggunaan bahan pembantu fermentasi berupa 'samu', yaitu beras ketan putih yang disangrai kering hingga kecokelatan lalu ditumbuk kasar. Ikan segar yang sudah dibersihkan dan dilumuri garam diletakkan dalam wadah, lalu dibalur melimpah dengan beras ketan sangrai tersebut sebelum difermentasi selama 3 hingga 7 hari. Selama fermentasi, karbohidrat pada beras ketan dipecah menjadi asam laktat yang mengawetkan ikan sekaligus memberikan rasa asam alami yang segar dan khas. Saat digoreng, beras ketan sangrai yang menyelimuti tubuh ikan akan bertekstur sangat renyah (crispy) beraroma harum panggang yang gurih asin berpadu asam daging ikan, berpadu hebat dengan tumisan irisan bawang merah dan cabai rawit pedas.",
+    "body": "Iwak Pakasam ikan fermentasi khas Barabai, Kalimantan Selatan. Beda sama ikan asin biasa, pakasam pake beras ketan sangrai yang ditumbuk kasar sebagai campuran fermentasi. Ikan kecil kayak sepat atau betok dibalur garam dan beras ketan sangrai, didiemin 3 sampai 7 hari. Proses fermentasi bikin ikan jadi asem segar alami. Enaknya pas digoreng, beras ketan jadi renyah garing kayak lapisan tepung. Biasanya ditumis sama bawang merah dan cabai rawit. Cara fermentasi tradisional yang bikin rasa ikan makin unik dan nagih.",
     "pullQuote": "Pakasam goreng garing, aromanya mengundang tetangga, rasanya menghabiskan sebakul nasi.",
     "image": "/images/foods/iwak-pakasam-story.jpg"
   },

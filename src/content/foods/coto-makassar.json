@@ -7,7 +7,7 @@
     "gurih",
     "pedas"
   ],
-  "imageUrl": "/img/foods/coto-makassar.jpg",
+  "imageUrl": "/img/foods/coto-makassar.png",
   "hero": {
     "image": "/img/foods/coto-makassar-hero.jpg",
     "alt": "Coto Makassar dengan kuah kacang yang kental",
@@ -15,7 +15,7 @@
   },
   "story": {
     "headline": "Sup Legendaris Tanah Bugis",
-    "body": "Coto Makassar adalah sup daging sapi yang menjadi kebanggaan masyarakat Sulawesi Selatan. Kuahnya yang kental berasal dari campuran kacang tanah yang dihaluskan, memberikan rasa gurih yang khas.",
+    "body": "Coto Makassar udah ada sejak Kerajaan Gowa abad ke-16. Awalnya cuma buat kalangan istana dan bangsawan, rakyat biasa dilarang nyobain. Ada cerita coto diciptakan Toak, juru masak istana, dari jeroan sisa daging kerbau yang dibuang. Dibumbui 40 jenis rempah yang disebut rampah patang pulo. Bedanya sama sup lain, kuahnya kental dari kacang tanah sangrai dan air tajin, bukan santan. Disajikan sama ketupat dan sambal tauco. Sekarang jadi ikon kuliner Makassar. Makannya sama ketupat atau burasa, ditambah sambal tauco yang gurih asin.",
     "pullQuote": "Coto adalah jiwa kuliner Makassar",
     "image": "/img/foods/coto-story.jpg"
   },

@@ -7,7 +7,7 @@
     "gurih",
     "asin"
   ],
-  "imageUrl": "/images/foods/nasi-uduk.jpg",
+  "imageUrl": "/img/foods/nasi-uduk.png",
   "hero": {
     "image": "/images/foods/nasi-uduk-hero.jpg",
     "alt": "Sepiring Nasi Uduk Betawi hangat bertabur bawang goreng melimpah ditemani ayam goreng, semur tahu, dan sambal kacang cair",
@@ -15,7 +15,7 @@
   },
   "story": {
     "headline": "Harumnya Nasi Santan Khas Ibukota",
-    "body": "Nasi Uduk adalah salah satu sarapan pagi dan kuliner malam terpopuler di Jakarta. Lahir dari kebudayaan Betawi, secara etimologis nama 'uduk' diyakini berasal dari kosakata Sunda kuno yang bermakna 'campur' atau kosakata Jawa 'wuduk' yang mengacu pada nasi gurih bersantan kelapa. Hidangan ini lahir dari peleburan harmonis kebudayaan Melayu pesisir yang membawa konsep nasi lemak, bersanding dengan pengaruh nasi kebuli khas Arab-Timur Tengah yang menggunakan bumbu-bumbu rempah kering aromatik.\n\nNasi Uduk ditanak di air perasan santan kelapa pekat bersama aromatik lokal seperti daun pandan wangi, daun salam, serai memar, cengkeh kering, pala parut, dan sepotong kayu manis. Proses ini membuahkan butiran nasi uduk yang pulen terurai, gurih berminyak tipis, dan sangat harum aromatik. Berbeda dengan nasi lemak Melayu yang berpasangan dengan sambal bilis pedas pekat, nasi uduk Betawi sejati selalu bersanding dengan sambal kacang cair kemerahan bercita rasa pedas gurih encer yang asam segar dari jeruk purut, serta bertabur bawang goreng Sumenep yang melimpah renyah.",
+    "body": "Nasi Uduk sarapan favorit Jakarta. Nasi dimasak dengan santan, pandan, serai, cengkeh, pala, kayu manis. Wanginya semerbak, rasanya gurih. Nama uduk dari bahasa Sunda atau Jawa artinya campur. Ini perpaduan budaya Melayu nasi lemak sama Arab nasi kebuli. Bedanya nasi uduk Betawi dengan nasi lemak ada di sambalnya: pake sambal kacang cair pedas gurih asam, bukan sambal bilis. Ditabur bawang goreng Sumenep melimpah, jadi makin mantap. Makanan yang selalu bikin kangen buat yang udah lama tinggal di Jakarta.",
     "pullQuote": "Keharuman pandan dan cengkeh menari indah dalam kelembutan butiran nasi gurih",
     "image": "/images/foods/nasi-uduk-story.jpg"
   },

@@ -8,7 +8,7 @@
     "gurih",
     "asam"
   ],
-  "imageUrl": "/images/foods/ikan-woku.jpg",
+  "imageUrl": "/img/foods/ikan-woku.png",
   "hero": {
     "image": "/images/foods/ikan-woku-hero.jpg",
     "alt": "Ikan Woku Belanga berwarna kuning jingga menyala dengan taburan kemangi dan daun jeruk segar di dalam wajan tanah liat",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Ledakan Aroma Rempah Daun Bumi Minahasa",
-    "body": "Ikan Woku Belanga adalah representasi sempurna dari keberanian cita rasa kuliner Minahasa, Sulawesi Utara. Berbeda dengan masakan Jawa yang cenderung manis atau masakan Padang yang bersantan kental, Woku menonjolkan kekuatan rasa segar yang bersih dari kombinasi bumbu kuning pekat (kunyit, jahe, kemiri, cabai rawit) serta limpahan daun aromatik. Daun kemangi, daun jeruk purut, daun kunyit, daun pandan, dan daun bawang dicampurkan dalam jumlah banyak saat memasak, melahirkan sensasi wangi yang sangat kuat, tajam, menyegarkan, sekaligus menghilangkan bau amis ikan laut seketika.\n\nSecara historis, nama 'Woku' merujuk pada daun woka (sejenis daun palem hutan) yang dahulu digunakan sebagai pembungkus ikan berbumbu sebelum dipanggang langsung di atas bara api—metode kuno ini dikenal dengan nama Woku Daun. Ketika masyarakat Minahasa mulai menggunakan panci atau belangah tanah liat untuk memasak versi berkuah, hidangan ini bertransformasi menjadi Woku Belanga. Woku belanga melambangkan hubungan harmonis masyarakat pegunungan Minahasa dengan alam; mereka memanfaatkan bumbu dedaunan liar yang melimpah ruah di kebun mereka untuk melengkapi protein laut segar yang dibawa oleh para nelayan pesisir.",
+    "body": "Ikan Woku Belanga kebanggaan Minahasa. Bedanya sama masakan lain, woku dominan pake daun-daunan aromatik dalam jumlah banyak: kemangi, jeruk purut, daun kunyit, daun pandan, daun bawang. Wanginya kuat dan segar, langsung ngilangin bau amis ikan. Dulu namanya Woku Daun, bumbu dibungkus daun woka dipanggang di bara. Sekarang dimasak pake belanga tanah liat jadi Woku Belanga. Rasanya pedas, segar, dan harum banget, beda dari masakan Indonesia lainnya. Wajib dicoba buat yang doyan masakan pedas dan kaya rempah.",
     "pullQuote": "Woku adalah simfoni dedaunan aromatik Minahasa, mengubah ikan laut menjadi mahakarya wewangian rasa.",
     "image": "/images/foods/ikan-woku-story.jpg"
   },

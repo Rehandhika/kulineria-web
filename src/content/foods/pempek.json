@@ -8,7 +8,7 @@
     "pedas",
     "gurih"
   ],
-  "imageUrl": "/img/foods/pempek-palembang.jpg",
+  "imageUrl": "/img/foods/Pempek.png",
   "hero": {
     "image": "/img/foods/Pempek.png",
     "alt": "Pempek Palembang dengan kuah cuko yang khas",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Ikon Kuliner Palembang",
-    "body": "Pempek adalah kebanggaan Palembang yang telah ada sejak abad ke-16. Konon diciptakan oleh seorang Tionghoa yang bermukim di Palembang. Perpaduan antara ikan sungai segar dan tepung sagu menciptakan tekstur yang unik.",
+    "body": "Pempek awalnya disebut kelesan, makanan rumahan warga Palembang. Baru tahun 1917, seorang pria Tionghoa tua yang dipanggil Apek mulai jualan keliling naik sepeda. Orang manggil dia Pek, Pek, lama-lama jadilah nama pempek. Adonan ikan tenggiri dan sagu ini udah ada sejak zaman Sriwijaya abad ke-7, terbukti dari tanaman sagu yang udah dikenal waktu itu. Disajikan sama cuko hitam dari gula merah, cabai, dan cuka. Varian terkenal kayak kapal selam yang berisi telur dan lenjer. Paling enak dimakan pas masih anget-anget, teksturnya kenyal banget.",
     "pullQuote": "Tanpa cuko, pempek bukan pempek",
     "image": "/img/foods/pempek-story.jpg"
   },

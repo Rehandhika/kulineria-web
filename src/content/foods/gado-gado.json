@@ -8,7 +8,7 @@
     "manis",
     "asin"
   ],
-  "imageUrl": "/images/foods/gado-gado.jpg",
+  "imageUrl": "/img/foods/gado-gado.png",
   "hero": {
     "image": "/images/foods/gado-gado-hero.jpg",
     "alt": "Sajian Gado-Gado dengan siraman saus kacang tanah kental beralas daun pisang serta taburan emping melinjo",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Mahakarya Salad Nusantara Bersiram Saus Kacang",
-    "body": "Gado-Gado sering kali dijuluki sebagai salad khas Indonesia karena terdiri dari aneka sayuran segar yang direbus setengah matang, seperti kangkung, bayam, tauge, kubis, kacang panjang, labu siam, dilengkapi irisan kentang rebus, tahu, tempe goreng, dan telur rebus. Kata 'gado' sendiri berakar dari bahasa Betawi kuno yang berarti 'memakan sesuatu tanpa nasi'. Di Jawa Barat dan Jakarta, gado-gado adalah kuliner wajib harian yang menyehatkan sekaligus sangat memuaskan perut.\n\nKunci kelezatan gado-gado yang autentik terletak pada siraman saus kacangnya. Kacang tanah disangrai atau digoreng garing, kemudian digiling halus dan diulek bersama cabai, bawang putih, gula merah aren, garam, kencur, terasi bakar, dan sedikit air asam jawa untuk memberikan rasa segar penyeimbang. Teksturnya harus kental dan gurih berlemak dengan paduan rasa manis yang pas. Di warung-warung legendaris, bumbu kacang ini diulek langsung secara segar ('gado-gado ulek') di atas cobek batu raksasa sesaat sebelum dicampur sayuran.",
+    "body": "Nama gado-gado dari bahasa Betawi digado, artinya dimakan tanpa nasi. Sejarahnya ada beberapa versi: ada yang bilang dari Kampung Tugu keturunan Portugis abad ke-17, ada juga yang bilang modifikasi pecel Jawa sama warga Tionghoa. Yang jelas gado-gado udah populer sejak tahun 1950-an. Isinya campuran sayur rebus kayak kangkung, tauge, kacang panjang, tahu, tempe, telur, lontong. Siraman bumbu kacangnya pake kencur dan jeruk purut, bedain sama pecel atau lotek. Orang asing juga suka, sampe dijuluki Indonesian salad di luar negeri.",
     "pullQuote": "Kesegaran sayur bumi berpadu mesra dalam kehangatan ulekan saus kacang",
     "image": "/images/foods/gado-gado-story.jpg"
   },

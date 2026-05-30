@@ -6,7 +6,7 @@
   "taste": [
     "gurih"
   ],
-  "imageUrl": "/images/foods/soto-banjar.jpg",
+  "imageUrl": "/img/foods/soto-banjar.png",
   "hero": {
     "image": "/images/foods/soto-banjar-hero.jpg",
     "alt": "Semangkuk Soto Banjar hangat dengan taburan bawang goreng dan pelengkap",
@@ -14,7 +14,7 @@
   },
   "story": {
     "headline": "Kehangatan Rempah di Tepian Sungai Martapura",
-    "body": "Soto Banjar merupakan salah satu ikon kuliner Kalimantan Selatan yang mencerminkan sejarah panjang perdagangan rempah di nusantara. Kuah soto ini sangat khas karena menggunakan rempah-rempah kering seperti kayu manis, biji pala, cengkih, dan kapulaga, yang berpadu dengan gurihnya kaldu ayam kampung. Keunikan lain terletak pada teknik pengentalan kuahnya; beberapa versi menggunakan susu kental manis atau telur bebek rebus yang dihancurkan ke dalam kuah untuk memberikan tekstur sedikit keruh yang gurih alami dan legit.\n\nSecara tradisi, Soto Banjar disajikan dengan ketupat berbentuk segitiga yang dipotong kecil-kecil, bukan nasi. Sebagai pelengkap wajib, soto ini ditemani oleh perkedel kentang yang lembut, soun, telur bebek rebus, perasan jeruk nipis khas Banjar (limau kuit), dan taburan bawang merah goreng. Hidangan ini tidak hanya sekadar pengisi perut, melainkan simbol kehangatan dan kebersamaan masyarakat Banjar yang kerap disajikan dalam berbagai acara adat, pernikahan, hingga santapan sehari-hari di sepanjang sungai Barito.",
+    "body": "Soto Banjar beda dari soto lain. Kuahnya pake kayu manis, pala, cengkeh, kapulaga yang bikin wangi hangat khas rempah. Beberapa versi ngentalin kuah pake susu kental manis atau telur bebek yang dihancurin. Disajikan sama ketupat segitiga, bukan nasi. Pelengkapnya perkedel, soun, telur bebek, perasan limau kuit. Soto ini udah ada sejak zaman Kesultanan Banjar, sering disajikan di acara adat dan pernikahan. Simbol kehangatan. Hangat dan gurih, cocok buat sarapan pagi atau makan malam.",
     "pullQuote": "Lamun kada mamakan Soto Banjar, parak kada karuan rasanya.",
     "image": "/images/foods/soto-banjar-story.jpg"
   },

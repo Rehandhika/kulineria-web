@@ -8,7 +8,7 @@
     "gurih",
     "asin"
   ],
-  "imageUrl": "/images/foods/nasi-goreng.jpg",
+  "imageUrl": "/img/foods/nasi-goreng.png",
   "hero": {
     "image": "/images/foods/nasi-goreng-hero.jpg",
     "alt": "Sepiring Nasi Goreng Jawa kecap manis hangat bertabur telur ceplok dan acar segar di sampingnya",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Seni Wajan Panas dan Kelembutan Kecap Manis",
-    "body": "Nasi Goreng Indonesia memiliki keunikan rasa tersendiri yang membedakannya dari varian nasi goreng Tiongkok atau negara Asia lainnya. Kunci perbedaan utama ini terletak pada penggunaan kecap manis kental tradisional berbahan kedelai hitam yang memberikan sentuhan karamel manis gurih serta warna cokelat keemasan yang berkilau menggoda. Di Pulau Jawa, nasi goreng telah berkembang menjadi kuliner rakyat yang dinikmati mulai dari gerobak kaki lima malam hari hingga restoran hotel bintang lima.\n\nSecara historis, nasi goreng bermula dari tradisi masyarakat Tionghoa untuk memanfaatkan nasi sisa semalam agar tidak terbuang sia-sia. Di tangan masyarakat Jawa, resep ini dimodifikasi dengan penambahan terasi bakar, bawang merah lokal, kemiri, cabai merah, dan siraman kecap manis khas. Teknik memasaknya menuntut api besar ('high heat cooking') agar menghasilkan aroma smoky yang khas, yang dalam kuliner oriental disebut sebagai 'wok hei' atau napas wajan, yang menyelimuti setiap butir nasi yang terurai kering.",
+    "body": "Nasi goreng berawal dari tradisi Tiongkok kuno, cara ngolah nasi sisa biar nggak mubazir. Waktu pedagang Tionghoa bawa teknik ini ke Nusantara abad ke-16, orang lokal nambahin terasi, kecap manis, dan cabai. Kecap manis ini yang bikin nasi goreng Indonesia beda dari negara lain, warnanya coklat keemasan, rasanya manis gurih. Dari gerobak kaki lima sampai hotel bintang lima, nasi goreng ada di mana-mana. Tahun 2017 CNN ngasih peringkat kedua makanan terenak dunia. Setiap orang punya versi favoritnya masing-masing, itulah keunikan nasi goreng.",
     "pullQuote": "Nasi goreng adalah perpaduan kehangatan nasi semalam dan magisnya kecap manis",
     "image": "/images/foods/nasi-goreng-story.jpg"
   },

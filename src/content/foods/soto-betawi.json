@@ -7,7 +7,7 @@
     "gurih",
     "asin"
   ],
-  "imageUrl": "/images/foods/soto-betawi.jpg",
+  "imageUrl": "/img/foods/soto-betawi.png",
   "hero": {
     "image": "/images/foods/soto-betawi-hero.jpg",
     "alt": "Semangkuk Soto Betawi dengan kuah putih susu hangat, emping melinjo, dan taburan daun bawang",
@@ -15,7 +15,7 @@
   },
   "story": {
     "headline": "Perpaduan Harmonis Santan, Susu, dan Rempah Pala",
-    "body": "Soto Betawi adalah representasi kuliner Jakarta yang megah, menonjolkan pengaruh percampuran budaya peranakan Tionghoa, Arab, India, dan Belanda yang menetap di kota pelabuhan Batavia kuno. Istilah 'Soto Betawi' pertama kali dipopulerkan ke publik oleh seorang penjual soto bernama Lie Boen Po pada tahun 1977 di kawasan hiburan THR Lokasari, Jakarta Barat. Ciri khas paling mencolok dari Soto Betawi yang membedakannya dari jenis soto Nusantara lainnya adalah tekstur kuahnya yang putih kental kekuningan, hasil perpaduan harmonis santan kelapa kelapa segar dengan susu sapi murni cair.\n\nPenggunaan susu sapi murni ini diyakini terinspirasi dari pengaruh kuliner Arab dan India, yang memberikan rasa gurih berlemak tebal yang lembut (creamy) tanpa aroma amis daging. Kuah ini diracik dengan bumbu rempah aromatik hangat seperti biji pala, cengkeh, kayu manis, serai, daun jeruk purut, dan jahe. Di dalamnya, berisi potongan daging sapi sandung lamur, paru goreng kering yang garing, babat, Kentang rebus goreng setengah basah, dan emping melinjo renyah.",
+    "body": "Soto Betawi lahir dari perpaduan budaya di Batavia tempo dulu. Awalnya dari caudo, makanan berkuah bawaan imigran Tionghoa abad ke-18. Isian daging babi diganti sapi biar cocok sama penduduk Muslim. Nama Soto Betawi muncul tahun 1977, dipopulerkan Lie Boen Po di THR Lokasari. Bedanya soto Betawi dengan soto lain ada di kuah campuran santan dan susu sapi, dikasih pala, cengkeh, kayu manis. Gurihnya beda. Ditetapkan sebagai warisan budaya Jakarta. Soto yang kaya sejarah dan rasa, wajib dicoba kalo ke Jakarta.",
     "pullQuote": "Gurih tebal kuah susu kelapa berpadu kesegaran jeruk limau khas Batavia kuno",
     "image": "/images/foods/soto-betawi-story.jpg"
   },

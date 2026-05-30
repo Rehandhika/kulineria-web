@@ -11,9 +11,10 @@ interface Props {
   body: string;
   pullQuote?: string;
   image?: string;
+  regionName?: string;
 }
 
-export default function StorySection({ headline, body, pullQuote, image }: Props) {
+export default function StorySection({ headline, body, pullQuote, image, regionName }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -69,7 +70,11 @@ export default function StorySection({ headline, body, pullQuote, image }: Props
       <div className="story-grid">
         {image && (
           <div className="story-image-wrapper">
+            {regionName && (
+              <span className="story-polaroid-badge">{regionName}</span>
+            )}
             <img src={image} alt={headline} loading="lazy" className="story-img" />
+            <span className="story-polaroid-caption">Warisan Nusantara</span>
           </div>
         )}
         <div className="story-content">

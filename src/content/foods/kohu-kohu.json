@@ -8,7 +8,7 @@
     "pedas",
     "asam"
   ],
-  "imageUrl": "/img/foods/kohu-kohu.jpg",
+  "imageUrl": "/img/foods/kohu-kohu.png",
   "hero": {
     "image": "/img/foods/kohu-kohu-hero.jpg",
     "alt": "Kohu-kohu urap ikan cakalang khas Maluku",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Urap Pesisir dengan Sentuhan Cakalang Asar",
-    "body": "Jika Pulau Jawa terkenal dengan urap sayurnya, maka Kepulauan Maluku memiliki kembaran eksotisnya bernama Kohu-kohu. Perbedaan mendasar yang membuat kohu-kohu sangat istimewa adalah penambahan suwiran ikan cakalang asar (ikan asap) ke dalam campuran sayuran segar dan kelapa parut bumbu.\n\nHidangan ini lahir dari kebiasaan para nelayan Maluku yang memanfaatkan sisa ikan asar tangkapan hari sebelumnya untuk dicampur dengan sayuran pekarangan yang renyah. Sayuran yang digunakan seperti kacang panjang dan tauge biasanya direbus sangat sebentar (setengah matang) atau bahkan disajikan mentah untuk mempertahankan tekstur garing alami.\n\nBumbu kelapanya diperkaya dengan perasan air jeruk lemon cui segar yang berpadu dengan bawang merah mentah iris dan cabai. Kehadiran ikan cakalang asar memberikan aroma asap yang khas dan gurih laut yang mendalam. Kohu-kohu biasanya dimakan bersama singkong rebus, keladi rebus, atau sagu lempeng sebagai menu makan siang yang menyegarkan.",
+    "body": "Kohu-kohu versi Maluku dari urap sayur, tapi ada suwiran ikan cakalang asap di dalamnya. Dulu nelayan bikin ini dari sisa ikan asar kemarin dicampur sayuran segar pekarangan. Kacang panjang dan tauge cuma direbus sebentar biar masih krenyes. Bumbu kelapa dikasih perasan lemon cui, bawang merah iris, dan cabai. Ikan asap ngasih rasa gurih laut yang dalem. Biasanya dimakan sama singkong rebus atau sagu lempeng sebagai menu makan siang. Ikan asap yang gurih berpadu sama sayuran segar, cocok buat makan siang.",
     "pullQuote": "Kohu-kohu adalah pertemuan segar sayur ladang dan gurih cakalang asap samudra.",
     "image": "/img/foods/kohu-kohu-story.jpg"
   },

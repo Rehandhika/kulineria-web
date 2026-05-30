@@ -94,7 +94,7 @@ export default function HeroCinematic({ food, regionName }: Props) {
   }, [food.name]);
 
   const regionColor = `var(--c-${food.region})`;
-  const heroImgSrc = food.hero?.image || food.imageUrl;
+  const heroImgSrc = food.imageUrl || food.hero?.image;
 
   return (
     <section ref={containerRef} className="hero" aria-label={`Hero ${food.name}`}>

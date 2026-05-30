@@ -8,7 +8,7 @@
     "gurih",
     "pedas"
   ],
-  "imageUrl": "/images/foods/tinutuan.jpg",
+  "imageUrl": "/img/foods/tinutuan.png",
   "hero": {
     "image": "/images/foods/tinutuan-hero.jpg",
     "alt": "Semangkuk Tinutuan kuning cerah dengan campuran kangkung hijau, daun kemangi, pipilan jagung manis, disajikan dengan ikan asin goreng dan sambal roa",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Harmoni Sayur dan Rasa Syukur di Bumi Kawanua",
-    "body": "Tinutuan, atau yang lebih populer dikenal secara nasional sebagai Bubur Manado, adalah hidangan tradisional khas Sulawesi Utara yang sarat akan gizi. Dasar bubur ini terbuat dari beras yang dimasak bersama potongan ubi jalar manis, labu kuning, dan jagung manis pipil hingga hancur melumer berwarna kuning keemasan yang indah. Adonan dasar ini kemudian diperkaya dengan beragam sayuran hijau segar seperti kangkung, bayam, daun kemangi yang wangi, serta yang paling otentik: daun gedi yang memberikan tekstur sedikit kental dan rasa gurih alami yang khas.\n\nSecara etimologis, kata 'Tinutuan' berasal dari bahasa Minahasa yang berarti 'diberi air banyak' atau 'diaduk campur'. Legenda urban masyarakat setempat menceritakan bahwa Tinutuan tercipta pada masa penjajahan ketika terjadi krisis pangan akibat perang. Penduduk desa terpaksa memadukan sisa beras yang sangat sedikit dengan segala macam hasil bumi yang tumbuh liar di pekarangan rumah seperti ubi, labu, dan dedaunan hijau ke dalam satu kuali besar agar cukup dimakan oleh seluruh anggota keluarga. Kebiasaan ini lambat laun bertransformasi menjadi kuliner pemersatu yang melambangkan kerukunan, kesederhanaan, dan rasa syukur masyarakat kawanua.",
+    "body": "Tinutuan atau Bubur Manado lahir dari masa sulit pas perang. Karena beras terbatas, warga Minahasa mencampurnya dengan ubi, labu kuning, jagung, dan sayuran hijau kayak kangkung, bayam, kemangi, daun gedi. Semua dimasak jadi satu sampai hancur lumer, warnanya kuning keemasan. Tinutuan dari bahasa Minahasa artinya diaduk campur. Dulu cara bertahan hidup, sekarang jadi kuliner sehat kebanggaan. Dikasih ikan asin dan sambal terasi. Sehat, mengenyangkan, dan penuh sayuran, cocok buat yang lagi diet.",
     "pullQuote": "Tinutuan mengajarkan bahwa dalam kesederhanaan bahan pekarangan, tersimpan kekayaan rasa dan kesehatan yang melimpah.",
     "image": "/images/foods/tinutuan-story.jpg"
   },

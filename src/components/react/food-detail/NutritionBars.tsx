@@ -33,6 +33,7 @@ export default function NutritionBars({ nutrition }: Props) {
       unit: 'g',
       target: AKG.protein,
       color: 'var(--c-brand-mocha)',
+      gradient: 'linear-gradient(90deg, #A88F78 0%, var(--c-brand-mocha) 100%)',
       desc: 'Membangun & memperbaiki jaringan tubuh'
     },
     {
@@ -41,6 +42,7 @@ export default function NutritionBars({ nutrition }: Props) {
       unit: 'g',
       target: AKG.carbs,
       color: 'var(--c-accent)',
+      gradient: 'linear-gradient(90deg, #EAA182 0%, var(--c-accent) 100%)',
       desc: 'Sumber energi utama aktivitas harian'
     },
     {
@@ -49,6 +51,7 @@ export default function NutritionBars({ nutrition }: Props) {
       unit: 'g',
       target: AKG.fat,
       color: 'var(--c-brand-caramel)',
+      gradient: 'linear-gradient(90deg, #E6C594 0%, var(--c-brand-caramel) 100%)',
       desc: 'Pelindung organ & penyerapan vitamin'
     },
   ];
@@ -99,7 +102,7 @@ export default function NutritionBars({ nutrition }: Props) {
                   className="nutrition-bar-fill"
                   style={{
                     width: animate ? `${pct}%` : '0%',
-                    backgroundColor: item.color
+                    backgroundImage: item.gradient
                   }}
                   title={`${pct}% AKG`}
                 />

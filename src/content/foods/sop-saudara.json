@@ -8,7 +8,7 @@
     "asin",
     "pedas"
   ],
-  "imageUrl": "/images/foods/sop-saudara.jpg",
+  "imageUrl": "/img/foods/sop-saudara.png",
   "hero": {
     "image": "/images/foods/sop-saudara-hero.jpg",
     "alt": "Semangkuk Sop Saudara hangat dengan suwiran daging sapi empuk, perkedel kentang, paru goreng, bihun, dan taburan daun bawang bawang goreng",
@@ -16,7 +16,7 @@
   },
   "story": {
     "headline": "Sup Persaudaraan Hangat dari Pangkep",
-    "body": "Sop Saudara adalah hidangan sup daging sapi khas Kabupaten Pangkajene dan Kepulauan (Pangkep), Sulawesi Selatan. Kaldu sup ini memiliki karakteristik yang berbeda dengan coto; kuahnya berwarna kuning keruh karena penggunaan rempah-rempah yang kaya seperti jahe, lengkuas, serai, kunyit, pala, kayu manis, dan cengkih, tanpa campuran kacang tanah. Ciri khas penyajiannya yang unik adalah kehadiran bihun, perkedel kentang, telur rebus, serta potongan paru sapi goreng garing yang memberikan kombinasi tekstur kenyal, lembut, dan renyah sekaligus dalam satu mangkuk sup.\n\nNama 'Sop Saudara' lahir dari gagasan kreatif Haji Muhammad Aliah pada tahun 1957. Beliau merupakan seorang penjual coto asal Pangkep yang merantau ke Makassar. Terinspirasi dari nama kedai es legendaris bernama 'Es Saudara', beliau menamai sup buatannya 'Sop Saudara' dengan filosofi mendalam: 'Saudara' yang berarti persaudaraan. Harapannya, siapa pun yang datang menikmati sup ini akan merasa seperti makan bersama saudara kandung sendiri, mempererat silaturahmi tanpa memandang kasta atau asal daerah.",
+    "body": "Sop Saudara lahir tahun 1957 dari Haji Muhammad Aliah, penjual coto asal Pangkep. Terinspirasi nama kedai Es Saudara, dia pengen bikin sup yang bikin orang makan bareng kayak saudara sendiri. Bedanya sama coto, kuahnya kuning keruh tanpa kacang tanah, pake jahe, lengkuas, pala, kayu manis, cengkeh. Isinya daging sapi, bihun, perkedel kentang, telur rebus, dan paru goreng garing. Satu mangkuk berisi tekstur kenyal, lembut, dan renyah. Satu mangkuk sop saudara berisi banyak rasa dan tekstur yang beda-beda.",
     "pullQuote": "Mangkuk hangat Sop Saudara melarutkan segala perbedaan, menyatukan rasa dalam ikatan persaudaraan yang tulus.",
     "image": "/images/foods/sop-saudara-story.jpg"
   },

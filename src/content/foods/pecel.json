@@ -9,7 +9,7 @@
     "manis",
     "asin"
   ],
-  "imageUrl": "/images/foods/pecel.jpg",
+  "imageUrl": "/img/foods/Pecel.png",
   "hero": {
     "image": "/images/foods/pecel-hero.jpg",
     "alt": "Seporsi Pecel pincuk daun pisang dengan rempeyek kacang renyah",
@@ -17,7 +17,7 @@
   },
   "story": {
     "headline": "Kesederhanaan Sayur Bumi dalam Balutan Bumbu Kencur",
-    "body": "Pecel adalah salah satu mahakarya kuliner tradisional Jawa yang memiliki akar sejarah sangat tua. Kata 'pecel' telah tertulis dalam serat kuno abad ke-19, Serat Centhini, sebagai hidangan sayuran rebus bersiram sambal kacang yang disajikan kepada para bangsawan. Hidangan ini sangat populer di wilayah Jawa Tengah dan Jawa Timur, dengan Kota Madiun sebagai salah satu kiblat pecel paling tersohor di Indonesia. Secara filosofis, pecel menggambarkan kesederhanaan dan kedekatan harmonis masyarakat Jawa dengan hasil bumi.\n\nPerbedaan mendasar antara pecel dan gado-gado terletak pada bumbunya. Sambal pecel memiliki aroma kencur dan daun jeruk purut yang sangat dominan, memberikan rasa segar hangat beraroma sitrus. Kacang tanah digoreng garing, digiling bersama gula merah aren, bawang putih, cabai, kencur segar, daun jeruk purut, dan sedikit garam. Penyajian pecel paling autentik menggunakan 'pincuk', yaitu wadah dari lipatan daun pisang segar yang disemat lidi bambu, dilengkapi sayur seperti bayam, tauge, kacang panjang, serta bunga pohon turi (kembang turi) rebus.",
+    "body": "Pecel udah ada sejak zaman Mataram. Kata pecel disebut di Serat Centhini abad ke-19 sebagai hidangan sayur rebus bersiram sambal kacang. Bedanya sama gado-gado, bumbu pecel pake kencur dan daun jeruk purut dominan. Rasanya segar, wangi sitrus. Sayurnya sederhana: bayam, tauge, kacang panjang, kembang turi. Penyajian paling autentik pake pincuk daun pisang. Kota Madiun terkenal sebagai sentra pecel paling enak di Indonesia. Sederhana tapi kaya rasa dan gizi, makanya masih bertahan sampe sekarang.",
     "pullQuote": "Pecel pincuk daun pisang adalah rasa rindu tanah kelahiran yang bersahaja",
     "image": "/images/foods/pecel-story.jpg"
   },
