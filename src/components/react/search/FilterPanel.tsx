@@ -11,7 +11,7 @@ const MAP_ICONS: Record<string, string> = {
   kalimantan: '/img/map/Kalimantan.png',
   sulawesi: '/img/map/Sulawesi.png',
   'bali-ntt': '/img/map/bali-ntt.png',
-  'maluku-papua': '/img/map/Maluku Papua.png',
+  'maluku-papua': '/img/map/Maluku%20Papua.png',
 };
 
 const REGIONS: { id: RegionId; label: string; color: string; mapIcon: string }[] = [
@@ -30,6 +30,43 @@ const TASTES: { id: Taste; label: string }[] = [
   { id: 'asam',  label: 'Asam'  },
   { id: 'asin',  label: 'Asin'  },
 ];
+
+export function getTasteIcon(id: string, size = 14) {
+  switch (id.toLowerCase().trim()) {
+    case 'manis':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+        </svg>
+      );
+    case 'pedas':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M17.66 9.53a8.1 8.1 0 0 0-3.32-4.14 1 1 0 0 0-1.25.12 1 1 0 0 0-.17.3c-.63 1.76-.11 3.54.55 4.98a3 3 0 0 1-2.47 4.13c-.08 0-.16.01-.24.01a3 3 0 0 1-2.93-3.41 1 1 0 0 0-.25-.8 1 1 0 0 0-.91-.25 7 7 0 1 0 12.01-1.23 1 1 0 0 0-.98.29Z"/>
+        </svg>
+      );
+    case 'gurih':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M2 12h20a1 1 0 0 1 1 1v2a6 6 0 0 1-6 6H7a6 6 0 0 1-6-6v-2a1 1 0 0 1 1-1zm10-10a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm-4 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V5a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V5a1 1 0 0 1 1-1z"/>
+        </svg>
+      );
+    case 'asam':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C7.86 4 4.5 7.36 4.5 11.5S7.86 19 12 19c3.4 0 6.29-2.26 7.22-5.38a1 1 0 0 0-.66-1.23 1 1 0 0 0-1.21.65c-.63 2.11-2.58 3.96-5.35 3.96-2.76 0-5-2.24-5-5s2.24-5 5-5c2.44 0 4.47 1.8 4.9 4.14a1 1 0 0 0 1.2.78 1 1 0 0 0 .76-1.18z"/>
+        </svg>
+      );
+    case 'asin':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M19 8h-2V5c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v3H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 5h6v3H9V5zm8 15H7v-2h10v2zm0-4H7v-6h10v6z"/>
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 interface FilterPanelProps {
   isOpen: boolean;
@@ -163,8 +200,11 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
                     onClick={() => toggleRegion(r.id)}
                     aria-pressed={active}
                   >
-                    <img src={r.mapIcon} alt="" width="18" height="18" className="fp-chip-icon"
-                      style={{ objectFit: 'contain', flexShrink: 0, filter: active ? 'none' : 'grayscale(1) opacity(0.5)' }} />
+                    <span
+                      className="fp-chip-icon"
+                      style={{ '--map-icon-url': `url('${r.mapIcon}')` } as React.CSSProperties}
+                      aria-hidden="true"
+                    />
                     {r.label}
                   </button>
                 );
@@ -185,6 +225,7 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
                     onClick={() => toggleTaste(t.id)}
                     aria-pressed={active}
                   >
+                    <span className="fp-chip-symbol">{getTasteIcon(t.id)}</span>
                     {t.label}
                   </button>
                 );

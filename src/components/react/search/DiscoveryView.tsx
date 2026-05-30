@@ -13,6 +13,47 @@ const REGION_COLORS: Record<string, string> = {
   'maluku-papua': 'var(--c-maluku-papua)',
 };
 
+export function getTasteIcon(id: string, size = 11) {
+  switch (id.toLowerCase().trim()) {
+    case 'manis':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+        </svg>
+      );
+    case 'pedas':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M17.66 9.53a8.1 8.1 0 0 0-3.32-4.14 1 1 0 0 0-1.25.12 1 1 0 0 0-.17.3c-.63 1.76-.11 3.54.55 4.98a3 3 0 0 1-2.47 4.13c-.08 0-.16.01-.24.01a3 3 0 0 1-2.93-3.41 1 1 0 0 0-.25-.8 1 1 0 0 0-.91-.25 7 7 0 1 0 12.01-1.23 1 1 0 0 0-.98.29Z"/>
+        </svg>
+      );
+    case 'gurih':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M2 12h20a1 1 0 0 1 1 1v2a6 6 0 0 1-6 6H7a6 6 0 0 1-6-6v-2a1 1 0 0 1 1-1zm10-10a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm-4 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V5a1 1 0 0 1 1-1z"/>
+        </svg>
+      );
+    case 'asam':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C7.86 4 4.5 7.36 4.5 11.5S7.86 19 12 19c3.4 0 6.29-2.26 7.22-5.38a1 1 0 0 0-.66-1.23 1 1 0 0 0-1.21.65c-.63 2.11-2.58 3.96-5.35 3.96-2.76 0-5-2.24-5-5s2.24-5 5-5c2.44 0 4.47 1.8 4.9 4.14a1 1 0 0 0 1.2.78 1 1 0 0 0 .76-1.18z"/>
+        </svg>
+      );
+    case 'asin':
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}>
+          <path d="M19 8h-2V5c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v3H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 5h6v3H9V5zm8 15H7v-2h10v2zm0-4H7v-6h10v6z"/>
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
+function formatTasteName(taste: string) {
+  return taste.charAt(0).toUpperCase() + taste.slice(1).toLowerCase();
+}
+
 interface FoodItem {
   id: string;
   name: string;
@@ -119,7 +160,10 @@ export default function DiscoveryView({ initialFoods }: Props) {
                   <span className="result-card-region">{food.region}</span>
                   <div className="result-card-tags">
                     {food.taste.map((t) => (
-                      <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>{t}</span>
+                      <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '3px 8px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        {getTasteIcon(t, 11)}
+                        {formatTasteName(t)}
+                      </span>
                     ))}
                   </div>
                 </div>

@@ -461,7 +461,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 28px;
+  padding: 11px 24px; /* Audited spacing: slightly slimmer and highly premium */
   background: var(--c-surface);
   color: var(--c-text-1);
   border: 2px solid var(--c-border-strong);
@@ -471,7 +471,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   cursor: pointer;
-  box-shadow: 0 8px 32px rgba(60, 42, 30, 0.18), 0 2px 8px rgba(60, 42, 30, 0.10);
+  box-shadow: 0 8px 32px rgba(60, 42, 30, 0.15), 0 2px 8px rgba(60, 42, 30, 0.08);
   transition:
     background 0.2s var(--ease-smooth),
     color 0.2s var(--ease-smooth),
@@ -483,16 +483,16 @@
 }
 
 .filter-fab:hover {
-  background: var(--c-brand-mocha-dark);
+  background: var(--c-accent); /* Terracotta Orange pop — ensures high contrast and no footer clash */
   color: var(--c-brand-cream);
-  border-color: var(--c-brand-mocha-dark);
+  border-color: var(--c-accent);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(60, 42, 30, 0.22), 0 4px 12px rgba(60, 42, 30, 0.14);
+  box-shadow: 0 12px 40px rgba(194, 65, 12, 0.25), 0 4px 12px rgba(194, 65, 12, 0.15);
 }
 
 .filter-fab:active {
   transform: translateY(0);
-  box-shadow: 0 4px 16px rgba(60, 42, 30, 0.14);
+  box-shadow: 0 4px 16px rgba(194, 65, 12, 0.15);
 }
 
 .filter-fab--active {
@@ -502,8 +502,9 @@
 }
 
 .filter-fab--active:hover {
-  background: var(--c-brand-mocha);
-  border-color: var(--c-brand-mocha);
+  background: var(--c-accent-hover); /* Brighter terracotta pop on hover for outstanding feedback */
+  border-color: var(--c-accent-hover);
+  color: var(--c-brand-cream);
 }
 
 .filter-fab-badge {
@@ -716,10 +717,36 @@
 }
 
 .fp-chip-icon {
-  width: 18px;
-  height: 18px;
+  width: 26px; /* Audited: enlarged to 26px for pristine detail visibility */
+  height: 26px;
   flex-shrink: 0;
-  object-fit: contain;
+  background-color: currentColor; /* Menyamakan warna secara dinamis dengan warna teks / icon rasa solid! */
+  -webkit-mask-image: var(--map-icon-url);
+  mask-image: var(--map-icon-url);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  margin-right: 10px; /* Audited: increased spacing to match larger icon scale */
+  user-select: none;
+  opacity: 0.65; /* Elegant semi-transparency when inactive */
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.fp-chip--active .fp-chip-icon {
+  opacity: 1; /* Full opacity when active */
+}
+
+.fp-chip-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-right: 6px; /* Custom margin-right to align nicely with text */
+  flex-shrink: 0;
+  line-height: 1;
   user-select: none;
 }
 
