@@ -19,13 +19,13 @@ export default function LazyImage({
   className = '',
   placeholderColor = 'var(--c-surface-2)',
 }: LazyImageProps) {
-  const imgRef = useRef<HTMLImageElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    const img = imgRef.current;
-    if (!img) return;
+    const el = wrapperRef.current;
+    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -34,15 +34,16 @@ export default function LazyImage({
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' }
+      { rootMargin: '100px' }
     );
 
-    observer.observe(img);
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   return (
     <div
+      ref={wrapperRef}
       className={`lazy-image-wrapper ${className}`}
       style={{
         backgroundColor: placeholderColor,
@@ -52,7 +53,6 @@ export default function LazyImage({
     >
       {isInView && (
         <img
-          ref={imgRef}
           src={src}
           alt={alt}
           width={width}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { useStore } from '@nanostores/react';
 import { $selectedRegion } from '@/lib/stores/selectedRegion';
 import { getAllFoods, getRegions } from '@/lib/data/loaders';
+import LazyImage from '../shared/LazyImage';
 import './FeaturedFoodsGrid.css';
 
 const ITEMS_PER_PAGE = 8;
@@ -234,20 +235,7 @@ export default function FeaturedFoodsGrid() {
                 className="result-card duo-card flex flex-col overflow-hidden"
                 key={food.id}
               >
-                <div className="result-card-image">
-                  <img
-                    src={imgUrl}
-                    alt={food.name}
-                    loading="lazy"
-                    onError={(e) => {
-                      const img = e.currentTarget as HTMLImageElement;
-                      if (!img.dataset.fallback) {
-                        img.dataset.fallback = '1';
-                        img.src = 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=70';
-                      }
-                    }}
-                  />
-                </div>
+                <LazyImage src={imgUrl} alt={food.name} className="result-card-image" />
                 <div className="result-card-content">
                   <h3>{food.name}</h3>
                   <span className="result-card-region">{foodRegion?.name || food.region}</span>

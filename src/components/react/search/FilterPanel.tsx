@@ -5,13 +5,22 @@ import { useStore } from '@nanostores/react';
 import { $regionFilters, $tasteFilters, clearFilters } from '@/lib/stores/search';
 import type { RegionId, Taste } from '@/types/food';
 
-const REGIONS: { id: RegionId; label: string; color: string }[] = [
-  { id: 'sumatera',     label: 'Sumatera',       color: 'var(--c-sumatera)' },
-  { id: 'jawa',         label: 'Jawa',            color: 'var(--c-jawa)' },
-  { id: 'kalimantan',   label: 'Kalimantan',      color: 'var(--c-kalimantan)' },
-  { id: 'sulawesi',     label: 'Sulawesi',        color: 'var(--c-sulawesi)' },
-  { id: 'bali-ntt',     label: 'Bali & NTT',      color: 'var(--c-bali-ntt)' },
-  { id: 'maluku-papua', label: 'Maluku & Papua',  color: 'var(--c-maluku-papua)' },
+const MAP_ICONS: Record<string, string> = {
+  sumatera: '/img/map/Sumatera.png',
+  jawa: '/img/map/Jawa.png',
+  kalimantan: '/img/map/Kalimantan.png',
+  sulawesi: '/img/map/Sulawesi.png',
+  'bali-ntt': '/img/map/bali-ntt.png',
+  'maluku-papua': '/img/map/Maluku Papua.png',
+};
+
+const REGIONS: { id: RegionId; label: string; color: string; mapIcon: string }[] = [
+  { id: 'sumatera',     label: 'Sumatera',       color: 'var(--c-sumatera)',     mapIcon: MAP_ICONS.sumatera },
+  { id: 'jawa',         label: 'Jawa',            color: 'var(--c-jawa)',          mapIcon: MAP_ICONS.jawa },
+  { id: 'kalimantan',   label: 'Kalimantan',      color: 'var(--c-kalimantan)',   mapIcon: MAP_ICONS.kalimantan },
+  { id: 'sulawesi',     label: 'Sulawesi',        color: 'var(--c-sulawesi)',     mapIcon: MAP_ICONS.sulawesi },
+  { id: 'bali-ntt',     label: 'Bali & NTT',      color: 'var(--c-bali-ntt)',     mapIcon: MAP_ICONS['bali-ntt'] },
+  { id: 'maluku-papua', label: 'Maluku & Papua',  color: 'var(--c-maluku-papua)', mapIcon: MAP_ICONS['maluku-papua'] },
 ];
 
 const TASTES: { id: Taste; label: string }[] = [
@@ -32,20 +41,70 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
   const tastes  = useStore($tasteFilters);
   const panelRef = useRef<HTMLDivElement>(null);
 
+  const triggerRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     if (!isOpen) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+
+    // Record the element that had focus before opening
+    triggerRef.current = document.activeElement as HTMLElement;
+
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (e.key !== 'Tab' || !panelRef.current) return;
+
+      const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      const focusables = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>(focusableSelector)
+      );
+
+      if (focusables.length === 0) return;
+
+      const firstElement = focusables[0];
+      const lastElement = focusables[focusables.length - 1];
+      const activeElement = document.activeElement as HTMLElement;
+
+      if (e.shiftKey) {
+        // Shift + Tab: wrap from first element to last element
+        if (activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        // Tab: wrap from last element to first element
+        if (activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+
+    // Initial focus on the first focusable button (Hapus/Clear button if active, or Close button)
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const firstFocusable = panelRef.current?.querySelector<HTMLElement>(focusableSelector);
+    if (firstFocusable) {
+      setTimeout(() => firstFocusable.focus(), 50);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+      // Return focus to the trigger element when closed
+      if (triggerRef.current) {
+        triggerRef.current.focus();
+        triggerRef.current = null;
+      }
+    };
   }, [isOpen, onClose]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen) panelRef.current?.querySelector<HTMLElement>('button')?.focus();
   }, [isOpen]);
 
   function toggleRegion(id: RegionId) {
@@ -99,11 +158,13 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
                 return (
                   <button
                     key={r.id}
-                    className={`fp-chip${active ? ' fp-chip--active' : ''}`}
-                    style={active ? { '--fp-chip-color': r.color } as React.CSSProperties : undefined}
+                    className={`fp-chip fp-chip--region${active ? ' fp-chip--active' : ''}`}
+                    style={{ '--fp-chip-color': r.color } as React.CSSProperties}
                     onClick={() => toggleRegion(r.id)}
                     aria-pressed={active}
                   >
+                    <img src={r.mapIcon} alt="" width="18" height="18" className="fp-chip-icon"
+                      style={{ objectFit: 'contain', flexShrink: 0, filter: active ? 'none' : 'grayscale(1) opacity(0.5)' }} />
                     {r.label}
                   </button>
                 );

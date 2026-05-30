@@ -3,81 +3,122 @@ import SearchBar from '../../react/search/SearchBar';
 ---
 
 <section class="search-hero" id="search-hero">
-  <div class="search-hero-bg" aria-hidden="true"></div>
-
-  <div class="search-hero-inner">
-    <span class="search-hero-label">Jelajahi Nusantara</span>
-
-    <h1 class="search-hero-title" id="search-hero-title">
-      Cari &amp; Temukan Kuliner Nusantara
-    </h1>
-
-    <div class="search-hero-bar">
-      <SearchBar client:load />
-    </div>
+  <div class="search-hero-bg-wrapper" aria-hidden="true">
+    <div class="search-hero-bg"></div>
+  </div>
+  <div class="search-hero-motif" aria-hidden="true">
+    <img src="/img/motif/png ornamen nusantara.png" alt="" />
+  </div>
+  <!-- Seamless visual bottom organic wave divider filled with page background color -->
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C240,60 480,0 720,40 C960,80 1200,10 1440,40 L1440,120 L0,120 Z"
+        fill="var(--c-bg)" opacity="0.18"/>
+      <path d="M0,20 C180,70 360,10 540,40 C720,70 900,10 1080,40 C1260,70 1380,30 1440,20 L1440,120 L0,120 Z"
+        fill="var(--c-bg)" opacity="0.35"/>
+      <path d="M0,40 C200,90 400,20 600,60 C800,100 1000,20 1200,60 C1320,80 1380,70 1440,60 L1440,120 L0,120 Z"
+        fill="var(--c-bg)"/>
+    </svg>
   </div>
 
-  <!-- NARA wave — peeking bottom right -->
-  <div class="search-hero-nara" aria-hidden="true">
-    <img
-      src="/img/nara/NARA 5.png"
-      alt=""
-      class="search-hero-nara-img"
-      width="140"
-      height="140"
-      draggable="false"
-      onerror="this.parentElement.style.display='none'"
-    />
+  <div class="search-hero-inner">
+    <!-- Hero body: fully centered vertical flow structure -->
+    <div class="search-hero-body">
+      <!-- Mascot NARA - Centered top, grounded on the baseline -->
+      <div class="search-hero-nara" aria-hidden="true">
+        <img
+          src="/img/nara/NARA 3.png"
+          alt="Nara menyambut Anda"
+          class="search-hero-nara-img"
+          width="187"
+          height="187"
+          draggable="false"
+          onerror="this.parentElement.style.display='none'"
+        />
+      </div>
+
+      <!-- Content area: groups title and search bar -->
+      <div class="search-hero-content">
+        <!-- Title: elegant and neat large text -->
+        <h1 class="search-hero-title">Cari Rasa Nusantara</h1>
+
+        <!-- Search Bar -->
+        <div class="search-hero-bar">
+          <SearchBar client:load />
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
   import { gsap } from 'gsap';
+  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
 
   function initSearchHero() {
     const hero = document.getElementById('search-hero');
     if (!hero || hero.dataset.animated) return;
     hero.dataset.animated = 'true';
 
-    const label = hero.querySelector('.search-hero-label');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const bg = hero.querySelector('.search-hero-bg');
+    const motif = hero.querySelector('.search-hero-motif img');
     const title = hero.querySelector('.search-hero-title');
     const bar = hero.querySelector('.search-hero-bar');
-    const bg = hero.querySelector('.search-hero-bg');
+    const nara = hero.querySelector('.search-hero-nara-img');
 
-    const tl = gsap.timeline({ defaults: { ease: 'power4.out', overwrite: 'auto' } });
+    if (reduced) {
+      if (bg) gsap.set(bg, { opacity: 1 });
+      if (motif) gsap.set(motif, { opacity: 1 });
+      if (title) gsap.set(title, { opacity: 1 });
+      if (bar) gsap.set(bar, { opacity: 1 });
+      if (nara) gsap.set(nara, { opacity: 1 });
+      return;
+    }
+
+    const tl = gsap.timeline({ defaults: { overwrite: 'auto' } });
 
     tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, 0)
-      .fromTo(label, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.15)
-      .fromTo(title, { y: 40, opacity: 0, filter: 'blur(8px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change', duration: 1.1 }, 0.25)
-      .fromTo(bar, { y: 24, opacity: 0, scale: 0.92 }, {
-        y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.7)',
-      }, '-=0.3');
+      .fromTo(motif, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }, 0)
+      .fromTo(nara, { opacity: 0, scale: 0.82, y: -15 }, { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(1.5)' }, 0.1)
+      .fromTo(title, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.25)
+      .fromTo(bar, { y: 14, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(1.5)' }, '-=0.25');
   }
 
-  /* ─── SINKRONISASI DENGAN TRANSISI HALAMAN ─────────────────────────────
-   *
-   * DOMContentLoaded  → load awal (bukan navigasi Swup)
-   * kulineria:page:ready → navigasi Swup: dispatch tepat di animation:in:start,
-   *   setelah DOM swap + 1 rAF browser paint — sudah deterministik.
-   * ────────────────────────────────────────────────────────────────────── */
-
-  import { runOnPageReady } from '../../../lib/animations/gsap-presets';
   runOnPageReady(initSearchHero);
 </script>
 
 <style>
+  /* 
+    Set overflow: visible & z-index: 15 so that the absolutely positioned 
+    suggestions dropdown never gets clipped by the hero or rendered under other sections.
+  */
   .search-hero {
     position: relative;
+    z-index: 15;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    padding: calc(var(--nav-mobile-h) + var(--sp-8)) var(--page-px) var(--sp-8);
+    /* Compact top padding to prevent fixed navbar collision, and minimal bottom spacing clearing the wave */
+    padding: calc(var(--nav-mobile-h) + var(--sp-4)) 0 65px;
   }
   @media (min-width: 768px) {
-    .search-hero { padding: calc(var(--nav-h) + var(--sp-12)) var(--page-px) var(--sp-12); }
+    .search-hero { 
+      padding: calc(var(--nav-h) + var(--sp-6)) 0 95px; 
+    }
   }
 
+  /* Background wrapper to clip scale animation overflow and prevent seam leakage */
+  .search-hero-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Dark gradient background */
   .search-hero-bg {
     position: absolute;
     inset: 0;
@@ -92,79 +133,151 @@ import SearchBar from '../../react/search/SearchBar';
     opacity: 0;
   }
 
+  /* Motif overlay on dark bg */
+  .search-hero-motif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(160px, 30vw, 360px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    filter: brightness(1.5) saturate(0.1);
+    user-select: none;
+  }
+  .search-hero-motif img { width: 100%; height: auto; display: block; }
+
+  /* Seamless visual bottom organic wave divider */
+  .hero-wave {
+    position: absolute;
+    bottom: -1px; /* Prevents visual rendering seam gap line */
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 2;
+    pointer-events: none;
+    line-height: 0;
+    overflow: hidden;
+  }
+  .hero-wave svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .hero-wave {
+      height: 72px;
+    }
+  }
+
+  /* Inner layout: wrapper that forces vertical flow and centers content */
   .search-hero-inner {
     position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 780px;
-  }
-
-  .search-hero-label {
-    display: inline-block;
-    font-family: var(--ff-body);
-    font-size: var(--fs-sm);
-    font-weight: 700;
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--c-brand-caramel);
-    margin-bottom: var(--sp-6);
-    opacity: 0;
-  }
-
-  .search-hero-title {
-    font-family: var(--ff-display);
-    font-weight: 900;
-    line-height: 1.04;
-    letter-spacing: var(--ls-tight);
-    margin-bottom: var(--sp-5);
-    font-size: clamp(2.4rem, 10vw, 5.5rem);
-    background: var(--grad-warm);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .search-hero-bar {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  /* NARA */
-  .search-hero-nara {
-    position: absolute;
-    bottom: 0;
-    right: clamp(16px, 5vw, 80px);
     z-index: 3;
-    pointer-events: none;
-    opacity: 0;
-    animation: searchNaraIn 0.7s ease 1.2s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered content layout */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--sp-5); /* Mobile padding matches navbar */
   }
+  @media (min-width: 768px) {
+    .search-hero-inner {
+      max-width: var(--container-max);
+      padding: 0 var(--sp-6); /* Intermediate tablet padding */
+    }
+  }
+  @media (min-width: 1024px) {
+    .search-hero-inner {
+      padding: 0 var(--sp-10); /* Desktop padding matches navbar */
+    }
+  }
+
+  /* Hero body: fully centered vertical structure */
+  .search-hero-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 600px; /* Nicely capped container for vertical alignment */
+    gap: 0;
+  }
+
+  /* Content area: groups search bar and title */
+  .search-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Mascot NARA - Centered top, grounded on the baseline */
+  .search-hero-nara {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    margin-bottom: var(--sp-3); /* Distance separating mascot and title on mobile */
+  }
+  @media (min-width: 768px) {
+    .search-hero-nara {
+      margin-bottom: var(--sp-4); /* Spacing on desktop */
+    }
+  }
+
   .search-hero-nara-img {
-    width: clamp(80px, 11vw, 140px);
+    width: 138px; /* Enlarged by another 20% for stronger brand presence */
     height: auto;
     object-fit: contain;
     display: block;
     user-select: none;
-    filter: drop-shadow(0 -4px 12px rgba(0,0,0,0.3));
-    animation: searchNaraFloat 3.5s ease-in-out infinite;
-    animation-delay: 2s;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.3)); /* Premium grounded drop shadow */
   }
-  @keyframes searchNaraIn { to { opacity: 1; } }
-  @keyframes searchNaraFloat {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-8px); }
-  }
-  @media (max-width: 640px) {
-    .search-hero-nara { right: 8px; }
-    .search-hero-nara-img { width: 70px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .search-hero-nara-img { animation: none; }
-    .search-hero-nara { opacity: 1; animation: none; }
+  @media (min-width: 768px) {
+    .search-hero-nara-img {
+      width: 187px; /* Enlarged by another 20% for stronger brand presence */
+    }
   }
 
-  @media (max-width: 767px) {
-    .search-hero-label { font-size: var(--fs-xs); }
+  /* Focused single title editorial styling */
+  .search-hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 5.5vw, 3rem); /* Elegant, premium large title scale */
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #FFF8F1; /* Solid premium off-white */
+    margin-bottom: var(--sp-4); /* Spacing to search bar on mobile */
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    text-align: center; /* Always centered */
+  }
+  @media (min-width: 768px) {
+    .search-hero-title {
+      margin-bottom: var(--sp-5); /* Spacing on desktop */
+    }
+  }
+
+  /* Centered Search Bar wrapper with overflow clearance */
+  .search-hero-bar {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 10;
+  }
+  @media (min-width: 768px) {
+    .search-hero-bar {
+      max-width: 460px; /* Shrunk slightly for tighter layout */
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-hero-bg,
+    .search-hero-motif,
+    .search-hero-title, .search-hero-bar,
+    .search-hero-nara-img { animation: none !important; }
   }
 </style>

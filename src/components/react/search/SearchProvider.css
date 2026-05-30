@@ -73,9 +73,10 @@
   background: var(--c-surface);
   border: 1.5px solid var(--c-border);
   border-radius: var(--r-xl);
-  box-shadow: var(--sh-lg);
+  box-shadow: var(--sh-4);
   overflow: hidden;
-  z-index: 10;
+  z-index: 50; /* Ensure suggestions float above all other elements */
+  animation: duoSlideDown var(--dur-fast) var(--ease-ui) both;
 }
 
 .suggestion-item {
@@ -86,26 +87,35 @@
   padding: var(--sp-3) var(--sp-4);
   background: none;
   border: none;
+  border-left: 3px solid transparent;
   text-align: left;
   cursor: pointer;
   font-family: var(--ff-body);
-  transition: background 0.15s;
+  transition: 
+    background var(--dur-fast) var(--ease-smooth),
+    padding-left var(--dur-fast) var(--ease-smooth),
+    border-color var(--dur-fast) var(--ease-smooth);
 }
 
 .suggestion-item:hover,
 .suggestion-item.active {
   background: var(--c-surface-2);
+  padding-left: calc(var(--sp-4) + 6px); /* Elegant visual slide-in shift */
+  border-left-color: var(--c-accent); /* Terracotta left accent bar */
 }
 
 .suggestion-name {
   font-size: var(--fs-base);
   color: var(--c-text-1);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .suggestion-region {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   color: var(--c-text-3);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
 }
 
 /* ─────────────────────────────────────────────
@@ -429,9 +439,15 @@
   position: fixed;
   bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(12px) scale(0.92);
   z-index: var(--z-sticky);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-out-expo, cubic-bezier(0.16,1,0.3,1));
+}
+.filter-fab-wrap--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 @media (min-width: 1024px) {
@@ -525,18 +541,21 @@
   pointer-events: auto;
 }
 
-/* Panel — compact, bottom sheet */
+/* Panel — bottom sheet */
 .fp-panel {
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(20px);
+  transform: translateX(-50%) translateY(24px);
   z-index: var(--z-overlay);
   width: min(94vw, 560px);
+  max-height: 85dvh;
+  display: flex;
+  flex-direction: column;
   background: var(--c-surface);
-  border-radius: 20px 20px 16px 16px;
+  border-radius: 24px 24px 16px 16px;
   box-shadow: 0 -3px 0 var(--c-border), 0 -20px 60px rgba(43, 30, 20, 0.20);
-  padding: var(--sp-4) var(--sp-4) var(--sp-3);
+  padding: var(--sp-6) var(--sp-5) var(--sp-4);
   opacity: 0;
   pointer-events: none;
   transition:
@@ -548,13 +567,22 @@
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
+@media (max-width: 480px) {
+  .fp-panel {
+    width: 100%;
+    max-height: 85dvh;
+    border-radius: 24px 24px 0 0;
+    padding: var(--sp-6) var(--sp-4) var(--sp-4);
+  }
+}
 
 /* Header */
 .fp-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  flex-shrink: 0;
 }
 .fp-title {
   font-family: var(--ff-body);
@@ -571,21 +599,43 @@
   color: var(--c-accent);
   background: none;
   border: none;
-  padding: 4px 0;
+  padding: 4px 8px;
   cursor: pointer;
-  transition: opacity 0.15s;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
 }
-.fp-clear-btn:hover { opacity: 0.7; }
+.fp-clear-btn:hover {
+  background: var(--c-accent-light);
+  color: var(--c-accent-dark);
+}
 
-/* Body: dua section berdampingan */
+/* Body: dua section berdampingan, dengan scrollbar mandiri */
 .fp-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-3);
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-4);
+  overflow-y: auto;
+  max-height: calc(85dvh - 120px);
+  padding-right: var(--sp-1);
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-border) transparent;
 }
-@media (max-width: 400px) {
-  .fp-body { grid-template-columns: 1fr; }
+.fp-body::-webkit-scrollbar {
+  width: 6px;
+}
+.fp-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fp-body::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: 3px;
+}
+@media (max-width: 599px) {
+  .fp-body {
+    grid-template-columns: 1fr;
+    max-height: calc(85dvh - 140px);
+  }
 }
 
 /* Section label */
@@ -596,27 +646,31 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--c-text-3);
-  margin-bottom: var(--sp-2);
+  margin-bottom: var(--sp-3);
 }
 
-/* Grid chip 2 kolom dalam setiap section */
+/* Grid chip dalam setiap section */
 .fp-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  gap: var(--sp-2);
 }
 
-/* Wilayah: 1 kolom penuh karena nama panjang */
+/* Rasa: 2 kolom */
+.fp-section:not(.fp-section--region) .fp-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Wilayah: 1 kolom penuh */
 .fp-section--region .fp-grid {
   grid-template-columns: 1fr;
 }
 
-/* Chip — compact pill */
+/* Chip */
 .fp-chip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 7px 6px;
+  gap: var(--sp-1.5);
+  padding: 10px 12px;
   background: var(--c-surface-2);
   border: 1.5px solid var(--c-border-soft);
   border-radius: var(--r-md);
@@ -633,24 +687,54 @@
     background 0.15s var(--ease-smooth),
     color 0.15s var(--ease-smooth),
     border-color 0.15s var(--ease-smooth),
+    box-shadow 0.15s var(--ease-smooth),
     transform 0.12s var(--ease-bounce);
-}
-.fp-chip:hover {
-  background: var(--c-surface-3);
-  color: var(--c-text-1);
-  transform: scale(1.03);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .fp-chip:active { transform: scale(0.97); }
 
+/* ── Region chip (inactive hover) ── */
+.fp-chip--region {
+  justify-content: flex-start;
+  --fp-chip-hover-bg: color-mix(in srgb, var(--fp-chip-color) 14%, var(--c-surface));
+  --fp-chip-hover-border: color-mix(in srgb, var(--fp-chip-color) 30%, var(--c-border));
+}
+.fp-chip--region:hover {
+  background: var(--fp-chip-hover-bg);
+  border-color: var(--fp-chip-hover-border);
+  color: color-mix(in srgb, var(--fp-chip-color) 80%, #000);
+  transform: scale(1.03);
+}
+
+/* ── Taste chip (inactive hover) — warm tone, berbeda dari region ── */
+.fp-chip:hover:not(.fp-chip--region):not(.fp-chip--taste):not(.fp-chip--active) {
+  background: var(--c-accent-light);
+  border-color: var(--c-accent-alpha);
+  color: var(--c-accent-dark);
+  transform: scale(1.03);
+}
+
+.fp-chip-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
+  user-select: none;
+}
+
 /* Active region — warna brand region */
 .fp-chip--active {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+.fp-chip--region.fp-chip--active {
   background: var(--fp-chip-color, var(--c-accent));
   border-color: transparent;
   color: #fff;
 }
-.fp-chip--active:hover {
-  filter: brightness(1.1);
-  transform: scale(1.03);
+.fp-chip--region.fp-chip--active:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--fp-chip-color) 40%, transparent);
 }
 
 /* Active taste — mocha */
@@ -661,33 +745,42 @@
 }
 .fp-chip--taste:hover {
   background: var(--c-brand-cinnamon);
+  box-shadow: 0 2px 8px rgba(60, 42, 30, 0.20);
 }
 
 /* Footer: tombol close */
 .fp-footer {
   display: flex;
   justify-content: center;
-  padding-top: var(--sp-2);
+  padding-top: var(--sp-3);
   border-top: 1px solid var(--c-border-soft);
 }
 .fp-close-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   background: var(--c-surface-2);
   border: 1.5px solid var(--c-border);
   border-radius: var(--r-full);
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--c-text-3);
   cursor: pointer;
   transition: background 0.15s, color 0.15s, transform 0.15s var(--ease-bounce);
+  -webkit-tap-highlight-color: transparent;
 }
 .fp-close-btn:hover {
   background: var(--c-surface-3);
   color: var(--c-text-1);
-  transform: scale(1.1);
+  transform: scale(1.12);
+}
+@media (max-width: 480px) {
+  .fp-close-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.15rem;
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -698,6 +791,7 @@
   .fp-panel,
   .fp-chip,
   .filter-fab,
+  .filter-fab-wrap,
   .search-content {
     transition-duration: 1ms !important;
     animation-duration: 1ms !important;

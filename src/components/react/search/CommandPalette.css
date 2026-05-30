@@ -1,0 +1,118 @@
+/* ─────────────────────────────────────────────
+   Command Palette — overlay + modal
+───────────────────────────────────────────── */
+
+/* Backdrop */
+.command-palette-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay, 1000);
+  background: rgba(43, 30, 20, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  animation: cpBackdropIn 0.25s ease;
+}
+
+/* Modal card */
+.command-palette {
+  width: min(94vw, 560px);
+  background: var(--c-surface);
+  border-radius: var(--r-2xl);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: cpModalIn 0.3s var(--ease-out-expo, cubic-bezier(0.16,1,0.3,1));
+}
+
+@keyframes cpBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes cpModalIn {
+  from { opacity: 0; transform: translateY(-16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Input bar */
+.command-palette-input {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+
+.command-palette-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: var(--fs-lg);
+  font-family: var(--ff-body);
+  color: var(--c-text-1);
+}
+
+.command-palette-input input::placeholder {
+  color: var(--c-text-3);
+}
+
+.shortcut-hint {
+  font-size: var(--fs-xs);
+  color: var(--c-text-3);
+  background: var(--c-surface-2);
+  padding: 3px 8px;
+  border-radius: var(--r-md);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Results list */
+.command-palette-results {
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.command-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--ff-body);
+  transition: background 0.12s;
+}
+
+.command-result-item:hover,
+.command-result-item.active {
+  background: var(--c-surface-2);
+}
+
+.result-item-name {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--c-text-1);
+}
+
+.result-item-region {
+  font-size: var(--fs-sm);
+  color: var(--c-text-3);
+  text-transform: capitalize;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .command-palette-backdrop {
+    animation: none !important;
+  }
+  .command-palette {
+    animation: none !important;
+  }
+}

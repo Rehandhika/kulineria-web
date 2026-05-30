@@ -8,7 +8,6 @@ const foods = defineCollection({
     region: z.enum(['sumatera', 'jawa', 'kalimantan', 'sulawesi', 'bali-ntt', 'maluku-papua']),
     description: z.string(),
     taste: z.array(z.enum(['manis', 'pedas', 'gurih', 'asam', 'asin'])),
-    type: z.enum(['berkuah', 'digoreng', 'dibakar', 'mentah', 'minuman']),
     imageUrl: z.string(),
     hero: z.object({
       image: z.string(),

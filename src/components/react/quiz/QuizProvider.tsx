@@ -6,6 +6,8 @@ import QuizMenu from './QuizMenu';
 import QuizCountdown from './QuizCountdown';
 import QuizGame from './QuizGame';
 import QuizResults from './QuizResults';
+import './QuizMenu.css'; // Shared layouts, hero styles, and immersive gameplay backgrounds
+
 export default function QuizProvider() {
   const status = useQuizStore((s) => s.status);
 
@@ -27,8 +29,12 @@ export default function QuizProvider() {
   }, []);
 
   if (status === 'idle') return <QuizMenu />;
-  if (status === 'countdown') return <QuizCountdown />;
-  if (status === 'playing' || status === 'reviewing') return <QuizGame />;
-  if (status === 'finished') return <QuizResults />;
-  return <QuizMenu />;
+
+  return (
+    <div className="quiz-game-dark-bg">
+      {status === 'countdown' && <QuizCountdown />}
+      {(status === 'playing' || status === 'reviewing') && <QuizGame />}
+      {status === 'finished' && <QuizResults />}
+    </div>
+  );
 }

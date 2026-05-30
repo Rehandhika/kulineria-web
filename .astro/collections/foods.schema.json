@@ -37,16 +37,6 @@
             ]
           }
         },
-        "type": {
-          "type": "string",
-          "enum": [
-            "berkuah",
-            "digoreng",
-            "dibakar",
-            "mentah",
-            "minuman"
-          ]
-        },
         "imageUrl": {
           "type": "string"
         },
@@ -314,7 +304,6 @@
         "region",
         "description",
         "taste",
-        "type",
         "imageUrl"
       ],
       "additionalProperties": false

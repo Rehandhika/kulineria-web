@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import './SearchProvider.css';
+import './SearchCards.css';
 import {
   $searchQuery,
   $regionFilters,
@@ -56,10 +57,22 @@ export default function SearchProvider({ initialFoods }: Props) {
   const [hydrated, setHydrated]         = useState(false);
   const [contentKey, setContentKey]     = useState(0);
   const [filterOpen, setFilterOpen]     = useState(false);
+  const [fabVisible, setFabVisible]     = useState(false);
 
   useEffect(() => {
     syncFromUrl();
     setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    const hero = document.getElementById('search-hero');
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setFabVisible(!entry.isIntersecting),
+      { threshold: 0, rootMargin: '-80px 0px 0px 0px' }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -115,7 +128,7 @@ export default function SearchProvider({ initialFoods }: Props) {
       </div>
 
       {/* Floating FILTER button */}
-      <div className="filter-fab-wrap">
+      <div className={`filter-fab-wrap${fabVisible ? ' filter-fab-wrap--visible' : ''}`}>
         <button
           className={`filter-fab${activeFilterCount > 0 ? ' filter-fab--active' : ''}`}
           onClick={() => setFilterOpen(true)}

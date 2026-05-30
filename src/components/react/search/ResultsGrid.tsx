@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import LazyImage from '../shared/LazyImage';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -35,11 +36,30 @@ function getPageNumbers(current: number, total: number): (number | 'ellipsis')[]
 
 export default function ResultsGrid({ results, query }: { results: FoodItem[]; query: string }) {
   const [page, setPage] = useState(1);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const totalPages = Math.ceil(results.length / ITEMS_PER_PAGE);
   const startIdx = (page - 1) * ITEMS_PER_PAGE;
   const paginated = results.slice(startIdx, startIdx + ITEMS_PER_PAGE);
   const pageNumbers = getPageNumbers(page, totalPages);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('.result-card'));
+    if (!cards.length) return;
+    import('gsap').then(({ default: gsap }) => {
+      gsap.killTweensOf(cards);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.set(cards, { opacity: 1, y: 0, scale: 1 });
+        return;
+      }
+      gsap.fromTo(cards,
+        { opacity: 0, y: 32, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.07, ease: 'power3.out', clearProps: 'transform' }
+      );
+    });
+  }, [paginated]);
 
   function goToPage(p: number) {
     if (p < 1 || p > totalPages) return;
@@ -54,7 +74,7 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
         {query && <span className="results-query">untuk "{query}"</span>}
       </div>
 
-      <div className="results-grid-inner">
+      <div className="results-grid-inner" ref={gridRef}>
         {paginated.map((food) => (
           <a
             key={food.id}
@@ -62,9 +82,7 @@ export default function ResultsGrid({ results, query }: { results: FoodItem[]; q
             className="result-card duo-card flex flex-col overflow-hidden"
             onClick={() => sessionStorage.setItem('kulineria-return', '/jelajahi')}
           >
-            <div className="result-card-image">
-              <img src={food.imageUrl} alt={food.name} loading="lazy" />
-            </div>
+                <LazyImage src={food.imageUrl} alt={food.name} className="result-card-image" />
             <div className="result-card-content">
               <h3>{food.name}</h3>
               <span className="result-card-region">{food.region}</span>

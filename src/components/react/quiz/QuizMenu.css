@@ -1,68 +1,187 @@
-/* ── Container ── */
-.quiz-menu {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 0 var(--sp-4);
+/* ── Shared Layout Components ── */
+
+.quiz-menu-container {
+  width: 100%;
   position: relative;
 }
 
-/* ── Hero ── */
-.quiz-hero {
-  text-align: center;
-  margin-bottom: var(--sp-12);
+/* ── Hero Section (Dark Gradient Header) ── */
+.quiz-menu-hero {
   position: relative;
-  z-index: 10;
+  z-index: 15;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Compact top padding to prevent fixed navbar collision, and minimal bottom spacing clearing the wave */
+  padding: calc(var(--nav-mobile-h) + var(--sp-4)) 0 65px;
+}
+@media (min-width: 768px) {
+  .quiz-menu-hero { 
+    padding: calc(var(--nav-h) + var(--sp-6)) 0 95px; 
+  }
+}
+
+/* Background wrapper to clip scale animation overflow and prevent seam leakage */
+.quiz-menu-hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dark gradient background */
+.quiz-menu-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    155deg,
+    var(--brown-900, #3D2415) 0%,
+    var(--brown-800, #5A3420) 35%,
+    #6B4A2E 65%,
+    var(--brown-600, #8B5535) 100%
+  );
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+/* Motif overlay on dark bg */
+.quiz-menu-hero-motif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(160px, 30vw, 360px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  filter: brightness(1.5) saturate(0.1);
+  user-select: none;
+}
+.quiz-menu-hero-motif img { width: 100%; height: auto; display: block; }
+
+/* Seamless visual bottom organic wave divider */
+.hero-wave {
+  position: absolute;
+  bottom: -1px; /* Prevents visual rendering seam gap line */
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 0;
+  overflow: hidden;
+}
+.hero-wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+@media (min-width: 768px) {
+  .hero-wave {
+    height: 72px;
+  }
+}
+
+/* Inner layout: wrapper that forces vertical flow and centers content */
+.quiz-menu-hero-inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centered content layout */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--sp-5); /* Mobile padding matches navbar */
+}
+@media (min-width: 768px) {
+  .quiz-menu-hero-inner {
+    max-width: var(--container-max);
+    padding: 0 var(--sp-6); /* Intermediate tablet padding */
+  }
+}
+@media (min-width: 1024px) {
+  .quiz-menu-hero-inner {
+    padding: 0 var(--sp-10); /* Desktop padding matches navbar */
+  }
+}
+
+/* Hero body: fully centered vertical structure */
+.quiz-menu-hero-body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 0;
 }
 
-.quiz-motif {
-  position: absolute;
+/* Content area: groups title and subtitle */
+.quiz-menu-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Mascot NARA - Centered top, grounded */
+.quiz-menu-nara {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   pointer-events: none;
+  margin-bottom: var(--sp-3); /* Distance separating mascot and title on mobile */
+}
+@media (min-width: 768px) {
+  .quiz-menu-nara {
+    margin-bottom: var(--sp-4); /* Spacing on desktop */
+  }
+}
+
+.quiz-menu-nara-img {
+  width: 138px; /* Enlarged by another 20% for stronger brand presence */
+  height: auto;
+  object-fit: contain;
+  display: block;
   user-select: none;
-  z-index: -1;
-  opacity: 0.15;
-}
-
-.motif-hero-left {
-  width: 180px;
-  top: -20px;
-  left: 0px;
-  transform: rotate(-15deg);
-}
-
-.motif-hero-right {
-  width: 220px;
-  top: 40px;
-  right: -20px;
-  transform: rotate(15deg) scaleX(-1);
-}
-
-@media (max-width: 768px) {
-  .motif-hero-left { width: 120px; left: -20px; }
-  .motif-hero-right { width: 140px; right: -20px; }
-}
-
-.quiz-hero-title {
-  font-family: var(--ff-display);
-  font-size: clamp(1.6rem, 5.5vw, 4rem);
-  font-weight: 800;
-  color: var(--c-brand-cream);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--sp-3);
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.3)); /* Premium grounded drop shadow */
   opacity: 0;
-  animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+@media (min-width: 768px) {
+  .quiz-menu-nara-img {
+    width: 187px; /* Enlarged by another 20% for stronger brand presence */
+  }
 }
 
-.quiz-hero-title span {
+/* Focused single title editorial styling */
+.quiz-menu-hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 5.5vw, 3rem); /* Editorial large and premium title scale */
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #FFF8F1; /* Solid premium off-white */
+  margin-bottom: var(--sp-3); /* Spacing to subtitle on mobile */
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  text-align: center; /* Always centered */
+  opacity: 0;
+}
+.quiz-menu-hero-title span {
   font-style: italic;
   font-weight: 900;
   color: var(--c-accent-soft);
 }
+@media (min-width: 768px) {
+  .quiz-menu-hero-title {
+    margin-bottom: var(--sp-4); /* Spacing on desktop */
+  }
+}
 
-.quiz-hero-sub {
+.quiz-menu-hero-sub {
   font-family: var(--ff-body);
   font-size: clamp(0.85rem, 1.8vw, 1.05rem);
   font-weight: 500;
@@ -70,37 +189,43 @@
   line-height: 1.6;
   max-width: 420px;
   margin: 0 auto;
+  text-align: center;
   opacity: 0;
-  animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation-delay: 0.2s;
 }
 
-@media (max-width: 480px) {
-  .quiz-hero {
-    margin-bottom: var(--sp-8);
-  }
-  .quiz-hero-title {
-    font-size: clamp(1.3rem, 6vw, 1.6rem);
-    margin-bottom: var(--sp-2);
-  }
-  .quiz-hero-sub {
-    font-size: 0.8rem;
-    max-width: 280px;
-  }
+/* ── Motifs ── */
+.quiz-motif {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  opacity: 0.15;
 }
 
-@keyframes heroFadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+.motif-hero-left {
+  width: 180px;
+  top: 10px;
+  left: 10px;
+  transform: rotate(-15deg);
 }
 
-/* ── Motifs Outside Map ── */
+.motif-hero-right {
+  width: 220px;
+  top: 40px;
+  right: 10px;
+  transform: rotate(15deg) scaleX(-1);
+}
+
+@media (max-width: 768px) {
+  .motif-hero-left { width: 120px; left: 0px; top: 10px; }
+  .motif-hero-right { width: 140px; right: 0px; top: 30px; }
+}
+
 .motif-map-outside-left {
   width: 250px;
   bottom: 50px;
   left: -80px;
   transform: rotate(15deg);
-  opacity: 0.15;
 }
 
 .motif-map-outside-right {
@@ -108,7 +233,6 @@
   bottom: 150px;
   right: -50px;
   transform: rotate(-10deg) scaleX(-1);
-  opacity: 0.15;
 }
 
 @media (max-width: 768px) {
@@ -116,23 +240,45 @@
   .motif-map-outside-right { width: 120px; right: -20px; bottom: 120px; }
 }
 
-/* ── Journey Map ── */
+/* ── Map Section (Parchment background below wave) ── */
+.quiz-menu-map-section {
+  position: relative;
+  width: 100%;
+  padding: var(--sp-8) 0 var(--sp-12);
+  z-index: 10;
+}
+@media (min-width: 768px) {
+  .quiz-menu-map-section {
+    padding: var(--sp-12) 0 var(--sp-20);
+  }
+}
+
+.quiz-journey-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+}
+
+/* ── Journey Map Card Board ── */
 .quiz-journey-map {
   position: relative;
   width: 100%;
   margin: 0 auto;
   max-width: 800px;
-  background: rgba(61, 36, 21, 0.5);
-  border: 1.5px solid rgba(194, 133, 88, 0.2);
+  background: linear-gradient(135deg, rgba(61, 36, 21, 0.95) 0%, rgba(43, 25, 14, 0.98) 100%);
+  border: 1.5px solid rgba(194, 133, 88, 0.35);
   border-radius: 2rem;
-  backdrop-filter: blur(4px);
+  box-shadow: 0 24px 54px rgba(43, 25, 14, 0.18), 0 8px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   overflow: hidden;
 }
 
 .journey-svg-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 7 / 4; /* Aspek horizontal */
+  aspect-ratio: 7 / 4; /* Horizontal aspect ratio */
 }
 
 /* SVG Paths Default (Desktop Horizontal) */
@@ -149,14 +295,14 @@
   pointer-events: none;
 }
 
-/* Sequential SVG Animations */
-.anim-circle-1, .anim-circle-2, .anim-circle-3 {
+/* Sequential SVG Animations (Horizontal - Desktop/Tablet) */
+.anim-circle-h-1, .anim-circle-h-2, .anim-circle-h-3 {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: drawSeq linear forwards;
 }
 
-.anim-mask-1, .anim-mask-2 {
+.anim-mask-h-1, .anim-mask-h-2 {
   stroke: #ffffff;
   stroke-width: 12;
   fill: none;
@@ -165,11 +311,33 @@
   animation: drawSeq linear forwards;
 }
 
-.anim-circle-1 { animation-delay: 0s; animation-duration: 0.5s; }
-.anim-mask-1 { animation-delay: 0.5s; animation-duration: 1.0s; }
-.anim-circle-2 { animation-delay: 1.5s; animation-duration: 0.5s; }
-.anim-mask-2 { animation-delay: 2.0s; animation-duration: 1.0s; }
-.anim-circle-3 { animation-delay: 3.0s; animation-duration: 0.5s; }
+.anim-circle-h-1 { animation-delay: 0.5s; animation-duration: 0.5s; }
+.anim-mask-h-1 { animation-delay: 1.0s; animation-duration: 1.0s; }
+.anim-circle-h-2 { animation-delay: 2.0s; animation-duration: 0.5s; }
+.anim-mask-h-2 { animation-delay: 2.5s; animation-duration: 1.0s; }
+.anim-circle-h-3 { animation-delay: 3.5s; animation-duration: 0.5s; }
+
+/* Sequential SVG Animations (Vertical - Mobile) */
+.anim-circle-v-1, .anim-circle-v-2, .anim-circle-v-3 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawSeq linear forwards;
+}
+
+.anim-mask-v-1, .anim-mask-v-2 {
+  stroke: #ffffff;
+  stroke-width: 12;
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawSeq linear forwards;
+}
+
+.anim-circle-v-1 { animation-delay: 0.5s; animation-duration: 0.5s; }
+.anim-mask-v-1 { animation-delay: 1.0s; animation-duration: 1.0s; }
+.anim-circle-v-2 { animation-delay: 2.0s; animation-duration: 0.5s; }
+.anim-mask-v-2 { animation-delay: 2.5s; animation-duration: 1.0s; }
+.anim-circle-v-3 { animation-delay: 3.5s; animation-duration: 0.5s; }
 
 @keyframes drawSeq {
   100% { stroke-dashoffset: 0; }
@@ -203,13 +371,18 @@
   width: 66px; 
   height: 66px;
   border-radius: 50%;
-  background: transparent;
-  border: none;
+  background: transparent; /* No duplicate background, handled by SVG circles */
+  border: none; /* No duplicate border, handled by SVG circles */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: none; /* No duplicate shadow, handled by SVG drop-shadow filter */
+}
+
+.journey-node:hover {
+  transform: translate(-50%, -50%);
 }
 
 /* Posisi Node Default (Desktop Horizontal) */
@@ -255,7 +428,7 @@
 /* ── Mode Mobile (Vertikal) ── */
 @media (max-width: 767px) {
   .quiz-journey-map {
-    width: calc(100% - 2rem);
+    width: 100%;
     max-width: 420px;
     margin: 0 auto;
   }
@@ -334,13 +507,13 @@
   .level-locked .journey-node-label { margin-left: 45px; }
   
   .journey-node-label { max-width: 140px; }
-  .level-title { font-size: 1.25rem; }
-  .level-number { font-size: 0.75rem; margin-bottom: 4px; }
+  .level-title { font-size: 1.35rem; }
+  .level-number { font-size: 0.62rem; margin-bottom: 3px; }
 }
 
 .level-number {
   font-family: var(--ff-body);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -350,7 +523,7 @@
 
 .level-title {
   font-family: var(--ff-display);
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 800;
   color: var(--c-brand-cream);
   letter-spacing: -0.02em;
@@ -361,7 +534,7 @@
   position: absolute;
   inset: -12px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(179, 105, 53, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(179, 105, 53, 0.25) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: -1;
@@ -384,17 +557,25 @@
   color: var(--c-brand-cream);
   z-index: 1;
   line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
+}
+
+.journey-node-wrapper:hover .node-icon-number {
+  transform: scale(1.12);
+  color: var(--c-brand-gold);
 }
 
 /* Node Terkunci */
 .journey-node.locked {
   cursor: not-allowed;
   box-shadow: none;
+  background: transparent;
+  border: none;
 }
 
 .journey-node.locked .node-icon-number {
   font-size: 1.8rem;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .level-locked .level-number {
@@ -409,8 +590,8 @@
 .journey-tooltip {
   position: absolute;
   left: 50%;
-  background: rgba(90, 52, 32, 0.85);
-  border: 1px solid rgba(194, 133, 88, 0.25);
+  background: rgba(90, 52, 32, 0.95);
+  border: 1px solid rgba(194, 133, 88, 0.3);
   padding: var(--sp-3) var(--sp-5);
   border-radius: var(--r-xl);
   width: max-content;
@@ -419,7 +600,7 @@
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   z-index: 10;
 }
 
@@ -461,7 +642,7 @@
 
 .journey-tooltip p {
   font-family: var(--ff-body);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs); /* Shrunk description for refined look */
   font-weight: 500;
   color: var(--c-brand-cream);
   margin-bottom: var(--sp-2);
@@ -481,3 +662,41 @@
   padding-top: 6px;
 }
 
+/* ── Immersive Dark Gameplay Wrapper ── */
+.quiz-game-dark-bg {
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--nav-mobile-h) + var(--sp-8)) var(--sp-4) var(--sp-12);
+  background: linear-gradient(
+    148deg,
+    var(--brown-900) 0%,
+    var(--brown-800) 25%,
+    var(--brown-700) 50%,
+    var(--brown-600) 75%,
+    var(--brown-500) 100%
+  );
+  position: relative;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .quiz-game-dark-bg {
+    padding: calc(var(--nav-h) + var(--sp-12)) var(--sp-6) var(--sp-16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-menu-hero-bg,
+  .quiz-menu-hero-motif,
+  .quiz-menu-hero-title,
+  .quiz-menu-hero-sub,
+  .quiz-menu-nara-img,
+  .anim-circle-h-1, .anim-circle-h-2, .anim-circle-h-3,
+  .anim-circle-v-1, .anim-circle-v-2, .anim-circle-v-3,
+  .anim-mask-h-1, .anim-mask-h-2,
+  .anim-mask-v-1, .anim-mask-v-2,
+  .journey-node-wrapper, .motif-float { animation: none !important; }
+}

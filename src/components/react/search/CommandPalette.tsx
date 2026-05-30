@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { $searchQuery } from '@/lib/stores/search';
 import { getSearchIndex } from '@/lib/data/search-index';
+import './CommandPalette.css';
 
 interface Suggestion {
   id: string;

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getSearchDocuments } from '@/lib/data/search-index';
+import LazyImage from '../shared/LazyImage';
 
 const REGION_COLORS: Record<string, string> = {
   sumatera: 'var(--c-sumatera)',
@@ -37,6 +38,25 @@ export default function DiscoveryView({ initialFoods }: Props) {
   const [featuredFoods, setFeaturedFoods] = useState<FoodItem[] | undefined>(
     initialFoods && initialFoods.length > 0 ? initialFoods : undefined
   );
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid || !featuredFoods) return;
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('.result-card'));
+    if (!cards.length) return;
+    import('gsap').then(({ default: gsap }) => {
+      gsap.killTweensOf(cards);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.set(cards, { opacity: 1, y: 0, scale: 1 });
+        return;
+      }
+      gsap.fromTo(cards,
+        { opacity: 0, y: 32, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.07, ease: 'power3.out', clearProps: 'transform' }
+      );
+    });
+  }, [featuredFoods]);
 
   function handleShuffle() {
     try {
@@ -64,7 +84,10 @@ export default function DiscoveryView({ initialFoods }: Props) {
   return (
     <div className="discovery-view">
       {featuredFoods && featuredFoods.length > 0 && (
-        <section className="discovery-section discovery-featured">
+        <section className="discovery-section discovery-featured" style={{ position: 'relative' }}>
+          <div className="discovery-motif" aria-hidden="true">
+            <img src="/img/motif/png ornamen nusantara.png" alt="" />
+          </div>
           <div className="discovery-featured-header">
             <div>
               <p style={{ fontFamily: 'var(--ff-body)', fontSize: 'var(--fs-sm)', color: 'var(--c-text-3)', fontWeight: 600, marginBottom: 4 }}>
@@ -82,7 +105,7 @@ export default function DiscoveryView({ initialFoods }: Props) {
               Acak
             </button>
           </div>
-          <div className="results-grid-inner">
+          <div className="results-grid-inner" ref={gridRef}>
             {featuredFoods.map((food) => (
               <a
                 key={food.id}
@@ -90,9 +113,7 @@ export default function DiscoveryView({ initialFoods }: Props) {
                 className="result-card duo-card flex flex-col overflow-hidden"
                 onClick={() => sessionStorage.setItem('kulineria-return', '/jelajahi')}
               >
-                <div className="result-card-image">
-                  <img src={food.imageUrl} alt={food.name} loading="lazy" />
-                </div>
+                <LazyImage src={food.imageUrl} alt={food.name} className="result-card-image" />
                 <div className="result-card-content">
                   <h3>{food.name}</h3>
                   <span className="result-card-region">{food.region}</span>
