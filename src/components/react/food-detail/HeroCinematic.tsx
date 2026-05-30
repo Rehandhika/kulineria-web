@@ -1,11 +1,7 @@
 'use client';
 
-import { useRef, useEffect, useState, useCallback } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState, useEffect, useCallback } from 'react';
 import type { FoodItemFull } from '@/types/food';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   food: FoodItemFull;
@@ -13,65 +9,12 @@ interface Props {
 }
 
 export default function HeroCinematic({ food, regionName }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [revealed, setRevealed] = useState(false);
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
     setIsFavorited(getFavorites().includes(food.id));
   }, [food.id]);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    // 1. Entrance animation timeline
-    const tl = gsap.timeline({ onComplete: () => setRevealed(true) });
-
-    tl.fromTo('.hero-image', 
-      { clipPath: 'inset(100% 0 0 0)', scale: 1.15 }, 
-      { clipPath: 'inset(0% 0 0 0)', scale: 1.02, duration: 1.4, ease: 'power4.out' }, 
-      0
-    )
-      .fromTo('.hero-overlay', { opacity: 0 }, { opacity: 1, duration: 1.0, ease: 'power2.out' }, 0)
-      .fromTo('.hero-breadcrumb > *', 
-        { y: -12, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: 'power3.out' }, 
-        0.4
-      )
-      .fromTo('.hero-content-inner > *', 
-        { opacity: 0, y: 30, filter: 'blur(8px)' }, 
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, stagger: 0.1, ease: 'power4.out' }, 
-        0.5
-      )
-      .fromTo('.hero-actions > *', 
-        { scale: 0.8, opacity: 0 }, 
-        { scale: 1, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'back.out(1.8)' }, 
-        '-=0.4'
-      );
-
-    // 2. Parallax zoom scrollTrigger
-    const parallax = gsap.fromTo('.hero-img',
-      { yPercent: -5, scale: 1.02 },
-      {
-        yPercent: 12,
-        scale: 1.15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        }
-      }
-    );
-
-    return () => {
-      tl.kill();
-      parallax.scrollTrigger?.kill();
-      parallax.kill();
-    };
-  }, [food.id]);
 
   const handleFavorite = useCallback(() => {
     const favs = getFavorites();
@@ -94,22 +37,10 @@ export default function HeroCinematic({ food, regionName }: Props) {
   }, [food.name]);
 
   const regionColor = `var(--c-${food.region})`;
-  const heroImgSrc = food.imageUrl || food.hero?.image;
 
   return (
-    <section ref={containerRef} className="hero" aria-label={`Hero ${food.name}`}>
+    <section className="hero" aria-label={`Hero ${food.name}`}>
       <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)' }}>
-        {heroImgSrc && (
-          <>
-            {!imgLoaded && <div className="hero-img-skeleton" />}
-            <img
-              src={heroImgSrc} alt={food.hero?.alt || food.name}
-              className="hero-img" loading="eager"
-              onLoad={() => setImgLoaded(true)}
-              style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.4s ease' }}
-            />
-          </>
-        )}
         <div className="hero-overlay" />
       </div>
 
@@ -138,17 +69,7 @@ export default function HeroCinematic({ food, regionName }: Props) {
             </button>
           </div>
         </div>
-
       </div>
-
-      {!revealed && <div className="hero-skeleton" />}
-
-      <style>{`
-        @keyframes shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-      `}</style>
     </section>
   );
 }
@@ -157,4 +78,5 @@ function getFavorites(): string[] {
   try { return JSON.parse(localStorage.getItem('kulineria-favorites') || '[]'); } catch { return []; }
 }
 function saveFavorites(ids: string[]) {
-  try { localStorage.setItem('kulineria-favorites', JSON.stringify(ids)); } catch {} }
+  try { localStorage.setItem('kulineria-favorites', JSON.stringify(ids)); } catch {}
+}
