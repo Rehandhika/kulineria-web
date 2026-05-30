@@ -56,7 +56,71 @@ export function getTasteChips(tasteScore: FoodItemFull['tasteScore']): { taste: 
     }));
 }
 
-function resolveImageUrl(food: { name: string; region: string }): string {
+const FOOD_IMAGE_MAP: Record<string, string> = {
+  'rendang-001':          '/img/foods/rendang.png',
+  'pempek-002':           '/img/foods/pempek.png',
+  'mie-aceh-003':         '/img/foods/mie-aceh.png',
+  'sate-padang-004':      '/img/foods/sate-padang.png',
+  'nasi-padang-005':      '/img/foods/nasi-padang.png',
+  'bika-ambon-006':       '/img/foods/bika-ambon.png',
+  'ayam-pop-007':         '/img/foods/ayam-pop.png',
+  'dendeng-balado-008':   '/img/foods/dendeng-balado.png',
+  'gulai-ikan-009':       '/img/foods/gulai-ikan.png',
+  'soto-medan-010':       '/img/foods/soto-medan.png',
+  'gudeg-001':            '/img/foods/gudeg.png',
+  'rawon-002':            '/img/foods/rawon.png',
+  'nasi-goreng-003':      '/img/foods/nasi-goreng.png',
+  'gado-gado-004':        '/img/foods/gado-gado.png',
+  'pecel-005':            '/img/foods/pecel.png',
+  'soto-betawi-006':      '/img/foods/soto-betawi.png',
+  'nasi-uduk-007':        '/img/foods/nasi-uduk.png',
+  'nasi-kuning-008':      '/img/foods/nasi-kuning.png',
+  'nasi-liwet-009':       '/img/foods/nasi-liwet.png',
+  'tongseng-010':         '/img/foods/tongseng.png',
+  'soto-banjar-001':      '/img/foods/soto-banjar.png',
+  'ketupat-kandangan-002':'/img/foods/ketupat-kandangan.png',
+  'ayam-cincane-003':     '/img/foods/ayam-cincane.png',
+  'nasi-kuning-banjar-004':'/img/foods/nasi-kuning-banjar.png',
+  'sate-banjar-005':      '/img/foods/sate-banjar.png',
+  'bingka-barandam-006':  '/img/foods/bingka-barandam.png',
+  'gangan-asam-007':      '/img/foods/gangan-asam.png',
+  'gangan-habang-008':    '/img/foods/gangan-habang.png',
+  'mandai-009':           '/img/foods/mandai.png',
+  'iwak-pakasam-010':     '/img/foods/iwak-pakasam.png',
+  'coto-makassar-001':    '/img/foods/coto-makassar.png',
+  'konro-002':            '/img/foods/konro.png',
+  'pallubasa-003':        '/img/foods/pallubasa.png',
+  'kapurung-004':         '/img/foods/kapurung.png',
+  'pisang-ijo-005':       '/img/foods/pisang-ijo.png',
+  'es-pisang-ijo-006':    '/img/foods/es-pisang-ijo.png',
+  'sop-saudara-007':      '/img/foods/sop-saudara.png',
+  'cakalang-fufu-008':    '/img/foods/cakalang-fufu.png',
+  'tinutuan-009':         '/img/foods/tinutuan.png',
+  'ikan-woku-010':        '/img/foods/ikan-woku.png',
+  'bebek-betutu-001':     '/img/foods/bebek-betutu.png',
+  'sate-lilit-002':       '/img/foods/sate-lilit.png',
+  'babi-guling-003':      '/img/foods/babi-guling.png',
+  'lawar-004':            '/img/foods/lawar.png',
+  'ayam-betutu-005':      '/img/foods/ayam-betutu.png',
+  'nasi-campur-006':      '/img/foods/nasi-campur.png',
+  'sate-babi-007':        '/img/foods/sate-babi.png',
+  'nasi-jinggo-008':      '/img/foods/nasi-jinggo.png',
+  'plecing-kangkung-009': '/img/foods/plecing-kangkung.png',
+  'ayam-taliwang-010':    '/img/foods/ayam-taliwang.png',
+  'papeda-001':           '/img/foods/papeda.png',
+  'ikan-kuah-kuning-002': '/img/foods/ikan-kuah-kuning.png',
+  'sambal-colocolo-003':  '/img/foods/sambal-colocolo.png',
+  'sagu-lempeng-004':     '/img/foods/sagu-lempeng.png',
+  'gohu-ikan-005':        '/img/foods/gohu-ikan.png',
+  'nasi-lapola-006':      '/img/foods/nasi-lapola.png',
+  'kohu-kohu-007':        '/img/foods/kohu-kohu.png',
+  'kue-bagea-008':        '/img/foods/kue-bagea.png',
+  'ikan-asar-009':        '/img/foods/ikan-asar.png',
+  'bubur-ne-010':         '/img/foods/bubur-ne.png',
+};
+
+function resolveImageUrl(food: { id: string; name: string; region: string }): string {
+  if (FOOD_IMAGE_MAP[food.id]) return FOOD_IMAGE_MAP[food.id];
   return generateFoodPlaceholder(food.name, food.region as RegionId);
 }
 
@@ -193,7 +257,7 @@ export function getFoodByIdFull(id: string): FoodItemFull | undefined {
       if (data && (data as { id?: string }).id === id) {
         // Merge content collection data with base
         const content = data as Record<string, unknown>;
-        return {
+        const merged = {
           ...base,
           hero: content.hero as FoodItemFull['hero'],
           story: content.story as FoodItemFull['story'],
@@ -205,7 +269,11 @@ export function getFoodByIdFull(id: string): FoodItemFull | undefined {
           related: content.related as FoodItemFull['related'],
           funFacts: content.funFacts as FoodItemFull['funFacts'],
           tags: content.tags as FoodItemFull['tags'],
-        };
+        } as FoodItemFull;
+        if (FOOD_IMAGE_MAP[base.id]) {
+          merged.hero = { ...(merged.hero || {} as FoodItemFull['hero']), image: FOOD_IMAGE_MAP[base.id] } as FoodItemFull['hero'];
+        }
+        return merged;
       }
     }
   } catch {
