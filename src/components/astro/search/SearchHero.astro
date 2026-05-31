@@ -7,18 +7,17 @@ import SearchBar from '../../react/search/SearchBar';
     <div class="search-hero-bg"></div>
   </div>
 
-  <!-- Batik backdrop — mega mendung di sisi kanan -->
-  <div class="search-hero-batik" aria-hidden="true">
-    <img src="/img/motif/png batik mega mendung.png" alt="" />
-  </div>
-
+  <!-- Motif Ornamen Nusantara background overlay -->
   <div class="search-hero-motif" aria-hidden="true">
-    <img src="/img/motif/png ornamen nusantara.png" alt="" />
+    <img src="/img/motif/png ornamen nusantara.png" class="motif-float-2" alt="" />
   </div>
 
-  <!-- Awan accent — kiri bawah -->
-  <div class="search-hero-awan" aria-hidden="true">
-    <img src="/img/motif/png batik mega mendung.png" alt="" />
+  <!-- Floating clouds within Hero (Aligned exactly with Quiz Hero!) -->
+  <div class="search-hero-cloud search-motif-hero-left" aria-hidden="true">
+    <img src="/img/motif/png batik mega mendung.png" class="motif-float-1" alt="" />
+  </div>
+  <div class="search-hero-cloud search-motif-hero-right" aria-hidden="true">
+    <img src="/img/motif/png batik mega mendung.png" class="motif-float-2" alt="" />
   </div>
   <!-- Seamless visual bottom organic wave divider filled with page background color -->
   <div class="hero-wave" aria-hidden="true">
@@ -73,18 +72,18 @@ import SearchBar from '../../react/search/SearchBar';
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const bg = hero.querySelector('.search-hero-bg');
-    const motif = hero.querySelector('.search-hero-motif img');
-    const batik = hero.querySelector('.search-hero-batik img');
-    const awan = hero.querySelector('.search-hero-awan');
+    const motif = hero.querySelector('.search-hero-motif');
+    const leftCloud = hero.querySelector('.search-motif-hero-left');
+    const rightCloud = hero.querySelector('.search-motif-hero-right');
     const title = hero.querySelector('.search-hero-title');
     const bar = hero.querySelector('.search-hero-bar');
     const nara = hero.querySelector('.search-hero-nara-img');
 
     if (reduced) {
       if (bg) gsap.set(bg, { opacity: 1 });
-      if (motif) gsap.set(motif, { opacity: 1 });
-      if (batik) gsap.set(batik, { opacity: 1 });
-      if (awan) gsap.set(awan, { opacity: 1 });
+      if (motif) gsap.set(motif, { opacity: 0.03 });
+      if (leftCloud) gsap.set(leftCloud, { opacity: 0.15, rotation: -15 });
+      if (rightCloud) gsap.set(rightCloud, { opacity: 0.12, rotation: 15, scaleX: -1 });
       if (title) gsap.set(title, { opacity: 1 });
       if (bar) gsap.set(bar, { opacity: 1 });
       if (nara) gsap.set(nara, { opacity: 1 });
@@ -93,10 +92,10 @@ import SearchBar from '../../react/search/SearchBar';
 
     const tl = gsap.timeline({ defaults: { overwrite: 'auto' } });
 
-    tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, 0)
-      .fromTo(batik, { scale: 1.1, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.8, ease: 'power2.out' }, 0)
-      .fromTo(motif, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }, 0)
-      .fromTo(awan, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 1.2, ease: 'power2.out' }, 0.15)
+    tl.fromTo(bg, { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: 'power2.out' }, 0)
+      .fromTo(motif, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 0.03, duration: 1.4, ease: 'power2.out' }, 0)
+      .fromTo(leftCloud, { opacity: 0, scale: 0.8, x: -20, rotation: -20 }, { opacity: 0.15, scale: 1, x: 0, rotation: -15, duration: 1.5, ease: 'power2.out' }, 0.1)
+      .fromTo(rightCloud, { opacity: 0, scaleX: -0.8, scaleY: 0.8, x: 20, rotation: 20 }, { opacity: 0.12, scaleX: -1, scaleY: 1, x: 0, rotation: 15, duration: 1.5, ease: 'power2.out' }, 0.15)
       .fromTo(nara, { opacity: 0, scale: 0.82, y: -15 }, { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(1.5)' }, 0.1)
       .fromTo(title, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.25)
       .fromTo(bar, { y: 14, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(1.5)' }, '-=0.25');
@@ -150,42 +149,44 @@ import SearchBar from '../../react/search/SearchBar';
     opacity: 0;
   }
 
-  /* Batik backdrop — mega mendung di sisi kanan */
-  .search-hero-batik {
+  /* Floating clouds within Hero */
+  .search-hero-cloud {
     position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    filter: brightness(0.72) saturate(0.15);
-  }
-  .search-hero-batik img {
-    width: clamp(300px, 44vw, 600px);
-    height: auto;
-    display: block;
-    object-fit: contain;
-    margin-right: -60px;
-  }
-
-  /* Awan accent — kiri bawah */
-  .search-hero-awan {
-    position: absolute;
-    bottom: clamp(60px, 10vh, 100px);
-    left: -20px;
-    width: clamp(140px, 20vw, 280px);
-    pointer-events: none;
+    user-select: none;
     z-index: 1;
     opacity: 0;
-    filter: brightness(1.6) saturate(0.08);
-    transform: rotate(-8deg);
   }
-  .search-hero-awan img {
+  .search-hero-cloud img {
     width: 100%;
     height: auto;
     display: block;
+    filter: brightness(1.4) sepia(0.35) saturate(0.6) contrast(1.1);
+  }
+
+  .search-motif-hero-left {
+    width: 180px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .search-motif-hero-right {
+    width: 220px;
+    top: 40px;
+    right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .search-motif-hero-left {
+      width: 120px;
+      left: 0px;
+      top: 10px;
+    }
+    .search-motif-hero-right {
+      width: 140px;
+      right: 0px;
+      top: 30px;
+    }
   }
 
   /* Motif overlay on dark bg */
@@ -198,10 +199,38 @@ import SearchBar from '../../react/search/SearchBar';
     opacity: 0;
     pointer-events: none;
     z-index: 1;
-    filter: brightness(1.5) saturate(0.1);
     user-select: none;
   }
-  .search-hero-motif img { width: 100%; height: auto; display: block; }
+  .search-hero-motif img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.4) sepia(0.35) saturate(0.5) contrast(1.1);
+  }
+
+  /* Staggered high-performance floating animations */
+  @keyframes searchHeroFloat {
+    0% {
+      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
+    }
+    50% {
+      transform: translateY(-8px) translateX(4px) rotate(calc(var(--base-rot, 0deg) + 2deg));
+    }
+    100% {
+      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
+    }
+  }
+
+  .motif-float-1 {
+    --base-rot: 0deg;
+    animation: searchHeroFloat 8s ease-in-out infinite;
+  }
+
+  .motif-float-2 {
+    --base-rot: -8deg;
+    animation: searchHeroFloat 10s ease-in-out infinite;
+    animation-delay: -3s;
+  }
 
   /* Seamless visual bottom organic wave divider */
   .hero-wave {
@@ -331,9 +360,8 @@ import SearchBar from '../../react/search/SearchBar';
 
   @media (prefers-reduced-motion: reduce) {
     .search-hero-bg,
-    .search-hero-batik,
+    .search-hero-cloud,
     .search-hero-motif,
-    .search-hero-awan,
     .search-hero-title, .search-hero-bar,
     .search-hero-nara-img { animation: none !important; }
   }

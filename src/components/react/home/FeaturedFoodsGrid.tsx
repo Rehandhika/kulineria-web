@@ -272,17 +272,18 @@ export default function FeaturedFoodsGrid() {
               || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80';
             return (
               <a
+                key={food.id}
                 href={`/hidangan/${food.id}`}
                 className="result-card duo-card flex flex-col overflow-hidden"
-                key={food.id}
+                onClick={() => sessionStorage.setItem('kulineria-return', '/')}
               >
                 <LazyImage src={imgUrl} alt={food.name} className="result-card-image" />
                 <div className="result-card-content">
                   <h3>{food.name}</h3>
                   <span className="result-card-region">{foodRegion?.name || food.region}</span>
                   <div className="result-card-tags">
-                    {food.taste.slice(0, 3).map(t => (
-                      <span key={t} className="result-card-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    {food.taste.map((t) => (
+                      <span key={t} className="duo-badge" style={{ fontSize: '0.65rem', padding: '3px 8px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                         {getTasteIcon(t, 11)}
                         {formatTasteName(t)}
                       </span>
