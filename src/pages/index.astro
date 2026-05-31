@@ -15,6 +15,10 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
 
   <!-- ZONA TERANG: Map + Featured mengalir sebagai satu kesatuan -->
   <div class="home-light-zone">
+
+    <!-- Batik latar — repeat HD texture menyatukan map & featured -->
+    <div class="light-zone-batik" aria-hidden="true"></div>
+
     <!-- INTERACTIVE MAP -->
     <section class="map-section" id="map-section">
       <div class="container map-section-container">
@@ -47,6 +51,19 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
   .home-light-zone {
     position: relative;
     background: var(--c-bg);
+  }
+
+  /* Batik texture di balik map & featured — repeat HD */
+  .light-zone-batik {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.035;
+    filter: sepia(0.25) saturate(0.2) brightness(1.05);
+    background-image: url('/img/motif/png batik.png');
+    background-repeat: repeat;
+    background-size: 220px;
   }
 
   /* Map section — hanya padding atas; Featured menyediakan padding bawah zona */
@@ -205,9 +222,9 @@ function initScrollReveals() {
   }
 
   // ── MAP SECTION STAGGERED REVEAL ──
-  const mapHeader = document.querySelector('.map-section .duo-section-header');
-  const mapEl = document.querySelector('.interactive-map');
-  const oceanBg = document.querySelector('.map-ocean-bg');
+  const mapHeader = document.querySelector('.map-section .duo-section-header') as HTMLElement | null;
+  const mapEl = document.querySelector('.interactive-map') as HTMLElement | null;
+  const oceanBg = document.querySelector('.map-ocean-bg') as HTMLElement | null;
   const mapTrigger = isMobile ? 'top 90%' : 'top 80%';
 
   if (mapHeader && !mapHeader.dataset.revealed) {
@@ -241,7 +258,7 @@ function initScrollReveals() {
   }
 
   // ── FEATURED FOODS HEADER REVEAL ──
-  const featuredHeader = document.querySelector('#featured .featured-header');
+  const featuredHeader = document.querySelector('#featured .featured-header') as HTMLElement | null;
   if (featuredHeader && !featuredHeader.dataset.revealed) {
     featuredHeader.dataset.revealed = 'true';
     gsap.fromTo(featuredHeader,

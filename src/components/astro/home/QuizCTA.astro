@@ -6,7 +6,10 @@ const instanceId = `quiz-cta-${Math.random().toString(36).slice(2, 7)}`;
 
 <section class="quiz-cta" data-quiz-cta aria-labelledby={`${instanceId}-title`}>
 
-  <!-- Motif tepi -->
+  <!-- Lapisan batik latar — repeat HD texture -->
+  <div class="qcta-batik-bg" aria-hidden="true"></div>
+
+  <!-- Motif aksen — lebih besar, menyatu sebagai lapisan -->
   <div class="qcta-motif qcta-motif-tr" aria-hidden="true">
     <img src="/img/motif/png batik mega mendung.png" alt="" />
   </div>
@@ -34,11 +37,11 @@ const instanceId = `quiz-cta-${Math.random().toString(36).slice(2, 7)}`;
       <span class="qcta-eyebrow">Kuis Kuliner</span>
       <h2 class="qcta-title" id={`${instanceId}-title`}>
         Seberapa dalam<br/>
-        <em>kamu mengenal<br/>Nusantara?</em>
+        <em>mengenal Nusantara?</em>
       </h2>
       <p class="qcta-body">
-        Tebak nama hidangan, asal daerahnya, dan cerita di balik setiap suapan.
-        Ikuti Nara dalam perjalanan rasa yang tak terduga.
+        Tebak nama hidangan dan asal daerahnya.
+        Setiap tebakan membuka cerita baru di balik suapan.
       </p>
       <div class="qcta-actions">
         <a href="/kuis" class="qcta-btn">
@@ -128,25 +131,39 @@ const instanceId = `quiz-cta-${Math.random().toString(36).slice(2, 7)}`;
     padding: clamp(72px, 10vw, 144px) 0;
   }
 
-  /* Motifs */
+  /* Batik background — repeat HD texture, tile kecil agar pattern rapat */
+  .qcta-batik-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.07;
+    filter: brightness(0.72) saturate(0.15);
+    background-image: url('/img/motif/png batik.png');
+    background-repeat: repeat;
+    background-size: 220px;
+  }
+
+  /* Corner motif accents — lebih besar, lebih atmosferik */
   .qcta-motif {
     position: absolute;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.08;
-    filter: brightness(1.5) saturate(0.1);
+    filter: brightness(1.6) saturate(0.08);
   }
   .qcta-motif img { display: block; width: 100%; height: auto; }
   .qcta-motif-tr {
-    top: -30px;
-    right: -50px;
-    width: clamp(140px, 18vw, 240px);
-    transform: rotate(-15deg);
+    top: -20px;
+    right: -40px;
+    width: clamp(180px, 26vw, 360px);
+    opacity: 0.08;
+    transform: rotate(-6deg);
   }
   .qcta-motif-bl {
     bottom: -20px;
-    left: -40px;
-    width: clamp(120px, 15vw, 200px);
+    left: -30px;
+    width: clamp(140px, 18vw, 260px);
+    opacity: 0.06;
     transform: rotate(20deg) scaleX(-1);
   }
 

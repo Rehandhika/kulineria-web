@@ -8,23 +8,30 @@ export default function QuizCountdown() {
 
   return (
     <div className="countdown-wrapper">
-      <div className="countdown-nara">
-        <img
-          src={countdownValue > 0 ? '/img/nara/NARA 3.png' : '/img/nara/NARA 2.png'}
-          alt={countdownValue > 0 ? 'Nara berpikir' : 'Nara semangat'}
-          className="countdown-nara-img"
-          width="100"
-          height="100"
-          draggable={false}
-          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-        />
+      {/* Ambient motifs */}
+      <img src="/img/motif/png ornamen nusantara.png" className="countdown-motif countdown-motif-ornamen" aria-hidden="true" alt="" draggable={false} />
+      <img src="/img/motif/png bunga.png" className="countdown-motif countdown-motif-bunga-bl" aria-hidden="true" alt="" draggable={false} />
+      <img src="/img/motif/png bunga.png" className="countdown-motif countdown-motif-bunga-tr" aria-hidden="true" alt="" draggable={false} />
+
+      <div className="countdown-center">
+        <div className="countdown-nara">
+          <img
+            src={countdownValue > 0 ? '/img/nara/NARA 8.png' : '/img/nara/NARA 9.png'}
+            alt={countdownValue > 0 ? 'Nara bersemangat' : 'Nara melompat kegirangan'}
+            className="countdown-nara-img"
+            width="80"
+            height="80"
+            draggable={false}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+        </div>
+        <div className="countdown-number" key={countdownValue}>
+          {countdownValue > 0 ? countdownValue : 'Mulai!'}
+        </div>
+        <p className="countdown-text">
+          {countdownValue > 0 ? 'Siapkan dirimu...' : 'Ayo tunjukkan kemampuanmu!'}
+        </p>
       </div>
-      <div className="countdown-number" key={countdownValue}>
-        {countdownValue > 0 ? countdownValue : 'Mulai!'}
-      </div>
-      <p className="countdown-text">
-        {countdownValue > 0 ? 'Siapkan dirimu...' : 'Ayo tunjukkan kemampuanmu!'}
-      </p>
     </div>
   );
 }

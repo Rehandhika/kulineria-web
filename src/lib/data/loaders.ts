@@ -383,9 +383,10 @@ export function getFoodByIdFull(id: string): FoodItemFull | undefined {
         } as FoodItemFull;
 
         if (content.story) {
-          const storyData = content.story as FoodItemFull['story'];
+          const storyData = content.story as NonNullable<FoodItemFull['story']>;
           merged.story = {
-            ...storyData,
+            headline: storyData.headline || '',
+            image: storyData.image,
             body: cleanAndLimitStory(storyData.body),
             pullQuote: cleanPullQuote(storyData.pullQuote)
           };

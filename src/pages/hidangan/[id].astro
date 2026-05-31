@@ -38,6 +38,7 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
       prepTime: fullFood.recipe.prepTime,
       cookTime: fullFood.recipe.cookTime,
       servings: fullFood.recipe.servings,
+      category: 'Makanan Utama',
       cuisine: 'Indonesian',
       ingredients: (fullFood.ingredients || []).map(i => `${i.qty || ''} ${i.name}`.trim()),
       image: fullFood.hero?.image,

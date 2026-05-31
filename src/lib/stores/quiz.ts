@@ -36,6 +36,7 @@ interface QuizStore {
   stats: QuizStats;
   countdownValue: number;
   selectedOptionId: string | null;
+  lastAnswerCorrect: boolean | null;
 
   startQuiz: (mode: QuizMode) => void;
   answerQuestion: (optionId: string) => void;
@@ -49,6 +50,7 @@ interface QuizStore {
 
 let timerId: ReturnType<typeof setInterval> | null = null;
 let countdownId: ReturnType<typeof setInterval> | null = null;
+let autoAdvanceId: ReturnType<typeof setTimeout> | null = null;
 
 function stopTimer() {
   if (timerId !== null) {
@@ -64,6 +66,13 @@ function stopCountdown() {
   }
 }
 
+function stopAutoAdvance() {
+  if (autoAdvanceId !== null) {
+    clearTimeout(autoAdvanceId);
+    autoAdvanceId = null;
+  }
+}
+
 function startTimer() {
   stopTimer();
   timerId = setInterval(() => {
@@ -74,10 +83,12 @@ function startTimer() {
 export function cleanupQuizTimer() {
   stopTimer();
   stopCountdown();
+  stopAutoAdvance();
 }
 
 function finishQuizInternal(score: number, maxStreak: number, answers: Answer[]) {
   stopTimer();
+  stopAutoAdvance();
   const stats = useQuizStore.getState().stats;
   const correctCount = answers.filter(a => a.isCorrect).length;
   const newStats: QuizStats = {
@@ -101,11 +112,13 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
   maxStreak: 0,
   timeRemaining: 15,
   stats: loadStats(),
-  countdownValue: 3,
+  countdownValue: 2,
   selectedOptionId: null,
+  lastAnswerCorrect: null,
 
   startQuiz: (mode: QuizMode) => {
-    stopCountdown(); // Pastikan tidak ada countdown ganda berjalan
+    stopCountdown();
+    stopAutoAdvance();
     const questions = generateQuestions(mode, 10);
     set({
       mode,
@@ -117,11 +130,12 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
       streak: 0,
       maxStreak: 0,
       timeRemaining: questions[0]?.timeLimit ?? 15,
-      countdownValue: 3,
+      countdownValue: 2,
       selectedOptionId: null,
+      lastAnswerCorrect: null,
     });
 
-    let count = 3;
+    let count = 2;
     countdownId = setInterval(() => {
       count--;
       set({ countdownValue: count });
@@ -163,10 +177,20 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
       maxStreak: newMaxStreak,
       status: 'reviewing',
       selectedOptionId: optionId,
+      lastAnswerCorrect: isCorrect,
     });
+
+    // Auto-advance after 1.5s on correct answers
+    if (isCorrect) {
+      stopAutoAdvance();
+      autoAdvanceId = setTimeout(() => {
+        get().nextQuestion();
+      }, 1500);
+    }
   },
 
   nextQuestion: () => {
+    stopAutoAdvance();
     const { currentIndex, questions } = get();
     const nextIndex = currentIndex + 1;
     if (nextIndex >= questions.length) {
@@ -177,6 +201,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
         timeRemaining: questions[nextIndex].timeLimit ?? 15,
         status: 'playing',
         selectedOptionId: null,
+        lastAnswerCorrect: null,
       });
       startTimer();
     }
@@ -188,6 +213,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
 
   resetQuiz: () => {
     stopTimer();
+    stopAutoAdvance();
     set({
       mode: null,
       status: 'idle',
@@ -198,8 +224,9 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
       streak: 0,
       maxStreak: 0,
       timeRemaining: 15,
-      countdownValue: 3,
+      countdownValue: 2,
       selectedOptionId: null,
+      lastAnswerCorrect: null,
     });
   },
 
@@ -227,6 +254,7 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
         answers: [...get().answers, answer],
         status: 'reviewing',
         selectedOptionId: null,
+        lastAnswerCorrect: false,
       });
     } else {
       set({ timeRemaining: newTime });

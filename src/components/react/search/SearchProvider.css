@@ -125,6 +125,21 @@
   position: relative;
 }
 
+/* Batik texture behind results/discovery area */
+.search-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('/img/motif/png batik.png');
+  background-size: 220px;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.03;
+  pointer-events: none;
+  filter: sepia(0.25) saturate(0.2) brightness(1.05);
+}
+
 .search-main {
   min-width: 0;
 }

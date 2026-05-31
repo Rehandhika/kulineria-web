@@ -221,13 +221,6 @@
   .motif-hero-right { width: 140px; right: 0px; top: 30px; }
 }
 
-.motif-map-outside-left {
-  width: 250px;
-  bottom: 50px;
-  left: -80px;
-  transform: rotate(15deg);
-}
-
 .motif-map-outside-right {
   width: 200px;
   bottom: 150px;
@@ -236,7 +229,6 @@
 }
 
 @media (max-width: 768px) {
-  .motif-map-outside-left { width: 150px; left: -40px; bottom: 80px; }
   .motif-map-outside-right { width: 120px; right: -20px; bottom: 120px; }
 }
 
@@ -246,6 +238,19 @@
   width: 100%;
   padding: var(--sp-8) 0 var(--sp-12);
   z-index: 10;
+}
+
+/* Batik texture behind map card */
+.quiz-menu-map-batik {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.06;
+  filter: brightness(0.72) saturate(0.15);
+  background-image: url('/img/motif/png batik.png');
+  background-repeat: repeat;
+  background-size: 220px;
 }
 @media (min-width: 768px) {
   .quiz-menu-map-section {
@@ -670,7 +675,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: calc(var(--nav-mobile-h) + var(--sp-8)) var(--sp-4) var(--sp-12);
+  padding: var(--sp-6) var(--sp-4) var(--sp-6);
   background: linear-gradient(
     148deg,
     var(--brown-900) 0%,
@@ -684,7 +689,7 @@
 }
 @media (min-width: 768px) {
   .quiz-game-dark-bg {
-    padding: calc(var(--nav-h) + var(--sp-12)) var(--sp-6) var(--sp-16);
+    padding: var(--sp-8) var(--sp-6) var(--sp-8);
   }
 }
 

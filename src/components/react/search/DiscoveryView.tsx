@@ -4,14 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 import { getSearchDocuments } from '@/lib/data/search-index';
 import LazyImage from '../shared/LazyImage';
 
-const REGION_COLORS: Record<string, string> = {
-  sumatera: 'var(--c-sumatera)',
-  jawa: 'var(--c-jawa)',
-  kalimantan: 'var(--c-kalimantan)',
-  sulawesi: 'var(--c-sulawesi)',
-  'bali-ntt': 'var(--c-bali-ntt)',
-  'maluku-papua': 'var(--c-maluku-papua)',
-};
+// Unused - commented out to resolve TypeScript error ts(6133)
+// const REGION_COLORS: Record<string, string> = {
+//   sumatera: 'var(--c-sumatera)',
+//   jawa: 'var(--c-jawa)',
+//   kalimantan: 'var(--c-kalimantan)',
+//   sulawesi: 'var(--c-sulawesi)',
+//   'bali-ntt': 'var(--c-bali-ntt)',
+//   'maluku-papua': 'var(--c-maluku-papua)',
+// };
 
 export function getTasteIcon(id: string, size = 11) {
   switch (id.toLowerCase().trim()) {

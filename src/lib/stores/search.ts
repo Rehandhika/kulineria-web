@@ -27,10 +27,10 @@ export function performSearch() {
 
   $isSearching.set(true);
 
-  function matchesFilters(doc: { region: string; taste: string }): boolean {
+  function matchesFilters(doc: any): boolean {
     if (regions.size > 0 && !regions.has(doc.region as RegionId)) return false;
-    if (tastes.size > 0) {
-      const docTastes = doc.taste.split(' ');
+    if (tastes.size > 0 && doc.taste) {
+      const docTastes = (doc.taste as string).split(' ');
       for (const t of tastes) {
         if (!docTastes.includes(t)) return false;
       }

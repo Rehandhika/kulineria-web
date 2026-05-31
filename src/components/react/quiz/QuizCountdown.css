@@ -1,49 +1,162 @@
+/* ══════════════════════════════════════════
+   COUNTDOWN — with motifs & mascot
+   ══════════════════════════════════════════ */
+
 .countdown-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  gap: var(--sp-6);
+  overflow: hidden;
+}
+
+/* ── Ambient Motifs ── */
+.countdown-motif {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Ornamen nusantara — centered, very subtle watermark */
+.countdown-motif-ornamen {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(120px, 25vw, 220px);
+  opacity: 0.06;
+  filter: brightness(2) saturate(0);
+  animation: motifFadeIn 1s ease both;
+}
+
+/* Bunga bottom-left */
+.countdown-motif-bunga-bl {
+  bottom: 5%;
+  left: -2%;
+  width: clamp(80px, 15vw, 140px);
+  opacity: 0.08;
+  transform: rotate(-20deg);
+  filter: brightness(1.5) saturate(0.3);
+  animation: motifDriftUp 4s ease-in-out infinite alternate;
+}
+
+/* Bunga top-right — mirrored */
+.countdown-motif-bunga-tr {
+  top: 8%;
+  right: -2%;
+  width: clamp(60px, 12vw, 110px);
+  opacity: 0.06;
+  transform: rotate(15deg) scaleX(-1);
+  filter: brightness(1.5) saturate(0.3);
+  animation: motifDriftDown 5s ease-in-out infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes motifFadeIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  to   { opacity: 0.06; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes motifDriftUp {
+  from { transform: rotate(-20deg) translateY(0); }
+  to   { transform: rotate(-20deg) translateY(-8px); }
+}
+
+@keyframes motifDriftDown {
+  from { transform: rotate(15deg) scaleX(-1) translateY(0); }
+  to   { transform: rotate(15deg) scaleX(-1) translateY(6px); }
+}
+
+/* ── Center Content ── */
+.countdown-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* ── Nara Mascot ── */
+.countdown-nara {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .countdown-nara-img {
-  width: 100px;
-  height: 100px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
   display: block;
-  animation: countdownBounce 0.6s ease-in-out infinite alternate;
   user-select: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  animation: naraBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+@keyframes naraBounce {
+  0%   { opacity: 0; transform: scale(0.5) translateY(12px); }
+  60%  { opacity: 1; transform: scale(1.1) translateY(-4px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* ── Number ── */
 .countdown-number {
   font-family: var(--ff-display);
-  font-size: clamp(4rem, 15vw, 8rem);
+  font-size: clamp(5rem, 18vw, 9rem);
   font-weight: 900;
   color: var(--c-accent);
   line-height: 1;
-  animation: countdownNumberFade 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  text-shadow: 0 4px 0 var(--c-accent-dark);
+  animation: countdownPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 4px 0 var(--c-accent-dark, #9A3209);
 }
 
+@keyframes countdownPop {
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* ── Text ── */
 .countdown-text {
-  font-size: var(--fs-lg);
-  color: rgba(255, 248, 240, 0.65);
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  color: rgba(255, 248, 240, 0.5);
   font-weight: 500;
-  animation: countdownFade 0.3s ease;
+  margin: 0;
+  animation: textFadeUp 0.4s ease 0.1s both;
 }
 
-@keyframes countdownNumberFade {
-  0% { opacity: 0; transform: translateY(6px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes textFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes countdownBounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .countdown-nara-img,
+  .countdown-number,
+  .countdown-text,
+  .countdown-motif-ornamen,
+  .countdown-motif-bunga-bl,
+  .countdown-motif-bunga-tr {
+    animation: none !important;
+  }
+  .countdown-motif-ornamen { opacity: 0.06; }
+  .countdown-motif-bunga-bl { opacity: 0.08; }
+  .countdown-motif-bunga-tr { opacity: 0.06; }
 }
 
-@keyframes countdownFade {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* ── Mobile fine-tune ── */
+@media (max-width: 480px) {
+  .countdown-nara-img {
+    width: 60px;
+    height: 60px;
+  }
+  .countdown-motif-bunga-bl,
+  .countdown-motif-bunga-tr {
+    display: none; /* Too small screen for corner motifs */
+  }
 }

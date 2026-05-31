@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useQuizStore } from '@/lib/stores/quiz';
 import { getAllFoods } from '@/lib/data/loaders';
 import './QuizResults.css';
@@ -52,6 +52,8 @@ export default function QuizResults() {
   const questions = useQuizStore((s) => s.questions);
   const resetQuiz = useQuizStore((s) => s.resetQuiz);
 
+  const [reviewOpen, setReviewOpen] = useState(false);
+
   const correctCount = answers.filter((a) => a.isCorrect).length;
   const totalQuestions = answers.length;
   const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
@@ -90,80 +92,117 @@ export default function QuizResults() {
 
   return (
     <div className="quiz-results">
+      {/* Ambient motifs */}
+      <img src="/img/motif/png ornamen nusantara.png" className="results-motif results-motif-ornamen" aria-hidden="true" alt="" draggable={false} />
+      <img src="/img/motif/png bunga.png" className="results-motif results-motif-bunga-bl" aria-hidden="true" alt="" draggable={false} />
+      <img src="/img/motif/png bunga.png" className="results-motif results-motif-bunga-tr" aria-hidden="true" alt="" draggable={false} />
+
+      {/* ── Compact header: mascot + title inline ── */}
       <div className="results-header">
         <img
           src={getNaraExpression(percentage)}
           alt={getNaraAlt(percentage)}
           className="results-nara-img"
-          width="120"
-          height="120"
+          width="48"
+          height="48"
           draggable={false}
           onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
         />
-        <h2>{getTitle(percentage)}</h2>
-        <p className="results-message">{getMessage(percentage)}</p>
-      </div>
-
-      <div className="results-score">
-        <div className="score-circle">
-          <div className="score-circle-inner">
-            <span className="score-number">{percentage}%</span>
-            <span className="score-label">Akurasi</span>
-          </div>
+        <div className="results-header-text">
+          <h2>{getTitle(percentage)}</h2>
+          <p className="results-message">{getMessage(percentage)}</p>
         </div>
       </div>
 
-      <div className="results-stats">
-        <div className="result-stat">
-          <span className="result-value">{score}</span>
-          <span className="result-label">Total Skor</span>
+      {/* ── Stats row: 3 stats inline ── */}
+      <div className="results-stats-row">
+        <div className="stat-item">
+          <span className="stat-value">{percentage}%</span>
+          <span className="stat-label">Akurasi</span>
         </div>
-        <div className="result-stat">
-          <span className="result-value">{correctCount}/{totalQuestions}</span>
-          <span className="result-label">Jawaban Tepat</span>
+        <div className="stat-divider" aria-hidden="true" />
+        <div className="stat-item">
+          <span className="stat-value">{score}</span>
+          <span className="stat-label">Skor</span>
         </div>
-        <div className="result-stat" style={{ gridColumn: '1 / -1' }}>
-          <span className="result-value" style={{ color: 'var(--c-brand-gold)' }}>🔥 {maxStreak}</span>
-          <span className="result-label">Runtutan Terpanjang</span>
+        <div className="stat-divider" aria-hidden="true" />
+        <div className="stat-item">
+          <span className="stat-value">🔥{maxStreak}</span>
+          <span className="stat-label">Streak</span>
         </div>
       </div>
 
+      {/* ── Dot review bar ── */}
+      <div className="dot-review" role="img" aria-label={`${correctCount} benar, ${wrongAnswers.length} salah dari ${totalQuestions} soal`}>
+        {answers.map((a, i) => (
+          <span
+            key={i}
+            className={`dot ${a.isCorrect ? 'correct' : 'wrong'}`}
+            aria-hidden="true"
+          />
+        ))}
+        {/* Fill unanswered dots if questions > answers */}
+        {questions.length > answers.length &&
+          Array.from({ length: questions.length - answers.length }).map((_, i) => (
+            <span key={`u-${i}`} className="dot unanswered" aria-hidden="true" />
+          ))
+        }
+      </div>
+
+      {/* ── Collapsible wrong answers ── */}
       {wrongAnswers.length > 0 && (
         <div className="results-review">
-          <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: '1.25rem', color: 'var(--c-brand-cream)', marginBottom: 'var(--sp-4)' }}>
-            Pelajari Kembali
-          </h3>
-          <div className="review-list">
-            {wrongAnswers.map((w) => (
-              <div key={w.questionId} className="review-item">
-                <div className="review-info">
-                  <span className="review-question">{w.foodName || 'Rahasia Rasa'}</span>
-                  <span className="review-answer">
-                    Seharusnya: <strong>{w.correctAnswer}</strong>
-                  </span>
-                  <span className="review-your">Tebakanmu: {w.yourAnswer}</span>
+          <button
+            className="review-toggle"
+            onClick={() => setReviewOpen((o) => !o)}
+            aria-expanded={reviewOpen}
+          >
+            <span>{wrongAnswers.length} jawaban keliru</span>
+            <svg
+              className={`review-toggle-icon ${reviewOpen ? 'open' : ''}`}
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <div className={`review-list ${reviewOpen ? 'review-list--open' : ''}`}>
+            <div className="review-list-inner">
+              {wrongAnswers.map((w) => (
+                <div key={w.questionId} className="review-item">
+                  <div className="review-info">
+                    <span className="review-question">{w.foodName || 'Rahasia Rasa'}</span>
+                    <span className="review-answer">
+                      Seharusnya: <strong>{w.correctAnswer}</strong>
+                    </span>
+                    <span className="review-your">Tebakanmu: {w.yourAnswer}</span>
+                  </div>
+                  {w.foodId && (
+                    <a
+                      href={`/hidangan/${w.foodId}`}
+                      className="review-link"
+                      onClick={() => sessionStorage.setItem('kulineria-return', '/kuis')}
+                    >
+                      Selami
+                    </a>
+                  )}
                 </div>
-                {w.foodId && (
-                  <a
-                    href={`/hidangan/${w.foodId}`}
-                    className="review-link"
-                    onClick={() => sessionStorage.setItem('kulineria-return', '/kuis')}
-                  >
-                    Selami
-                  </a>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       )}
 
-      <div className="results-actions" style={{ marginTop: 'var(--sp-8)' }}>
+      {/* ── Action buttons ── */}
+      <div className="results-actions">
         <button className="btn-primary" onClick={resetQuiz}>
           Uji Kembali
         </button>
         <button className="btn-secondary" onClick={() => window.history.back()}>
-          Akhiri Perjalanan
+          Kembali
         </button>
       </div>
     </div>

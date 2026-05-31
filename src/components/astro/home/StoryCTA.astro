@@ -5,6 +5,9 @@
 
 <section class="story-cta" id="story-cta" aria-labelledby="story-cta-title">
 
+  <!-- Lapisan batik latar — repeat HD texture -->
+  <div class="scta-batik-bg" aria-hidden="true"></div>
+
   <!-- Ornament tengah — sangat halus -->
   <div class="scta-ornament" aria-hidden="true">
     <img src="/img/motif/png ornamen nusantara.png" alt="" />
@@ -20,9 +23,9 @@
         <em>daftar resep</em>
       </h2>
       <p class="scta-body">
-        Kulineria lahir dari kegelisahan — banyak resep leluhur yang perlahan hilang
-        tergantikan derap zaman. Kami mendokumentasikan setiap hidangan bukan hanya
-        sebagai data, tapi sebagai cerita yang layak diwariskan.
+        Kulineria lahir dari keresahan untuk merawat rasa. Banyak resep leluhur
+        perlahan memudar, tersisa dalam ingatan yang mulai samar. Maka setiap
+        hidangan dicatat bukan sekadar data, melainkan cerita yang layak diwariskan.
       </p>
       <a href="/tentang" class="scta-link">
         Baca kisah kami
@@ -39,9 +42,9 @@
         </div>
 
         <blockquote class="scta-quote">
-          <p>Setiap hidangan adalah jendela menuju budaya yang melahirkannya.</p>
+          <p>Resep turun-temurun bukan sekadar catatan, tapi cerita yang terus dihidupkan.</p>
           <footer>
-            <cite>— Tim Kulineria</cite>
+            <cite>Tim Kulineria</cite>
           </footer>
         </blockquote>
       </div>
@@ -120,14 +123,27 @@
     overflow: hidden;
   }
 
+  /* Batik background — repeat HD texture, tile kecil agar pattern rapat */
+  .scta-batik-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.035;
+    filter: sepia(0.3) saturate(0.25) brightness(1.1);
+    background-image: url('/img/motif/png batik.png');
+    background-repeat: repeat;
+    background-size: 220px;
+  }
+
   /* Ornament */
   .scta-ornament {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: clamp(180px, 35vw, 420px);
-    opacity: 0.035;
+    width: clamp(200px, 38vw, 480px);
+    opacity: 0.03;
     pointer-events: none;
     z-index: 0;
     filter: sepia(1) saturate(0.3) hue-rotate(330deg);

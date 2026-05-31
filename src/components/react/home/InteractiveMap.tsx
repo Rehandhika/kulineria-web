@@ -126,7 +126,7 @@ export default function InteractiveMap() {
   const handleClick = useCallback((e: React.MouseEvent) => {
     const id = hitTest(e.clientX, e.clientY);
     if (!id) return;
-    setSelectedRegion(selected === id ? null : id);
+    setSelectedRegion(selected === id ? null : id as RegionId);
   }, [hitTest, selected]);
 
   const handleTouch = useCallback((e: React.TouchEvent) => {
@@ -136,13 +136,13 @@ export default function InteractiveMap() {
     if (!touch) return;
     const id = hitTest(touch.clientX, touch.clientY);
     if (!id) return;
-    setSelectedRegion(selected === id ? null : id);
+    setSelectedRegion(selected === id ? null : id as RegionId);
   }, [hitTest, selected]);
 
   const handleKeyDown = useCallback((id: string) => (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      setSelectedRegion(selected === id ? null : id);
+      setSelectedRegion(selected === id ? null : id as RegionId);
     }
   }, [selected]);
 

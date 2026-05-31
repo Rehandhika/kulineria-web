@@ -137,8 +137,10 @@ export default function QuizMenu() {
 
       {/* ── MAP SECTION (Parchment Background below wave) ── */}
       <section className="quiz-menu-map-section">
-        {/* Floating batik/cloud motifs on parchment bg */}
-        <img src="/img/motif/png batik mega mendung.png" className="quiz-motif motif-map-outside-left motif-float" aria-hidden="true" alt="" />
+        {/* Batik latar — repeat HD texture */}
+        <div className="quiz-menu-map-batik" aria-hidden="true"></div>
+
+        {/* Floating cloud motif on parchment bg */}
         <img src="/img/motif/png awan.png" className="quiz-motif motif-map-outside-right motif-float" aria-hidden="true" alt="" />
 
         <div className="quiz-journey-container">

@@ -95,10 +95,9 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
     <!-- Lenis + Page Animation Orchestrator -->
     <script>
-      import { initSmoothScroll, refreshSmoothScroll, destroySmoothScroll, forceScrollToTop } from '../lib/animations/scroll-smoother';
+      import { initSmoothScroll, forceScrollToTop } from '../lib/animations/scroll-smoother';
       import { gsap } from 'gsap';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
-      import { cleanupAnimations } from '../lib/animations/gsap-presets';
 
       gsap.registerPlugin(ScrollTrigger);
 
