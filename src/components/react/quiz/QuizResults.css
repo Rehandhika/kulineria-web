@@ -28,11 +28,34 @@
   }
 }
 
-/* ── Parent Overrides for Safe Centering & Scrolling ── */
-.quiz-game-dark-bg {
+/* ── Immersive Centered Gameplay Mode (Unscrollable, Fixed Centered) ── */
+.quiz-game-gameplay-mode {
+  height: 100svh !important;
+  min-height: 100svh !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: var(--sp-4) !important;
+  box-sizing: border-box;
+}
+
+/* ── Cozy Natural Results Mode (Scrollable, Viewport Flow) ── */
+.quiz-game-results-mode {
+  min-height: 100svh !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
   justify-content: flex-start !important;
   align-items: center !important;
-  overflow-y: auto !important;
+  overflow-y: visible !important; /* Avoid scroll conflicts, scroll naturally on body/html */
+  padding: 0 !important;
   background: linear-gradient(
     148deg,
     var(--brown-800) 0%,     /* Deep warm mocha #5A3420 */

@@ -67,7 +67,7 @@ export default function QuizProvider() {
   if (status === 'idle') return <QuizMenu />;
 
   return (
-    <div className="quiz-game-dark-bg">
+    <div className={`quiz-game-dark-bg ${status !== 'finished' ? 'quiz-game-gameplay-mode' : 'quiz-game-results-mode'}`}>
       {status === 'countdown' && <QuizCountdown />}
       {(status === 'playing' || status === 'reviewing') && <QuizGame />}
       {status === 'finished' && <QuizResults />}
