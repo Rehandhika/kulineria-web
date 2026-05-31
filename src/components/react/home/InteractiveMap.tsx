@@ -158,6 +158,14 @@ export default function InteractiveMap() {
       <div className="map-container relative w-full overflow-hidden rounded-2xl border shadow-[var(--sh-card)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
+        {/* Elegant plain cloud motifs inside the interactive map */}
+        <img src="/img/motif/png awan.png" className="map-motif map-motif-tl motif-float-1" aria-hidden="true" alt="" />
+        <img src="/img/motif/png awan.png" className="map-motif map-motif-br motif-float-2" aria-hidden="true" alt="" />
+        
+        {/* Soft atmospheric clouds floating in the ocean background */}
+        <img src="/img/motif/png awan.png" className="map-motif map-motif-inner-1 motif-float-3" aria-hidden="true" alt="" />
+        <img src="/img/motif/png awan.png" className="map-motif map-motif-inner-2 motif-float-2" aria-hidden="true" alt="" />
+
         <div className="map-content-wrapper">
           {REGION_ASSETS.map(region => {
             const isActive = selected === region.id;

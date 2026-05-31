@@ -6,28 +6,61 @@ interface Props {
   level?: 'h1' | 'h2' | 'h3';
   color?: 'accent' | 'gold' | 'warm' | 'terracotta';
   align?: 'center' | 'left';
+  ornamenSides?: boolean;
 }
-const { overline, title, subtitle, level = 'h2', color = 'accent', align = 'center' } = Astro.props;
+const { overline, title, subtitle, level = 'h2', color = 'accent', align = 'center', ornamenSides = false } = Astro.props;
 const Tag = level;
 const badgeClass = `duo-badge-${color}`;
 ---
 
-<div class:list={['duo-section-header', align === 'left' && 'duo-section-header--left']}>
+<div class:list={['duo-section-header', align === 'left' && 'duo-section-header--left', ornamenSides && 'duo-section-header--ornamen-sides']}>
   {overline && (
     <div class="duo-section-overline">
       <span class:list={['duo-badge', badgeClass]}>{overline}</span>
     </div>
   )}
-  <Tag class="duo-section-title">{title}</Tag>
-  <div class="duo-section-divider" aria-hidden="true">
-    <span class="duo-section-divider-line"></span>
-    <img src="/img/motif/png ornamen nusantara.png" alt="" class="duo-section-divider-motif" />
-    <span class="duo-section-divider-line"></span>
-  </div>
+  {ornamenSides ? (
+    <div class="duo-ornamen-title-row">
+      <img src="/img/motif/png ornamen nusantara.png" alt="" class="duo-ornamen-side" />
+      <Tag class="duo-section-title">{title}</Tag>
+      <img src="/img/motif/png ornamen nusantara.png" alt="" class="duo-ornamen-side" />
+    </div>
+  ) : (
+    <Tag class="duo-section-title">{title}</Tag>
+  )}
+  {!ornamenSides && (
+    <div class="duo-section-divider" aria-hidden="true">
+      <span class="duo-section-divider-line"></span>
+      <img src="/img/motif/png ornamen nusantara.png" alt="" class="duo-section-divider-motif" />
+      <span class="duo-section-divider-line"></span>
+    </div>
+  )}
   {subtitle && <p class="duo-section-subtitle">{subtitle}</p>}
 </div>
 
 <style>
+  .duo-ornamen-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-1);
+  }
+  .duo-ornamen-side {
+    height: 16px;
+    width: auto;
+    opacity: 0.5;
+    filter: sepia(1) saturate(0.6) hue-rotate(330deg) brightness(0.85);
+    display: block;
+    flex-shrink: 0;
+  }
+  .duo-section-header--ornamen-sides .duo-section-title {
+    margin-bottom: 0;
+  }
+  .duo-section-header--ornamen-sides .duo-section-subtitle {
+    margin-top: var(--sp-2);
+  }
+
   .duo-section-divider {
     display: flex;
     align-items: center;

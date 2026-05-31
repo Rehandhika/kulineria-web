@@ -6,6 +6,9 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 ---
 
 <section class="team" id="about-team">
+  <!-- Batik latar — repeat HD texture -->
+  <div class="team-batik" aria-hidden="true"></div>
+
   <div class="container">
     <div class="team-container">
       <h2 class="team-title">Tim di Balik Kulineria</h2>
@@ -130,6 +133,7 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 <style>
   .team {
     position: relative;
+    overflow: hidden;
     padding-top: clamp(72px, 11vw, 152px);
     padding-bottom: clamp(64px, 9vw, 128px);
     /* Make section background transparent or white to let container pop, or keep original */
@@ -138,6 +142,20 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
   .team .container {
     position: relative;
     z-index: 1;
+  }
+
+  .team-batik {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.22;
+    filter: sepia(0.35) saturate(0.5) brightness(0.85);
+    background-image: url('/img/motif/png batik.png');
+    background-repeat: repeat;
+    background-size: 220px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
   }
 
   .team-container {

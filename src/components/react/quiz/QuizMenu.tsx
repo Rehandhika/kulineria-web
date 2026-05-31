@@ -93,8 +93,8 @@ export default function QuizMenu() {
         </div>
 
         {/* Floating clouds within Hero */}
-        <img src="/img/motif/png awan.png" className="quiz-motif motif-hero-left motif-float" aria-hidden="true" alt="" />
-        <img src="/img/motif/png awan.png" className="quiz-motif motif-hero-right motif-float" aria-hidden="true" alt="" />
+        <img src="/img/motif/png batik mega mendung.png" className="quiz-motif motif-hero-left motif-float" aria-hidden="true" alt="" />
+        <img src="/img/motif/png batik mega mendung.png" className="quiz-motif motif-hero-right motif-float" aria-hidden="true" alt="" />
 
         {/* Seamless visual bottom organic wave divider filled with page background color */}
         <div className="hero-wave" aria-hidden="true">
@@ -140,11 +140,20 @@ export default function QuizMenu() {
         {/* Batik latar — repeat HD texture */}
         <div className="quiz-menu-map-batik" aria-hidden="true"></div>
 
-        {/* Floating cloud motif on parchment bg */}
+        {/* Floating plain cloud motifs on parchment bg */}
+        <img src="/img/motif/png awan.png" className="quiz-motif motif-map-outside-left motif-float" aria-hidden="true" alt="" />
         <img src="/img/motif/png awan.png" className="quiz-motif motif-map-outside-right motif-float" aria-hidden="true" alt="" />
 
         <div className="quiz-journey-container">
           <div className="quiz-journey-map">
+            {/* Elegant floating plain clouds inside the map board */}
+            <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-tl motif-float" aria-hidden="true" alt="" />
+            <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-br motif-float" aria-hidden="true" alt="" />
+            
+            {/* Decorative soft clouds floating in the map grid */}
+            <img src="/img/motif/png awan.png" className="quiz-motif motif-map-inner-cloud-1 motif-float" aria-hidden="true" alt="" />
+            <img src="/img/motif/png awan.png" className="quiz-motif motif-map-inner-cloud-2 motif-float" aria-hidden="true" alt="" />
+
             <div className="journey-svg-wrapper">
               
               {/* Garis Penghubung Horizontal (Desktop/Tablet) */}

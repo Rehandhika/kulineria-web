@@ -18,6 +18,23 @@
     <rect width="100" height="100" filter="url(#hero-noise-fx)" opacity="0.04" style="mix-blend-mode: overlay"/>
   </svg>
 
+  <!-- Decorative elegant floating motifs in main Hero -->
+  <div class="hero-motif hero-motif-1" aria-hidden="true">
+    <img src="/img/motif/png batik mega mendung.png" class="motif-float-1" alt="" />
+  </div>
+  <div class="hero-motif hero-motif-2" aria-hidden="true">
+    <img src="/img/motif/png ornamen nusantara.png" class="motif-float-2" alt="" />
+  </div>
+  <div class="hero-motif hero-motif-3" aria-hidden="true">
+    <img src="/img/motif/png awan.png" class="motif-float-3" alt="" />
+  </div>
+  <div class="hero-motif hero-motif-4" aria-hidden="true">
+    <img src="/img/motif/png bunga.png" class="motif-float-1" alt="" />
+  </div>
+  <div class="hero-motif hero-motif-5" aria-hidden="true">
+    <img src="/img/motif/png bunga.png" class="motif-float-3" alt="" />
+  </div>
+
   <div class="hero-layout">
 
     <!-- Kolom NARA — karakter inti, grounded & terpusat -->
@@ -25,6 +42,20 @@
       <figure class="hero-nara-figure">
         <div class="hero-nara-glow" aria-hidden="true"></div>
         <div class="hero-nara-pedestal" aria-hidden="true"></div>
+
+        <!-- Elegant food arch framing Nara from behind (Grounded visual composition) -->
+        <div class="hero-nara-food hero-food-1" aria-hidden="true">
+          <img src="/img/makanan/Rendang2.png" alt="Rendang" />
+        </div>
+        <div class="hero-nara-food hero-food-2" aria-hidden="true">
+          <img src="/img/makanan/Sate2.png" alt="Sate" />
+        </div>
+        <div class="hero-nara-food hero-food-3" aria-hidden="true">
+          <img src="/img/makanan/Gado22.png" alt="Gado Gado" />
+        </div>
+        <div class="hero-nara-food hero-food-4" aria-hidden="true">
+          <img src="/img/makanan/Sup Iga.png" alt="Sup Iga" />
+        </div>
 
         <img
           src="/img/nara/NARA 1.png"
@@ -91,46 +122,65 @@ function initHero() {
   const glow     = hero.querySelector('.hero-nara-glow');
   const pedestal = hero.querySelector('.hero-nara-pedestal');
   const scroll   = hero.querySelector('.hero-scroll');
+  const motifs   = hero.querySelectorAll('.hero-motif');
+  const foods    = hero.querySelectorAll('.hero-nara-food');
 
   if (reduced) {
-    gsap.set([bg, noise, label, words, sub, nara, glow, pedestal, scroll],
+    gsap.set([bg, noise, label, words, sub, nara, glow, pedestal, scroll, ...Array.from(motifs), ...Array.from(foods)],
       { opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)' });
     return;
   }
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out', overwrite: 'auto' } });
 
-  // 1. Atmosfer
-  tl.fromTo(bg,    { scale: 1.10, opacity: 0 }, { scale: 1, opacity: 1, duration: 2.4, ease: 'power2.out' }, 0)
-    .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 3.4 }, 0)
-    .fromTo(glow,  { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 2.6, ease: 'power2.out' }, 0.2);
+  // 1. Atmosfer & Floating Motifs (Choreographed to feel punchy & responsive)
+  tl.fromTo(bg,    { scale: 1.10, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: 'power2.out' }, 0)
+    .fromTo(noise, { opacity: 0 }, { opacity: 0.8, duration: 2.2 }, 0)
+    .fromTo(glow,  { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 1.8, ease: 'power2.out' }, 0.1);
 
-  // 2. NARA grounded — pedestal lalu maskot naik
+  if (motifs.length > 0) {
+    tl.fromTo(motifs,
+      { opacity: 0, scale: 0.7, y: 15 },
+      { opacity: 1, scale: 1, y: 0, duration: 1.4, stagger: 0.08, ease: 'power2.out' },
+      0.2
+    );
+  }
+
+  // 2. NARA grounded — pedestal lalu maskot naik (staggered & tight transitions)
   if (pedestal) {
-    tl.fromTo(pedestal, { opacity: 0, scaleX: 0.35 }, { opacity: 1, scaleX: 1, duration: 1.4, ease: 'power2.out' }, 0.6);
+    tl.fromTo(pedestal, { opacity: 0, scaleX: 0.35 }, { opacity: 1, scaleX: 1, duration: 0.8, ease: 'power2.out' }, 0.3);
   }
   if (nara) {
     tl.fromTo(nara,
-      { y: 90, opacity: 0, scale: 0.88 },
-      { y: 0, opacity: 1, scale: 1, duration: 1.9, ease: 'back.out(1.2)' },
+      { y: 70, opacity: 0, scale: 0.90 },
+      { y: 0, opacity: 1, scale: 1, duration: 1.3, ease: 'back.out(1.1)' },
+      0.4
+    );
+  }
+
+  // 2b. Floating foods reveal staggering in orbit around Nara
+  if (foods.length > 0) {
+    tl.fromTo(foods,
+      { opacity: 0, scale: 0.6, y: 30 },
+      { opacity: 1, scale: 1, y: 0, duration: 1.4, stagger: 0.12, ease: 'back.out(1.3)' },
       0.7
     );
   }
 
-  // 3. Teks — masuk setelah maskot mulai terlihat
-  tl.fromTo(label, { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2 }, 1.4)
-    .fromTo(words, { y: 100, opacity: 0, filter: 'blur(16px)' }, {
+  // 3. Teks — masuk dengan stagger cepat agar responsive dan tidak delay
+  tl.fromTo(label, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.6)
+    .fromTo(words, { y: 60, opacity: 0, filter: 'blur(12px)' }, {
       y: 0, opacity: 1, filter: 'blur(0px)', clearProps: 'filter,will-change',
-      stagger: isMobile ? 0.16 : 0.2, duration: 1.9,
-    }, 1.55)
-    .fromTo(sub,  { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 1.4 }, '-=0.8');
+      stagger: isMobile ? 0.05 : 0.07, duration: 1.1,
+    }, 0.7)
+    .fromTo(sub,  { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.0 }, 1.0);
 
   // 4. Tombol scroll
   if (scroll) {
     tl.fromTo(scroll,
-      { opacity: 0, y: 18 },
-      { opacity: 1, y: 0, duration: 1.2, ease: 'power2.out' },
-      '-=0.4'
+      { opacity: 0, y: 14 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      1.2
     );
   }
 
@@ -142,7 +192,7 @@ function initHero() {
       ease: 'sine.inOut',
       yoyo: true,
       repeat: -1,
-      delay: 3.2,
+      delay: 2.0,
     });
   }
 
@@ -460,8 +510,178 @@ runOnPageReady(() => {
     50%       { transform: translateY(4px); }
   }
 
+  /* ── Elegant Decorative Motifs (Subtle Watermarks) ── */
+  .hero-motif {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  /* 1. Top-Left Mega Mendung */
+  .hero-motif-1 {
+    top: 6%;
+    left: -4%;
+    width: clamp(140px, 22vw, 320px);
+  }
+  .hero-motif-1 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.5) sepia(0.35) saturate(0.6) contrast(1.1);
+    opacity: 0.05; /* Reduced from 0.12 to 0.05 for refined premium subtlety */
+  }
+
+  /* 2. Top-Right Nusantara Ornament */
+  .hero-motif-2 {
+    top: 8%;
+    right: 5%;
+    width: clamp(100px, 16vw, 220px);
+  }
+  .hero-motif-2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.4) sepia(0.4) saturate(0.7) contrast(1.1);
+    opacity: 0.03; /* Reduced from 0.08 to 0.03 */
+  }
+
+  /* 3. Mid-Left Plain Cloud */
+  .hero-motif-3 {
+    top: 50%;
+    left: 2%;
+    width: clamp(90px, 12vw, 160px);
+  }
+  .hero-motif-3 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.5) sepia(0.35) saturate(0.5) contrast(1.1);
+    opacity: 0.03; /* Reduced from 0.07 to 0.03 */
+  }
+
+  /* 4. Bottom-Right Flower */
+  .hero-motif-4 {
+    bottom: 10%;
+    right: -3%;
+    width: clamp(130px, 18vw, 250px);
+  }
+  .hero-motif-4 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.4) sepia(0.3) saturate(0.7) contrast(1.1);
+    opacity: 0.04; /* Reduced from 0.11 to 0.04 */
+  }
+
+  /* 5. Bottom-Left Small Flower */
+  .hero-motif-5 {
+    bottom: 12%;
+    left: -2%;
+    width: clamp(80px, 10vw, 140px);
+  }
+  .hero-motif-5 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.4) sepia(0.3) saturate(0.6) contrast(1.1);
+    opacity: 0.03; /* Reduced from 0.09 to 0.03 */
+  }
+
+  @media (max-width: 767px) {
+    .hero-motif-1 { top: 3%; left: -6%; width: 110px; }
+    .hero-motif-2 { top: 5%; right: -2%; width: 90px; }
+    .hero-motif-3 { display: none; }
+    .hero-motif-4 { bottom: 18%; right: -4%; width: 100px; }
+    .hero-motif-5 { bottom: 12%; left: -3%; width: 80px; }
+  }
+
+  /* ── Grounded Food Arch behind Nara ── */
+  .hero-nara-food {
+    position: absolute;
+    z-index: 2; /* Floats standardly in front of Nara's background */
+    pointer-events: none;
+    user-select: none;
+    will-change: transform, opacity;
+    opacity: 0; /* Animated on entrance */
+  }
+
+  .hero-nara-food img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+  }
+
+  /* Food 1: Top-Left (Rendang) */
+  .hero-food-1 {
+    top: 5%;
+    left: -12%;
+    width: clamp(75px, 16vw, 130px);
+  }
+
+  /* Food 2: Top-Right (Sate) */
+  .hero-food-2 {
+    top: 8%;
+    right: -10%;
+    width: clamp(80px, 17vw, 140px);
+  }
+
+  /* Food 3: Mid-Left (Gado Gado) */
+  .hero-food-3 {
+    bottom: 22%;
+    left: -10%;
+    width: clamp(75px, 16vw, 130px);
+  }
+
+  /* Food 4: Bottom-Right (Sup Iga) */
+  .hero-food-4 {
+    bottom: 12%;
+    right: -12%;
+    width: clamp(80px, 17vw, 140px);
+  }
+
+  @media (max-width: 767px) {
+    .hero-food-1 { left: -8%; top: 4%; width: clamp(55px, 18vw, 80px); }
+    .hero-food-2 { right: -6%; top: 8%; width: clamp(60px, 19vw, 85px); }
+    .hero-food-3 { left: -6%; bottom: 18%; width: clamp(55px, 18vw, 80px); }
+    .hero-food-4 { right: -8%; bottom: 12%; width: clamp(60px, 19vw, 85px); }
+  }
+
+  /* Staggered high-performance floating animations */
+  @keyframes heroFloat {
+    0% {
+      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
+    }
+    50% {
+      transform: translateY(-10px) translateX(5px) rotate(calc(var(--base-rot, 0deg) + 2.5deg));
+    }
+    100% {
+      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
+    }
+  }
+
+  .motif-float-1 {
+    --base-rot: 0deg;
+    animation: heroFloat 7s ease-in-out infinite;
+  }
+
+  .motif-float-2 {
+    --base-rot: 15deg;
+    animation: heroFloat 9s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  .motif-float-3 {
+    --base-rot: -10deg;
+    animation: heroFloat 8s ease-in-out infinite;
+    animation-delay: -5s;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-nara-img { animation: none !important; }
     .hero-scroll-icon svg { animation: none !important; }
+    .motif-float-1, .motif-float-2, .motif-float-3 { animation: none !important; }
   }
 </style>

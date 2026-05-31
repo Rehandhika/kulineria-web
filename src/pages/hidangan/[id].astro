@@ -52,6 +52,9 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   <!-- SECTION 2: CERITA (hanya jika data real) -->
   {showStory && fullFood?.story && (
     <section class="section cerita-section">
+      <!-- Batik latar — repeat HD texture -->
+      <div class="cerita-batik" aria-hidden="true"></div>
+
       <!-- Decorative floral watermark -->
       <div class="cerita-motif" aria-hidden="true">
         <img src="/img/motif/png bunga.png" alt="" />
@@ -72,6 +75,14 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   <!-- SECTION 3: BAHAN & CARA MEMBUAT -->
   {(fullFood?.ingredients && fullFood.ingredients.length > 0) || (fullFood?.recipe && fullFood.recipe.steps.length > 0) ? (
     <section class="section bahan-section">
+      <!-- Decorative Cirebon Mega Mendung watermarks -->
+      <div class="bahan-motif bahan-motif-tl" aria-hidden="true">
+        <img src="/img/motif/png batik mega mendung.png" alt="" />
+      </div>
+      <div class="bahan-motif bahan-motif-br" aria-hidden="true">
+        <img src="/img/motif/png batik mega mendung.png" alt="" />
+      </div>
+
       <div class="container">
         <h2 class="section-title">Bahan &amp; Cara Membuat</h2>
         <div class="bahan-grid">
@@ -99,6 +110,9 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   <!-- SECTION 4: INFORMASI GIZI -->
   {fullFood?.nutrition && (
     <section class="section gizi-section">
+      <!-- Batik latar — repeat HD texture -->
+      <div class="gizi-batik" aria-hidden="true"></div>
+
       <div class="container">
         <div class="gizi-card">
           <h2 class="section-title">Informasi Gizi</h2>
@@ -269,8 +283,16 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   }
   .btn-icon:hover { background: rgba(255,248,241,0.3); transform: scale(1.1); }
 
-  .gizi-section { background: var(--c-surface); }
+  .gizi-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--c-surface);
+    padding-bottom: var(--sp-20);
+  }
+  @media (min-width: 768px) { .gizi-section { padding-bottom: var(--sp-32); } }
   .gizi-card {
+    position: relative;
+    z-index: 1;
     padding: var(--sp-6);
     background: var(--c-surface);
     border-radius: var(--r-xl);
@@ -278,7 +300,58 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     box-shadow: var(--sh-card);
   }
 
-  .bahan-section { background: var(--c-bg); }
+  .cerita-batik, .gizi-batik {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.22;
+    filter: sepia(0.35) saturate(0.5) brightness(0.85);
+    background-image: url('/img/motif/png batik.png');
+    background-repeat: repeat;
+    background-size: 220px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 100px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 100px), transparent 100%);
+  }
+
+  .cerita-section .container, .gizi-section .container, .bahan-section .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bahan-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--c-bg);
+  }
+
+  /* Cirebon Mega Mendung cloud motifs */
+  .bahan-motif {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.08;
+    filter: sepia(1) saturate(0.35) brightness(0.85);
+    user-select: none;
+  }
+  .bahan-motif img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .bahan-motif-tl {
+    top: -40px;
+    left: -60px;
+    width: clamp(180px, 25vw, 360px);
+    transform: rotate(-10deg);
+  }
+  .bahan-motif-br {
+    bottom: -50px;
+    right: -80px;
+    width: clamp(220px, 30vw, 420px);
+    transform: rotate(15deg) scaleX(-1);
+  }
+
   .cerita-section {
     position: relative;
     background: var(--c-surface);
