@@ -34,11 +34,33 @@ export default function QuizProvider() {
     };
   }, [status]);
 
-  // Cleanup on unmount
+  // Handle smart state preservation on mount and unmount
   useEffect(() => {
+    const isSelamiReturn = sessionStorage.getItem('kulineria-return') === '/kuis';
+    const isReload = typeof window !== 'undefined' &&
+      (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming)?.type === 'reload';
+
+    if (isSelamiReturn || isReload) {
+      // Clear the return flag so subsequent navbar visits are fresh
+      sessionStorage.removeItem('kulineria-return');
+      
+      // Safety net: if the restored status is not 'finished', reset it since gameplay timers cannot be resumed on refresh
+      const currentStatus = useQuizStore.getState().status;
+      if (currentStatus !== 'finished') {
+        useQuizStore.getState().resetQuiz();
+      }
+    } else {
+      // Fresh visit, reset the quiz state
+      useQuizStore.getState().resetQuiz();
+    }
+
     return () => {
       cleanupQuizTimer();
-      useQuizStore.getState().resetQuiz();
+      // On unmount, only reset if we are NOT navigating to a food page via Selami
+      const isSelami = sessionStorage.getItem('kulineria-return') === '/kuis';
+      if (!isSelami) {
+        useQuizStore.getState().resetQuiz();
+      }
     };
   }, []);
 

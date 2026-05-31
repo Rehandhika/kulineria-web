@@ -122,6 +122,19 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
         forceScrollToTop();
       });
 
+      // Clear quiz return paths when navigating away to other main pages (home, jelajahi, dll)
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const link = target.closest('a');
+        if (link) {
+          const href = link.getAttribute('href') || '';
+          if (href && !href.startsWith('#') && !href.startsWith('/kuis') && !href.startsWith('/hidangan/')) {
+            sessionStorage.removeItem('kulineria-return');
+            sessionStorage.removeItem('kulineria-quiz-scroll');
+          }
+        }
+      });
+
       /* ─── PAGE ANIMATION ORCHESTRATOR ───────────────────────────────── */
 
 

@@ -10,11 +10,20 @@ interface Props {
 
 export default function HeroCinematic({ food, regionName }: Props) {
   const [isFavorited, setIsFavorited] = useState(false);
+  const [returnPath, setReturnPath] = useState<string | null>(null);
 
   useEffect(() => {
     setIsFavorited(getFavorites().includes(food.id));
   }, [food.id]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const path = sessionStorage.getItem('kulineria-return');
+      if (path) {
+        setReturnPath(path);
+      }
+    }
+  }, []);
 
   const handleFavorite = useCallback(() => {
     const favs = getFavorites();
@@ -45,13 +54,33 @@ export default function HeroCinematic({ food, regionName }: Props) {
       </div>
 
       <div className="hero-content">
-        <nav className="hero-breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Beranda</a>
-          <span className="hero-breadcrumb-sep">›</span>
-          <a href={`/jelajahi?region=${food.region}`}>{regionName}</a>
-          <span className="hero-breadcrumb-sep">›</span>
-          <span className="hero-breadcrumb-current">{food.name}</span>
-        </nav>
+        {returnPath === '/kuis' ? (
+          <a href="/kuis" className="hero-back-link" aria-label="Kembali ke Hasil Kuis">
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ marginRight: '6px', verticalAlign: 'middle', display: 'inline-block' }}
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Kembali ke Hasil Kuis
+          </a>
+        ) : (
+          <nav className="hero-breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Beranda</a>
+            <span className="hero-breadcrumb-sep">›</span>
+            <a href={`/jelajahi?region=${food.region}`}>{regionName}</a>
+            <span className="hero-breadcrumb-sep">›</span>
+            <span className="hero-breadcrumb-current">{food.name}</span>
+          </nav>
+        )}
 
         <div className="hero-content-inner">
           <span className="hero-badge" style={{ backgroundColor: regionColor }}>

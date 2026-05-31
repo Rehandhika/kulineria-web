@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import type { QuizMode, QuizStatus, Question, Answer } from '@/types/quiz';
 import { generateQuestions, calculateScore } from '@/lib/data/quiz-generator';
 
@@ -101,8 +102,10 @@ function finishQuizInternal(score: number, maxStreak: number, answers: Answer[])
   useQuizStore.setState({ status: 'finished', stats: newStats });
 }
 
-export const useQuizStore = create<QuizStore>((set, get) => ({
-  mode: null,
+export const useQuizStore = create<QuizStore>()(
+  persist(
+    (set, get) => ({
+      mode: null,
   status: 'idle',
   questions: [],
   currentIndex: 0,
@@ -272,4 +275,10 @@ export const useQuizStore = create<QuizStore>((set, get) => ({
     if (status === 'finished') return 1;
     return currentIndex / questions.length;
   },
-}));
+}),
+{
+  name: 'kulineria-quiz-storage',
+  storage: createJSONStorage(() => sessionStorage),
+}
+)
+);

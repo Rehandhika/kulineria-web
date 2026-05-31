@@ -311,11 +311,20 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 28px;
+    height: 28px;
     background: none;
     border: none;
-    padding: var(--sp-1);
+    padding: 0;
     transition: transform 0.3s var(--ease-smooth), opacity 0.3s var(--ease-smooth);
     opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .team-social-icon svg {
+    display: block;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
   }
   @media (max-width: 767px) {
     .team-social-icon {

@@ -249,6 +249,36 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   .hero-breadcrumb a:hover { color: var(--c-white); }
   .hero-breadcrumb-sep { color: rgba(255,248,241,0.4); }
   .hero-breadcrumb-current { color: rgba(255,248,241,0.9); font-weight: 700; }
+  
+  .hero-back-link {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: rgba(255, 248, 241, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 248, 241, 0.12);
+    border: 1px solid rgba(255, 248, 241, 0.25);
+    padding: 6px 14px;
+    border-radius: var(--r-full);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all var(--dur-fast) var(--ease-ui);
+    width: fit-content;
+    animation: heroBreadcrumbIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+  .hero-back-link:hover {
+    color: var(--c-white);
+    background: rgba(255, 248, 241, 0.22);
+    border-color: rgba(255, 248, 241, 0.45);
+    transform: translateX(-3px);
+  }
+  .hero-back-link svg {
+    transition: transform var(--dur-fast) var(--ease-ui);
+  }
+  .hero-back-link:hover svg {
+    transform: translateX(-2px);
+  }
 
   .hero-content-inner { max-width: 700px; }
   .hero-badge {

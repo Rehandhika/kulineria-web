@@ -28,15 +28,40 @@
   }
 }
 
+/* ── Parent Overrides for Safe Centering & Scrolling ── */
+.quiz-game-dark-bg {
+  justify-content: flex-start !important;
+  align-items: center !important;
+  overflow-y: auto !important;
+  background: linear-gradient(
+    148deg,
+    var(--brown-800) 0%,     /* Deep warm mocha #5A3420 */
+    var(--brown-700) 30%,    /* Rich cinnamon #6A412A */
+    var(--brown-500) 70%,    /* Light clay #A86B42 */
+    var(--brown-400) 100%    /* Sunlit clay sand #C28558 */
+  ) !important;
+}
+
 /* ── Root container ─────────────────────────────────────────── */
 .quiz-results {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: var(--sp-6) var(--sp-5);
-  text-align: center;
+  width: 100%;
+  min-height: 100%;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.results-card {
+  max-width: 640px;
+  width: 100%;
+  margin: auto auto; /* Centered using auto margins so it stays centered when small, but flows from top when tall */
+  padding: var(--sp-8) var(--sp-5);
+  text-align: center;
+  position: relative;
+  z-index: 2;
   animation: fadeSlideUp 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  box-sizing: border-box;
 }
 
 /* ── Ambient Motifs on Results Screen ── */
@@ -57,25 +82,42 @@
   animation: resultsMotifFadeIn 0.8s ease both;
 }
 
-.results-motif-bunga-bl {
-  bottom: 5%;
-  left: -2%;
-  width: clamp(80px, 16vw, 130px);
-  opacity: 0.06;
-  transform: rotate(-15deg);
-  filter: brightness(1.5) saturate(0.25);
-  animation: resultsMotifDriftUp 5s ease-in-out infinite alternate;
+.results-motif-megamendung-tl {
+  top: 0;
+  left: 0;
+  width: clamp(160px, 20vw, 280px);
+  opacity: 0.055;
+  filter: brightness(1.8) saturate(0.15);
+  transform: rotate(15deg);
+  animation: megaMendungDriftTL 8s ease-in-out infinite alternate;
 }
 
-.results-motif-bunga-tr {
-  top: 6%;
-  right: -2%;
-  width: clamp(65px, 12vw, 105px);
+.results-motif-megamendung-br {
+  bottom: 0;
+  right: 0;
+  width: clamp(160px, 20vw, 280px);
+  opacity: 0.055;
+  filter: brightness(1.8) saturate(0.15);
+  transform: rotate(-165deg);
+  animation: megaMendungDriftBR 9s ease-in-out infinite alternate;
+}
+
+.results-motif-awan-left {
+  top: 25%;
+  left: 3%;
+  width: clamp(100px, 14vw, 180px);
+  opacity: 0.05;
+  filter: brightness(1.6) saturate(0.1);
+  animation: awanDriftLeft 12s ease-in-out infinite alternate;
+}
+
+.results-motif-awan-right {
+  top: 45%;
+  right: 3%;
+  width: clamp(100px, 14vw, 180px);
   opacity: 0.045;
-  transform: rotate(20deg) scaleX(-1);
-  filter: brightness(1.5) saturate(0.25);
-  animation: resultsMotifDriftDown 6s ease-in-out infinite alternate;
-  animation-delay: 1s;
+  filter: brightness(1.6) saturate(0.1) scaleX(-1);
+  animation: awanDriftRight 14s ease-in-out infinite alternate;
 }
 
 @keyframes resultsMotifFadeIn {
@@ -83,45 +125,89 @@
   to   { opacity: 0.04; transform: translate(-50%, -50%) scale(1); }
 }
 
-@keyframes resultsMotifDriftUp {
-  from { transform: rotate(-15deg) translateY(0); }
-  to   { transform: rotate(-15deg) translateY(-8px); }
+@keyframes megaMendungDriftTL {
+  from { transform: rotate(15deg) translate(0, 0); }
+  to   { transform: rotate(17deg) translate(6px, 4px); }
 }
 
-@keyframes resultsMotifDriftDown {
-  from { transform: rotate(20deg) scaleX(-1) translateY(0); }
-  to   { transform: rotate(20deg) scaleX(-1) translateY(5px); }
+@keyframes megaMendungDriftBR {
+  from { transform: rotate(-165deg) translate(0, 0); }
+  to   { transform: rotate(-163deg) translate(-6px, -4px); }
 }
 
-@media (max-width: 480px) {
-  .results-motif-bunga-bl,
-  .results-motif-bunga-tr {
-    display: none; /* Hide flower corner motifs on extra small screen */
+@keyframes awanDriftLeft {
+  from { transform: translateX(0) translateY(0) scale(1); }
+  to   { transform: translateX(12px) translateY(-8px) scale(1.03); }
+}
+
+@keyframes awanDriftRight {
+  from { transform: scaleX(-1) translateX(0) translateY(0) scale(1); }
+  to   { transform: scaleX(-1) translateX(-14px) translateY(8px) scale(1.04); }
+}
+
+/* Responsive adjustments for ambient motifs */
+@media (max-width: 1024px) {
+  .results-motif-megamendung-tl,
+  .results-motif-megamendung-br {
+    width: clamp(130px, 15vw, 180px);
+    opacity: 0.045;
+  }
+  .results-motif-awan-left,
+  .results-motif-awan-right {
+    width: clamp(90px, 10vw, 120px);
+    opacity: 0.04;
   }
 }
 
-/* ── Header: mascot 48px + title inline ─────────────────────── */
+@media (max-width: 768px) {
+  .results-motif-megamendung-tl { top: -1%; left: -1%; opacity: 0.035; }
+  .results-motif-megamendung-br { bottom: -1%; right: -1%; opacity: 0.035; }
+  .results-motif-awan-left { left: 1%; opacity: 0.03; }
+  .results-motif-awan-right { right: 1%; opacity: 0.03; }
+}
+
+@media (max-width: 480px) {
+  .results-motif-awan-left,
+  .results-motif-awan-right {
+    display: none; /* Hide floating side clouds on extra small mobile screen */
+  }
+  .results-motif-megamendung-tl {
+    width: 110px;
+    opacity: 0.03;
+  }
+  .results-motif-megamendung-br {
+    width: 110px;
+    opacity: 0.03;
+  }
+}
+
+/* ── Header: mascot centered above text ─────────────────────── */
 .results-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--sp-4);
-  margin-bottom: var(--sp-6);
-  text-align: left;
+  justify-content: center;
+  gap: var(--sp-3.5);
+  margin-bottom: var(--sp-8);
+  text-align: center;
   animation: fadeSlideUp 500ms cubic-bezier(0.22, 1, 0.36, 1) 50ms both;
 }
 
 .results-nara-img {
-  width: 48px;
-  height: 48px;
+  width: 200px;
+  height: 200px;
   flex-shrink: 0;
   object-fit: contain;
   animation: naraResultFloat 3s ease-in-out infinite;
   user-select: none;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
 }
 
 .results-header-text {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .results-header h2 {
@@ -132,15 +218,17 @@
   font-family: var(--ff-display);
   letter-spacing: -0.01em;
   line-height: var(--lh-tight);
+  text-shadow: 0 2px 4px rgba(36, 22, 14, 0.25);
 }
 
 .results-message {
   font-size: var(--fs-sm);
-  color: rgba(255, 248, 240, 0.65);
+  color: rgba(255, 248, 240, 0.85);
   font-family: var(--ff-body);
   font-style: italic;
   line-height: var(--lh-snug);
   margin: 0;
+  text-shadow: 0 1px 2px rgba(36, 22, 14, 0.2);
 }
 
 /* ── Stats row: 3 inline stats ──────────────────────────────── */
@@ -150,9 +238,9 @@
   justify-content: center;
   gap: var(--sp-5);
   padding: var(--sp-4) var(--sp-5);
-  margin-bottom: var(--sp-5);
-  background: rgba(43, 29, 20, 0.4);
-  border: 1px solid rgba(255, 248, 240, 0.08);
+  margin-bottom: var(--sp-6);
+  background: rgba(36, 22, 14, 0.68);
+  border: 1px solid rgba(194, 133, 88, 0.2);
   border-radius: var(--r-xl);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -198,7 +286,7 @@
   justify-content: center;
   gap: 6px;
   flex-wrap: wrap;
-  margin-bottom: var(--sp-5);
+  margin-bottom: var(--sp-6);
   padding: var(--sp-3) 0;
   animation: fadeSlideUp 500ms cubic-bezier(0.22, 1, 0.36, 1) 150ms both;
 }
@@ -218,11 +306,13 @@
 }
 
 .dot.correct {
-  background: #658169;
+  background: #7CBA7C;
+  box-shadow: 0 0 8px rgba(124, 186, 124, 0.7);
 }
 
 .dot.wrong {
-  background: #9C5246;
+  background: #D4706A;
+  box-shadow: 0 0 8px rgba(212, 112, 106, 0.7);
 }
 
 .dot.unanswered {
@@ -232,7 +322,7 @@
 /* ── Review section: collapsible ────────────────────────────── */
 .results-review {
   text-align: left;
-  margin-bottom: var(--sp-5);
+  margin-bottom: var(--sp-7);
   animation: fadeSlideUp 500ms cubic-bezier(0.22, 1, 0.36, 1) 200ms both;
 }
 
@@ -281,7 +371,7 @@
 }
 
 .review-list--open {
-  max-height: 600px;
+  max-height: 2000px;
   opacity: 1;
 }
 
@@ -298,9 +388,9 @@
   justify-content: space-between;
   gap: var(--sp-3);
   padding: var(--sp-3) var(--sp-4);
-  background: rgba(43, 29, 20, 0.4);
+  background: rgba(36, 22, 14, 0.68);
   border-radius: var(--r-lg);
-  border: 1px solid rgba(255, 248, 240, 0.05);
+  border: 1px solid rgba(194, 133, 88, 0.15);
 }
 
 .review-info {
@@ -353,6 +443,7 @@
   justify-content: center;
   gap: var(--sp-3);
   flex-wrap: wrap;
+  margin-top: var(--sp-4);
   animation: fadeSlideUp 500ms cubic-bezier(0.22, 1, 0.36, 1) 250ms both;
 }
 

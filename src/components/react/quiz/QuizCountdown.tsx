@@ -14,17 +14,6 @@ export default function QuizCountdown() {
       <img src="/img/motif/png bunga.png" className="countdown-motif countdown-motif-bunga-tr" aria-hidden="true" alt="" draggable={false} />
 
       <div className="countdown-center">
-        <div className="countdown-nara">
-          <img
-            src={countdownValue > 0 ? '/img/nara/NARA 8.png' : '/img/nara/NARA 9.png'}
-            alt={countdownValue > 0 ? 'Nara bersemangat' : 'Nara melompat kegirangan'}
-            className="countdown-nara-img"
-            width="80"
-            height="80"
-            draggable={false}
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-        </div>
         <div className="countdown-number" key={countdownValue}>
           {countdownValue > 0 ? countdownValue : 'Mulai!'}
         </div>
