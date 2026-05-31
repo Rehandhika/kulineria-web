@@ -116,8 +116,6 @@ export default function QuizMenu() {
                 src="/img/nara/NARA 3.png"
                 alt="Nara menyambut"
                 className="quiz-menu-nara-img"
-                width="187"
-                height="187"
                 draggable={false}
                 onError={(e) => { e.currentTarget.style.display='none'; }}
               />
@@ -125,7 +123,7 @@ export default function QuizMenu() {
 
             <div className="quiz-menu-hero-content">
               <h1 className="quiz-menu-hero-title">
-                Peta <span>Penjelajahan</span>
+                Kuis <span>Kuliner</span>
               </h1>
               <p className="quiz-menu-hero-sub">
                 Uji seberapa jauh kamu mengenal kuliner Nusantara lewat kuis seru di setiap level.
