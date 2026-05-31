@@ -282,6 +282,12 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     flex-direction: column;
     align-items: center;
   }
+  @media (max-width: 767px) {
+    .team-card-body {
+      flex: 1;
+      width: 100%;
+    }
+  }
 
   .team-card h3 {
     font-family: var(--ff-body);
@@ -292,12 +298,13 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     margin-bottom: var(--sp-1);
   }
 
+
   .team-role {
     font-family: var(--ff-body);
     font-size: var(--fs-sm);
     font-weight: 500;
     color: var(--brown-500);
-    margin-bottom: var(--sp-4);
+    margin-bottom: 0;
   }
 
   .team-social-icon {
@@ -309,6 +316,16 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     padding: var(--sp-1);
     transition: transform 0.3s var(--ease-smooth), opacity 0.3s var(--ease-smooth);
     opacity: 0.85;
+  }
+  @media (max-width: 767px) {
+    .team-social-icon {
+      margin-top: auto;
+    }
+  }
+  @media (min-width: 768px) {
+    .team-social-icon {
+      margin-top: var(--sp-4);
+    }
   }
 
   .team-social-icon:hover {

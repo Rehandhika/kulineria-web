@@ -113,7 +113,7 @@ export default function QuizMenu() {
             {/* Mascot Nara Welcoming */}
             <div className="quiz-menu-nara" aria-hidden="true">
               <img
-                src="/img/nara/NARA 3.png"
+                src="/img/nara/NARA 2.png"
                 alt="Nara menyambut"
                 className="quiz-menu-nara-img"
                 draggable={false}
@@ -126,7 +126,7 @@ export default function QuizMenu() {
                 Kuis <span>Kuliner</span>
               </h1>
               <p className="quiz-menu-hero-sub">
-                Uji seberapa jauh kamu mengenal kuliner Nusantara lewat kuis seru di setiap level.
+                Uji seberapa jauh kamu mengenal kuliner Nusantara lewat kuis seru.
               </p>
             </div>
           </div>
