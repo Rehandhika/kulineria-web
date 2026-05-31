@@ -123,7 +123,7 @@ export default function QuizResults() {
           </div>
           <div className="stat-divider" aria-hidden="true" />
           <div className="stat-item">
-            <span className="stat-value">🔥{maxStreak}</span>
+            <span className="stat-value">{maxStreak}</span>
             <span className="stat-label">Streak</span>
           </div>
         </div>

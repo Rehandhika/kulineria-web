@@ -217,8 +217,8 @@
 }
 
 .results-nara-img {
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
   flex-shrink: 0;
   object-fit: contain;
   animation: naraResultFloat 3s ease-in-out infinite;

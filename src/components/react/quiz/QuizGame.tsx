@@ -115,7 +115,7 @@ export default function QuizGame() {
         </div>
         <div className="bar-right">
           <span className="bar-score">{score}</span>
-          {streak >= 3 && <span className="bar-streak">🔥{streak}</span>}
+          {streak >= 3 && <span className="bar-streak">{streak}</span>}
         </div>
       </div>
 

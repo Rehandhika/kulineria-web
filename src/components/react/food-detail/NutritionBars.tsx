@@ -65,7 +65,7 @@ export default function NutritionBars({ nutrition }: Props) {
         {/* Prominent Calories Card (Highlight, no progress bar track) */}
         <div className="nutrition-item nutrition-item--highlight" role="listitem">
           <div className="nutrition-header">
-            <span className="nutrition-label" style={{ color: 'var(--c-accent)' }}>🔥 Energi Utama</span>
+            <span className="nutrition-label" style={{ color: 'var(--c-accent)' }}>Energi Utama</span>
             <span className="nutrition-value" style={{ fontSize: 'var(--fs-2xl)' }}>
               {nutrition.calories} <span style={{ fontSize: 'var(--fs-base)', fontWeight: 600 }}>kkal</span>
             </span>
