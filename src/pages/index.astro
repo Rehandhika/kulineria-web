@@ -53,17 +53,19 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
     background: var(--c-bg);
   }
 
-  /* Batik texture di balik map & featured — repeat HD */
+  /* Batik texture di balik map & featured — visible sebagai background */
   .light-zone-batik {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.035;
-    filter: sepia(0.25) saturate(0.2) brightness(1.05);
+    opacity: 0.22;
+    filter: sepia(0.35) saturate(0.5) brightness(0.85);
     background-image: url('/img/motif/png batik.png');
     background-repeat: repeat;
     background-size: 220px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
   }
 
   /* Map section — hanya padding atas; Featured menyediakan padding bawah zona */
@@ -71,9 +73,6 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
     position: relative;
     padding-top: clamp(56px, 8vw, 128px);
     padding-bottom: clamp(32px, 4vw, 64px);
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8L72 40L40 72L8 40Z' fill='none' stroke='%23C2410C' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 80px 80px;
   }
 
   .map-section-container {

@@ -10,13 +10,36 @@ const allFoods = getAllFoods();
 <BaseLayout title="Jelajahi" description="Cari dan temukan hidangan Nusantara berdasarkan wilayah, rasa, dan jenis">
   <SearchHero />
 
-  <main class="container jelajahi-main">
-    <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 12))} />
-  </main>
+  <div class="jelajahi-content-wrap">
+    <div class="jelajahi-batik" aria-hidden="true"></div>
+    <main class="container jelajahi-main">
+      <SearchProvider client:load initialFoods={JSON.stringify(allFoods.slice(0, 12))} />
+    </main>
+  </div>
 
   <style>
+    .jelajahi-content-wrap {
+      position: relative;
+      background: var(--c-bg);
+      width: 100%;
+    }
+    .jelajahi-batik {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.22;
+      filter: sepia(0.35) saturate(0.5) brightness(0.85);
+      background-image: url('/img/motif/png batik.png');
+      background-repeat: repeat;
+      background-size: 220px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
+    }
     /* Extra bottom padding so FAB doesn't overlap last card row */
     .jelajahi-main {
+      position: relative;
+      z-index: 1;
       padding-top: var(--sp-8);
       padding-bottom: 120px;
     }

@@ -123,17 +123,19 @@
     overflow: hidden;
   }
 
-  /* Batik background — repeat HD texture, tile kecil agar pattern rapat */
+  /* Batik background — visible seperti di interactive map */
   .scta-batik-bg {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.035;
-    filter: sepia(0.3) saturate(0.25) brightness(1.1);
+    opacity: 0.22;
+    filter: sepia(0.35) saturate(0.5) brightness(0.85);
     background-image: url('/img/motif/png batik.png');
     background-repeat: repeat;
     background-size: 220px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 100px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 100px), transparent 100%);
   }
 
   /* Ornament */

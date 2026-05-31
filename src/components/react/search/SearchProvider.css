@@ -138,6 +138,8 @@
   opacity: 0.03;
   pointer-events: none;
   filter: sepia(0.25) saturate(0.2) brightness(1.05);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
 }
 
 .search-main {

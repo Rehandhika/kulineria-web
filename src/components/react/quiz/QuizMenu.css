@@ -5,6 +5,8 @@
   position: relative;
 }
 
+
+
 /* ── Hero Section (Dark Gradient Header) ── */
 .quiz-menu-hero {
   position: relative;
@@ -236,26 +238,28 @@
 .quiz-menu-map-section {
   position: relative;
   width: 100%;
-  padding: var(--sp-8) 0 var(--sp-12);
+  background: var(--c-bg);
+  padding: var(--sp-8) 0 var(--sp-24);
   z-index: 10;
 }
+@media (min-width: 768px) {
+  .quiz-menu-map-section {
+    padding: var(--sp-12) 0 var(--sp-32);
+  }
+}
 
-/* Batik texture behind map card */
 .quiz-menu-map-batik {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.06;
-  filter: brightness(0.72) saturate(0.15);
+  opacity: 0.22;
+  filter: sepia(0.35) saturate(0.5) brightness(0.85);
   background-image: url('/img/motif/png batik.png');
   background-repeat: repeat;
   background-size: 220px;
-}
-@media (min-width: 768px) {
-  .quiz-menu-map-section {
-    padding: var(--sp-12) 0 var(--sp-20);
-  }
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 80px, black calc(100% - 80px), transparent 100%);
 }
 
 .quiz-journey-container {

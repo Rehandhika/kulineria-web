@@ -53,17 +53,20 @@ const year = new Date().getFullYear();
     margin-top: var(--sp-16);
   }
   .footer.bg-surface {
-    background-color: var(--c-surface);
-    margin-top: 0;
+    /* Transparent to let wave overlap previous section's batik seamlessly */
+    margin-top: -60px;
+    z-index: 10;
   }
   .footer.bg-bg {
-    background-color: var(--c-bg);
-    margin-top: 0;
+    /* Transparent to let wave overlap previous section's batik seamlessly */
+    margin-top: -60px;
+    z-index: 10;
   }
   /* bg-none: footer has no background — used when page provides its own seamless bg */
   .footer.bg-none {
     background: transparent;
-    margin-top: 0;
+    margin-top: -60px;
+    z-index: 10;
   }
 
   /* ── Wave ── */
@@ -80,6 +83,7 @@ const year = new Date().getFullYear();
   }
   @media (min-width: 768px) {
     .footer-wave { height: 80px; }
+    .footer.bg-surface, .footer.bg-bg, .footer.bg-none { margin-top: -80px; }
   }
 
   /* ── Body ── */
