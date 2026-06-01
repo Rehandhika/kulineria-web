@@ -33,7 +33,7 @@ export default function NutritionBars({ nutrition }: Props) {
       unit: 'g',
       target: AKG.protein,
       color: 'var(--c-brand-mocha)',
-      gradient: 'linear-gradient(90deg, #A88F78 0%, var(--c-brand-mocha) 100%)',
+      gradient: 'linear-gradient(90deg, var(--macro-protein) 0%, var(--c-brand-mocha) 100%)',
       desc: 'Membangun & memperbaiki jaringan tubuh'
     },
     {
@@ -42,7 +42,7 @@ export default function NutritionBars({ nutrition }: Props) {
       unit: 'g',
       target: AKG.carbs,
       color: 'var(--c-accent)',
-      gradient: 'linear-gradient(90deg, #EAA182 0%, var(--c-accent) 100%)',
+      gradient: 'linear-gradient(90deg, var(--macro-karbo) 0%, var(--c-accent) 100%)',
       desc: 'Sumber energi utama aktivitas harian'
     },
     {
@@ -51,7 +51,7 @@ export default function NutritionBars({ nutrition }: Props) {
       unit: 'g',
       target: AKG.fat,
       color: 'var(--c-brand-caramel)',
-      gradient: 'linear-gradient(90deg, #E6C594 0%, var(--c-brand-caramel) 100%)',
+      gradient: 'linear-gradient(90deg, var(--macro-lemak) 0%, var(--c-brand-caramel) 100%)',
       desc: 'Pelindung organ & penyerapan vitamin'
     },
   ];
@@ -62,15 +62,15 @@ export default function NutritionBars({ nutrition }: Props) {
         <p className="nutrition-serving">Porsi: {nutrition.servingSize}</p>
       )}
       <div className="nutrition-bars-grid">
-        {/* Prominent Calories Card (Highlight, no progress bar track) */}
+        {/* Prominent Calories Card (Highlight, spans full width, no progress bar track) */}
         <div className="nutrition-item nutrition-item--highlight" role="listitem">
           <div className="nutrition-header">
-            <span className="nutrition-label" style={{ color: 'var(--c-accent)' }}>Energi Utama</span>
-            <span className="nutrition-value" style={{ fontSize: 'var(--fs-2xl)' }}>
-              {nutrition.calories} <span style={{ fontSize: 'var(--fs-base)', fontWeight: 600 }}>kkal</span>
+            <span className="nutrition-label nutrition-label--highlight">Energi Utama</span>
+            <span className="nutrition-value nutrition-value--highlight">
+              {nutrition.calories} <span className="nutrition-value-unit">kkal</span>
             </span>
           </div>
-          <p className="nutrition-desc" style={{ fontSize: 'var(--fs-xs)', color: 'var(--c-text-3)', margin: 0, lineHeight: 1.4 }}>
+          <p className="nutrition-desc nutrition-desc--highlight">
             Memenuhi sekitar {Math.round((nutrition.calories / 2150) * 100)}% dari rata-rata kebutuhan energi harian (2150 kkal).
           </p>
         </div>
@@ -81,17 +81,9 @@ export default function NutritionBars({ nutrition }: Props) {
           return (
             <div key={i} className="nutrition-item" role="listitem">
               <div className="nutrition-header">
-                <div style={{ display: 'flex', justifyContent: 'between', alignItems: 'center', width: '100%' }}>
-                  <span className="nutrition-label" style={{ flexGrow: 1 }}>{item.label}</span>
-                  <span className="nutrition-akg-tag" style={{
-                    fontSize: '10px',
-                    fontWeight: 800,
-                    padding: '2px 6px',
-                    borderRadius: 'var(--r-sm)',
-                    background: 'var(--c-surface-2)',
-                    color: 'var(--c-text-2)',
-                    border: '1px solid var(--c-border-soft)'
-                  }}>
+                <div className="nutrition-header-row">
+                  <span className="nutrition-label">{item.label}</span>
+                  <span className="nutrition-akg-tag">
                     {pct}% AKG
                   </span>
                 </div>
@@ -107,7 +99,7 @@ export default function NutritionBars({ nutrition }: Props) {
                   title={`${pct}% AKG`}
                 />
               </div>
-              <p className="nutrition-desc" style={{ fontSize: 'var(--fs-tiny)', color: 'var(--c-text-3)', margin: 0, lineHeight: 1.3 }}>
+              <p className="nutrition-desc">
                 {item.desc}
               </p>
             </div>

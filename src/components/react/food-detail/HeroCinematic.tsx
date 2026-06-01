@@ -49,8 +49,12 @@ export default function HeroCinematic({ food, regionName }: Props) {
 
   return (
     <section className="hero" aria-label={`Hero ${food.name}`}>
-      <div className="hero-image" style={{ backgroundColor: food.hero?.dominantColor || 'var(--c-surface-2)' }}>
+      <div className="hero-image">
         <div className="hero-overlay" />
+      </div>
+
+      <div className="hero-motif-mega" aria-hidden="true">
+        <img src="/img/motif/png batik mega mendung.png" alt="" width="320" height="160" loading="lazy" />
       </div>
 
       <div className="hero-content">

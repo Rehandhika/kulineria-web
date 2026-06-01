@@ -4,27 +4,23 @@
     <div class="story-scroll-inner">
 
       <div class="story-scene">
-        <p class="story-line">Indonesia punya ribuan hidangan</p>
-        <p class="story-line">yang tersebar dari Aceh sampai Papua.</p>
-        <p class="story-line">Setiap daerah punya <i class="highlight">cerita</i> di balik setiap suapan.</p>
+        <p class="story-line story-line--heading">Di balik setiap hidangan terdapat cerita.</p>
+        <p class="story-line story-line--body">Cerita tentang masyarakat yang menciptakannya, tradisi yang menjaganya, serta nilai budaya yang diwariskan dari generasi ke generasi.</p>
       </div>
 
       <div class="story-scene">
-        <p class="story-line">Tapi banyak resep warisan</p>
-        <p class="story-line">yang mulai <i class="highlight">jarang terdengar</i></p>
-        <p class="story-line">dan perlahan menghilang.</p>
+        <p class="story-line story-line--heading">Namun, tidak semua warisan kuliner terdokumentasikan dengan baik.</p>
+        <p class="story-line story-line--body">Seiring perkembangan zaman, banyak resep dan cerita di baliknya yang mulai jarang dikenal oleh generasi muda.</p>
       </div>
 
       <div class="story-scene">
-        <p class="story-line">Kulineria ada untuk</p>
-        <p class="story-line"><i class="highlight">mengumpulkan</i> dan <i class="highlight">merawat</i></p>
-        <p class="story-line">semua rasa yang ada.</p>
+        <p class="story-line story-line--heading">Kulineria hadir sebagai ruang untuk melestarikan kekayaan kuliner Nusantara.</p>
+        <p class="story-line story-line--body">Menghubungkan masyarakat dengan ragam hidangan Indonesia melalui informasi, cerita, dan nilai budaya yang menyertainya.</p>
       </div>
 
       <div class="story-scene">
-        <p class="story-line">Supaya kamu dan generasi setelahnya</p>
-        <p class="story-line">bisa terus <i class="highlight">menikmati</i></p>
-        <p class="story-line">kekayaan kuliner Nusantara.</p>
+        <p class="story-line story-line--heading">Karena kuliner bukan hanya tentang rasa.</p>
+        <p class="story-line story-line--body">Kuliner adalah bagian dari identitas, sejarah, dan warisan budaya yang membentuk Indonesia.</p>
       </div>
 
     </div>
@@ -153,10 +149,41 @@
     margin-bottom: 0;
   }
 
+  /* Heading line: the bold statement of each scene. */
+  .story-line--heading {
+    color: var(--c-accent-soft, #F5C4A8);
+    font-style: italic;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: var(--sp-5);
+  }
+
+  /* Body line: the explanatory paragraph under each heading. */
+  .story-line--body {
+    font-family: var(--ff-body);
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.7;
+    color: rgba(255, 248, 240, 0.72);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0;
+  }
+
   @media (max-width: 767px) {
     .story-line {
       font-size: clamp(1.2rem, 5vw, 1.6rem);
       line-height: 1.5;
+    }
+    .story-line--heading {
+      font-size: clamp(1.3rem, 5.5vw, 1.7rem);
+      margin-bottom: var(--sp-4);
+    }
+    .story-line--body {
+      font-size: 0.92rem;
+      line-height: 1.65;
     }
   }
 </style>

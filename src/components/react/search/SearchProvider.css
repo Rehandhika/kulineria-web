@@ -107,7 +107,7 @@
 .suggestion-name {
   font-size: var(--fs-base);
   color: var(--c-text-1);
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .suggestion-region {

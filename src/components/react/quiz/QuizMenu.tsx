@@ -123,10 +123,10 @@ export default function QuizMenu() {
 
             <div className="quiz-menu-hero-content">
               <h1 className="quiz-menu-hero-title">
-                Kuis <span>Kuliner</span>
+                Kuis Kuliner
               </h1>
               <p className="quiz-menu-hero-sub">
-                Uji seberapa jauh kamu mengenal kuliner Nusantara lewat kuis seru.
+                Dari Sabang hingga Merauke, uji wawasan kulinermu dan temukan beragam hidangan khas dari seluruh penjuru Nusantara.
               </p>
             </div>
           </div>

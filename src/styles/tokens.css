@@ -10,6 +10,7 @@
   --brown-900: #3D2415;
   --brown-800: #5A3420;
   --brown-700: #6A412A;   /* primary brand */
+  --brown-700-rgb: 106, 65, 42;
   --brown-600: #8B5535;
   --brown-500: #A86B42;
   --brown-400: #C28558;
@@ -37,12 +38,20 @@
   /* ── ACCENT — single terracotta-orange pop ──────────────────── */
   /* Contrast on white: 4.72:1 ✅ AA  |  on cream: 4.55:1 ✅ AA  */
   --c-accent:       #C2410C;
+  --c-accent-rgb:   194, 65, 12;
   --c-accent-dark:  #9A3209;
   --c-accent-hover: #D4521A;
   --c-accent-light: #FDEEE6;   /* slightly more saturated on warm bg */
   --c-accent-soft:  #F5C4A8;
   --c-accent-bg:    #FDEEE6;
   --c-accent-alpha: rgba(194, 65, 12, 0.12);
+
+  /* ── NUTRIENT GRADIENT START (Nutrition section bars) ─────── */
+  /* Lighter "highlight" tones that gradient into brand colors.
+     Each pairs with its brand: protein→mocha, karbo→accent, lemak→caramel */
+  --macro-protein:    #A88F78;   /* warm light brown */
+  --macro-karbo:      #EAA182;   /* soft peach */
+  --macro-lemak:      #E6C594;   /* cream-tan */
 
   /* ── NEUTRAL SURFACES (warm parchment) ──────────────────────── */
   --c-white:        #FFFFFF;

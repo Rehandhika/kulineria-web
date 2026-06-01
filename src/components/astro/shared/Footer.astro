@@ -17,29 +17,138 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="footer-body">
+    <!-- Elegant Watermark Motifs -->
+    <div class="footer-watermark watermark-top-left" aria-hidden="true">
+      <img src="/img/motif/png batik mega mendung.png" alt="" width="260" height="130" loading="lazy" />
+    </div>
+    <div class="footer-watermark watermark-bottom-right" aria-hidden="true">
+      <img src="/img/motif/png bunga.png" alt="" width="280" height="280" loading="lazy" />
+    </div>
+
     <div class="footer-container">
 
-      <!-- Brand + Nav in one row -->
-      <div class="footer-main">
+      <!-- Responsive Three-Column Footer Grid -->
+      <div class="footer-columns">
 
-        <div class="footer-brand">
-          <a href="/" class="footer-logo" aria-label="Kulineria Beranda">Kulineria</a>
-          <p class="footer-tagline">Kenali Kuliner Nusantara Bersama Nara</p>
+        <!-- Column 1: Brand & Mascot (using NARA 4, made 2x larger) -->
+        <div class="footer-col footer-col-brand">
+          <div class="footer-mascot">
+            <img 
+              src="/img/nara/NARA 4.png" 
+              alt="Nara, maskot Kulineria" 
+              class="footer-mascot-img"
+              width="250" 
+              height="250" 
+              loading="lazy" 
+              draggable="false"
+            />
+          </div>
+          <div class="footer-brand-info">
+            <h2 class="footer-title">Kulineria</h2>
+            <p class="footer-subtitle-1">Jelajahi Kuliner Nusantara</p>
+            <p class="footer-subtitle-2">Bersama Nara</p>
+            <div class="footer-col-divider" aria-hidden="true">
+              <span class="divider-line"></span>
+              <span class="divider-motif">
+                <svg width="24" height="8" viewBox="0 0 24 8" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="4" r="3" />
+                  <circle cx="4" cy="4" r="1.5" />
+                  <circle cx="20" cy="4" r="1.5" />
+                </svg>
+              </span>
+              <span class="divider-line"></span>
+            </div>
+            <p class="footer-desc">
+              Kulineria hadir untuk mengabadikan, merayakan, dan melestarikan kekayaan kuliner Nusantara.
+            </p>
+          </div>
         </div>
 
-        <nav class="footer-nav" aria-label="Navigasi footer">
-          <span class="footer-nav-label">Jelajahi</span>
-          <a href="/jelajahi" class="footer-nav-link">Semua Hidangan</a>
-          <a href="/kuis" class="footer-nav-link">Kuis Kuliner</a>
-          <a href="/tentang" class="footer-nav-link">Tentang Kami</a>
-        </nav>
+        <!-- Column 2: Jelajahi -->
+        <div class="footer-col footer-col-links">
+          <h3 class="footer-col-title">Jelajahi</h3>
+          <div class="footer-col-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-motif">
+              <svg width="24" height="8" viewBox="0 0 24 8" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="4" r="3" />
+                <circle cx="4" cy="4" r="1.5" />
+                <circle cx="20" cy="4" r="1.5" />
+              </svg>
+            </span>
+            <span class="divider-line"></span>
+          </div>
+          <ul class="footer-links-list">
+            <li>
+              <a href="/" class="footer-link">
+                <span class="footer-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v4M8 3v3M16 3v3M3 14h18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3Zm0 0V9a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v5M6 21h12" />
+                  </svg>
+                </span>
+                Beranda
+              </a>
+            </li>
+            <li>
+              <a href="/jelajahi" class="footer-link">
+                <span class="footer-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                  </svg>
+                </span>
+                Jelajahi
+              </a>
+            </li>
+            <li>
+              <a href="/tentang" class="footer-link">
+                <span class="footer-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </span>
+                Tentang
+              </a>
+            </li>
+            <li>
+              <a href="/kuis" class="footer-link">
+                <span class="footer-link-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+                  </svg>
+                </span>
+                Kuis
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Alamat Kami -->
+        <div class="footer-col footer-col-about">
+          <h3 class="footer-col-title">Alamat Kami</h3>
+          <div class="footer-col-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-motif">
+              <svg width="24" height="8" viewBox="0 0 24 8" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="4" r="3" />
+                <circle cx="4" cy="4" r="1.5" />
+                <circle cx="20" cy="4" r="1.5" />
+              </svg>
+            </span>
+            <span class="divider-line"></span>
+          </div>
+          <div class="footer-address-wrapper">
+            <p class="footer-address-text">
+              Jl. Otto Iskandardinata No.64C 1, RT.1/RW.4, Bidara Cina, Jatinegara, Jakarta Timur, DKI Jakarta 13330
+            </p>
+          </div>
+        </div>
 
       </div>
 
       <!-- Bottom bar -->
       <div class="footer-bottom">
         <p class="footer-copy">
-          &copy; {year} Kulineria
+          &copy; {year} Kulineria. All rights reserved.
         </p>
       </div>
 
@@ -53,16 +162,13 @@ const year = new Date().getFullYear();
     margin-top: var(--sp-16);
   }
   .footer.bg-surface {
-    /* Transparent to let wave overlap previous section's batik seamlessly */
     margin-top: -60px;
     z-index: 10;
   }
   .footer.bg-bg {
-    /* Transparent to let wave overlap previous section's batik seamlessly */
     margin-top: -60px;
     z-index: 10;
   }
-  /* bg-none: footer has no background — used when page provides its own seamless bg */
   .footer.bg-none {
     background: transparent;
     margin-top: -60px;
@@ -89,109 +195,243 @@ const year = new Date().getFullYear();
   /* ── Body ── */
   .footer-body {
     background: var(--brown-800, #5A3420);
-    padding: var(--sp-8) 0 var(--sp-6);
+    padding: clamp(56px, 7vw, 88px) 0 clamp(24px, 3vw, 36px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── Background Watermark Ornaments ── */
+  .footer-watermark {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    filter: brightness(1.45) sepia(0.3) saturate(0.55) contrast(1.15);
+    will-change: transform;
+  }
+  .watermark-top-left {
+    top: -2%;
+    left: -2%;
+    width: clamp(200px, 26vw, 380px);
+    transform: rotate(5deg);
+    opacity: 0.08; /* Soft subtle top-left Mega Mendung cloud */
+  }
+  .watermark-bottom-right {
+    bottom: -4%;
+    right: -3%;
+    width: clamp(220px, 32vw, 450px);
+    transform: rotate(-15deg);
+    opacity: 0.14; /* Beautifully visible elegant flower watermark */
   }
 
   .footer-container {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--sp-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-6);
+    position: relative;
+    z-index: 2;
   }
   @media (min-width: 1024px) {
     .footer-container { padding: 0 var(--sp-10); }
   }
 
-  /* ── Main row: brand + nav ── */
-  .footer-main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-6);
-  }
-  @media (min-width: 560px) {
-    .footer-main {
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: var(--sp-8);
-    }
+  /* ── Three Column Grid ── */
+  .footer-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+    text-align: center; /* Symmetrical centered layout by default on mobile */
   }
 
-  /* ── Brand ── */
-  .footer-brand {
+  /* ── Brand & Mascot Column ── */
+  .footer-col-brand {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-2);
+    align-items: center;
+    text-align: center;
+    gap: var(--sp-6); /* Enhanced gap to balance the 35% larger mobile mascot */
+  }
+  
+  .footer-mascot {
+    flex-shrink: 0 !important;
+    width: 195px !important; /* Scaled 35% larger (from 145px to 195px) on mobile */
+    height: auto !important;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.3)) !important;
+    will-change: transform !important;
+    animation: footerFloat 6s ease-in-out infinite !important;
+  }
+  @keyframes footerFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-6px) rotate(2deg); }
+  }
+  .footer-mascot img,
+  .footer-mascot-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    user-select: none !important;
   }
 
-  .footer-logo {
+  .footer-brand-info {
+    flex-grow: 1;
+    padding-top: 0;
+  }
+
+  .footer-title {
     font-family: var(--ff-display);
+    font-size: clamp(2rem, 3.5vw, 2.4rem);
     font-weight: 900;
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    color: var(--c-brand-cream, #FFF8F1);
+    line-height: 1.1;
+    margin: 0 0 6px;
     letter-spacing: var(--ls-tight);
-    color: var(--c-brand-cream);
-    text-decoration: none;
-    line-height: 1;
     font-variation-settings: 'opsz' 144, 'SOFT' 50;
-    display: inline-block;
-    transition: color 0.18s var(--ease-smooth), transform 0.18s var(--ease-bounce);
-  }
-  .footer-logo:hover {
-    color: var(--c-brand-caramel);
-    transform: translateX(3px);
   }
 
-  .footer-tagline {
-    font-family: var(--ff-body);
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    color: rgba(255, 248, 240, 0.55);
-    line-height: var(--lh-relaxed);
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  /* ── Nav ── */
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    flex-shrink: 0;
-  }
-
-  .footer-nav-label {
-    font-family: var(--ff-body);
-    font-size: var(--fs-xs);
-    font-weight: 800;
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--c-brand-caramel);
-    margin-bottom: var(--sp-2);
-  }
-
-  .footer-nav-link {
+  .footer-subtitle-1 {
     font-family: var(--ff-body);
     font-size: var(--fs-sm);
     font-weight: 700;
+    color: var(--c-brand-caramel, #C28558);
+    margin: 0 0 2px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-subtitle-2 {
+    font-family: var(--ff-body);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--c-brand-caramel, #C28558);
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-desc {
+    font-family: var(--ff-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    line-height: 1.65;
+    color: rgba(255, 248, 240, 0.65);
+    margin: var(--sp-1) auto 0;
+    max-width: 320px;
+  }
+
+  /* ── Column Divider ── */
+  .footer-col-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin: var(--sp-3) auto var(--sp-4);
+    max-width: 160px; /* Short divider for mobile */
+    opacity: 0.25;
+    color: var(--c-brand-caramel, #C28558);
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+  }
+  .divider-motif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Link Column & Title ── */
+  .footer-col-title {
+    font-family: var(--ff-display);
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--c-brand-cream, #FFF8F1);
+    margin: 0;
+  }
+
+  .footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sp-3) var(--sp-6);
+    justify-content: center;
+    align-items: center;
+    max-width: 280px; /* Forces links to wrap into exactly 2 columns / 2 rows on mobile */
+    margin: 0 auto;
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font-family: var(--ff-body);
+    font-size: var(--fs-base);
+    font-weight: 600;
     color: rgba(255, 248, 240, 0.70);
     text-decoration: none;
-    padding: 3px 0;
-    display: inline-block;
-    transition: color 0.15s var(--ease-smooth), transform 0.15s var(--ease-bounce);
+    transition: color 0.2s var(--ease-smooth), transform 0.2s var(--ease-bounce);
   }
-  .footer-nav-link:hover {
-    color: var(--c-brand-cream);
-    transform: translateX(4px);
+  .footer-link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-brand-caramel, #C28558);
+    transition: color 0.2s var(--ease-smooth);
+    flex-shrink: 0;
+  }
+  .footer-link:hover {
+    color: var(--c-brand-cream, #FFF8F1);
+    transform: translateX(6px);
+  }
+  .footer-link:hover .footer-link-icon {
+    color: var(--c-brand-cream, #FFF8F1);
   }
 
-  /* ── Bottom bar ── */
+  /* ── Address Column ── */
+  .footer-address-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    align-items: center;
+    text-align: center;
+  }
+  .footer-address-title {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2.5);
+    font-family: var(--ff-body);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    color: var(--c-brand-cream, #FFF8F1);
+  }
+  .footer-address-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-brand-caramel, #C28558);
+    flex-shrink: 0;
+  }
+  .footer-address-text {
+    font-family: var(--ff-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    line-height: 1.8;
+    color: rgba(255, 248, 240, 0.65);
+    margin: 0;
+  }
+
+  /* ── Bottom Copyright Bar ── */
   .footer-bottom {
-    padding-top: var(--sp-4);
-    border-top: 1px solid rgba(255, 248, 240, 0.10);
+    margin-top: var(--sp-12);
+    padding-top: var(--sp-6);
+    border-top: 1px solid rgba(255, 248, 240, 0.08);
+    text-align: center;
   }
-
   .footer-copy {
     font-family: var(--ff-body);
     font-size: var(--fs-xs);
@@ -200,21 +440,95 @@ const year = new Date().getFullYear();
     margin: 0;
   }
 
-  .footer-heart {
-    color: var(--c-brand-terracotta);
-    display: inline-block;
-    animation: heartbeat 1.6s ease-in-out infinite;
+  /* ── Responsive Scaling via Media Queries ── */
+  @media (min-width: 768px) {
+    .footer-columns {
+      grid-template-columns: 1.3fr 0.7fr; /* Optimized tablet grid ratio */
+      gap: var(--sp-8);
+      text-align: left;
+    }
+    .footer-col-about {
+      grid-column: span 2;
+    }
+    
+    .footer-col-brand {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      gap: var(--sp-6);
+    }
+    
+    .footer-mascot {
+      width: 235px !important; /* Scaled 35% larger (from 175px to 235px) on tablet */
+    }
+    
+    .footer-brand-info {
+      padding-top: var(--sp-1);
+    }
+    
+    .footer-col-divider {
+      margin: var(--sp-3.5) 0 var(--sp-4.5);
+      max-width: 100%; /* Spans full width of the text column */
+    }
+    
+    .footer-desc {
+      margin: var(--sp-1) 0 0 0;
+      max-width: 340px;
+    }
+    
+    .footer-links-list {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: var(--sp-3);
+      max-width: none;
+      margin: 0;
+    }
+    
+    .footer-address-wrapper {
+      align-items: flex-start;
+      text-align: left;
+    }
   }
-  @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    40%       { transform: scale(1.25); }
-    60%       { transform: scale(1.1); }
+
+  @media (min-width: 1024px) {
+    .footer-columns {
+      grid-template-columns: 2.1fr 0.9fr 1fr; /* Aggressively reduced brand ratio to pull right columns left */
+      gap: var(--sp-8); /* Tightened gaps to pull columns closer */
+      max-width: 1060px;
+      margin: 0 auto;
+      transform: translateX(-30px); /* Aggressively offsets the entire layout leftwards */
+    }
+    .footer-col-about {
+      grid-column: auto;
+    }
+    
+    .footer-mascot {
+      width: 285px !important; /* Prominent heroic mascot */
+    }
+    
+    .footer-brand-info {
+      padding-top: var(--sp-2); /* Extra vertical padding to perfectly align text with the larger mascot */
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .footer-columns {
+      grid-template-columns: 2.1fr 0.9fr 1fr; /* Aggressively balanced ratio */
+      gap: var(--sp-10);
+      max-width: 1120px;
+      margin: 0 auto;
+      transform: translateX(-40px); /* Aggressive widescreen leftward offset */
+    }
+    
+    .footer-mascot {
+      width: 320px !important; /* Giant heroic mascot */
+    }
   }
 
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
-    .footer-logo,
-    .footer-nav-link { transition-duration: 1ms !important; }
-    .footer-heart    { animation: none; }
+    .footer-mascot { animation: none !important; }
+    .footer-link { transition-duration: 1ms !important; }
   }
 </style>

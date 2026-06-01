@@ -88,7 +88,7 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
         <div class="bahan-grid">
           {fullFood?.ingredients && fullFood.ingredients.length > 0 && (
             <div class="bahan-subsection">
-              <h3 class="subsection-title">Bahan-Bahan</h3>
+              <h3 class="subsection-title">Bahan</h3>
               <IngredientsGrid client:visible ingredients={fullFood.ingredients} />
             </div>
           )}
@@ -147,6 +147,18 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     letter-spacing: var(--ls-tight);
     color: var(--c-text-1);
     margin-bottom: var(--sp-6);
+    position: relative;
+    padding-top: var(--sp-5);
+  }
+  .section-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 3px;
+    background: var(--c-accent);
+    border-radius: 2px;
   }
   .subsection-title {
     font-family: var(--ff-display);
@@ -215,7 +227,48 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
 
   .hero-image {
     position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--brown-950) 0%, var(--brown-800) 50%, var(--brown-600) 100%);
     animation: heroImgReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Batik mega mendung — "Cultural Signature"
+     Single asymmetric corner motif, top-right, framing the dish arrival moment.
+     Asymmetric to avoid paired-clutter; matches the 135deg gradient's lighter end. */
+  .hero-motif-mega {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    top: 4%;
+    right: -3%;
+    width: clamp(100px, 18vw, 280px);
+    opacity: 0.07;
+    animation: heroMotifMegaFloat 9s ease-in-out -3s infinite;
+    will-change: transform;
+    transform-origin: center;
+  }
+  .hero-motif-mega img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.5) sepia(0.35) saturate(0.6) contrast(1.1);
+  }
+  @keyframes heroMotifMegaFloat {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(-8deg); }
+    50%      { transform: translateY(-7px) translateX(3px) rotate(-7deg); }
+  }
+  @media (max-width: 767px) {
+    .hero-motif-mega {
+      top: 3%;
+      right: -4%;
+      width: 100px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-motif-mega {
+      animation: none !important;
+      transform: rotate(-8deg);
+    }
   }
   .hero-img {
     width: 100%; height: 100%; object-fit: cover;
@@ -316,18 +369,25 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   .gizi-section {
     position: relative;
     overflow: hidden;
-    background: var(--c-surface);
-    padding-bottom: var(--sp-20);
+    background: var(--c-bg);
+    padding-bottom: var(--sp-16);
   }
-  @media (min-width: 768px) { .gizi-section { padding-bottom: var(--sp-32); } }
+  @media (min-width: 768px) { .gizi-section { padding-bottom: var(--sp-24); } }
+  /* Tighter h2 → grid gap than other sections (no room needed for intro text). */
+  .gizi-card .section-title {
+    margin-bottom: var(--sp-4);
+  }
   .gizi-card {
     position: relative;
     z-index: 1;
     padding: var(--sp-6);
     background: var(--c-surface);
-    border-radius: var(--r-xl);
+    border-radius: var(--r-2xl);
     border: 1px solid var(--c-border);
     box-shadow: var(--sh-card);
+  }
+  @media (min-width: 768px) {
+    .gizi-card { padding: var(--sp-8); }
   }
 
   .cerita-batik, .gizi-batik {
@@ -406,16 +466,14 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     display: flex; align-items: center; gap: var(--sp-3);
     padding: var(--sp-3) var(--sp-3);
     border-bottom: 1px solid var(--c-border-soft);
-    border-left: 3px solid transparent;
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-    transition: background-color var(--dur-fast) var(--ease-smooth), transform var(--dur-fast) var(--ease-smooth), border-left-color var(--dur-fast) var(--ease-smooth);
+    border-radius: var(--r-md);
+    transition: background-color var(--dur-fast) var(--ease-smooth), transform var(--dur-fast) var(--ease-smooth);
     will-change: transform;
   }
   @media (hover: hover) and (pointer: fine) {
     .ingredient-row:hover {
-      background-color: rgba(212, 107, 56, 0.04);
-      border-left-color: var(--c-accent);
-      transform: translateX(6px);
+      background-color: rgba(var(--c-accent-rgb), 0.04);
+      transform: translateX(3px);
     }
   }
   .ingredient-row:last-child { border-bottom: none; }
@@ -519,8 +577,8 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   .recipe-step-item--open .recipe-step-badge {
     background: var(--c-accent);
     border-color: var(--c-accent);
-    box-shadow: 0 0 0 5px rgba(212, 107, 56, 0.15);
-    transform: scale(1.08);
+    box-shadow: 0 0 0 5px rgba(var(--c-accent-rgb), 0.15);
+    transform: scale(1.05);
   }
   .recipe-step-item--open .recipe-step-badge-num {
     color: var(--c-white);
@@ -528,13 +586,13 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   @media (hover: hover) and (pointer: fine) {
     .recipe-step-badge:hover {
       border-color: var(--c-accent);
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
     .recipe-step-badge:hover .recipe-step-badge-num {
       color: var(--c-accent);
     }
     .recipe-step-item--open .recipe-step-badge:hover {
-      transform: scale(1.12);
+      transform: scale(1.08);
     }
   }
 
@@ -603,7 +661,7 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     transition: color 0.2s ease;
   }
   .recipe-step-item--open .recipe-step-title {
-    color: var(--c-accent-dark);
+    color: var(--c-text-1);
   }
   .recipe-step-meta {
     display: flex;
@@ -619,8 +677,8 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     font-size: 10px;
     font-weight: 800;
     color: var(--c-brand-mocha);
-    background: rgba(139, 94, 60, 0.08);
-    border: 1px solid rgba(139, 94, 60, 0.15);
+    background: var(--brown-100);
+    border: 1px solid var(--brown-200);
     border-radius: var(--r-full);
     padding: 3px 8px;
     white-space: nowrap;
@@ -633,15 +691,18 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     color: var(--c-accent);
   }
 
-  /* Expanded body */
+  /* Expanded body — "Raised cream paper" on parchment page.
+     Lighter than section bg (c-bg) for paper-on-page elevation, not sunken. */
   .recipe-step-body {
     margin-top: var(--sp-3);
     border-radius: var(--r-xl);
-    background: #FFFBF7;
-    border: 1.5px solid rgba(212, 107, 56, 0.18);
+    background: var(--c-surface);
+    border: 1.5px solid var(--c-border-soft);
+    box-shadow:
+      0 1px 2px rgba(var(--brown-700-rgb), 0.08),
+      0 8px 24px -8px rgba(var(--brown-700-rgb), 0.18);
     overflow: hidden;
     animation: stepReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
-    box-shadow: 0 4px 20px -8px rgba(212, 107, 56, 0.12);
   }
   @keyframes stepReveal {
     from { opacity: 0; transform: translateY(-8px) scale(0.98); }
@@ -660,8 +721,8 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     display: flex;
     align-items: flex-start;
     gap: var(--sp-2);
-    background: rgba(212, 107, 56, 0.06);
-    border-top: 1.5px dashed rgba(212, 107, 56, 0.25);
+    background: rgba(var(--c-accent-rgb), 0.06);
+    border-top: 1.5px dashed rgba(var(--c-accent-rgb), 0.25);
     padding: var(--sp-3) var(--sp-5);
   }
   .recipe-step-tip-icon {
@@ -684,7 +745,6 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   .nutrition-serving {
     font-size: var(--fs-xs); color: var(--c-text-3);
     margin-bottom: var(--sp-6); font-weight: 800;
-    text-transform: uppercase;
     letter-spacing: var(--ls-wider);
     display: inline-block;
     padding: 6px 14px;
@@ -692,12 +752,15 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     border-radius: var(--r-full);
     border: 1.2px solid var(--c-border);
   }
+
+  /* Grid: 1 col mobile → 2 col tablet → 3 col desktop.
+     Highlight card spans full width at every breakpoint. */
   .nutrition-bars-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--sp-4);
   }
-  @media (min-width: 600px) {
+  @media (min-width: 768px) {
     .nutrition-bars-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--sp-5);
@@ -705,10 +768,11 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   }
   @media (min-width: 1024px) {
     .nutrition-bars-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--sp-6);
     }
   }
+
   .nutrition-item {
     background: var(--c-surface);
     border: 1px solid var(--c-border);
@@ -716,22 +780,46 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     padding: var(--sp-5);
     display: flex;
     flex-direction: column;
-    gap: var(--sp-3);
+    gap: var(--sp-4);
     box-shadow: var(--sh-1);
-    transition: transform var(--dur-fast) var(--ease-smooth), box-shadow var(--dur-fast) var(--ease-smooth), border-color var(--dur-fast) var(--ease-smooth);
-    will-change: transform;
+    transition: box-shadow var(--dur-fast) var(--ease-smooth), border-color var(--dur-fast) var(--ease-smooth);
   }
   @media (hover: hover) and (pointer: fine) {
     .nutrition-item:hover {
-      transform: translateY(-3px);
       box-shadow: var(--sh-3);
       border-color: var(--c-accent);
     }
   }
+
+  /* Highlight card — "Ink stamp" treatment: tinted bg, accent left stripe,
+     bigger value, spans full width for chapter-summary feel.
+     Stripe is full-height and clipped to the card's rounded corners via
+     overflow: hidden. Padding is symmetric horizontally (stripe lives in
+     the left padding). */
+  .nutrition-item--highlight {
+    grid-column: 1 / -1;
+    position: relative;
+    overflow: hidden;
+    background: var(--c-surface);
+    border-color: var(--c-border);
+    padding: var(--sp-6);
+    gap: var(--sp-6);
+  }
+  @media (min-width: 768px) {
+    .nutrition-item--highlight { padding: var(--sp-8); }
+  }
+
   .nutrition-header {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--sp-1\.5);
+  }
+  .nutrition-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: var(--sp-2);
   }
   .nutrition-label {
     font-size: var(--fs-xs);
@@ -740,12 +828,46 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     letter-spacing: var(--ls-wide);
     color: var(--c-text-3);
   }
+  .nutrition-label--highlight {
+    color: var(--c-text-3);
+  }
   .nutrition-value {
     font-family: var(--ff-display);
     font-size: var(--fs-xl);
     font-weight: 900;
     color: var(--c-text-1);
+    white-space: nowrap;
   }
+  .nutrition-value--highlight {
+    font-size: var(--fs-3xl);
+  }
+  .nutrition-value-unit {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    font-family: var(--ff-body);
+    margin-left: 2px;
+  }
+  .nutrition-akg-tag {
+    font-size: var(--fs-tiny);
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: var(--r-sm);
+    background: var(--c-surface-2);
+    color: var(--c-text-2);
+    border: 1px solid var(--c-border-soft);
+    white-space: nowrap;
+  }
+  .nutrition-desc {
+    font-size: var(--fs-xs);
+    color: var(--c-text-3);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .nutrition-desc--highlight {
+    line-height: 1.5;
+    color: var(--c-text-3);
+  }
+
   .nutrition-bar-track {
     height: 8px; background: var(--c-surface-2);
     border-radius: var(--r-full); overflow: hidden; border: 1.2px solid var(--c-border-soft);

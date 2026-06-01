@@ -13,7 +13,7 @@ interface Props {
 
 export default function IngredientsGrid({ ingredients }: Props) {
   return (
-    <div className="ingredients-list" role="list" aria-label="Bahan-bahan">
+    <div className="ingredients-list" role="list" aria-label="Bahan">
       {ingredients.map((ing, i) => (
         <div key={i} className="ingredient-row" role="listitem">
           <svg className="ingredient-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
