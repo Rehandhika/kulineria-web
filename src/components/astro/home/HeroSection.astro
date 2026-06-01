@@ -20,19 +20,19 @@
 
   <!-- Decorative elegant floating motifs in main Hero -->
   <div class="hero-motif hero-motif-1" aria-hidden="true">
-    <img src="/img/motif/png batik mega mendung.png" class="motif-float-1" alt="" />
+    <img src="/img/motif/png batik mega mendung.png" class="motif-float-1" alt="" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-2" aria-hidden="true">
-    <img src="/img/motif/png ornamen nusantara.png" class="motif-float-2" alt="" />
+    <img src="/img/motif/png ornamen nusantara.png" class="motif-float-2" alt="" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-3" aria-hidden="true">
-    <img src="/img/motif/png awan.png" class="motif-float-3" alt="" />
+    <img src="/img/motif/png awan.png" class="motif-float-3" alt="" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-4" aria-hidden="true">
-    <img src="/img/motif/png bunga.png" class="motif-float-1" alt="" />
+    <img src="/img/motif/png bunga.png" class="motif-float-1" alt="" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-5" aria-hidden="true">
-    <img src="/img/motif/png bunga.png" class="motif-float-3" alt="" />
+    <img src="/img/motif/png bunga.png" class="motif-float-3" alt="" loading="lazy" />
   </div>
 
   <div class="hero-layout">
@@ -45,16 +45,16 @@
 
         <!-- Elegant food arch framing Nara from behind (Grounded visual composition) -->
         <div class="hero-nara-food hero-food-1" aria-hidden="true">
-          <img src="/img/makanan/Rendang2.png" alt="Rendang" />
+          <img src="/img/makanan/Rendang2.png" alt="Rendang" loading="lazy" />
         </div>
         <div class="hero-nara-food hero-food-2" aria-hidden="true">
-          <img src="/img/makanan/Sate2.png" alt="Sate" />
+          <img src="/img/makanan/Sate2.png" alt="Sate" loading="lazy" />
         </div>
         <div class="hero-nara-food hero-food-3" aria-hidden="true">
-          <img src="/img/makanan/Gado22.png" alt="Gado Gado" />
+          <img src="/img/makanan/Gado22.png" alt="Gado Gado" loading="lazy" />
         </div>
         <div class="hero-nara-food hero-food-4" aria-hidden="true">
-          <img src="/img/makanan/Sup Iga.png" alt="Sup Iga" />
+          <img src="/img/makanan/Sup Iga.png" alt="Sup Iga" loading="lazy" />
         </div>
 
         <img
@@ -64,6 +64,8 @@
           width="460"
           height="460"
           draggable="false"
+          loading="eager"
+          fetchpriority="high"
           onerror="this.style.display='none'"
         />
       </figure>
@@ -643,10 +645,10 @@ runOnPageReady(() => {
   }
 
   @media (max-width: 767px) {
-    .hero-food-1 { left: -8%; top: 4%; width: clamp(55px, 18vw, 80px); }
-    .hero-food-2 { right: -6%; top: 8%; width: clamp(60px, 19vw, 85px); }
-    .hero-food-3 { left: -6%; bottom: 18%; width: clamp(55px, 18vw, 80px); }
-    .hero-food-4 { right: -8%; bottom: 12%; width: clamp(60px, 19vw, 85px); }
+    .hero-food-1 { left: -3%; top: 6%; width: clamp(55px, 18vw, 80px); }
+    .hero-food-2 { right: -4%; top: 10%; width: clamp(60px, 19vw, 85px); }
+    .hero-food-3 { left: -3%; bottom: 20%; width: clamp(55px, 18vw, 80px); }
+    .hero-food-4 { right: -4%; bottom: 14%; width: clamp(60px, 19vw, 85px); }
   }
 
   /* Staggered high-performance floating animations */

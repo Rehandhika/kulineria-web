@@ -138,15 +138,19 @@ export default function QuizMenu() {
         {/* Batik latar — repeat HD texture */}
         <div className="quiz-menu-map-batik" aria-hidden="true"></div>
 
-        {/* Floating plain cloud motifs on parchment bg */}
+        {/* Floating plain cloud and ornament motifs outside map card */}
         <img src="/img/motif/png awan.png" className="quiz-motif motif-map-outside-left motif-float" aria-hidden="true" alt="" />
-        <img src="/img/motif/png awan.png" className="quiz-motif motif-map-outside-right motif-float" aria-hidden="true" alt="" />
+        <img src="/img/motif/png ornamen nusantara.png" className="quiz-motif motif-map-outside-right motif-float" aria-hidden="true" alt="" />
 
         <div className="quiz-journey-container">
           <div className="quiz-journey-map">
-            {/* Elegant floating plain clouds inside the map board */}
+            {/* Elegant floating clouds inside the map board (top) */}
             <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-tl motif-float" aria-hidden="true" alt="" />
-            <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-br motif-float" aria-hidden="true" alt="" />
+            <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-tr motif-float" aria-hidden="true" alt="" />
+            
+            {/* Elegant traditional ornaments inside the map board (bottom) */}
+            <img src="/img/motif/png ornamen nusantara.png" className="quiz-motif motif-map-card-bl-ornament motif-float" aria-hidden="true" alt="" />
+            <img src="/img/motif/png ornamen nusantara.png" className="quiz-motif motif-map-card-br-ornament motif-float" aria-hidden="true" alt="" />
             
             {/* Decorative soft clouds floating in the map grid */}
             <img src="/img/motif/png awan.png" className="quiz-motif motif-map-inner-cloud-1 motif-float" aria-hidden="true" alt="" />

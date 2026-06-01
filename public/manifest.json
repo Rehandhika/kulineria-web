@@ -1,0 +1,21 @@
+{
+  "name": "Kulineria - Atlas Kuliner Indonesia",
+  "short_name": "Kulineria",
+  "description": "Jelajahi kekayaan kuliner Indonesia melalui peta interaktif",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF7",
+  "theme_color": "#C2410C",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

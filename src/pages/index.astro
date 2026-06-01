@@ -60,7 +60,7 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.22;
+    opacity: 0.22; /* Restored to original */
     filter: sepia(0.35) saturate(0.5) brightness(0.85);
     background-image: url('/img/motif/png batik.png');
     background-repeat: repeat;
@@ -87,7 +87,9 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
 
   .map-container {
     position: relative;
-    background: #2A1508;
+    background: rgba(42, 21, 8, 0.88); /* Increased background opacity to match quiz map */
+    backdrop-filter: blur(8px); /* Premium glassmorphism */
+    -webkit-backdrop-filter: blur(8px);
     border-radius: var(--r-2xl);
     border: 1px solid rgba(61, 36, 21, 0.5);
     overflow: hidden;
@@ -112,7 +114,7 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
   .map-ocean-bg {
     position: absolute;
     inset: 0;
-    background: #2A1508;
+    background: rgba(42, 21, 8, 0.88); /* Increased background opacity to match quiz map */
     z-index: 0;
   }
 
@@ -128,17 +130,35 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
     top: -20px;
     left: -20px;
     width: clamp(80px, 12vw, 160px);
-    opacity: 0.12;
+    opacity: 0.12; /* Restored */
     filter: brightness(1.5) sepia(0.4) saturate(0.8) contrast(1.1);
     transform: rotate(-5deg);
   }
 
-  .map-motif-br {
+  .map-motif-tr {
+    top: -20px;
+    right: -20px;
+    width: clamp(80px, 12vw, 160px);
+    opacity: 0.12; /* Restored */
+    filter: brightness(1.5) sepia(0.4) saturate(0.8) contrast(1.1) scaleX(-1);
+    transform: rotate(5deg);
+  }
+
+  .map-motif-bl-ornament {
+    bottom: -20px;
+    left: -20px;
+    width: clamp(90px, 14vw, 180px);
+    opacity: 0.04; /* Extremely subtle watermark */
+    filter: brightness(1.4) sepia(0.3) saturate(0.7) contrast(1.1);
+    transform: rotate(-10deg);
+  }
+
+  .map-motif-br-ornament {
     bottom: -25px;
     right: -25px;
     width: clamp(100px, 15vw, 200px);
-    opacity: 0.1;
-    filter: brightness(1.5) sepia(0.4) saturate(0.8) contrast(1.1) scaleX(-1);
+    opacity: 0.04; /* Extremely subtle watermark */
+    filter: brightness(1.4) sepia(0.3) saturate(0.7) contrast(1.1) scaleX(-1);
     transform: rotate(10deg);
   }
 
@@ -146,7 +166,7 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
     right: 25%;
     top: 15%;
     width: clamp(60px, 8vw, 110px);
-    opacity: 0.06;
+    opacity: 0.06; /* Restored */
     filter: brightness(1.5) sepia(0.4) saturate(0.8);
     transform: rotate(12deg);
   }
@@ -155,7 +175,7 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
     left: 20%;
     bottom: 20%;
     width: clamp(65px, 9vw, 120px);
-    opacity: 0.05;
+    opacity: 0.05; /* Restored */
     filter: brightness(1.5) sepia(0.4) saturate(0.8) scaleX(-1);
     transform: rotate(-15deg);
   }

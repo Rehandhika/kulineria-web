@@ -227,7 +227,7 @@
   width: clamp(120px, 18vw, 240px);
   top: 80px;
   left: -40px;
-  opacity: 0.16;
+  opacity: 0.16; /* Restored */
   filter: brightness(0.85) sepia(0.35) saturate(0.5);
   transform: rotate(15deg);
 }
@@ -236,8 +236,8 @@
   width: clamp(140px, 20vw, 260px);
   bottom: 120px;
   right: -50px;
-  opacity: 0.18;
-  filter: brightness(0.85) sepia(0.35) saturate(0.5);
+  opacity: 0.05; /* Extremely subtle watermark */
+  filter: brightness(0.8) sepia(0.2) saturate(0.6);
   transform: rotate(-10deg) scaleX(-1);
 }
 
@@ -260,20 +260,42 @@
   top: -25px;
   left: -25px;
   width: clamp(100px, 16vw, 200px);
-  opacity: 0.15;
+  opacity: 0.15; /* Restored */
   z-index: 1;
   filter: brightness(1.5) sepia(0.4) saturate(0.8) contrast(1.1);
   transform: rotate(-8deg);
 }
 
-.motif-map-card-br {
+.motif-map-card-tr {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: clamp(100px, 16vw, 200px);
+  opacity: 0.15; /* Restored to match left */
+  z-index: 1;
+  filter: brightness(1.5) sepia(0.4) saturate(0.8) contrast(1.1) scaleX(-1);
+  transform: rotate(8deg);
+}
+
+.motif-map-card-bl-ornament {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: clamp(110px, 18vw, 220px);
+  opacity: 0.04; /* Extremely subtle watermark */
+  z-index: 1;
+  filter: brightness(1.3) sepia(0.3) saturate(0.6) contrast(1.1);
+  transform: rotate(-12deg);
+}
+
+.motif-map-card-br-ornament {
   position: absolute;
   bottom: -35px;
   right: -35px;
   width: clamp(130px, 20vw, 250px);
-  opacity: 0.13;
+  opacity: 0.04; /* Extremely subtle watermark */
   z-index: 1;
-  filter: brightness(1.5) sepia(0.4) saturate(0.8) contrast(1.1) scaleX(-1);
+  filter: brightness(1.3) sepia(0.3) saturate(0.6) contrast(1.1) scaleX(-1);
   transform: rotate(12deg);
 }
 
@@ -283,7 +305,7 @@
   left: 28%;
   top: 18%;
   width: clamp(70px, 10vw, 120px);
-  opacity: 0.08;
+  opacity: 0.08; /* Restored */
   z-index: 1;
   filter: brightness(1.5) sepia(0.4) saturate(0.8);
   transform: rotate(5deg);
@@ -294,7 +316,7 @@
   right: 28%;
   bottom: 22%;
   width: clamp(80px, 12vw, 140px);
-  opacity: 0.07;
+  opacity: 0.07; /* Restored */
   z-index: 1;
   filter: brightness(1.5) sepia(0.4) saturate(0.8) scaleX(-1);
   transform: rotate(-10deg);
@@ -332,7 +354,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.22;
+  opacity: 0.22; /* Restored */
   filter: sepia(0.35) saturate(0.5) brightness(0.85);
   background-image: url('/img/motif/png batik.png');
   background-repeat: repeat;
@@ -354,12 +376,12 @@
   width: 100%;
   margin: 0 auto;
   max-width: 800px;
-  background: linear-gradient(135deg, rgba(61, 36, 21, 0.95) 0%, rgba(43, 25, 14, 0.98) 100%);
-  border: 1.5px solid rgba(194, 133, 88, 0.35);
-  border-radius: 2rem;
-  box-shadow: 0 24px 54px rgba(43, 25, 14, 0.18), 0 8px 24px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(42, 21, 8, 0.985); /* Matched to homepage interactive map's cumulative stacked opacity */
+  border: 1px solid rgba(61, 36, 21, 0.5); /* Matched exactly to homepage interactive map border */
+  border-radius: var(--r-2xl); /* Matched exactly to homepage interactive map border-radius */
+  box-shadow: var(--sh-4); /* Matched exactly to homepage interactive map shadow */
+  backdrop-filter: blur(8px); /* Matched exactly to homepage interactive map blur */
+  -webkit-backdrop-filter: blur(8px);
   overflow: hidden;
 }
 

@@ -158,9 +158,13 @@ export default function InteractiveMap() {
       <div className="map-container relative w-full overflow-hidden rounded-2xl border shadow-[var(--sh-card)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
-        {/* Elegant plain cloud motifs inside the interactive map */}
+        {/* Elegant cloud motifs at the top */}
         <img src="/img/motif/png awan.png" className="map-motif map-motif-tl motif-float-1" aria-hidden="true" alt="" />
-        <img src="/img/motif/png awan.png" className="map-motif map-motif-br motif-float-2" aria-hidden="true" alt="" />
+        <img src="/img/motif/png awan.png" className="map-motif map-motif-tr motif-float-3" aria-hidden="true" alt="" />
+        
+        {/* Elegant traditional ornament motifs at the bottom */}
+        <img src="/img/motif/png ornamen nusantara.png" className="map-motif map-motif-bl-ornament motif-float-2" aria-hidden="true" alt="" />
+        <img src="/img/motif/png ornamen nusantara.png" className="map-motif map-motif-br-ornament motif-float-1" aria-hidden="true" alt="" />
         
         {/* Soft atmospheric clouds floating in the ocean background */}
         <img src="/img/motif/png awan.png" className="map-motif map-motif-inner-1 motif-float-3" aria-hidden="true" alt="" />

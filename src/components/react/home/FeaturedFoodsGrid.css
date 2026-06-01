@@ -41,7 +41,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
 }
 
@@ -50,31 +50,49 @@
   outline-offset: 2px;
 }
 
-.result-card:active {
-  transform: scale(0.98) !important;
-  transition: transform 0.1s var(--ease-smooth);
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
 }
 
-.result-card-image {
+.result-card:active {
+  transform: translateY(-1px);
+}
+
+/* LazyImage — card context overrides */
+.lazy-image-wrapper.result-card-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  position: relative;
+  border-radius: inherit;
 }
 
-.result-card-image img {
+.lazy-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s var(--ease-smooth);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .result-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--sh-lg);
-  }
-  .result-card:hover .result-card-image img {
-    transform: scale(1.06);
-  }
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+.result-card:hover .lazy-image.loaded {
+  transform: scale(1.06);
+}
+
+.lazy-image-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: lazyShimmer 1.8s infinite;
+}
+
+@keyframes lazyShimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .result-card-content {
