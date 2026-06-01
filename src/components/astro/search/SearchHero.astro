@@ -206,28 +206,26 @@ import SearchBar from '../../react/search/SearchBar';
     filter: brightness(1.4) sepia(0.35) saturate(0.5) contrast(1.1);
   }
 
-  /* Staggered high-performance floating animations */
-  @keyframes searchHeroFloat {
-    0% {
-      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
-    }
-    50% {
-      transform: translateY(-8px) translateX(4px) rotate(calc(var(--base-rot, 0deg) + 2deg));
-    }
-    100% {
-      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
-    }
+  /* Staggered high-performance floating animations (fully composited static layers) */
+  @keyframes searchHeroFloatMotif1 {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50%       { transform: translateY(-8px) translateX(4px) rotate(2deg); }
+  }
+
+  @keyframes searchHeroFloatMotif2 {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(-8deg); }
+    50%       { transform: translateY(-8px) translateX(4px) rotate(-6deg); }
   }
 
   .motif-float-1 {
-    --base-rot: 0deg;
-    animation: searchHeroFloat 8s ease-in-out infinite;
+    animation: searchHeroFloatMotif1 8s ease-in-out infinite;
+    will-change: transform;
   }
 
   .motif-float-2 {
-    --base-rot: -8deg;
-    animation: searchHeroFloat 10s ease-in-out infinite;
+    animation: searchHeroFloatMotif2 10s ease-in-out infinite;
     animation-delay: -3s;
+    will-change: transform;
   }
 
   /* Seamless visual bottom organic wave divider */

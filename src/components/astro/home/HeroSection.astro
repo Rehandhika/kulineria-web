@@ -20,19 +20,19 @@
 
   <!-- Decorative elegant floating motifs in main Hero -->
   <div class="hero-motif hero-motif-1" aria-hidden="true">
-    <img src="/img/motif/png batik mega mendung.png" class="motif-float-1" alt="" loading="lazy" />
+    <img src="/img/motif/png batik mega mendung.png" class="motif-float-1" alt="" width="320" height="160" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-2" aria-hidden="true">
-    <img src="/img/motif/png ornamen nusantara.png" class="motif-float-2" alt="" loading="lazy" />
+    <img src="/img/motif/png ornamen nusantara.png" class="motif-float-2" alt="" width="220" height="220" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-3" aria-hidden="true">
-    <img src="/img/motif/png awan.png" class="motif-float-3" alt="" loading="lazy" />
+    <img src="/img/motif/png awan.png" class="motif-float-3" alt="" width="160" height="100" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-4" aria-hidden="true">
-    <img src="/img/motif/png bunga.png" class="motif-float-1" alt="" loading="lazy" />
+    <img src="/img/motif/png bunga.png" class="motif-float-1" alt="" width="150" height="150" loading="lazy" />
   </div>
   <div class="hero-motif hero-motif-5" aria-hidden="true">
-    <img src="/img/motif/png bunga.png" class="motif-float-3" alt="" loading="lazy" />
+    <img src="/img/motif/png bunga.png" class="motif-float-3" alt="" width="150" height="150" loading="lazy" />
   </div>
 
   <div class="hero-layout">
@@ -45,16 +45,16 @@
 
         <!-- Elegant food arch framing Nara from behind (Grounded visual composition) -->
         <div class="hero-nara-food hero-food-1" aria-hidden="true">
-          <img src="/img/makanan/Rendang2.png" alt="Rendang" loading="lazy" />
+          <img src="/img/makanan/Rendang2.png" alt="Rendang" width="140" height="140" loading="lazy" />
         </div>
         <div class="hero-nara-food hero-food-2" aria-hidden="true">
-          <img src="/img/makanan/Sate2.png" alt="Sate" loading="lazy" />
+          <img src="/img/makanan/Sate2.png" alt="Sate" width="140" height="140" loading="lazy" />
         </div>
         <div class="hero-nara-food hero-food-3" aria-hidden="true">
-          <img src="/img/makanan/Gado22.png" alt="Gado Gado" loading="lazy" />
+          <img src="/img/makanan/Gado22.png" alt="Gado Gado" width="140" height="140" loading="lazy" />
         </div>
         <div class="hero-nara-food hero-food-4" aria-hidden="true">
-          <img src="/img/makanan/Sup Iga.png" alt="Sup Iga" loading="lazy" />
+          <img src="/img/makanan/Sup Iga.png" alt="Sup Iga" width="140" height="140" loading="lazy" />
         </div>
 
         <img
@@ -492,6 +492,7 @@ runOnPageReady(() => {
   }
   .hero-scroll-icon svg {
     animation: heroScrollBounce 3.2s ease-in-out infinite;
+    will-change: transform;
   }
   @media (hover: hover) and (pointer: fine) {
     .hero-scroll:hover { color: #FFF8F1; }
@@ -651,34 +652,37 @@ runOnPageReady(() => {
     .hero-food-4 { right: -4%; bottom: 14%; width: clamp(60px, 19vw, 85px); }
   }
 
-  /* Staggered high-performance floating animations */
-  @keyframes heroFloat {
-    0% {
-      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
-    }
-    50% {
-      transform: translateY(-10px) translateX(5px) rotate(calc(var(--base-rot, 0deg) + 2.5deg));
-    }
-    100% {
-      transform: translateY(0) translateX(0) rotate(var(--base-rot, 0deg));
-    }
+  /* Staggered high-performance floating animations (fully composited static layers) */
+  @keyframes heroFloatMotif1 {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50%       { transform: translateY(-10px) translateX(5px) rotate(2.5deg); }
+  }
+
+  @keyframes heroFloatMotif2 {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(15deg); }
+    50%       { transform: translateY(-10px) translateX(5px) rotate(17.5deg); }
+  }
+
+  @keyframes heroFloatMotif3 {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(-10deg); }
+    50%       { transform: translateY(-10px) translateX(5px) rotate(-7.5deg); }
   }
 
   .motif-float-1 {
-    --base-rot: 0deg;
-    animation: heroFloat 7s ease-in-out infinite;
+    animation: heroFloatMotif1 7s ease-in-out infinite;
+    will-change: transform;
   }
 
   .motif-float-2 {
-    --base-rot: 15deg;
-    animation: heroFloat 9s ease-in-out infinite;
+    animation: heroFloatMotif2 9s ease-in-out infinite;
     animation-delay: -3s;
+    will-change: transform;
   }
 
   .motif-float-3 {
-    --base-rot: -10deg;
-    animation: heroFloat 8s ease-in-out infinite;
+    animation: heroFloatMotif3 8s ease-in-out infinite;
     animation-delay: -5s;
+    will-change: transform;
   }
 
   @media (prefers-reduced-motion: reduce) {
