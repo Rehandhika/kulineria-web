@@ -155,7 +155,7 @@ export default function DiscoveryView({ initialFoods }: Props) {
                 className="result-card duo-card flex flex-col overflow-hidden"
                 onClick={() => sessionStorage.setItem('kulineria-return', '/jelajahi')}
               >
-                <LazyImage src={food.imageUrl} alt={food.name} className="result-card-image" />
+                <LazyImage src={food.imageUrl} alt={food.name} className="result-card-image" width={400} height={225} />
                 <div className="result-card-content">
                   <h3>{food.name}</h3>
                   <span className="result-card-region">{food.region}</span>

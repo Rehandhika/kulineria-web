@@ -277,7 +277,7 @@ export default function FeaturedFoodsGrid() {
                 className="result-card duo-card flex flex-col overflow-hidden"
                 onClick={() => sessionStorage.setItem('kulineria-return', '/')}
               >
-                <LazyImage src={imgUrl} alt={food.name} className="result-card-image" />
+                <LazyImage src={imgUrl} alt={food.name} className="result-card-image" width={400} height={225} />
                 <div className="result-card-content">
                   <h3>{food.name}</h3>
                   <span className="result-card-region">{foodRegion?.name || food.region}</span>
