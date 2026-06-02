@@ -464,9 +464,8 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
     right: 0;          /* sejajar dengan sisi kanan tombol MENU */
     left: auto;
     z-index: var(--z-overlay);
-    width: 320px;
-    max-width: min(86vw, 380px);
-    padding: 24px 28px;
+    width: calc(100vw - 2 * var(--sp-5));
+    padding: 20px 20px;
     background: var(--c-overlay-surface);
     color: var(--c-overlay-link);
     border-radius: 24px;
@@ -494,27 +493,21 @@ document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(initNa
       border-radius: 28px;
     }
   }
-  /* On very narrow phones the actions group can sit close to the right edge,
-     give the floating card a small viewport-edge guard so it never clips. */
-  @media (max-width: 380px) {
-    .menu-overlay {
-      width: calc(100vw - 32px);
-      max-width: calc(100vw - 32px);
-    }
-  }
 
   /* === OVERLAY LINKS === */
   .overlay-nav {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    align-items: flex-start;
+    text-align: left;
   }
   .overlay-link {
     display: inline-block;
     color: var(--c-overlay-link);
     font-family: var(--ff-display);
     font-weight: 800;
-    font-size: clamp(1.5rem, 4.2vw, 1.95rem);
+    font-size: clamp(1.275rem, 3.57vw, 1.6575rem);
     line-height: 1.1;
     letter-spacing: 0;
     text-decoration: none;
