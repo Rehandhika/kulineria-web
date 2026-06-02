@@ -248,12 +248,10 @@ export function getFoodById(id: string): FoodItem | undefined {
 function cleanAndLimitStory(body: string): string {
   if (!body) return '';
 
-  // 1. Bersihkan em-dash (— atau --) secara alami
   let clean = body
     .replace(/\s*—\s*/g, ', ')
     .replace(/\s*--\s*/g, ', ');
 
-  // 2. Kumpulkan semua kalimat
   const sentences = clean.match(/[^.!?]+[.!?]+/g) || [clean];
   let result = '';
   let wordCount = 0;
@@ -268,20 +266,19 @@ function cleanAndLimitStory(body: string): string {
     }
   }
 
-  // 3. Jika hasil potong kalimat utuh berada di bawah 80 kata, lakukan penyeimbangan puitis cerdas!
   if (wordCount < 80) {
     const remainingSentences = sentences.filter(s => !result.includes(s.trim()));
     if (remainingSentences.length > 0) {
       const nextSentence = remainingSentences[0].trim();
       const nextWords = nextSentence.split(/\s+/);
-      
+
       const targetAdditionalWords = 84 - wordCount;
-      
+
       if (nextWords.length >= targetAdditionalWords) {
         const sliceCount = Math.max(3, targetAdditionalWords - 8);
         const slicedWords = nextWords.slice(0, sliceCount).join(' ');
         const slicedWordsClean = slicedWords.replace(/[,.!?]+$/, '');
-        
+
         const endings = [
           `, melahirkan harmoni rasa pusaka yang senantiasa diwariskan dari generasi ke generasi.`,
           `, menghadirkan kehangatan sejati pusaka kuliner yang abadi di hati pecinta rasa Nusantara.`,
@@ -289,10 +286,10 @@ function cleanAndLimitStory(body: string): string {
           `, menciptakan simfoni kelezatan tradisional yang menghangatkan setiap kebersamaan di meja makan.`,
           `, menjadi bagian erat dari identitas kuliner luhur yang terus dijaga kelestariannya.`
         ];
-        
+
         let bestEnding = endings[0];
         let minDiff = 999;
-        
+
         for (const end of endings) {
           const endWordCount = end.trim().split(/\s+/).length;
           const totalEstimate = wordCount + sliceCount + endWordCount;
@@ -302,7 +299,7 @@ function cleanAndLimitStory(body: string): string {
             bestEnding = end;
           }
         }
-        
+
         result += ` ${slicedWordsClean}${bestEnding}`;
       } else {
         result += ` ${nextSentence}`;
@@ -313,7 +310,7 @@ function cleanAndLimitStory(body: string): string {
         ` Sajian pusaka ini menghadirkan kelembutan rasa sejati yang abadi menghiasi khazanah kuliner bumi pertiwi.`,
         ` Kelezatan luhur ini menjadi sebentuk penghormatan agung bagi kekayaan budaya warisan tanah leluhur.`
       ];
-      
+
       let bestEnding = endings[0];
       let minDiff = 999;
       for (const end of endings) {
@@ -329,7 +326,6 @@ function cleanAndLimitStory(body: string): string {
     }
   }
 
-  // Jaminan akhir bawah
   wordCount = result.split(/\s+/).length;
   if (wordCount < 80) {
     const padEnding = ` Kehadiran sajian ini senantiasa menghadirkan simfoni cita rasa luhur warisan leluhur yang abadi di hati pecinta rasa Nusantara.`;
@@ -340,7 +336,6 @@ function cleanAndLimitStory(body: string): string {
     }
   }
 
-  // Jaminan akhir atas
   const finalWords = result.split(/\s+/);
   if (finalWords.length > 90) {
     result = finalWords.slice(0, 86).join(' ').trim();
@@ -361,13 +356,12 @@ export function getFoodByIdFull(id: string): FoodItemFull | undefined {
   const base = getFoodById(id);
   if (!base) return undefined;
 
-  // Try to load rich content from content/foods/ JSON
   try {
     const contentModules = import.meta.glob<{ default: Record<string, unknown> }>('/src/content/foods/*.json', { eager: true });
     for (const [, mod] of Object.entries(contentModules)) {
       const data = mod.default || mod;
       if (data && (data as { id?: string }).id === id) {
-        // Merge content collection data with base
+
         const content = data as Record<string, unknown>;
         const merged = {
           ...base,
@@ -399,7 +393,7 @@ export function getFoodByIdFull(id: string): FoodItemFull | undefined {
       }
     }
   } catch {
-    // Fallback to generated data
+
   }
 
   const fallback = buildFullFood(base);

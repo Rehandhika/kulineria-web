@@ -83,7 +83,6 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
   useEffect(() => {
     if (!isOpen) return;
 
-    // Record the element that had focus before opening
     triggerRef.current = document.activeElement as HTMLElement;
 
     const handleKeydown = (e: KeyboardEvent) => {
@@ -106,13 +105,13 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
       const activeElement = document.activeElement as HTMLElement;
 
       if (e.shiftKey) {
-        // Shift + Tab: wrap from first element to last element
+
         if (activeElement === firstElement) {
           e.preventDefault();
           lastElement.focus();
         }
       } else {
-        // Tab: wrap from last element to first element
+
         if (activeElement === lastElement) {
           e.preventDefault();
           firstElement.focus();
@@ -122,7 +121,6 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
 
     window.addEventListener('keydown', handleKeydown);
 
-    // Initial focus on the first focusable button (Hapus/Clear button if active, or Close button)
     const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
     const firstFocusable = panelRef.current?.querySelector<HTMLElement>(focusableSelector);
     if (firstFocusable) {
@@ -131,7 +129,7 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
-      // Return focus to the trigger element when closed
+
       if (triggerRef.current) {
         triggerRef.current.focus();
         triggerRef.current = null;
@@ -173,7 +171,7 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
         aria-label="Filter hidangan"
         className={`fp-panel${isOpen ? ' fp-panel--open' : ''}`}
       >
-        {/* Header */}
+        {}
         <div className="fp-header">
           <span className="fp-title">Filter</span>
           {activeCount > 0 && (
@@ -183,10 +181,10 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
           )}
         </div>
 
-        {/* Body: 2 kolom */}
+        {}
         <div className="fp-body">
 
-          {/* Wilayah */}
+          {}
           <div className="fp-section fp-section--region">
             <p className="fp-section-label">Wilayah</p>
             <div className="fp-grid">
@@ -212,7 +210,7 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
             </div>
           </div>
 
-          {/* Rasa */}
+          {}
           <div className="fp-section">
             <p className="fp-section-label">Rasa</p>
             <div className="fp-grid">
@@ -235,7 +233,7 @@ export default function FilterPanel({ isOpen, onClose }: FilterPanelProps) {
 
         </div>
 
-        {/* Close */}
+        {}
         <div className="fp-footer">
           <button className="fp-close-btn" onClick={onClose} aria-label="Tutup filter">
             ✕

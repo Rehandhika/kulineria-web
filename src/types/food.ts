@@ -1,4 +1,4 @@
-﻿export type RegionId =
+export type RegionId =
   | 'sumatera'
   | 'jawa'
   | 'kalimantan'

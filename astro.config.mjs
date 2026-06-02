@@ -28,7 +28,6 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            'maplibre': ['maplibre-gl'],
             'gsap': ['gsap', 'gsap/ScrollTrigger'],
             'react-vendor': ['react', 'react-dom'],
             'state': ['zustand', 'nanostores', '@nanostores/react'],

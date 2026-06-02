@@ -130,7 +130,7 @@ export default function InteractiveMap() {
   }, [hitTest, selected]);
 
   const handleTouch = useCallback((e: React.TouchEvent) => {
-    // Prevent mouse event from also firing
+
     e.preventDefault();
     const touch = e.changedTouches[0];
     if (!touch) return;
@@ -158,15 +158,15 @@ export default function InteractiveMap() {
       <div className="map-container relative w-full overflow-hidden rounded-2xl border shadow-[var(--sh-card)]">
         <div className="map-ocean-bg absolute inset-0 z-0 pointer-events-none" />
 
-        {/* Elegant cloud motifs at the top */}
+        {}
         <img src="/img/motif/png awan.png" className="map-motif map-motif-tl motif-float-1" aria-hidden="true" alt="" width={160} height={100} />
         <img src="/img/motif/png awan.png" className="map-motif map-motif-tr motif-float-3" aria-hidden="true" alt="" width={160} height={100} />
-        
-        {/* Elegant traditional ornament motifs at the bottom */}
+
+        {}
         <img src="/img/motif/png ornamen nusantara.png" className="map-motif map-motif-bl-ornament motif-float-2" aria-hidden="true" alt="" width={220} height={220} />
         <img src="/img/motif/png ornamen nusantara.png" className="map-motif map-motif-br-ornament motif-float-1" aria-hidden="true" alt="" width={220} height={220} />
-        
-        {/* Soft atmospheric clouds floating in the ocean background */}
+
+        {}
         <img src="/img/motif/png awan.png" className="map-motif map-motif-inner-1 motif-float-3" aria-hidden="true" alt="" width={110} height={69} />
         <img src="/img/motif/png awan.png" className="map-motif map-motif-inner-2 motif-float-2" aria-hidden="true" alt="" width={120} height={75} />
 

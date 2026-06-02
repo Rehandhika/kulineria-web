@@ -1,4 +1,4 @@
----
+﻿---
 const currentPath = Astro.url.pathname;
 const navItems = [
   { href: '/', label: 'Beranda', key: 'home' },
@@ -42,7 +42,7 @@ function isActive(path: string) {
           </span>
         </button>
 
-        <!-- Floating menu overlay (anchored to actions group so its right edge aligns with the toggle's right edge) -->
+        
         <div
           class="menu-overlay"
           id="top-nav-overlay"
@@ -70,7 +70,7 @@ function isActive(path: string) {
     </div>
   </div>
 
-  <!-- Page dim / wash -->
+  
   <div class="page-dim" data-page-dim aria-hidden="true"></div>
 </header>
 

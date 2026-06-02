@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 let lenisInstance: Lenis | null = null;
 let isInitialized = false;
 
-// Simpan referensi ke wrapper agar bisa diremove
 const gsapTickerWrapper = (time: number) => {
   lenisInstance?.raf(time * 1000);
 };

@@ -1,6 +1,4 @@
-/**
- * Accessibility utilities
- */
+
 
 let focusTrapElement: HTMLElement | null = null;
 let previousFocus: HTMLElement | null = null;

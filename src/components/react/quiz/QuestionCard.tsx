@@ -13,7 +13,7 @@ export default function QuestionCard({ question }: QuestionCardProps) {
   return (
     <div className="question-card" key={question.id}>
       {isTebakAsal ? (
-        /* ── Tebak Asal: text-only hero ── */
+
         <div className="question-text-hero">
           <span className="question-emoji" aria-hidden="true">🍲</span>
           <h2 className="question-food-name">{question.media}</h2>
@@ -23,7 +23,7 @@ export default function QuestionCard({ question }: QuestionCardProps) {
           <p className="question-prompt-text">{question.prompt}</p>
         </div>
       ) : (
-        /* ── Tebak Makanan: image with prompt overlay ── */
+
         <div className="question-image-hero">
           <img src={question.media} alt={question.prompt} loading="eager" />
           <div className="question-image-overlay">

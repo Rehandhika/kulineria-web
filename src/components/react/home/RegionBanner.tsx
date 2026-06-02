@@ -43,18 +43,18 @@ export default function RegionBanner() {
 
   return (
     <div ref={bannerRef} className="rb">
-      {/* Nama region */}
+      {}
       <span className="rb-name">{region.name}</span>
 
-      {/* Separator */}
+      {}
       <span className="rb-sep" aria-hidden="true" />
 
-      {/* Count */}
+      {}
       <span className="rb-count">
         {count} hidangan
       </span>
 
-      {/* Spacer + right group: close dulu, lalu CTA */}
+      {}
       <div className="rb-right">
         <button
           className="rb-close"

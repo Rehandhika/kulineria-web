@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getAllFoods } from '../lib/data/loaders';
 
 const SITE_URL = 'https://kulineria.id';
-// Use a fixed date for build consistency — update manually on content changes
+
 const BUILD_DATE = '2026-05-17';
 
 const routes = [

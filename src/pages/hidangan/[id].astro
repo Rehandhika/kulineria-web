@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/astro/shared/Footer.astro';
 import { getFoodByIdFull, getAllFoods, getRegions, isRealContent } from '../../lib/data/loaders';
@@ -46,16 +46,16 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
   }}
 >
 
-  <!-- SECTION 1: HERO -->
+  
   <HeroCinematic client:visible food={fullFood || food} regionName={regionName} />
 
-  <!-- SECTION 2: CERITA (hanya jika data real) -->
+  
   {showStory && fullFood?.story && (
     <section class="section cerita-section">
-      <!-- Batik latar — repeat HD texture -->
+      
       <div class="cerita-batik" aria-hidden="true"></div>
 
-      <!-- Decorative floral watermark -->
+      
       <div class="cerita-motif" aria-hidden="true">
         <img src="/img/motif/png bunga.png" alt="" />
       </div>
@@ -72,10 +72,10 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     </section>
   )}
 
-  <!-- SECTION 3: BAHAN & CARA MEMBUAT -->
+  
   {(fullFood?.ingredients && fullFood.ingredients.length > 0) || (fullFood?.recipe && fullFood.recipe.steps.length > 0) ? (
     <section class="section bahan-section">
-      <!-- Decorative Cirebon Mega Mendung watermarks -->
+      
       <div class="bahan-motif bahan-motif-tl" aria-hidden="true">
         <img src="/img/motif/png batik mega mendung.png" alt="" />
       </div>
@@ -107,10 +107,10 @@ const lastSectionBg = fullFood?.nutrition ? 'surface' : (fullFood?.recipe || ful
     </section>
   ) : null}
 
-  <!-- SECTION 4: INFORMASI GIZI -->
+  
   {fullFood?.nutrition && (
     <section class="section gizi-section">
-      <!-- Batik latar — repeat HD texture -->
+      
       <div class="gizi-batik" aria-hidden="true"></div>
 
       <div class="container">

@@ -19,11 +19,10 @@ export default function NutritionBars({ nutrition }: Props) {
     return () => clearTimeout(timer);
   }, []);
 
-  // AKG / RDI (Recommended Daily Intake) values based on Indonesian standard (AKG Rata-rata 2150 kkal)
   const AKG = {
-    protein: 60, // 60 grams
-    fat: 65,     // 65 grams
-    carbs: 300,  // 300 grams
+    protein: 60,
+    fat: 65,
+    carbs: 300,
   };
 
   const macros = [
@@ -62,7 +61,7 @@ export default function NutritionBars({ nutrition }: Props) {
         <p className="nutrition-serving">Porsi: {nutrition.servingSize}</p>
       )}
       <div className="nutrition-bars-grid">
-        {/* Prominent Calories Card (Highlight, spans full width, no progress bar track) */}
+        {}
         <div className="nutrition-item nutrition-item--highlight" role="listitem">
           <div className="nutrition-header">
             <span className="nutrition-label nutrition-label--highlight">Energi Utama</span>
@@ -75,7 +74,7 @@ export default function NutritionBars({ nutrition }: Props) {
           </p>
         </div>
 
-        {/* Macro Nutrient Cards scaled realistically relative to RDI */}
+        {}
         {macros.map((item, i) => {
           const pct = Math.min(100, Math.round((item.value / item.target) * 100));
           return (

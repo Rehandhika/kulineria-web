@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/astro/shared/Footer.astro';
 import HeroSection from '../components/astro/home/HeroSection.astro';
@@ -13,13 +13,13 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
 <BaseLayout title="Beranda" description="Discover the rich flavors of Indonesian cuisine through an interactive exploration of regional specialties">
   <HeroSection />
 
-  <!-- ZONA TERANG: Map + Featured mengalir sebagai satu kesatuan -->
+  
   <div class="home-light-zone">
 
-    <!-- Batik latar — repeat HD texture menyatukan map & featured -->
+    
     <div class="light-zone-batik" aria-hidden="true"></div>
 
-    <!-- INTERACTIVE MAP -->
+    
     <section class="map-section" id="map-section">
       <div class="container map-section-container">
         <SectionHeader
@@ -32,14 +32,14 @@ import StoryCTA from '../components/astro/home/StoryCTA.astro';
       </div>
     </section>
 
-    <!-- FEATURED FOODS -->
+    
     <FeaturedFoodsGrid client:visible />
   </div>
 
-  <!-- QUIZ CTA — band gelap dengan jembatan gradien di kedua sisi -->
+  
   <QuizCTA />
 
-  <!-- STORY / TENTANG CTA — terang, mengalir ke footer -->
+  
   <StoryCTA />
 
   <Footer bg="surface" />

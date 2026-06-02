@@ -166,25 +166,7 @@ declare module 'astro:content' {
   id: string;
   body?: string;
   collection: "foods";
-  data: InferEntrySchema<"foods">;
-  rendered?: RenderedContent;
-  filePath?: string;
-}>;
-"regions": Record<string, {
-  id: string;
-  body?: string;
-  collection: "regions";
-  data: InferEntrySchema<"regions">;
-  rendered?: RenderedContent;
-  filePath?: string;
-}>;
-"stories": Record<string, {
-  id: string;
-  render(): Render[".md"];
-  slug: string;
-  body: string;
-  collection: "stories";
-  data: InferEntrySchema<"stories">;
+  data: any;
   rendered?: RenderedContent;
   filePath?: string;
 }>;

@@ -71,7 +71,6 @@ function formatTasteName(taste: string) {
 const allFoods = getAllFoods();
 const regions  = getRegions();
 
-// Tipe animasi yang berbeda untuk setiap trigger
 type AnimTrigger = 'initial' | 'region' | 'page-next' | 'page-prev';
 
 export default function FeaturedFoodsGrid() {
@@ -79,7 +78,7 @@ export default function FeaturedFoodsGrid() {
   const gridRef    = useRef<HTMLDivElement>(null);
 
   const [page,     setPage]     = useState(1);
-  const [animKey,  setAnimKey]  = useState(1);   // 1 = trigger animasi initial saat mount
+  const [animKey,  setAnimKey]  = useState(1);
   const [trigger,  setTrigger]  = useState<AnimTrigger>('initial');
 
   const prevIdRef   = useRef<string | null>(null);
@@ -91,7 +90,6 @@ export default function FeaturedFoodsGrid() {
   const startIdx   = (page - 1) * ITEMS_PER_PAGE;
   const paginated  = filtered.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
-  // ── Animasi masuk cards ──────────────────────────────────────────
   const animateIn = useCallback((t: AnimTrigger) => {
     const grid = gridRef.current;
     if (!grid) return;
@@ -108,7 +106,7 @@ export default function FeaturedFoodsGrid() {
       }
 
       if (t === 'initial') {
-        // Pertama kali muncul — stagger dari bawah, lambat
+
         gsap.fromTo(cards,
           { opacity: 0, y: 32, scale: 0.97 },
           { opacity: 1, y: 0, scale: 1,
@@ -117,7 +115,7 @@ export default function FeaturedFoodsGrid() {
         );
 
       } else if (t === 'region') {
-        // Region baru — masuk dari bawah lebih jauh, stagger lebih cepat
+
         gsap.fromTo(cards,
           { opacity: 0, y: 48, scale: 0.95 },
           { opacity: 1, y: 0, scale: 1,
@@ -126,7 +124,7 @@ export default function FeaturedFoodsGrid() {
         );
 
       } else if (t === 'page-next') {
-        // Halaman berikutnya — slide masuk dari kanan
+
         gsap.fromTo(cards,
           { opacity: 0, x: 40, scale: 0.97 },
           { opacity: 1, x: 0, scale: 1,
@@ -135,7 +133,7 @@ export default function FeaturedFoodsGrid() {
         );
 
       } else if (t === 'page-prev') {
-        // Halaman sebelumnya — slide masuk dari kiri
+
         gsap.fromTo(cards,
           { opacity: 0, x: -40, scale: 0.97 },
           { opacity: 1, x: 0, scale: 1,
@@ -146,7 +144,6 @@ export default function FeaturedFoodsGrid() {
     });
   }, []);
 
-  // ── Animasi keluar cards, lalu jalankan callback ─────────────────
   const animateOut = useCallback((
     t: AnimTrigger,
     cb: () => void
@@ -163,21 +160,21 @@ export default function FeaturedFoodsGrid() {
       gsap.killTweensOf(cards);
 
       if (t === 'region') {
-        // Exit ke atas + fade
+
         gsap.to(cards, {
           opacity: 0, y: -24, scale: 0.97,
           duration: 0.3, stagger: 0.03, ease: 'power2.in',
           onComplete: cb,
         });
       } else if (t === 'page-next') {
-        // Exit ke kiri
+
         gsap.to(cards, {
           opacity: 0, x: -32,
           duration: 0.25, stagger: 0.025, ease: 'power2.in',
           onComplete: cb,
         });
       } else if (t === 'page-prev') {
-        // Exit ke kanan
+
         gsap.to(cards, {
           opacity: 0, x: 32,
           duration: 0.25, stagger: 0.025, ease: 'power2.in',
@@ -189,16 +186,13 @@ export default function FeaturedFoodsGrid() {
     });
   }, []);
 
-  // ── Region berubah ───────────────────────────────────────────────
   useEffect(() => {
     if (prevIdRef.current === selectedId) return;
     const isInitial = prevIdRef.current === null;
     prevIdRef.current = selectedId;
 
     if (isInitial) {
-      // Load awal — grid sudah render, cukup trigger animateIn
-      // (animKey=1 sudah di-set, tapi effect mungkin sudah lewat sebelum
-      //  selectedId berubah, jadi kita bump animKey lagi untuk memastikan)
+
       setTrigger('initial');
       setAnimKey(k => k + 1);
       return;
@@ -216,9 +210,8 @@ export default function FeaturedFoodsGrid() {
     });
   }, [selectedId, animateOut]);
 
-  // ── Animasi masuk setelah animKey berubah ────────────────────────
   useEffect(() => {
-    // Double rAF: frame 1 = React commits DOM, frame 2 = browser paints, frame 3 = animate
+
     let raf1: number, raf2: number;
     raf1 = requestAnimationFrame(() => {
       raf2 = requestAnimationFrame(() => {
@@ -231,7 +224,6 @@ export default function FeaturedFoodsGrid() {
     };
   }, [animKey, trigger, animateIn]);
 
-  // ── Ganti halaman ────────────────────────────────────────────────
   const goToPage = useCallback((p: number) => {
     if (p < 1 || p > totalPages || isAnimating.current) return;
     isAnimating.current = true;
@@ -245,7 +237,6 @@ export default function FeaturedFoodsGrid() {
       setAnimKey(k => k + 1);
       isAnimating.current = false;
 
-      // Scroll ke atas grid setelah state update
       requestAnimationFrame(() => {
         const target = document.getElementById('featured');
         if (!target) return;

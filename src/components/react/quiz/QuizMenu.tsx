@@ -32,25 +32,22 @@ export default function QuizMenu() {
 
     const init = () => {
       ctx = gsap.context(() => {
-        // Entrance animations for bg scale
+
         gsap.fromTo('.quiz-menu-hero-bg',
           { scale: 1.08, opacity: 0 },
           { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }
         );
 
-        // Entrance animations for motif
         gsap.fromTo('.quiz-menu-hero-motif img',
           { scale: 0.9, opacity: 0 },
           { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }
         );
 
-        // Entrance animations for Mascot Nara
         gsap.fromTo('.quiz-menu-nara-img',
           { opacity: 0, scale: 0.82, y: -15 },
           { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(1.5)', delay: 0.1 }
         );
 
-        // Entrance animations for Title and Subtitle
         gsap.fromTo('.quiz-menu-hero-title',
           { y: 12, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 0.25 }
@@ -60,13 +57,11 @@ export default function QuizMenu() {
           { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out', delay: 0.35 }
         );
 
-        // Entrance animations for nodes (stay in place and fade)
         gsap.fromTo('.journey-node-wrapper',
           { opacity: 0 },
           { opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power2.out', delay: 0.5 }
         );
-        
-        // Floating animations for motifs
+
         gsap.to('.motif-float', {
           y: -15,
           duration: 3,
@@ -108,22 +103,22 @@ export default function QuizMenu() {
 
   return (
     <div className="quiz-menu-container" ref={containerRef}>
-      {/* ── HERO SECTION (Dark Gradient + Wave Divider) ── */}
+      {}
       <section className="quiz-menu-hero">
         <div className="quiz-menu-hero-bg-wrapper" aria-hidden="true">
           <div className="quiz-menu-hero-bg"></div>
         </div>
-        
-        {/* Motif Ornamen Nusantara background overlay */}
+
+        {}
         <div className="quiz-menu-hero-motif" aria-hidden="true">
           <img src="/img/motif/png ornamen nusantara.png" alt="" />
         </div>
 
-        {/* Floating clouds within Hero */}
+        {}
         <img src="/img/motif/png batik mega mendung.png" className="quiz-motif motif-hero-left motif-float" aria-hidden="true" alt="" />
         <img src="/img/motif/png batik mega mendung.png" className="quiz-motif motif-hero-right motif-float" aria-hidden="true" alt="" />
 
-        {/* Seamless visual bottom organic wave divider filled with page background color */}
+        {}
         <div className="hero-wave" aria-hidden="true">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 C240,60 480,0 720,40 C960,80 1200,10 1440,40 L1440,120 L0,120 Z"
@@ -137,7 +132,7 @@ export default function QuizMenu() {
 
         <div className="quiz-menu-hero-inner">
           <div className="quiz-menu-hero-body">
-            {/* Mascot Nara Welcoming */}
+            {}
             <div className="quiz-menu-nara" aria-hidden="true">
               <img
                 src="/img/nara/NARA 2.png"
@@ -160,32 +155,32 @@ export default function QuizMenu() {
         </div>
       </section>
 
-      {/* ── MAP SECTION (Parchment Background below wave) ── */}
+      {}
       <section className="quiz-menu-map-section">
-        {/* Batik latar — repeat HD texture */}
+        {}
         <div className="quiz-menu-map-batik" aria-hidden="true"></div>
 
-        {/* Floating plain cloud and ornament motifs outside map card */}
+        {}
         <img src="/img/motif/png awan.png" className="quiz-motif motif-map-outside-left motif-float" aria-hidden="true" alt="" />
         <img src="/img/motif/png ornamen nusantara.png" className="quiz-motif motif-map-outside-right motif-float" aria-hidden="true" alt="" />
 
         <div className="quiz-journey-container">
           <div className="quiz-journey-map">
-            {/* Elegant floating clouds inside the map board (top) */}
+            {}
             <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-tl motif-float" aria-hidden="true" alt="" />
             <img src="/img/motif/png awan.png" className="quiz-motif motif-map-card-tr motif-float" aria-hidden="true" alt="" />
-            
-            {/* Elegant traditional ornaments inside the map board (bottom) */}
+
+            {}
             <img src="/img/motif/png ornamen nusantara.png" className="quiz-motif motif-map-card-bl-ornament motif-float" aria-hidden="true" alt="" />
             <img src="/img/motif/png ornamen nusantara.png" className="quiz-motif motif-map-card-br-ornament motif-float" aria-hidden="true" alt="" />
-            
-            {/* Decorative soft clouds floating in the map grid */}
+
+            {}
             <img src="/img/motif/png awan.png" className="quiz-motif motif-map-inner-cloud-1 motif-float" aria-hidden="true" alt="" />
             <img src="/img/motif/png awan.png" className="quiz-motif motif-map-inner-cloud-2 motif-float" aria-hidden="true" alt="" />
 
             <div className="journey-svg-wrapper">
-              
-              {/* Garis Penghubung Horizontal (Desktop/Tablet) */}
+
+              {}
               <svg className="journey-path-svg path-horizontal" viewBox="0 0 700 400" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <filter id="svg-glow-h">
@@ -207,7 +202,7 @@ export default function QuizMenu() {
                 </g>
               </svg>
 
-              {/* Garis Penghubung Vertikal (Mobile) */}
+              {}
               <svg className="journey-path-svg path-vertical" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <filter id="svg-glow-v">
@@ -229,7 +224,7 @@ export default function QuizMenu() {
                 </g>
               </svg>
 
-              {/* Layer Interaktif Level */}
+              {}
               <div className="journey-nodes-layer">
                 {MODES.map((mode) => (
                   <div key={mode.id} className={`journey-node-wrapper level-${mode.level}`}>
@@ -250,8 +245,8 @@ export default function QuizMenu() {
                     </div>
                   </div>
                 ))}
-                
-                {/* Node Rahasia / Coming Soon */}
+
+                {}
                 <div className="journey-node-wrapper level-locked">
                   <div className="journey-node-label">
                     <span className="level-number">Misteri</span>

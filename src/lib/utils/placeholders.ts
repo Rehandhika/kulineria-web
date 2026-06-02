@@ -49,7 +49,6 @@ export function generateFoodPlaceholder(name: string, region: RegionId): string 
         fill="rgba(255,255,255,0.2)" letter-spacing="4">${initials}</text>
 </svg>`;
 
-  // Use encodeURIComponent for cross-platform (Node + Browser) compatibility
   const encoded = encodeURIComponent(svg)
     .replace(/'/g, '%27')
     .replace(/"/g, '%22');

@@ -19,7 +19,7 @@ export default function StorySection({ headline, body, pullQuote, image, regionN
 
   useEffect(() => {
     if (!containerRef.current) return;
-    
+
     const anims: gsap.core.Tween[] = [];
 
     if (image) {

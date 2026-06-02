@@ -1,4 +1,4 @@
----
+﻿---
 import { getCollection } from 'astro:content';
 
 const teamMembers = await getCollection('team');
@@ -6,7 +6,7 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
 ---
 
 <section class="team" id="about-team">
-  <!-- Batik latar — repeat HD texture -->
+  
   <div class="team-batik" aria-hidden="true"></div>
 
   <div class="container">

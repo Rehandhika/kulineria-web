@@ -1,4 +1,4 @@
-﻿export type QuizMode =
+export type QuizMode =
   | 'tebak-makanan'
   | 'tebak-asal';
 

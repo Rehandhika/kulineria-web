@@ -1,4 +1,4 @@
----
+﻿---
 import TopNav from '../components/astro/nav/TopNav.astro';
 import SeoMeta from '../components/astro/shared/SeoMeta.astro';
 import '../styles/globals.css';
@@ -55,14 +55,9 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       <slot />
     </main>
 
-    <!--
-      3-layer arc + wave — kontinu tanpa freeze, smooth & slow.
+    
 
-      OUT:  caramel → cinnamon → mocha naik langsung ke gone (sine.inOut).
-      IN:   main content fade-up, lalu layer direset ke hidden.
-    -->
-
-    <!-- Layer 1: brown-200 (belakang) -->
+    
     <div class="pt-layer pt-l1" aria-hidden="true">
       <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
         <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#EDD4B4"/>
@@ -73,7 +68,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       </svg>
     </div>
 
-    <!-- Layer 2: accent (tengah) -->
+    
     <div class="pt-layer pt-l2" aria-hidden="true">
       <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
         <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#C2410C"/>
@@ -84,7 +79,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       </svg>
     </div>
 
-    <!-- Layer 3: brown-800 (depan) -->
+    
     <div class="pt-layer pt-l3" aria-hidden="true">
       <svg class="pt-arc" viewBox="0 0 1200 180" preserveAspectRatio="none">
         <path d="M0,180 C400,100 800,100 1200,180 Z" fill="#5A3420"/>
@@ -95,7 +90,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       </svg>
     </div>
 
-    <!-- Lenis + Page Animation Orchestrator -->
+    
     <script>
       import { initSmoothScroll, forceScrollToTop } from '../lib/animations/scroll-smoother';
       import { gsap } from 'gsap';
@@ -146,7 +141,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       });
     </script>
 
-    <!-- Arc + Wave: 3-layer via Swup hooks + GSAP -->
+    
     <script>
       import { gsap } from 'gsap';
       import { cleanupAnimations } from '../lib/animations/gsap-presets';
@@ -173,7 +168,6 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       gsap.set([l1, l2, l3], { y: getVH() });
 
       function dispatchPageReady() {
-        console.log('[Swup] Dispatching kulineria:page:ready');
         (window as any).__kulineriaPageReady = true;
         document.dispatchEvent(new CustomEvent('kulineria:page:ready'));
       }
@@ -181,14 +175,11 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       function setupSwupHooks() {
         const swup = (window as any).swup;
         if (!swup) return;
-        console.log('[Swup] Setting up transition hooks');
 
-        // Pastikan transisi berjalan saat menekan tombol Back/Forward riwayat browser!
         swup.options.animateHistoryBrowsing = true;
 
         // ── FASE OUT ────────────────────────────────────────────────────
         swup.hooks.on('animation:out:start', () => {
-          console.log('[Swup] Hook animation:out:start fired');
           (window as any).__kulineriaPageReady = false;
           cleanupAnimations();
         });
@@ -235,15 +226,10 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
         );
 
         swup.hooks.on('content:replace', () => {
-          console.log('[Swup] Hook content:replace fired');
-          
-          // Pastikan status page ready diset ke false saat content diswap
           (window as any).__kulineriaPageReady = false;
 
-          // WIPE animation/reveal flags in the new DOM to force a fresh re-initialization
           const main = document.getElementById('main-content');
           if (main) {
-            console.log('[Swup] Wiping flags in new main content');
             const flagged = main.querySelectorAll('[data-animated], [data-revealed], [data-bound]');
             flagged.forEach((el) => {
               el.removeAttribute('data-animated');

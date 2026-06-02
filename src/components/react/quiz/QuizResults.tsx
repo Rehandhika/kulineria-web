@@ -6,7 +6,6 @@ import { getAllFoods } from '@/lib/data/loaders';
 import { scrollTo as lenisScrollTo } from '@/lib/animations/scroll-smoother';
 import './QuizResults.css';
 
-
 interface WrongAnswer {
   questionId: string;
   foodId: string;
@@ -34,7 +33,7 @@ export default function QuizResults() {
     if (savedScroll) {
       sessionStorage.removeItem('kulineria-quiz-scroll');
       const targetY = parseInt(savedScroll, 10);
-      
+
       const timer = setTimeout(() => {
         window.scrollTo({
           top: targetY,
@@ -85,7 +84,7 @@ export default function QuizResults() {
 
   return (
     <div className="quiz-results">
-      {/* Ambient motifs: Elegant Mega Mendung and Clouds */}
+      {}
       <img src="/img/motif/png ornamen nusantara.png" className="results-motif results-motif-ornamen" aria-hidden="true" alt="" draggable={false} />
       <img src="/img/motif/png batik mega mendung.png" className="results-motif results-motif-megamendung-tl" aria-hidden="true" alt="" draggable={false} />
       <img src="/img/motif/png batik mega mendung.png" className="results-motif results-motif-megamendung-br" aria-hidden="true" alt="" draggable={false} />
@@ -93,7 +92,7 @@ export default function QuizResults() {
       <img src="/img/motif/png awan.png" className="results-motif results-motif-awan-right" aria-hidden="true" alt="" draggable={false} />
 
       <div className="results-card">
-        {/* ── Compact header: mascot centered above text ── */}
+        {}
         <div className="results-header">
           <img
             src="/img/nara/NARA 5.png"
@@ -110,7 +109,7 @@ export default function QuizResults() {
           </div>
         </div>
 
-        {/* ── Stats row: 3 stats inline ── */}
+        {}
         <div className="results-stats-row">
           <div className="stat-item">
             <span className="stat-value">{percentage}%</span>
@@ -128,7 +127,7 @@ export default function QuizResults() {
           </div>
         </div>
 
-        {/* ── Dot review bar ── */}
+        {}
         <div className="dot-review" role="img" aria-label={`${correctCount} benar, ${wrongAnswers.length} salah dari ${totalQuestions} soal`}>
           {answers.map((a, i) => (
             <span
@@ -137,7 +136,7 @@ export default function QuizResults() {
               aria-hidden="true"
             />
           ))}
-          {/* Fill unanswered dots if questions > answers */}
+          {}
           {questions.length > answers.length &&
             Array.from({ length: questions.length - answers.length }).map((_, i) => (
               <span key={`u-${i}`} className="dot unanswered" aria-hidden="true" />
@@ -145,7 +144,7 @@ export default function QuizResults() {
           }
         </div>
 
-        {/* ── Collapsible wrong answers ── */}
+        {}
         {wrongAnswers.length > 0 && (
           <div className="results-review">
             <button
@@ -195,7 +194,7 @@ export default function QuizResults() {
           </div>
         )}
 
-        {/* ── Action buttons ── */}
+        {}
         <div className="results-actions">
           <button className="btn-primary" onClick={resetQuiz}>
             Main Lagi

@@ -23,12 +23,11 @@ export default function QuizGame() {
   const timerPercent = (timeRemaining / timeLimit) * 100;
   const timerUrgent = timerPercent <= 30;
 
-  // Keyboard shortcuts: A-D or 1-4 for options, Enter/Space for next
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (!currentQuestion) return;
 
     if (status === 'playing' && !selectedOptionId) {
-      // Check for letters A-D (case-insensitive)
+
       const letter = e.key.toUpperCase();
       if (letter >= 'A' && letter <= String.fromCharCode(64 + currentQuestion.options.length)) {
         const index = letter.charCodeAt(0) - 65;
@@ -37,7 +36,6 @@ export default function QuizGame() {
         return;
       }
 
-      // Alternative fallback: check for numbers 1-4
       const keyNum = parseInt(e.key);
       if (keyNum >= 1 && keyNum <= currentQuestion.options.length) {
         e.preventDefault();
@@ -61,7 +59,6 @@ export default function QuizGame() {
   const totalQuestions = questions.length;
   const questionNumber = currentIndex + 1;
 
-  // Build progress dots from answers
   const dots = questions.map((_, i) => {
     if (i < answers.length) {
       return answers[i].isCorrect ? 'correct' : 'wrong';
@@ -70,12 +67,11 @@ export default function QuizGame() {
     return 'pending';
   });
 
-  // Dynamic Nara Mascot Avatar for the compact bar
   const getNaraAvatar = () => {
     if (status === 'reviewing') {
       return lastAnswerCorrect ? '/img/nara/NARA 8.png' : '/img/nara/NARA 4.png';
     }
-    return '/img/nara/NARA 3.png'; // thinking while playing
+    return '/img/nara/NARA 3.png';
   };
 
   const getNaraAlt = () => {
@@ -87,12 +83,12 @@ export default function QuizGame() {
 
   return (
     <div className="quiz-game">
-      {/* Ambient motifs */}
+      {}
       <img src="/img/motif/png ornamen nusantara.png" className="game-motif game-motif-ornamen" aria-hidden="true" alt="" draggable={false} />
       <img src="/img/motif/png bunga.png" className="game-motif game-motif-bunga-bl" aria-hidden="true" alt="" draggable={false} />
       <img src="/img/motif/png bunga.png" className="game-motif game-motif-bunga-tr" aria-hidden="true" alt="" draggable={false} />
 
-      {/* ── Compact Header Bar ── */}
+      {}
       <div className="quiz-compact-bar">
         <div className="bar-left">
           <div className="bar-nara-avatar-wrapper">
@@ -119,7 +115,7 @@ export default function QuizGame() {
         </div>
       </div>
 
-      {/* ── Timer Bar ── */}
+      {}
       <div className={`timer-bar ${timerUrgent ? 'urgent' : ''} ${status === 'reviewing' ? (lastAnswerCorrect ? 'result-correct' : 'result-wrong') : ''}`}>
         <div
           className="timer-fill"
@@ -139,10 +135,10 @@ export default function QuizGame() {
         )}
       </div>
 
-      {/* ── Question Card ── */}
+      {}
       <QuestionCard question={currentQuestion} />
 
-      {/* ── Inline Advance Button (wrong/timeout only) ── */}
+      {}
       {status === 'reviewing' && !lastAnswerCorrect && (
         <button className="inline-advance-btn" onClick={nextQuestion}>
           Lanjut

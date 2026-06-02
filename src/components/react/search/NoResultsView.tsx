@@ -7,7 +7,7 @@ const SUGGESTIONS = ['rendang', 'soto', 'nasi goreng', 'gado-gado', 'sate'];
 export default function NoResultsView() {
   return (
     <div className="no-results-view" style={{ textAlign: 'center', maxWidth: 440, margin: 'var(--sp-12) auto' }}>
-      {/* NARA sad */}
+      {}
       <div style={{ marginBottom: 'var(--sp-5)', display: 'flex', justifyContent: 'center' }}>
         <img
           src="/img/nara/NARA 4.png"

@@ -47,7 +47,7 @@ export default function RecipeStepper({ steps, servings }: Props) {
               key={step.order}
               className={`recipe-step-item ${isOpen ? 'recipe-step-item--open' : ''} ${isLast ? 'recipe-step-item--last' : ''}`}
             >
-              {/* Track: badge + connector line */}
+              {}
               <div className="recipe-step-track">
                 <button
                   className="recipe-step-badge"
@@ -66,7 +66,7 @@ export default function RecipeStepper({ steps, servings }: Props) {
                 {!isLast && <div className="recipe-step-connector" />}
               </div>
 
-              {/* Content card */}
+              {}
               <div className="recipe-step-content">
                 <button
                   className="recipe-step-trigger"

@@ -1,4 +1,4 @@
-﻿import type { RegionId, Taste, FoodItem } from './food';
+import type { RegionId, Taste, FoodItem } from './food';
 
 export interface SearchState {
   query: string;

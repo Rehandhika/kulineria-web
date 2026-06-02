@@ -183,7 +183,6 @@ export const useQuizStore = create<QuizStore>()(
       lastAnswerCorrect: isCorrect,
     });
 
-    // Auto-advance after 1.5s on correct answers
     if (isCorrect) {
       stopAutoAdvance();
       autoAdvanceId = setTimeout(() => {

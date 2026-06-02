@@ -104,7 +104,7 @@ export default function SearchProvider({ initialFoods }: Props) {
   return (
     <div className="search-page">
 
-      {/* Main content — full width, no sidebar */}
+      {}
       <div className="search-main" id="search-main">
         {isSearching && <LoadingSkeleton />}
 
@@ -127,7 +127,7 @@ export default function SearchProvider({ initialFoods }: Props) {
         )}
       </div>
 
-      {/* Floating FILTER button */}
+      {}
       <div className={`filter-fab-wrap${fabVisible ? ' filter-fab-wrap--visible' : ''}`}>
         <button
           className={`filter-fab${activeFilterCount > 0 ? ' filter-fab--active' : ''}`}
@@ -148,7 +148,7 @@ export default function SearchProvider({ initialFoods }: Props) {
         </button>
       </div>
 
-      {/* Filter modal */}
+      {}
       <FilterPanel isOpen={filterOpen} onClose={() => setFilterOpen(false)} />
     </div>
   );

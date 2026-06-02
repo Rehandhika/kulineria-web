@@ -4,7 +4,7 @@ const robots = `User-agent: *
 Allow: /
 Disallow: /_astro/
 
-Sitemap: https://kulineria.id/sitemap.xml
+Sitemap: https:
 `;
 
 export const GET: APIRoute = () =>

@@ -1,6 +1,4 @@
-/**
- * Browser and feature detection utilities
- */
+
 
 export function isSafari(): boolean {
   if (typeof window === 'undefined') return false;

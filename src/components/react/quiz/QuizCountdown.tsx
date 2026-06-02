@@ -8,7 +8,7 @@ export default function QuizCountdown() {
 
   return (
     <div className="countdown-wrapper">
-      {/* Ambient motifs */}
+      {}
       <img src="/img/motif/png ornamen nusantara.png" className="countdown-motif countdown-motif-ornamen" aria-hidden="true" alt="" draggable={false} />
       <img src="/img/motif/png bunga.png" className="countdown-motif countdown-motif-bunga-bl" aria-hidden="true" alt="" draggable={false} />
       <img src="/img/motif/png bunga.png" className="countdown-motif countdown-motif-bunga-tr" aria-hidden="true" alt="" draggable={false} />
