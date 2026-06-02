@@ -210,7 +210,8 @@ const sorted = teamMembers.sort((a: any, b: any) => a.data.order - b.data.order)
     border-radius: var(--r-2xl);
     box-shadow: var(--sh-2);
     cursor: default;
-    will-change: transform;
+    will-change: transform, opacity;
+    opacity: 0;
     transition: box-shadow 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
   }
   @media (hover: hover) and (pointer: fine) {

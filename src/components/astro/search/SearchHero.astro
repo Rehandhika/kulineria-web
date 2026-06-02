@@ -315,6 +315,8 @@ import SearchBar from '../../react/search/SearchBar';
     display: block;
     user-select: none;
     filter: drop-shadow(0 6px 16px rgba(0,0,0,0.3));
+    opacity: 0;
+    will-change: transform, opacity;
   }
   @media (min-width: 768px) {
     .search-hero-nara-img {
@@ -334,6 +336,8 @@ import SearchBar from '../../react/search/SearchBar';
     font-optical-sizing: auto;
     font-variation-settings: 'opsz' 144, 'SOFT' 50;
     text-align: center; /* Always centered */
+    opacity: 0;
+    will-change: transform, opacity;
   }
   @media (min-width: 768px) {
     .search-hero-title {
@@ -347,6 +351,8 @@ import SearchBar from '../../react/search/SearchBar';
     max-width: 100%;
     position: relative;
     z-index: 10;
+    opacity: 0;
+    will-change: transform, opacity;
   }
   @media (min-width: 768px) {
     .search-hero-bar {

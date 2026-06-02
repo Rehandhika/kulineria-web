@@ -28,55 +28,82 @@ export default function QuizMenu() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Entrance animations for bg scale
-      gsap.fromTo('.quiz-menu-hero-bg',
-        { scale: 1.08, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }
-      );
+    let ctx: gsap.Context | null = null;
 
-      // Entrance animations for motif
-      gsap.fromTo('.quiz-menu-hero-motif img',
-        { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }
-      );
+    const init = () => {
+      ctx = gsap.context(() => {
+        // Entrance animations for bg scale
+        gsap.fromTo('.quiz-menu-hero-bg',
+          { scale: 1.08, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }
+        );
 
-      // Entrance animations for Mascot Nara
-      gsap.fromTo('.quiz-menu-nara-img',
-        { opacity: 0, scale: 0.82, y: -15 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(1.5)', delay: 0.1 }
-      );
+        // Entrance animations for motif
+        gsap.fromTo('.quiz-menu-hero-motif img',
+          { scale: 0.9, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }
+        );
 
-      // Entrance animations for Title and Subtitle
-      gsap.fromTo('.quiz-menu-hero-title',
-        { y: 12, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 0.25 }
-      );
-      gsap.fromTo('.quiz-menu-hero-sub',
-        { y: 14, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out', delay: 0.35 }
-      );
+        // Entrance animations for Mascot Nara
+        gsap.fromTo('.quiz-menu-nara-img',
+          { opacity: 0, scale: 0.82, y: -15 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(1.5)', delay: 0.1 }
+        );
 
-      // Entrance animations for nodes (stay in place and fade)
-      gsap.fromTo('.journey-node-wrapper',
-        { opacity: 0 },
-        { opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power2.out', delay: 0.5 }
-      );
-      
-      // Floating animations for motifs
-      gsap.to('.motif-float', {
-        y: -15,
-        duration: 3,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut",
-        stagger: {
-          each: 1,
-          from: "random"
-        }
-      });
-    }, containerRef);
-    return () => ctx.revert();
+        // Entrance animations for Title and Subtitle
+        gsap.fromTo('.quiz-menu-hero-title',
+          { y: 12, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 0.25 }
+        );
+        gsap.fromTo('.quiz-menu-hero-sub',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out', delay: 0.35 }
+        );
+
+        // Entrance animations for nodes (stay in place and fade)
+        gsap.fromTo('.journey-node-wrapper',
+          { opacity: 0 },
+          { opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power2.out', delay: 0.5 }
+        );
+        
+        // Floating animations for motifs
+        gsap.to('.motif-float', {
+          y: -15,
+          duration: 3,
+          yoyo: true,
+          repeat: -1,
+          ease: "sine.inOut",
+          stagger: {
+            each: 1,
+            from: "random"
+          }
+        });
+      }, containerRef);
+    };
+
+    const w = window as any;
+    const isSwupActive = !!w.swup;
+    const isTransitioning = isSwupActive && !w.__kulineriaPageReady;
+
+    let timer: any = null;
+
+    if (isTransitioning) {
+      const handleReady = () => {
+        init();
+        document.removeEventListener('kulineria:page:ready', handleReady);
+      };
+      document.addEventListener('kulineria:page:ready', handleReady);
+      return () => {
+        document.removeEventListener('kulineria:page:ready', handleReady);
+        if (ctx) ctx.revert();
+      };
+    } else {
+      timer = setTimeout(init, 50);
+      return () => {
+        if (timer) clearTimeout(timer);
+        if (ctx) ctx.revert();
+      };
+    }
   }, []);
 
   return (

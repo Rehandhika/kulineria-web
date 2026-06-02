@@ -132,7 +132,8 @@ function initRegionReveal() {
     display: flex;
     align-items: center;
     justify-content: center;
-    will-change: transform;
+    will-change: transform, opacity;
+    opacity: 0;
   }
   @media (min-width: 640px) {
     .region-card { aspect-ratio: auto; min-height: 200px; }

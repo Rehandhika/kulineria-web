@@ -471,6 +471,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0; /* Prevents FOUC/flash before GSAP animation triggers */
 }
 
 .journey-node {

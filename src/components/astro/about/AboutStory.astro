@@ -30,13 +30,16 @@
     const section = document.querySelector('.about-story');
     if (!section) return;
 
-    gsap.from(section.querySelector('.story-card'), {
-      y: 40,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'expo.out',
-      scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
-    });
+    gsap.fromTo(section.querySelector('.story-card'),
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'expo.out',
+        scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
+      }
+    );
   }
 
   import { runOnPageReady } from '../../../lib/animations/gsap-presets';
@@ -60,6 +63,8 @@
     border: 1px solid var(--c-border);
     border-radius: var(--r-xl);
     box-shadow: var(--sh-card);
+    opacity: 0;
+    will-change: transform, opacity;
   }
   @media (min-width: 768px) {
     .story-card { padding: var(--sp-12); }

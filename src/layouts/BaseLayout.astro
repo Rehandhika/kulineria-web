@@ -183,6 +183,9 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
         if (!swup) return;
         console.log('[Swup] Setting up transition hooks');
 
+        // Pastikan transisi berjalan saat menekan tombol Back/Forward riwayat browser!
+        swup.options.animateHistoryBrowsing = true;
+
         // ── FASE OUT ────────────────────────────────────────────────────
         swup.hooks.on('animation:out:start', () => {
           console.log('[Swup] Hook animation:out:start fired');
@@ -211,6 +214,12 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
             const vh = getVH();
             const endY = -(vh + 500); // Pastikan layer benar-benar keluar layar di atas
 
+            // Mulai terbukanya tirai transisi: pemicu sinkron untuk entrance animations!
+            // Menggunakan delay 150ms agar transisi sinkron dengan terangkatnya mocha layer (l3)
+            setTimeout(() => {
+              dispatchPageReady();
+            }, 150);
+
             // Layer lanjut naik dari tengah ke atas (membuka layar)
             const tl = gsap.timeline({
               onComplete: () => {
@@ -227,6 +236,10 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
 
         swup.hooks.on('content:replace', () => {
           console.log('[Swup] Hook content:replace fired');
+          
+          // Pastikan status page ready diset ke false saat content diswap
+          (window as any).__kulineriaPageReady = false;
+
           // WIPE animation/reveal flags in the new DOM to force a fresh re-initialization
           const main = document.getElementById('main-content');
           if (main) {
@@ -256,10 +269,6 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
           forceScrollToTop();
 
           refreshSmoothScroll();
-
-          // Dispatch event agar animasi hero komponen menyiapkan state awalnya
-          // (misal: opacity 0) SEBELUM layar mulai dibuka oleh fase IN.
-          dispatchPageReady();
         });
 
       }

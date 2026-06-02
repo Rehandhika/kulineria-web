@@ -202,7 +202,12 @@ const instanceId = `quiz-cta-${Math.random().toString(36).slice(2, 7)}`;
   }
 
   /* Text */
-  .qcta-text { flex: 1; min-width: 0; }
+  .qcta-text {
+    flex: 1;
+    min-width: 0;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
 
   .qcta-eyebrow {
     display: inline-block;

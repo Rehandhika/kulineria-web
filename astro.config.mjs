@@ -18,6 +18,7 @@ export default defineConfig({
       updateHead: true,
       globalInstance: true,
       loadOnIdle: false,
+      animateHistoryBrowsing: true,
     }),
   ],
   vite: {

@@ -8,15 +8,9 @@ const { chromium } = require('playwright');
   page.on('console', msg => console.log('BROWSER CONSOLE:', msg.text()));
   page.on('pageerror', error => console.log('BROWSER ERROR:', error.message));
 
-  let url = 'http://localhost:4321/';
-  console.log('Trying to connect to', url);
-  try {
-    await page.goto(url, { timeout: 3000 });
-  } catch (err) {
-    url = 'http://localhost:4322/';
-    console.log('Port 4321 timed out, trying port 4322...');
-    await page.goto(url);
-  }
+  let url = 'http://localhost:4322/';
+  console.log('Connecting to production preview server on', url);
+  await page.goto(url);
 
   await page.waitForTimeout(2000);
 
