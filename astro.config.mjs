@@ -11,7 +11,7 @@ export default defineConfig({
       theme: false,             // custom animation via JS hooks
       animationClass: false,    // tidak pakai CSS timing detection
       containers: ['main'],
-      cache: true,
+      cache: false,
       preload: true,
       accessibility: true,
       smoothScrolling: false,

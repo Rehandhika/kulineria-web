@@ -173,6 +173,7 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       gsap.set([l1, l2, l3], { y: getVH() });
 
       function dispatchPageReady() {
+        console.log('[Swup] Dispatching kulineria:page:ready');
         (window as any).__kulineriaPageReady = true;
         document.dispatchEvent(new CustomEvent('kulineria:page:ready'));
       }
@@ -180,9 +181,11 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
       function setupSwupHooks() {
         const swup = (window as any).swup;
         if (!swup) return;
+        console.log('[Swup] Setting up transition hooks');
 
         // ── FASE OUT ────────────────────────────────────────────────────
         swup.hooks.on('animation:out:start', () => {
+          console.log('[Swup] Hook animation:out:start fired');
           (window as any).__kulineriaPageReady = false;
           cleanupAnimations();
         });
@@ -222,7 +225,23 @@ const { title, description = 'Kulineria - Atlas Kuliner Indonesia', seoProps = {
           })
         );
 
-        swup.hooks.on('animation:in:start', () => {
+        swup.hooks.on('content:replace', () => {
+          console.log('[Swup] Hook content:replace fired');
+          // WIPE animation/reveal flags in the new DOM to force a fresh re-initialization
+          const main = document.getElementById('main-content');
+          if (main) {
+            console.log('[Swup] Wiping flags in new main content');
+            const flagged = main.querySelectorAll('[data-animated], [data-revealed], [data-bound]');
+            flagged.forEach((el) => {
+              el.removeAttribute('data-animated');
+              el.removeAttribute('data-revealed');
+              el.removeAttribute('data-bound');
+            });
+            main.removeAttribute('data-animated');
+            main.removeAttribute('data-revealed');
+            main.removeAttribute('data-bound');
+          }
+
           // Saat ini, layar masih TERUTUP PENUH oleh l3 di posisi coverY.
           // DOM baru sudah diswap. Lakukan re-init Lenis secara sinkron
           // agar siap digunakan ScrollTrigger.
